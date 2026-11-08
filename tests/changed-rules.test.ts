@@ -295,6 +295,7 @@ test("the base commit reaches the rules shell only through an environment variab
   assert.equal(check.env?.BASE_SHA, "${{ github.event.pull_request.base.sha || github.event.before }}");
   assert.match(check.run!, /git fetch --no-tags origin "\$BASE_SHA"/);
   assert.match(check.run!, /--base "\$BASE_SHA"/);
+  assert.match(check.run!, /\^0\+\$ \]\]; then\n\s+node dist\/tools\/changed-rules\.js --all/);
   assert.match(check.run!, /--summary "\$GITHUB_STEP_SUMMARY"/);
 });
 

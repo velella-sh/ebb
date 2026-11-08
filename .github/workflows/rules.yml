@@ -50,5 +50,10 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: |
-          git fetch --no-tags origin "$BASE_SHA"
-          node dist/tools/changed-rules.js --base "$BASE_SHA" --summary "$GITHUB_STEP_SUMMARY"
+          # A new branch has no previous commit (all zeros), so check every rule and case.
+          if [[ "$BASE_SHA" =~ ^0+$ ]]; then
+            node dist/tools/changed-rules.js --all --summary "$GITHUB_STEP_SUMMARY"
+          else
+            git fetch --no-tags origin "$BASE_SHA"
+            node dist/tools/changed-rules.js --base "$BASE_SHA" --summary "$GITHUB_STEP_SUMMARY"
+          fi
