@@ -1,0 +1,19 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:npm/request",
+      "version": "2.88.2",
+      "rules": ["npm.package.request.deprecated", "osv.npm.request"]
+    },
+    {
+      "purl": "pkg:npm/node-sass",
+      "version": "9.0.0",
+      "rules": ["npm.package.node-sass.deprecated", "npm.package.node-sass.eol"]
+    },
+    {
+      "purl": "pkg:npm/express",
+      "version": "4.21.0",
+      "rules": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# A maintainer reviews every change to the rules and to the code that verifies data.
+*                      @arminazimi
+/registry/             @arminazimi
+/data/                 @arminazimi
+/src/data-signature.ts @arminazimi
+/src/data-bundle.ts    @arminazimi
+/.github/              @arminazimi

@@ -1,0 +1,51 @@
+name: CI
+
+# Builds Ebb, checks formatting, runs every test, lints every registry and checks every case, and makes sure the
+# package that would be published installs and loads. Offline: no network step beyond installing dependencies.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check (node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["22", "24"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: $/.github/actions/setup
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm run check
+      - run: npm run lint:rules
+      - name: Install the packed package and load it
+        run: |
+          npm pack --silent
+          mkdir -p "$RUNNER_TEMP/consumer"
+          cd "$RUNNER_TEMP/consumer"
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund "$GITHUB_WORKSPACE"/velella-ebb-*.tgz
+          node --input-type=module -e '
+            const { bundledRules } = await import("@velella/ebb/bundled-rules");
+            const { parsePurl } = await import("@velella/ebb/purl");
+            const rules = await bundledRules();
+            if (rules.length === 0) throw new Error("no bundled rules");
+            parsePurl("pkg:npm/request@2.88.2");
+            console.log(`${rules.length} rules load from the packed package`);
+          '

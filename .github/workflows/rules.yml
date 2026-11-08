@@ -1,0 +1,54 @@
+name: Rules (changed)
+
+# Pull-request CI for registry rules. It lints the changed registry files and checks the behaviour cases
+# (cases/*.json) the changed rules can affect, so a rule change is verified before merge instead of after a release.
+# Offline: it reads the checkout only. There is no network step, no secret, and no write scope.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "registry/**"
+      - "cases/**"
+      - "src/rule-lint.ts"
+      - "tools/changed-rules.ts"
+      - "tools/rule-cases.ts"
+      - ".github/workflows/rules.yml"
+  pull_request:
+    paths:
+      - "registry/**"
+      - "cases/**"
+      - "src/rule-lint.ts"
+      - "tools/changed-rules.ts"
+      - "tools/rule-cases.ts"
+      - ".github/workflows/rules.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rules-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  rules:
+    name: rules (changed)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # The changed rules come from the diff against the base branch, which needs its history.
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: $/.github/actions/setup
+        with:
+          cache: npm
+      - run: npm run build --silent
+      - name: Lint and test the changed rules
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          git fetch --no-tags origin "$BASE_SHA"
+          node dist/tools/changed-rules.js --base "$BASE_SHA" --summary "$GITHUB_STEP_SUMMARY"

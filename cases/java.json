@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/java",
+      "version": "8.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "10.0.0",
+      "rules": ["java.jdk.end-of-support-9-10"]
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "16.0.0",
+      "rules": ["java.jdk.end-of-support-12-16"]
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "17.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "21.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "23.0.0",
+      "rules": ["java.jdk.end-of-support-22-24"]
+    },
+    {
+      "purl": "pkg:maven/org.springframework.boot/spring-boot",
+      "version": "2.7.18",
+      "rules": ["java.maven.spring-boot.legacy-2x.end-of-support"]
+    },
+    {
+      "purl": "pkg:maven/org.springframework.boot/spring-boot",
+      "version": "3.3.0",
+      "rules": ["java.maven.spring-boot.legacy-3x.end-of-support"]
+    }
+  ]
+}

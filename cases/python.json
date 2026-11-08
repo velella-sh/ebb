@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/python",
+      "version": "2.7.18",
+      "rules": ["python.runtime.eol-3.10-and-older", "python.runtime.eol-3.9-and-older"]
+    },
+    {
+      "purl": "pkg:generic/python",
+      "version": "3.8.10",
+      "rules": ["python.runtime.eol-3.10-and-older", "python.runtime.eol-3.9-and-older"]
+    },
+    {
+      "purl": "pkg:generic/python",
+      "version": "3.9.18",
+      "rules": ["python.runtime.eol-3.10-and-older", "python.runtime.eol-3.9-and-older"]
+    },
+    {
+      "purl": "pkg:generic/python",
+      "version": "3.10.14",
+      "rules": ["python.runtime.eol-3.10-and-older"]
+    },
+    {
+      "purl": "pkg:generic/python",
+      "version": "3.12.4",
+      "rules": [
+        "python.module.asynchat.removed",
+        "python.module.asyncore.removed",
+        "python.module.distutils.removed",
+        "python.module.imp.removed",
+        "python.module.smtpd.removed"
+      ]
+    },
+    {
+      "purl": "pkg:generic/python",
+      "version": "3.13.0",
+      "rules": [
+        "python.module.aifc.removed",
+        "python.module.asynchat.removed",
+        "python.module.asyncore.removed",
+        "python.module.audioop.removed",
+        "python.module.cgi.removed",
+        "python.module.cgitb.removed",
+        "python.module.chunk.removed",
+        "python.module.crypt.removed",
+        "python.module.distutils.removed",
+        "python.module.imghdr.removed",
+        "python.module.imp.removed",
+        "python.module.lib2to3.removed",
+        "python.module.mailcap.removed",
+        "python.module.msilib.removed",
+        "python.module.nis.removed",
+        "python.module.nntplib.removed",
+        "python.module.ossaudiodev.removed",
+        "python.module.pipes.removed",
+        "python.module.smtpd.removed",
+        "python.module.sndhdr.removed",
+        "python.module.spwd.removed",
+        "python.module.sunau.removed",
+        "python.module.telnetlib.removed",
+        "python.module.uu.removed",
+        "python.module.xdrlib.removed"
+      ]
+    },
+    {
+      "purl": "pkg:pypi/nose",
+      "version": "1.3.7",
+      "rules": ["python.package.nose.maintenance-only"]
+    }
+  ]
+}

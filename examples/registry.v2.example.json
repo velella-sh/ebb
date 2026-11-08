@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "ebb.registry.v2",
+  "ecosystem": "npm",
+  "freshness": {
+    "maxReviewAgeDays": 365
+  },
+  "rules": [
+    {
+      "id": "npm.package.request.deprecated",
+      "ecosystem": "npm",
+      "purl": "pkg:npm/request",
+      "vers": "vers:npm/*",
+      "event": "deprecated",
+      "title": "request is deprecated",
+      "summary": "The package is fully deprecated and no new changes are expected.",
+      "severity": "high",
+      "replacement": "Native fetch or a maintained HTTP client",
+      "deadline": "2020-02-11",
+      "sources": [
+        {
+          "title": "request package deprecation notice",
+          "url": "https://www.npmjs.com/package/request",
+          "accessedAt": "2026-10-13"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-10-13",
+        "reviewedAt": "2026-10-13",
+        "reviewer": "arminazimi"
+      },
+      "migration": {
+        "constraints": [
+          "Preserve request method, headers, authentication, redirects, timeouts, and error semantics used by each call site."
+        ],
+        "steps": [
+          {
+            "id": "replace-request-calls",
+            "title": "Rewrite request usages",
+            "instructions": "Translate each reported import and call to native fetch or a maintained client.",
+            "targets": "usages"
+          }
+        ],
+        "verification": [
+          {
+            "command": "npm run test --if-present",
+            "purpose": "Run repository tests when defined."
+          }
+        ]
+      },
+      "usage": [
+        {
+          "kind": "import",
+          "language": "javascript",
+          "module": "request"
+        }
+      ],
+      "x-npm": {
+        "package": "request"
+      }
+    },
+    {
+      "id": "npm.package.node-sass.eol",
+      "ecosystem": "npm",
+      "purl": "pkg:npm/node-sass",
+      "vers": "vers:npm/*",
+      "event": "end-of-life",
+      "title": "node-sass is end-of-life",
+      "summary": "LibSass and node-sass are deprecated; Dart Sass is the supported implementation.",
+      "severity": "high",
+      "replacement": "sass",
+      "deadline": "2024-07-24",
+      "sources": [
+        {
+          "title": "Sass: LibSass is deprecated",
+          "url": "https://sass-lang.com/blog/libsass-is-deprecated/",
+          "accessedAt": "2026-10-13"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-10-13",
+        "reviewedAt": "2026-10-13",
+        "reviewer": "arminazimi"
+      },
+      "x-npm": {
+        "package": "node-sass"
+      }
+    }
+  ]
+}

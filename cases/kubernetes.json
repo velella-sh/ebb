@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/kubernetes/extensions/Ingress",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.extensions.ingress.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/networking.k8s.io/Ingress",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.networking-k8s-io.ingress.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/networking.k8s.io/Ingress",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/batch/CronJob",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.batch.cronjob.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/batch/CronJob",
+      "version": "1.0.0",
+      "rules": []
+    }
+  ]
+}
