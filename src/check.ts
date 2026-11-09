@@ -3,41 +3,28 @@
  * The result type stays small so a later stable model can extend it without breaking callers.
  */
 
-import type { EvidenceSource, Severity } from "./domain.js";
-import type { LifecycleEvent } from "./registry.js";
+import type { EvidenceSource } from "./domain.js";
 
-export const CHECK_SCHEMA_VERSION = "ebb.check.v1" as const;
+/** A lifecycle verdict, or `ok` when no rule matches. */
+export type CheckStatus = "ok" | "deprecated" | "unsupported" | "end-of-life" | "removed" | "scheduled";
 
-/** A lifecycle event, or `ok` when no rule matches the queried purl and version. */
-export type CheckStatus = LifecycleEvent | "ok";
+/** The event on a matching rule (every status except `ok`). */
+export type CheckEvent = Exclude<CheckStatus, "ok">;
 
 /**
- * One rule that matched. Kept to the fields later ordering and reporting need; a later
- * result model may add more without changing the top-level `CheckResult` fields.
+ * One rule that matched. Only the fields the issue names; a later result model may add more.
  */
 export interface CheckMatch {
   ruleId: string;
-  event: LifecycleEvent;
-  severity: Severity;
-  title: string;
-  deadline?: string;
-  replacement?: string;
+  event: CheckEvent;
+  date: string | null;
+  replacement: string | null;
   sources: EvidenceSource[];
 }
 
-/**
- * The complete answer for one purl and version: status, date (`deadline`), replacement and
- * source evidence, plus the ordered list of matches.
- */
+/** Status plus the ordered list of matches. */
 export interface CheckResult {
-  schemaVersion: typeof CHECK_SCHEMA_VERSION;
-  query: { purl: string; version: string };
   status: CheckStatus;
-  /** The date the primary match ends or ended, when it has one. */
-  deadline?: string;
-  replacement?: string;
-  /** Evidence for the primary match; empty when `status` is `ok`. */
-  sources: EvidenceSource[];
   matches: CheckMatch[];
 }
 
@@ -45,12 +32,6 @@ export interface CheckResult {
  * Judges `purl` at `version` against the lifecycle rules. Offline; no network.
  * Candidate resolution and version matching are filled in by later tasks.
  */
-export async function check(purl: string, version: string): Promise<CheckResult> {
-  return {
-    schemaVersion: CHECK_SCHEMA_VERSION,
-    query: { purl, version },
-    status: "ok",
-    sources: [],
-    matches: [],
-  };
+export function check(_purl: string, _version: string): CheckResult {
+  return { status: "ok", matches: [] };
 }
