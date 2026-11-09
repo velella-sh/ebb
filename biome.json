@@ -15,6 +15,7 @@
       "tsconfig.json",
       "biome.json",
       "!tests/fixtures/**",
+      "!tests/purl/fixtures/**",
       "!tests/importers/recordings/**",
       "!dist/**"
     ]
