@@ -1,4 +1,9 @@
-# 0010 — Record announced end-of-life dates that have not happened yet
+---
+title: "0010 — Record announced end-of-life dates that have not happened yet"
+description: "Every rule in the registry records something that already happened: a release line that ended, a package that was deprecated."
+layout: doc
+permalink: /decisions/0010-scheduled-end-of-life/
+---
 
 Status: accepted
 

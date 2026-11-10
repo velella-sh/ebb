@@ -1,4 +1,9 @@
-# 0005 — Draft lifecycle rules with importers; never write the registry
+---
+title: "0005 — Draft lifecycle rules with importers; never write the registry"
+description: "Lifecycle rules can be drafted by **importers**: small modules that read one authoritative, machine-readable source and return draft rules in the v2 format."
+layout: doc
+permalink: /decisions/0005-lifecycle-importers/
+---
 
 Status: accepted
 

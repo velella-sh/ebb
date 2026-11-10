@@ -190,6 +190,8 @@ Shortened. The full format is in [docs/RULES.md](docs/RULES.md) and [`schemas/`]
 
 ## Documentation
 
+These pages are also published as a site, built with [Mizzen](https://velella.sh/mizzen/) and [Lateen](https://velella.sh/lateen/): <https://velella.sh/ebb/>.
+
 - [Writing a rule](docs/RULES.md): the format, the evidence policy, and the review workflow.
 - [Importers](docs/IMPORTERS.md): tools that draft rules from authoritative sources for a maintainer to review.
 - [Data bundles, signing and trust](docs/DATA.md): how newer data is published, verified, and pinned.

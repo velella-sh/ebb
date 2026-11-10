@@ -1,10 +1,15 @@
-# 0006 — Ship lifecycle data as a versioned, content-addressed bundle
+---
+title: "0006 — Ship lifecycle data as a versioned, content-addressed bundle"
+description: "Lifecycle data can be published and consumed separately from the package release as a **data bundle**, one JSON document of type ebb.data-bundle.v1 (schema)."
+layout: doc
+permalink: /decisions/0006-data-bundle/
+---
 
 Status: accepted
 
 ## Decision
 
-Lifecycle data can be published and consumed separately from the package release as a **data bundle**, one JSON document of type `ebb.data-bundle.v1` ([schema](../../schemas/data-bundle.v1.schema.json)). It holds a manifest and the files the detectors read.
+Lifecycle data can be published and consumed separately from the package release as a **data bundle**, one JSON document of type `ebb.data-bundle.v1` ([schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json)). It holds a manifest and the files the detectors read.
 
 ```json
 {

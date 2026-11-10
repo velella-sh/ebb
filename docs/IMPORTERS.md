@@ -1,4 +1,9 @@
-# Lifecycle importers
+---
+title: "Lifecycle importers"
+description: "An importer reads one authoritative, machine-readable source and drafts lifecycle rules from it."
+layout: doc
+permalink: /importers/
+---
 
 An importer reads one authoritative, machine-readable source and drafts [lifecycle rules](RULES.md) from it. Importers exist so the registry grows from sources instead of being typed in by hand. They are maintainer tooling: scans never run them, never use the network, and never read their drafts. The decision behind them is [Decision 0005](decisions/0005-lifecycle-importers.md).
 
@@ -34,7 +39,7 @@ When two importers draft a rule for the same component and affected versions (sa
 
 ### Freshness targets
 
-Every importer has a freshness target in [`tools/importers/freshness.json`](../tools/importers/freshness.json): the most days that may pass before a rule drafted from that source is reviewed again. Freshness is the newest `provenance.reviewedAt` among registry rules whose `provenance.importer` is that importer, measured from committed files only. The accuracy dashboard lists every source with its target, its age, and `met`, `missed`, or `no reviewed rules` (hand-written rules carry no importer, so a source with none shows that instead of a pass). The Monday `freshness` job in [`sources.yml`](../.github/workflows/sources.yml) runs `node dist/tools/importers/freshness.js` and opens one issue per missed source, carrying an `ebb-source-freshness` marker; a source with an open issue is not filed again, and at most 10 are open at once. The command exits with 10 on a miss; `--dry-run` prints without opening issues. To change a target, edit the JSON file in a pull request and say why; a new importer needs an entry, and a test fails without one.
+Every importer has a freshness target in [`tools/importers/freshness.json`](https://github.com/velella-sh/ebb/blob/main/tools/importers/freshness.json): the most days that may pass before a rule drafted from that source is reviewed again. Freshness is the newest `provenance.reviewedAt` among registry rules whose `provenance.importer` is that importer, measured from committed files only. The accuracy dashboard lists every source with its target, its age, and `met`, `missed`, or `no reviewed rules` (hand-written rules carry no importer, so a source with none shows that instead of a pass). The Monday `freshness` job in [`sources.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/sources.yml) runs `node dist/tools/importers/freshness.js` and opens one issue per missed source, carrying an `ebb-source-freshness` marker; a source with an open issue is not filed again, and at most 10 are open at once. The command exits with 10 on a miss; `--dry-run` prints without opening issues. To change a target, edit the JSON file in a pull request and say why; a new importer needs an entry, and a test fails without one.
 
 When you accept a draft:
 
@@ -44,13 +49,13 @@ When you accept a draft:
 4. Add `migration` and `usage` for a new rule if you can; importers leave them to people.
 5. Run `npm run check`.
 
-If you compare a draft with the registry and decide the registry should stay as it is (the draft overlaps a hand-written rule, or drops sources and wording you reviewed), acknowledge that exact draft instead of leaving the pull request open: `node dist/tools/importers/diff.js drafts.json registry/<ecosystem>.json --fingerprints` prints one `"<importer>:<rule id>": "<fingerprint>"` line per draft that still shows as added or changed. Add those lines to `acknowledged` in [`tools/importers/acknowledged.json`](../tools/importers/acknowledged.json) and a sentence for each in `reasons`. An acknowledged draft is counted as acknowledged, not added or changed, so it no longer opens the weekly pull request. The fingerprint covers every field except provenance: if the source later drafts something different, the rule is reported again.
+If you compare a draft with the registry and decide the registry should stay as it is (the draft overlaps a hand-written rule, or drops sources and wording you reviewed), acknowledge that exact draft instead of leaving the pull request open: `node dist/tools/importers/diff.js drafts.json registry/<ecosystem>.json --fingerprints` prints one `"<importer>:<rule id>": "<fingerprint>"` line per draft that still shows as added or changed. Add those lines to `acknowledged` in [`tools/importers/acknowledged.json`](https://github.com/velella-sh/ebb/blob/main/tools/importers/acknowledged.json) and a sentence for each in `reasons`. An acknowledged draft is counted as acknowledged, not added or changed, so it no longer opens the weekly pull request. The fingerprint covers every field except provenance: if the source later drafts something different, the rule is reported again.
 
 Do not remove a rule only because an importer stopped drafting it. A source can stop listing something because the thing is gone, and a retired image or release is exactly what an old workflow needs to be told about. The diff reports such rules as "no longer drafted"; remove one only when its fact is no longer true.
 
 ## The weekly run
 
-[`importers.yml`](../.github/workflows/importers.yml) runs every importer that has a registry file each Tuesday (and on manual dispatch), except importers whose source rejects automated fetches (`android-1`) and importers whose drafts nothing can use yet (`kubernetes-2`, `rust-2`, and `terraform-2`); see their rows below. For each one it drafts rules, compares them with the registry, and, only when they differ, opens or updates one pull request on the branch `importers/<importer-id>`. The pull request adds `importer-drafts/<importer-id>.json` and the evidence table from `pr-body.js`; it never edits `registry/`. A maintainer reviews it as described above and changes the registry in a separate commit. Python has two importers, so it gets two pull requests.
+[`importers.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/importers.yml) runs every importer that has a registry file each Tuesday (and on manual dispatch), except importers whose source rejects automated fetches (`android-1`) and importers whose drafts nothing can use yet (`kubernetes-2`, `rust-2`, and `terraform-2`); see their rows below. For each one it drafts rules, compares them with the registry, and, only when they differ, opens or updates one pull request on the branch `importers/<importer-id>`. The pull request adds `importer-drafts/<importer-id>.json` and the evidence table from `pr-body.js`; it never edits `registry/`. A maintainer reviews it as described above and changes the registry in a separate commit. Python has two importers, so it gets two pull requests.
 
 The drafting jobs have read-only permissions; only the second job can write, and it only pushes that branch and opens the pull request. The repository setting "Allow GitHub Actions to create and approve pull requests" must be on, and checks do not start on pull requests opened with the default token, so close and reopen the pull request (or push to its branch) to run them. `runner-images` is not in the run because it has no registry file.
 
@@ -102,7 +107,7 @@ Two importers have limits worth knowing:
 
 ## Writing an importer
 
-An importer is one module that implements `Importer` from [`tools/importers/types.ts`](../tools/importers/types.ts):
+An importer is one module that implements `Importer` from [`tools/importers/types.ts`](https://github.com/velella-sh/ebb/blob/main/tools/importers/types.ts):
 
 ```ts
 export interface Importer {
@@ -114,7 +119,7 @@ export interface Importer {
 }
 ```
 
-[`tools/importers/example.ts`](../tools/importers/example.ts) is a complete, small importer to copy from. The real ones next to it are the best reference for each kind of source.
+[`tools/importers/example.ts`](https://github.com/velella-sh/ebb/blob/main/tools/importers/example.ts) is a complete, small importer to copy from. The real ones next to it are the best reference for each kind of source.
 
 ### What the context gives you
 
@@ -152,7 +157,7 @@ Put the tests in `tests/importers/<id>.test.ts`. Test the recording end to end, 
 
 ### Registering it
 
-Export the importer and add it to the list in [`tools/importers/index.ts`](../tools/importers/index.ts); `run.js --list` then shows it. If it needs a candidate list, keep the list in its own file, sorted, with a test that every entry is valid and distinct.
+Export the importer and add it to the list in [`tools/importers/index.ts`](https://github.com/velella-sh/ebb/blob/main/tools/importers/index.ts); `run.js --list` then shows it. If it needs a candidate list, keep the list in its own file, sorted, with a test that every entry is valid and distinct.
 
 ### Checks you do not have to write
 

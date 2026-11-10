@@ -1,4 +1,9 @@
-# Lifecycle data: updates, signing, and trust
+---
+title: "Lifecycle data: updates, signing, and trust"
+description: "Ebb's rules live in registry/."
+layout: doc
+permalink: /data/
+---
 
 Ebb's rules live in `registry/`. Every release of `@velella/ebb` ships them, so they are always available offline. Between package releases the same rules are published as signed **data bundles**, so a consumer can fetch newer rules and prove they came from this repository's release workflow. This page explains how that works, what is checked, and what Ebb promises.
 
@@ -44,7 +49,7 @@ A pin selects exactly bundle `X` from the cache, or `bundled` for the data shipp
 
 ## What is in a bundle
 
-One JSON file (`ebb.data-bundle.v1`, [schema](../schemas/data-bundle.v1.schema.json), [decision record](decisions/0006-data-bundle.md)) with a manifest and the data files: the lifecycle registries (one JSON file per ecosystem under `registry/`), the GitHub Actions SHA map, and the OSV cross-reference (`registry/osv.json`). The manifest lists each file's SHA-256, size, and rule count, a content address for the whole set, the build time, and the oldest Ebb version that can read it (`minimumEbbVersion`). Versions look like `2026.10.16`, with `.N` for a second bundle on the same day. Building the bundle is deterministic: the same registry files and build time give the same bytes.
+One JSON file (`ebb.data-bundle.v1`, [schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json), [decision record](decisions/0006-data-bundle.md)) with a manifest and the data files: the lifecycle registries (one JSON file per ecosystem under `registry/`), the GitHub Actions SHA map, and the OSV cross-reference (`registry/osv.json`). The manifest lists each file's SHA-256, size, and rule count, a content address for the whole set, the build time, and the oldest Ebb version that can read it (`minimumEbbVersion`). Versions look like `2026.10.16`, with `.N` for a second bundle on the same day. Building the bundle is deterministic: the same registry files and build time give the same bytes.
 
 ### OSV advisories
 
@@ -100,7 +105,7 @@ node dist/tools/data-release-log.js check release-log.jsonl --previous older-rel
 
 ## License and attribution
 
-Ebb's code is [MIT](../LICENSE). The data, meaning the registry JSON under `registry/` and the schemas under `schemas/`, is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([`LICENSE-DATA`](../LICENSE-DATA)), which allows use and redistribution, including commercially, with attribution and an indication of changes. See [`ATTRIBUTION.md`](../ATTRIBUTION.md).
+Ebb's code is [MIT](https://github.com/velella-sh/ebb/blob/main/LICENSE). The data, meaning the registry JSON under `registry/` and the schemas under `schemas/`, is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([`LICENSE-DATA`](https://github.com/velella-sh/ebb/blob/main/LICENSE-DATA)), which allows use and redistribution, including commercially, with attribution and an indication of changes. See [`ATTRIBUTION.md`](../ATTRIBUTION.md).
 
 To reuse the dataset, credit it and link the license, for example:
 
@@ -110,4 +115,4 @@ Every rule carries its own `sources` (title, URL, and the `accessedAt` day it wa
 
 ## Publishing a bundle
 
-Push a `data-vYYYY.MM.DD` tag (or `data-vYYYY.MM.DD.N` for a second bundle on the same day). [`data-release.yml`](../.github/workflows/data-release.yml) builds the bundle twice and requires identical bytes, signs it, verifies the signature, extends the release log, and attaches the bundle, the signatures, and checksums to a GitHub release that is never marked "Latest". A manual run of the workflow is a dry run that keeps the files as an artifact.
+Push a `data-vYYYY.MM.DD` tag (or `data-vYYYY.MM.DD.N` for a second bundle on the same day). [`data-release.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/data-release.yml) builds the bundle twice and requires identical bytes, signs it, verifies the signature, extends the release log, and attaches the bundle, the signatures, and checksums to a GitHub release that is never marked "Latest". A manual run of the workflow is a dry run that keeps the files as an artifact.
