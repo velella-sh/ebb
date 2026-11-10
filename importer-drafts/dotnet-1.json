@@ -1,0 +1,371 @@
+{
+  "importer": "dotnet-1",
+  "ecosystem": "dotnet",
+  "observedAt": "2026-11-10",
+  "rules": [
+    {
+      "id": "dotnet.runtime.end-of-support-1.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=1.0.0|<1.1.0",
+      "event": "end-of-support",
+      "title": ".NET Core 1.0 is no longer supported",
+      "summary": ".NET Core 1.0 (Long Term Support) reached the end of its support on 2019-06-27. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 1.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2019-06-27",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-1.1",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=1.1.0|<1.2.0",
+      "event": "end-of-support",
+      "title": ".NET Core 1.1 is no longer supported",
+      "summary": ".NET Core 1.1 (Long Term Support) reached the end of its support on 2019-06-27. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 1.1.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2019-06-27",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-2.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=2.0.0|<2.1.0",
+      "event": "end-of-support",
+      "title": ".NET Core 2.0 is no longer supported",
+      "summary": ".NET Core 2.0 (Standard Term Support) reached the end of its support on 2018-10-01. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 2.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2018-10-01",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-2.1",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=2.1.0|<2.2.0",
+      "event": "end-of-support",
+      "title": ".NET Core 2.1 is no longer supported",
+      "summary": ".NET Core 2.1 (Long Term Support) reached the end of its support on 2021-08-21. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 2.1.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2021-08-21",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-2.2",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=2.2.0|<2.3.0",
+      "event": "end-of-support",
+      "title": ".NET Core 2.2 is no longer supported",
+      "summary": ".NET Core 2.2 (Standard Term Support) reached the end of its support on 2019-12-23. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 2.2.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2019-12-23",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-3.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=3.0.0|<3.1.0",
+      "event": "end-of-support",
+      "title": ".NET Core 3.0 is no longer supported",
+      "summary": ".NET Core 3.0 (Standard Term Support) reached the end of its support on 2020-03-03. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 3.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2020-03-03",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-3.1",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=3.1.0|<3.2.0",
+      "event": "end-of-support",
+      "title": ".NET Core 3.1 is no longer supported",
+      "summary": ".NET Core 3.1 (Long Term Support) reached the end of its support on 2022-12-13. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 3.1.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2022-12-13",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-5.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=5.0.0|<5.1.0",
+      "event": "end-of-support",
+      "title": ".NET 5 is no longer supported",
+      "summary": ".NET 5 (Standard Term Support) reached the end of its support on 2022-05-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 5.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2022-05-10",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-6.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=6.0.0|<6.1.0",
+      "event": "end-of-support",
+      "title": ".NET 6 is no longer supported",
+      "summary": ".NET 6 (Long Term Support) reached the end of its support on 2024-11-12. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 6.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2024-11-12",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-7.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=7.0.0|<7.1.0",
+      "event": "end-of-support",
+      "title": ".NET 7 is no longer supported",
+      "summary": ".NET 7 (Standard Term Support) reached the end of its support on 2024-05-14. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 7.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2024-05-14",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-8.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=8.0.0|<8.1.0",
+      "event": "end-of-support",
+      "title": ".NET 8 is no longer supported",
+      "summary": ".NET 8 (Long Term Support) reached the end of its support on 2026-11-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 8.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2026-11-10",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    },
+    {
+      "id": "dotnet.runtime.end-of-support-9.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=9.0.0|<9.1.0",
+      "event": "end-of-support",
+      "title": ".NET 9 is no longer supported",
+      "summary": ".NET 9 (Standard Term Support) reached the end of its support on 2026-11-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 9.0.x is reported too.",
+      "severity": "high",
+      "replacement": ".NET 10 (LTS), or the newest supported .NET release",
+      "deadline": "2026-11-10",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-10"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+          "accessedAt": "2026-11-10"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
+        "reviewer": "pending-review",
+        "importer": "dotnet-1"
+      }
+    }
+  ],
+  "notes": [
+    "Drafted 12 rules on 2026-11-10: 12 past end of support, 0 scheduled.",
+    ".NET 10 ends support on 2028-11-14, which is more than twelve months after 2026-11-10, so no rule was drafted."
+  ]
+}
