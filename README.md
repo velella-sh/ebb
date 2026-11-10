@@ -33,6 +33,8 @@ Ebb is an open dataset of software lifecycle rules: what is deprecated, unsuppor
 
 Every rule names a component by its [Package URL](https://github.com/package-url/purl-spec) and its versions by a [VERS](https://github.com/package-url/vers-spec) range, so any tool that knows a purl and a version can ask Ebb about it.
 
+The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](tests/purl/fixtures/), [CI](https://github.com/velella-sh/ebb/actions/runs/42812045096)).
+
 ## Why Ebb
 
 - **Evidence, not opinion.** Every rule cites the authoritative source behind it, the date that source was read, and who reviewed the rule and when.
