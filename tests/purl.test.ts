@@ -68,11 +68,12 @@ test("sorts qualifiers and drops empty values", () => {
   assert.equal(normalizePurl("pkg:docker/node?tag=&arch=amd64&os=linux"), "pkg:docker/node?arch=amd64&os=linux");
 });
 
-test("lowercases qualifier keys and rejects an invalid or duplicate key", () => {
+test("lowercases qualifier keys on normalize and rejects them on strict parse", () => {
   assert.equal(
     normalizePurl("pkg:gem/jruby-launcher@1.1.2?Platform=java"),
     "pkg:gem/jruby-launcher@1.1.2?platform=java",
   );
+  assert.throws(() => parsePurl("pkg:gem/jruby-launcher@1.1.2?Platform=java"), PurlError);
   assert.throws(() => parsePurl("pkg:npm/myartifact@1.0.0?in%20production=true"), PurlError);
   assert.throws(
     () => formatPurl({ type: "npm", name: "myartifact", version: "1.0.0", qualifiers: { "in production": "true" } }),

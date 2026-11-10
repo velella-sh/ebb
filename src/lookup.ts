@@ -1,7 +1,7 @@
 import type { EvidenceSource, Severity } from "./domain.js";
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import { loadDataFile } from "./data-source.js";
-import { parsePurl, purlIdentity } from "./purl.js";
+import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { required } from "./required.js";
 import { validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
@@ -165,7 +165,8 @@ function nearestProduct(query: string, products: readonly Product[]): Array<{ pr
 function resolvePurl(name: string, products: readonly Product[]): Product {
   let identity: string;
   try {
-    const parsed = parsePurl(name);
+    // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
+    const parsed = parsePurl(normalizePurl(name));
     identity = purlIdentity(parsed.type === "githubactions" ? { ...parsed, type: "github" } : parsed);
   } catch {
     throw new LookupError(`Invalid package URL "${name}".`);

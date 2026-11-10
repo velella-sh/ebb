@@ -11,6 +11,10 @@ Official [Package-URL (purl-spec)](https://github.com/package-url/purl-spec) con
 
 `fixtures/spec/` and `fixtures/types/` are copied unchanged from that tag's `tests/` directory. `fixtures/LICENSE` is the upstream MIT license from the same tag.
 
+## Upstream inconsistencies
+
+`upstream-inconsistencies.json` lists fixture cases that contradict other cases or ECMA-427 "shall" rules (shrink-only). Each entry names the case, gives a one-line reason, and links the upstream issue. The suite runner requires that those cases still disagree with the fixture and that Ebb's documented alternative holds; they still count toward `purl-spec pass rate: N/M` when they do.
+
 ## How to update by hand
 
 1. Clone the new tag from purl-spec, for example:
