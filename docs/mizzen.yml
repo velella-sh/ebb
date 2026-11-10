@@ -1,0 +1,30 @@
+# Documentation site for ebb, read by Mizzen.
+title: Ebb
+description: The open almanac of software end-of-life.
+lang: en
+url: https://velella.sh
+base: /ebb
+repository:
+  url: https://github.com/velella-sh/ebb
+  branch: main
+  dir: docs
+theme:
+  name: "@velella/lateen"
+  options:
+    logo:
+      light: /brand/mark-light.svg
+      dark: /brand/mark-dark.svg
+    favicon:
+      svg: /brand/favicon.svg
+      ico: /brand/favicon.ico
+      apple: /brand/apple-touch-icon.png
+    footer:
+      copyright: "© Velella"
+      license: "MIT license"
+      links:
+        - title: GitHub
+          url: https://github.com/velella-sh/ebb
+        - title: Mizzen
+          url: https://velella.sh/mizzen/
+        - title: Lateen
+          url: https://velella.sh/lateen/

@@ -1,4 +1,9 @@
-# 0011 — `check` rejects incomplete purls; product names are the friendly entry
+---
+title: "0011 — `check` rejects incomplete purls; product names are the friendly entry"
+description: "parsePurl / normalizePurl apply strict per-type rules (for example Maven and GitHub require a namespace)."
+layout: doc
+permalink: /decisions/0011-check-incomplete-purls/
+---
 
 Status: accepted
 

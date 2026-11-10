@@ -1,10 +1,15 @@
-# 0004 — Key lifecycle rules by PURL and VERS with provenance
+---
+title: "0004 — Key lifecycle rules by PURL and VERS with provenance"
+description: "Lifecycle rules move to one registry format, ebb.registry.v2 (schema), shared by every ecosystem."
+layout: doc
+permalink: /decisions/0004-registry-v2/
+---
 
 Status: accepted
 
 ## Decision
 
-Lifecycle rules move to one registry format, `ebb.registry.v2` ([schema](../../schemas/registry.v2.schema.json)), shared by every ecosystem. Each rule carries:
+Lifecycle rules move to one registry format, `ebb.registry.v2` ([schema](https://github.com/velella-sh/ebb/blob/main/schemas/registry.v2.schema.json)), shared by every ecosystem. Each rule carries:
 
 - a canonical identity: a version-less [Package URL](https://github.com/package-url/purl-spec) (`purl`) and a [VERS](https://github.com/package-url/purl-spec/blob/master/VERSION-RANGE-SPEC.rst) range of affected versions (`vers`);
 - a lifecycle `event`: `deprecated`, `end-of-support`, `end-of-life`, or `removed`;

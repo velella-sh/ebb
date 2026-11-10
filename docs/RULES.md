@@ -1,8 +1,13 @@
-# Lifecycle rules
+---
+title: "Lifecycle rules"
+description: "Every lifecycle claim in Ebb is a rule in registry/."
+layout: doc
+permalink: /rules/
+---
 
 Every lifecycle claim in Ebb is a rule in `registry/`. A rule says which component is affected, in which versions, what happened to it, who says so, and when that was last checked. This page is the reference for writing one.
 
-The format is `ebb.registry.v2`. Its JSON Schema is [`schemas/registry.v2.schema.json`](../schemas/registry.v2.schema.json), and the reasoning is in [Decision 0004](decisions/0004-registry-v2.md).
+The format is `ebb.registry.v2`. Its JSON Schema is [`schemas/registry.v2.schema.json`](https://github.com/velella-sh/ebb/blob/main/schemas/registry.v2.schema.json), and the reasoning is in [Decision 0004](decisions/0004-registry-v2.md).
 
 A rule names a component by its [Package URL](https://github.com/package-url/purl-spec) and its versions by a [VERS](https://github.com/package-url/vers-spec) range. It never says how to find the component in a project: that is the job of whoever reads the data, such as a scanner. So a rule is useful to any tool that knows a purl and a version.
 
@@ -62,7 +67,7 @@ npm run lint:rules   # every registry: schema, dates, source URLs, duplicate ids
 npm run check        # formatting and the whole test suite
 ```
 
-In a pull request, [`rules.yml`](../.github/workflows/rules.yml) lints only the changed registry files and checks only the cases the changed rules can affect, and the job summary names each changed rule.
+In a pull request, [`rules.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/rules.yml) lints only the changed registry files and checks only the cases the changed rules can affect, and the job summary names each changed rule.
 
 ### 5. Open the pull request
 
@@ -122,7 +127,7 @@ Put the evidence link in the description. Rules are reviewed data; a maintainer 
 }
 ```
 
-A second, smaller example lives in [`examples/registry.v2.example.json`](../examples/registry.v2.example.json). The bundled files in `registry/` are the best reference for each ecosystem.
+A second, smaller example lives in [`examples/registry.v2.example.json`](https://github.com/velella-sh/ebb/blob/main/examples/registry.v2.example.json). The bundled files in `registry/` are the best reference for each ecosystem.
 
 ## The registry file
 
@@ -171,7 +176,7 @@ A `usage` entry of kind `symbol` marks one deprecated function, method, class, o
 
 Symbol entries are read by parser-backed usage analysis. Regex-based analysis ignores them, so a rule that has only symbol entries reports the declaration but no usages until that analysis runs. Add an `import` entry for the module as well when you want the regex scanner to find it. A hit is reported as a usage of kind `symbol` at the first identifier of the name (at the property name for `option`), with the module and symbol as its `symbol` text, such as `fs.exists` or `fs.rmdir(recursive)`. Names are followed through imports, `require`, destructuring, aliases, and a `node:` prefix, and a global such as `Buffer` is not reported when the file imports or declares that name itself. Scopes are not modelled, so a local variable that shadows an imported name can be reported. For Python, an `option` matches a keyword argument anywhere in the call, or a positional argument at `argument`. Each symbol entry needs its own evidence: the rule's `sources` must name the symbol, not only the package.
 
-A complete rule, also in [`examples/registry.v2.symbol.example.json`](../examples/registry.v2.symbol.example.json):
+A complete rule, also in [`examples/registry.v2.symbol.example.json`](https://github.com/velella-sh/ebb/blob/main/examples/registry.v2.symbol.example.json):
 
 ```json
 {
@@ -320,7 +325,7 @@ Supported version schemes are `semver`, `npm`, `cargo`, `golang`, `composer` (Se
 
 ## Freshness and sources
 
-Reading the data never checks freshness and never uses the network, so results stay deterministic. A weekly workflow, [`.github/workflows/sources.yml`](../.github/workflows/sources.yml), runs `tools/check-sources.ts` and reports, separately:
+Reading the data never checks freshness and never uses the network, so results stay deterministic. A weekly workflow, [`.github/workflows/sources.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/sources.yml), runs `tools/check-sources.ts` and reports, separately:
 
 - **stale** rules, reviewed longer ago than their `freshness.maxReviewAgeDays`;
 - **changed** sources, whose final URL or title differs from the one recorded in `registry/sources.lock.json`;

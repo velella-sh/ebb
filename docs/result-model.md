@@ -1,4 +1,9 @@
-# Result model today: `check` and `lookupProduct`
+---
+title: "Result model today: `check` and `lookupProduct`"
+description: "Inventory of every field the two public lookup APIs return today, before the stable result model in #110."
+layout: doc
+permalink: /result-model/
+---
 
 Inventory of every field the two public lookup APIs return today, before the stable result model in [#110](https://github.com/velella-sh/ebb/issues/110). Types come from `src/check.ts` and `src/lookup.ts`. Nested objects are expanded so each leaf field appears once.
 

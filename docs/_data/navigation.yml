@@ -1,0 +1,29 @@
+main:
+  - title: Start
+    children:
+      - title: Overview
+        url: /
+  - title: Guides
+    children:
+      - title: Writing a rule
+        url: /rules/
+      - title: Importers
+        url: /importers/
+      - title: Data bundles and trust
+        url: /data/
+  - title: Reference
+    children:
+      - title: Result model
+        url: /result-model/
+  - title: Decisions
+    children:
+      - title: Registry v2
+        url: /decisions/0004-registry-v2/
+      - title: Lifecycle importers
+        url: /decisions/0005-lifecycle-importers/
+      - title: Data bundle
+        url: /decisions/0006-data-bundle/
+      - title: Scheduled end-of-life
+        url: /decisions/0010-scheduled-end-of-life/
+      - title: Incomplete purls
+        url: /decisions/0011-check-incomplete-purls/
