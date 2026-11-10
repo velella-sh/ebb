@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import type { EvidenceSource } from "./domain.js";
 import { findPackageFileSync } from "./package-files.js";
-import { purlIdentity } from "./purl.js";
+import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { validateRegistryV2 } from "./registry.js";
 import type { RegistryV2Rule } from "./registry.js";
 
@@ -76,10 +76,13 @@ function rulesIndex(): Map<string, RegistryV2Rule[]> {
 
 /**
  * Every version-level lifecycle rule that could apply to `purl`, before version matching.
- * Parses and normalises the purl; unknown packages return an empty list.
+ * Parses and normalises the purl the same way lookup resolves user-typed PURLs; unknown
+ * packages return an empty list. Invalid purls throw.
  */
 export function resolveCandidateRules(purl: string): readonly RegistryV2Rule[] {
-  return rulesIndex().get(purlIdentity(purl)) ?? [];
+  // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
+  const identity = purlIdentity(parsePurl(normalizePurl(purl)));
+  return rulesIndex().get(identity) ?? [];
 }
 
 /**

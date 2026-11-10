@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { check, resolveCandidateRules } from "../../src/check.js";
+import { PurlError } from "../../src/purl.js";
 
 const nodejsIds = (purl: string): string[] =>
   resolveCandidateRules(purl)
@@ -35,6 +36,17 @@ test("normalised spellings of the same package share one candidate set", () => {
     resolveCandidateRules("pkg:npm/Left-Pad").map((rule) => rule.id),
     resolveCandidateRules("pkg:npm/left-pad").map((rule) => rule.id),
   );
+});
+
+test('"pkg:npm/left-pad?Arch=x64" resolves to the same rules as "pkg:npm/left-pad"', () => {
+  assert.deepEqual(
+    resolveCandidateRules("pkg:npm/left-pad?Arch=x64").map((rule) => rule.id),
+    resolveCandidateRules("pkg:npm/left-pad").map((rule) => rule.id),
+  );
+});
+
+test("check throws for an invalid purl", () => {
+  assert.throws(() => check("not-a-purl", "1.0.0"), PurlError);
 });
 
 test("check still returns ok with empty matches until version matching lands", () => {
