@@ -12,6 +12,7 @@ import type { ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
+import type { ResultStatus } from "./result.js";
 import { VersError, versContains } from "./vers.js";
 
 /** Thrown when a product name is unknown or matches more than one package. */
@@ -22,8 +23,8 @@ export class CheckError extends Error {
   }
 }
 
-/** A lifecycle verdict, or `ok` when no rule matches. */
-export type CheckStatus = "ok" | "deprecated" | "unsupported" | "end-of-life" | "removed" | "scheduled";
+/** A lifecycle verdict, or `ok` when no rule matches. Same values as {@link ResultStatus}. */
+export type CheckStatus = ResultStatus;
 
 /** The event on a matching rule (every status except `ok`). */
 export type CheckEvent = Exclude<CheckStatus, "ok">;
