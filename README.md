@@ -69,6 +69,7 @@ request.replacement; // "Native fetch or a maintained HTTP client"
 import { check } from "@velella/ebb/check";
 
 // A deprecated package
+// `date: null` means the rule has no deadline date.
 check("pkg:npm/left-pad", "1.3.0");
 // {
 //   status: "deprecated",
