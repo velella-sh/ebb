@@ -4,6 +4,7 @@ import { loadDataFile } from "./data-source.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { required } from "./required.js";
 import { validateRegistryV2 } from "./registry.js";
+import { lifecycleEventPrecedence } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
 import { versContains } from "./vers.js";
 
@@ -57,14 +58,6 @@ const ALIASES: Record<string, string> = {
   mongo: "mongodb",
   "ruby-on-rails": "rails",
 };
-
-const statusPrecedence: readonly LifecycleEvent[] = [
-  "end-of-life",
-  "removed",
-  "end-of-support",
-  "deprecated",
-  "scheduled-end-of-life",
-];
 
 let loadedRules: Promise<RegistryV2Rule[]> | undefined;
 
@@ -246,7 +239,7 @@ export async function lookupProduct(name: string, version?: string): Promise<Loo
     .filter((rule) => version === undefined || matchesVersion(rule, version))
     .map(toFinding)
     .sort(deadlineOrder);
-  const primary = statusPrecedence
+  const primary = lifecycleEventPrecedence
     .map((event) => findings.find((finding) => finding.event === event))
     .find((finding) => finding !== undefined);
   const dated = findings

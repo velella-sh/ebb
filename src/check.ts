@@ -9,7 +9,7 @@ import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import type { EvidenceSource } from "./domain.js";
 import { findPackageFileSync } from "./package-files.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
-import { validateRegistryV2 } from "./registry.js";
+import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
 import { VersError, versContains } from "./vers.js";
 
@@ -95,8 +95,8 @@ const checkEventByLifecycle: Record<LifecycleEvent, CheckEvent> = {
   "scheduled-end-of-life": "scheduled",
 };
 
-/** Same seriousness order as lookup; used for `status` only. Sorting matches is a later task. */
-const statusPrecedence: readonly CheckEvent[] = ["end-of-life", "removed", "unsupported", "deprecated", "scheduled"];
+/** Check-status order derived from {@link lifecycleEventPrecedence}; used for `status` only. Sorting matches is #40. */
+const statusPrecedence: readonly CheckEvent[] = lifecycleEventPrecedence.map((event) => checkEventByLifecycle[event]);
 
 /**
  * Whether the rule's range contains `version`. Invalid versions and malformed
