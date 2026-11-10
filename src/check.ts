@@ -1,5 +1,5 @@
 /**
- * `check(purl, version)`: one answer for a component's lifecycle status.
+ * `check(purlOrName, version)`: one answer for a component's lifecycle status.
  * The result type stays small so a later stable model can extend it without breaking callers.
  */
 
@@ -7,10 +7,20 @@ import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import type { ActiveData } from "./data-source.js";
 import { getActiveDataSync } from "./data-source.js";
 import type { EvidenceSource } from "./domain.js";
+import { productsFromRules, rankProductsForName } from "./product-name.js";
+import type { ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
 import { VersError, versContains } from "./vers.js";
+
+/** Thrown when a product name is unknown or matches more than one package. */
+export class CheckError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "CheckError";
+  }
+}
 
 /** A lifecycle verdict, or `ok` when no rule matches. */
 export type CheckStatus = "ok" | "deprecated" | "unsupported" | "end-of-life" | "removed" | "scheduled";
@@ -54,20 +64,25 @@ const isVersionRule = (rule: RegistryV2Rule): boolean =>
   rule.usage === undefined || rule.usage.some((matcher) => matcher.kind !== "symbol");
 
 let rulesByIdentity: Map<string, RegistryV2Rule[]> | undefined;
+/** Product catalog for bare-name resolution (same shape lookup builds). */
+let productCatalog: ProductRecord[] | undefined;
 /** The active data the current index was built from; rebuild when {@link configureActiveData} changes it. */
 let indexedFrom: ActiveData | undefined;
 
 /**
- * Active registries indexed by canonical package identity (`purlIdentity`).
- * Uses {@link getActiveDataSync} so downloaded, verified data participates the same way as in
- * `lookup` / `bundledRules()`, while `check` stays synchronous and offline (local files only).
+ * Active registries indexed by canonical package identity (`purlIdentity`), plus the product
+ * catalog used for bare names. Uses {@link getActiveDataSync} so downloaded, verified data
+ * participates the same way as in `lookup` / `bundledRules()`, while `check` stays synchronous
+ * and offline (local files only).
  */
 function rulesIndex(): Map<string, RegistryV2Rule[]> {
   const data = getActiveDataSync();
   if (rulesByIdentity !== undefined && indexedFrom === data) return rulesByIdentity;
   const index = new Map<string, RegistryV2Rule[]>();
+  const allRules: RegistryV2Rule[] = [];
   for (const ecosystem of BUNDLED_ECOSYSTEMS) {
     const rules = validateRegistryV2(data.readSync(`registry/${ecosystem}.json`)).rules;
+    allRules.push(...rules);
     for (const rule of rules) {
       if (!isVersionRule(rule)) continue;
       const identity = purlIdentity(rule.purl);
@@ -77,18 +92,39 @@ function rulesIndex(): Map<string, RegistryV2Rule[]> {
     }
   }
   rulesByIdentity = index;
+  productCatalog = productsFromRules(allRules);
   indexedFrom = data;
   return index;
 }
 
 /**
- * Every version-level lifecycle rule that could apply to `purl`, before version matching.
- * Parses and normalises the purl the same way lookup resolves user-typed PURLs; unknown
- * packages return an empty list. Invalid purls throw.
+ * Map a bare product name to its purl with lookup's alias table and ranking. A clear widest
+ * match wins; a tie on rule count stays ambiguous and throws.
  */
-export function resolveCandidateRules(purl: string): readonly RegistryV2Rule[] {
-  // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
-  const identity = purlIdentity(parsePurl(normalizePurl(purl)));
+function resolveProductName(name: string): string {
+  rulesIndex();
+  const ranked = rankProductsForName(name, productCatalog as ProductRecord[]);
+  if (ranked.length === 0) throw new CheckError(`Unknown product "${name}".`);
+  const widest = ranked[0] as ProductRecord;
+  if (ranked.length === 1 || widest.rules.length > (ranked[1] as ProductRecord).rules.length) {
+    return widest.purl;
+  }
+  throw new CheckError(
+    `Ambiguous product name "${name}". Matches: ${ranked.map((product) => `"${product.purl}"`).join(", ")}.`,
+  );
+}
+
+/**
+ * Every version-level lifecycle rule that could apply to `purlOrName`, before version matching.
+ * A `pkg:…` input is parsed and normalised like lookup; a bare name uses lookup's alias and
+ * ranking helpers. Unknown purls return an empty list; unknown or ambiguous names throw;
+ * invalid purls throw.
+ */
+export function resolveCandidateRules(purlOrName: string): readonly RegistryV2Rule[] {
+  const identity = purlOrName.toLowerCase().startsWith("pkg:")
+    ? // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
+      purlIdentity(parsePurl(normalizePurl(purlOrName)))
+    : purlIdentity(resolveProductName(purlOrName));
   return rulesIndex().get(identity) ?? [];
 }
 
@@ -156,16 +192,18 @@ export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
 }
 
 /**
- * Judges `purl` at `version` against the active lifecycle rules. Offline; no network.
+ * Judges a package at `version` against the active lifecycle rules. Offline; no network.
+ * `purlOrName` may be a package URL or a product name (`"node"`, `"left-pad"`). Bare names
+ * use the same alias table and ranking as lookup; a tie on rule count throws {@link CheckError}.
  * Uses the same verified download-or-bundled set as lookup once that data is active.
  * Keeps every candidate whose version range contains the normalised version,
  * ordered by event seriousness then deadline.
- * Unknown packages and known packages with no matching rule return `status: "ok"`
- * and `matches: []` — they do not throw.
+ * Unknown purls and known packages with no matching rule return `status: "ok"` and
+ * `matches: []`. Unknown or ambiguous product names throw {@link CheckError}.
  * The result keeps the original `version`.
  */
-export function check(purl: string, version: string): CheckResult {
-  const candidates = resolveCandidateRules(purl);
+export function check(purlOrName: string, version: string): CheckResult {
+  const candidates = resolveCandidateRules(purlOrName);
   const normalised = requireVersionInput(version);
   const matches = orderMatches(candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map(toCheckMatch));
   return { status: statusFromMatches(matches), matches, version };

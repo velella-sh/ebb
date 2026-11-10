@@ -2,6 +2,8 @@ import type { EvidenceSource, Severity } from "./domain.js";
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import { loadDataFile } from "./data-source.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
+import { normalizeProductKey, productNameQuery, productsFromRules, rankProductsForName } from "./product-name.js";
+import type { ProductRecord } from "./product-name.js";
 import { required } from "./required.js";
 import { validateRegistryV2 } from "./registry.js";
 import { lifecycleEventPrecedence } from "./registry.js";
@@ -41,24 +43,6 @@ export interface LookupResult {
   findings: LookupFinding[];
 }
 
-/** Common names people type that differ from the package URL or product id. */
-const ALIASES: Record<string, string> = {
-  node: "nodejs",
-  "node-js": "nodejs",
-  nodejs: "nodejs",
-  go: "golang",
-  golang: "golang",
-  py: "python",
-  python3: "python",
-  net: "dotnet",
-  dotnet: "dotnet",
-  k8s: "kubernetes",
-  postgres: "postgresql",
-  psql: "postgresql",
-  mongo: "mongodb",
-  "ruby-on-rails": "rails",
-};
-
 let loadedRules: Promise<RegistryV2Rule[]> | undefined;
 
 /** Every bundled rule, not only the ecosystems `check` resolves: the lookup takes a human name, not a PURL. */
@@ -73,61 +57,9 @@ function allRules(): Promise<RegistryV2Rule[]> {
   return loadedRules;
 }
 
-const normalize = (value: string): string =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-
-interface Product {
-  id: string;
-  purl: string;
-  name: string;
-  ecosystems: string[];
-  aliases: Set<string>;
-  rules: RegistryV2Rule[];
-}
-
-function productId(purl: string): string {
-  const parsed = parsePurl(purl);
-  const parts = [parsed.type, ...(parsed.namespace ? parsed.namespace.split("/") : []), parsed.name];
-  return parts
-    .join("-")
-    .replace(/[^a-zA-Z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .toLowerCase();
-}
-
 /** A rule with only symbol matchers describes an API inside a product, not the product's own lifecycle. */
 const isProductRule = (rule: RegistryV2Rule): boolean =>
   rule.usage === undefined || rule.usage.some((matcher) => matcher.kind !== "symbol");
-
-function productsOf(rules: readonly RegistryV2Rule[]): Product[] {
-  const products = new Map<string, Product>();
-  for (const rule of rules) {
-    let product = products.get(rule.purl);
-    if (!product) {
-      const parsed = parsePurl(rule.purl);
-      product = {
-        id: productId(rule.purl),
-        purl: rule.purl,
-        name: parsed.name,
-        ecosystems: [],
-        aliases: new Set(),
-        rules: [],
-      };
-      for (const alias of [product.id, parsed.name, ...(parsed.namespace ? parsed.namespace.split("/") : [])]) {
-        const normalized = normalize(alias);
-        if (normalized !== "") product.aliases.add(normalized);
-      }
-      products.set(rule.purl, product);
-    }
-    product.rules.push(rule);
-    if (!product.ecosystems.includes(rule.ecosystem)) product.ecosystems.push(rule.ecosystem);
-  }
-  for (const product of products.values()) product.ecosystems.sort();
-  return [...products.values()].sort((left, right) => left.purl.localeCompare(right.purl));
-}
 
 function editDistance(left: string, right: string): number {
   let previous = Array.from({ length: right.length + 1 }, (_, index) => index);
@@ -145,7 +77,10 @@ function editDistance(left: string, right: string): number {
   return required(previous[right.length], "the final distance");
 }
 
-function nearestProduct(query: string, products: readonly Product[]): Array<{ product: Product; distance: number }> {
+function nearestProduct(
+  query: string,
+  products: readonly ProductRecord[],
+): Array<{ product: ProductRecord; distance: number }> {
   return products
     .map((product) => ({
       product,
@@ -155,7 +90,7 @@ function nearestProduct(query: string, products: readonly Product[]): Array<{ pr
 }
 
 /** A package URL names one product exactly; `githubactions` is accepted as the `github` type the bundled rules use. */
-function resolvePurl(name: string, products: readonly Product[]): Product {
+function resolvePurl(name: string, products: readonly ProductRecord[]): ProductRecord {
   let identity: string;
   try {
     // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
@@ -169,26 +104,20 @@ function resolvePurl(name: string, products: readonly Product[]): Product {
   return match;
 }
 
-function resolveProduct(name: string, products: readonly Product[]): Product {
+function resolveProduct(name: string, products: readonly ProductRecord[]): ProductRecord {
   if (name.toLowerCase().startsWith("pkg:")) return resolvePurl(name, products);
-  const query = ALIASES[normalize(name)] ?? normalize(name);
-  const matches = products.filter((product) => product.aliases.has(query));
-  if (matches.length === 0) {
+  const ranked = rankProductsForName(name, products);
+  if (ranked.length === 0) {
+    const query = productNameQuery(name);
     const suggestions = [
       ...new Set(
-        nearestProduct(query, products)
+        nearestProduct(query === "" ? normalizeProductKey(name) : query, products)
           .slice(0, 3)
           .map(({ product }) => product.name),
       ),
     ];
     throw new LookupError(`Unknown product "${name}". Did you mean ${suggestions.map((id) => `"${id}"`).join(", ")}?`);
   }
-  if (matches.length === 1) return required(matches[0], "the single match");
-  const named = matches.filter((product) => normalize(product.name) === query);
-  const candidates = named.length > 0 ? named : matches;
-  const ranked = [...candidates].sort(
-    (left, right) => right.rules.length - left.rules.length || left.id.localeCompare(right.id),
-  );
   return required(ranked[0], "the widest matching product");
 }
 
@@ -232,7 +161,7 @@ function toFinding(rule: RegistryV2Rule): LookupFinding {
  * URL such as `pkg:docker/library/node` selects that product exactly. No network.
  */
 export async function lookupProduct(name: string, version?: string): Promise<LookupResult> {
-  const products = productsOf(await allRules());
+  const products = productsFromRules(await allRules());
   const product = resolveProduct(name, products);
   const findings = product.rules
     .filter(isProductRule)
