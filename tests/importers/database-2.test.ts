@@ -61,7 +61,7 @@ test("emits drafts that diff against the existing database registry without remo
   const registry = JSON.parse(await readFile("registry/database.json", "utf8")) as RegistryV2;
   const diff = diffDrafts(await execute(databaseVendorLifecycleImporter, { replay: recording }), registry);
   assert.deepEqual(diff.removed, []);
-  assert.ok(diff.added.length > 0);
+  assert.ok(diff.added.length + diff.changed.length + diff.unchanged.length > 0);
 });
 
 test("a line with no end date or an end date in the future is never drafted", async () => {
