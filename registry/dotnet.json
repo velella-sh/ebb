@@ -10,27 +10,27 @@
       "ecosystem": "dotnet",
       "purl": "pkg:generic/dotnet",
       "vers": "vers:semver/>=9.0.0|<9.1.0",
-      "event": "scheduled-end-of-life",
-      "title": ".NET 9 reaches end of support on 2026-11-10",
-      "summary": ".NET 9 (Standard Term Support) is scheduled to reach the end of its support on 2026-11-10, according to Microsoft's releases index. After that date Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 9.0.x is reported too.",
-      "severity": "low",
+      "event": "end-of-support",
+      "title": ".NET 9 is no longer supported",
+      "summary": ".NET 9 (Standard Term Support) reached the end of its support on 2026-11-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 9.0.x is reported too.",
+      "severity": "high",
       "replacement": ".NET 10 (LTS), or the newest supported .NET release",
       "deadline": "2026-11-10",
       "sources": [
         {
           "title": ".NET and .NET Core official support policy",
           "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-          "accessedAt": "2026-10-18"
+          "accessedAt": "2026-11-10"
         },
         {
           "title": ".NET releases index (channel, support phase, end-of-life date)",
           "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-          "accessedAt": "2026-10-18"
+          "accessedAt": "2026-11-10"
         }
       ],
       "provenance": {
-        "observedAt": "2026-10-18",
-        "reviewedAt": "2026-10-18",
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
         "reviewer": "arminazimi"
       },
       "migration": {
@@ -76,27 +76,27 @@
       "ecosystem": "dotnet",
       "purl": "pkg:generic/dotnet",
       "vers": "vers:semver/>=8.0.0|<8.1.0",
-      "event": "scheduled-end-of-life",
-      "title": ".NET 8 reaches end of support on 2026-11-10",
-      "summary": ".NET 8 (Long Term Support) is scheduled to reach the end of its support on 2026-11-10, according to Microsoft's releases index. After that date Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 8.0.x is reported too.",
-      "severity": "low",
+      "event": "end-of-support",
+      "title": ".NET 8 is no longer supported",
+      "summary": ".NET 8 (Long Term Support) reached the end of its support on 2026-11-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 8.0.x is reported too.",
+      "severity": "high",
       "replacement": ".NET 10 (LTS), or the newest supported .NET release",
       "deadline": "2026-11-10",
       "sources": [
         {
           "title": ".NET and .NET Core official support policy",
           "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-          "accessedAt": "2026-10-18"
+          "accessedAt": "2026-11-10"
         },
         {
           "title": ".NET releases index (channel, support phase, end-of-life date)",
           "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-          "accessedAt": "2026-10-18"
+          "accessedAt": "2026-11-10"
         }
       ],
       "provenance": {
-        "observedAt": "2026-10-18",
-        "reviewedAt": "2026-10-18",
+        "observedAt": "2026-11-10",
+        "reviewedAt": "2026-11-10",
         "reviewer": "arminazimi"
       },
       "migration": {

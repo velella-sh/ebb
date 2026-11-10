@@ -40,6 +40,8 @@ test("drafts an end-of-life rule for each retired release from the real recordin
     "shell.powershell.end-of-life-7.1",
     "shell.powershell.end-of-life-7.2",
     "shell.powershell.end-of-life-7.3",
+    "shell.powershell.end-of-life-7.4",
+    "shell.powershell.end-of-life-7.5",
   ]);
   const rule = drafts.rules.find((candidate) => candidate.id === "shell.powershell.end-of-life-7.3")!;
   assert.equal(rule.purl, "pkg:generic/powershell");
@@ -49,7 +51,7 @@ test("drafts an end-of-life rule for each retired release from the real recordin
   assert.equal(rule.provenance.importer, "shell-1");
   assert.equal(rule.provenance.reviewer, "pending-review");
   assert.ok(rule.sources.every((source) => /^https:\/\//.test(source.url)));
-  assert.ok(drafts.notes.some((note) => /^Skipped PowerShell 7\.5: supported until /.test(note)));
+  assert.ok(drafts.notes.some((note) => /^Skipped PowerShell 7\.6/.test(note)));
 });
 
 test("emits drafts that match the curated shell registry with no additions or removals", async () => {

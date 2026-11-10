@@ -73,10 +73,9 @@ test("each runtime rule covers its own release line, runtimes and SDKs alike, an
     assert.deepEqual(affected(version), lines, version);
   }
   for (const rule of runtime) {
-    // 8.0 and 9.0 are announced, not over (decision 0010): a low-severity warning until their date has passed and a reviewer promotes them.
-    const scheduled = rule.id.endsWith("8.0") || rule.id.endsWith("9.0");
-    assert.equal(rule.event, scheduled ? "scheduled-end-of-life" : "end-of-support", rule.id);
-    assert.equal(rule.severity, scheduled ? "low" : "high", rule.id);
+    // 8.0 and 9.0 reached their end-of-support date on 2026-11-10 and were promoted from scheduled (decision 0010).
+    assert.equal(rule.event, "end-of-support", rule.id);
+    assert.equal(rule.severity, "high", rule.id);
   }
 });
 
