@@ -136,6 +136,8 @@ function statusFromMatches(matches: readonly CheckMatch[]): CheckStatus {
 /**
  * Judges `purl` at `version` against the lifecycle rules. Offline; no network.
  * Keeps every candidate whose version range contains the normalised version.
+ * Unknown packages and known packages with no matching rule return `status: "ok"`
+ * and `matches: []` — they do not throw.
  * Match order is still candidate order; a later task sorts by severity then deadline.
  * The result keeps the original `version`.
  */
