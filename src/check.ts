@@ -73,7 +73,8 @@ let indexedFrom: ActiveData | undefined;
  * Active registries indexed by canonical package identity (`purlIdentity`), plus the product
  * catalog used for bare names. Uses {@link getActiveDataSync} so downloaded, verified data
  * participates the same way as in `lookup` / `bundledRules()`, while `check` stays synchronous
- * and offline (local files only).
+ * and offline (local files only). The first call can block the event loop while that data is
+ * read from disk; later calls reuse the cached index until the active data changes.
  */
 function rulesIndex(): Map<string, RegistryV2Rule[]> {
   const data = getActiveDataSync();
@@ -193,6 +194,8 @@ export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
 
 /**
  * Judges a package at `version` against the active lifecycle rules. Offline; no network.
+ * Synchronous: reads active data via {@link getActiveDataSync}, so the first call can block
+ * the event loop while the data file is read; later calls use the cached index.
  * `purlOrName` may be a package URL or a product name (`"node"`, `"left-pad"`). Bare names
  * use the same alias table and ranking as lookup; a tie on rule count throws {@link CheckError}.
  * Uses the same verified download-or-bundled set as lookup once that data is active.

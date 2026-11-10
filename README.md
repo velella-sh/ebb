@@ -63,7 +63,7 @@ request.status;      // "deprecated"
 request.replacement; // "Native fetch or a maintained HTTP client"
 ```
 
-`check` answers the same question synchronously — a purl or a product name, plus a version — and returns every matching rule:
+`check` answers the same question synchronously — a purl or a product name, plus a version — and returns every matching rule. The first call may block while it reads the active data file; later calls reuse the cached index:
 
 ```ts
 import { check } from "@velella/ebb/check";
