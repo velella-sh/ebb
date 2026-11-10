@@ -1,12 +1,23 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { check, type CheckResult } from "../../src/check.js";
+import { check, orderMatches, resolveCandidateRules, type CheckResult } from "../../src/check.js";
 import { PurlError } from "../../src/purl.js";
 import { VersError } from "../../src/vers.js";
 
 /** How many random (purl, version) pairs each property run exercises. */
 const ITERATIONS = 1_000;
+
+/** Minimum non-empty match outcomes required so the suite cannot silently go all-ok. */
+const MIN_NONEMPTY_MATCHES = 100;
+
+/** Seeds whose bundled rules supply real registry purls for matching runs. */
+const KNOWN_REGISTRY_PURLS = [
+  "pkg:generic/nodejs",
+  "pkg:npm/left-pad",
+  "pkg:npm/request",
+  "pkg:pypi/pycrypto",
+] as const;
 
 const PURL_TYPES = [
   "npm",
@@ -60,8 +71,26 @@ class Rng {
   }
 }
 
+/** Distinct package purls drawn from the bundled rules for the known seeds. */
+function registryPurls(): string[] {
+  const purls = new Set<string>();
+  for (const seed of KNOWN_REGISTRY_PURLS) {
+    for (const rule of resolveCandidateRules(seed)) {
+      purls.add(rule.purl);
+    }
+  }
+  const list = [...purls];
+  assert.ok(list.length > 0, "expected bundled rules for known registry seeds");
+  return list;
+}
+
 function randomName(rng: Rng): string {
   return rng.string(NAME_CHARS, 1, 12);
+}
+
+/** A plain semver that registry ranges (semver / npm / pypi) can compare. */
+function randomPlausibleSemver(rng: Rng): string {
+  return `${rng.int(26)}.${rng.int(40)}.${rng.int(100)}`;
 }
 
 function randomVersionToken(rng: Rng): string {
@@ -82,7 +111,7 @@ function randomVersionToken(rng: Rng): string {
  * Builds a mix of plausible and broken purls. Always aims at the purl path
  * (`pkg:…`) so product-name resolution is not part of this property suite.
  */
-function randomPurl(rng: Rng): string {
+function randomJunkPurl(rng: Rng): string {
   const kind = rng.int(10);
   if (kind === 0) return `pkg:${rng.string(JUNK_CHARS, 0, 20)}`;
   if (kind === 1) return `pkg:${rng.pick(PURL_TYPES)}`;
@@ -106,13 +135,36 @@ function randomPurl(rng: Rng): string {
   return purl;
 }
 
-function randomVersionInput(rng: Rng): string {
+function randomJunkVersion(rng: Rng): string {
   const token = randomVersionToken(rng);
   let version = token;
   if (rng.bool(0.25) && token.length > 0) version = `v${token}`;
   if (rng.bool(0.15)) version = ` ${version} `;
   if (rng.bool(0.05)) version = "";
   return version;
+}
+
+type GeneratedInput = {
+  purl: string;
+  version: string;
+  /** True when the purl came from bundled rules and the version is a plain semver. */
+  fromRegistry: boolean;
+};
+
+/** About 40% registry purls with a plausible semver; the rest stay random/junk. */
+function randomInput(rng: Rng, registry: readonly string[]): GeneratedInput {
+  if (rng.bool(0.4)) {
+    return {
+      purl: rng.pick(registry),
+      version: randomPlausibleSemver(rng),
+      fromRegistry: true,
+    };
+  }
+  return {
+    purl: randomJunkPurl(rng),
+    version: randomJunkVersion(rng),
+    fromRegistry: false,
+  };
 }
 
 type Outcome =
@@ -135,31 +187,66 @@ function assertSameVerdict(left: CheckResult, right: CheckResult, versionLabel: 
   assert.deepEqual(left.matches, right.matches, `matches mismatch for ${versionLabel}`);
 }
 
+/** Ordering, status, and v-prefix stability for a successful non-empty match list. */
+function assertMatchProperties(purl: string, version: string, result: CheckResult): void {
+  assert.ok(result.matches.length > 0);
+  assert.deepEqual(
+    result.matches,
+    orderMatches([...result.matches]),
+    `matches must be ordered by event severity then date for ${purl}@${version}`,
+  );
+  assert.equal(
+    result.status,
+    result.matches[0]!.event,
+    `status must equal the most serious match event for ${purl}@${version}`,
+  );
+
+  const prefixed = runCheck(purl, `v${version}`);
+  assert.equal(prefixed.kind, "result", `v-prefixed version must succeed for ${purl}@${version}`);
+  if (prefixed.kind === "result") {
+    assertSameVerdict(result, prefixed.value, `v${version}`);
+    assert.equal(prefixed.value.version, `v${version}`);
+  }
+}
+
 test("check returns a result or a typed purl/vers error for 1000 random inputs", () => {
   const rng = new Rng(0x45_c4_ec_45);
+  const registry = registryPurls();
+  let nonemptyMatches = 0;
+
   for (let i = 0; i < ITERATIONS; i++) {
-    const purl = randomPurl(rng);
-    const version = randomVersionInput(rng);
+    const { purl, version, fromRegistry } = randomInput(rng, registry);
     const outcome = runCheck(purl, version);
     if (outcome.kind === "result") {
       assert.equal(typeof outcome.value.status, "string");
       assert.ok(Array.isArray(outcome.value.matches));
       assert.equal(outcome.value.version, version);
+      if (outcome.value.matches.length > 0) {
+        nonemptyMatches += 1;
+        if (fromRegistry) assertMatchProperties(purl, version, outcome.value);
+      }
     } else {
       assert.ok(outcome.error instanceof Error);
       assert.ok(outcome.error.message.length > 0);
     }
   }
+
+  assert.ok(
+    nonemptyMatches >= MIN_NONEMPTY_MATCHES,
+    `expected at least ${MIN_NONEMPTY_MATCHES} non-empty match lists, got ${nonemptyMatches}`,
+  );
 });
 
 test("check is deterministic and matches the v-prefixed version", () => {
   const rng = new Rng(0x7e57_5eed);
+  const registry = registryPurls();
+
   for (let i = 0; i < ITERATIONS; i++) {
-    const purl = randomPurl(rng);
+    const { purl, version: rawVersion, fromRegistry } = randomInput(rng, registry);
     // Base version without a leading v so the prefix comparison is meaningful.
-    let baseVersion = randomVersionToken(rng);
+    let baseVersion = rawVersion.trim();
     if (baseVersion.startsWith("v") || baseVersion.startsWith("V")) baseVersion = baseVersion.slice(1);
-    if (!baseVersion.trim()) baseVersion = `${rng.int(20)}.${rng.int(20)}.${rng.int(20)}`;
+    if (!baseVersion.trim()) baseVersion = randomPlausibleSemver(rng);
 
     const first = runCheck(purl, baseVersion);
     const second = runCheck(purl, baseVersion);
@@ -175,6 +262,10 @@ test("check is deterministic and matches the v-prefixed version", () => {
         assert.equal(prefixed.value.version, `v${baseVersion}`);
       } else {
         assert.fail(`plain version succeeded but v-prefixed threw ${prefixed.error.name}: ${prefixed.error.message}`);
+      }
+
+      if (fromRegistry && first.value.matches.length > 0) {
+        assertMatchProperties(purl, baseVersion, first.value);
       }
     } else if (first.kind !== "result" && second.kind !== "result") {
       assert.equal(first.error.name, second.error.name);
