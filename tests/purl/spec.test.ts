@@ -139,6 +139,7 @@ test("official purl-spec suite", async () => {
   }
 
   const rateLine = `purl-spec pass rate: ${passed}/${total}`;
+  assert.match(rateLine, /^purl-spec pass rate: \d+\/\d+$/);
   console.log(rateLine);
 
   const summaryPath = process.env.GITHUB_STEP_SUMMARY;
