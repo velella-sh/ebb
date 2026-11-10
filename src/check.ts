@@ -56,7 +56,11 @@ const isVersionRule = (rule: RegistryV2Rule): boolean =>
 
 let rulesByIdentity: Map<string, RegistryV2Rule[]> | undefined;
 
-/** Bundled registries indexed by canonical package identity (`purlIdentity`). Built once, offline. */
+/**
+ * Bundled registries indexed by canonical package identity (`purlIdentity`). Built once.
+ * Synchronous and package-bundled on purpose: `check` stays sync and offline, so it does not
+ * use `getActiveData` / `bundledRules()` (downloaded data) yet — tracked in #71.
+ */
 function rulesIndex(): Map<string, RegistryV2Rule[]> {
   if (rulesByIdentity !== undefined) return rulesByIdentity;
   const index = new Map<string, RegistryV2Rule[]>();
