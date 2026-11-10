@@ -49,10 +49,9 @@ test("check throws for an invalid purl", () => {
   assert.throws(() => check("not-a-purl", "1.0.0"), PurlError);
 });
 
-test("check still returns ok with empty matches until version matching lands", () => {
-  assert.deepEqual(check("pkg:generic/nodejs", "20.18.0"), {
-    status: "ok",
-    matches: [],
-    version: "20.18.0",
-  });
+test("check keeps candidate resolution and still returns the original version", () => {
+  const result = check("pkg:generic/nodejs", "24.0.0");
+  assert.equal(result.version, "24.0.0");
+  assert.equal(result.status, "ok");
+  assert.deepEqual(result.matches, []);
 });

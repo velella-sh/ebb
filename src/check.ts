@@ -10,7 +10,8 @@ import type { EvidenceSource } from "./domain.js";
 import { findPackageFileSync } from "./package-files.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { validateRegistryV2 } from "./registry.js";
-import type { RegistryV2Rule } from "./registry.js";
+import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
+import { versContains } from "./vers.js";
 
 /** A lifecycle verdict, or `ok` when no rule matches. */
 export type CheckStatus = "ok" | "deprecated" | "unsupported" | "end-of-life" | "removed" | "scheduled";
@@ -85,13 +86,51 @@ export function resolveCandidateRules(purl: string): readonly RegistryV2Rule[] {
   return rulesIndex().get(identity) ?? [];
 }
 
+/** Registry events use longer names; the check result keeps the short forms from the signature. */
+const checkEventByLifecycle: Record<LifecycleEvent, CheckEvent> = {
+  deprecated: "deprecated",
+  "end-of-support": "unsupported",
+  "end-of-life": "end-of-life",
+  removed: "removed",
+  "scheduled-end-of-life": "scheduled",
+};
+
+/** Same seriousness order as lookup; used for `status` only. Sorting matches is a later task. */
+const statusPrecedence: readonly CheckEvent[] = ["end-of-life", "removed", "unsupported", "deprecated", "scheduled"];
+
+function ruleMatchesVersion(rule: RegistryV2Rule, version: string): boolean {
+  try {
+    return versContains(rule.vers, version);
+  } catch {
+    return false;
+  }
+}
+
+function toCheckMatch(rule: RegistryV2Rule): CheckMatch {
+  return {
+    ruleId: rule.id,
+    event: checkEventByLifecycle[rule.event],
+    date: rule.deadline ?? null,
+    replacement: rule.replacement ?? null,
+    sources: rule.sources,
+  };
+}
+
+function statusFromMatches(matches: readonly CheckMatch[]): CheckStatus {
+  if (matches.length === 0) return "ok";
+  return statusPrecedence.find((event) => matches.some((match) => match.event === event)) ?? matches[0]!.event;
+}
+
 /**
  * Judges `purl` at `version` against the lifecycle rules. Offline; no network.
- * Candidate resolution is ready; version matching is filled in by a later task.
- * Matching will use {@link normalizeVersionInput}; the result keeps the original `version`.
+ * Keeps every candidate whose version range contains the normalised version.
+ * Match order is still candidate order; a later task sorts by severity then deadline.
+ * The result keeps the original `version`.
  */
 export function check(purl: string, version: string): CheckResult {
-  void normalizeVersionInput(version);
-  void resolveCandidateRules(purl);
-  return { status: "ok", matches: [], version };
+  const normalised = normalizeVersionInput(version);
+  const matches = resolveCandidateRules(purl)
+    .filter((rule) => ruleMatchesVersion(rule, normalised))
+    .map(toCheckMatch);
+  return { status: statusFromMatches(matches), matches, version };
 }
