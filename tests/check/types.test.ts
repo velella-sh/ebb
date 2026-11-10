@@ -5,8 +5,9 @@ import { check, type CheckMatch, type CheckResult } from "../../src/check.js";
 import type { EvidenceSource } from "../../src/domain.js";
 
 test("check returns ok with no matches and the original version", () => {
-  const result: CheckResult = check("pkg:generic/nodejs", "20.18.0");
-  assert.deepEqual(result, { status: "ok", matches: [], version: "20.18.0" });
+  // Node.js 24 has no bundled rule yet, so this stays the empty-result shape.
+  const result: CheckResult = check("pkg:generic/nodejs", "24.0.0");
+  assert.deepEqual(result, { status: "ok", matches: [], version: "24.0.0" });
 });
 
 test("CheckResult accepts a filled match with replacement null", () => {
