@@ -63,6 +63,60 @@ request.status;      // "deprecated"
 request.replacement; // "Native fetch or a maintained HTTP client"
 ```
 
+`check` answers the same question synchronously — a purl or a product name, plus a version — and returns every matching rule:
+
+```ts
+import { check } from "@velella/ebb/check";
+
+// A deprecated package
+check("pkg:npm/left-pad", "1.3.0");
+// {
+//   status: "deprecated",
+//   matches: [
+//     {
+//       ruleId: "npm.package.left-pad.deprecated",
+//       event: "deprecated",
+//       date: null,
+//       replacement: "String.prototype.padStart()",
+//       sources: [
+//         {
+//           title: "left-pad package deprecation notice",
+//           url: "https://www.npmjs.com/package/left-pad",
+//           accessedAt: "2026-10-13"
+//         }
+//       ]
+//     }
+//   ],
+//   version: "1.3.0"
+// }
+
+// A safe version
+check("pkg:generic/nodejs", "24.0.0");
+// { status: "ok", matches: [], version: "24.0.0" }
+
+// A product name
+check("node", "18.20.4");
+// {
+//   status: "end-of-life",
+//   matches: [
+//     {
+//       ruleId: "nodejs.runtime.eol-18",
+//       event: "end-of-life",
+//       date: "2025-04-30",
+//       replacement: "Node.js 22 LTS or later",
+//       sources: [
+//         {
+//           title: "Node.js Release Working Group schedule",
+//           url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+//           accessedAt: "2026-10-17"
+//         }
+//       ]
+//     }
+//   ],
+//   version: "18.20.4"
+// }
+```
+
 To work with the rules directly:
 
 ```ts
