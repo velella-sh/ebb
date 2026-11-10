@@ -37,8 +37,27 @@ function decode(segment: string): string {
   }
 }
 
+/**
+ * Percent-encode one component segment per ECMA-427 clause 5.4.
+ * Alphanumeric, punctuation `.-_~`, and `:` stay literal; every other
+ * UTF-8 byte becomes `%HH`. Separator characters inside a segment
+ * (`/@?#=&`) are encoded so they cannot be read as PURL delimiters.
+ */
+const ENCODE_SAFE = /[A-Za-z0-9._~:-]/;
+const utf8 = new TextEncoder();
+
 function encode(segment: string): string {
-  return encodeURIComponent(segment).replace(/%3A/gi, ":");
+  let result = "";
+  for (const char of segment) {
+    if (ENCODE_SAFE.test(char)) {
+      result += char;
+      continue;
+    }
+    for (const byte of utf8.encode(char)) {
+      result += `%${byte.toString(16).toUpperCase().padStart(2, "0")}`;
+    }
+  }
+  return result;
 }
 
 /**
