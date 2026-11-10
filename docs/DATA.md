@@ -20,11 +20,11 @@ import { getDataStatus } from "@velella/ebb/data-status";
 await updateData();                                  // fetch and verify the newest signed bundle
 await updateData({ version: "2026.10.01" });         // fetch exactly that bundle, without making it active
 configureActiveData({ pinnedVersion: "2026.10.01" }); // use exactly that bundle ("bundled" for the shipped data)
-const data = await getActiveData();                  // what every lookup reads
+const data = await getActiveData();                  // what lookup, check, and exports read
 const status = await getDataStatus();                // source, version, age, stale flag
 ```
 
-The active data has one of three sources: **bundled** (shipped with the package), **cache** (the newest verified download), or **pinned** (the version asked for). Its age is counted from when a downloaded bundle was built, or from the newest review date among the rules for bundled data. Anything Ebb refused on the way is in the active data's `warnings`.
+The active data has one of three sources: **bundled** (shipped with the package), **cache** (the newest verified download), or **pinned** (the version asked for). Its age is counted from when a downloaded bundle was built, or from the newest review date among the rules for bundled data. Anything Ebb refused on the way is in the active data's `warnings`. `check` stays synchronous: it resolves the same active set through a sync path over local files only, never the network.
 
 ### Updating
 

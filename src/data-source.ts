@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import semver from "semver";
@@ -13,7 +13,7 @@ import type { DataBundle } from "./data-bundle.js";
 import { DataSignatureError, verifyArtifactSignature } from "./data-signature.js";
 import type { SignerPolicy, VerifiedSigner } from "./data-signature.js";
 import { defaultCacheDirectory } from "./cache-paths.js";
-import { findPackageFile } from "./package-files.js";
+import { findPackageFileSync } from "./package-files.js";
 import { VERSION } from "./version.js";
 import { EbbError } from "./errors.js";
 
@@ -37,6 +37,8 @@ export interface ActiveData {
   info: DataSourceInfo;
   /** Reads one data file (for example `registry/npm.json`) as parsed JSON. */
   read(path: string): Promise<unknown>;
+  /** Synchronous form of {@link read}; same bytes, no I/O beyond what resolving already did. */
+  readSync(path: string): unknown;
 }
 
 export interface DataSourceOptions {
@@ -142,15 +144,17 @@ export function verifyDataBundle(
   return { bundle, signer };
 }
 
-async function readBundled(path: string): Promise<unknown> {
-  return JSON.parse(await readFile(await findPackageFile(path, import.meta.url), "utf8")) as unknown;
+function readBundledSync(path: string): unknown {
+  return JSON.parse(readFileSync(findPackageFileSync(path, import.meta.url), "utf8")) as unknown;
 }
 
-async function bundledData(warnings: string[], ebbVersion: string): Promise<ActiveData> {
-  const registries = await Promise.all(
-    REQUIRED_BUNDLE_PATHS.filter((path) => !path.endsWith("-shas.json")).map(readBundled),
-  );
+function bundledData(warnings: string[], ebbVersion: string): ActiveData {
+  const registries = REQUIRED_BUNDLE_PATHS.filter((path) => !path.endsWith("-shas.json")).map(readBundledSync);
   const cache = new Map<string, unknown>();
+  const readSync = (path: string): unknown => {
+    if (!cache.has(path)) cache.set(path, readBundledSync(path));
+    return cache.get(path);
+  };
   return {
     info: {
       source: "bundled",
@@ -161,9 +165,9 @@ async function bundledData(warnings: string[], ebbVersion: string): Promise<Acti
       signer: null,
       warnings,
     },
+    readSync,
     async read(path) {
-      if (!cache.has(path)) cache.set(path, await readBundled(path));
-      return cache.get(path);
+      return readSync(path);
     },
   };
 }
@@ -174,6 +178,11 @@ function dataFromBundle(
   { bundle, signer }: VerifiedDataBundle,
   warnings: string[],
 ): ActiveData {
+  const readSync = (path: string): unknown => {
+    const content = bundle.files[path];
+    if (!content) throw new DataBundleError(`The data bundle has no ${path}.`);
+    return content;
+  };
   return {
     info: {
       source,
@@ -184,23 +193,21 @@ function dataFromBundle(
       signer,
       warnings,
     },
+    readSync,
     async read(path) {
-      const content = bundle.files[path];
-      if (!content) throw new DataBundleError(`The data bundle has no ${path}.`);
-      return content;
+      return readSync(path);
     },
   };
 }
 
 /** Reads and verifies the cached bundle for a pinned version, or throws {@link DataPinError}. */
-async function loadPinnedBundle(pin: string, cache: string, options: DataSourceOptions): Promise<VerifiedDataBundle> {
+function loadPinnedBundle(pin: string, cache: string, options: DataSourceOptions): VerifiedDataBundle {
   const directory = cachedBundleDirectory(cache, pin);
-  let files: [Buffer, string];
+  let bytes: Buffer;
+  let signature: string;
   try {
-    files = await Promise.all([
-      readFile(join(directory, BUNDLE_FILE)),
-      readFile(join(directory, SIGNATURE_FILE), "utf8"),
-    ]);
+    bytes = readFileSync(join(directory, BUNDLE_FILE));
+    signature = readFileSync(join(directory, SIGNATURE_FILE), "utf8");
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       throw new DataPinError(`Lifecycle data ${pin} is pinned but is not in ${cache}.`, false, true);
@@ -208,7 +215,7 @@ async function loadPinnedBundle(pin: string, cache: string, options: DataSourceO
     throw error;
   }
   try {
-    return verifyDataBundle(files[0], files[1], options);
+    return verifyDataBundle(bytes, signature, options);
   } catch (error) {
     if (error instanceof DataBundleError)
       throw new DataPinError(`Lifecycle data ${pin} is pinned but cannot be used: ${error.message}`);
@@ -217,17 +224,12 @@ async function loadPinnedBundle(pin: string, cache: string, options: DataSourceO
 }
 
 /** Loads exactly the pinned data, or throws {@link DataPinError} saying how to get it. */
-async function pinnedData(
-  pin: string,
-  cache: string,
-  ebbVersion: string,
-  options: DataSourceOptions,
-): Promise<ActiveData> {
+function pinnedData(pin: string, cache: string, ebbVersion: string, options: DataSourceOptions): ActiveData {
   if (pin === "bundled") return bundledData([], ebbVersion);
   if (!/^\d{4}\.\d{2}\.\d{2}(?:\.\d+)?$/.test(pin)) {
     throw new DataPinError(`"${pin}" is not a data version. Use a version such as 2026.10.01, or "bundled".`, true);
   }
-  const verified = await loadPinnedBundle(pin, cache, options);
+  const verified = loadPinnedBundle(pin, cache, options);
   const { bundle } = verified;
   if (bundle.manifest.version !== pin)
     throw new DataPinError(
@@ -237,9 +239,9 @@ async function pinnedData(
 }
 
 /** The version the cache marks active, or undefined (with a warning when the marker is unusable). */
-async function readActiveVersion(cache: string, warnings: string[]): Promise<string | undefined> {
+function readActiveVersion(cache: string, warnings: string[]): string | undefined {
   try {
-    const active = JSON.parse(await readFile(join(cache, "data", ACTIVE_FILE), "utf8")) as unknown;
+    const active = JSON.parse(readFileSync(join(cache, "data", ACTIVE_FILE), "utf8")) as unknown;
     const version = isObject(active) && typeof active.version === "string" ? active.version : undefined;
     if (!version || !/^\d{4}\.\d{2}\.\d{2}(?:\.\d+)?$/.test(version)) {
       warnings.push(`Ignoring downloaded lifecycle data: ${ACTIVE_FILE} does not name a valid version.`);
@@ -254,21 +256,19 @@ async function readActiveVersion(cache: string, warnings: string[]): Promise<str
 }
 
 /** The downloaded bundle when it verifies and is newer than the bundled data; otherwise the bundled data, saying why. */
-async function cachedData(
+function cachedData(
   activeVersion: string,
   cache: string,
   ebbVersion: string,
   options: DataSourceOptions,
   warnings: string[],
-): Promise<ActiveData> {
+): ActiveData {
   const directory = cachedBundleDirectory(cache, activeVersion);
   try {
-    const [bytes, signature] = await Promise.all([
-      readFile(join(directory, BUNDLE_FILE)),
-      readFile(join(directory, SIGNATURE_FILE), "utf8"),
-    ]);
+    const bytes = readFileSync(join(directory, BUNDLE_FILE));
+    const signature = readFileSync(join(directory, SIGNATURE_FILE), "utf8");
     const verified = verifyDataBundle(bytes, signature, options);
-    const bundled = await bundledData([], ebbVersion);
+    const bundled = bundledData([], ebbVersion);
     if (verified.bundle.manifest.createdAt.slice(0, 10) <= bundled.info.reviewedThrough) {
       return bundledData(
         [
@@ -296,36 +296,60 @@ async function cachedData(
  * Chooses the data a scan uses. Downloaded data is used only when it verifies completely and is newer than the
  * data bundled with this release; in every other case the bundled data is used and the reason is reported in
  * `info.warnings`. Reads only local files: this function and everything it calls is offline.
+ *
+ * Resolution is synchronous so {@link check} can share the same active set without becoming async. The Promise
+ * form {@link resolveActiveData} / {@link getActiveData} wraps the same result.
  */
-export async function resolveActiveData(options: DataSourceOptions = {}): Promise<ActiveData> {
+export function resolveActiveDataSync(options: DataSourceOptions = {}): ActiveData {
   const ebbVersion = options.ebbVersion ?? VERSION;
   const cache = options.cacheDirectory ?? defaultCacheDirectory();
   const warnings: string[] = [];
 
   if (options.pinnedVersion !== undefined) return pinnedData(options.pinnedVersion, cache, ebbVersion, options);
 
-  const activeVersion = await readActiveVersion(cache, warnings);
+  const activeVersion = readActiveVersion(cache, warnings);
   if (!activeVersion) return bundledData(warnings, ebbVersion);
 
   return cachedData(activeVersion, cache, ebbVersion, options, warnings);
 }
 
-let active: Promise<ActiveData> | undefined;
+/** Async wrapper around {@link resolveActiveDataSync}; kept for callers that already await. */
+export async function resolveActiveData(options: DataSourceOptions = {}): Promise<ActiveData> {
+  return resolveActiveDataSync(options);
+}
+
+let activeSync: ActiveData | undefined;
 let configured: DataSourceOptions = {};
 
-/** The data for this process, resolved once with the options set by {@link configureActiveData}. */
-export function getActiveData(): Promise<ActiveData> {
-  active ??= resolveActiveData(configured);
-  return active;
+/**
+ * The data for this process, resolved once with the options set by {@link configureActiveData}.
+ * Synchronous so `check` can index the same ruleset lookup uses, without network and without becoming async.
+ */
+export function getActiveDataSync(): ActiveData {
+  activeSync ??= resolveActiveDataSync(configured);
+  return activeSync;
+}
+
+/**
+ * The data for this process, resolved once with the options set by {@link configureActiveData}.
+ * Async so pin and verification failures reject the promise instead of throwing synchronously.
+ */
+export async function getActiveData(): Promise<ActiveData> {
+  return getActiveDataSync();
 }
 
 /** Sets how this process resolves data (the cache directory, a pinned version) and forgets what was resolved. */
 export function configureActiveData(options: DataSourceOptions = {}): void {
   configured = options;
-  active = undefined;
+  activeSync = undefined;
 }
 
 /** Reads one data file such as `registry/npm.json` from the active data. */
 export async function loadDataFile(path: string): Promise<unknown> {
-  return (await getActiveData()).read(path);
+  return getActiveDataSync().readSync(path);
+}
+
+/** Synchronous form of {@link loadDataFile}. */
+export function loadDataFileSync(path: string): unknown {
+  return getActiveDataSync().readSync(path);
 }

@@ -3,11 +3,10 @@
  * The result type stays small so a later stable model can extend it without breaking callers.
  */
 
-import { readFileSync } from "node:fs";
-
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
+import type { ActiveData } from "./data-source.js";
+import { getActiveDataSync } from "./data-source.js";
 import type { EvidenceSource } from "./domain.js";
-import { findPackageFileSync } from "./package-files.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
@@ -55,18 +54,20 @@ const isVersionRule = (rule: RegistryV2Rule): boolean =>
   rule.usage === undefined || rule.usage.some((matcher) => matcher.kind !== "symbol");
 
 let rulesByIdentity: Map<string, RegistryV2Rule[]> | undefined;
+/** The active data the current index was built from; rebuild when {@link configureActiveData} changes it. */
+let indexedFrom: ActiveData | undefined;
 
 /**
- * Bundled registries indexed by canonical package identity (`purlIdentity`). Built once.
- * Synchronous and package-bundled on purpose: `check` stays sync and offline, so it does not
- * use `getActiveData` / `bundledRules()` (downloaded data) yet — tracked in #71.
+ * Active registries indexed by canonical package identity (`purlIdentity`).
+ * Uses {@link getActiveDataSync} so downloaded, verified data participates the same way as in
+ * `lookup` / `bundledRules()`, while `check` stays synchronous and offline (local files only).
  */
 function rulesIndex(): Map<string, RegistryV2Rule[]> {
-  if (rulesByIdentity !== undefined) return rulesByIdentity;
+  const data = getActiveDataSync();
+  if (rulesByIdentity !== undefined && indexedFrom === data) return rulesByIdentity;
   const index = new Map<string, RegistryV2Rule[]>();
   for (const ecosystem of BUNDLED_ECOSYSTEMS) {
-    const path = findPackageFileSync(`registry/${ecosystem}.json`, import.meta.url);
-    const rules = validateRegistryV2(JSON.parse(readFileSync(path, "utf8"))).rules;
+    const rules = validateRegistryV2(data.readSync(`registry/${ecosystem}.json`)).rules;
     for (const rule of rules) {
       if (!isVersionRule(rule)) continue;
       const identity = purlIdentity(rule.purl);
@@ -76,6 +77,7 @@ function rulesIndex(): Map<string, RegistryV2Rule[]> {
     }
   }
   rulesByIdentity = index;
+  indexedFrom = data;
   return index;
 }
 
@@ -154,7 +156,8 @@ export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
 }
 
 /**
- * Judges `purl` at `version` against the lifecycle rules. Offline; no network.
+ * Judges `purl` at `version` against the active lifecycle rules. Offline; no network.
+ * Uses the same verified download-or-bundled set as lookup once that data is active.
  * Keeps every candidate whose version range contains the normalised version,
  * ordered by event seriousness then deadline.
  * Unknown packages and known packages with no matching rule return `status: "ok"`
