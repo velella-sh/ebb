@@ -4,7 +4,7 @@ import { join, relative } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { formatPurl, parsePurl, type PackageUrl } from "../../src/purl.js";
+import { formatPurl, normalizePurl, parsePurl, type PackageUrl } from "../../src/purl.js";
 
 // Compiled under dist/tests/purl/; reach the source tree the same way the suite does.
 const fixturesRoot = fileURLToPath(new URL("../../../tests/purl/fixtures", import.meta.url));
@@ -91,14 +91,9 @@ test("valid purl-spec fixtures round-trip through formatPurl", async () => {
         if (seen.has(purl)) continue;
         seen.add(purl);
 
-        let first: PackageUrl;
-        try {
-          first = parsePurl(purl);
-        } catch {
-          // Non-canonical recommended inputs fail strict parse; skip those strings.
-          continue;
-        }
-
+        // normalizePurl remediates recommended non-canonical inputs (e.g. mixed-case keys)
+        // before the strict parse → format → parse round-trip.
+        const first = parsePurl(normalizePurl(purl));
         covered += 1;
         const written = formatPurl(first);
         const second = parsePurl(written);
@@ -115,7 +110,8 @@ test("valid purl-spec fixtures round-trip through formatPurl", async () => {
     }
   }
 
-  assert.ok(covered > 0, "expected at least one valid fixture to round-trip");
+  assert.equal(covered, seen.size, "covered count must equal unique valid fixture strings");
+  assert.equal(covered, 214, `expected 214 unique valid fixture strings, covered ${covered}`);
   assert.deepEqual(roundTripMismatches, [], `parse → format → parse mismatches:\n${roundTripMismatches.join("\n")}`);
   assert.deepEqual(notCanonical, [], `formatPurl output was not canonical:\n${notCanonical.join("\n")}`);
 });

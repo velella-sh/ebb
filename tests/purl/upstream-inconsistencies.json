@@ -1,0 +1,7 @@
+[
+  {
+    "name": "types/maven-test.json[13]:parse",
+    "reason": "Required parse expects success for a mixed-case qualifier key; gem/rpm required parse expect failure for the same condition.",
+    "issue": "https://github.com/package-url/purl-spec/issues/1027"
+  }
+]

@@ -8,6 +8,9 @@ import { formatPurl, normalizePurl, parsePurl, type PackageUrl } from "../../src
 
 // Compiled under dist/tests/purl/; reach the source tree the same way vers tests do.
 const fixturesRoot = fileURLToPath(new URL("../../../tests/purl/fixtures", import.meta.url));
+const upstreamInconsistenciesPath = fileURLToPath(
+  new URL("../../../tests/purl/upstream-inconsistencies.json", import.meta.url),
+);
 
 type TestType = "parse" | "build" | "validate";
 type TestGroup = "required" | "recommended";
@@ -32,6 +35,12 @@ interface FixtureCase {
 
 interface FixtureFile {
   tests: FixtureCase[];
+}
+
+interface UpstreamInconsistency {
+  name: string;
+  reason: string;
+  issue: string;
 }
 
 async function* walkJson(dir: string): AsyncGenerator<string> {
@@ -131,9 +140,24 @@ function runCase(tc: FixtureCase): boolean {
   return false;
 }
 
+/** Documented alternative for listed upstream bugs: strict parse rejects the mixed-case key. */
+function strictParseRejectsMixedCaseKey(tc: FixtureCase): boolean {
+  if (tc.test_type !== "parse" || typeof tc.input !== "string") return false;
+  try {
+    parsePurl(tc.input);
+    return false;
+  } catch {
+    return true;
+  }
+}
+
 test("official purl-spec suite", async () => {
+  const upstreamList = JSON.parse(await readFile(upstreamInconsistenciesPath, "utf8")) as UpstreamInconsistency[];
+  const upstream = new Map(upstreamList.map((entry) => [entry.name, entry]));
   const seen = new Set<string>();
   const failures: string[] = [];
+  const unexpectedlyAgreeing: string[] = [];
+  const alternativeFailures: string[] = [];
   let total = 0;
   let passed = 0;
 
@@ -145,12 +169,25 @@ test("official purl-spec suite", async () => {
       assert.ok(!seen.has(name), `duplicate case name: ${name}`);
       seen.add(name);
       total += 1;
-      if (runCase(tc)) {
+      const agrees = runCase(tc);
+      if (upstream.has(name)) {
+        if (agrees) {
+          unexpectedlyAgreeing.push(name);
+        } else if (strictParseRejectsMixedCaseKey(tc)) {
+          passed += 1;
+        } else {
+          alternativeFailures.push(name);
+        }
+      } else if (agrees) {
         passed += 1;
       } else {
         failures.push(name);
       }
     }
+  }
+
+  for (const name of upstream.keys()) {
+    assert.ok(seen.has(name), `upstream-inconsistencies.json lists unknown case: ${name}`);
   }
 
   const rateLine = `purl-spec pass rate: ${passed}/${total}`;
@@ -162,6 +199,16 @@ test("official purl-spec suite", async () => {
     await appendFile(summaryPath, `## ${rateLine}\n\n`, "utf8");
   }
 
+  assert.deepEqual(
+    unexpectedlyAgreeing,
+    [],
+    `cases in upstream-inconsistencies.json now agree with the fixture; remove them:\n${unexpectedlyAgreeing.join("\n")}`,
+  );
+  assert.deepEqual(
+    alternativeFailures,
+    [],
+    `upstream-inconsistency alternative behaviour failed:\n${alternativeFailures.join("\n")}`,
+  );
   assert.deepEqual(failures, [], `purl-spec cases failed:\n${failures.join("\n")}`);
   assert.equal(passed, total, rateLine);
 });
