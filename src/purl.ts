@@ -80,13 +80,14 @@ function normalize(purl: PackageUrl): PackageUrl {
   }
 
   const qualifiers = canonicalQualifiers(purl.qualifiers);
+  const subpath = normalizeSubpath(purl.subpath);
   return {
     type,
     ...(namespace ? { namespace } : {}),
     name,
     ...(purl.version !== undefined ? { version: purl.version } : {}),
     ...(qualifiers ? { qualifiers } : {}),
-    ...(purl.subpath ? { subpath: purl.subpath } : {}),
+    ...(subpath ? { subpath } : {}),
   };
 }
 
@@ -111,17 +112,38 @@ function canonicalQualifiers(qualifiers: Record<string, string> | undefined): Re
   return Object.fromEntries(entries);
 }
 
-/** Splits the `#subpath` fragment off a PURL, keeping only safe path segments. */
+/**
+ * Subpath rules from the spec: split on `/`, drop empty, `.`, and `..` segments.
+ * A segment must not contain `/`. ECMA-427 clause 5.6.7.
+ */
+function normalizeSubpath(subpath: string | undefined): string | undefined {
+  if (subpath === undefined || subpath === "") return undefined;
+  const segments = subpath.split("/").filter((segment) => segment && segment !== "." && segment !== "..");
+  return segments.length > 0 ? segments.join("/") : undefined;
+}
+
+/**
+ * Parse the `#subpath` fragment: percent-decode each segment, then apply the
+ * same empty / `.` / `..` rules as normalize. How-to-parse procedure.
+ */
+function parseSubpath(raw: string): string | undefined {
+  const segments: string[] = [];
+  for (const part of raw.split("/")) {
+    if (!part) continue;
+    const segment = decode(part);
+    if (!segment || segment === "." || segment === "..") continue;
+    if (segment.includes("/")) throw new PurlError(`Invalid subpath segment "${part}".`);
+    segments.push(segment);
+  }
+  return segments.length > 0 ? segments.join("/") : undefined;
+}
+
+/** Splits the `#subpath` fragment off a PURL once from the right. */
 function takeSubpath(rest: string): { rest: string; subpath?: string } {
-  const hash = rest.indexOf("#");
+  const hash = rest.lastIndexOf("#");
   if (hash < 0) return { rest };
-  const subpath = rest
-    .slice(hash + 1)
-    .split("/")
-    .filter((segment) => segment && segment !== "." && segment !== "..")
-    .map(decode)
-    .join("/");
-  return { rest: rest.slice(0, hash), subpath };
+  const subpath = parseSubpath(rest.slice(hash + 1));
+  return { rest: rest.slice(0, hash), ...(subpath ? { subpath } : {}) };
 }
 
 function parseQualifiers(query: string, value: string): Record<string, string> {
@@ -160,10 +182,16 @@ function splitTypeAndPath(rest: string, value: string): { type: string; rest: st
   return { type, rest: trimTrailingSlashes(rest.slice(slash + 1)) };
 }
 
-/** Splits the `@version` suffix off a PURL path. */
+/**
+ * Splits the `@version` suffix off a PURL path once from the right.
+ * When `@` is the first character and the rest still contains `/` (for example
+ * an npm scope `@babel/core`), that `@` belongs to the path, not the version.
+ * A lone `@1.2.3` with no `/` stays a version with a missing name.
+ */
 function takeVersion(rest: string): { rest: string; version?: string } {
   const at = rest.lastIndexOf("@");
   if (at < 0) return { rest };
+  if (at === 0 && rest.includes("/", 1)) return { rest };
   return { rest: rest.slice(0, at), version: decode(rest.slice(at + 1)) };
 }
 
@@ -214,7 +242,9 @@ export function formatPurl(purl: PackageUrl): string {
     );
     result += `?${pairs.join("&")}`;
   }
-  if (canonical.subpath) result += `#${canonical.subpath.split("/").map(encode).join("/")}`;
+  if (canonical.subpath) {
+    result += `#${canonical.subpath.split("/").filter(Boolean).map(encode).join("/")}`;
+  }
   return result;
 }
 

@@ -68,6 +68,46 @@ test("lowercases qualifier keys and rejects an invalid or duplicate key", () => 
   );
 });
 
+test("strips empty, '.', and '..' subpath segments and rejects an encoded slash", () => {
+  assert.deepEqual(parsePurl("pkg:golang/google.golang.org/genproto#/googleapis/api/annotations/"), {
+    type: "golang",
+    namespace: "google.golang.org",
+    name: "genproto",
+    subpath: "googleapis/api/annotations",
+  });
+  // `.` and `..` are discarded as segments; they are not path-resolved.
+  assert.deepEqual(parsePurl("pkg:npm/core@2.0.1#./googleapis/../api/./annotations/.."), {
+    type: "npm",
+    name: "core",
+    version: "2.0.1",
+    subpath: "googleapis/api/annotations",
+  });
+  assert.equal(
+    formatPurl({
+      type: "npm",
+      name: "core",
+      version: "2.0.1",
+      subpath: "/googleapis/./api/../annotations/",
+    }),
+    "pkg:npm/core@2.0.1#googleapis/api/annotations",
+  );
+  assert.throws(() => parsePurl("pkg:npm/core@1.0.0#foo%2Fbar"), PurlError);
+  assert.throws(() => parsePurl("pkg:maven/@1.3.4"), PurlError);
+});
+
+test("an '@' at the start of the path is not a version separator", () => {
+  assert.deepEqual(parsePurl("pkg:npm/@babel/core#/googleapis/api/annotations/"), {
+    type: "npm",
+    namespace: "@babel",
+    name: "core",
+    subpath: "googleapis/api/annotations",
+  });
+  assert.equal(
+    normalizePurl("pkg:npm/@babel/core#/googleapis/api/annotations/"),
+    "pkg:npm/%40babel/core#googleapis/api/annotations",
+  );
+});
+
 test("returns the version-less identity used by registry rules", () => {
   assert.equal(purlIdentity("pkg:npm/%40angular/core@17.0.0?foo=bar#x"), "pkg:npm/%40angular/core");
   assert.equal(purlIdentity({ type: "pypi", name: "Django_Nose" }), "pkg:pypi/django-nose");

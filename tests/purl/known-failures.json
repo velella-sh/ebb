@@ -25,8 +25,6 @@
   "types/julia-test.json[12]:parse",
   "types/mlflow-test.json[0]:validate",
   "types/mlflow-test.json[1]:parse",
-  "types/npm-test.json[13]:validate",
-  "types/npm-test.json[14]:parse",
   "types/otp-test.json[6]:parse",
   "types/otp-test.json[7]:build",
   "types/rpm-test.json[1]:parse",
