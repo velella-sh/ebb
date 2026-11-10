@@ -33,7 +33,7 @@ Ebb is an open dataset of software lifecycle rules: what is deprecated, unsuppor
 
 Every rule names a component by its [Package URL](https://github.com/package-url/purl-spec) and its versions by a [VERS](https://github.com/package-url/vers-spec) range, so any tool that knows a purl and a version can ask Ebb about it.
 
-The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](tests/purl/fixtures/), [CI](https://github.com/velella-sh/ebb/actions/runs/42812045096)).
+The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](tests/purl/fixtures/), [CI](https://github.com/velella-sh/ebb/actions/runs/42812045096)), with one case (`types/maven-test.json[13]`, [purl-spec#1027](https://github.com/package-url/purl-spec/issues/1027)) counted through a documented alternative because the fixture is inconsistent upstream; see [tests/purl/README.md](tests/purl/README.md).
 
 ## Why Ebb
 
