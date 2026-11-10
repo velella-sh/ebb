@@ -2,14 +2,20 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { check, orderMatches, resolveCandidateRules, type CheckResult } from "../../src/check.js";
+import { BUNDLED_ECOSYSTEMS } from "../../src/data-bundle.js";
+import { getActiveDataSync } from "../../src/data-source.js";
 import { PurlError } from "../../src/purl.js";
-import { VersError } from "../../src/vers.js";
+import { validateRegistryV2, type RegistryV2Rule } from "../../src/registry.js";
+import { parseVersLenient, VersError, versContains } from "../../src/vers.js";
 
 /** How many random (purl, version) pairs each property run exercises. */
 const ITERATIONS = 1_000;
 
 /** Minimum non-empty match outcomes required so the suite cannot silently go all-ok. */
 const MIN_NONEMPTY_MATCHES = 100;
+
+/** How many real-rule inside/outside pairs the dedicated match-path test exercises. */
+const MATCH_PATH_SAMPLES = 200;
 
 /** Seeds whose bundled rules supply real registry purls for matching runs. */
 const KNOWN_REGISTRY_PURLS = [
@@ -271,5 +277,92 @@ test("check is deterministic and matches the v-prefixed version", () => {
       assert.equal(first.error.name, second.error.name);
       assert.equal(first.error.message, second.error.message);
     }
+  }
+});
+
+/** Version-level rules from the active data (same set `check` indexes). */
+function activeVersionRules(): RegistryV2Rule[] {
+  const data = getActiveDataSync();
+  const rules: RegistryV2Rule[] = [];
+  for (const ecosystem of BUNDLED_ECOSYSTEMS) {
+    rules.push(...validateRegistryV2(data.readSync(`registry/${ecosystem}.json`)).rules);
+  }
+  return rules.filter((rule) => rule.usage === undefined || rule.usage.some((matcher) => matcher.kind !== "symbol"));
+}
+
+/** Nearby spellings of a constraint version so we can find both sides of a bounded range. */
+function relatedVersions(version: string): string[] {
+  const out = new Set<string>([version, "0", "0.0.0", "1.0.0", "99999.0.0"]);
+  const parts = version.split(".");
+  const last = parts[parts.length - 1]!;
+  const lastNum = /^(\d+)/.exec(last);
+  if (lastNum) {
+    const n = Number(lastNum[1]);
+    const suffix = last.slice(lastNum[0].length);
+    const head = parts.slice(0, -1);
+    out.add([...head, `${n + 1}${suffix}`].join("."));
+    if (n > 0) out.add([...head, `${n - 1}${suffix}`].join("."));
+    out.add([...parts, "0"].join("."));
+  }
+  const firstNum = /^(\d+)/.exec(parts[0]!);
+  if (firstNum) {
+    const n = Number(firstNum[1]);
+    const rest = parts.slice(1);
+    out.add([`${n + 1}`, ...rest].join("."));
+    if (n > 0) out.add([`${n - 1}`, ...rest].join("."));
+  }
+  return [...out];
+}
+
+/** One version the rule's range contains and one it does not, or undefined when none exist. */
+function versionsAroundRule(rule: RegistryV2Rule): { inside: string; outside: string } | undefined {
+  const range = parseVersLenient(rule.vers);
+  if (range.all) return undefined;
+
+  const candidates = new Set<string>();
+  for (const constraint of range.constraints) {
+    for (const version of relatedVersions(constraint.version)) candidates.add(version);
+  }
+
+  let inside: string | undefined;
+  let outside: string | undefined;
+  for (const version of candidates) {
+    try {
+      if (versContains(rule.vers, version)) inside ??= version;
+      else outside ??= version;
+    } catch {
+      // Candidate is not a valid version for this scheme.
+    }
+    if (inside !== undefined && outside !== undefined) return { inside, outside };
+  }
+  return undefined;
+}
+
+test("check matches a version inside a real rule and misses one outside it", () => {
+  const rng = new Rng(0x1a4c_7e57);
+  const usable = activeVersionRules().flatMap((rule) => {
+    const pair = versionsAroundRule(rule);
+    return pair === undefined ? [] : [{ rule, ...pair }];
+  });
+  assert.ok(
+    usable.length >= MATCH_PATH_SAMPLES,
+    `expected at least ${MATCH_PATH_SAMPLES} bounded active rules with inside/outside versions, got ${usable.length}`,
+  );
+
+  for (let i = 0; i < MATCH_PATH_SAMPLES; i++) {
+    const sample = rng.pick(usable);
+    const inside = check(sample.rule.purl, sample.inside);
+    assert.notEqual(inside.status, "ok", `${sample.rule.id} should match ${sample.inside}`);
+    assert.ok(
+      inside.matches.some((match) => match.ruleId === sample.rule.id),
+      `${sample.rule.id} missing from matches for ${sample.rule.purl}@${sample.inside}`,
+    );
+
+    const outside = check(sample.rule.purl, sample.outside);
+    assert.equal(
+      outside.matches.some((match) => match.ruleId === sample.rule.id),
+      false,
+      `${sample.rule.id} must not match ${sample.outside}`,
+    );
   }
 });
