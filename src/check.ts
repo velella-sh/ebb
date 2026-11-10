@@ -11,7 +11,7 @@ import { findPackageFileSync } from "./package-files.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
-import { versContains } from "./vers.js";
+import { VersError, versContains } from "./vers.js";
 
 /** A lifecycle verdict, or `ok` when no rule matches. */
 export type CheckStatus = "ok" | "deprecated" | "unsupported" | "end-of-life" | "removed" | "scheduled";
@@ -98,12 +98,20 @@ const checkEventByLifecycle: Record<LifecycleEvent, CheckEvent> = {
 /** Check-status order derived from {@link lifecycleEventPrecedence}; used for `status` only. Sorting matches is #40. */
 const statusPrecedence: readonly CheckEvent[] = lifecycleEventPrecedence.map((event) => checkEventByLifecycle[event]);
 
+/**
+ * Whether the rule's range contains `version`. Invalid versions and malformed
+ * rule `vers` strings throw (same idea as an invalid purl throwing `PurlError`);
+ * they must not look like a quiet non-match.
+ */
 function ruleMatchesVersion(rule: RegistryV2Rule, version: string): boolean {
-  try {
-    return versContains(rule.vers, version);
-  } catch {
-    return false;
-  }
+  return versContains(rule.vers, version);
+}
+
+/** Reject empty / whitespace-only input before any range compare. */
+function requireVersionInput(version: string): string {
+  const normalised = normalizeVersionInput(version);
+  if (!normalised) throw new VersError(`Invalid version "${version}".`);
+  return normalised;
 }
 
 function toCheckMatch(rule: RegistryV2Rule): CheckMatch {
@@ -128,9 +136,8 @@ function statusFromMatches(matches: readonly CheckMatch[]): CheckStatus {
  * The result keeps the original `version`.
  */
 export function check(purl: string, version: string): CheckResult {
-  const normalised = normalizeVersionInput(version);
-  const matches = resolveCandidateRules(purl)
-    .filter((rule) => ruleMatchesVersion(rule, normalised))
-    .map(toCheckMatch);
+  const candidates = resolveCandidateRules(purl);
+  const normalised = requireVersionInput(version);
+  const matches = candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map(toCheckMatch);
   return { status: statusFromMatches(matches), matches, version };
 }
