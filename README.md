@@ -62,13 +62,14 @@ request.status;      // "deprecated"
 request.replacement; // "Native fetch or a maintained HTTP client"
 ```
 
-`check` answers the same question synchronously — a purl or a product name, plus a version — and returns every matching rule. The first call may block while it reads the active data file; later calls reuse the cached index:
+`check` answers the same question synchronously — a purl or a product name, plus a version — and returns every matching rule. Pass an optional `asOf` day (`YYYY-MM-DD`) to fill each match's `daysLeft`; omit it to keep the two-argument form (`daysLeft` stays `null`). The first call may block while it reads the active data file; later calls reuse the cached index:
 
 ```ts
 import { check } from "@velella/ebb/check";
 
 // A deprecated package
 // `date: null` means the rule has no deadline date.
+// Without `asOf`, `daysLeft` is always null.
 check("pkg:npm/left-pad", "1.3.0");
 // {
 //   status: "deprecated",
@@ -77,6 +78,7 @@ check("pkg:npm/left-pad", "1.3.0");
 //       ruleId: "npm.package.left-pad.deprecated",
 //       event: "deprecated",
 //       date: null,
+//       daysLeft: null,
 //       replacement: "String.prototype.padStart()",
 //       sources: [
 //         {
@@ -103,6 +105,7 @@ check("node", "18.20.4");
 //       ruleId: "nodejs.runtime.eol-18",
 //       event: "end-of-life",
 //       date: "2025-04-30",
+//       daysLeft: null,
 //       replacement: "Node.js 22 LTS or later",
 //       sources: [
 //         {
@@ -114,6 +117,24 @@ check("node", "18.20.4");
 //     }
 //   ],
 //   version: "18.20.4"
+// }
+
+// Pass `asOf` to measure daysLeft from that day (never from a clock).
+check("pkg:generic/nodejs", "22.11.0", "2026-04-01");
+// {
+//   status: "scheduled",
+//   matches: [
+//     {
+//       ruleId: "nodejs.runtime.eol-22",
+//       event: "scheduled",
+//       date: "2027-04-30",
+//       daysLeft: 394,
+//       replacement: "Node.js 24 LTS or later",
+//       sources: [ /* … */ ]
+//     }
+//   ],
+//   version: "22.11.0",
+//   asOf: "2026-04-01"
 // }
 ```
 

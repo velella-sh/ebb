@@ -1,5 +1,5 @@
 /**
- * `check(purlOrName, version, asOf)`: one answer for a component's lifecycle status.
+ * `check(purlOrName, version, asOf?)`: one answer for a component's lifecycle status.
  * The result type stays small so a later stable model can extend it without breaking callers.
  */
 
@@ -48,8 +48,11 @@ export interface CheckResult {
   matches: CheckMatch[];
   /** The version argument exactly as given to `check`. */
   version: string;
-  /** The day `daysLeft` is measured from (`YYYY-MM-DD`). Never read from a clock. */
-  asOf: string;
+  /**
+   * The day `daysLeft` is measured from (`YYYY-MM-DD`), when the caller passed `asOf`.
+   * Omitted for the two-argument form; never read from a clock.
+   */
+  asOf?: string;
 }
 
 /**
@@ -162,13 +165,14 @@ function requireVersionInput(version: string): string {
   return normalised;
 }
 
-function toCheckMatch(rule: RegistryV2Rule, asOf: string): CheckMatch {
+function toCheckMatch(rule: RegistryV2Rule, asOf: string | undefined): CheckMatch {
   const date = rule.deadline ?? null;
   return {
     ruleId: rule.id,
     event: checkEventByLifecycle[rule.event],
     date,
-    daysLeft: daysUntil(date, asOf),
+    // Without an explicit asOf there is no clock-free countdown; leave daysLeft null.
+    daysLeft: asOf === undefined ? null : daysUntil(date, asOf),
     replacement: rule.replacement ?? null,
     sources: rule.sources,
   };
@@ -210,13 +214,19 @@ export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
  * ordered by event seriousness then deadline.
  * Unknown purls and known packages with no matching rule return `status: "ok"` and
  * `matches: []`. Unknown or ambiguous product names throw {@link CheckError}.
- * The result keeps the original `version` and the explicit `asOf` day used for `daysLeft`.
+ * The result keeps the original `version`. Pass `asOf` (`YYYY-MM-DD`) to measure
+ * `daysLeft` on each match; omit it to keep the two-argument contract (`daysLeft` is then
+ * always `null`, and `asOf` is omitted from the result). An invalid `asOf` throws.
  */
-export function check(purlOrName: string, version: string, asOf: string): CheckResult {
+export function check(purlOrName: string, version: string, asOf?: string): CheckResult {
+  // Validate asOf even when no rule matches, so callers never see an unchecked day.
+  if (asOf !== undefined) daysUntil(null, asOf);
   const candidates = resolveCandidateRules(purlOrName);
   const normalised = requireVersionInput(version);
   const matches = orderMatches(
     candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map((rule) => toCheckMatch(rule, asOf)),
   );
-  return { status: statusFromMatches(matches), matches, version, asOf };
+  return asOf === undefined
+    ? { status: statusFromMatches(matches), matches, version }
+    : { status: statusFromMatches(matches), matches, version, asOf };
 }

@@ -21,6 +21,19 @@ test("undated matches return null", () => {
   assert.equal(daysLeft(null, AS_OF), null);
 });
 
+test("invalid asOf or date values throw before calculating", () => {
+  assert.throws(() => daysLeft("2027-01-01", "not-a-date"), /is not a date \(YYYY-MM-DD\)/);
+  assert.throws(() => daysLeft("2026-02-30", AS_OF), /is not a date \(YYYY-MM-DD\)/);
+  assert.throws(() => daysLeft("2027-01-01", "2026-02-30"), /is not a date \(YYYY-MM-DD\)/);
+});
+
+test("check without asOf keeps the two-argument shape and null daysLeft", () => {
+  const result = check("pkg:generic/nodejs", "22.11.0");
+  assert.equal(result.asOf, undefined);
+  assert.equal(result.matches[0]?.date, "2027-04-30");
+  assert.equal(result.matches[0]?.daysLeft, null);
+});
+
 test("check populates match daysLeft from the result asOf", () => {
   const result = check("pkg:generic/nodejs", "22.11.0", AS_OF);
   assert.equal(result.asOf, AS_OF);
@@ -28,4 +41,12 @@ test("check populates match daysLeft from the result asOf", () => {
   assert.equal(result.matches[0]?.date, "2027-04-30");
   assert.equal(result.matches[0]?.daysLeft, daysLeft("2027-04-30", AS_OF));
   assert.equal(result.matches[0]?.daysLeft, 394);
+});
+
+test("check rejects an invalid asOf even with no matches", () => {
+  assert.throws(() => check("pkg:generic/nodejs", "22.11.0", "not-a-date"), /is not a date \(YYYY-MM-DD\)/);
+  assert.throws(
+    () => check("pkg:npm/this-package-is-not-in-ebb", "1.0.0", "2026-02-30"),
+    /is not a date \(YYYY-MM-DD\)/,
+  );
 });
