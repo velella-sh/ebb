@@ -42,9 +42,26 @@ test("applies type-specific normalization", () => {
   assert.equal(normalizePurl("pkg:PyPI/Django_Nose"), "pkg:pypi/django-nose");
   assert.equal(normalizePurl("pkg:npm/%40Angular/Core"), "pkg:npm/%40angular/core");
   assert.equal(normalizePurl("pkg:github/Actions/Checkout"), "pkg:github/actions/checkout");
+  assert.equal(normalizePurl("pkg:bitbucket/BirKenfeld/PyGments-main"), "pkg:bitbucket/birkenfeld/pygments-main");
+  assert.equal(normalizePurl("pkg:brew/Homebrew/Core/SQLite"), "pkg:brew/homebrew/core/sqlite");
   assert.equal(normalizePurl("pkg:composer/Laravel/Framework"), "pkg:composer/laravel/framework");
+  assert.equal(normalizePurl("pkg:git/github/Package-url/purl-Spec@abc"), "pkg:git/github/package-url/purl-spec@abc");
+  assert.equal(
+    normalizePurl("pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552AE47F449AB70B684CABCB6603E5E85E"),
+    "pkg:huggingface/EleutherAI/gpt-neo-1.3B@797174552ae47f449ab70b684cabcb6603e5e85e",
+  );
+  assert.equal(
+    normalizePurl("pkg:mlflow/CreditFraud@3?repository_url=https://adb-1.0.azuredatabricks.net/api/2.0/mlflow"),
+    "pkg:mlflow/creditfraud@3?repository_url=https:%2F%2Fadb-1.0.azuredatabricks.net%2Fapi%2F2.0%2Fmlflow",
+  );
+  assert.equal(
+    normalizePurl("pkg:mlflow/CreditFraud@3?repository_url=https://westus2.api.azureml.ms/mlflow/v1.0"),
+    "pkg:mlflow/CreditFraud@3?repository_url=https:%2F%2Fwestus2.api.azureml.ms%2Fmlflow%2Fv1.0",
+  );
   assert.equal(normalizePurl("pkg:maven/Org.Apache/Commons"), "pkg:maven/Org.Apache/Commons");
   assert.equal(normalizePurl("pkg:nuget/Newtonsoft.Json"), "pkg:nuget/Newtonsoft.Json");
+  assert.equal(normalizePurl("pkg:rpm/Fedora/curl@7.50.3"), "pkg:rpm/fedora/curl@7.50.3");
+  assert.equal(normalizePurl("pkg:cpan/drolsky/DateTime"), "pkg:cpan/DROLSKY/DateTime");
 });
 
 test("sorts qualifiers and drops empty values", () => {
