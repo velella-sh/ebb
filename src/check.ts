@@ -156,7 +156,10 @@ export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
 /**
  * Judges `purl` at `version` against the lifecycle rules. Offline; no network.
  * Keeps every candidate whose version range contains the normalised version,
- * ordered by event seriousness then deadline. The result keeps the original `version`.
+ * ordered by event seriousness then deadline.
+ * Unknown packages and known packages with no matching rule return `status: "ok"`
+ * and `matches: []` — they do not throw.
+ * The result keeps the original `version`.
  */
 export function check(purl: string, version: string): CheckResult {
   const candidates = resolveCandidateRules(purl);
