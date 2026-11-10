@@ -3,7 +3,6 @@ import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { after, test } from "node:test";
-
 import { check, resolveCandidateRules } from "../../src/check.js";
 import { buildDataBundle, serializeDataBundle } from "../../src/data-bundle.js";
 import {
@@ -14,6 +13,9 @@ import {
   SIGNATURE_FILE,
 } from "../../src/data-source.js";
 import { VERSION } from "../../src/version.js";
+
+/** Fixed calendar day so daysLeft stays clock-free in tests. */
+const AS_OF = "2026-04-01";
 
 const roots: string[] = [];
 const probeId = "npm.package.ebb-check-active-data-probe.deprecated";
@@ -92,12 +94,12 @@ test("check sees a rule that exists only in downloaded active data", async () =>
     true,
   );
 
-  const result = check(probePurl, "1.0.0");
+  const result = check(probePurl, "1.0.0", AS_OF);
   assert.equal(result.status, "deprecated");
   assert.equal(result.matches.length, 1);
   assert.equal(result.matches[0]?.ruleId, probeId);
 
   configureActiveData({});
   assert.deepEqual(resolveCandidateRules(probePurl), []);
-  assert.equal(check(probePurl, "1.0.0").status, "ok");
+  assert.equal(check(probePurl, "1.0.0", AS_OF).status, "ok");
 });

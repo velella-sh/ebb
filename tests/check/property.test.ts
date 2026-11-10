@@ -1,12 +1,14 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-
 import { check, orderMatches, resolveCandidateRules, type CheckResult } from "../../src/check.js";
 import { BUNDLED_ECOSYSTEMS } from "../../src/data-bundle.js";
 import { getActiveDataSync } from "../../src/data-source.js";
 import { PurlError } from "../../src/purl.js";
 import { validateRegistryV2, type RegistryV2Rule } from "../../src/registry.js";
 import { parseVersLenient, VersError, versContains } from "../../src/vers.js";
+
+/** Fixed calendar day so daysLeft stays clock-free in tests. */
+const AS_OF = "2026-04-01";
 
 /** How many random (purl, version) pairs each property run exercises. */
 const ITERATIONS = 1_000;
@@ -180,7 +182,7 @@ type Outcome =
 
 function runCheck(purl: string, version: string): Outcome {
   try {
-    return { kind: "result", value: check(purl, version) };
+    return { kind: "result", value: check(purl, version, AS_OF) };
   } catch (error) {
     if (error instanceof PurlError) return { kind: "purl", error };
     if (error instanceof VersError) return { kind: "vers", error };
@@ -351,14 +353,14 @@ test("check matches a version inside a real rule and misses one outside it", () 
 
   for (let i = 0; i < MATCH_PATH_SAMPLES; i++) {
     const sample = rng.pick(usable);
-    const inside = check(sample.rule.purl, sample.inside);
+    const inside = check(sample.rule.purl, sample.inside, AS_OF);
     assert.notEqual(inside.status, "ok", `${sample.rule.id} should match ${sample.inside}`);
     assert.ok(
       inside.matches.some((match) => match.ruleId === sample.rule.id),
       `${sample.rule.id} missing from matches for ${sample.rule.purl}@${sample.inside}`,
     );
 
-    const outside = check(sample.rule.purl, sample.outside);
+    const outside = check(sample.rule.purl, sample.outside, AS_OF);
     assert.equal(
       outside.matches.some((match) => match.ruleId === sample.rule.id),
       false,
