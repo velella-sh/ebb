@@ -108,6 +108,36 @@ test("an '@' at the start of the path is not a version separator", () => {
   );
 });
 
+test("percent-encodes component content and leaves ':' literal", () => {
+  // Separators inside a segment are encoded; ':' never is (ECMA-427 5.4).
+  assert.equal(
+    formatPurl({ type: "generic", name: "a@b/c?d#e&f=g", version: "1:2+3" }),
+    "pkg:generic/a%40b%2Fc%3Fd%23e%26f%3Dg@1:2%2B3",
+  );
+  assert.equal(
+    formatPurl({
+      type: "generic",
+      name: "bitwarderl",
+      qualifiers: { vcs_url: "git+https://git.fsfe.org/dxtr/bitwarderl@cc55108" },
+    }),
+    "pkg:generic/bitwarderl?vcs_url=git%2Bhttps:%2F%2Fgit.fsfe.org%2Fdxtr%2Fbitwarderl%40cc55108",
+  );
+  // Characters encodeURIComponent would leave (`!'()*`) are encoded too.
+  assert.equal(formatPurl({ type: "generic", name: "a!'()*b" }), "pkg:generic/a%21%27%28%29%2Ab");
+  // A wrongly encoded colon in the version round-trips to the literal form.
+  assert.equal(
+    normalizePurl("pkg:docker/customer/dockerimage@sha256%3A244fd47e07d1004f0aed9c"),
+    "pkg:docker/customer/dockerimage@sha256:244fd47e07d1004f0aed9c",
+  );
+  // An '@' that belongs to the name is encoded so the version delimiter stays clear.
+  assert.deepEqual(parsePurl("pkg:brew/postgresql%4012@12.17"), {
+    type: "brew",
+    name: "postgresql@12",
+    version: "12.17",
+  });
+  assert.equal(formatPurl({ type: "brew", name: "postgresql@12", version: "12.17" }), "pkg:brew/postgresql%4012@12.17");
+});
+
 test("returns the version-less identity used by registry rules", () => {
   assert.equal(purlIdentity("pkg:npm/%40angular/core@17.0.0?foo=bar#x"), "pkg:npm/%40angular/core");
   assert.equal(purlIdentity({ type: "pypi", name: "Django_Nose" }), "pkg:pypi/django-nose");
