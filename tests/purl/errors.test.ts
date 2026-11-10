@@ -19,6 +19,7 @@ const INVALID_PARSE_CASES: ReadonlyArray<{ value: string; message: string }> = [
     message: 'PURL must start with "pkg:": pkg%3Amaven/org.apache.commons/io',
   },
   { value: "pkg:", message: "PURL is missing a type: pkg:" },
+  { value: "pkg:/x", message: "PURL is missing a type: pkg:/x" },
   { value: "pkg:npm", message: "PURL is missing a name: pkg:npm" },
   { value: "pkg:npm/", message: "PURL is missing a name: pkg:npm/" },
   { value: "pkg:hackage", message: "PURL is missing a name: pkg:hackage" },
