@@ -36,7 +36,7 @@ test("dotnet-1 drafts an end-of-support rule per line past its date and a schedu
   for (const line of ["8.0", "9.0"])
     assert.equal(
       drafts.rules.find((rule) => rule.id === `dotnet.runtime.end-of-support-${line}`)?.event,
-      "scheduled-end-of-life",
+      "end-of-support",
       line,
     );
   for (const line of ["10.0", "11.0"])
@@ -53,9 +53,9 @@ test("dotnet-1 drafts an end-of-support rule per line past its date and a schedu
   assert.equal(six.provenance.importer, "dotnet-1");
   assert.ok(six.sources.some((source) => source.url === DOTNET_RELEASES_INDEX_URL));
   const eight = drafts.rules.find((rule) => rule.id === "dotnet.runtime.end-of-support-8.0")!;
-  assert.equal(eight.severity, "low");
+  assert.equal(eight.severity, "high");
   assert.equal(eight.deadline, "2026-11-10");
-  assert.equal(eight.title, ".NET 8 reaches end of support on 2026-11-10");
+  assert.equal(eight.title, ".NET 8 is no longer supported");
   assert.match(drafts.notes.join("\n"), /\.NET 10 ends support on 2028-11-14, which is more than twelve months after/);
 });
 
