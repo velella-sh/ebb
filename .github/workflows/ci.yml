@@ -33,6 +33,13 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
       - run: npm run check
+      - name: Ensure purl-spec pass rate is in the job summary
+        run: |
+          if ! grep -q 'purl-spec pass rate:' "$GITHUB_STEP_SUMMARY"; then
+            echo "::error::purl-spec pass rate missing from the job summary"
+            exit 1
+          fi
+          grep 'purl-spec pass rate:' "$GITHUB_STEP_SUMMARY"
       - run: npm run lint:rules
       - name: Install the packed package and load it
         run: |
