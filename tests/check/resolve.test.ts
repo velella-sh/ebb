@@ -46,7 +46,7 @@ test('"pkg:npm/left-pad?Arch=x64" resolves to the same rules as "pkg:npm/left-pa
 });
 
 test("check throws for an invalid purl", () => {
-  assert.throws(() => check("not-a-purl", "1.0.0"), PurlError);
+  assert.throws(() => check("pkg:", "1.0.0"), PurlError);
 });
 
 test("check keeps candidate resolution and still returns the original version", () => {
