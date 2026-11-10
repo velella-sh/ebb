@@ -1,10 +1,12 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-
 import { check, type CheckStatus } from "../../src/check.js";
 import { LookupError, lookupProduct } from "../../src/lookup.js";
 import { lifecycleEventPrecedence, type LifecycleEvent } from "../../src/registry.js";
 import { readCases, registryRules } from "../../tools/rule-cases.js";
+
+/** Fixed calendar day so daysLeft stays clock-free in tests. */
+const AS_OF = "2026-04-01";
 
 /** lookup's longer event names and `supported` map onto check's short status. */
 const checkStatusFromLookup: Record<LifecycleEvent | "supported", CheckStatus> = {
@@ -50,7 +52,7 @@ test("every behaviour case in cases/ gets the same answer from check and lookupP
   for (const [file, cases] of files) {
     for (const item of cases) {
       const label = `${file}: ${item.purl}@${item.version}`;
-      const checked = check(item.purl, item.version);
+      const checked = check(item.purl, item.version, AS_OF);
       const checkIds = checked.matches.map((match) => match.ruleId);
       const expectedIds = item.rules;
       const expectedStatus = expectedStatusFromCaseRules(expectedIds, eventById);

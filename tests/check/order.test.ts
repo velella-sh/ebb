@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-
 import { check, orderMatches, type CheckMatch } from "../../src/check.js";
 import type { EvidenceSource } from "../../src/domain.js";
+
+/** Fixed calendar day so daysLeft stays clock-free in tests. */
+const AS_OF = "2026-04-01";
 
 const source: EvidenceSource = {
   title: "test",
@@ -10,7 +12,7 @@ const source: EvidenceSource = {
 };
 
 function match(partial: Pick<CheckMatch, "ruleId" | "event" | "date">): CheckMatch {
-  return { ...partial, replacement: null, sources: [source] };
+  return { ...partial, daysLeft: null, replacement: null, sources: [source] };
 }
 
 test("three mixed matches sort by event seriousness, then earliest date", () => {
@@ -55,7 +57,7 @@ test("equal event and date keep the original order (stable)", () => {
 
 test("check puts the more serious overlapping rule first", () => {
   // pycrypto: end-of-life (dated) and deprecated (undated) both cover every version.
-  const result = check("pkg:pypi/pycrypto", "2.6.1");
+  const result = check("pkg:pypi/pycrypto", "2.6.1", AS_OF);
   assert.ok(result.matches.length >= 2);
   assert.equal(result.matches[0]?.event, "end-of-life");
   assert.equal(result.status, "end-of-life");
@@ -64,7 +66,7 @@ test("check puts the more serious overlapping rule first", () => {
 
 test("check puts the earlier deadline before an undated peer", () => {
   // request: dated deprecated before the undated OSV twin.
-  const result = check("pkg:npm/request", "2.88.0");
+  const result = check("pkg:npm/request", "2.88.0", AS_OF);
   assert.ok(result.matches.length >= 2);
   assert.equal(result.matches[0]?.ruleId, "npm.package.request.deprecated");
   assert.equal(result.matches[0]?.date, "2020-02-11");

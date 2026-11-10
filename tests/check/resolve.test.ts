@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-
 import { check, resolveCandidateRules } from "../../src/check.js";
 import { PurlError } from "../../src/purl.js";
+
+/** Fixed calendar day so daysLeft stays clock-free in tests. */
+const AS_OF = "2026-04-01";
 
 const nodejsIds = (purl: string): string[] =>
   resolveCandidateRules(purl)
@@ -46,11 +48,11 @@ test('"pkg:npm/left-pad?Arch=x64" resolves to the same rules as "pkg:npm/left-pa
 });
 
 test("check throws for an invalid purl", () => {
-  assert.throws(() => check("pkg:", "1.0.0"), PurlError);
+  assert.throws(() => check("pkg:", "1.0.0", AS_OF), PurlError);
 });
 
 test("check keeps candidate resolution and still returns the original version", () => {
-  const result = check("pkg:generic/nodejs", "24.0.0");
+  const result = check("pkg:generic/nodejs", "24.0.0", AS_OF);
   assert.equal(result.version, "24.0.0");
   assert.equal(result.status, "ok");
   assert.deepEqual(result.matches, []);

@@ -1,5 +1,5 @@
 /**
- * `check(purlOrName, version)`: one answer for a component's lifecycle status.
+ * `check(purlOrName, version, asOf?)`: one answer for a component's lifecycle status.
  * The result type stays small so a later stable model can extend it without breaking callers.
  */
 
@@ -12,7 +12,7 @@ import type { ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
-import type { ResultStatus } from "./result.js";
+import { daysLeft as daysUntil, type ResultStatus } from "./result.js";
 import { VersError, versContains } from "./vers.js";
 
 /** Thrown when a product name is unknown or matches more than one package. */
@@ -36,6 +36,8 @@ export interface CheckMatch {
   ruleId: string;
   event: CheckEvent;
   date: string | null;
+  /** Whole UTC days from the result's `asOf` until `date`; null when past or undated. */
+  daysLeft: number | null;
   replacement: string | null;
   sources: EvidenceSource[];
 }
@@ -46,6 +48,11 @@ export interface CheckResult {
   matches: CheckMatch[];
   /** The version argument exactly as given to `check`. */
   version: string;
+  /**
+   * The day `daysLeft` is measured from (`YYYY-MM-DD`), when the caller passed `asOf`.
+   * Omitted for the two-argument form; never read from a clock.
+   */
+  asOf?: string;
 }
 
 /**
@@ -158,11 +165,14 @@ function requireVersionInput(version: string): string {
   return normalised;
 }
 
-function toCheckMatch(rule: RegistryV2Rule): CheckMatch {
+function toCheckMatch(rule: RegistryV2Rule, asOf: string | undefined): CheckMatch {
+  const date = rule.deadline ?? null;
   return {
     ruleId: rule.id,
     event: checkEventByLifecycle[rule.event],
-    date: rule.deadline ?? null,
+    date,
+    // Without an explicit asOf there is no clock-free countdown; leave daysLeft null.
+    daysLeft: asOf === undefined ? null : daysUntil(date, asOf),
     replacement: rule.replacement ?? null,
     sources: rule.sources,
   };
@@ -204,11 +214,19 @@ export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
  * ordered by event seriousness then deadline.
  * Unknown purls and known packages with no matching rule return `status: "ok"` and
  * `matches: []`. Unknown or ambiguous product names throw {@link CheckError}.
- * The result keeps the original `version`.
+ * The result keeps the original `version`. Pass `asOf` (`YYYY-MM-DD`) to measure
+ * `daysLeft` on each match; omit it to keep the two-argument contract (`daysLeft` is then
+ * always `null`, and `asOf` is omitted from the result). An invalid `asOf` throws.
  */
-export function check(purlOrName: string, version: string): CheckResult {
+export function check(purlOrName: string, version: string, asOf?: string): CheckResult {
+  // Validate asOf even when no rule matches, so callers never see an unchecked day.
+  if (asOf !== undefined) daysUntil(null, asOf);
   const candidates = resolveCandidateRules(purlOrName);
   const normalised = requireVersionInput(version);
-  const matches = orderMatches(candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map(toCheckMatch));
-  return { status: statusFromMatches(matches), matches, version };
+  const matches = orderMatches(
+    candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map((rule) => toCheckMatch(rule, asOf)),
+  );
+  return asOf === undefined
+    ? { status: statusFromMatches(matches), matches, version }
+    : { status: statusFromMatches(matches), matches, version, asOf };
 }
