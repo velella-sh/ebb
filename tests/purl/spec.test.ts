@@ -4,13 +4,13 @@ import { join, relative } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { formatPurl, parsePurl, type PackageUrl } from "../../src/purl.js";
+import { formatPurl, normalizePurl, parsePurl, type PackageUrl } from "../../src/purl.js";
 
 // Compiled under dist/tests/purl/; reach the source tree the same way vers tests do.
 const fixturesRoot = fileURLToPath(new URL("../../../tests/purl/fixtures", import.meta.url));
-const knownFailuresPath = fileURLToPath(new URL("../../../tests/purl/known-failures.json", import.meta.url));
 
 type TestType = "parse" | "build" | "validate";
+type TestGroup = "required" | "recommended";
 
 interface PurlComponents {
   type: string | null;
@@ -23,7 +23,7 @@ interface PurlComponents {
 
 interface FixtureCase {
   description: string;
-  test_group: string;
+  test_group: TestGroup;
   test_type: TestType;
   input: string | PurlComponents;
   expected_output: string | PurlComponents | null;
@@ -83,12 +83,17 @@ function comparableComponents(components: PurlComponents): PurlComponents {
   return { ...components, qualifiers: sorted };
 }
 
+/**
+ * Required cases use strict parse (ECMA-427 "shall").
+ * Recommended cases apply remediation via normalizePurl first (ECMA-427 "should").
+ */
 function runCase(tc: FixtureCase): boolean {
   if (tc.test_type === "parse") {
     assert.equal(typeof tc.input, "string");
     let parsed: PackageUrl;
     try {
-      parsed = parsePurl(tc.input as string);
+      const input = tc.input as string;
+      parsed = tc.test_group === "recommended" ? parsePurl(normalizePurl(input)) : parsePurl(input);
     } catch {
       return tc.expected_failure;
     }
@@ -115,7 +120,7 @@ function runCase(tc: FixtureCase): boolean {
     assert.equal(typeof tc.input, "string");
     let canonical: string;
     try {
-      canonical = formatPurl(parsePurl(tc.input as string));
+      canonical = normalizePurl(tc.input as string);
     } catch {
       return tc.expected_failure;
     }
@@ -127,10 +132,8 @@ function runCase(tc: FixtureCase): boolean {
 }
 
 test("official purl-spec suite", async () => {
-  const knownFailures = new Set(JSON.parse(await readFile(knownFailuresPath, "utf8")) as string[]);
   const seen = new Set<string>();
-  const unexpectedFailures: string[] = [];
-  const unexpectedlyPassing: string[] = [];
+  const failures: string[] = [];
   let total = 0;
   let passed = 0;
 
@@ -142,18 +145,12 @@ test("official purl-spec suite", async () => {
       assert.ok(!seen.has(name), `duplicate case name: ${name}`);
       seen.add(name);
       total += 1;
-      const ok = runCase(tc);
-      if (ok) {
+      if (runCase(tc)) {
         passed += 1;
-        if (knownFailures.has(name)) unexpectedlyPassing.push(name);
-      } else if (!knownFailures.has(name)) {
-        unexpectedFailures.push(name);
+      } else {
+        failures.push(name);
       }
     }
-  }
-
-  for (const name of knownFailures) {
-    assert.ok(seen.has(name), `known-failures.json lists unknown case: ${name}`);
   }
 
   const rateLine = `purl-spec pass rate: ${passed}/${total}`;
@@ -165,14 +162,6 @@ test("official purl-spec suite", async () => {
     await appendFile(summaryPath, `## ${rateLine}\n\n`, "utf8");
   }
 
-  assert.deepEqual(
-    unexpectedlyPassing,
-    [],
-    `cases in known-failures.json now pass; remove them:\n${unexpectedlyPassing.join("\n")}`,
-  );
-  assert.deepEqual(
-    unexpectedFailures,
-    [],
-    `cases failed outside known-failures.json:\n${unexpectedFailures.join("\n")}`,
-  );
+  assert.deepEqual(failures, [], `purl-spec cases failed:\n${failures.join("\n")}`);
+  assert.equal(passed, total, rateLine);
 });

@@ -244,7 +244,12 @@ function takeSubpath(rest: string): { rest: string; subpath?: string } {
   return { rest: rest.slice(0, hash), ...(subpath ? { subpath } : {}) };
 }
 
-function parseQualifiers(query: string, value: string): Record<string, string> {
+/**
+ * Parse the `?qualifiers` query into a map.
+ * ECMA-427 §5.6.6: a key shall be lowercase ASCII. Required parse rejects a
+ * non-lowercase key; lenient parse (recommended remediation) lowercases it.
+ */
+function parseQualifiers(query: string, value: string, lenientKeys: boolean): Record<string, string> {
   const qualifiers: Record<string, string> = {};
   for (const pair of query.split("&")) {
     if (!pair) continue;
@@ -256,8 +261,13 @@ function parseQualifiers(query: string, value: string): Record<string, string> {
     // so `foo=1&foo=` stays a single `foo`.
     if (!qualifierValue) continue;
     const rawKey = pair.slice(0, equals);
-    if (Object.hasOwn(qualifiers, rawKey)) throw new PurlError(`Duplicate qualifier key "${rawKey}" in ${value}`);
-    qualifiers[rawKey] = qualifierValue;
+    if (!lenientKeys && rawKey !== rawKey.toLowerCase()) {
+      throw new PurlError(`Qualifier key "${rawKey}" must be lowercase in ${value}`);
+    }
+    const key = rawKey.toLowerCase();
+    if (!QUALIFIER_KEY.test(key)) throw new PurlError(`Invalid qualifier key "${rawKey}".`);
+    if (Object.hasOwn(qualifiers, key)) throw new PurlError(`Duplicate qualifier key "${key}" in ${value}`);
+    qualifiers[key] = qualifierValue;
   }
   return qualifiers;
 }
@@ -275,13 +285,17 @@ function requireTypeBeforeQuery(beforeQuery: string, value: string): void {
 }
 
 /** Splits the `?qualifiers` query off a PURL. */
-function takeQualifiers(rest: string, value: string): { rest: string; qualifiers?: Record<string, string> } {
+function takeQualifiers(
+  rest: string,
+  value: string,
+  lenientKeys: boolean,
+): { rest: string; qualifiers?: Record<string, string> } {
   const question = rest.indexOf("?");
   if (question < 0) return { rest };
   requireTypeBeforeQuery(rest.slice(0, question), value);
   return {
     rest: rest.slice(0, question),
-    qualifiers: parseQualifiers(rest.slice(question + 1), value),
+    qualifiers: parseQualifiers(rest.slice(question + 1), value, lenientKeys),
   };
 }
 
@@ -336,11 +350,20 @@ function splitName(rest: string, value: string, type: string): { name: string; n
   };
 }
 
+/**
+ * Parse a PURL string into components.
+ * Qualifier keys must already be lowercase (ECMA-427 §5.6.6). Use
+ * {@link normalizePurl} when the input may need recommended remediation.
+ */
 export function parsePurl(value: string): PackageUrl {
+  return parsePurlInternal(value, false);
+}
+
+function parsePurlInternal(value: string, lenientQualifierKeys: boolean): PackageUrl {
   if (!value.trim().startsWith("pkg:")) throw new PurlError(`PURL must start with "pkg:": ${value}`);
   const body = value.trim().slice(4).replace(/^\/+/, "");
   const { rest: withoutSubpath, subpath } = takeSubpath(body);
-  const { rest: withoutQuery, qualifiers } = takeQualifiers(withoutSubpath, value);
+  const { rest: withoutQuery, qualifiers } = takeQualifiers(withoutSubpath, value, lenientQualifierKeys);
   const { type, rest: path } = splitTypeAndPath(withoutQuery, value);
   const { rest: withoutVersion, version } = takeVersion(path);
   const { name, namespace } = splitName(withoutVersion, value, type);
@@ -383,9 +406,12 @@ export function formatPurl(purl: PackageUrl): string {
   return result;
 }
 
-/** Returns the canonical form of a PURL string. */
+/**
+ * Returns the canonical form of a PURL string.
+ * Applies recommended remediations such as lowercasing qualifier keys.
+ */
 export function normalizePurl(value: string): string {
-  return formatPurl(parsePurl(value));
+  return formatPurl(parsePurlInternal(value, true));
 }
 
 /** Returns the PURL without version, qualifiers, or subpath: the identity registry rules use. */

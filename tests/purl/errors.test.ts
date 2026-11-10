@@ -41,6 +41,10 @@ const INVALID_PARSE_CASES: ReadonlyArray<{ value: string; message: string }> = [
     message: 'Invalid qualifier key "in%20production".',
   },
   {
+    value: "pkg:gem/jruby-launcher@1.1.2?Platform=java",
+    message: 'Qualifier key "Platform" must be lowercase in pkg:gem/jruby-launcher@1.1.2?Platform=java',
+  },
+  {
     value: "pkg:npm/myartifact@1.0.0?arch=x64&arch=arm64",
     message: 'Duplicate qualifier key "arch" in pkg:npm/myartifact@1.0.0?arch=x64&arch=arm64',
   },

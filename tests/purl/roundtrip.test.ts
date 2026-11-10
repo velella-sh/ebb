@@ -95,7 +95,7 @@ test("valid purl-spec fixtures round-trip through formatPurl", async () => {
         try {
           first = parsePurl(purl);
         } catch {
-          // Invalid for our parser (often a known-failures suite case). Skip.
+          // Non-canonical recommended inputs fail strict parse; skip those strings.
           continue;
         }
 

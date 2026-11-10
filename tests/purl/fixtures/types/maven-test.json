@@ -171,19 +171,8 @@
       "test_group": "required",
       "test_type": "parse",
       "input": "pkg:Maven/org.apache.xmlgraphics/batik-anim@1.9.1?type=pom&repositorY_url=repo.spring.io/release",
-      "expected_output": {
-        "type": "maven",
-        "namespace": "org.apache.xmlgraphics",
-        "name": "batik-anim",
-        "version": "1.9.1",
-        "qualifiers": {
-          "type": "pom",
-          "repository_url": "repo.spring.io/release"
-        },
-        "subpath": null
-      },
-      "expected_failure": false,
-      "expected_message": null
+      "expected_failure": true,
+      "expected_message": "Should fail as qualifier keys are not in lowercase"
     },
     {
       "description": "maven pom reference. Roundtrip a canonical input to canonical output.",

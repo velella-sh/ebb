@@ -9,7 +9,9 @@ Official [Package-URL (purl-spec)](https://github.com/package-url/purl-spec) con
 - Suite tree: https://github.com/package-url/purl-spec/tree/v1.1.0/tests
 - License (MIT): https://github.com/package-url/purl-spec/blob/v1.1.0/LICENSE
 
-`fixtures/spec/` and `fixtures/types/` are copied unchanged from that tag's `tests/` directory. `fixtures/LICENSE` is the upstream MIT license from the same tag.
+`fixtures/spec/` and `fixtures/types/` are copied from that tag's `tests/` directory. `fixtures/LICENSE` is the upstream MIT license from the same tag.
+
+One local correction: `types/maven-test.json` required parse of `repositorY_url` expects failure, matching the gem/rpm qualifier-key tests and [package-url/purl-spec#1027](https://github.com/package-url/purl-spec/issues/1027).
 
 ## How to update by hand
 
