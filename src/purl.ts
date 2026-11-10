@@ -170,7 +170,8 @@ function parseQualifiers(query: string, value: string): Record<string, string> {
   for (const pair of query.split("&")) {
     if (!pair) continue;
     const equals = pair.indexOf("=");
-    if (equals <= 0) throw new PurlError(`Invalid qualifier "${pair}" in ${value}`);
+    if (equals < 0) throw new PurlError(`Invalid qualifier "${pair}": missing "=" in ${value}`);
+    if (equals === 0) throw new PurlError(`Invalid qualifier "${pair}": missing key in ${value}`);
     const qualifierValue = decode(pair.slice(equals + 1));
     // An empty value is the same as omitting the pair. Skip it before the duplicate check
     // so `foo=1&foo=` stays a single `foo`.
@@ -182,10 +183,23 @@ function parseQualifiers(query: string, value: string): Record<string, string> {
   return qualifiers;
 }
 
+/**
+ * When `?` appears before any `/`, the string before `?` is the type with no name.
+ * Check it here so `pkg:n&g?…` names an invalid type instead of a bogus qualifier.
+ */
+function requireTypeBeforeQuery(beforeQuery: string, value: string): void {
+  if (!beforeQuery) throw new PurlError(`PURL is missing a type: ${value}`);
+  if (beforeQuery.includes("/")) return;
+  const type = beforeQuery.toLowerCase();
+  if (!TYPE_PATTERN.test(type)) throw new PurlError(`Invalid PURL type "${type}".`);
+  throw new PurlError(`PURL is missing a name: ${value}`);
+}
+
 /** Splits the `?qualifiers` query off a PURL. */
 function takeQualifiers(rest: string, value: string): { rest: string; qualifiers?: Record<string, string> } {
   const question = rest.indexOf("?");
   if (question < 0) return { rest };
+  requireTypeBeforeQuery(rest.slice(0, question), value);
   return {
     rest: rest.slice(0, question),
     qualifiers: parseQualifiers(rest.slice(question + 1), value),
@@ -195,7 +209,11 @@ function takeQualifiers(rest: string, value: string): { rest: string; qualifiers
 /** Reads the lowercased type before the first `/`, then the path after it. */
 function splitTypeAndPath(rest: string, value: string): { type: string; rest: string } {
   const slash = rest.indexOf("/");
-  if (slash <= 0) throw new PurlError(`PURL is missing a type or name: ${value}`);
+  if (slash < 0) {
+    if (!rest) throw new PurlError(`PURL is missing a type: ${value}`);
+    throw new PurlError(`PURL is missing a name: ${value}`);
+  }
+  if (slash === 0) throw new PurlError(`PURL is missing a type: ${value}`);
   const type = rest.slice(0, slash).toLowerCase();
   if (!TYPE_PATTERN.test(type)) throw new PurlError(`Invalid PURL type "${type}".`);
   return { type, rest: trimTrailingSlashes(rest.slice(slash + 1)) };
