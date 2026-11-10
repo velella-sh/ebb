@@ -19,6 +19,18 @@ export const lifecycleEvents = [
 ] as const;
 export type LifecycleEvent = (typeof lifecycleEvents)[number];
 
+/**
+ * Most serious lifecycle event first. `lookup` uses this for the primary status;
+ * `check` maps it to `CheckEvent` for the same. Match sorting (#40) should reuse it.
+ */
+export const lifecycleEventPrecedence: readonly LifecycleEvent[] = [
+  "end-of-life",
+  "removed",
+  "end-of-support",
+  "deprecated",
+  "scheduled-end-of-life",
+];
+
 export interface Provenance {
   /** Date the evidence was last seen at its source (YYYY-MM-DD). */
   observedAt: string;
