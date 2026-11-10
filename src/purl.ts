@@ -71,40 +71,119 @@ function trimTrailingSlashes(value: string): string {
   return end === value.length ? value : value.slice(0, end);
 }
 
+/**
+ * Per-type normalisation and shape rules from the registered PURL type definitions.
+ * One entry per type: case folding, name/namespace transforms, and required/prohibited parts.
+ */
+type TypeRule = {
+  /** Lowercase each namespace segment. */
+  lowercaseNamespace?: boolean;
+  /** Lowercase the name (or each `/`-separated name segment). */
+  lowercaseName?: boolean;
+  /** Lowercase the version. */
+  lowercaseVersion?: boolean;
+  /** Uppercase the namespace (CPAN author id). */
+  uppercaseNamespace?: boolean;
+  /** Namespace must be present, or must be absent. */
+  namespace?: "required" | "prohibited";
+  /** Extra name transform after optional lowercasing (PyPI underscores, MLflow host rules). */
+  transformName?: (name: string, qualifiers: Record<string, string> | undefined) => string;
+  /** Reject a name that does not match (after transforms). */
+  namePattern?: RegExp;
+  /** When a version is present, it must match. */
+  versionPattern?: RegExp;
+  /** Qualifier keys that must be present after canonicalisation. */
+  requireQualifiers?: readonly string[];
+  /**
+   * How to split the path into namespace and name.
+   * `git`: first segment is the host namespace; the rest is the repository path (name may contain `/`).
+   * default: last segment is the name; earlier segments are the namespace.
+   */
+  pathStyle?: "git";
+};
+
+const TYPE_RULES: Record<string, TypeRule> = {
+  bitbucket: { lowercaseNamespace: true, lowercaseName: true, namespace: "required" },
+  brew: { lowercaseNamespace: true, lowercaseName: true },
+  "chrome-extension": {
+    namespace: "prohibited",
+    lowercaseName: true,
+    namePattern: /^[a-p]{32}$/,
+    versionPattern: /^\d+(\.\d+){0,3}$/,
+  },
+  composer: { lowercaseNamespace: true, lowercaseName: true },
+  cpan: { uppercaseNamespace: true, namePattern: /^(?!.*::).+/ },
+  docker: { lowercaseNamespace: true, lowercaseName: true },
+  git: { lowercaseNamespace: true, lowercaseName: true, namespace: "required", pathStyle: "git" },
+  github: { lowercaseNamespace: true, lowercaseName: true, namespace: "required" },
+  golang: { lowercaseNamespace: true, lowercaseName: true },
+  huggingface: { lowercaseVersion: true, namespace: "required" },
+  julia: { namespace: "prohibited", requireQualifiers: ["uuid"] },
+  mlflow: {
+    namespace: "prohibited",
+    transformName: (name, qualifiers) => {
+      const repositoryUrl = qualifiers?.repository_url?.toLowerCase() ?? "";
+      // Databricks model names are case-insensitive; Azure ML keeps the given case.
+      if (repositoryUrl.includes("databricks")) return name.toLowerCase();
+      return name;
+    },
+  },
+  npm: { lowercaseNamespace: true, lowercaseName: true },
+  otp: { lowercaseName: true, namespace: "prohibited" },
+  pub: { lowercaseName: true },
+  pypi: {
+    namespace: "prohibited",
+    transformName: (name) => name.toLowerCase().replace(/_/g, "-"),
+  },
+  rpm: { lowercaseNamespace: true, namespace: "required" },
+  swift: { namespace: "required" },
+  vcpkg: { namespace: "prohibited" },
+  "vscode-extension": { namespace: "required" },
+};
+
+function typeRule(type: string): TypeRule | undefined {
+  return TYPE_RULES[type];
+}
+
 function normalize(purl: PackageUrl): PackageUrl {
   const type = purl.type.toLowerCase();
+  const rule = typeRule(type);
+  const qualifiers = canonicalQualifiers(purl.qualifiers);
+
   let namespace = purl.namespace;
   let name = purl.name;
+  let version = purl.version;
 
-  switch (type) {
-    case "npm":
-    case "golang":
-    case "composer":
-    case "github":
-      namespace = namespace?.toLowerCase();
-      name = name.toLowerCase();
-      break;
-    case "pypi":
-      name = name.toLowerCase().replace(/_/g, "-");
-      break;
-    case "pub":
-      name = name.toLowerCase();
-      break;
-    case "docker":
-      namespace = namespace?.toLowerCase();
-      name = name.toLowerCase();
-      break;
-    default:
-      break;
+  if (rule?.lowercaseNamespace && namespace) namespace = namespace.toLowerCase();
+  if (rule?.uppercaseNamespace && namespace) namespace = namespace.toUpperCase();
+  if (rule?.lowercaseName) name = name.toLowerCase();
+  if (rule?.transformName) name = rule.transformName(name, qualifiers);
+  if (rule?.lowercaseVersion && version !== undefined) version = version.toLowerCase();
+
+  if (rule?.namespace === "required" && !namespace) {
+    throw new PurlError(`PURL type "${type}" requires a namespace.`);
+  }
+  if (rule?.namespace === "prohibited" && namespace) {
+    throw new PurlError(`PURL type "${type}" must not have a namespace.`);
+  }
+  if (rule?.namePattern && !rule.namePattern.test(name)) {
+    throw new PurlError(`Invalid PURL name "${name}" for type "${type}".`);
+  }
+  if (rule?.versionPattern && version !== undefined && !rule.versionPattern.test(version)) {
+    throw new PurlError(`Invalid PURL version "${version}" for type "${type}".`);
+  }
+  if (rule?.requireQualifiers) {
+    for (const key of rule.requireQualifiers) {
+      if (!qualifiers?.[key]) throw new PurlError(`PURL type "${type}" requires qualifier "${key}".`);
+    }
   }
 
-  const qualifiers = canonicalQualifiers(purl.qualifiers);
   const subpath = normalizeSubpath(purl.subpath);
   return {
     type,
     ...(namespace ? { namespace } : {}),
     name,
-    ...(purl.version !== undefined ? { version: purl.version } : {}),
+    ...(version !== undefined ? { version } : {}),
     ...(qualifiers ? { qualifiers } : {}),
     ...(subpath ? { subpath } : {}),
   };
@@ -232,9 +311,23 @@ function takeVersion(rest: string): { rest: string; version?: string } {
   return { rest: rest.slice(0, at), version: decode(rest.slice(at + 1)) };
 }
 
-/** The last path segment is the name; the segments before it are the namespace. */
-function splitName(rest: string, value: string): { name: string; namespace: string | undefined } {
+/**
+ * Splits the path into namespace and name. Most types use the last segment as the name;
+ * `git` keeps the repository path (with `/`) in the name and only the host in the namespace.
+ * A trailing `/` means the name is missing (`pkg:swift/github.com/Alamofire/@1.0`).
+ */
+function splitName(rest: string, value: string, type: string): { name: string; namespace: string | undefined } {
+  if (!rest || rest.endsWith("/")) throw new PurlError(`PURL is missing a name: ${value}`);
   const segments = rest.split("/").filter(Boolean).map(decode);
+  if (segments.length === 0) throw new PurlError(`PURL is missing a name: ${value}`);
+
+  if (typeRule(type)?.pathStyle === "git") {
+    const namespace = segments[0];
+    const name = segments.slice(1).join("/");
+    if (!namespace || !name) throw new PurlError(`PURL is missing a name: ${value}`);
+    return { name, namespace };
+  }
+
   const name = segments.pop();
   if (!name) throw new PurlError(`PURL is missing a name: ${value}`);
   return {
@@ -250,7 +343,7 @@ export function parsePurl(value: string): PackageUrl {
   const { rest: withoutQuery, qualifiers } = takeQualifiers(withoutSubpath, value);
   const { type, rest: path } = splitTypeAndPath(withoutQuery, value);
   const { rest: withoutVersion, version } = takeVersion(path);
-  const { name, namespace } = splitName(withoutVersion, value);
+  const { name, namespace } = splitName(withoutVersion, value, type);
 
   return normalize({
     type,
@@ -271,7 +364,12 @@ export function formatPurl(purl: PackageUrl): string {
   if (canonical.namespace) {
     result += `${canonical.namespace.split("/").filter(Boolean).map(encode).join("/")}/`;
   }
-  result += encode(canonical.name);
+  // `git` names are a repository path: encode each segment, keep `/` as a separator.
+  // Every other type treats the name as one segment, so `/` is percent-encoded.
+  result +=
+    typeRule(canonical.type)?.pathStyle === "git"
+      ? canonical.name.split("/").filter(Boolean).map(encode).join("/")
+      : encode(canonical.name);
   if (canonical.version) result += `@${encode(canonical.version)}`;
   if (canonical.qualifiers) {
     const pairs = Object.entries(canonical.qualifiers).map(
