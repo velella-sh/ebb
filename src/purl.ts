@@ -301,14 +301,19 @@ function takeQualifiers(
   };
 }
 
-/** Reads the lowercased type before the first `/`, then the path after it. */
+/**
+ * Reads the lowercased type before the first `/`, then the path after it.
+ * Leading slashes after `pkg:` are ignored for `pkg:/type/name`, but a lone
+ * `pkg:/name` has an empty type and must say so (not "missing a name").
+ */
 function splitTypeAndPath(rest: string, value: string): { type: string; rest: string } {
+  const hadLeadingSlash = rest.startsWith("/");
+  rest = rest.replace(/^\/+/, "");
   const slash = rest.indexOf("/");
   if (slash < 0) {
-    if (!rest) throw new PurlError(`PURL is missing a type: ${value}`);
+    if (!rest || hadLeadingSlash) throw new PurlError(`PURL is missing a type: ${value}`);
     throw new PurlError(`PURL is missing a name: ${value}`);
   }
-  if (slash === 0) throw new PurlError(`PURL is missing a type: ${value}`);
   const type = rest.slice(0, slash).toLowerCase();
   if (!TYPE_PATTERN.test(type)) throw new PurlError(`Invalid PURL type "${type}".`);
   return { type, rest: trimTrailingSlashes(rest.slice(slash + 1)) };
@@ -363,7 +368,8 @@ export function parsePurl(value: string): PackageUrl {
 
 function parsePurlInternal(value: string, options: QualifierKeyOptions): PackageUrl {
   if (!value.trim().startsWith("pkg:")) throw new PurlError(`PURL must start with "pkg:": ${value}`);
-  const body = value.trim().slice(4).replace(/^\/+/, "");
+  // Keep leading slashes so splitTypeAndPath can tell `pkg:/x` (empty type) from `pkg:x` (no name).
+  const body = value.trim().slice(4);
   const { rest: withoutSubpath, subpath } = takeSubpath(body);
   const { rest: withoutQuery, qualifiers } = takeQualifiers(withoutSubpath, value, options);
   const { type, rest: path } = splitTypeAndPath(withoutQuery, value);
