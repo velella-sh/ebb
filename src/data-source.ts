@@ -330,9 +330,12 @@ export function getActiveDataSync(): ActiveData {
   return activeSync;
 }
 
-/** The data for this process, resolved once with the options set by {@link configureActiveData}. */
-export function getActiveData(): Promise<ActiveData> {
-  return Promise.resolve(getActiveDataSync());
+/**
+ * The data for this process, resolved once with the options set by {@link configureActiveData}.
+ * Async so pin and verification failures reject the promise instead of throwing synchronously.
+ */
+export async function getActiveData(): Promise<ActiveData> {
+  return getActiveDataSync();
 }
 
 /** Sets how this process resolves data (the cache directory, a pinned version) and forgets what was resolved. */
