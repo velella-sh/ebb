@@ -80,3 +80,45 @@ test("an end date in the future or a supported older line stops 'and older' from
     ],
   );
 });
+
+const NODE_URL = "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json";
+const PYTHON_URL = "https://peps.python.org/api/release-cycle.json";
+
+test("drafts a scheduled rule for a Python line that ends within the horizon", async () => {
+  const cycle = {
+    "3.9": { status: "end-of-life", end_of_life: "2025-10-31" },
+    "3.10": { status: "bugfix", end_of_life: "2026-11" },
+    "3.11": { status: "bugfix", end_of_life: "2099-10" },
+  };
+  const output = await containerOfficialImagesImporter.import({
+    now: new Date("2026-10-16T00:00:00Z"),
+    async fetchText(url) {
+      if (url === NODE_URL) return JSON.stringify({});
+      if (url === PYTHON_URL) return JSON.stringify(cycle);
+      return "Tags: 3.9, 3.10\n";
+    },
+  });
+  const scheduled = output.rules.find((rule) => rule.id === "container.python.eol-3.10-and-older");
+  assert.ok(scheduled);
+  assert.equal(scheduled.event, "scheduled-end-of-life");
+  assert.equal(scheduled.deadline, "2026-11-30");
+  assert.equal(scheduled.vers, "vers:semver/>=3.10.0|<3.11.0");
+  const ended = output.rules.find((rule) => rule.event === "end-of-life");
+  assert.equal(ended?.id, "container.python.eol-3.9-and-older");
+  assert.match(output.notes.join("\n"), /Python lines 3\.9 are end-of-life but still have tags/);
+});
+
+test("notes when neither Node.js nor Python has an end-of-life line to draft", async () => {
+  const output = await containerOfficialImagesImporter.import({
+    now: new Date("2026-10-16T00:00:00Z"),
+    async fetchText(url) {
+      if (url === NODE_URL) return JSON.stringify({ v22: { end: "2099-01-01" } });
+      if (url === PYTHON_URL) return JSON.stringify({ "3.13": { status: "bugfix", end_of_life: "2099-10" } });
+      return "Tags: none\n";
+    },
+  });
+  assert.deepEqual(output.rules, []);
+  const notes = output.notes.join("\n");
+  assert.match(notes, /Node\.js: no end-of-life release line could be drafted/);
+  assert.match(notes, /Python: no end-of-life release line could be drafted/);
+});
