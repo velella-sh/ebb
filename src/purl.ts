@@ -23,6 +23,12 @@ export class PurlError extends EbbError {
 
 const TYPE_PATTERN = /^[a-z][a-z0-9.+-]*$/;
 
+/**
+ * A qualifier key is a lowercase ASCII letter, then letters, digits, `.`, `-`, or `_`.
+ * Keys are not percent-encoded. ECMA-427 clause 5.6.6.
+ */
+const QUALIFIER_KEY = /^[a-z][a-z0-9._-]*$/;
+
 function decode(segment: string): string {
   try {
     return decodeURIComponent(segment);
@@ -73,14 +79,36 @@ function normalize(purl: PackageUrl): PackageUrl {
       break;
   }
 
+  const qualifiers = canonicalQualifiers(purl.qualifiers);
   return {
     type,
     ...(namespace ? { namespace } : {}),
     name,
     ...(purl.version !== undefined ? { version: purl.version } : {}),
-    ...(purl.qualifiers && Object.keys(purl.qualifiers).length > 0 ? { qualifiers: purl.qualifiers } : {}),
+    ...(qualifiers ? { qualifiers } : {}),
     ...(purl.subpath ? { subpath: purl.subpath } : {}),
   };
+}
+
+/**
+ * Qualifier rules from the spec: lowercase keys, drop empty values, reject a repeated key,
+ * and keep the map sorted by key so the canonical string and the parsed object agree.
+ */
+function canonicalQualifiers(qualifiers: Record<string, string> | undefined): Record<string, string> | undefined {
+  if (!qualifiers) return undefined;
+  const entries: [string, string][] = [];
+  const seen = new Set<string>();
+  for (const [rawKey, rawValue] of Object.entries(qualifiers)) {
+    if (!rawValue) continue;
+    const key = rawKey.toLowerCase();
+    if (!QUALIFIER_KEY.test(key)) throw new PurlError(`Invalid qualifier key "${rawKey}".`);
+    if (seen.has(key)) throw new PurlError(`Duplicate qualifier key "${key}".`);
+    seen.add(key);
+    entries.push([key, rawValue]);
+  }
+  if (entries.length === 0) return undefined;
+  entries.sort(([left], [right]) => left.localeCompare(right));
+  return Object.fromEntries(entries);
 }
 
 /** Splits the `#subpath` fragment off a PURL, keeping only safe path segments. */
@@ -103,7 +131,12 @@ function parseQualifiers(query: string, value: string): Record<string, string> {
     const equals = pair.indexOf("=");
     if (equals <= 0) throw new PurlError(`Invalid qualifier "${pair}" in ${value}`);
     const qualifierValue = decode(pair.slice(equals + 1));
-    if (qualifierValue) qualifiers[pair.slice(0, equals).toLowerCase()] = qualifierValue;
+    // An empty value is the same as omitting the pair. Skip it before the duplicate check
+    // so `foo=1&foo=` stays a single `foo`.
+    if (!qualifierValue) continue;
+    const rawKey = pair.slice(0, equals);
+    if (Object.hasOwn(qualifiers, rawKey)) throw new PurlError(`Duplicate qualifier key "${rawKey}" in ${value}`);
+    qualifiers[rawKey] = qualifierValue;
   }
   return qualifiers;
 }
@@ -176,12 +209,10 @@ export function formatPurl(purl: PackageUrl): string {
   result += encode(canonical.name);
   if (canonical.version) result += `@${encode(canonical.version)}`;
   if (canonical.qualifiers) {
-    const pairs = Object.entries(canonical.qualifiers)
-      .filter(([, qualifierValue]) => qualifierValue)
-      .map(([key, qualifierValue]) => [key.toLowerCase(), qualifierValue] as const)
-      .sort(([left], [right]) => left.localeCompare(right))
-      .map(([key, qualifierValue]) => `${key}=${encode(qualifierValue)}`);
-    if (pairs.length > 0) result += `?${pairs.join("&")}`;
+    const pairs = Object.entries(canonical.qualifiers).map(
+      ([key, qualifierValue]) => `${key}=${encode(qualifierValue)}`,
+    );
+    result += `?${pairs.join("&")}`;
   }
   if (canonical.subpath) result += `#${canonical.subpath.split("/").map(encode).join("/")}`;
   return result;

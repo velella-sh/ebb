@@ -51,6 +51,23 @@ test("sorts qualifiers and drops empty values", () => {
   assert.equal(normalizePurl("pkg:docker/node?tag=&arch=amd64&os=linux"), "pkg:docker/node?arch=amd64&os=linux");
 });
 
+test("lowercases qualifier keys and rejects an invalid or duplicate key", () => {
+  assert.equal(
+    normalizePurl("pkg:gem/jruby-launcher@1.1.2?Platform=java"),
+    "pkg:gem/jruby-launcher@1.1.2?platform=java",
+  );
+  assert.throws(() => parsePurl("pkg:npm/myartifact@1.0.0?in%20production=true"), PurlError);
+  assert.throws(
+    () => formatPurl({ type: "npm", name: "myartifact", version: "1.0.0", qualifiers: { "in production": "true" } }),
+    PurlError,
+  );
+  assert.throws(() => parsePurl("pkg:npm/myartifact@1.0.0?arch=x64&arch=arm64"), PurlError);
+  assert.throws(
+    () => formatPurl({ type: "npm", name: "myartifact", qualifiers: { Arch: "x64", arch: "arm64" } }),
+    PurlError,
+  );
+});
+
 test("returns the version-less identity used by registry rules", () => {
   assert.equal(purlIdentity("pkg:npm/%40angular/core@17.0.0?foo=bar#x"), "pkg:npm/%40angular/core");
   assert.equal(purlIdentity({ type: "pypi", name: "Django_Nose" }), "pkg:pypi/django-nose");
