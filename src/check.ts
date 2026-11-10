@@ -99,7 +99,7 @@ const checkEventByLifecycle: Record<LifecycleEvent, CheckEvent> = {
   "scheduled-end-of-life": "scheduled",
 };
 
-/** Check-status order derived from {@link lifecycleEventPrecedence}; used for `status` only. Sorting matches is #40. */
+/** Most serious event first — shared by `status` and match ordering. */
 const statusPrecedence: readonly CheckEvent[] = lifecycleEventPrecedence.map((event) => checkEventByLifecycle[event]);
 
 /**
@@ -134,16 +134,36 @@ function statusFromMatches(matches: readonly CheckMatch[]): CheckStatus {
 }
 
 /**
+ * Most serious event first ({@link lifecycleEventPrecedence}), then earliest
+ * date; undated rules sort after dated ones. Equal keys keep input order.
+ */
+export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
+  return matches
+    .map((match, index) => ({ match, index }))
+    .sort((a, b) => {
+      const byEvent = statusPrecedence.indexOf(a.match.event) - statusPrecedence.indexOf(b.match.event);
+      if (byEvent !== 0) return byEvent;
+      if (a.match.date === null && b.match.date === null) return a.index - b.index;
+      if (a.match.date === null) return 1;
+      if (b.match.date === null) return -1;
+      if (a.match.date < b.match.date) return -1;
+      if (a.match.date > b.match.date) return 1;
+      return a.index - b.index;
+    })
+    .map(({ match }) => match);
+}
+
+/**
  * Judges `purl` at `version` against the lifecycle rules. Offline; no network.
- * Keeps every candidate whose version range contains the normalised version.
+ * Keeps every candidate whose version range contains the normalised version,
+ * ordered by event seriousness then deadline.
  * Unknown packages and known packages with no matching rule return `status: "ok"`
  * and `matches: []` — they do not throw.
- * Match order is still candidate order; a later task sorts by severity then deadline.
  * The result keeps the original `version`.
  */
 export function check(purl: string, version: string): CheckResult {
   const candidates = resolveCandidateRules(purl);
   const normalised = requireVersionInput(version);
-  const matches = candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map(toCheckMatch);
+  const matches = orderMatches(candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map(toCheckMatch));
   return { status: statusFromMatches(matches), matches, version };
 }
