@@ -19,6 +19,7 @@ import {
   type ResultMatch,
   type ResultStatus,
 } from "./result.js";
+import { compileRulesVers, getCompiledVers } from "./vers/compile.js";
 import { VersError, versContains } from "./vers.js";
 
 /** Thrown when a product name is unknown or matches more than one package. */
@@ -85,6 +86,7 @@ function rulesIndex(): Map<string, RegistryV2Rule[]> {
   const allRules: RegistryV2Rule[] = [];
   for (const ecosystem of BUNDLED_ECOSYSTEMS) {
     const rules = validateRegistryV2(data.readSync(`registry/${ecosystem}.json`)).rules;
+    compileRulesVers(rules);
     allRules.push(...rules);
     for (const rule of rules) {
       const identity = purlIdentity(rule.purl);
@@ -158,7 +160,7 @@ const statusPrecedence: readonly CheckEvent[] = lifecycleEventPrecedence.map((ev
  * they must not look like a quiet non-match.
  */
 function ruleMatchesVersion(rule: RegistryV2Rule, version: string): boolean {
-  return versContains(rule.vers, version);
+  return versContains(getCompiledVers(rule), version);
 }
 
 /** Reject empty / whitespace-only input before any range compare. */

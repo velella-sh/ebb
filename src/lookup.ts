@@ -9,6 +9,7 @@ import { required } from "./required.js";
 import { validateRegistryV2 } from "./registry.js";
 import { lifecycleEventPrecedence } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
+import { compileRulesVers, getCompiledVers } from "./vers/compile.js";
 import { versContains } from "./vers.js";
 
 export const LOOKUP_SCHEMA_VERSION = "ebb.lookup.v1" as const;
@@ -57,7 +58,9 @@ function loadLookupData(): Promise<LookupData> {
   loadedLookupData ??= (async () => {
     const rules: RegistryV2Rule[] = [];
     for (const ecosystem of BUNDLED_ECOSYSTEMS) {
-      rules.push(...validateRegistryV2(await loadDataFile(`registry/${ecosystem}.json`)).rules);
+      const parsedRules = validateRegistryV2(await loadDataFile(`registry/${ecosystem}.json`)).rules;
+      compileRulesVers(parsedRules);
+      rules.push(...parsedRules);
     }
     const products = productsFromRules(rules);
     return {
@@ -139,9 +142,10 @@ function versionCandidates(version: string): string[] {
 }
 
 function matchesVersion(rule: RegistryV2Rule, version: string): boolean {
+  const compiled = getCompiledVers(rule);
   return versionCandidates(version).some((candidate) => {
     try {
-      return versContains(rule.vers, candidate);
+      return versContains(compiled, candidate);
     } catch {
       return false;
     }

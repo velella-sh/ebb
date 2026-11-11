@@ -5,7 +5,7 @@
 import { resolveAllRulesForIdentity } from "./check.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { type LifecycleEvent, lifecycleEvents, type RegistryV2Rule } from "./registry.js";
-import { parseVersLenient, type VersRange, versionScheme } from "./vers/index.js";
+import { getCompiledVers, type VersRange, versionScheme } from "./vers/index.js";
 
 /** A lifecycle rule returned by {@link rulesFor}. */
 export type Rule = RegistryV2Rule;
@@ -33,8 +33,8 @@ type RangeStart =
 /** Caches sorted copies per immutable index bucket so repeated lookups avoid re-parsing `vers`. */
 const sortedBuckets = new WeakMap<readonly Rule[], readonly Rule[]>();
 
-function rangeStart(vers: string): RangeStart {
-  const range: VersRange = parseVersLenient(vers);
+function rangeStart(rule: Rule): RangeStart {
+  const range: VersRange = getCompiledVers(rule);
   if (range.all) return { bounded: false };
   const first = range.constraints.find((constraint) => constraint.comparator !== "!=");
   if (!first || first.comparator === "<" || first.comparator === "<=") return { bounded: false };
@@ -69,7 +69,7 @@ function compareRangeStart(left: RangeStart, right: RangeStart): number {
 function sortRulesOldestFirst(bucket: readonly Rule[]): readonly Rule[] {
   const cached = sortedBuckets.get(bucket);
   if (cached !== undefined) return cached;
-  const starts = new Map<string, RangeStart>(bucket.map((rule) => [rule.id, rangeStart(rule.vers)]));
+  const starts = new Map<string, RangeStart>(bucket.map((rule) => [rule.id, rangeStart(rule)]));
   const sorted = [...bucket].sort(
     (left, right) => compareRangeStart(starts.get(left.id)!, starts.get(right.id)!) || compareRuleId(left.id, right.id),
   );
