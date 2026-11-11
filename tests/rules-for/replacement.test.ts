@@ -4,10 +4,10 @@ import { PurlError } from "../../src/purl.js";
 import { replacementFor } from "../../src/replacement.js";
 import { VersError } from "../../src/vers.js";
 
-test("replacementFor returns the replacement for a deprecated or end-of-life package version", () => {
-  assert.equal(replacementFor("pkg:npm/node-sass", "9.0.0"), "sass");
+test("replacementFor returns the normalised replacement PURL or guidance for a matching version", () => {
+  assert.equal(replacementFor("pkg:npm/node-sass", "9.0.0"), "pkg:npm/sass");
   assert.equal(replacementFor("pkg:npm/request", "2.88.2"), "Native fetch or a maintained HTTP client");
-  assert.equal(replacementFor("pkg:npm/babel-preset-es2015", "6.24.1"), "@babel/preset-env");
+  assert.equal(replacementFor("pkg:npm/babel-preset-es2015", "6.24.1"), "pkg:npm/%40babel/preset-env");
 });
 
 test("replacementFor returns null for unmatched versions, unknown packages, and rules without a replacement", () => {
