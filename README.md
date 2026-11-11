@@ -86,7 +86,8 @@ check("pkg:npm/left-pad", "1.3.0");
 //           url: "https://www.npmjs.com/package/left-pad",
 //           accessedAt: "2026-10-13"
 //         }
-//       ]
+//       ],
+//       reviewedAt: "2026-10-14"
 //     }
 //   ],
 //   version: "1.3.0"
@@ -113,7 +114,8 @@ check("node", "18.20.4");
 //           url: "https://github.com/nodejs/Release/blob/main/schedule.json",
 //           accessedAt: "2026-10-17"
 //         }
-//       ]
+//       ],
+//       reviewedAt: "2026-10-17"
 //     }
 //   ],
 //   version: "18.20.4"
@@ -130,7 +132,8 @@ check("pkg:generic/nodejs", "22.11.0", "2026-04-01");
 //       date: "2027-04-30",
 //       daysLeft: 394,
 //       replacement: "Node.js 24 LTS or later",
-//       sources: [ /* … */ ]
+//       sources: [ /* … */ ],
+//       reviewedAt: "2026-10-24"
 //     }
 //   ],
 //   version: "22.11.0",

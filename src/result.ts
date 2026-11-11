@@ -3,12 +3,42 @@
  * Fields may grow; status values are never renamed.
  */
 
+import type { EvidenceSource } from "./domain.js";
 import { isIsoDate } from "./registry.js";
 
 export const resultStatuses = ["ok", "deprecated", "unsupported", "end-of-life", "removed", "scheduled"] as const;
 
 /** A lifecycle verdict, or `ok` when no rule matches. */
 export type ResultStatus = (typeof resultStatuses)[number];
+
+/** The event on a matching rule (every status except `ok`). */
+export type ResultEvent = Exclude<ResultStatus, "ok">;
+
+/** One rule that matched a checked component version. */
+export interface ResultMatch {
+  ruleId: string;
+  event: ResultEvent;
+  date: string | null;
+  /** Whole UTC days from the result's `asOf` until `date`; null when past or undated. */
+  daysLeft: number | null;
+  replacement: string | null;
+  sources: EvidenceSource[];
+  /** Date (`YYYY-MM-DD`) a maintainer last reviewed the rule against its sources. */
+  reviewedAt: string;
+}
+
+/** Result of judging one component version against the active lifecycle rules. */
+export interface Result {
+  status: ResultStatus;
+  matches: ResultMatch[];
+  /** The version argument exactly as given. */
+  version: string;
+  /**
+   * The day `daysLeft` is measured from (`YYYY-MM-DD`), when supplied.
+   * Omitted for the clock-free no-`asOf` form; never read from a system clock.
+   */
+  asOf?: string;
+}
 
 const MS_PER_DAY = 86_400_000;
 
