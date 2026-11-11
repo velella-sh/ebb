@@ -51,21 +51,21 @@ npm install @velella/ebb
 Requires Node.js 22 or newer. ESM only.
 
 ```ts
-import { lookupProduct } from "@velella/ebb/lookup";
+import { check, replacementFor } from "@velella/ebb";
 
-const node = await lookupProduct("node", "18.20.4");
-node.status;    // "end-of-life"
-node.deadline;  // "2025-04-30"
+const node = check("node", "18.20.4");
+node.status;           // "end-of-life"
+node.matches[0]?.date; // "2025-04-30"
 
-const request = await lookupProduct("pkg:npm/request", "2.88.2");
-request.status;      // "deprecated"
-request.replacement; // "Native fetch or a maintained HTTP client"
+const request = check("pkg:npm/request", "2.88.2");
+request.status;                              // "deprecated"
+replacementFor("pkg:npm/request", "2.88.2"); // "Native fetch or a maintained HTTP client"
 ```
 
-`check` answers the same question synchronously — a purl or a product name, plus a version — and returns every matching rule. Pass an optional `asOf` day (`YYYY-MM-DD`) to fill each match's `daysLeft`; omit it to keep the two-argument form (`daysLeft` stays `null`). The first call may block while it reads the active data file; later calls reuse the cached index:
+`check` takes a purl or a product name plus a version and returns every matching rule synchronously. Pass an optional `asOf` day (`YYYY-MM-DD`) to fill each match's `daysLeft`; omit it to keep the two-argument form (`daysLeft` stays `null`). The first call may block while it reads the active data file; later calls reuse the cached index:
 
 ```ts
-import { check } from "@velella/ebb/check";
+import { check } from "@velella/ebb";
 
 // A deprecated package
 // `date: null` means the rule has no deadline date.
@@ -144,20 +144,22 @@ check("pkg:generic/nodejs", "22.11.0", "2026-04-01");
 // }
 ```
 
-To work with the rules directly:
+To inspect a component's rules or check a batch of dependencies:
 
 ```ts
-import { bundledRules } from "@velella/ebb/bundled-rules";
-import { purlIdentity } from "@velella/ebb/purl";
-import { versContains } from "@velella/ebb/vers/index";
+import { checkAll, rulesFor } from "@velella/ebb";
 
-const rules = await bundledRules();
-const affected = rules.filter(
-  (rule) => purlIdentity(rule.purl) === "pkg:generic/python" && versContains(rule.vers, "3.9.18"),
-);
+const pythonEolRules = rulesFor("pkg:generic/python", { event: "end-of-life" });
+pythonEolRules.some((rule) => rule.id === "python.runtime.eol-3.10-and-older"); // true
+
+const batch = checkAll([
+  { purl: "pkg:npm/request", version: "2.88.2" },
+  { purl: "pkg:generic/nodejs", version: "18.20.4" },
+]);
+batch.summary.total; // 2
 ```
 
-Each module is imported by its own path (`@velella/ebb/<module>`). Until 1.0 the module layout may still change. Minor and patch releases add data, and anything that breaks an import is called out in the release notes.
+Import from `@velella/ebb`. Legacy `0.1.x` subpaths keep resolving until `1.0` with `@deprecated` notices; see [docs/API-STABILITY.md](docs/API-STABILITY.md) for entry-point details.
 
 ## What a rule looks like
 
