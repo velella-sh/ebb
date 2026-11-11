@@ -28,5 +28,8 @@ describe("Agent Skill SKILL.md", () => {
     assert.ok(content.includes("checkAll") || content.includes("check_all"), "Documents batch check");
     assert.ok(content.includes("replacement_for") || content.includes("replacementFor"), "Documents replacement");
     assert.ok(content.includes("Strict Guidelines"), "Includes strict response guidelines");
+    assert.ok(content.includes("Detect and Verify Project Runtimes"), "Includes runtime detection step");
+    assert.ok(content.includes(".nvmrc"), "Mentions .nvmrc detection");
+    assert.ok(content.includes("Dockerfile"), "Mentions Dockerfile detection");
   });
 });

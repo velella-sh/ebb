@@ -16,6 +16,30 @@ Agents must consult Ebb before recommending or installing dependencies, upgradin
 3. **During audits**: Inspect manifests (`package.json`, `requirements.txt`, Dockerfile, workflow files) for upcoming or past EOL dates.
 4. **Finding replacements**: When a package is deprecated, query Ebb for the community-recommended replacement or migration target.
 
+## Step 1: Detect and Verify Project Runtimes
+
+Before adding dependencies or writing code targeting specific language features, discover the project's runtime versions and verify their lifecycle status with Ebb:
+
+1. **Node.js projects**:
+   - Check `.nvmrc`, `.node-version`, or `package.json` (`"engines": { "node": "..." }`).
+   - Query: `check("node", detectedVersion)`
+   - *Example*: If `.nvmrc` contains `16.20.0`, Ebb flags it as `end-of-life`.
+
+2. **Python projects**:
+   - Check `.python-version`, `pyproject.toml` (`requires-python`), or `Pipfile`.
+   - Query: `check("python", detectedVersion)`
+   - *Example*: If `pyproject.toml` specifies `>=3.7`, Ebb flags `3.7` as `end-of-life`.
+
+3. **Container Base Images**:
+   - Check `Dockerfile` (or `Containerfile`) `FROM` lines, e.g., `FROM node:14-alpine` or `FROM python:3.8-slim`.
+   - Query the extracted runtime: `check("node", "14")` or `check("python", "3.8")`.
+
+4. **Go & Java projects**:
+   - Check `go.mod` (`go 1.18`) or `pom.xml` / `build.gradle` (`<java.version>11</java.version>`).
+   - Query: `check("go", "1.18")` or `check("openjdk", "8")`.
+
+**Rule**: If a project runtime is deprecated or end-of-life, alert the user about the runtime risk before proceeding with new package installations.
+
 ## Verification Methods
 
 ### 1. Via Ebb Model Context Protocol (MCP)
