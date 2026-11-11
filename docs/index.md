@@ -35,6 +35,9 @@ sections:
       - title: Result model
         url: result-model/
         meta: reference
+      - title: Batch checking
+        url: check-all/
+        meta: reference
   - title: Decisions
     url: decisions/0004-registry-v2/
     description: The reasoning behind the registry format, importers, and data bundles.
