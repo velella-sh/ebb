@@ -99,6 +99,9 @@ function parseConstraint(raw: string, canonical: boolean): VersConstraint {
   if (canonical && RESERVED_VERSION_CHAR.test(encoded)) {
     throw new VersError(`non-canonical VERS: unencoded reserved character in version "${raw}"`);
   }
+  if (encoded.includes("*")) {
+    throw new VersError(`"*" must be the only constraint: ${raw}`);
+  }
   let version: string;
   try {
     version = decodeURIComponent(encoded);
@@ -226,7 +229,11 @@ function encodeVersion(version: string): string {
 
 export function formatVers(range: VersRange): string {
   const scheme = range.scheme.toLowerCase();
-  if (range.all) return `vers:${scheme}/*`;
+  if (range.all) {
+    if (range.constraints.length > 0) throw new VersError('"*" must be the only constraint');
+    return `vers:${scheme}/*`;
+  }
+  if (range.constraints.length === 0) throw new VersError("non-canonical VERS: constraints must not be empty");
   const parts = range.constraints.map(
     ({ comparator, version }) => `${comparator === "=" ? "" : comparator}${encodeVersion(version)}`,
   );
@@ -277,6 +284,7 @@ function anyBoundPairContains(bounds: readonly VersConstraint[], compareTo: Cons
 export function versContains(range: string | VersRange, version: string): boolean {
   const parsed = typeof range === "string" ? parseVersLenient(range) : range;
   if (parsed.all) return true;
+  if (parsed.constraints.length === 0) throw new VersError("non-canonical VERS: constraints must not be empty");
   const scheme = versionScheme(parsed.scheme);
   const compareTo: ConstraintComparison = (constraint) => scheme.compare(version, constraint.version);
 
