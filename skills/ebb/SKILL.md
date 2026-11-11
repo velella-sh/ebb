@@ -40,6 +40,28 @@ Before adding dependencies or writing code targeting specific language features,
 
 **Rule**: If a project runtime is deprecated or end-of-life, alert the user about the runtime risk before proceeding with new package installations.
 
+## Step 2: Check New Packages Before Installation
+
+Whenever you are about to install or suggest a new dependency (`npm i`, `yarn add`, `pnpm add`, `pip install`, `poetry add`, `cargo add`, `go get`, or adding entries to `package.json`, `pom.xml`, or `requirements.txt`):
+
+1. **Form the Package URL (PURL)**:
+   - npm: `pkg:npm/<package>@<version>` (or `pkg:npm/@<scope>/<package>@<version>`)
+   - PyPI: `pkg:pypi/<package>@<version>`
+   - Cargo: `pkg:cargo/<package>@<version>`
+   - Go: `pkg:golang/<module>@<version>`
+   - Maven: `pkg:maven/<groupId>/<artifactId>@<version>`
+
+2. **Run the check**:
+   Call MCP tool `check(purl, version?)` or offline Node script `check(purl, version)`.
+
+3. **Evaluate the response**:
+   - **`status: "ok"`**: Clean. Proceed with installation.
+   - **`status: "deprecated"` or `"end-of-life"`**:
+     - **STOP**: Do NOT silently install the package.
+     - Call `replacement_for(purl, version)` to find the recommended alternative.
+     - Inform the user: *"Package `<name>` is deprecated/EOL. Ebb recommends `<replacement>`."*
+     - If the user explicitly insists on the deprecated package, confirm before proceeding.
+
 ## Verification Methods
 
 ### 1. Via Ebb Model Context Protocol (MCP)
