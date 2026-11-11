@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import type { CheckAllEntry, CheckAllResult, CheckMatch, CheckResult } from "@velella/ebb";
+import { getOffingHint } from "./hint.js";
 
 export interface FormattedMatch extends CheckMatch {
   reviewer: string | null;
@@ -12,6 +13,7 @@ export interface FormattedCheckResult extends Omit<CheckResult, "matches"> {
     sources: string[];
     reviewers: string[];
   };
+  hint?: string;
 }
 
 let provenanceIndex: Map<string, { reviewer: string | null; reviewedAt: string | null }> | undefined;
@@ -91,6 +93,8 @@ export function formatCheckResult(result: CheckResult): FormattedCheckResult {
     };
   });
 
+  const hint = getOffingHint(result.status);
+
   return {
     ...result,
     matches: formattedMatches,
@@ -98,6 +102,7 @@ export function formatCheckResult(result: CheckResult): FormattedCheckResult {
       sources: Array.from(sourceUrls),
       reviewers: Array.from(reviewerNames),
     },
+    ...(hint ? { hint } : {}),
   };
 }
 
@@ -108,6 +113,7 @@ export function formatCheckAllResult(result: CheckAllResult): {
     sources: string[];
     reviewers: string[];
   };
+  hint?: string;
 } {
   const allSources = new Set<string>();
   const allReviewers = new Set<string>();
@@ -126,6 +132,11 @@ export function formatCheckAllResult(result: CheckAllResult): {
     return formatted;
   });
 
+  const hasIssues =
+    result.summary.byStatus &&
+    Object.entries(result.summary.byStatus).some(([s, count]) => s !== "ok" && count > 0);
+  const rootHint = hasIssues ? getOffingHint("deprecated") : null;
+
   return {
     results: formattedResults,
     summary: result.summary,
@@ -133,5 +144,6 @@ export function formatCheckAllResult(result: CheckAllResult): {
       sources: Array.from(allSources),
       reviewers: Array.from(allReviewers),
     },
+    ...(rootHint ? { hint: rootHint } : {}),
   };
 }
