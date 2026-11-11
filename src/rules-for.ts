@@ -4,11 +4,27 @@
 
 import { resolveAllRulesForIdentity } from "./check.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
-import type { RegistryV2Rule } from "./registry.js";
+import { type LifecycleEvent, lifecycleEvents, type RegistryV2Rule } from "./registry.js";
 import { parseVersLenient, type VersRange, versionScheme } from "./vers/index.js";
 
 /** A lifecycle rule returned by {@link rulesFor}. */
 export type Rule = RegistryV2Rule;
+
+/** Allowed lifecycle event names for filtering {@link rulesFor}. */
+export type RuleEvent = LifecycleEvent;
+
+/** Filter options accepted by {@link rulesFor}. */
+export interface RulesForOptions {
+  event?: RuleEvent | undefined;
+}
+
+/** Thrown when {@link rulesFor} receives an invalid filter option such as an unknown lifecycle event. */
+export class RulesForError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "RulesForError";
+  }
+}
 
 type RangeStart =
   | { readonly bounded: false }
@@ -61,15 +77,28 @@ function sortRulesOldestFirst(bucket: readonly Rule[]): readonly Rule[] {
   return sorted;
 }
 
+function validateEventFilter(event: RuleEvent | undefined): RuleEvent | undefined {
+  if (event === undefined) return undefined;
+  if (!(lifecycleEvents as readonly string[]).includes(event)) {
+    throw new RulesForError(
+      `Unknown lifecycle event "${String(event)}". Expected one of: ${lifecycleEvents.join(", ")}.`,
+    );
+  }
+  return event;
+}
+
 /**
  * Returns every active lifecycle rule whose component matches `purl`, sorted by version range
  * start (oldest first, ties broken by rule id), or `[]` when none exist.
- * Normalises `purl` with `src/purl.ts` before lookup; invalid PURLs throw {@link PurlError}.
- * Uses the cached active-data index shared with `check` (offline, synchronous).
+ * Pass `{ event }` to keep only rules with that {@link LifecycleEvent}; unknown events throw
+ * {@link RulesForError}. Normalises `purl` with `src/purl.ts` before lookup; invalid PURLs
+ * throw {@link PurlError}. Uses the cached active-data index shared with `check` (offline, synchronous).
  */
-export function rulesFor(purl: string): Rule[] {
+export function rulesFor(purl: string, options?: RulesForOptions): Rule[] {
   const identity = purlIdentity(parsePurl(normalizePurl(purl)));
+  const event = validateEventFilter(options?.event);
   const bucket = resolveAllRulesForIdentity(identity);
   if (bucket.length === 0) return [];
-  return [...sortRulesOldestFirst(bucket)];
+  const sorted = sortRulesOldestFirst(bucket);
+  return event === undefined ? [...sorted] : sorted.filter((rule) => rule.event === event);
 }
