@@ -7,7 +7,8 @@ export interface CheckAllItem {
 }
 
 /**
- * Evaluates a batch while deduplicating identical `(purl, version)` pairs via `evaluate`.
+ * Evaluates a batch while deduplicating identical `(purl, version)` pairs via `evaluate`,
+ * always writing each result to the exact input index without sorting.
  * @internal Exported so tests can verify per-pair call counts without module mocks.
  */
 export function checkAllWith(
@@ -36,7 +37,8 @@ export function checkAllWith(
 }
 
 /**
- * Judges each `{ purl, version }` item using {@link check} and returns the list of results.
+ * Judges each `{ purl, version }` item using {@link check} and returns the results in the exact
+ * input order (`results[i]` always corresponds to `items[i]`, never sorted).
  * Identical `(purl, version)` pairs are evaluated once and the result is placed at each matching position.
  * Offline and synchronous; never reads files outside {@link check}'s active data index.
  */
