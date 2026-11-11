@@ -3,7 +3,7 @@ title: Ebb documentation
 description: Ebb is an open dataset of software lifecycle rules, with a small TypeScript library for reading it.
 layout: home
 hero:
-  eyebrow: v0.1.0 · end-of-life data
+  eyebrow: v0.1.1 · end-of-life data
   title: Nothing ships forever. Everything ebbs.
   lead: Ebb is an open dataset of software lifecycle rules. It records what is deprecated, unsupported, end-of-life, or removed, since when, and what to move to, each with its evidence.
 actions:
