@@ -51,6 +51,7 @@
     "coverage:badge": "node dist/tools/coverage-badge.js coverage/lcov.info coverage/coverage.json",
     "format": "biome format --write .",
     "format:check": "biome format .",
+    "api": "npm run build --silent && mkdir -p api && api-extractor run --local",
     "lint:rules": "npm run build --silent && node dist/tools/changed-rules.js --all",
     "check": "npm run format:check && npm test",
     "check:sources": "npm run build --silent && node dist/tools/check-sources.js",
@@ -68,6 +69,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
+    "@microsoft/api-extractor": "^7.60.1",
     "@types/node": "^24.0.0",
     "@types/semver": "^7.8.0",
     "ajv": "^8.20.0",
