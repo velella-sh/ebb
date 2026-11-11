@@ -162,6 +162,35 @@ batch.summary.total; // 2
 
 Import from `@velella/ebb`. Legacy `0.1.x` subpaths keep resolving until `1.0` with `@deprecated` notices; see [docs/API-STABILITY.md](docs/API-STABILITY.md) for entry-point details.
 
+## AI Agents (MCP & Skills)
+
+Ebb provides official guardrails for AI coding agents (Claude Code, Cursor, Codex, Gemini CLI, Antigravity) to prevent agents from recommending deprecated or end-of-life dependencies.
+
+### Agent Skill (`skills.sh`)
+
+Install the official Ebb skill across your agent environment using the `skills` CLI:
+
+```bash
+npx skills add velella-sh/ebb
+```
+
+The skill equips agents with a check-before-add workflow: discovering project runtimes (`.nvmrc`, `Dockerfile`), checking new packages before install, and verifying GitHub Actions runner deprecations. See [Agent Skills](docs/skills.md).
+
+### MCP Server (`@velella/ebb-mcp`)
+
+Connect Ebb directly to agent environments via the Model Context Protocol over stdio:
+
+```bash
+# Claude Code
+claude mcp add ebb -- npx -y @velella/ebb-mcp
+
+# Cursor / Codex / Gemini
+# Declare in your mcp.json under mcpServers:
+# "ebb": { "command": "npx", "args": ["-y", "@velella/ebb-mcp"] }
+```
+
+Exposes `check`, `check_all`, `replacement_for`, and the `ebb://upcoming` resource. See [MCP Server](docs/mcp.md).
+
 ## What a rule looks like
 
 ```json
@@ -223,6 +252,8 @@ Once loaded into memory, registries and precompiled VERS ranges remain cached, k
 
 These pages are also published as a site, built with [Mizzen](https://velella.sh/mizzen/) and [Lateen](https://velella.sh/lateen/): <https://velella.sh/ebb/>.
 
+- [Agent Skills](docs/skills.md): guardrails for AI coding agents via skills.sh.
+- [MCP server](docs/mcp.md): connect Ebb over standard stdio JSON-RPC 2.0.
 - [Writing a rule](docs/RULES.md): the format, the evidence policy, and the review workflow.
 - [Importers](docs/IMPORTERS.md): tools that draft rules from authoritative sources for a maintainer to review.
 - [Data bundles, signing and trust](docs/DATA.md): how newer data is published, verified, and pinned.
