@@ -1666,13 +1666,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.0 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1701,13 +1759,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.1 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1736,13 +1852,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.2 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1771,13 +1945,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.3 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1806,13 +2038,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.4 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1841,13 +2131,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.5 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1876,13 +2224,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.6 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1911,13 +2317,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.7 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1946,13 +2410,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.8 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     },
     {
@@ -1981,13 +2503,71 @@
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
           "accessedAt": "2026-11-10"
+        },
+        {
+          "title": "Terraform v1.x compatibility promises",
+          "url": "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+          "accessedAt": "2026-11-11"
+        },
+        {
+          "title": "Terraform upgrade guides",
+          "url": "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+          "accessedAt": "2026-11-11"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
         "importer": "terraform-1"
+      },
+      "migration": {
+        "constraints": [
+          "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.9 will refuse to run on a newer CLI if required_version excludes it.",
+          "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+          "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+          "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl."
+        ],
+        "steps": [
+          {
+            "id": "back-up-state",
+            "title": "Back up the Terraform state",
+            "instructions": "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+            "targets": "all"
+          },
+          {
+            "id": "raise-cli-pin",
+            "title": "Raise the Terraform CLI pin",
+            "instructions": "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-required-version",
+            "title": "Raise required_version",
+            "instructions": "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-toolchain",
+            "title": "Align CI and documentation",
+            "instructions": "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "terraform version",
+            "purpose": "Confirm the active Terraform CLI is the intended release."
+          },
+          {
+            "command": "terraform init -backend=false && terraform validate",
+            "purpose": "Initialize without touching remote state and check that the configuration is valid on the new release."
+          },
+          {
+            "command": "terraform plan",
+            "purpose": "Review the plan and confirm the upgrade introduces no unexpected changes."
+          }
+        ]
       }
     }
   ]
