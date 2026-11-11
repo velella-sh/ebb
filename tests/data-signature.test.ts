@@ -4,10 +4,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { test } from "node:test";
 
-import { TrustedRoot } from "@sigstore/protobuf-specs";
-
 import { DATA_SIGNER } from "../src/data-bundle.js";
-import { DataSignatureError, verifyArtifactSignature } from "../src/data-signature.js";
+import { DataSignatureError, TrustedRoot, verifyArtifactSignature } from "../src/data-signature.js";
 
 // Compiled to dist/tests/, two levels below the package root.
 const packageRoot = join(import.meta.dirname, "..", "..");
