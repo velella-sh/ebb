@@ -6,6 +6,7 @@
 import { orderMatches } from "./check.js";
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import { type ActiveData, getActiveDataSync } from "./data-source.js";
+import { EbbError } from "./errors.js";
 import type { LookupFinding, LookupResult } from "./lookup.js";
 import { type LifecycleEvent, validateRegistryV2 } from "./registry.js";
 import {
@@ -83,14 +84,17 @@ export function fromLookupProduct(old: LookupResult, asOf?: string): Result {
 
   const version = old.version ?? old.query.version;
   if (version === undefined || version.trim().length === 0) {
-    throw new Error("Cannot map LookupResult to Result without a non-empty version.");
+    throw new EbbError("internal", "Cannot map LookupResult to Result without a non-empty version.");
   }
 
   const metaById = old.findings.length === 0 ? undefined : activeRuleMeta();
   const entries = old.findings.map((finding, index) => {
     const meta = metaById?.get(finding.ruleId);
     if (meta === undefined) {
-      throw new Error(`Cannot map finding "${finding.ruleId}": missing active rule provenance for reviewedAt.`);
+      throw new EbbError(
+        "internal",
+        `Cannot map finding "${finding.ruleId}": missing active rule provenance for reviewedAt.`,
+      );
     }
     return { finding, meta, index };
   });
