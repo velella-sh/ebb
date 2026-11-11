@@ -1,0 +1,99 @@
+import { checkAll, type CheckAllItem } from "@velella/ebb";
+import type { McpTool, McpToolResult } from "../types.js";
+import { extractPurlAndVersion } from "./check.js";
+
+export function normalizeBatchItems(rawList: unknown): CheckAllItem[] {
+  if (!Array.isArray(rawList)) {
+    return [];
+  }
+
+  const items: CheckAllItem[] = [];
+
+  for (const raw of rawList) {
+    if (typeof raw === "string") {
+      const { purl, version } = extractPurlAndVersion(raw);
+      items.push({ purl, version: version ?? "" });
+    } else if (typeof raw === "object" && raw !== null) {
+      const obj = raw as Record<string, unknown>;
+      const purlArg = typeof obj.purl === "string" ? obj.purl : "";
+      const versionArg = typeof obj.version === "string" ? obj.version : undefined;
+      const { purl, version } = extractPurlAndVersion(purlArg, versionArg);
+      items.push({ purl, version: version ?? "" });
+    }
+  }
+
+  return items;
+}
+
+export const checkAllTool: McpTool = {
+  definition: {
+    name: "check_all",
+    description:
+      "Check multiple package URLs (PURLs) or dependencies in batch against known end-of-life and deprecation dates.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        purls: {
+          type: "array",
+          items: {
+            oneOf: [
+              {
+                type: "string",
+                description: "PURL with embedded version e.g. 'pkg:npm/request@2.88.2'",
+              },
+              {
+                type: "object",
+                properties: {
+                  purl: { type: "string" },
+                  version: { type: "string" },
+                },
+                required: ["purl"],
+              },
+            ],
+          },
+          description: "List of package URLs (e.g. 'pkg:npm/request@2.88.2') or objects to check in batch.",
+        },
+      },
+      required: ["purls"],
+    },
+  },
+  handler: (args: Record<string, unknown>): McpToolResult => {
+    if (!("purls" in args) || !Array.isArray(args.purls)) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "Error: 'purls' parameter is required and must be an array of package URLs or items.",
+          },
+        ],
+        isError: true,
+      };
+    }
+
+    try {
+      const items = normalizeBatchItems(args.purls);
+      const result = checkAll(items);
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+        isError: false,
+      };
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Error during batch check: ${message}`,
+          },
+        ],
+        isError: true,
+      };
+    }
+  },
+};
