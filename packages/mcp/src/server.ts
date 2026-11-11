@@ -1,5 +1,6 @@
 import { checkTool } from "./tools/check.js";
 import { checkAllTool } from "./tools/check_all.js";
+import { replacementForTool } from "./tools/replacement.js";
 import type {
   JsonRpcNotification,
   JsonRpcRequest,
@@ -37,6 +38,7 @@ export class McpServer {
     // Register built-in tools
     this.registerTool(checkTool);
     this.registerTool(checkAllTool);
+    this.registerTool(replacementForTool);
   }
 
   public registerTool(tool: McpTool): void {
