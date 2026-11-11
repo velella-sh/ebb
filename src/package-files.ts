@@ -2,6 +2,7 @@ import { accessSync } from "node:fs";
 import { access } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { EbbError } from "./errors.js";
 
 /**
  * Finds a file Ebb ships, such as `registry/npm.json`, by walking up from the calling module. Compiled code sits in
@@ -21,7 +22,7 @@ export async function findPackageFile(path: string, moduleUrl: string): Promise<
     }
 
     const parent = dirname(directory);
-    if (parent === directory) throw new Error(`Ebb package file not found: ${path}`);
+    if (parent === directory) throw new EbbError("package-file-not-found", `Ebb package file not found: ${path}`);
     directory = parent;
   }
 }
@@ -39,7 +40,7 @@ export function findPackageFileSync(path: string, moduleUrl: string): string {
     }
 
     const parent = dirname(directory);
-    if (parent === directory) throw new Error(`Ebb package file not found: ${path}`);
+    if (parent === directory) throw new EbbError("package-file-not-found", `Ebb package file not found: ${path}`);
     directory = parent;
   }
 }
