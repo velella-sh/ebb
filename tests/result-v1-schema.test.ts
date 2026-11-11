@@ -5,13 +5,15 @@ import { test } from "node:test";
 import { Ajv2020 } from "ajv/dist/2020.js";
 
 import { check } from "../src/check.js";
-import type { Result } from "../src/result.js";
+import { RESULT_SCHEMA_VERSION, type Result } from "../src/result.js";
 
 async function readSchema() {
   return JSON.parse(await readFile(resolve("schemas/result.v1.schema.json"), "utf8")) as {
     $schema?: string;
     $id?: string;
     title?: string;
+    required?: string[];
+    properties?: { schemaVersion?: { const?: unknown } };
   };
 }
 
@@ -21,6 +23,7 @@ async function validator() {
 
 function sampleResult(): Result {
   return {
+    schemaVersion: RESULT_SCHEMA_VERSION,
     status: "scheduled",
     matches: [
       {
@@ -44,29 +47,52 @@ function sampleResult(): Result {
   };
 }
 
-test("result.v1.schema.json declares draft 2020-12, $id, and title", async () => {
+test("result.v1.schema.json declares draft 2020-12, $id, title, and schemaVersion 1", async () => {
   const schema = await readSchema();
   assert.equal(schema.$schema, "https://json-schema.org/draft/2020-12/schema");
   assert.equal(schema.$id, "https://github.com/velella-sh/ebb/schemas/result.v1.schema.json");
   assert.ok(typeof schema.title === "string" && schema.title.trim().length > 0);
+  assert.ok(schema.required?.includes("schemaVersion"));
+  assert.deepEqual(schema.properties?.schemaVersion, { const: 1 });
 });
 
 test("a sample result and live check outputs match the schema", async () => {
   const validate = await validator();
 
   const sample = sampleResult();
+  assert.equal(sample.schemaVersion, 1);
   assert.equal(validate(sample), true, JSON.stringify(validate.errors));
 
   const withoutAsOf = check("pkg:npm/left-pad", "1.3.0");
+  assert.equal(withoutAsOf.schemaVersion, 1);
   assert.equal(validate(withoutAsOf), true, JSON.stringify(validate.errors));
 
   const empty = check("pkg:generic/nodejs", "24.0.0", "2026-04-01");
+  assert.equal(empty.schemaVersion, 1);
   assert.equal(validate(empty), true, JSON.stringify(validate.errors));
 });
 
 test("the schema rejects unknown fields and invalid values", async () => {
   const validate = await validator();
   const mutations: Array<[string, (value: Record<string, unknown>) => void]> = [
+    [
+      "missing schemaVersion",
+      (value) => {
+        delete value.schemaVersion;
+      },
+    ],
+    [
+      "wrong schemaVersion number",
+      (value) => {
+        value.schemaVersion = 2;
+      },
+    ],
+    [
+      "wrong schemaVersion string",
+      (value) => {
+        value.schemaVersion = "1";
+      },
+    ],
     [
       "unknown top-level field",
       (value) => {

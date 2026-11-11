@@ -72,6 +72,7 @@ import { check } from "@velella/ebb/check";
 // Without `asOf`, `daysLeft` is always null.
 check("pkg:npm/left-pad", "1.3.0");
 // {
+//   schemaVersion: 1,
 //   status: "deprecated",
 //   matches: [
 //     {
@@ -95,11 +96,12 @@ check("pkg:npm/left-pad", "1.3.0");
 
 // A safe version
 check("pkg:generic/nodejs", "24.0.0");
-// { status: "ok", matches: [], version: "24.0.0" }
+// { schemaVersion: 1, status: "ok", matches: [], version: "24.0.0" }
 
 // A product name
 check("node", "18.20.4");
 // {
+//   schemaVersion: 1,
 //   status: "end-of-life",
 //   matches: [
 //     {
@@ -124,6 +126,7 @@ check("node", "18.20.4");
 // Pass `asOf` to measure daysLeft from that day (never from a clock).
 check("pkg:generic/nodejs", "22.11.0", "2026-04-01");
 // {
+//   schemaVersion: 1,
 //   status: "scheduled",
 //   matches: [
 //     {

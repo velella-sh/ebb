@@ -4,9 +4,10 @@
   "title": "Ebb lifecycle result v1",
   "description": "Output of checking one component version against active Ebb lifecycle rules. See docs/result-model.md.",
   "type": "object",
-  "required": ["status", "matches", "version"],
+  "required": ["schemaVersion", "status", "matches", "version"],
   "additionalProperties": false,
   "properties": {
+    "schemaVersion": { "const": 1 },
     "status": { "$ref": "#/$defs/status" },
     "matches": {
       "type": "array",
