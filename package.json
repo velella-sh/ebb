@@ -21,6 +21,9 @@
   },
   "license": "MIT",
   "type": "module",
+  "bin": {
+    "ebb": "./dist/src/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
