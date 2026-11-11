@@ -1,6 +1,5 @@
 import { CheckError, type CheckEvent, type CheckResult, type CheckStatus, check } from "./check.js";
 import { EbbError, type EbbErrorCode } from "./errors.js";
-import { VersError } from "./vers.js";
 
 /** One component to judge in a batch passed to {@link checkAll}. */
 export interface CheckAllItem {
@@ -9,12 +8,7 @@ export interface CheckAllItem {
 }
 
 /** Error codes recorded on a {@link CheckAllError} entry when judging one item fails. */
-export type CheckAllErrorCode =
-  | EbbErrorCode
-  | "invalid-version"
-  | "unknown-product"
-  | "ambiguous-product"
-  | "check-failed";
+export type CheckAllErrorCode = EbbErrorCode | "unknown-product" | "ambiguous-product" | "check-failed";
 
 /** Positional error entry produced in {@link CheckAllResult.results} when checking one item fails. */
 export interface CheckAllError {
@@ -72,9 +66,6 @@ type CacheSlot = SingleEntry | Map<string, CachedOutcome>;
 function classifyItemError(error: unknown): { code: CheckAllErrorCode; message: string } {
   if (error instanceof EbbError) {
     return { code: error.code, message: error.message };
-  }
-  if (error instanceof VersError) {
-    return { code: "invalid-version", message: error.message };
   }
   if (error instanceof CheckError) {
     const code = error.message.startsWith("Ambiguous") ? "ambiguous-product" : "unknown-product";

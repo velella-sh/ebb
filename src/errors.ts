@@ -1,6 +1,7 @@
 /** The reason codes Ebb's errors carry. Callers map them to their own failure classes; a code is never renamed. */
 export const EBB_ERROR_CODES = [
   "invalid-purl",
+  "invalid-version",
   "invalid-data-version",
   "data-unavailable",
   "data-update-failed",

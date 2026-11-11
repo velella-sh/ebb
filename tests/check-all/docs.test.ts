@@ -99,7 +99,7 @@ test("docs/check-all.md runnable SBOM and streaming examples produce the documen
 
 test("docs/check-all.md documents every CheckAllErrorCode", async () => {
   const markdown = await readFile(resolve("docs/check-all.md"), "utf8");
-  const expectedCodes = [...EBB_ERROR_CODES, "invalid-version", "unknown-product", "ambiguous-product", "check-failed"];
+  const expectedCodes = [...EBB_ERROR_CODES, "unknown-product", "ambiguous-product", "check-failed"];
   for (const code of expectedCodes) {
     assert.ok(markdown.includes(`\`"${code}"\``), `docs/check-all.md should document CheckAllErrorCode "${code}"`);
   }

@@ -4,6 +4,9 @@
  */
 
 import { required } from "./required.js";
+import { VersError } from "./vers/errors.js";
+
+export { VersError } from "./vers/errors.js";
 
 export type VersComparator = "=" | "!=" | "<" | "<=" | ">" | ">=";
 
@@ -25,13 +28,6 @@ export interface VersionScheme {
   readonly names: readonly string[];
   /** Negative when left < right, zero when equal, positive when left > right. Throws for invalid versions. */
   compare(left: string, right: string): number;
-}
-
-export class VersError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "VersError";
-  }
 }
 
 const schemes = new Map<string, VersionScheme>();
@@ -150,8 +146,14 @@ function splitVers(text: string, value: string, canonical: boolean): { scheme: s
     throw new VersError(`VERS must start with "vers:": ${value}`);
   }
   const slash = text.indexOf("/");
-  if (slash < 0) throw new VersError(`VERS is missing constraints: ${value}`);
+  if (slash < 0) {
+    const rest = text.slice(5);
+    if (!rest) throw new VersError(`VERS is missing a scheme: ${value}`);
+    if (!SCHEME_PATTERN.test(rest.toLowerCase())) throw new VersError(`Invalid VERS scheme "${rest}".`);
+    throw new VersError(`VERS is missing constraints: ${value}`);
+  }
   const rawScheme = text.slice(5, slash);
+  if (!rawScheme) throw new VersError(`VERS is missing a scheme: ${value}`);
   const scheme = rawScheme.toLowerCase();
   if (!SCHEME_PATTERN.test(scheme)) throw new VersError(`Invalid VERS scheme "${rawScheme}".`);
   if (canonical && rawScheme !== scheme) {
@@ -229,6 +231,8 @@ function encodeVersion(version: string): string {
 
 export function formatVers(range: VersRange): string {
   const scheme = range.scheme.toLowerCase();
+  if (!scheme) throw new VersError("VERS scheme is required.");
+  if (!SCHEME_PATTERN.test(scheme)) throw new VersError(`Invalid VERS scheme "${range.scheme}".`);
   if (range.all) {
     if (range.constraints.length > 0) throw new VersError('"*" must be the only constraint');
     return `vers:${scheme}/*`;
