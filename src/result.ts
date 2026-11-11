@@ -4,6 +4,7 @@
  */
 
 import type { EvidenceSource } from "./domain.js";
+import { EbbError } from "./errors.js";
 import { isIsoDate } from "./registry.js";
 
 /** Schema version for the v1 result model (#110). Never bump without a decision record. */
@@ -89,7 +90,7 @@ export interface Result {
 const MS_PER_DAY = 86_400_000;
 
 function requireIsoDate(value: string): void {
-  if (!isIsoDate(value)) throw new Error(`"${value}" is not a date (YYYY-MM-DD).`);
+  if (!isIsoDate(value)) throw new EbbError("invalid-date", `"${value}" is not a date (YYYY-MM-DD).`);
 }
 
 /**
