@@ -1,4 +1,5 @@
 import type { LifecycleFinding, LifecycleScan, Severity } from "./domain.js";
+import { EbbError } from "./errors.js";
 import { isIsoDate } from "./registry.js";
 import type { RegistryV2Rule } from "./registry.js";
 import { required } from "./required.js";
@@ -110,7 +111,7 @@ export function buildForecast(
   today: string,
   months = DEFAULT_FORECAST_MONTHS,
 ): Forecast {
-  if (!isIsoDate(today)) throw new Error(`"${today}" is not a date (YYYY-MM-DD).`);
+  if (!isIsoDate(today)) throw new EbbError("invalid-date", `"${today}" is not a date (YYYY-MM-DD).`);
   const until = addMonths(today, months);
   const inWindow = (date: string | undefined): date is string =>
     date !== undefined && isIsoDate(date) && date >= today && date <= until;
