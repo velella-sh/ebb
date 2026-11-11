@@ -94,64 +94,91 @@ function createSummary(total: number): CheckAllSummary {
   };
 }
 
+function evaluatePair(
+  cache: Map<string, Map<string, CachedOutcome>>,
+  purl: string,
+  version: string,
+  evaluate: (purl: string, version: string) => CheckResult,
+): CachedOutcome {
+  let byVersion = cache.get(purl);
+  let outcome = byVersion?.get(version);
+  if (outcome === undefined) {
+    try {
+      outcome = { ok: true, result: evaluate(purl, version) };
+    } catch (error) {
+      const classified = classifyItemError(error);
+      outcome = { ok: false, code: classified.code, message: classified.message };
+    }
+    if (byVersion === undefined) {
+      byVersion = new Map<string, CachedOutcome>();
+      cache.set(purl, byVersion);
+    }
+    byVersion.set(version, outcome);
+  }
+  return outcome;
+}
+
+function recordOutcome(summary: CheckAllSummary, outcome: CachedOutcome, index: number): CheckAllEntry {
+  if (outcome.ok) {
+    summary.byStatus[outcome.result.status] += 1;
+    for (const match of outcome.result.matches) {
+      summary.byEvent[match.event] += 1;
+    }
+    return outcome.result;
+  }
+  summary.errors += 1;
+  return {
+    status: "error",
+    index,
+    code: outcome.code,
+    message: outcome.message,
+  };
+}
+
 /**
  * Evaluates a batch while deduplicating identical `(purl, version)` pairs via `evaluate`,
  * always writing each result (or error entry) to the exact input index without sorting and accumulating summary counts.
  * @internal Exported so tests can verify per-pair call counts without module mocks.
  */
 export function checkAllWith(
-  items: readonly CheckAllItem[],
+  items: Iterable<CheckAllItem>,
   evaluate: (purl: string, version: string) => CheckResult,
 ): CheckAllResult {
-  const results = new Array<CheckAllEntry>(items.length);
-  const summary = createSummary(items.length);
   const cache = new Map<string, Map<string, CachedOutcome>>();
 
-  for (let index = 0; index < items.length; index += 1) {
-    const item = items[index]!;
-    let byVersion = cache.get(item.purl);
-    let outcome = byVersion?.get(item.version);
-    if (outcome === undefined) {
-      try {
-        outcome = { ok: true, result: evaluate(item.purl, item.version) };
-      } catch (error) {
-        const classified = classifyItemError(error);
-        outcome = { ok: false, code: classified.code, message: classified.message };
-      }
-      if (byVersion === undefined) {
-        byVersion = new Map<string, CachedOutcome>();
-        cache.set(item.purl, byVersion);
-      }
-      byVersion.set(item.version, outcome);
+  if (Array.isArray(items)) {
+    const list: readonly CheckAllItem[] = items;
+    const results = new Array<CheckAllEntry>(list.length);
+    const summary = createSummary(list.length);
+    for (let index = 0; index < list.length; index += 1) {
+      const item = list[index]!;
+      const outcome = evaluatePair(cache, item.purl, item.version, evaluate);
+      results[index] = recordOutcome(summary, outcome, index);
     }
-    if (outcome.ok) {
-      results[index] = outcome.result;
-      summary.byStatus[outcome.result.status] += 1;
-      for (const match of outcome.result.matches) {
-        summary.byEvent[match.event] += 1;
-      }
-    } else {
-      results[index] = {
-        status: "error",
-        index,
-        code: outcome.code,
-        message: outcome.message,
-      };
-      summary.errors += 1;
-    }
+    return { results, summary };
   }
 
+  const results: CheckAllEntry[] = [];
+  const summary = createSummary(0);
+  let index = 0;
+  for (const item of items) {
+    const outcome = evaluatePair(cache, item.purl, item.version, evaluate);
+    results.push(recordOutcome(summary, outcome, index));
+    index += 1;
+  }
+  summary.total = index;
   return { results, summary };
 }
 
 /**
  * Judges each `{ purl, version }` item using {@link check} and returns `{ results, summary }`.
+ * Accepts any iterable (arrays use a pre-sized indexed path; other iterables stream in a single pass).
  * Results preserve the exact input order (`results[i]` always corresponds to `items[i]`, never sorted).
  * Identical `(purl, version)` pairs are evaluated once and placed at each matching position.
  * Invalid items produce a {@link CheckAllError} entry (`status: "error"`) with their index and error code
  * instead of failing the rest of the batch.
  * Offline and synchronous; never reads files outside {@link check}'s active data index.
  */
-export function checkAll(items: readonly CheckAllItem[]): CheckAllResult {
+export function checkAll(items: Iterable<CheckAllItem>): CheckAllResult {
   return checkAllWith(items, check);
 }
