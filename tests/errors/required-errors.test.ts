@@ -10,7 +10,7 @@ describe("required helper errors", () => {
       (err: unknown) => {
         assert.ok(err instanceof EbbError);
         assert.equal(err.code, "internal");
-        assert.equal(err.message, "missing expected-key");
+        assert.ok(err.message.startsWith("missing expected-key"));
         return true;
       },
     );

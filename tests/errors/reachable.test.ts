@@ -5,7 +5,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { pathToFileURL } from "node:url";
-import { EBB_ERROR_CODES, EbbError } from "../../src/errors.js";
+import { EBB_ERROR_CODES, EbbError, docsLink } from "../../src/errors.js";
 import { parsePurl } from "../../src/purl.js";
 import { versContains } from "../../src/vers.js";
 import { daysLeft } from "../../src/result.js";
@@ -92,6 +92,19 @@ describe("error codes reachable", () => {
   it("every code in EBB_ERROR_CODES is covered", () => {
     for (const code of EBB_ERROR_CODES) {
       assert.ok(coveredCodes.has(code), `Code "${code}" must have a reachability test`);
+    }
+  });
+
+  it("docsLink returns correct anchor link for each code", () => {
+    for (const code of EBB_ERROR_CODES) {
+      assert.equal(docsLink(code), `https://github.com/velella-sh/ebb/blob/main/docs/ERRORS.md#${code}`);
+    }
+  });
+
+  it("direct EbbError messages end with their docs link", () => {
+    for (const code of EBB_ERROR_CODES) {
+      const err = new EbbError(code, `Sample message for ${code}`);
+      assert.ok(err.message.endsWith(docsLink(code)), `Message for ${code} must end with docs link: ${err.message}`);
     }
   });
 });
