@@ -155,6 +155,31 @@ describe("MCP Server Process (stdio)", () => {
     const repContent = JSON.parse(repResp.result.content[0].text);
     assert.ok(repContent.replacement);
 
+    // 8. resources/list
+    send({
+      jsonrpc: "2.0",
+      id: 7,
+      method: "resources/list",
+    });
+    const resListResp = await waitForResponse(7);
+    assert.equal(resListResp.id, 7);
+    assert.ok(resListResp.result.resources.some((r: { uri: string }) => r.uri === "ebb://upcoming"));
+
+    // 9. resources/read
+    send({
+      jsonrpc: "2.0",
+      id: 8,
+      method: "resources/read",
+      params: {
+        uri: "ebb://upcoming",
+      },
+    });
+    const resReadResp = await waitForResponse(8);
+    assert.equal(resReadResp.id, 8);
+    assert.equal(resReadResp.result.contents[0].uri, "ebb://upcoming");
+    const upcomingData = JSON.parse(resReadResp.result.contents[0].text);
+    assert.ok(upcomingData.count > 0);
+
     // Clean up cleanly
     child.stdin.end();
     await new Promise<void>((resolve) => {
