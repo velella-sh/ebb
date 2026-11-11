@@ -1,31 +1,37 @@
 ---
-title: "Result model today: `check` and `lookupProduct`"
-description: "Inventory of every field the two public lookup APIs return today, before the stable result model in #110."
+title: "Result model"
+description: "Fields, stability tags, and status mapping for Ebb's Result model and legacy lookupProduct output."
 layout: doc
 permalink: /result-model/
 ---
 
-Inventory of every field the two public lookup APIs return today, before the stable result model in [#110](https://github.com/velella-sh/ebb/issues/110). Types come from `src/check.ts` and `src/lookup.ts`. Nested objects are expanded so each leaf field appears once.
+Inventory of every field the public result model (`src/result.ts`, returned by `check` as `CheckResult`) and the legacy `lookupProduct` API (`src/lookup.ts`) return. Types come from `src/result.ts`, `src/check.ts`, and `src/lookup.ts`.
 
-This page does not define the future model; it only records what ships now.
+Stability tags on `Result` and `ResultMatch` match the JSDoc annotations in `src/result.ts`:
+- `@stable`: additive-only contract through 1.0; field name and meaning will not change incompatibly.
+- `@experimental`: newly added or evolving behavior; field name, optionality, or semantics may still change before 1.0.
 
-## `check` → `CheckResult`
+## `check` → `Result` (`CheckResult`)
 
-| Field | Type | Meaning |
-| --- | --- | --- |
-| `status` | `"ok" \| "deprecated" \| "unsupported" \| "end-of-life" \| "removed" \| "scheduled"` | Primary verdict. `"ok"` when no rule matches; otherwise the most serious matching event (short names; see mapping below). |
-| `matches` | `CheckMatch[]` | Every matching rule, ordered by event seriousness then earliest date. Empty when `status` is `"ok"`. |
-| `version` | `string` | The version argument exactly as passed to `check` (not normalised). |
+| Field | Type | Stability | Meaning |
+| --- | --- | --- | --- |
+| `schemaVersion` | `1` | `@stable` | Fixed version number of this result model (`RESULT_SCHEMA_VERSION`). |
+| `status` | `"ok" \| "deprecated" \| "unsupported" \| "end-of-life" \| "removed" \| "scheduled"` | `@stable` | Primary verdict. `"ok"` when no rule matches; otherwise the most serious matching event (short names; see mapping below). |
+| `matches` | `ResultMatch[]` | `@stable` | Every matching rule, ordered by event seriousness then earliest date. Empty when `status` is `"ok"`. |
+| `version` | `string` | `@stable` | The version argument exactly as passed to `check` (not normalised). |
+| `asOf` | `string` (optional) | `@experimental` | The day `daysLeft` is measured from (`YYYY-MM-DD`), when supplied. Omitted for the two-argument call. |
 
-### `CheckMatch`
+### `ResultMatch` (`CheckMatch`)
 
-| Field | Type | Meaning |
-| --- | --- | --- |
-| `ruleId` | `string` | Id of the matching registry rule. |
-| `event` | `"deprecated" \| "unsupported" \| "end-of-life" \| "removed" \| "scheduled"` | Lifecycle event on that rule, in check's short form. |
-| `date` | `string \| null` | Deadline from the rule (`YYYY-MM-DD`), or `null` when the rule has no deadline. |
-| `replacement` | `string \| null` | Suggested replacement from the rule, or `null` when none. |
-| `sources` | `EvidenceSource[]` | Authoritative evidence pages the rule cites. |
+| Field | Type | Stability | Meaning |
+| --- | --- | --- | --- |
+| `ruleId` | `string` | `@stable` | Id of the matching registry rule. |
+| `event` | `"deprecated" \| "unsupported" \| "end-of-life" \| "removed" \| "scheduled"` | `@stable` | Lifecycle event on that rule, in `check`'s short form. |
+| `date` | `string \| null` | `@stable` | Deadline from the rule (`YYYY-MM-DD`), or `null` when the rule has no deadline. |
+| `daysLeft` | `number \| null` | `@experimental` | Whole UTC days from `asOf` until `date`; `null` when past, undated, or `asOf` is omitted. |
+| `replacement` | `string \| null` | `@stable` | Suggested replacement from the rule, or `null` when none. |
+| `sources` | `EvidenceSource[]` | `@stable` | Authoritative evidence pages the rule cites. |
+| `reviewedAt` | `string` | `@stable` | Date (`YYYY-MM-DD`) a maintainer last reviewed the rule against its sources. |
 
 ## `lookupProduct` → `LookupResult`
 
@@ -65,7 +71,7 @@ This page does not define the future model; it only records what ships now.
 
 ## Shared: `EvidenceSource`
 
-Used by both `CheckMatch.sources` and `LookupFinding.sources`.
+Defined in `src/domain.ts` and used by both `ResultMatch.sources` and `LookupFinding.sources`.
 
 | Field | Type | Meaning |
 | --- | --- | --- |
