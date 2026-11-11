@@ -288,13 +288,16 @@ export function versContains(range: string | VersRange, version: string): boolea
   const scheme = versionScheme(parsed.scheme);
   const compareTo: ConstraintComparison = (constraint) => scheme.compare(version, constraint.version);
 
-  if (matchesInclusiveConstraint(parsed.constraints, compareTo)) return true;
   if (parsed.constraints.some((constraint) => constraint.comparator === "!=" && compareTo(constraint) === 0))
     return false;
+  if (matchesInclusiveConstraint(parsed.constraints, compareTo)) return true;
 
   const bounds = parsed.constraints.filter(
     (constraint) => constraint.comparator !== "=" && constraint.comparator !== "!=",
   );
+  if (bounds.length === 0) {
+    return parsed.constraints.every((constraint) => constraint.comparator === "!=");
+  }
   if (bounds.length === 1) return singleBoundContains(required(bounds[0], "the single bound"), compareTo);
   return anyBoundPairContains(bounds, compareTo);
 }
