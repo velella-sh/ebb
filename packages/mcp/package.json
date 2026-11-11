@@ -1,0 +1,36 @@
+{
+  "name": "@velella/ebb-mcp",
+  "version": "0.1.0",
+  "description": "Official Model Context Protocol (MCP) server for Ebb",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ebb",
+    "lifecycle",
+    "agent"
+  ],
+  "homepage": "https://github.com/velella-sh/ebb#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/velella-sh/ebb.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "ebb-mcp": "./dist/src/index.js"
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist/src",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.json",
+    "test": "npm run build --silent && node --test \"dist/tests/**/*.test.js\"",
+    "start": "node dist/src/index.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
