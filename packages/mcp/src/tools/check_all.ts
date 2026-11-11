@@ -1,4 +1,5 @@
 import { checkAll, type CheckAllItem } from "@velella/ebb";
+import { formatCheckAllResult } from "../format.js";
 import type { McpTool, McpToolResult } from "../types.js";
 import { extractPurlAndVersion } from "./check.js";
 
@@ -72,7 +73,8 @@ export const checkAllTool: McpTool = {
 
     try {
       const items = normalizeBatchItems(args.purls);
-      const result = checkAll(items);
+      const rawResult = checkAll(items);
+      const result = formatCheckAllResult(rawResult);
 
       return {
         content: [
