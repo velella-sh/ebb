@@ -118,6 +118,25 @@ describe("MCP Server Process (stdio)", () => {
     const content = JSON.parse(callResp.result.content[0].text);
     assert.equal(content.status, "deprecated");
 
+    // 6. tools/call check_all tool
+    send({
+      jsonrpc: "2.0",
+      id: 5,
+      method: "tools/call",
+      params: {
+        name: "check_all",
+        arguments: {
+          purls: ["pkg:npm/request@2.88.2", "pkg:npm/left-pad@1.3.0"],
+        },
+      },
+    });
+    const checkAllResp = await waitForResponse(5);
+    assert.equal(checkAllResp.id, 5);
+    assert.equal(checkAllResp.result.isError, false);
+    const batchContent = JSON.parse(checkAllResp.result.content[0].text);
+    assert.equal(batchContent.summary.total, 2);
+    assert.equal(batchContent.summary.byStatus.deprecated, 2);
+
     // Clean up cleanly
     child.stdin.end();
     await new Promise<void>((resolve) => {

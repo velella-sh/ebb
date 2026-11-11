@@ -6,6 +6,7 @@ export * from "./types.js";
 export { McpServer } from "./server.js";
 export { listenStdio } from "./transport.js";
 export { checkTool, extractPurlAndVersion } from "./tools/check.js";
+export { checkAllTool, normalizeBatchItems } from "./tools/check_all.js";
 
 // Run stdio server when executed directly as entrypoint
 const isDirectExecution =
