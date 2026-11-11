@@ -1,6 +1,5 @@
-import semver from "semver";
-
 import { formatPurl } from "../../src/purl.js";
+import { compareStrictSemver, isValidStrictSemver } from "../../src/vers/semver.js";
 import { NPM_CANDIDATES } from "./npm-candidates.js";
 import { fetchJson } from "./types.js";
 import type { DraftRule, Importer } from "./types.js";
@@ -92,10 +91,10 @@ export const npmDeprecatedImporter: Importer = {
       const versions = Object.entries(metadata.versions ?? {})
         .filter(
           ([version, manifest]) =>
-            semver.valid(version) && typeof manifest.deprecated === "string" && manifest.deprecated.trim(),
+            isValidStrictSemver(version) && typeof manifest.deprecated === "string" && manifest.deprecated.trim(),
         )
         .map(([version]) => version)
-        .sort(semver.compare);
+        .sort(compareStrictSemver);
       if (versions.length === 0) {
         notes.push(`Skipped ${name}: no deprecated versions in package metadata.`);
         continue;

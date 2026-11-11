@@ -1,8 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import semver from "semver";
-
 import {
   dataBundleIntegrityProblems,
   dataBundleShapeProblems,
@@ -14,6 +12,7 @@ import { DataSignatureError, verifyArtifactSignature } from "./data-signature.js
 import type { SignerPolicy, VerifiedSigner } from "./data-signature.js";
 import { defaultCacheDirectory } from "./cache-paths.js";
 import { findPackageFileSync } from "./package-files.js";
+import { compareStrictSemver } from "./vers/semver.js";
 import { VERSION } from "./version.js";
 import { EbbError } from "./errors.js";
 
@@ -133,7 +132,7 @@ export function verifyDataBundle(
   const bundle = parsed as DataBundle;
 
   const minimum = bundle.manifest.minimumEbbVersion;
-  if (!semver.gte(options.ebbVersion ?? VERSION, minimum)) {
+  if (compareStrictSemver(options.ebbVersion ?? VERSION, minimum) < 0) {
     throw new DataBundleError(`The bundle needs Ebb ${minimum} or newer.`);
   }
   const listed = new Set(bundle.manifest.files.map((file) => file.path));

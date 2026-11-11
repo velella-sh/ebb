@@ -186,3 +186,27 @@ test("a latest-version notice never marks older unflagged releases deprecated", 
   });
   assert.equal(result.rules[0]?.vers, "vers:npm/9.0.0");
 });
+
+test("npmDeprecatedImporter filters non-strict semver keys and sorts deprecated versions canonically", async () => {
+  const result = await runImporter(npmDeprecatedImporter, {
+    now: new Date("2026-10-19T12:00:00Z"),
+    async fetchText(url) {
+      if (url === registryUrl("request"))
+        return JSON.stringify({ name: "request", version: "2.88.2", deprecated: "legacy" });
+      if (url === registryUrl("request").replace(/\/latest$/, ""))
+        return JSON.stringify({
+          versions: {
+            "1.10.0": { version: "1.10.0", deprecated: "old" },
+            "01.2.3": { version: "01.2.3", deprecated: "loose-only" },
+            latest: { version: "latest", deprecated: "non-semver" },
+            "1.2.0": { version: "1.2.0", deprecated: "old" },
+            "1.0.0-alpha.1": { version: "1.0.0-alpha.1", deprecated: "pre" },
+            "1.0.0-2": { version: "1.0.0-2", deprecated: "pre" },
+            "1.0.0": { version: "1.0.0", deprecated: "old" },
+          },
+        });
+      throw new ImporterError(`GET ${url} failed: HTTP 404`);
+    },
+  });
+  assert.equal(result.rules[0]?.vers, "vers:npm/1.0.0-2|1.0.0-alpha.1|1.0.0|1.2.0|1.10.0");
+});
