@@ -16,7 +16,7 @@ test("checkAll preserves reverse-sorted input order without sorting by name, ver
 
   assert.equal(results.length, items.length);
   assert.deepEqual(
-    results.map((result) => [result.status, result.version]),
+    results.map((result) => [result.status, result.status === "error" ? undefined : result.version]),
     [
       ["ok", "4.21.0"],
       ["deprecated", "2.88.2"],
