@@ -35,6 +35,9 @@ sections:
       - title: Result model
         url: result-model/
         meta: reference
+      - title: Rules and replacements
+        url: rules-for/
+        meta: reference
       - title: Batch checking
         url: check-all/
         meta: reference
