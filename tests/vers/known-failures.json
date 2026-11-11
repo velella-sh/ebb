@@ -1,0 +1,30 @@
+[
+  {
+    "name": "nuget_version_cmp_test.json[13]:comparison",
+    "reason": "NuGet comparison preserves original casing ('1.0.0-BETA') while the fixture expected_output lowercases prerelease labels ('1.0.0-beta')"
+  },
+  {
+    "name": "nuget_version_cmp_test.json[15]:comparison",
+    "reason": "NuGet comparison preserves original casing ('1.0.0-BETA') while the fixture expected_output lowercases prerelease labels ('1.0.0-beta')"
+  },
+  {
+    "name": "nuget_version_cmp_test.json[16]:comparison",
+    "reason": "NuGet comparison preserves original casing ('1.0.0-BETA.X.y.5.77.0+AA') while the fixture expected_output lowercases prerelease labels"
+  },
+  {
+    "name": "nuget_version_cmp_test.json[17]:comparison",
+    "reason": "NuGet comparison preserves original casing ('1.0.0-BETA.X.y.5.79.0+AA') while the fixture expected_output lowercases prerelease labels"
+  },
+  {
+    "name": "pypi_range_validate_test.json[2]:validate",
+    "reason": "validateSequence rejects an implicit '=' constraint followed by an upper bound ('0.0.2|<0.0.3')"
+  },
+  {
+    "name": "pypi_range_validate_test.json[3]:validate",
+    "reason": "parseConstraints rejects duplicate constraint version ('>=0.0.1|>=0.0.1')"
+  },
+  {
+    "name": "pypi_range_validate_test.json[4]:validate",
+    "reason": "validateSequence rejects an implicit '=' constraint followed by an upper bound ('0.0.2|0.0.3|0.0.4|<0.0.5')"
+  }
+]
