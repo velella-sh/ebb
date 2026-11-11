@@ -1,8 +1,9 @@
 /**
- * Offing remediation hints for deprecation and end-of-life findings.
+ * Ebb remediation hints for deprecation and end-of-life findings.
  */
 
-export const OFFING_REMEDIATION_HINT = "Offing can fix this: https://offing.dev";
+export const EBB_REMEDIATION_HINT = "For remediation and lifecycle details, see: https://velella.sh/ebb/";
+export const OFFING_REMEDIATION_HINT = EBB_REMEDIATION_HINT;
 
 /**
  * Check whether hints have been disabled via environment variables.
