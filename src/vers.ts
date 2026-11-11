@@ -76,6 +76,10 @@ registerVersionScheme(intdotScheme);
 const isLower = (comparator: VersComparator) => comparator === ">" || comparator === ">=";
 const isUpper = (comparator: VersComparator) => comparator === "<" || comparator === "<=";
 
+const NON_SPACE_WHITESPACE = /[^\S ]/;
+const LOWERCASE_PERCENT_HEX = /%(?:[a-f][0-9A-Fa-f]|[0-9A-Fa-f][a-f])/;
+const RESERVED_VERSION_CHAR = /[><=!*]/;
+
 function parseConstraint(raw: string, canonical: boolean): VersConstraint {
   let comparator: VersComparator = "=";
   let encoded = raw;
@@ -90,12 +94,24 @@ function parseConstraint(raw: string, canonical: boolean): VersConstraint {
     if (canonical) throw new VersError("non-canonical VERS: explicit equality comparator is not permitted");
     encoded = raw.replace(/^=+/, "");
   }
+  if (!canonical) encoded = encoded.trimStart();
   if (!encoded) throw new VersError(`Missing version in constraint "${raw}".`);
+  if (canonical && RESERVED_VERSION_CHAR.test(encoded)) {
+    throw new VersError(`non-canonical VERS: unencoded reserved character in version "${raw}"`);
+  }
+  let version: string;
   try {
-    return { comparator, version: decodeURIComponent(encoded) };
+    version = decodeURIComponent(encoded);
   } catch {
     throw new VersError(`non-canonical VERS: invalid percent-encoding in version "${raw}"`);
   }
+  if (canonical && LOWERCASE_PERCENT_HEX.test(encoded)) {
+    throw new VersError(`non-canonical VERS: percent-encoding in version is not canonical "${raw}"`);
+  }
+  if (NON_SPACE_WHITESPACE.test(version)) {
+    throw new VersError("non-canonical VERS: whitespace is not permitted");
+  }
+  return { comparator, version };
 }
 
 function validateSequence(constraints: readonly VersConstraint[], value: string): void {
@@ -119,37 +135,46 @@ function validateSequence(constraints: readonly VersConstraint[], value: string)
 
 const SCHEME_PATTERN = /^[a-z][a-z0-9.+-]*$/;
 
-/** Applies the whitespace rule of the requested form: canonical forbids it, lenient removes it. */
+/** Applies the whitespace rule of the requested form: canonical forbids it, lenient trims outer whitespace. */
 function versText(value: string, canonical: boolean): string {
   if (canonical && /\s/.test(value)) throw new VersError("non-canonical VERS: whitespace is not permitted");
-  return canonical ? value : value.replace(/\s+/g, "");
+  return canonical ? value : value.trim();
 }
 
 /** Splits `text` into the scheme and the raw constraint body, rejecting the malformed prefix forms. */
-function splitVers(text: string, value: string): { scheme: string; body: string } {
-  if (!text.startsWith("vers:")) throw new VersError(`VERS must start with "vers:": ${value}`);
+function splitVers(text: string, value: string, canonical: boolean): { scheme: string; body: string } {
+  if (canonical ? !text.startsWith("vers:") : !/^vers:/i.test(text)) {
+    throw new VersError(`VERS must start with "vers:": ${value}`);
+  }
   const slash = text.indexOf("/");
   if (slash < 0) throw new VersError(`VERS is missing constraints: ${value}`);
-  const scheme = text.slice(5, slash).toLowerCase();
-  if (!SCHEME_PATTERN.test(scheme)) throw new VersError(`Invalid VERS scheme "${scheme}".`);
-  const body = text.slice(slash + 1);
+  const rawScheme = text.slice(5, slash);
+  const scheme = rawScheme.toLowerCase();
+  if (!SCHEME_PATTERN.test(scheme)) throw new VersError(`Invalid VERS scheme "${rawScheme}".`);
+  if (canonical && rawScheme !== scheme) {
+    throw new VersError(`non-canonical VERS: scheme "${rawScheme}" must be lowercase`);
+  }
+  const rawBody = text.slice(slash + 1);
+  const body = canonical ? rawBody : rawBody.trim();
   if (!body) throw new VersError("non-canonical VERS: constraints must not be empty");
   return { scheme, body };
 }
 
-/** Rejects the pipe placements the spec does not allow. */
-function checkPipes(body: string): void {
+/** Splits `body` on `|` (trimming segment whitespace in lenient mode) and rejects invalid pipe placements. */
+function splitPipes(body: string, canonical: boolean): string[] {
   if (body.startsWith("|")) throw new VersError("non-canonical VERS: leading pipe is not permitted");
   if (body.endsWith("|")) throw new VersError("non-canonical VERS: trailing pipe is not permitted");
-  if (body.includes("||")) throw new VersError("non-canonical VERS: consecutive pipes are not permitted");
+  const rawParts = body.split("|");
+  const parts = canonical ? rawParts : rawParts.map((part) => part.trim());
+  if (parts.some((part) => part === "")) throw new VersError("non-canonical VERS: consecutive pipes are not permitted");
+  return parts;
 }
 
 /** The parsed, sorted constraints of `body`; empty for `*`. */
 function parseConstraints(scheme: string, body: string, value: string, canonical: boolean): VersConstraint[] {
   if (body === "*") return [];
-  checkPipes(body);
+  const parts = splitPipes(body, canonical);
   const versionSchemeFor = versionScheme(scheme);
-  const parts = body.split("|");
   if (parts.includes("*")) throw new VersError(`"*" must be the only constraint: ${value}`);
   const constraints = parts.map((part) => parseConstraint(part, canonical));
 
@@ -169,7 +194,7 @@ function parseConstraints(scheme: string, body: string, value: string, canonical
 }
 
 function parse(value: string, canonical: boolean): VersRange {
-  const { scheme, body } = splitVers(versText(value, canonical), value);
+  const { scheme, body } = splitVers(versText(value, canonical), value, canonical);
   return { scheme, constraints: parseConstraints(scheme, body, value, canonical), all: body === "*" };
 }
 
@@ -193,13 +218,19 @@ export function validateVersVersions(range: string | VersRange): void {
   for (const constraint of parsed.constraints) scheme.compare(constraint.version, constraint.version);
 }
 
+function encodeVersion(version: string): string {
+  return encodeURIComponent(version)
+    .replace(/%3A/gi, ":")
+    .replace(/[!*]/g, (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`);
+}
+
 export function formatVers(range: VersRange): string {
-  if (range.all) return `vers:${range.scheme}/*`;
+  const scheme = range.scheme.toLowerCase();
+  if (range.all) return `vers:${scheme}/*`;
   const parts = range.constraints.map(
-    ({ comparator, version }) =>
-      `${comparator === "=" ? "" : comparator}${encodeURIComponent(version).replace(/%3A/gi, ":")}`,
+    ({ comparator, version }) => `${comparator === "=" ? "" : comparator}${encodeVersion(version)}`,
   );
-  return `vers:${range.scheme}/${parts.join("|")}`;
+  return `vers:${scheme}/${parts.join("|")}`;
 }
 
 /** Returns the canonical form of a VERS string. */
