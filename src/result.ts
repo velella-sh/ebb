@@ -6,6 +6,9 @@
 import type { EvidenceSource } from "./domain.js";
 import { isIsoDate } from "./registry.js";
 
+/** Schema version for the v1 result model (#110). Never bump without a decision record. */
+export const RESULT_SCHEMA_VERSION = 1 as const;
+
 export const resultStatuses = ["ok", "deprecated", "unsupported", "end-of-life", "removed", "scheduled"] as const;
 
 /** A lifecycle verdict, or `ok` when no rule matches. */
@@ -29,6 +32,7 @@ export interface ResultMatch {
 
 /** Result of judging one component version against the active lifecycle rules. */
 export interface Result {
+  schemaVersion: typeof RESULT_SCHEMA_VERSION;
   status: ResultStatus;
   matches: ResultMatch[];
   /** The version argument exactly as given. */

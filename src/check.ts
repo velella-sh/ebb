@@ -11,7 +11,14 @@ import type { ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
-import { daysLeft as daysUntil, type Result, type ResultEvent, type ResultMatch, type ResultStatus } from "./result.js";
+import {
+  daysLeft as daysUntil,
+  RESULT_SCHEMA_VERSION,
+  type Result,
+  type ResultEvent,
+  type ResultMatch,
+  type ResultStatus,
+} from "./result.js";
 import { VersError, versContains } from "./vers.js";
 
 /** Thrown when a product name is unknown or matches more than one package. */
@@ -207,6 +214,6 @@ export function check(purlOrName: string, version: string, asOf?: string): Check
     candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map((rule) => toCheckMatch(rule, asOf)),
   );
   return asOf === undefined
-    ? { status: statusFromMatches(matches), matches, version }
-    : { status: statusFromMatches(matches), matches, version, asOf };
+    ? { schemaVersion: RESULT_SCHEMA_VERSION, status: statusFromMatches(matches), matches, version }
+    : { schemaVersion: RESULT_SCHEMA_VERSION, status: statusFromMatches(matches), matches, version, asOf };
 }

@@ -31,6 +31,9 @@ test("every check output on cases/ validates against result.v1.schema.json", asy
         ["without asOf", check(item.purl, item.version)],
         [`asOf=${AS_OF}`, check(item.purl, item.version, AS_OF)],
       ] as const) {
+        if (result.schemaVersion !== 1) {
+          failures.push(`${file}: ${item.purl}@${item.version} (${variant}): expected schemaVersion 1`);
+        }
         if (!validate(result)) {
           failures.push(`${file}: ${item.purl}@${item.version} (${variant}): ${ajv.errorsText(validate.errors)}`);
         }
