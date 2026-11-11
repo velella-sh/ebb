@@ -58,10 +58,17 @@ const isVersionRule = (rule: RegistryV2Rule): boolean =>
   rule.usage === undefined || rule.usage.some((matcher) => matcher.kind !== "symbol");
 
 let rulesByIdentity: Map<string, RegistryV2Rule[]> | undefined;
+let allRulesByIdentity: Map<string, RegistryV2Rule[]> | undefined;
 /** Product catalog for bare-name resolution (same shape lookup builds). */
 let productCatalog: ProductRecord[] | undefined;
 /** The active data the current index was built from; rebuild when {@link configureActiveData} changes it. */
 let indexedFrom: ActiveData | undefined;
+
+function pushRule(index: Map<string, RegistryV2Rule[]>, identity: string, rule: RegistryV2Rule): void {
+  const bucket = index.get(identity);
+  if (bucket) bucket.push(rule);
+  else index.set(identity, [rule]);
+}
 
 /**
  * Active registries indexed by canonical package identity (`purlIdentity`), plus the product
@@ -73,23 +80,33 @@ let indexedFrom: ActiveData | undefined;
 function rulesIndex(): Map<string, RegistryV2Rule[]> {
   const data = getActiveDataSync();
   if (rulesByIdentity !== undefined && indexedFrom === data) return rulesByIdentity;
-  const index = new Map<string, RegistryV2Rule[]>();
+  const versionIndex = new Map<string, RegistryV2Rule[]>();
+  const fullIndex = new Map<string, RegistryV2Rule[]>();
   const allRules: RegistryV2Rule[] = [];
   for (const ecosystem of BUNDLED_ECOSYSTEMS) {
     const rules = validateRegistryV2(data.readSync(`registry/${ecosystem}.json`)).rules;
     allRules.push(...rules);
     for (const rule of rules) {
-      if (!isVersionRule(rule)) continue;
       const identity = purlIdentity(rule.purl);
-      const bucket = index.get(identity);
-      if (bucket) bucket.push(rule);
-      else index.set(identity, [rule]);
+      pushRule(fullIndex, identity, rule);
+      if (isVersionRule(rule)) pushRule(versionIndex, identity, rule);
     }
   }
-  rulesByIdentity = index;
+  rulesByIdentity = versionIndex;
+  allRulesByIdentity = fullIndex;
   productCatalog = productsFromRules(allRules);
   indexedFrom = data;
-  return index;
+  return versionIndex;
+}
+
+/**
+ * Returns every rule registered for a canonical `identity` (`purlIdentity`), including
+ * symbol-level rules, from the active-data index shared with {@link check}.
+ * @internal Shared with `rulesFor`.
+ */
+export function resolveAllRulesForIdentity(identity: string): readonly RegistryV2Rule[] {
+  rulesIndex();
+  return allRulesByIdentity?.get(identity) ?? [];
 }
 
 /**
