@@ -162,6 +162,23 @@ batch.summary.total; // 2
 
 Import from `@velella/ebb`. Legacy `0.1.x` subpaths keep resolving until `1.0` with `@deprecated` notices; see [docs/API-STABILITY.md](docs/API-STABILITY.md) for entry-point details.
 
+## Command-Line Interface (CLI)
+
+Verify dependencies, run batch SBOM checks, or find modern replacements directly from the terminal without external dependencies:
+
+```bash
+# Check a package URL
+npx @velella/ebb check pkg:npm/request@2.88.2
+
+# Check dependencies from CycloneDX or JSON
+npx @velella/ebb check-all bom.json --json
+
+# Find recommended replacement
+npx @velella/ebb replacement pkg:npm/request@2.88.2
+```
+
+See [docs/cli.md](docs/cli.md) for complete options and exit codes.
+
 ## AI Agents (MCP & Skills)
 
 Ebb provides official guardrails for AI coding agents (Claude Code, Cursor, Codex, Gemini CLI, Antigravity) to prevent agents from recommending deprecated or end-of-life dependencies.
@@ -252,6 +269,7 @@ Once loaded into memory, registries and precompiled VERS ranges remain cached, k
 
 These pages are also published as a site, built with [Mizzen](https://velella.sh/mizzen/) and [Lateen](https://velella.sh/lateen/): <https://velella.sh/ebb/>.
 
+- [CLI](docs/cli.md): command-line interface for offline checks and SBOM batch evaluation.
 - [Agent Skills](docs/skills.md): guardrails for AI coding agents via skills.sh.
 - [MCP server](docs/mcp.md): connect Ebb over standard stdio JSON-RPC 2.0.
 - [Writing a rule](docs/RULES.md): the format, the evidence policy, and the review workflow.
