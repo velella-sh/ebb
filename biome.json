@@ -16,6 +16,7 @@
       "biome.json",
       "!tests/fixtures/**",
       "!tests/purl/fixtures/**",
+      "!tests/vers/fixtures/**",
       "!tests/importers/recordings/**",
       "!dist/**"
     ]
