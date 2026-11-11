@@ -199,9 +199,11 @@ async function findLatestRelease(
   const listing = await download(releasesUrl, MAXIMUM_LISTING_BYTES, "the release list", request);
   let releases: Release[];
   try {
-    releases = JSON.parse(Buffer.from(listing).toString("utf8")) as Release[];
-    if (!Array.isArray(releases)) throw new Error("not a list");
-  } catch {
+    const parsed: unknown = JSON.parse(Buffer.from(listing).toString("utf8"));
+    if (!Array.isArray(parsed)) throw new DataUpdateError("The release list is not valid JSON.");
+    releases = parsed as Release[];
+  } catch (err) {
+    if (err instanceof DataUpdateError) throw err;
     throw new DataUpdateError("The release list is not valid JSON.");
   }
   const latest = latestDataRelease(releases, version);
