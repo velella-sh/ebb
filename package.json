@@ -24,7 +24,8 @@
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
-      "import": "./dist/src/index.js"
+      "import": "./dist/src/index.js",
+      "require": "./dist/src/cjs-error.cjs"
     },
     "./*": {
       "types": "./dist/src/*.d.ts",
