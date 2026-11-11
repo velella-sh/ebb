@@ -1,0 +1,12 @@
+{
+  "name": "ebb",
+  "version": "0.1.1",
+  "description": "Official Ebb agent skill: check package and runtime deprecation and EOL dates before adding dependencies.",
+  "author": "Velella",
+  "homepage": "https://github.com/velella-sh/ebb",
+  "repository": "https://github.com/velella-sh/ebb",
+  "license": "MIT",
+  "skills": [
+    "./SKILL.md"
+  ]
+}
