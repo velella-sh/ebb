@@ -19,27 +19,69 @@ export type ResultEvent = Exclude<ResultStatus, "ok">;
 
 /** One rule that matched a checked component version. */
 export interface ResultMatch {
+  /**
+   * Id of the matching registry rule.
+   * @stable
+   */
   ruleId: string;
+  /**
+   * Lifecycle event on that rule, in `check`'s short form.
+   * @stable
+   */
   event: ResultEvent;
+  /**
+   * Deadline from the rule (`YYYY-MM-DD`), or `null` when undated.
+   * @stable
+   */
   date: string | null;
-  /** Whole UTC days from the result's `asOf` until `date`; null when past or undated. */
+  /**
+   * Whole UTC days from the result's `asOf` until `date`; `null` when past, undated, or `asOf` is omitted.
+   * @experimental
+   */
   daysLeft: number | null;
+  /**
+   * Suggested replacement from the rule, or `null` when none.
+   * @stable
+   */
   replacement: string | null;
+  /**
+   * Authoritative evidence pages the rule cites.
+   * @stable
+   */
   sources: EvidenceSource[];
-  /** Date (`YYYY-MM-DD`) a maintainer last reviewed the rule against its sources. */
+  /**
+   * Date (`YYYY-MM-DD`) a maintainer last reviewed the rule against its sources.
+   * @stable
+   */
   reviewedAt: string;
 }
 
 /** Result of judging one component version against the active lifecycle rules. */
 export interface Result {
+  /**
+   * Fixed version number of this result model (`1`).
+   * @stable
+   */
   schemaVersion: typeof RESULT_SCHEMA_VERSION;
+  /**
+   * Primary verdict (`"ok"` when no rule matches; otherwise the most serious matching event).
+   * @stable
+   */
   status: ResultStatus;
+  /**
+   * Matching rules ordered by event seriousness then earliest date. Empty when `status` is `"ok"`.
+   * @stable
+   */
   matches: ResultMatch[];
-  /** The version argument exactly as given. */
+  /**
+   * The version argument exactly as given.
+   * @stable
+   */
   version: string;
   /**
    * The day `daysLeft` is measured from (`YYYY-MM-DD`), when supplied.
    * Omitted for the clock-free no-`asOf` form; never read from a system clock.
+   * @experimental
    */
   asOf?: string;
 }
