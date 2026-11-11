@@ -2,7 +2,7 @@
 // so changing, removing, or reordering any past entry changes every hash after it and the checker names the first
 // entry that no longer matches. Docs: docs/DATA.md, "Release log".
 
-import { canonicalJson, sha256Hex } from "@velella/ebb/data-bundle";
+import { canonicalJson, sha256Hex } from "./data-bundle.js";
 
 export const RELEASE_LOG_SCHEMA = "ebb.data-release-log.v1";
 /** The `previous` value of the first entry. */

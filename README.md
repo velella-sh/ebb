@@ -41,6 +41,7 @@ The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](te
 - **Broad coverage.** 752 rules across 25 ecosystems: language runtimes, npm, PyPI, Maven, NuGet, Cargo, Go, containers, Kubernetes APIs, GitHub Actions, Terraform, and more.
 - **Standard identifiers.** purl and VERS throughout, with no ecosystem-specific lookup tables to learn.
 - **Actionable.** Rules carry a replacement and migration guidance: the constraints to keep, the steps to take, and how to verify the change.
+- **Zero dependencies.** Pure ESM with zero runtime dependencies. Instant installs, zero supply-chain risk.
 - **Offline by default.** The rules ship inside the package. Newer rules arrive as signed data bundles, verified with Sigstore before use.
 
 ## Quick start
