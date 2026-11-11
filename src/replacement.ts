@@ -63,8 +63,9 @@ function resolveComponentType(purlOrName: string, ruleId: string): string | unde
   return matchedRule ? parsePurl(matchedRule.purl).type : undefined;
 }
 
-function formatReplacement(purlOrName: string, ruleId: string, rawReplacement: string): string {
+function formatReplacement(purlOrName: string, ruleId: string, rawReplacement: string): string | null {
   const trimmed = rawReplacement.trim();
+  if (trimmed === "") return null;
   if (trimmed.toLowerCase().startsWith("pkg:")) {
     return validateAndNormalizePurl(trimmed);
   }
@@ -73,12 +74,13 @@ function formatReplacement(purlOrName: string, ruleId: string, rawReplacement: s
   if (candidatePurl !== null) {
     return validateAndNormalizePurl(candidatePurl);
   }
-  return rawReplacement;
+  return trimmed;
 }
 
 /**
  * Returns the replacement named by the highest-precedence matching lifecycle rule for
  * `purl` at `version`, or `null` when no matching rule provides a replacement.
+ * Never returns an empty string and never throws for missing replacements.
  * When a rule names a replacement package or PURL, returns its canonical normalised PURL
  * validated via `src/purl.ts`. Non-package replacement guidance strings are preserved as-is.
  * Delegates rule resolution, ordering, and version matching to {@link check}.
@@ -87,5 +89,6 @@ export function replacementFor(purl: string, version: string): string | null {
   const { matches } = check(purl, version);
   const match = matches.find((entry) => entry.replacement !== null && entry.replacement.trim() !== "");
   if (!match || match.replacement === null) return null;
-  return formatReplacement(purl, match.ruleId, match.replacement);
+  const formatted = formatReplacement(purl, match.ruleId, match.replacement);
+  return formatted === null || formatted.trim() === "" ? null : formatted;
 }
