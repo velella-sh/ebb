@@ -23,6 +23,12 @@ main:
         url: /vers/
       - title: API stability
         url: /api-stability/
+  - title: Agents
+    children:
+      - title: Agent Skills
+        url: /skills/
+      - title: MCP server
+        url: /mcp/
   - title: Decisions
     children:
       - title: Registry v2
