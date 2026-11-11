@@ -13,7 +13,7 @@ test("checkAll calls check once per unique purl and version pair while preservin
     { purl: "pkg:npm/request", version: "2.88.2" },
   ] as const;
 
-  const results = checkAllWith(items, (purl, version) => {
+  const { results } = checkAllWith(items, (purl, version) => {
     calls.push({ purl, version });
     return check(purl, version);
   });
@@ -37,7 +37,7 @@ test("checkAll distinguishes distinct version spellings for the same purl", () =
     { purl: "pkg:npm/request", version: "2.88.2" },
   ] as const;
 
-  const results = checkAllWith(items, (purl, version) => {
+  const { results } = checkAllWith(items, (purl, version) => {
     calls.push(`${purl}@${version}`);
     return check(purl, version);
   });
@@ -50,7 +50,7 @@ test("checkAll distinguishes distinct version spellings for the same purl", () =
 
 test("checkAll does not collide on delimiter characters inside purl or version", () => {
   const calls: Array<[string, string]> = [];
-  const results = checkAllWith(
+  const { results } = checkAllWith(
     [
       { purl: "pkg:npm/a\x00b", version: "1.0.0" },
       { purl: "pkg:npm/a", version: "b\x001.0.0" },
@@ -67,7 +67,7 @@ test("checkAll does not collide on delimiter characters inside purl or version",
 });
 
 test("checkAll copies identical results to every duplicate position on real data", () => {
-  const results = checkAll([
+  const { results } = checkAll([
     { purl: "pkg:npm/request", version: "2.88.2" },
     { purl: "pkg:npm/express", version: "4.21.0" },
     { purl: "pkg:npm/request", version: "2.88.2" },

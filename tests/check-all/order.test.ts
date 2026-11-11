@@ -12,7 +12,7 @@ test("checkAll preserves reverse-sorted input order without sorting by name, ver
     { purl: "pkg:generic/nodejs", version: "18.20.0" },
   ];
 
-  const results = checkAll(items);
+  const { results } = checkAll(items);
 
   assert.equal(results.length, items.length);
   assert.deepEqual(
@@ -52,7 +52,7 @@ test("checkAll output index i always matches input index i for shuffled duplicat
   }
 
   const calls: string[] = [];
-  const results = checkAllWith(shuffled, (purl, version) => {
+  const { results } = checkAllWith(shuffled, (purl, version) => {
     calls.push(`${purl}@${version}`);
     return check(purl, version);
   });

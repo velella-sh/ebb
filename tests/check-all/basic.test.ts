@@ -10,7 +10,7 @@ test("checkAll returns three matching results for three items", () => {
     { purl: "pkg:npm/express", version: "4.21.0" },
   ] as const;
 
-  const results = checkAll(items);
+  const { results } = checkAll(items);
 
   assert.equal(results.length, 3);
   assert.deepEqual(
@@ -23,5 +23,5 @@ test("checkAll returns three matching results for three items", () => {
 });
 
 test("checkAll returns an empty list for an empty input", () => {
-  assert.deepEqual(checkAll([]), []);
+  assert.deepEqual(checkAll([]).results, []);
 });
