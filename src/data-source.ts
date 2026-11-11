@@ -12,6 +12,7 @@ import { DataSignatureError, verifyArtifactSignature } from "./data-signature.js
 import type { SignerPolicy, VerifiedSigner } from "./data-signature.js";
 import { defaultCacheDirectory } from "./cache-paths.js";
 import { findPackageFileSync } from "./package-files.js";
+import { clearRegistryCache } from "./registry.js";
 import { compareStrictSemver } from "./vers/semver.js";
 import { VERSION } from "./version.js";
 import { EbbError } from "./errors.js";
@@ -342,6 +343,7 @@ export async function getActiveData(): Promise<ActiveData> {
 export function configureActiveData(options: DataSourceOptions = {}): void {
   configured = options;
   activeSync = undefined;
+  clearRegistryCache();
 }
 
 /** Reads one data file such as `registry/npm.json` from the active data. */
