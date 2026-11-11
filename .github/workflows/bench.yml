@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: bench-${{ github.ref }}
@@ -27,6 +28,20 @@ jobs:
           cache: npm
       - name: Run benchmarks
         run: npm run bench
+      - name: Fetch previous main baseline
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p baseline
+          LATEST_RUN=$(gh run list --workflow Benchmark --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId' || true)
+          if [ -n "$LATEST_RUN" ] && [ "$LATEST_RUN" != "null" ]; then
+            gh run download "$LATEST_RUN" --name bench-results --dir baseline || echo "No previous baseline artifact found."
+          fi
+      - name: Check for performance regressions
+        if: github.event_name == 'pull_request'
+        run: |
+          node dist/tools/bench-compare.js bench-results.json baseline/bench-results.json --threshold 0.20
       - name: Upload benchmark results
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
