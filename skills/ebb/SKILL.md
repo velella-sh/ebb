@@ -1,6 +1,6 @@
 ---
 name: ebb
-description: Check software packages, language runtimes, container base images, and GitHub Actions for deprecation, end-of-life (EOL), and support status before adding or upgrading dependencies. Use whenever asked about EOL or support dates, when auditing dependencies, or before running npm install, pip install, or modifying project runtime versions.
+description: Verify whether language runtimes, libraries, packages, container base images, or GitHub Actions are deprecated, end-of-life (EOL), unsupported, or scheduled for retirement before installing or upgrading. Use when the user asks about EOL, deprecation, or support dates; before adding dependencies via npm, yarn, pnpm, pip, poetry, cargo, go get, or maven; when choosing or upgrading runtime versions (Node.js, Python, Java, Go, Kubernetes); or when auditing project manifests for lifecycle risks.
 ---
 
 # Ebb: Dependency Lifecycle & EOL Verification
