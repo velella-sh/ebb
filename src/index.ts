@@ -28,3 +28,5 @@ export {
   type RulesForOptions,
   rulesFor,
 } from "./rules-for.js";
+
+export const __ciDriftVerify = 1;
