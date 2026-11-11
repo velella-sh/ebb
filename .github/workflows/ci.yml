@@ -46,6 +46,8 @@ jobs:
           fi
           grep 'vers-spec pass rate:' "$GITHUB_STEP_SUMMARY"
       - run: npm run lint:rules
+      - name: Check API report
+        run: npm run api:check
       - name: Install the packed package and load it
         run: |
           npm pack --silent

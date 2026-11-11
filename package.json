@@ -52,6 +52,7 @@
     "format": "biome format --write .",
     "format:check": "biome format .",
     "api": "npm run build --silent && mkdir -p api && api-extractor run --local",
+    "api:check": "npm run build --silent && api-extractor run --print-api-report-diff",
     "lint:rules": "npm run build --silent && node dist/tools/changed-rules.js --all",
     "check": "npm run format:check && npm test",
     "check:sources": "npm run build --silent && node dist/tools/check-sources.js",
