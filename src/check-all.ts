@@ -51,9 +51,23 @@ export interface CheckAllResult {
   summary: CheckAllSummary;
 }
 
-type CachedOutcome =
-  | { readonly ok: true; readonly result: CheckResult }
-  | { readonly ok: false; readonly code: CheckAllErrorCode; readonly message: string };
+class CachedFailure {
+  constructor(
+    readonly code: CheckAllErrorCode,
+    readonly message: string,
+  ) {}
+}
+
+type CachedOutcome = CheckResult | CachedFailure;
+
+class SingleEntry {
+  constructor(
+    readonly version: string,
+    readonly outcome: CachedOutcome,
+  ) {}
+}
+
+type CacheSlot = SingleEntry | Map<string, CachedOutcome>;
 
 function classifyItemError(error: unknown): { code: CheckAllErrorCode; message: string } {
   if (error instanceof EbbError) {
@@ -94,45 +108,66 @@ function createSummary(total: number): CheckAllSummary {
   };
 }
 
-function evaluatePair(
-  cache: Map<string, Map<string, CachedOutcome>>,
+function runItemEvaluation(
   purl: string,
   version: string,
   evaluate: (purl: string, version: string) => CheckResult,
 ): CachedOutcome {
-  let byVersion = cache.get(purl);
-  let outcome = byVersion?.get(version);
+  try {
+    return evaluate(purl, version);
+  } catch (error) {
+    const classified = classifyItemError(error);
+    return new CachedFailure(classified.code, classified.message);
+  }
+}
+
+function evaluatePair(
+  cache: Map<string, CacheSlot>,
+  purl: string,
+  version: string,
+  evaluate: (purl: string, version: string) => CheckResult,
+): CachedOutcome {
+  const existing = cache.get(purl);
+  if (existing === undefined) {
+    const outcome = runItemEvaluation(purl, version, evaluate);
+    cache.set(purl, new SingleEntry(version, outcome));
+    return outcome;
+  }
+  if (existing instanceof SingleEntry) {
+    if (existing.version === version) return existing.outcome;
+    const outcome = runItemEvaluation(purl, version, evaluate);
+    cache.set(
+      purl,
+      new Map<string, CachedOutcome>([
+        [existing.version, existing.outcome],
+        [version, outcome],
+      ]),
+    );
+    return outcome;
+  }
+  let outcome = existing.get(version);
   if (outcome === undefined) {
-    try {
-      outcome = { ok: true, result: evaluate(purl, version) };
-    } catch (error) {
-      const classified = classifyItemError(error);
-      outcome = { ok: false, code: classified.code, message: classified.message };
-    }
-    if (byVersion === undefined) {
-      byVersion = new Map<string, CachedOutcome>();
-      cache.set(purl, byVersion);
-    }
-    byVersion.set(version, outcome);
+    outcome = runItemEvaluation(purl, version, evaluate);
+    existing.set(version, outcome);
   }
   return outcome;
 }
 
 function recordOutcome(summary: CheckAllSummary, outcome: CachedOutcome, index: number): CheckAllEntry {
-  if (outcome.ok) {
-    summary.byStatus[outcome.result.status] += 1;
-    for (const match of outcome.result.matches) {
-      summary.byEvent[match.event] += 1;
-    }
-    return outcome.result;
+  if (outcome instanceof CachedFailure) {
+    summary.errors += 1;
+    return {
+      status: "error",
+      index,
+      code: outcome.code,
+      message: outcome.message,
+    };
   }
-  summary.errors += 1;
-  return {
-    status: "error",
-    index,
-    code: outcome.code,
-    message: outcome.message,
-  };
+  summary.byStatus[outcome.status] += 1;
+  for (const match of outcome.matches) {
+    summary.byEvent[match.event] += 1;
+  }
+  return outcome;
 }
 
 /**
@@ -144,7 +179,7 @@ export function checkAllWith(
   items: Iterable<CheckAllItem>,
   evaluate: (purl: string, version: string) => CheckResult,
 ): CheckAllResult {
-  const cache = new Map<string, Map<string, CachedOutcome>>();
+  const cache = new Map<string, CacheSlot>();
 
   if (Array.isArray(items)) {
     const list: readonly CheckAllItem[] = items;

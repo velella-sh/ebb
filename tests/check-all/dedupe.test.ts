@@ -51,6 +51,30 @@ test("checkAll distinguishes distinct version spellings for the same purl", () =
   assert.equal(results[2].version, "2.88.2");
 });
 
+test("checkAll deduplicates when one purl appears across three or more distinct versions", () => {
+  const calls: string[] = [];
+  const { results } = checkAllWith(
+    [
+      { purl: "pkg:npm/request", version: "2.88.0" },
+      { purl: "pkg:npm/request", version: "2.88.1" },
+      { purl: "pkg:npm/request", version: "2.88.2" },
+      { purl: "pkg:npm/request", version: "2.88.1" },
+      { purl: "pkg:npm/request", version: "2.88.0" },
+      { purl: "pkg:npm/request", version: "2.88.2" },
+    ],
+    (purl, version) => {
+      calls.push(`${purl}@${version}`);
+      return check(purl, version);
+    },
+  );
+
+  assert.deepEqual(calls, ["pkg:npm/request@2.88.0", "pkg:npm/request@2.88.1", "pkg:npm/request@2.88.2"]);
+  assert.equal(results.length, 6);
+  assert.equal(results[0], results[4]);
+  assert.equal(results[1], results[3]);
+  assert.equal(results[2], results[5]);
+});
+
 test("checkAll does not collide on delimiter characters inside purl or version", () => {
   const calls: Array<[string, string]> = [];
   const { results } = checkAllWith(
