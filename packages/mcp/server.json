@@ -1,0 +1,90 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema/server.json",
+  "name": "@velella/ebb-mcp",
+  "title": "Ebb Lifecycle & Deprecation MCP Server",
+  "description": "Official Model Context Protocol server for Ebb: verify package end-of-life dates, deprecations, and replacement targets.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "homepage": "https://github.com/velella-sh/ebb#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/velella-sh/ebb.git"
+  },
+  "publisher": {
+    "name": "Velella",
+    "url": "https://velella.sh"
+  },
+  "transport": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["-y", "@velella/ebb-mcp"]
+  },
+  "capabilities": {
+    "tools": {},
+    "resources": {}
+  },
+  "tools": [
+    {
+      "name": "check",
+      "description": "Check a package URL (PURL) or software product at a specific version against known end-of-life and deprecation dates.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "purl": {
+            "type": "string",
+            "description": "Package URL (e.g. 'pkg:npm/request@2.88.2', 'pkg:npm/request', 'pkg:pypi/django@1.11') or bare product name (e.g. 'node', 'django')."
+          },
+          "version": {
+            "type": "string",
+            "description": "Version string to check (e.g. '2.88.2'). If omitted, version embedded in the PURL is used."
+          },
+          "asOf": {
+            "type": "string",
+            "description": "Optional reference date in YYYY-MM-DD format to compute daysLeft relative to."
+          }
+        },
+        "required": ["purl"]
+      }
+    },
+    {
+      "name": "check_all",
+      "description": "Check multiple package URLs (PURLs) or dependencies in batch against known end-of-life and deprecation dates.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "purls": {
+            "type": "array",
+            "description": "List of package URLs (e.g. 'pkg:npm/request@2.88.2') or objects to check in batch."
+          }
+        },
+        "required": ["purls"]
+      }
+    },
+    {
+      "name": "replacement_for",
+      "description": "Get the recommended replacement package or migration target for a deprecated or end-of-life component version.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "purl": {
+            "type": "string",
+            "description": "Package URL (e.g. 'pkg:npm/request@2.88.2', 'pkg:npm/request') or bare product name (e.g. 'node', 'django')."
+          },
+          "version": {
+            "type": "string",
+            "description": "Version string (e.g. '2.88.2'). If omitted, version embedded in the PURL is used."
+          }
+        },
+        "required": ["purl"]
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "ebb://upcoming",
+      "name": "Upcoming software end-of-life and deprecations",
+      "description": "Scheduled software deprecation and end-of-life dates that have not yet occurred.",
+      "mimeType": "application/json"
+    }
+  ]
+}
