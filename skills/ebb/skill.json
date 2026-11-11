@@ -1,0 +1,21 @@
+{
+  "$schema": "https://skills.sh/schema/v1.json",
+  "name": "ebb",
+  "owner": "velella-sh",
+  "repository": "https://github.com/velella-sh/ebb",
+  "description": "Verify package and runtime deprecation and EOL dates before adding dependencies.",
+  "version": "0.1.1",
+  "license": "MIT",
+  "entrypoint": "SKILL.md",
+  "install": {
+    "command": "npx skills add velella-sh/ebb"
+  },
+  "tags": [
+    "end-of-life",
+    "eol",
+    "deprecation",
+    "dependencies",
+    "agent-guardrail",
+    "security"
+  ]
+}
