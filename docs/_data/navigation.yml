@@ -19,6 +19,8 @@ main:
         url: /rules-for/
       - title: Batch checking
         url: /check-all/
+      - title: VERS version ranges
+        url: /vers/
   - title: Decisions
     children:
       - title: Registry v2
