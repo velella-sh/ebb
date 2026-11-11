@@ -21,6 +21,8 @@ main:
         url: /check-all/
       - title: VERS version ranges
         url: /vers/
+      - title: API stability
+        url: /api-stability/
   - title: Decisions
     children:
       - title: Registry v2

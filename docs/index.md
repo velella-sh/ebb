@@ -44,6 +44,9 @@ sections:
       - title: VERS version ranges
         url: vers/
         meta: reference
+      - title: API stability
+        url: api-stability/
+        meta: reference
   - title: Decisions
     url: decisions/0004-registry-v2/
     description: The reasoning behind the registry format, importers, and data bundles.
