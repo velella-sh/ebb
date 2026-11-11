@@ -62,6 +62,27 @@ Whenever you are about to install or suggest a new dependency (`npm i`, `yarn ad
      - Inform the user: *"Package `<name>` is deprecated/EOL. Ebb recommends `<replacement>`."*
      - If the user explicitly insists on the deprecated package, confirm before proceeding.
 
+## Step 3: Check GitHub Actions and CI Runners Before Use
+
+When writing or reviewing CI configurations (`.github/workflows/*.yml`):
+
+1. **Verify Action Versions (`uses:`)**:
+   - Inspect action versions for retired runner runtimes (e.g. actions executing on Node 12 or Node 16 runner runtimes).
+   - Old major versions such as `actions/checkout@v2` or `actions/upload-artifact@v2` are deprecated or fail on modern GitHub-hosted runners.
+   - PURL format: `pkg:githubactions/<owner>/<repo>@<version>` (or bare check against upstream repository releases).
+   - Upgrade deprecated actions to the latest supported major version (e.g., `actions/checkout@v4`, `actions/setup-node@v4`, `actions/upload-artifact@v4`).
+
+2. **Verify CI Runner Images (`runs-on:`)**:
+   - Deprecated runners like `ubuntu-18.04` and `ubuntu-20.04` are retired or transitioning.
+   - Query OS lifecycles: `check("ubuntu", "20.04")`.
+   - Ensure workflows target supported runner images (e.g., `ubuntu-latest`, `ubuntu-24.04`, `macos-latest`).
+
+3. **Security Best Practice**:
+   - Recommend pinning GitHub Actions to a full 40-character commit SHA with a version comment:
+     ```yaml
+     uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+     ```
+
 ## Verification Methods
 
 ### 1. Via Ebb Model Context Protocol (MCP)
