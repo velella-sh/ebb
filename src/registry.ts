@@ -331,11 +331,37 @@ export function registryV2Issues(value: unknown): string[] {
   return issues;
 }
 
+const validatedRegistries = new WeakMap<object, RegistryV2>();
+let stringRegistryCache = new Map<string, RegistryV2>();
+
+/** Clears cached parsed and validated registries. */
+export function clearRegistryCache(): void {
+  stringRegistryCache.clear();
+}
+
 /**
  * Validates a v2 registry and throws one error that lists every problem found.
+ * Reuses previously validated results across repeated calls for the same object or string.
  * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function validateRegistryV2(value: unknown): RegistryV2 {
+  if (typeof value === "string") {
+    const cached = stringRegistryCache.get(value);
+    if (cached !== undefined) return cached;
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(value);
+    } catch {
+      throw new RegistryValidationError("Invalid registry: not valid JSON");
+    }
+    const validated = validateRegistryV2(parsed);
+    stringRegistryCache.set(value, validated);
+    return validated;
+  }
+  if (typeof value === "object" && value !== null) {
+    const cached = validatedRegistries.get(value);
+    if (cached !== undefined) return cached;
+  }
   const issues = registryV2Issues(value);
   if (issues.length > 0) {
     const shown = issues.slice(0, 20).map((issue) => `- ${issue}`);
@@ -344,7 +370,11 @@ export function validateRegistryV2(value: unknown): RegistryV2 {
       `Invalid registry (${issues.length} problem${issues.length === 1 ? "" : "s"}):\n${shown.join("\n")}`,
     );
   }
-  return value as RegistryV2;
+  const registry = value as RegistryV2;
+  if (typeof value === "object" && value !== null) {
+    validatedRegistries.set(value, registry);
+  }
+  return registry;
 }
 
 /**
