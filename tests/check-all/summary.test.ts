@@ -24,6 +24,7 @@ test("checkAll returns zeroed summary counts for an empty input", () => {
       removed: 0,
       scheduled: 0,
     },
+    errors: 0,
   });
 });
 
@@ -43,6 +44,7 @@ test("checkAll summarizes counts per status and per event on a mixed batch inclu
 
   assert.equal(results.length, items.length);
   assert.equal(summary.total, items.length);
+  assert.equal(summary.errors, 0);
   assert.deepEqual(summary.byStatus, {
     ok: 2,
     deprecated: 1,

@@ -1,4 +1,6 @@
-import { type CheckEvent, type CheckResult, type CheckStatus, check } from "./check.js";
+import { CheckError, type CheckEvent, type CheckResult, type CheckStatus, check } from "./check.js";
+import { EbbError, type EbbErrorCode } from "./errors.js";
+import { VersError } from "./vers.js";
 
 /** One component to judge in a batch passed to {@link checkAll}. */
 export interface CheckAllItem {
@@ -6,20 +8,68 @@ export interface CheckAllItem {
   readonly version: string;
 }
 
+/** Error codes recorded on a {@link CheckAllError} entry when judging one item fails. */
+export type CheckAllErrorCode =
+  | EbbErrorCode
+  | "invalid-version"
+  | "unknown-product"
+  | "ambiguous-product"
+  | "check-failed";
+
+/** Positional error entry produced in {@link CheckAllResult.results} when checking one item fails. */
+export interface CheckAllError {
+  readonly status: "error";
+  /** Zero-based position of the failing item in the input batch. */
+  readonly index: number;
+  readonly code: CheckAllErrorCode;
+  readonly message: string;
+}
+
+/** One item outcome in {@link CheckAllResult.results}: either a lifecycle {@link CheckResult} or a {@link CheckAllError}. */
+export type CheckAllEntry = CheckResult | CheckAllError;
+
+/** Type guard narrowing a {@link CheckAllEntry} to {@link CheckAllError}. */
+export function isCheckAllError(entry: CheckAllEntry): entry is CheckAllError {
+  return entry.status === "error";
+}
+
 /** Aggregate counts for a batch returned by {@link checkAll}. */
 export interface CheckAllSummary {
   /** Total number of input items evaluated in the batch. */
   total: number;
-  /** Number of input items with each primary {@link CheckStatus} verdict. */
+  /** Number of valid input items with each primary {@link CheckStatus} verdict. */
   byStatus: Record<CheckStatus, number>;
-  /** Total matched rules per {@link CheckEvent} across all item `matches` in the batch. */
+  /** Total matched rules per {@link CheckEvent} across all valid item `matches` in the batch. */
   byEvent: Record<CheckEvent, number>;
+  /** Number of input items that produced a {@link CheckAllError} entry. */
+  errors: number;
 }
 
-/** Batch result returned by {@link checkAll}: positional results paired with summary counts. */
+/** Batch result returned by {@link checkAll}: positional entries paired with summary counts. */
 export interface CheckAllResult {
-  results: CheckResult[];
+  results: CheckAllEntry[];
   summary: CheckAllSummary;
+}
+
+type CachedOutcome =
+  | { readonly ok: true; readonly result: CheckResult }
+  | { readonly ok: false; readonly code: CheckAllErrorCode; readonly message: string };
+
+function classifyItemError(error: unknown): { code: CheckAllErrorCode; message: string } {
+  if (error instanceof EbbError) {
+    return { code: error.code, message: error.message };
+  }
+  if (error instanceof VersError) {
+    return { code: "invalid-version", message: error.message };
+  }
+  if (error instanceof CheckError) {
+    const code = error.message.startsWith("Ambiguous") ? "ambiguous-product" : "unknown-product";
+    return { code, message: error.message };
+  }
+  return {
+    code: "check-failed",
+    message: error instanceof Error ? error.message : String(error),
+  };
 }
 
 function createSummary(total: number): CheckAllSummary {
@@ -40,38 +90,54 @@ function createSummary(total: number): CheckAllSummary {
       removed: 0,
       scheduled: 0,
     },
+    errors: 0,
   };
 }
 
 /**
  * Evaluates a batch while deduplicating identical `(purl, version)` pairs via `evaluate`,
- * always writing each result to the exact input index without sorting and accumulating summary counts.
+ * always writing each result (or error entry) to the exact input index without sorting and accumulating summary counts.
  * @internal Exported so tests can verify per-pair call counts without module mocks.
  */
 export function checkAllWith(
   items: readonly CheckAllItem[],
   evaluate: (purl: string, version: string) => CheckResult,
 ): CheckAllResult {
-  const results = new Array<CheckResult>(items.length);
+  const results = new Array<CheckAllEntry>(items.length);
   const summary = createSummary(items.length);
-  const cache = new Map<string, Map<string, CheckResult>>();
+  const cache = new Map<string, Map<string, CachedOutcome>>();
 
   for (let index = 0; index < items.length; index += 1) {
     const item = items[index]!;
     let byVersion = cache.get(item.purl);
-    let result = byVersion?.get(item.version);
-    if (result === undefined) {
-      result = evaluate(item.purl, item.version);
+    let outcome = byVersion?.get(item.version);
+    if (outcome === undefined) {
+      try {
+        outcome = { ok: true, result: evaluate(item.purl, item.version) };
+      } catch (error) {
+        const classified = classifyItemError(error);
+        outcome = { ok: false, code: classified.code, message: classified.message };
+      }
       if (byVersion === undefined) {
-        byVersion = new Map<string, CheckResult>();
+        byVersion = new Map<string, CachedOutcome>();
         cache.set(item.purl, byVersion);
       }
-      byVersion.set(item.version, result);
+      byVersion.set(item.version, outcome);
     }
-    results[index] = result;
-    summary.byStatus[result.status] += 1;
-    for (const match of result.matches) {
-      summary.byEvent[match.event] += 1;
+    if (outcome.ok) {
+      results[index] = outcome.result;
+      summary.byStatus[outcome.result.status] += 1;
+      for (const match of outcome.result.matches) {
+        summary.byEvent[match.event] += 1;
+      }
+    } else {
+      results[index] = {
+        status: "error",
+        index,
+        code: outcome.code,
+        message: outcome.message,
+      };
+      summary.errors += 1;
     }
   }
 
@@ -82,6 +148,8 @@ export function checkAllWith(
  * Judges each `{ purl, version }` item using {@link check} and returns `{ results, summary }`.
  * Results preserve the exact input order (`results[i]` always corresponds to `items[i]`, never sorted).
  * Identical `(purl, version)` pairs are evaluated once and placed at each matching position.
+ * Invalid items produce a {@link CheckAllError} entry (`status: "error"`) with their index and error code
+ * instead of failing the rest of the batch.
  * Offline and synchronous; never reads files outside {@link check}'s active data index.
  */
 export function checkAll(items: readonly CheckAllItem[]): CheckAllResult {

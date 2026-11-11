@@ -43,9 +43,12 @@ test("checkAll distinguishes distinct version spellings for the same purl", () =
   });
 
   assert.deepEqual(calls, ["pkg:npm/request@2.88.2", "pkg:npm/request@v2.88.2"]);
-  assert.equal(results[0]?.version, "2.88.2");
-  assert.equal(results[1]?.version, "v2.88.2");
-  assert.equal(results[2]?.version, "2.88.2");
+  assert.ok(results[0] && results[0].status !== "error");
+  assert.ok(results[1] && results[1].status !== "error");
+  assert.ok(results[2] && results[2].status !== "error");
+  assert.equal(results[0].version, "2.88.2");
+  assert.equal(results[1].version, "v2.88.2");
+  assert.equal(results[2].version, "2.88.2");
 });
 
 test("checkAll does not collide on delimiter characters inside purl or version", () => {
@@ -62,8 +65,10 @@ test("checkAll does not collide on delimiter characters inside purl or version",
   );
 
   assert.equal(calls.length, 2);
-  assert.equal(results[0]?.version, "1.0.0");
-  assert.equal(results[1]?.version, "b\x001.0.0");
+  assert.ok(results[0] && results[0].status !== "error");
+  assert.ok(results[1] && results[1].status !== "error");
+  assert.equal(results[0].version, "1.0.0");
+  assert.equal(results[1].version, "b\x001.0.0");
 });
 
 test("checkAll copies identical results to every duplicate position on real data", () => {
