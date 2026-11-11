@@ -25,6 +25,18 @@ try {
 
 **Cause:** The input string is not a valid [PURL](https://github.com/package-url/purl-spec). Common reasons: missing `pkg:` scheme, missing type, missing name, duplicate qualifier key, bad percent-encoding.
 
+```ts
+import { check } from "@velella/ebb";
+
+try {
+  await check("invalid-purl", "1.0.0");
+} catch (err) {
+  if (err instanceof EbbError && err.code === "invalid-purl") {
+    console.error("Invalid package URL provided:", err.message);
+  }
+}
+```
+
 **Fix:** Validate the PURL before calling Ebb, or catch this code and surface the error to the user.
 
 ---
@@ -34,6 +46,18 @@ try {
 **Thrown by:** `check` / `checkAll`
 
 **Cause:** The version string is not valid for the scheme of the given package type (for example, a non-semver string where a semver string is required).
+
+```ts
+import { check } from "@velella/ebb";
+
+try {
+  await check("pkg:npm/express", "not-a-valid-version");
+} catch (err) {
+  if (err instanceof EbbError && err.code === "invalid-version") {
+    console.error("Invalid version string for package scheme:", err.message);
+  }
+}
+```
 
 **Fix:** Normalise or validate the version string before calling Ebb.
 
@@ -54,6 +78,18 @@ try {
 **Thrown by:** `check` / `checkAll` / `rulesFor` / `replacementFor` (when no local data has been downloaded yet)
 
 **Cause:** No data bundle has been downloaded to the local cache and no bundled data is available for the current query.
+
+```ts
+import { check } from "@velella/ebb";
+
+try {
+  await check("pkg:npm/express", "4.18.2");
+} catch (err) {
+  if (err instanceof EbbError && err.code === "data-unavailable") {
+    console.error("Offline or cache empty; run update() first.");
+  }
+}
+```
 
 **Fix:** Call `update()` once before querying, or use a bundled-data import (`@velella/ebb/bundled-rules`).
 
