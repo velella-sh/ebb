@@ -1,4 +1,5 @@
 import { check } from "@velella/ebb";
+import { formatCheckResult } from "../format.js";
 import type { McpTool, McpToolResult } from "../types.js";
 
 export function extractPurlAndVersion(
@@ -82,7 +83,8 @@ export const checkTool: McpTool = {
     }
 
     try {
-      const result = check(purl, version, asOfArg);
+      const rawResult = check(purl, version, asOfArg);
+      const result = formatCheckResult(rawResult);
       return {
         content: [
           {

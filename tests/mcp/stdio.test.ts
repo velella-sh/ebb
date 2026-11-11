@@ -117,6 +117,8 @@ describe("MCP Server Process (stdio)", () => {
     assert.equal(callResp.result.isError, false);
     const content = JSON.parse(callResp.result.content[0].text);
     assert.equal(content.status, "deprecated");
+    assert.ok(content.provenance.sources.length > 0);
+    assert.ok(content.provenance.reviewers.length > 0);
 
     // 6. tools/call check_all tool
     send({
