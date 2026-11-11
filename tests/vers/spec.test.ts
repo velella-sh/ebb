@@ -4,14 +4,24 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { hasVersionScheme, normalizeVers, parseVers, versContains, versionScheme } from "../../src/vers/index.js";
+import {
+  hasVersionScheme,
+  normalizeVers,
+  parseVers,
+  VersError,
+  versContains,
+  versionScheme,
+} from "../../src/vers/index.js";
 
 // Compiled under dist/tests/vers/; reach the source tree the same way tests/purl/spec.test.ts does.
 const fixturesRoot = fileURLToPath(new URL("../../../tests/vers/fixtures", import.meta.url));
-const knownFailuresPath = fileURLToPath(new URL("../../../tests/vers/known-failures.json", import.meta.url));
+const upstreamInconsistenciesPath = fileURLToPath(
+  new URL("../../../tests/vers/upstream-inconsistencies.json", import.meta.url),
+);
 
 type TestType = "parse" | "validate" | "containment" | "comparison" | "equality" | "from_native";
 type TestGroup = "required" | "recommended";
+type InconsistencyKind = "nuget-prerelease-case" | "clause-5.4-invalid-range";
 
 interface RangeInput {
   scheme?: string;
@@ -36,9 +46,11 @@ interface FixtureFile {
   tests: FixtureCase[];
 }
 
-interface KnownFailure {
+interface UpstreamInconsistency {
   name: string;
+  kind: InconsistencyKind;
   reason: string;
+  spec: string;
 }
 
 function schemeOf(tc: FixtureCase): string | undefined {
@@ -105,12 +117,50 @@ function runCase(tc: FixtureCase, scheme: string): boolean {
   return false;
 }
 
+/** Verifies Ebb's spec-conforming behaviour for documented upstream fixture contradictions. */
+function runConformingAlternative(tc: FixtureCase, scheme: string, kind: InconsistencyKind): boolean {
+  if (kind === "nuget-prerelease-case") {
+    if (tc.test_type !== "comparison" || !Array.isArray(tc.expected_output)) return false;
+    const versions = (tc.input as RangeInput).versions ?? [];
+    const expected = tc.expected_output as string[];
+    const comparator = versionScheme(scheme);
+    const sorted = [...versions].sort((left, right) => comparator.compare(left, right));
+    return (
+      sorted.length === expected.length &&
+      sorted.every(
+        (version, index) =>
+          version.toLowerCase() === expected[index]!.toLowerCase() &&
+          comparator.compare(version, expected[index]!) === 0,
+      )
+    );
+  }
+
+  if (kind === "clause-5.4-invalid-range") {
+    if (tc.test_type !== "validate" || typeof tc.input !== "string") return false;
+    try {
+      parseVers(tc.input);
+      return false;
+    } catch (parseError) {
+      if (!(parseError instanceof VersError)) return false;
+    }
+    try {
+      normalizeVers(tc.input);
+      return false;
+    } catch (normalizeError) {
+      return normalizeError instanceof VersError;
+    }
+  }
+
+  return false;
+}
+
 test("official vers-spec suite (supported schemes)", async () => {
-  const knownList = JSON.parse(await readFile(knownFailuresPath, "utf8")) as KnownFailure[];
-  const known = new Map(knownList.map((entry) => [entry.name, entry]));
+  const upstreamList = JSON.parse(await readFile(upstreamInconsistenciesPath, "utf8")) as UpstreamInconsistency[];
+  const upstream = new Map(upstreamList.map((entry) => [entry.name, entry]));
   const seen = new Set<string>();
-  const unexpectedFailures: string[] = [];
-  const unexpectedlyPassing: string[] = [];
+  const failures: string[] = [];
+  const unexpectedlyAgreeing: string[] = [];
+  const alternativeFailures: string[] = [];
 
   let total = 0;
   let passed = 0;
@@ -137,41 +187,53 @@ test("official vers-spec suite (supported schemes)", async () => {
       }
 
       total += 1;
-      const ok = runCase(tc, scheme);
-      if (known.has(name)) {
-        if (ok) unexpectedlyPassing.push(name);
-      } else if (ok) {
+      const agrees = runCase(tc, scheme);
+      const inconsistency = upstream.get(name);
+      if (inconsistency) {
+        if (agrees) {
+          unexpectedlyAgreeing.push(name);
+        } else if (runConformingAlternative(tc, scheme, inconsistency.kind)) {
+          passed += 1;
+        } else {
+          alternativeFailures.push(name);
+        }
+      } else if (agrees) {
         passed += 1;
       } else {
-        unexpectedFailures.push(name);
+        failures.push(name);
       }
     }
   }
 
-  for (const name of known.keys()) {
-    assert.ok(seen.has(name), `known-failures.json lists unknown case: ${name}`);
+  for (const name of upstream.keys()) {
+    assert.ok(seen.has(name), `upstream-inconsistencies.json lists unknown case: ${name}`);
   }
 
   const rateLine = `vers-spec pass rate: ${passed}/${total}`;
   assert.match(rateLine, /^vers-spec pass rate: \d+\/\d+$/);
   console.log(
-    `${rateLine} (${knownList.length} known failures; skipped ${unsupportedSkipped} unsupported-scheme, ${fromNativeSkipped} from_native)`,
+    `${rateLine} (${upstreamList.length} upstream inconsistencies verified; skipped ${unsupportedSkipped} unsupported-scheme, ${fromNativeSkipped} from_native)`,
   );
 
   const summaryPath = process.env.GITHUB_STEP_SUMMARY;
   if (summaryPath) {
     await appendFile(
       summaryPath,
-      `## ${rateLine}\n\nSupported schemes: ${passed}/${total} (${knownList.length} known failures; skipped ${unsupportedSkipped} unsupported-scheme, ${fromNativeSkipped} \`from_native\` vectors).\n\n`,
+      `## ${rateLine}\n\nSupported schemes: ${passed}/${total} (${upstreamList.length} documented upstream inconsistencies verified; skipped ${unsupportedSkipped} unsupported-scheme, ${fromNativeSkipped} \`from_native\` vectors).\n\n`,
       "utf8",
     );
   }
 
   assert.deepEqual(
-    unexpectedlyPassing,
+    unexpectedlyAgreeing,
     [],
-    `cases in known-failures.json now pass; remove them:\n${unexpectedlyPassing.join("\n")}`,
+    `cases in upstream-inconsistencies.json now agree with the fixture; remove them:\n${unexpectedlyAgreeing.join("\n")}`,
   );
-  assert.deepEqual(unexpectedFailures, [], `vers-spec cases failed unexpectedly:\n${unexpectedFailures.join("\n")}`);
-  assert.equal(passed + knownList.length, total, rateLine);
+  assert.deepEqual(
+    alternativeFailures,
+    [],
+    `upstream-inconsistency alternative behaviour failed:\n${alternativeFailures.join("\n")}`,
+  );
+  assert.deepEqual(failures, [], `vers-spec cases failed:\n${failures.join("\n")}`);
+  assert.equal(passed, total, rateLine);
 });
