@@ -1,6 +1,6 @@
 import { required } from "../required.js";
-import { registerVersionScheme, VersError } from "../vers.js";
 import type { VersionScheme } from "../vers.js";
+import { VersError } from "./errors.js";
 
 interface NuGetVersion {
   numbers: [bigint, bigint, bigint, bigint];
@@ -57,5 +57,3 @@ export const nugetScheme: VersionScheme = {
     return 0;
   },
 };
-
-registerVersionScheme(nugetScheme);

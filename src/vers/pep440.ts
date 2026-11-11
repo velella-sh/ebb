@@ -1,6 +1,6 @@
 import { required } from "../required.js";
-import { registerVersionScheme, VersError } from "../vers.js";
 import type { VersionScheme } from "../vers.js";
+import { VersError } from "./errors.js";
 
 // PEP 440 version pattern, as used by the reference `packaging` implementation.
 const PATTERN = new RegExp(
@@ -124,5 +124,3 @@ export const pep440Scheme: VersionScheme = {
     );
   },
 };
-
-registerVersionScheme(pep440Scheme);

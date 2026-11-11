@@ -1,7 +1,7 @@
 import semver from "semver";
 
-import { registerVersionScheme, VersError } from "../vers.js";
 import type { VersionScheme } from "../vers.js";
+import { VersError } from "./errors.js";
 
 function parse(value: string): semver.SemVer {
   const parsed = semver.parse(value, { loose: true });
@@ -20,5 +20,3 @@ export const semverScheme: VersionScheme = {
     return semver.compare(parse(left), parse(right));
   },
 };
-
-registerVersionScheme(semverScheme);
