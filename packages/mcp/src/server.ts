@@ -1,3 +1,4 @@
+import { upcomingResource } from "./resources/upcoming.js";
 import { checkTool } from "./tools/check.js";
 import { checkAllTool } from "./tools/check_all.js";
 import { replacementForTool } from "./tools/replacement.js";
@@ -6,6 +7,7 @@ import type {
   JsonRpcRequest,
   JsonRpcResponse,
   McpInitializeResult,
+  McpResource,
   McpServerCapabilities,
   McpServerInfo,
   McpTool,
@@ -19,6 +21,7 @@ export class McpServer {
   private readonly info: McpServerInfo;
   private readonly capabilities: McpServerCapabilities;
   private readonly tools = new Map<string, McpTool>();
+  private readonly resources = new Map<string, McpResource>();
   private initialized = false;
 
   constructor(options?: {
@@ -39,6 +42,9 @@ export class McpServer {
     this.registerTool(checkTool);
     this.registerTool(checkAllTool);
     this.registerTool(replacementForTool);
+
+    // Register built-in resources
+    this.registerResource(upcomingResource);
   }
 
   public registerTool(tool: McpTool): void {
@@ -47,6 +53,19 @@ export class McpServer {
 
   public getTool(name: string): McpTool | undefined {
     return this.tools.get(name);
+  }
+
+  public registerResource(resource: McpResource): void {
+    this.resources.set(resource.definition.uri, resource);
+  }
+
+  public getResource(uri: string): McpResource | undefined {
+    // Exact match or base uri without query params
+    if (this.resources.has(uri)) {
+      return this.resources.get(uri);
+    }
+    const baseUri = uri.split("?")[0] ?? uri;
+    return this.resources.get(baseUri);
   }
 
   public async handleMessage(raw: unknown): Promise<JsonRpcResponse | null> {
@@ -123,7 +142,11 @@ export class McpServer {
         return this.handleToolCall(params);
       }
       case "resources/list": {
-        return { resources: [] };
+        const resources = Array.from(this.resources.values()).map((r) => r.definition);
+        return { resources };
+      }
+      case "resources/read": {
+        return this.handleResourceRead(params);
       }
       default: {
         const error = new Error(`Method not found: ${method}`);
@@ -167,6 +190,24 @@ export class McpServer {
       : {};
 
     return await tool.handler(args);
+  }
+
+  private async handleResourceRead(rawParams: unknown): Promise<unknown> {
+    if (typeof rawParams !== "object" || rawParams === null) {
+      throw new Error("Invalid params: expected object with uri");
+    }
+
+    const { uri } = rawParams as { uri?: unknown };
+    if (typeof uri !== "string") {
+      throw new Error("Invalid params: uri must be a string");
+    }
+
+    const resource = this.getResource(uri);
+    if (!resource) {
+      throw new Error(`Resource not found: ${uri}`);
+    }
+
+    return await resource.handler(uri);
   }
 
   public isInitialized(): boolean {

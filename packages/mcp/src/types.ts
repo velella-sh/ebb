@@ -68,3 +68,26 @@ export interface McpTool {
   definition: McpToolDefinition;
   handler: (args: Record<string, unknown>) => Promise<McpToolResult> | McpToolResult;
 }
+
+export interface McpResourceDefinition {
+  uri: string;
+  name: string;
+  description?: string;
+  mimeType?: string;
+}
+
+export interface McpResourceContent {
+  uri: string;
+  mimeType?: string;
+  text?: string;
+  blob?: string;
+}
+
+export interface McpResourceResult {
+  contents: McpResourceContent[];
+}
+
+export interface McpResource {
+  definition: McpResourceDefinition;
+  handler: (uri: string) => Promise<McpResourceResult> | McpResourceResult;
+}
