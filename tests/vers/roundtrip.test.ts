@@ -8,7 +8,9 @@ import { formatVers, hasVersionScheme, normalizeVers, parseVers } from "../../sr
 
 // Compiled under dist/tests/vers/; reach the source tree the same way spec.test.ts does.
 const fixturesRoot = fileURLToPath(new URL("../../../tests/vers/fixtures", import.meta.url));
-const knownFailuresPath = fileURLToPath(new URL("../../../tests/vers/known-failures.json", import.meta.url));
+const upstreamInconsistenciesPath = fileURLToPath(
+  new URL("../../../tests/vers/upstream-inconsistencies.json", import.meta.url),
+);
 
 type TestType = "parse" | "validate" | "containment" | "comparison" | "equality" | "from_native";
 
@@ -24,8 +26,9 @@ interface FixtureFile {
   tests: FixtureCase[];
 }
 
-interface KnownFailure {
+interface UpstreamInconsistency {
   name: string;
+  kind: string;
 }
 
 /** Valid VERS strings carried by non-`from_native` fixture cases. */
@@ -49,8 +52,10 @@ function schemeOf(vers: string): string | undefined {
 }
 
 test("valid vers-spec fixtures round-trip canonically through formatVers", async () => {
-  const known = new Set(
-    (JSON.parse(await readFile(knownFailuresPath, "utf8")) as KnownFailure[]).map((entry) => entry.name),
+  const invalidClause54 = new Set(
+    (JSON.parse(await readFile(upstreamInconsistenciesPath, "utf8")) as UpstreamInconsistency[])
+      .filter((entry) => entry.kind === "clause-5.4-invalid-range")
+      .map((entry) => entry.name),
   );
   const seen = new Set<string>();
   const roundTripMismatches: string[] = [];
@@ -62,7 +67,7 @@ test("valid vers-spec fixtures round-trip canonically through formatVers", async
     const suite = JSON.parse(await readFile(join(fixturesRoot, file), "utf8")) as FixtureFile;
     for (const [index, tc] of suite.tests.entries()) {
       const caseName = `${file}[${index}]:${tc.test_type}`;
-      if (known.has(caseName)) continue;
+      if (invalidClause54.has(caseName)) continue;
 
       for (const vers of versStringsFromCase(tc)) {
         const scheme = schemeOf(vers);

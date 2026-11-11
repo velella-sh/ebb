@@ -1,0 +1,44 @@
+[
+  {
+    "name": "nuget_version_cmp_test.json[13]:comparison",
+    "kind": "nuget-prerelease-case",
+    "reason": "Comparison fixture lowercases the pre-release label in expected_output ('1.0.0-BETA' -> '1.0.0-beta'), while NuGet comparison preserves input strings and compares pre-release labels case-insensitively.",
+    "spec": "https://github.com/package-url/vers-spec/blob/v1.2.1/tests/nuget_version_cmp_test.json"
+  },
+  {
+    "name": "nuget_version_cmp_test.json[15]:comparison",
+    "kind": "nuget-prerelease-case",
+    "reason": "Comparison fixture lowercases the pre-release label in expected_output ('1.0.0-BETA' -> '1.0.0-beta'), while keeping build metadata casing unchanged.",
+    "spec": "https://github.com/package-url/vers-spec/blob/v1.2.1/tests/nuget_version_cmp_test.json"
+  },
+  {
+    "name": "nuget_version_cmp_test.json[16]:comparison",
+    "kind": "nuget-prerelease-case",
+    "reason": "Comparison fixture lowercases the pre-release label in expected_output ('1.0.0-BETA.X.y.5.77.0+AA' -> '1.0.0-beta.x.y.5.77.0+AA'), while keeping build metadata casing unchanged.",
+    "spec": "https://github.com/package-url/vers-spec/blob/v1.2.1/tests/nuget_version_cmp_test.json"
+  },
+  {
+    "name": "nuget_version_cmp_test.json[17]:comparison",
+    "kind": "nuget-prerelease-case",
+    "reason": "Comparison fixture lowercases the pre-release label in expected_output ('1.0.0-BETA.X.y.5.79.0+AA' -> '1.0.0-beta.x.y.5.79.0+AA'), while keeping build metadata casing unchanged.",
+    "spec": "https://github.com/package-url/vers-spec/blob/v1.2.1/tests/nuget_version_cmp_test.json"
+  },
+  {
+    "name": "pypi_range_validate_test.json[2]:validate",
+    "kind": "clause-5.4-invalid-range",
+    "reason": "Required validate expects success for consecutive lower bounds ('>0.0.0|>=0.0.1') and equality before upper bounds ('0.0.2|<0.0.3'), contradicting normative Clause 5.4.",
+    "spec": "https://github.com/package-url/vers-spec/blob/v1.2.1/docs/standard/Clause-5-VERS-Specification.md"
+  },
+  {
+    "name": "pypi_range_validate_test.json[3]:validate",
+    "kind": "clause-5.4-invalid-range",
+    "reason": "Required validate expects success for duplicate constraint version ('>=0.0.1|>=0.0.1') and non-alternating bounds, contradicting normative Clause 5.4.",
+    "spec": "https://github.com/package-url/vers-spec/blob/v1.2.1/docs/standard/Clause-5-VERS-Specification.md"
+  },
+  {
+    "name": "pypi_range_validate_test.json[4]:validate",
+    "kind": "clause-5.4-invalid-range",
+    "reason": "Required validate expects success for consecutive lower bounds ('>0.0.0|>=0.0.1') and equality before upper bound ('0.0.4|<0.0.5'), contradicting normative Clause 5.4.",
+    "spec": "https://github.com/package-url/vers-spec/blob/v1.2.1/docs/standard/Clause-5-VERS-Specification.md"
+  }
+]
