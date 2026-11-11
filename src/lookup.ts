@@ -1,6 +1,7 @@
 import type { EvidenceSource, Severity } from "./domain.js";
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import { loadDataFile } from "./data-source.js";
+import { buildProductPurlIndex, buildPurlIndex, type PurlProductMap, type PurlRuleMap } from "./index-build.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { normalizeProductKey, productNameQuery, productsFromRules, rankProductsForName } from "./product-name.js";
 import type { ProductRecord } from "./product-name.js";
@@ -43,18 +44,30 @@ export interface LookupResult {
   findings: LookupFinding[];
 }
 
-let loadedRules: Promise<RegistryV2Rule[]> | undefined;
+interface LookupData {
+  rules: RegistryV2Rule[];
+  rulesByIdentity: PurlRuleMap;
+  products: ProductRecord[];
+  productsByIdentity: PurlProductMap;
+}
 
-/** Every bundled rule, not only the ecosystems `check` resolves: the lookup takes a human name, not a PURL. */
-function allRules(): Promise<RegistryV2Rule[]> {
-  loadedRules ??= (async () => {
+let loadedLookupData: Promise<LookupData> | undefined;
+
+function loadLookupData(): Promise<LookupData> {
+  loadedLookupData ??= (async () => {
     const rules: RegistryV2Rule[] = [];
     for (const ecosystem of BUNDLED_ECOSYSTEMS) {
       rules.push(...validateRegistryV2(await loadDataFile(`registry/${ecosystem}.json`)).rules);
     }
-    return rules;
+    const products = productsFromRules(rules);
+    return {
+      rules,
+      rulesByIdentity: buildPurlIndex(rules),
+      products,
+      productsByIdentity: buildProductPurlIndex(products),
+    };
   })();
-  return loadedRules;
+  return loadedLookupData;
 }
 
 /** A rule with only symbol matchers describes an API inside a product, not the product's own lifecycle. */
@@ -90,7 +103,7 @@ function nearestProduct(
 }
 
 /** A package URL names one product exactly; `githubactions` is accepted as the `github` type the bundled rules use. */
-function resolvePurl(name: string, products: readonly ProductRecord[]): ProductRecord {
+function resolvePurl(name: string, productsByIdentity: PurlProductMap): ProductRecord {
   let identity: string;
   try {
     // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
@@ -99,19 +112,19 @@ function resolvePurl(name: string, products: readonly ProductRecord[]): ProductR
   } catch {
     throw new LookupError(`Invalid package URL "${name}".`);
   }
-  const match = products.find((product) => purlIdentity(product.purl) === identity);
+  const match = productsByIdentity.get(identity);
   if (!match) throw new LookupError(`Unknown product "${name}". Ebb has no lifecycle rules for this package URL.`);
   return match;
 }
 
-function resolveProduct(name: string, products: readonly ProductRecord[]): ProductRecord {
-  if (name.toLowerCase().startsWith("pkg:")) return resolvePurl(name, products);
-  const ranked = rankProductsForName(name, products);
+function resolveProduct(name: string, data: LookupData): ProductRecord {
+  if (name.toLowerCase().startsWith("pkg:")) return resolvePurl(name, data.productsByIdentity);
+  const ranked = rankProductsForName(name, data.products);
   if (ranked.length === 0) {
     const query = productNameQuery(name);
     const suggestions = [
       ...new Set(
-        nearestProduct(query === "" ? normalizeProductKey(name) : query, products)
+        nearestProduct(query === "" ? normalizeProductKey(name) : query, data.products)
           .slice(0, 3)
           .map(({ product }) => product.name),
       ),
@@ -162,8 +175,8 @@ function toFinding(rule: RegistryV2Rule): LookupFinding {
  * @deprecated Import `check` from `@velella/ebb` instead. Subpath imports will be removed in 1.0.
  */
 export async function lookupProduct(name: string, version?: string): Promise<LookupResult> {
-  const products = productsFromRules(await allRules());
-  const product = resolveProduct(name, products);
+  const data = await loadLookupData();
+  const product = resolveProduct(name, data);
   const findings = product.rules
     .filter(isProductRule)
     .filter((rule) => version === undefined || matchesVersion(rule, version))
