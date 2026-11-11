@@ -1,6 +1,6 @@
 import { required } from "../required.js";
-import { registerVersionScheme, VersError } from "../vers.js";
 import type { VersionScheme } from "../vers.js";
+import { VersError } from "./errors.js";
 
 // A port of Maven 3.9 org.apache.maven.artifact.versioning.ComparableVersion, checked against the VERS maven vectors.
 
@@ -250,5 +250,3 @@ export const mavenScheme: VersionScheme = {
     return parse(left).compareTo(parse(right));
   },
 };
-
-registerVersionScheme(mavenScheme);

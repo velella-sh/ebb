@@ -5,8 +5,10 @@
 
 import { required } from "./required.js";
 import { VersError } from "./vers/errors.js";
+import { SUPPORTED_SCHEMES } from "./vers/schemes.js";
 
 export { VersError } from "./vers/errors.js";
+export { intdotScheme, SUPPORTED_SCHEMES } from "./vers/schemes.js";
 
 export type VersComparator = "=" | "!=" | "<" | "<=" | ">" | ">=";
 
@@ -30,7 +32,7 @@ export interface VersionScheme {
   compare(left: string, right: string): number;
 }
 
-const schemes = new Map<string, VersionScheme>();
+const schemes = new Map<string, VersionScheme>(Object.entries(SUPPORTED_SCHEMES));
 
 export function registerVersionScheme(scheme: VersionScheme): void {
   for (const name of scheme.names) schemes.set(name.toLowerCase(), scheme);
@@ -45,29 +47,6 @@ export function versionScheme(name: string): VersionScheme {
 export function hasVersionScheme(name: string): boolean {
   return schemes.has(name.toLowerCase());
 }
-
-/** The spec's `intdot` scheme: dot-separated integers; anything after the first other character is ignored. */
-export const intdotScheme: VersionScheme = {
-  names: ["intdot"],
-  compare(left, right) {
-    const segments = (value: string) => {
-      const prefix = /^[0-9.]*/.exec(value)?.[0] ?? "";
-      if (!/^\d/.test(prefix)) throw new VersError(`Invalid intdot version "${value}".`);
-      return prefix
-        .split(".")
-        .filter(Boolean)
-        .map((segment) => BigInt(segment));
-    };
-    const a = segments(left);
-    const b = segments(right);
-    for (let index = 0; index < Math.max(a.length, b.length); index++) {
-      const difference = (a[index] ?? 0n) - (b[index] ?? 0n);
-      if (difference !== 0n) return difference < 0n ? -1 : 1;
-    }
-    return 0;
-  },
-};
-registerVersionScheme(intdotScheme);
 
 const isLower = (comparator: VersComparator) => comparator === ">" || comparator === ">=";
 const isUpper = (comparator: VersComparator) => comparator === "<" || comparator === "<=";

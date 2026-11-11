@@ -1,5 +1,5 @@
-import { registerVersionScheme, VersError } from "../vers.js";
 import type { VersionScheme } from "../vers.js";
+import { VersError } from "./errors.js";
 
 // A port of Gem::Version#<=> (RubyGems 3).
 
@@ -48,5 +48,3 @@ export const gemScheme: VersionScheme = {
     return 0;
   },
 };
-
-registerVersionScheme(gemScheme);
