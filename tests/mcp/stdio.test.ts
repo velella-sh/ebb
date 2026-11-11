@@ -6,7 +6,7 @@ import { describe, it } from "node:test";
 const serverPath = resolve(process.cwd(), "packages/mcp/dist/src/index.js");
 
 describe("MCP Server Process (stdio)", () => {
-  it("starts and communicates over stdio with json-rpc 2.0 handshake", async () => {
+  it("starts and communicates over stdio with json-rpc 2.0 handshake and tool call", async () => {
     const child = spawn("node", [serverPath], {
       stdio: ["pipe", "pipe", "pipe"],
     });
@@ -77,7 +77,6 @@ describe("MCP Server Process (stdio)", () => {
       jsonrpc: "2.0",
       method: "notifications/initialized",
     });
-    // Wait briefly to confirm no rogue response is emitted
     await new Promise((resolve) => setTimeout(resolve, 50));
     assert.equal(responses.length, 1);
 
@@ -87,10 +86,37 @@ describe("MCP Server Process (stdio)", () => {
       id: 2,
       method: "ping",
     });
-
     const pingResp = await waitForResponse(2);
     assert.equal(pingResp.id, 2);
     assert.deepEqual(pingResp.result, {});
+
+    // 4. tools/list includes check tool
+    send({
+      jsonrpc: "2.0",
+      id: 3,
+      method: "tools/list",
+    });
+    const listResp = await waitForResponse(3);
+    assert.equal(listResp.id, 3);
+    assert.ok(listResp.result.tools.some((t: { name: string }) => t.name === "check"));
+
+    // 5. tools/call check tool
+    send({
+      jsonrpc: "2.0",
+      id: 4,
+      method: "tools/call",
+      params: {
+        name: "check",
+        arguments: {
+          purl: "pkg:npm/request@2.88.2",
+        },
+      },
+    });
+    const callResp = await waitForResponse(4);
+    assert.equal(callResp.id, 4);
+    assert.equal(callResp.result.isError, false);
+    const content = JSON.parse(callResp.result.content[0].text);
+    assert.equal(content.status, "deprecated");
 
     // Clean up cleanly
     child.stdin.end();

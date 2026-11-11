@@ -104,7 +104,7 @@ describe("MCP Stdio Transport", () => {
     session.close();
   });
 
-  it("returns empty tools list before tools are added", async () => {
+  it("returns tools list from tools/list", async () => {
     const session = setupStdioSession();
 
     await session.send({
@@ -117,7 +117,9 @@ describe("MCP Stdio Transport", () => {
     const resp = session.responses[0];
     assert.ok(resp);
     assert.equal(resp.id, "req-tools");
-    assert.deepEqual(resp.result, { tools: [] });
+    const result = resp.result as { tools: Array<{ name: string }> };
+    assert.ok(Array.isArray(result.tools));
+    assert.ok(result.tools.some((t) => t.name === "check"));
 
     session.close();
   });

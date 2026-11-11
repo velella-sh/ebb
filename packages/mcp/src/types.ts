@@ -39,3 +39,32 @@ export interface McpInitializeResult {
   capabilities: McpServerCapabilities;
   serverInfo: McpServerInfo;
 }
+
+export interface McpToolInputSchema {
+  type: "object";
+  properties: Record<string, unknown>;
+  required?: string[];
+}
+
+export interface McpToolDefinition {
+  name: string;
+  description: string;
+  inputSchema: McpToolInputSchema;
+}
+
+export interface McpTextContent {
+  type: "text";
+  text: string;
+}
+
+export type McpToolContent = McpTextContent;
+
+export interface McpToolResult {
+  content: McpToolContent[];
+  isError?: boolean;
+}
+
+export interface McpTool {
+  definition: McpToolDefinition;
+  handler: (args: Record<string, unknown>) => Promise<McpToolResult> | McpToolResult;
+}
