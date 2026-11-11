@@ -29,6 +29,28 @@ function percentile(sorted: readonly number[], ratio: number): number {
 }
 
 /**
+ * Computes min, max, median, p99, and opsPerSec stats from an array of durations in ms.
+ */
+export function computeStats(name: string, durationsMs: readonly number[]): BenchmarkStats {
+  const sorted = [...durationsMs].sort((a, b) => a - b);
+  const minMs = Number((sorted[0] ?? 0).toFixed(4));
+  const maxMs = Number((sorted[sorted.length - 1] ?? 0).toFixed(4));
+  const medianMs = Number(percentile(sorted, 0.5).toFixed(4));
+  const p99Ms = Number(percentile(sorted, 0.99).toFixed(4));
+  const opsPerSec = medianMs > 0 ? Math.round(1000 / medianMs) : 0;
+
+  return {
+    name,
+    iterations: durationsMs.length,
+    minMs,
+    medianMs,
+    p99Ms,
+    maxMs,
+    opsPerSec,
+  };
+}
+
+/**
  * Runs a function `iterations` times after optional warmup, returning execution stats.
  */
 export function runBenchmark(
@@ -51,22 +73,7 @@ export function runBenchmark(
     durationsMs[i] = Number(end - start) / 1_000_000;
   }
 
-  const sorted = [...durationsMs].sort((a, b) => a - b);
-  const minMs = Number((sorted[0] ?? 0).toFixed(4));
-  const maxMs = Number((sorted[sorted.length - 1] ?? 0).toFixed(4));
-  const medianMs = Number(percentile(sorted, 0.5).toFixed(4));
-  const p99Ms = Number(percentile(sorted, 0.99).toFixed(4));
-  const opsPerSec = medianMs > 0 ? Math.round(1000 / medianMs) : 0;
-
-  return {
-    name,
-    iterations,
-    minMs,
-    medianMs,
-    p99Ms,
-    maxMs,
-    opsPerSec,
-  };
+  return computeStats(name, durationsMs);
 }
 
 /**
