@@ -34,7 +34,7 @@ export const checkAllTool: McpTool = {
     inputSchema: {
       type: "object",
       properties: {
-        purls: {
+        items: {
           type: "array",
           items: {
             oneOf: [
@@ -54,17 +54,37 @@ export const checkAllTool: McpTool = {
           },
           description: "List of package URLs (e.g. 'pkg:npm/request@2.88.2') or objects to check in batch.",
         },
+        purls: {
+          type: "array",
+          items: {
+            oneOf: [
+              {
+                type: "string",
+                description: "PURL with embedded version e.g. 'pkg:npm/request@2.88.2'",
+              },
+              {
+                type: "object",
+                properties: {
+                  purl: { type: "string" },
+                  version: { type: "string" },
+                },
+                required: ["purl"],
+              },
+            ],
+          },
+          description: "Alias for items.",
+        },
       },
-      required: ["purls"],
     },
   },
   handler: (args: Record<string, unknown>): McpToolResult => {
-    if (!("purls" in args) || !Array.isArray(args.purls)) {
+    const rawList = Array.isArray(args.items) ? args.items : Array.isArray(args.purls) ? args.purls : null;
+    if (!rawList) {
       return {
         content: [
           {
             type: "text",
-            text: "Error: 'purls' parameter is required and must be an array of package URLs or items.",
+            text: "Error: 'items' or 'purls' parameter is required and must be an array of package URLs or items.",
           },
         ],
         isError: true,
@@ -72,7 +92,7 @@ export const checkAllTool: McpTool = {
     }
 
     try {
-      const items = normalizeBatchItems(args.purls);
+      const items = normalizeBatchItems(rawList);
       const rawResult = checkAll(items);
       const result = formatCheckAllResult(rawResult);
 
