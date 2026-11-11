@@ -34,7 +34,10 @@ function compareIdentifier(left: string, right: string): number {
   return a === b ? 0 : a < b ? -1 : 1;
 }
 
-/** NuGet version ordering: four numeric parts, SemVer 2.0 pre-release rules, case-insensitive labels, build metadata ignored. */
+/**
+ * NuGet version ordering: four numeric parts, SemVer 2.0 pre-release rules, case-insensitive labels, build metadata ignored.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export const nugetScheme: VersionScheme = {
   names: ["nuget"],
   compare(left, right) {

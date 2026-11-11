@@ -192,6 +192,7 @@ function defaultIo(): CountdownIo {
  * Prints the countdown. Off a terminal, with `--once`, or with `--no-animation` it prints one frame. On a terminal
  * it rewrites the frame once per second for six seconds, then stops on the final frame. Ctrl-C clears the timer and
  * the signal listener and returns `130`.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export async function runCountdown(options: CountdownOptions): Promise<number> {
   const io = options.io ?? defaultIo();

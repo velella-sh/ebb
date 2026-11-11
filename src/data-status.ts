@@ -61,7 +61,10 @@ export function dataStatusFrom(
   };
 }
 
-/** Which lifecycle data is active, and how old it is. Reads local files only. */
+/**
+ * Which lifecycle data is active, and how old it is. Reads local files only.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export async function getDataStatus(now: Date = new Date()): Promise<DataStatus> {
   return dataStatusFrom(await getActiveData(), now);
 }

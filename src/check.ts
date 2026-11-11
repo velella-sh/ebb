@@ -221,6 +221,7 @@ export function orderMatches(matches: readonly CheckMatch[]): CheckMatch[] {
  * The result keeps the original `version`. Pass `asOf` (`YYYY-MM-DD`) to measure
  * `daysLeft` on each match; omit it to keep the two-argument contract (`daysLeft` is then
  * always `null`, and `asOf` is omitted from the result). An invalid `asOf` throws.
+ * @deprecated Import `check` from `@velella/ebb` instead. Subpath imports will be removed in 1.0.
  */
 export function check(purlOrName: string, version: string, asOf?: string): CheckResult {
   // Validate asOf even when no rule matches, so callers never see an unchecked day.

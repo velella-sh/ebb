@@ -41,6 +41,7 @@ function bundledTrustedRoot(): TrustedRoot {
  * certificate chain and validity against the trusted root, the transparency-log inclusion, and the certificate
  * identity and issuer. Anything else throws {@link DataSignatureError}; nothing is ever returned for a bundle that
  * did not verify.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function verifyArtifactSignature(
   artifact: Uint8Array,

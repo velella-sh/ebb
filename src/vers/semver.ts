@@ -13,7 +13,10 @@ function parse(value: string): semver.SemVer {
   throw new VersError(`Invalid semver version "${value}".`);
 }
 
-/** Semantic Versioning 2.0 ordering for npm, cargo, golang, composer, and generic semver ranges. Build metadata is ignored. */
+/**
+ * Semantic Versioning 2.0 ordering for npm, cargo, golang, composer, and generic semver ranges. Build metadata is ignored.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export const semverScheme: VersionScheme = {
   names: ["semver", "npm", "cargo", "golang", "composer"],
   compare(left, right) {

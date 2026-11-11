@@ -75,7 +75,10 @@ export function serializeReleaseLog(entries: readonly ReleaseLogEntry[]): string
   return entries.map((entry) => `${canonicalJson(entry)}\n`).join("");
 }
 
-/** Parses and verifies a whole log. Throws {@link ReleaseLogError} naming the first entry that does not hold. */
+/**
+ * Parses and verifies a whole log. Throws {@link ReleaseLogError} naming the first entry that does not hold.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export function verifyReleaseLog(text: string): ReleaseLogEntry[] {
   if (text !== "" && !text.endsWith("\n")) throw new ReleaseLogError("The log must end with a newline.");
   const entries: ReleaseLogEntry[] = [];

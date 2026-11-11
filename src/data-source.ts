@@ -333,6 +333,7 @@ export function getActiveDataSync(): ActiveData {
 /**
  * The data for this process, resolved once with the options set by {@link configureActiveData}.
  * Async so pin and verification failures reject the promise instead of throwing synchronously.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export async function getActiveData(): Promise<ActiveData> {
   return getActiveDataSync();

@@ -243,7 +243,10 @@ function parse(input: string): ListItem {
   return new VersionScanner(input.toLowerCase()).scan();
 }
 
-/** Maven ComparableVersion ordering for Java and Kotlin artifacts. */
+/**
+ * Maven ComparableVersion ordering for Java and Kotlin artifacts.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export const mavenScheme: VersionScheme = {
   names: ["maven"],
   compare(left, right) {

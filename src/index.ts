@@ -2,13 +2,23 @@
  * Public root entry point for `@velella/ebb`.
  */
 
-export {
+import {
   type CheckEvent,
   type CheckMatch,
   type CheckResult,
   type CheckStatus,
-  check,
+  check as checkFromSubpath,
 } from "./check.js";
+
+export type { CheckEvent, CheckMatch, CheckResult, CheckStatus };
+
+/**
+ * Judges a package at `version` against the active lifecycle rules without network access.
+ */
+export function check(purlOrName: string, version: string, asOf?: string): CheckResult {
+  // Keep `@deprecated` from the legacy `./check.js` subpath off the root entry point.
+  return checkFromSubpath(purlOrName, version, asOf);
+}
 export {
   type CheckAllEntry,
   type CheckAllError,

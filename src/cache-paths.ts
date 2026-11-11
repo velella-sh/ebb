@@ -6,7 +6,10 @@ import { join } from "node:path";
  * locate the cache without loading the data and signature code.
  */
 
-/** Where downloaded data lives: `EBB_DATA_DIR`, else Ebb's folder in the platform's cache directory. */
+/**
+ * Where downloaded data lives: `EBB_DATA_DIR`, else Ebb's folder in the platform's cache directory.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export function defaultCacheDirectory(
   env: NodeJS.ProcessEnv = process.env,
   platform: NodeJS.Platform = process.platform,

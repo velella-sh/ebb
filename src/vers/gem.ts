@@ -27,7 +27,10 @@ function canonical(parts: Segment[]): Segment[] {
   return [...trim(numeric), ...trim(rest)];
 }
 
-/** RubyGems version ordering for gems; any version with a letter is a pre-release and sorts before its release. */
+/**
+ * RubyGems version ordering for gems; any version with a letter is a pre-release and sorts before its release.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export const gemScheme: VersionScheme = {
   names: ["gem"],
   compare(left, right) {

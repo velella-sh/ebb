@@ -15,6 +15,7 @@ function addDays(day: string, days: number): string {
  * Warns before a line expires: each finding whose deadline falls from `today` through `today + days` is raised
  * to warning severity unless it is already at least that severe. Finding identity never changes, so baselines
  * still match. The scan itself stays clock-free; the caller passes the day.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function applyMinSupport<Scan extends LifecycleScan>(result: Scan, days: number, today: string): Scan {
   const limit = addDays(today, days);

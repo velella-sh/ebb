@@ -87,6 +87,7 @@ export function productsFromRules(rules: readonly RegistryV2Rule[]): ProductReco
 /**
  * Products matching a bare name after aliasing, ordered like lookup: prefer an exact
  * product name, then more rules, then id. Empty when nothing matches.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function rankProductsForName(name: string, products: readonly ProductRecord[]): ProductRecord[] {
   const query = productNameQuery(name);

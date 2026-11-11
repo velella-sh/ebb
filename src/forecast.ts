@@ -102,6 +102,7 @@ function groupByMonth(events: readonly ForecastEvent[]): ForecastMonth[] {
 /**
  * Lists what reaches a dated end of life between `today` and `months` later. Only events that carry a date are
  * listed; nothing is estimated. Reads no clock: the caller passes the day, so output is deterministic.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function buildForecast(
   result: LifecycleScan,

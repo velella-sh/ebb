@@ -263,7 +263,10 @@ function anyBoundPairContains(bounds: readonly VersConstraint[], compareTo: Cons
   return false;
 }
 
-/** Checks whether a version is inside a VERS range, following the spec's containment procedure. */
+/**
+ * Checks whether a version is inside a VERS range, following the spec's containment procedure.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export function versContains(range: string | VersRange, version: string): boolean {
   const parsed = typeof range === "string" ? parseVersLenient(range) : range;
   if (parsed.all) return true;
