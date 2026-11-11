@@ -6,13 +6,12 @@
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
 import type { ActiveData } from "./data-source.js";
 import { getActiveDataSync } from "./data-source.js";
-import type { EvidenceSource } from "./domain.js";
 import { productsFromRules, rankProductsForName } from "./product-name.js";
 import type { ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
-import { daysLeft as daysUntil, type ResultStatus } from "./result.js";
+import { daysLeft as daysUntil, type Result, type ResultEvent, type ResultMatch, type ResultStatus } from "./result.js";
 import { VersError, versContains } from "./vers.js";
 
 /** Thrown when a product name is unknown or matches more than one package. */
@@ -26,34 +25,14 @@ export class CheckError extends Error {
 /** A lifecycle verdict, or `ok` when no rule matches. Same values as {@link ResultStatus}. */
 export type CheckStatus = ResultStatus;
 
-/** The event on a matching rule (every status except `ok`). */
-export type CheckEvent = Exclude<CheckStatus, "ok">;
+/** The event on a matching rule (every status except `ok`). Same values as {@link ResultEvent}. */
+export type CheckEvent = ResultEvent;
 
-/**
- * One rule that matched. Only the fields the issue names; a later result model may add more.
- */
-export interface CheckMatch {
-  ruleId: string;
-  event: CheckEvent;
-  date: string | null;
-  /** Whole UTC days from the result's `asOf` until `date`; null when past or undated. */
-  daysLeft: number | null;
-  replacement: string | null;
-  sources: EvidenceSource[];
-}
+/** One rule that matched. Same shape as {@link ResultMatch}. */
+export type CheckMatch = ResultMatch;
 
-/** Status, matches, and the version string the caller passed (not normalized). */
-export interface CheckResult {
-  status: CheckStatus;
-  matches: CheckMatch[];
-  /** The version argument exactly as given to `check`. */
-  version: string;
-  /**
-   * The day `daysLeft` is measured from (`YYYY-MM-DD`), when the caller passed `asOf`.
-   * Omitted for the two-argument form; never read from a clock.
-   */
-  asOf?: string;
-}
+/** Status, matches, and the version string the caller passed (not normalized). Same shape as {@link Result}. */
+export type CheckResult = Result;
 
 /**
  * Trims whitespace, drops a leading `v`, and strips build metadata (`+…`)
@@ -175,6 +154,7 @@ function toCheckMatch(rule: RegistryV2Rule, asOf: string | undefined): CheckMatc
     daysLeft: asOf === undefined ? null : daysUntil(date, asOf),
     replacement: rule.replacement ?? null,
     sources: rule.sources,
+    reviewedAt: rule.provenance.reviewedAt,
   };
 }
 

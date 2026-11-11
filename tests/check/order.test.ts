@@ -12,7 +12,7 @@ const source: EvidenceSource = {
 };
 
 function match(partial: Pick<CheckMatch, "ruleId" | "event" | "date">): CheckMatch {
-  return { ...partial, daysLeft: null, replacement: null, sources: [source] };
+  return { ...partial, daysLeft: null, replacement: null, sources: [source], reviewedAt: "2026-04-01" };
 }
 
 test("three mixed matches sort by event seriousness, then earliest date", () => {

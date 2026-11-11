@@ -24,6 +24,7 @@ test("CheckResult accepts a filled match with replacement null", () => {
     daysLeft: null,
     replacement: null,
     sources: [source],
+    reviewedAt: "2026-10-17",
   };
   const result: CheckResult = {
     status: "end-of-life",
@@ -41,4 +42,5 @@ test("CheckResult accepts a filled match with replacement null", () => {
   assert.equal(result.matches[0]?.daysLeft, null);
   assert.equal(result.matches[0]?.replacement, null);
   assert.deepEqual(result.matches[0]?.sources, [source]);
+  assert.equal(result.matches[0]?.reviewedAt, "2026-10-17");
 });

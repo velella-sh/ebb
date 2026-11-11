@@ -19,6 +19,7 @@ test("a version inside a range keeps the matching rule", () => {
   assert.equal(result.matches[0]?.date, "2025-04-30");
   assert.equal(result.matches[0]?.replacement, "Node.js 22 LTS or later");
   assert.ok((result.matches[0]?.sources.length ?? 0) > 0);
+  assert.equal(result.matches[0]?.reviewedAt, "2026-10-17");
 });
 
 test("a version outside a range is not kept", () => {
