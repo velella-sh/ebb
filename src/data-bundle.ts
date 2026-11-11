@@ -142,7 +142,10 @@ async function readJson(root: string, path: string): Promise<Record<string, unkn
   return value as Record<string, unknown>;
 }
 
-/** Builds the data bundle from `registry/`: every registry validated, every file digested, nothing time-dependent. */
+/**
+ * Builds the data bundle from `registry/`: every registry validated, every file digested, nothing time-dependent.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export async function buildDataBundle(options: BuildOptions): Promise<DataBundle> {
   const root = options.root ?? process.cwd();
   const version = bundleVersion(options.createdAt, options.revision);

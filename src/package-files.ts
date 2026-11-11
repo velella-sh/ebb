@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
  * Finds a file Ebb ships, such as `registry/npm.json`, by walking up from the calling module. Compiled code sits in
  * `dist/src/`, so the walk reaches the package root. Code bundled out of the package (the GitHub Action) finds the
  * copy its build places beside the bundle.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export async function findPackageFile(path: string, moduleUrl: string): Promise<string> {
   let directory = dirname(fileURLToPath(moduleUrl));

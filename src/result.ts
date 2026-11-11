@@ -97,6 +97,7 @@ function requireIsoDate(value: string): void {
  * Future dates return a positive integer; past or undated events return `null`.
  * Uses only the two date arguments — never the system clock.
  * Both `asOf` and a non-null `date` must be real calendar days; otherwise this throws.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function daysLeft(date: string | null, asOf: string): number | null {
   requireIsoDate(asOf);

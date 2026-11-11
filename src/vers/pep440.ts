@@ -108,7 +108,10 @@ function compareLocal(left: LocalSegment[] | null, right: LocalSegment[] | null)
   return 0;
 }
 
-/** PEP 440 ordering for Python packages and runtimes. */
+/**
+ * PEP 440 ordering for Python packages and runtimes.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export const pep440Scheme: VersionScheme = {
   names: ["pypi"],
   compare(left, right) {

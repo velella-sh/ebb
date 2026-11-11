@@ -153,7 +153,10 @@ export interface LifecycleFinding {
   sources: EvidenceSource[];
 }
 
-/** The parts of a scan result the lifecycle helpers read. */
+/**
+ * The parts of a scan result the lifecycle helpers read.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export interface LifecycleScan {
   root: string;
   findings: readonly LifecycleFinding[];

@@ -78,6 +78,7 @@ function cleDocument(identifier: string, group: RegistryV2Rule[]): CleDocument {
  * does not establish cessation of distribution. Do not invent those lifecycle claims.
  * `published` records Ebb's first observation; `updatedAt` its latest review.
  * IDs are snapshot-local, not an append-only publisher's event history.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function exportCle(rules: readonly RegistryV2Rule[]): { documents: CleDocument[]; skipped: number } {
   const groups = new Map<string, RegistryV2Rule[]>();

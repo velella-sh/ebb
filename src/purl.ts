@@ -361,6 +361,7 @@ function splitName(rest: string, value: string, type: string): { name: string; n
  * Parse a PURL string into components.
  * Qualifier keys must already be lowercase (ECMA-427 §5.6.6). Use
  * {@link normalizePurl} when the input may need recommended remediation.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function parsePurl(value: string): PackageUrl {
   return parsePurlInternal(value, { lowercaseQualifierKeys: false });

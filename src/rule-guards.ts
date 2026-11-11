@@ -164,7 +164,10 @@ export function isUsageMatcher(value: unknown): value is UsageMatcher {
   return false;
 }
 
-/** Validates a decoded registry against its definition and returns its rules. */
+/**
+ * Validates a decoded registry against its definition and returns its rules.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export function validateRegistry<Rule>(value: unknown, definition: RegistryDefinition<Rule>): Registry<Rule> {
   if (!isRecord(value)) {
     throw new RegistryValidationError("Registry must be a JSON object.");

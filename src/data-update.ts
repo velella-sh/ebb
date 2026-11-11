@@ -299,6 +299,7 @@ async function stageBundle(directory: string, bytes: Uint8Array, signature: stri
  * Downloads the newest signed data bundle into the user cache. This is the only place Ebb uses the network,
  * and it runs only when the user asks. The download is verified completely before anything is written; the cache
  * pointer changes last, atomically, so an interrupted or refused update leaves the previous data in place.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export async function updateData(options: DataUpdateOptions = {}): Promise<DataUpdateResult> {
   const request = options.fetch ?? fetch;

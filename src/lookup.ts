@@ -159,6 +159,7 @@ function toFinding(rule: RegistryV2Rule): LookupFinding {
  * Resolves a product name, and optionally a version, against the bundled rules. Names come from the product's
  * package URL, its id, and a small alias table, so `node 18` and `nodejs 18` reach the same rules. A full package
  * URL such as `pkg:docker/library/node` selects that product exactly. No network.
+ * @deprecated Import `check` from `@velella/ebb` instead. Subpath imports will be removed in 1.0.
  */
 export async function lookupProduct(name: string, version?: string): Promise<LookupResult> {
   const products = productsFromRules(await allRules());

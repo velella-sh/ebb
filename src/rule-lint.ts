@@ -300,6 +300,7 @@ async function lintFile(file: string): Promise<FileResult> {
 /**
  * Lints the given registry files. Every problem is an error; there are no warnings, so an empty list means the
  * files are safe to commit.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export async function lintRuleFiles(files: readonly string[]): Promise<RuleLintResult> {
   const results = await Promise.all(files.map((file) => lintFile(file)));

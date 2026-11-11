@@ -9,6 +9,7 @@ const REACHED_SEVERITY = "high" as const;
  * Projects a scan onto a future day: each announced end of life whose deadline is on or before `asOf` is
  * reported as the ended line it will be, at end-of-life severity. Finding identity never changes, so
  * baselines still match. The scan itself stays clock-free; this is an explicit, deterministic step.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export async function applyAsOf<Scan extends LifecycleScan>(
   result: Scan,

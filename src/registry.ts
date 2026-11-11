@@ -331,7 +331,10 @@ export function registryV2Issues(value: unknown): string[] {
   return issues;
 }
 
-/** Validates a v2 registry and throws one error that lists every problem found. */
+/**
+ * Validates a v2 registry and throws one error that lists every problem found.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export function validateRegistryV2(value: unknown): RegistryV2 {
   const issues = registryV2Issues(value);
   if (issues.length > 0) {

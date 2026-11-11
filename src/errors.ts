@@ -8,7 +8,10 @@ export const EBB_ERROR_CODES = [
 ] as const;
 export type EbbErrorCode = (typeof EBB_ERROR_CODES)[number];
 
-/** An error with a stable reason code. Every error Ebb throws on purpose extends it. */
+/**
+ * An error with a stable reason code. Every error Ebb throws on purpose extends it.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
 export class EbbError extends Error {
   readonly code: EbbErrorCode;
 
