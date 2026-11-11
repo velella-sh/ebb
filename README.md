@@ -22,6 +22,7 @@
   <a href="#quick-start">Quick start</a> ·
   <a href="#what-a-rule-looks-like">Rules</a> ·
   <a href="#the-data">Data</a> ·
+  <a href="#performance">Performance</a> ·
   <a href="#documentation">Docs</a> ·
   <a href="#contributing">Contributing</a>
 </p>
@@ -195,6 +196,28 @@ Shortened. The full format is in [docs/RULES.md](docs/RULES.md) and [`schemas/`]
 | [`schemas/`](schemas/) | JSON Schemas for the registry, a single rule, and the data bundle. |
 | [`cases/`](cases/) | Behaviour cases: this purl at this version is judged by exactly these rules. |
 | [`data/`](data/) | The Sigstore trusted root used to verify data bundles offline. |
+
+## Performance
+
+Ebb is designed for CI pipelines and real-time dependency checks where lookups cannot add noticeable latency. Every rule lookup runs in sub-millisecond time.
+
+Measured using `npm run bench`:
+
+| Operation | Target | Median latency | Throughput |
+|---|---|---|---|
+| **`check` (single)** | Single component (`pkg:npm/left-pad`) | 0.0016 ms | ~625,000 ops/s |
+| **`check` (per-component)** | 1,000 components | 0.0029 ms | ~345,000 ops/s |
+| **`checkAll`** | 1,000 components batch | 0.0525 ms | ~19,000 batches/s |
+| **Data load** | All 25 bundled registries (752 rules) | 12.7 ms | ~79 loads/s |
+
+### Cold start overhead
+
+Measured across fresh processes (ESM import + cold data load + first check):
+
+- **Node.js 24:** ~88 ms total (31 ms import, 55 ms first check)
+- **Node.js 22:** ~122 ms total (55 ms import, 65 ms first check)
+
+Once loaded into memory, registries and precompiled VERS ranges remain cached, keeping per-component evaluations well under 1 ms.
 
 ## Documentation
 
