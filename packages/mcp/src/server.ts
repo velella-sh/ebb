@@ -1,3 +1,4 @@
+import { checkTool } from "./tools/check.js";
 import type {
   JsonRpcNotification,
   JsonRpcRequest,
@@ -5,6 +6,7 @@ import type {
   McpInitializeResult,
   McpServerCapabilities,
   McpServerInfo,
+  McpTool,
 } from "./types.js";
 
 export const LATEST_PROTOCOL_VERSION = "2024-11-05";
@@ -14,6 +16,7 @@ export const SERVER_VERSION = "0.1.0";
 export class McpServer {
   private readonly info: McpServerInfo;
   private readonly capabilities: McpServerCapabilities;
+  private readonly tools = new Map<string, McpTool>();
   private initialized = false;
 
   constructor(options?: {
@@ -29,6 +32,17 @@ export class McpServer {
       tools: {},
       resources: {},
     };
+
+    // Register built-in tools
+    this.registerTool(checkTool);
+  }
+
+  public registerTool(tool: McpTool): void {
+    this.tools.set(tool.definition.name, tool);
+  }
+
+  public getTool(name: string): McpTool | undefined {
+    return this.tools.get(name);
   }
 
   public async handleMessage(raw: unknown): Promise<JsonRpcResponse | null> {
@@ -84,7 +98,7 @@ export class McpServer {
     }
   }
 
-  private async handleMethod(method: string, _params: unknown): Promise<unknown> {
+  private async handleMethod(method: string, params: unknown): Promise<unknown> {
     switch (method) {
       case "initialize": {
         const result: McpInitializeResult = {
@@ -98,7 +112,11 @@ export class McpServer {
         return {};
       }
       case "tools/list": {
-        return { tools: [] };
+        const tools = Array.from(this.tools.values()).map((t) => t.definition);
+        return { tools };
+      }
+      case "tools/call": {
+        return this.handleToolCall(params);
       }
       case "resources/list": {
         return { resources: [] };
@@ -110,6 +128,41 @@ export class McpServer {
         throw error;
       }
     }
+  }
+
+  private async handleToolCall(rawParams: unknown): Promise<unknown> {
+    if (typeof rawParams !== "object" || rawParams === null) {
+      return {
+        content: [{ type: "text", text: "Error: params must be an object with name and arguments" }],
+        isError: true,
+      };
+    }
+
+    const { name, arguments: toolArgs } = rawParams as {
+      name?: unknown;
+      arguments?: unknown;
+    };
+
+    if (typeof name !== "string") {
+      return {
+        content: [{ type: "text", text: "Error: tool name must be a string" }],
+        isError: true,
+      };
+    }
+
+    const tool = this.tools.get(name);
+    if (!tool) {
+      return {
+        content: [{ type: "text", text: `Error: Unknown tool "${name}"` }],
+        isError: true,
+      };
+    }
+
+    const args = typeof toolArgs === "object" && toolArgs !== null
+      ? (toolArgs as Record<string, unknown>)
+      : {};
+
+    return await tool.handler(args);
   }
 
   public isInitialized(): boolean {
