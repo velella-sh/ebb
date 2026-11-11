@@ -200,6 +200,10 @@ Every item needs both `purl` and `version`. Even when a PURL from CycloneDX or S
 | `"unknown-product"` | Bare product name (without `pkg:`) does not match any product in the active rules (`CheckError`). |
 | `"ambiguous-product"` | Bare product name ties across multiple ecosystems or packages (`CheckError`); pass a full `pkg:` PURL instead. |
 | `"invalid-data-version"` | Active data configuration pins an invalid data version (`EbbError`). |
+| `"invalid-date"` | Query supplied an invalid ISO date (`EbbError`). |
+| `"package-file-not-found"` | Required bundled package file could not be located (`EbbError`). |
+| `"internal"` | Unexpected internal error encountered while processing the item (`EbbError`). |
+| `"data-unavailable"` | Configured data bundle could not be loaded (`EbbError`). |
 | `"data-unavailable"` | Configured data bundle could not be loaded (`EbbError`). |
 | `"data-update-failed"` | Active data source failed verification or loading (`EbbError`). |
 | `"check-failed"` | Fallback when checking an item throws any other error. |

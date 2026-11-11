@@ -5,6 +5,9 @@ export const EBB_ERROR_CODES = [
   "invalid-data-version",
   "data-unavailable",
   "data-update-failed",
+  "invalid-date",
+  "package-file-not-found",
+  "internal",
 ] as const;
 export type EbbErrorCode = (typeof EBB_ERROR_CODES)[number];
 
