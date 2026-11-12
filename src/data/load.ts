@@ -4,7 +4,6 @@
  */
 
 import { BUNDLED_ECOSYSTEMS } from "./ecosystems.js";
-import { createBundledLoader } from "./bundled-loader.js";
 import type { DataLoader } from "./loader.js";
 import { validateRegistryV2 } from "./../registry.js";
 import type { RegistryV2Rule } from "./../registry.js";
@@ -84,15 +83,20 @@ function checkActiveDataChanged(current: unknown): void {
 /** Registers a Node dynamic loader provider (used in Node runtime to connect active data). */
 export function setNodeLoaderProvider(provider: (() => DataLoader) | undefined): void {
   nodeLoaderProvider = provider;
+  activeDataLoader = undefined;
   loaderVersion++;
-  clearLoadedEcosystems();
+  loadedRulesByEcosystem.clear();
+  inFlightLoads.clear();
+  activeDataSource = undefined;
 }
 
 /** Sets the active data loader for this process or runtime. */
 export function setDataLoader(loader: DataLoader): void {
   activeDataLoader = loader;
   loaderVersion++;
-  clearLoadedEcosystems();
+  loadedRulesByEcosystem.clear();
+  inFlightLoads.clear();
+  activeDataSource = undefined;
 }
 
 /**
@@ -104,7 +108,9 @@ export function getDataLoader(): DataLoader {
     if (nodeLoaderProvider) {
       activeDataLoader = nodeLoaderProvider();
     } else {
-      activeDataLoader = createBundledLoader();
+      throw new Error(
+        "No DataLoader configured. Call setDataLoader() before querying ecosystem data outside configured entry points.",
+      );
     }
   }
   return activeDataLoader;

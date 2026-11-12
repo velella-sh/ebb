@@ -2,8 +2,9 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { check, CheckError } from "./check.js";
-import { checkAll, checkAllWith, type CheckAllItem } from "./check-all.js";
+import { check, checkAll, replacementFor, rulesFor } from "./index.js";
+import { CheckError } from "./check.js";
+import { checkAllWith, type CheckAllItem } from "./check-all.js";
 import {
   createColors,
   formatCheckAllMarkdown,
@@ -18,8 +19,7 @@ import {
 } from "./cli/format/index.js";
 import { EbbError } from "./errors.js";
 import { formatPurl, parsePurl, PurlError } from "./purl.js";
-import { replacementFor } from "./replacement.js";
-import { rulesFor, RulesForError, type RuleEvent } from "./rules-for.js";
+import { RulesForError, type RuleEvent } from "./rules-for.js";
 import { VersError } from "./vers.js";
 import { VERSION } from "./version.js";
 

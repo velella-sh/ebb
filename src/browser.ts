@@ -4,7 +4,13 @@
  * Cloudflare Workers, Vercel Edge, Deno, and Bun.
  */
 
-import { type CheckEvent, type CheckMatch, type CheckResult, type CheckStatus, check as checkImpl } from "./check.js";
+import {
+  type CheckEvent,
+  type CheckMatch,
+  type CheckResult,
+  type CheckStatus,
+  check as checkImpl,
+} from "./check-core.js";
 import { createBundledLoader } from "./data/bundled-loader.js";
 import { setDataLoader } from "./data/load.js";
 
@@ -68,15 +74,15 @@ export {
   type CheckAllResult,
   type CheckAllSummary,
   checkAll,
-} from "./check-all.js";
+} from "./check-all-core.js";
 
 export type { EvidenceSource } from "./domain.js";
 export type { EbbErrorCode } from "./errors.js";
-export { replacementFor } from "./replacement.js";
+export { replacementFor } from "./replacement-core.js";
 export type { Result, ResultEvent, ResultMatch, ResultStatus } from "./result.js";
 export {
   type Rule,
   type RuleEvent,
   type RulesForOptions,
   rulesFor,
-} from "./rules-for.js";
+} from "./rules-for-core.js";
