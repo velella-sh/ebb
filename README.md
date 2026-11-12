@@ -22,6 +22,7 @@
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
+  <a href="#static-json-api">Static API</a> ·
   <a href="#what-a-rule-looks-like">Rules</a> ·
   <a href="#the-data">Data</a> ·
   <a href="#performance">Performance</a> ·
@@ -251,6 +252,23 @@ claude mcp add ebb -- npx -y @velella/ebb-mcp
 ```
 
 Exposes `check`, `check_all`, `replacement_for`, and the `ebb://upcoming` resource. See [MCP Server](docs/mcp.md).
+
+## Static JSON API
+
+Ebb provides an open, static JSON API served directly from GitHub Pages at `https://velella.sh/ebb/api/v1/`. Query any component lifecycle without installing any package or running a server:
+
+```bash
+# Query a package lifecycle with curl
+curl -s https://velella.sh/ebb/api/v1/npm/request.json | jq .
+
+# Query an ecosystem
+curl -s https://velella.sh/ebb/api/v1/npm.json | jq '{ rulesCount, componentsCount }'
+
+# Query upcoming deadlines
+curl -s https://velella.sh/ebb/api/v1/upcoming.json | jq '.upcoming[:3]'
+```
+
+Features include global component indexing (`/index.json`), name prefix search (`/search-index.json`), upcoming EOL events (`/upcoming.json`), ETags for conditional caching, and zero-dependency client helpers (`fetchRule`, `fetchComponent`). See [docs/static-api.md](docs/static-api.md) for full endpoint specifications and client SDK examples.
 
 ## What a rule looks like
 

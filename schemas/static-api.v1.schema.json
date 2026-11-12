@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/velella-sh/ebb/schemas/static-api.v1.schema.json",
+  "title": "Ebb static lifecycle API v1",
+  "description": "The static JSON documents served under api/v1/: components, ecosystems, all rules, search index, upcoming deadlines, recent changes, and the global index.",
+  "oneOf": [
+    { "$ref": "#/$defs/componentDocument" },
+    { "$ref": "#/$defs/ecosystemDocument" },
+    { "$ref": "#/$defs/allDocument" },
+    { "$ref": "#/$defs/indexDocument" },
+    { "$ref": "#/$defs/ecosystemsDocument" },
+    { "$ref": "#/$defs/upcomingDocument" },
+    { "$ref": "#/$defs/recentDocument" },
+    { "$ref": "#/$defs/searchIndexDocument" }
+  ],
+  "$defs": {
+    "rule": { "$ref": "registry.v2.schema.json#/$defs/rule" },
+    "componentDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "purl", "type", "name", "ecosystems", "rules"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "purl": { "type": "string" },
+        "type": { "type": "string" },
+        "name": { "type": "string" },
+        "namespace": { "type": "string" },
+        "ecosystems": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/rule" }
+        },
+        "hint": { "type": "string" }
+      }
+    },
+    "ecosystemDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "ecosystem", "rulesCount", "componentsCount", "rules"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "ecosystem": { "type": "string" },
+        "rulesCount": { "type": "integer", "minimum": 0 },
+        "componentsCount": { "type": "integer", "minimum": 0 },
+        "rules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/rule" }
+        }
+      }
+    },
+    "allDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "rulesCount", "componentsCount", "ecosystemsCount", "rules"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "rulesCount": { "type": "integer", "minimum": 0 },
+        "componentsCount": { "type": "integer", "minimum": 0 },
+        "ecosystemsCount": { "type": "integer", "minimum": 0 },
+        "rawBytes": { "type": "integer", "minimum": 0 },
+        "gzipBytes": { "type": "integer", "minimum": 0 },
+        "rules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/rule" }
+        }
+      }
+    },
+    "indexComponent": {
+      "type": "object",
+      "required": ["purl", "type", "name", "path", "url", "ecosystems", "events", "rules", "sha256", "etag", "bytes"],
+      "additionalProperties": false,
+      "properties": {
+        "purl": { "type": "string" },
+        "type": { "type": "string" },
+        "name": { "type": "string" },
+        "namespace": { "type": "string" },
+        "path": { "type": "string" },
+        "url": { "type": "string" },
+        "ecosystems": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "events": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rules": { "type": "integer", "minimum": 0 },
+        "earliestDeadline": { "type": "string" },
+        "latestReview": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "etag": { "type": "string" },
+        "bytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "indexDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "rulesCount", "componentsCount", "ecosystemsCount", "components"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "rulesCount": { "type": "integer", "minimum": 0 },
+        "componentsCount": { "type": "integer", "minimum": 0 },
+        "ecosystemsCount": { "type": "integer", "minimum": 0 },
+        "components": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/indexComponent" }
+        }
+      }
+    },
+    "ecosystemsDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "ecosystemsCount", "ecosystems"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "ecosystemsCount": { "type": "integer", "minimum": 0 },
+        "ecosystems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "path", "url", "rulesCount", "componentsCount"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "path": { "type": "string" },
+              "url": { "type": "string" },
+              "rulesCount": { "type": "integer", "minimum": 0 },
+              "componentsCount": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "upcomingItem": {
+      "type": "object",
+      "required": ["ruleId", "purl", "ecosystem", "event", "title", "path"],
+      "additionalProperties": false,
+      "properties": {
+        "ruleId": { "type": "string" },
+        "purl": { "type": "string" },
+        "ecosystem": { "type": "string" },
+        "event": { "type": "string" },
+        "title": { "type": "string" },
+        "deadline": { "type": "string" },
+        "severity": { "type": "string" },
+        "replacement": { "type": "string" },
+        "path": { "type": "string" }
+      }
+    },
+    "upcomingDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "count", "upcoming"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "count": { "type": "integer", "minimum": 0 },
+        "upcoming": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/upcomingItem" }
+        }
+      }
+    },
+    "recentItem": {
+      "type": "object",
+      "required": ["ruleId", "purl", "ecosystem", "event", "title", "path"],
+      "additionalProperties": false,
+      "properties": {
+        "ruleId": { "type": "string" },
+        "purl": { "type": "string" },
+        "ecosystem": { "type": "string" },
+        "event": { "type": "string" },
+        "title": { "type": "string" },
+        "deadline": { "type": "string" },
+        "reviewedAt": { "type": "string" },
+        "observedAt": { "type": "string" },
+        "severity": { "type": "string" },
+        "path": { "type": "string" }
+      }
+    },
+    "recentDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "count", "recent"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "count": { "type": "integer", "minimum": 0 },
+        "recent": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/recentItem" }
+        }
+      }
+    },
+    "searchIndexDocument": {
+      "type": "object",
+      "required": ["schemaVersion", "version", "generatedAt", "items", "prefixes"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.api.v1" },
+        "version": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "purl", "path"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "purl": { "type": "string" },
+              "path": { "type": "string" }
+            }
+          }
+        },
+        "prefixes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}
