@@ -22,6 +22,32 @@ npm install -g @velella/ebb
 ebb check pkg:npm/request@2.88.2
 ```
 
+## Terminal Output Format
+
+Ebb produces structured, human-readable terminal output with ANSI colors, source links, replacement guidance, and remaining days for scheduled end-of-life events:
+
+```text
+✖ pkg:npm/request@2.88.2: deprecated
+  Rule: npm.package.request.deprecated
+  Event: deprecated (2020-02-11)
+  Replacement: Native fetch or a maintained HTTP client
+  Sources:
+    - https://www.npmjs.com/package/request
+  Offing can fix this: https://github.com/velella-sh/offing
+```
+
+For scheduled upcoming events:
+
+```text
+⚠ pkg:docker/library/node@22.0.0: scheduled
+  Rule: container.node.eol-22-and-older
+  Event: scheduled (2027-04-30) [484 days left]
+  Replacement: A node image on a later supported release line, such as node:24
+  Sources:
+    - https://nodejs.org/en/about/eol
+  Offing can fix this: https://github.com/velella-sh/offing
+```
+
 ## Commands
 
 ### `ebb check <purl> [version]`
@@ -35,8 +61,11 @@ ebb check pkg:npm/request@2.88.2
 # Product name with version argument
 ebb check node 16.0.0
 
+# Markdown output for PR comments
+ebb check pkg:npm/request@2.88.2 --format markdown
+
 # With specific evaluation date
-ebb check pkg:npm/request@2.88.2 --as-of 2026-04-01
+ebb check pkg:docker/library/node@22.0.0 --as-of 2026-04-01
 
 # JSON output
 ebb check pkg:npm/request@2.88.2 --json
@@ -49,6 +78,9 @@ Evaluates multiple dependencies in batch mode. Supports JSON lists, CycloneDX SB
 ```bash
 # From a CycloneDX SBOM or JSON list
 ebb check-all bom.json
+
+# Markdown summary for CI PR comment
+ebb check-all bom.json --format markdown
 
 # From standard input
 cat dependencies.txt | ebb check-all
@@ -78,12 +110,27 @@ ebb rules pkg:npm/request
 ebb rules pkg:npm/request --event deprecated --json
 ```
 
+## Formatting & Output Options
+
+- `--format <text|markdown|json>`: Choose output format. Defaults to `text`.
+- `--json`: Shortcut for `--format json`.
+- `--fail-on <threshold>`: Minimum severity that exits with code `1`. Supported values:
+  - `scheduled`: Fails on scheduled, deprecated, unsupported, end-of-life, removed, or error.
+  - `deprecated` (default): Fails on deprecated, unsupported, end-of-life, removed, or error (`scheduled` issues return exit code 0).
+  - `unsupported`: Fails on unsupported, end-of-life, removed, or error.
+  - `end-of-life`: Fails on end-of-life, removed, or error.
+  - `error`: Fails only on parse/lookup errors.
+  - `none`: Always exits with code 0 on findings.
+- `--no-color` / `NO_COLOR`: Disables ANSI colors, conforming to the [NO_COLOR specification](https://no-color.org/).
+- `--color`: Forces colored output.
+- `--no-hint` / `EBB_NO_HINT=1`: Disables the Offing remediation hint line.
+
 ## Exit codes
 
 The CLI conforms to standard Unix conventions for script and CI integration:
 
 | Exit code | Meaning | Description |
 |-----------|---------|-------------|
-| `0` | Success | Check verdict is `ok`, all batch components passed, or query succeeded. |
-| `1` | Finding | Lifecycle issue detected (deprecated, unsupported, end-of-life, removed, scheduled). |
+| `0` | Success | Verdict is `ok`, all batch components passed within `--fail-on` threshold, or query succeeded. |
+| `1` | Finding | Lifecycle finding detected that meets or exceeds `--fail-on` threshold. |
 | `2` | Error | CLI error (invalid argument, malformed PURL, or missing input). |

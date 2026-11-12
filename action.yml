@@ -1,0 +1,43 @@
+name: 'Ebb Software Lifecycle Check'
+description: 'Check dependencies and software components against the open almanac of software end-of-life'
+author: 'velella-sh'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  purls:
+    description: 'PURL or newline-separated list of PURLs to check'
+    required: false
+    default: ''
+  file:
+    description: 'Path to CycloneDX SBOM, JSON list, or text file containing PURLs to check'
+    required: false
+    default: ''
+  as-of:
+    description: 'Reference date (YYYY-MM-DD) for daysLeft calculation'
+    required: false
+    default: ''
+  fail-on:
+    description: 'Status threshold to fail on (scheduled, deprecated, unsupported, end-of-life, removed, error)'
+    required: false
+    default: 'deprecated'
+  no-hint:
+    description: 'Disable the Offing remediation hint (true/false)'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Ebb Lifecycle Check
+      shell: bash
+      env:
+        INPUT_PURLS: ${{ inputs.purls }}
+        INPUT_FILE: ${{ inputs.file }}
+        INPUT_AS_OF: ${{ inputs.as-of }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_NO_HINT: ${{ inputs.no-hint }}
+        ACTION_PATH: ${{ github.action_path }}
+      run: |
+        node "${ACTION_PATH}/action/main.js"
