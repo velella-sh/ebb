@@ -43,6 +43,8 @@
     "registry",
     "schemas",
     "skills",
+    "llms.txt",
+    "llms-full.txt",
     "LICENSE",
     "LICENSE-DATA",
     "ATTRIBUTION.md",
@@ -53,6 +55,8 @@
     "postinstall": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\"",
     "build:mcp": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\" && tsc -b packages/mcp/tsconfig.json",
     "build": "tsc -b tsconfig.json && npm run build:mcp",
+    "build:llms": "npm run build --silent && node dist/tools/build-llms.js",
+    "eval:agents": "npm run build --silent && node dist/tools/eval-agents.js",
     "test": "npm run build --silent && node --test \"dist/tests/**/*.test.js\"",
     "test:coverage": "npm run build --silent && mkdir -p coverage && node --test --experimental-test-coverage --test-coverage-exclude=\"dist/tests/**\" --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info \"dist/tests/**/*.test.js\"",
     "coverage:badge": "node dist/tools/coverage-badge.js coverage/lcov.info coverage/coverage.json",
@@ -67,7 +71,7 @@
     "check:sources": "npm run build --silent && node dist/tools/check-sources.js",
     "size": "npm run build --silent && node dist/tools/size.js",
     "build:data-bundle": "npm run build --silent && node dist/tools/build-data-bundle.js",
-    "prepack": "npm run build --silent"
+    "prepack": "npm run build --silent && npm run build:llms"
   },
   "engines": {
     "node": ">=22"

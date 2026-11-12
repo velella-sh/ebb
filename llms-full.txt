@@ -1,0 +1,372 @@
+# Ebb
+
+> The open almanac of software end-of-life and deprecations.
+
+Ebb provides an authoritative, zero-dependency registry and API for detecting deprecated, unsupported, and end-of-life software components across packages, runtimes, container base images, and GitHub Actions.
+
+## When to Use Ebb (Guidance for AI Agents)
+
+- **Before recommending or installing any package**: Query Ebb using `check(purl, version)` or the CLI `npx @velella/ebb check <purl> <version>`. Never suggest or install a deprecated or end-of-life dependency.
+- **When suggesting alternatives**: If a component is deprecated, query `replacementFor(purl)` or the MCP `replacement_for` tool to recommend the authoritative modern replacement.
+- **When generating Dockerfiles or CI workflows**: Verify base images (e.g., `pkg:docker/library/node@14` is EOL, use `node:24`) and GitHub Actions (e.g., `pkg:github/actions/checkout@1.0.0` is unsupported, use `actions/checkout@v5`).
+- **When auditing dependencies**: Use `checkAll(components)` to evaluate package manifests or CycloneDX SBOMs in a single batch pass.
+
+## Core API Reference
+
+The primary package entry point `@velella/ebb` exports:
+
+```typescript
+import { check, checkAll, rulesFor, replacementFor } from "@velella/ebb";
+import { parsePurl } from "@velella/ebb/purl";
+import { bundledRules } from "@velella/ebb/bundled-rules";
+```
+
+### 1. `check(purlOrName: string, version: string, asOf?: string): CheckResult`
+Checks a component version against active lifecycle rules.
+```typescript
+import { check } from "@velella/ebb";
+
+const result = check("pkg:npm/request", "2.88.2");
+console.log(result.status); // "deprecated"
+console.log(result.matches[0]?.replacement); // "Native fetch or a maintained HTTP client"
+```
+
+### 2. `checkAll(items: Iterable<CheckAllItem>): CheckAllResult`
+Evaluates a collection of components with automatic deduplication.
+```typescript
+import { checkAll } from "@velella/ebb";
+
+const report = checkAll([
+  { purl: "pkg:npm/request", version: "2.88.2" },
+  { purl: "pkg:generic/nodejs", version: "24.0.0" }
+]);
+console.log(report.summary.byStatus); // { ok: 1, deprecated: 1, unsupported: 0, "end-of-life": 0, removed: 0, scheduled: 0 }
+```
+
+### 3. `rulesFor(purl: string, options?: RulesForOptions): Rule[]`
+Returns all registered lifecycle rules matching a package purl.
+```typescript
+import { rulesFor } from "@velella/ebb";
+
+const rules = rulesFor("pkg:npm/node-sass");
+console.log(rules.length > 0); // true
+```
+
+### 4. `replacementFor(purl: string, version: string): string | null`
+Returns the recommended replacement string for a component version, or `null`.
+```typescript
+import { replacementFor } from "@velella/ebb";
+
+const alt = replacementFor("pkg:npm/node-sass", "4.14.1");
+console.log(alt); // "pkg:npm/sass"
+```
+
+### 5. `parsePurl(purl: string): ParsedPurl`
+Parses and canonicalizes a Package URL from the `@velella/ebb/purl` subpath.
+```typescript
+import { parsePurl } from "@velella/ebb/purl";
+
+const parsed = parsePurl("pkg:npm/%40babel/core@7.24.0");
+console.log(parsed.type); // "npm"
+console.log(parsed.namespace); // "@babel"
+console.log(parsed.name); // "core"
+```
+
+### 6. `bundledRules(): Promise<RegistryV2Rule[]>`
+Asynchronously retrieves all bundled rules from `@velella/ebb/bundled-rules`.
+```typescript
+import { bundledRules } from "@velella/ebb/bundled-rules";
+
+const all = await bundledRules();
+console.log(all.length >= 300); // true
+```
+
+## CLI Quick Reference
+
+```bash
+# Check a single component
+npx @velella/ebb check pkg:npm/request 2.88.2
+
+# Check with JSON output
+npx @velella/ebb check pkg:generic/nodejs 16.20.2 --json
+
+# Find replacement
+npx @velella/ebb replacement pkg:npm/node-sass
+
+# List rules
+npx @velella/ebb rules pkg:npm/left-pad
+
+# Batch check CycloneDX SBOM or JSON list
+npx @velella/ebb check-all sbom.json
+```
+
+## MCP Server
+
+Add to Claude Code, Cursor, or Codex settings:
+```json
+{
+  "mcpServers": {
+    "ebb": {
+      "command": "node",
+      "args": ["packages/mcp/dist/index.js"]
+    }
+  }
+}
+```
+
+## Links and Resources
+
+- [Documentation](https://velella.sh/ebb/)
+- [Full LLM Context (llms-full.txt)](https://velella.sh/ebb/llms-full.txt)
+- [API Reference](https://velella.sh/ebb/docs/api/)
+- [TypeScript Types](https://velella.sh/ebb/docs/TYPES.md)
+- [GitHub Repository](https://github.com/velella-sh/ebb)
+
+
+---
+
+# Extended Technical Documentation and Schema Specification
+
+## 1. Rule Format Specification (Schema Version 2)
+
+Every lifecycle rule in Ebb conforms to the `rule.v2` schema. Rules define when a package version enters a lifecycle phase.
+
+### Core Rule Fields
+- `id` (string): Unique canonical identifier, e.g. `npm.package.request.deprecated`.
+- `ecosystem` (string): Package ecosystem (`npm`, `pypi`, `github-actions`, `container`, `nodejs`, `database`, etc.).
+- `purl` (string): Canonical Package URL identifying the software component.
+- `vers` (string): Version range constraint formatted according to the VERS specification (`vers:<scheme>/<range>`).
+- `event` (string): Lifecycle transition event. One of:
+  - `deprecated`: Upstream maintainers officially deprecated the package.
+  - `end-of-life`: The version has reached official end-of-life or end-of-support.
+  - `unsupported`: No longer receiving updates or security fixes.
+  - `removed`: The package or feature has been removed or yanked.
+  - `scheduled`: A planned deprecation or end-of-life date has been announced in the future.
+- `status` (string): The resulting lifecycle verdict when the rule matches (`deprecated`, `end-of-life`, `unsupported`, `removed`, `scheduled`).
+- `title` (string): Short descriptive title.
+- `summary` (string): Detailed explanation of the deprecation or lifecycle state.
+- `severity` (string): Impact level (`low`, `medium`, `high`, `critical`).
+- `replacement` (string, optional): Authoritative recommended alternative or upgrade path.
+- `deadline` (string, optional): ISO date (`YYYY-MM-DD`) when the transition takes or took effect.
+- `sources` (array): Authoritative evidence URLs with accessed dates.
+- `provenance` (object): Review metadata including `observedAt`, `reviewedAt`, and `reviewer` username.
+- `migration` (object, optional): Step-by-step guidance for automated or manual refactoring.
+
+### Example Registry Rule
+```json
+{
+  "id": "npm.package.request.deprecated",
+  "ecosystem": "npm",
+  "purl": "pkg:npm/request",
+  "vers": "vers:npm/*",
+  "event": "deprecated",
+  "title": "request is deprecated",
+  "summary": "The package is fully deprecated and no new changes are expected.",
+  "severity": "high",
+  "replacement": "Native fetch or a maintained HTTP client",
+  "deadline": "2020-02-11",
+  "sources": [
+    {
+      "title": "request deprecation announcement",
+      "url": "https://www.npmjs.com/package/request",
+      "accessedAt": "2026-10-13"
+    }
+  ],
+  "provenance": {
+    "observedAt": "2026-10-13",
+    "reviewedAt": "2026-10-14",
+    "reviewer": "arminazimi"
+  }
+}
+```
+
+## 2. Complete TypeScript Type Reference
+
+# TypeScript Types Reference
+
+Ebb exports comprehensive, fully documented TypeScript types from `@velella/ebb`.
+
+## Core Result Types
+
+### `CheckResult`
+The return shape of `check(purlOrName, version, asOf?)`.
+
+```ts
+export interface CheckResult {
+  schemaVersion: 1;
+  status: CheckStatus;
+  matches: CheckMatch[];
+  version: string;
+  asOf?: string | undefined;
+}
+```
+
+### `CheckStatus`
+Primary verdict union for a checked component:
+```ts
+export type CheckStatus =
+  | "ok"
+  | "deprecated"
+  | "unsupported"
+  | "end-of-life"
+  | "removed"
+  | "scheduled";
+```
+
+### `CheckMatch`
+Detailed match entry for an applicable rule:
+```ts
+export interface CheckMatch {
+  ruleId: string;
+  event: CheckEvent;
+  date: string | null;
+  daysLeft: number | null;
+  replacement: string | null;
+  sources: EvidenceSource[];
+  reviewedAt: string;
+}
+```
+
+### `CheckEvent`
+All lifecycle events classified by Ebb:
+```ts
+export type CheckEvent =
+  | "deprecated"
+  | "unsupported"
+  | "end-of-life"
+  | "removed"
+  | "scheduled";
+```
+
+## Batch Inspection Types
+
+### `CheckAllItem`
+Input specification for `checkAll`:
+```ts
+export interface CheckAllItem {
+  purl?: string;
+  name?: string;
+  version: string;
+  ecosystem?: string;
+  asOf?: string;
+}
+```
+
+### `CheckAllResult`
+Output returned by `checkAll`:
+```ts
+export interface CheckAllResult {
+  results: CheckAllEntry[];
+  summary: CheckAllSummary;
+}
+```
+
+### `CheckAllSummary`
+Aggregated counts across the entire batch:
+```ts
+export interface CheckAllSummary {
+  total: number;
+  byStatus: Record<CheckStatus, number>;
+  byEvent: Record<CheckEvent, number>;
+  errors: number;
+}
+```
+
+## Rule Inspection Types
+
+### `Rule`
+Complete lifecycle rule record returned by `rulesFor(purl)`:
+```ts
+export interface Rule {
+  id: string;
+  ecosystem: string;
+  purl: string;
+  vers: string;
+  event: LifecycleEvent;
+  title: string;
+  summary: string;
+  deadline?: string | null;
+  replacement?: string | null;
+  sources: EvidenceSource[];
+  provenance: Provenance;
+}
+```
+
+
+## 3. Detailed API Reference
+
+# `@velella/ebb` API Reference
+
+This document provides a concise reference for all public functions and types exported by `@velella/ebb`.
+
+## Main Entry Points
+
+### `check(purlOrName, version, asOf?)`
+Judges a package at `version` against the active lifecycle rules without network access.
+
+- **Parameters:**
+  - `purlOrName`: A valid Package URL (e.g. `pkg:npm/left-pad`) or a recognized product name (e.g. `node`).
+  - `version`: The version string to evaluate.
+  - `asOf` *(optional)*: A target date (`YYYY-MM-DD`) to evaluate future or past status.
+- **Returns:** [`CheckResult`](../TYPES.md#checkresult)
+
+### `checkAll(items)`
+Batch evaluation of multiple package URLs and versions.
+
+- **Parameters:**
+  - `items`: An array or iterable of [`CheckAllItem`](../TYPES.md#checkallitem) objects.
+- **Returns:** [`CheckAllResult`](../TYPES.md#checkallresult)
+
+### `replacementFor(purlOrName, version)`
+Returns the modern replacement guidance string for a deprecated or end-of-life component, or `null` if none is recorded.
+
+- **Parameters:**
+  - `purlOrName`: Package URL or product name.
+  - `version`: Component version.
+- **Returns:** `string | null`
+
+### `rulesFor(purl, options?)`
+Returns all registered lifecycle rules matching the given component purl.
+
+- **Parameters:**
+  - `purl`: Package URL string.
+  - `options` *(optional)*: Filter options `{ event?: RuleEvent }`.
+- **Returns:** `Rule[]`
+
+## Subpath Exports
+
+- `@velella/ebb/purl`: Package URL parser and normalizer (`parsePurl`, `normalizePurl`).
+- `@velella/ebb/vers`: Native VERS range evaluator (`parseVers`, `satisfiesVers`).
+- `@velella/ebb/errors`: Error taxonomy and stable error codes (`EbbErrorCode`).
+
+
+## 4. MCP Tools Schema for Agents
+
+When integrating Ebb via MCP, the server exposes three core tools and one resource:
+
+### Tool: `check`
+- **Description**: Check whether a software component version is deprecated or end-of-life.
+- **Parameters**:
+  - `purl` (string, required): Package URL, e.g. `pkg:npm/request`.
+  - `version` (string, required): Specific component version string, e.g. `2.88.2`.
+  - `asOf` (string, optional): ISO date `YYYY-MM-DD` to evaluate against.
+
+### Tool: `check_all`
+- **Description**: Evaluate multiple component dependencies in batch.
+- **Parameters**:
+  - `components` (array, required): Array of objects with `purl` and `version`.
+
+### Tool: `replacement_for`
+- **Description**: Get the recommended replacement or migration guidance for a component.
+- **Parameters**:
+  - `purl` (string, required): Package URL of the deprecated component.
+
+### Resource: `ebb://upcoming`
+- **Description**: Live list of upcoming scheduled end-of-life deadlines within the next 90 days.
+
+## 5. Agent Skill Integration (`check-before-add`)
+
+Agents configured with the `check-before-add` skill adhere to these invariant rules:
+1. Never execute `npm install <pkg>`, `pip install <pkg>`, or write dependencies into manifest files without first querying `check(purl, version)`.
+2. If Ebb returns `status: "deprecated"` or `status: "end-of-life"`, the agent halts installation and immediately proposes the recommended alternative from `replacementFor(purl)`.
+3. Keep output concise: indicate component status, deadline (if any), and the modern alternative.

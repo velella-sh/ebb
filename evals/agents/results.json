@@ -1,0 +1,4561 @@
+{
+  "timestamp": "2026-11-12T10:08:44.649Z",
+  "totalTasks": 100,
+  "runs": [
+    {
+      "agent": "Claude Code",
+      "mode": "baseline",
+      "totalTasks": 100,
+      "deprecatedOrEolCount": 38,
+      "supportedCount": 62,
+      "deprecationRatePct": 38,
+      "picks": [
+        {
+          "taskId": "task-001",
+          "purl": "pkg:npm/request",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native fetch or a maintained HTTP client",
+          "ruleId": "npm.package.request.deprecated"
+        },
+        {
+          "taskId": "task-002",
+          "purl": "pkg:npm/node-sass",
+          "version": "1.0.0",
+          "status": "end-of-life",
+          "isDeprecatedOrEol": true,
+          "replacement": "sass",
+          "ruleId": "npm.package.node-sass.eol"
+        },
+        {
+          "taskId": "task-003",
+          "purl": "pkg:npm/left-pad",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "String.prototype.padStart()",
+          "ruleId": "npm.package.left-pad.deprecated"
+        },
+        {
+          "taskId": "task-004",
+          "purl": "pkg:npm/%40hapi/joi",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "joi",
+          "ruleId": "npm.package.hapi.joi.deprecated"
+        },
+        {
+          "taskId": "task-005",
+          "purl": "pkg:npm/babel-preset-es2015",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@babel/preset-env",
+          "ruleId": "npm.package.babel-preset-es2015.deprecated"
+        },
+        {
+          "taskId": "task-006",
+          "purl": "pkg:npm/boom",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@hapi/boom",
+          "ruleId": "npm.package.boom.deprecated"
+        },
+        {
+          "taskId": "task-007",
+          "purl": "pkg:npm/cryptiles",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@hapi/cryptiles",
+          "ruleId": "npm.package.cryptiles.deprecated"
+        },
+        {
+          "taskId": "task-008",
+          "purl": "pkg:npm/gulp-util",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Maintained purpose-specific modules listed by Gulp",
+          "ruleId": "npm.package.gulp-util.deprecated"
+        },
+        {
+          "taskId": "task-009",
+          "purl": "pkg:npm/inflight",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "lru-cache",
+          "ruleId": "npm.package.inflight.deprecated"
+        },
+        {
+          "taskId": "task-010",
+          "purl": "pkg:npm/jade",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "pug",
+          "ruleId": "npm.package.jade.deprecated"
+        },
+        {
+          "taskId": "task-011",
+          "purl": "pkg:npm/karma-phantomjs-launcher",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "A maintained Karma browser launcher such as karma-chrome-launcher",
+          "ruleId": "npm.package.karma-phantomjs-launcher.deprecated"
+        },
+        {
+          "taskId": "task-012",
+          "purl": "pkg:npm/natives",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "graceful-fs 4.x",
+          "ruleId": "npm.package.natives.deprecated"
+        },
+        {
+          "taskId": "task-013",
+          "purl": "pkg:npm/popper.js",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@popperjs/core",
+          "ruleId": "npm.package.popper.js.deprecated"
+        },
+        {
+          "taskId": "task-014",
+          "purl": "pkg:npm/querystring",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "URLSearchParams",
+          "ruleId": "npm.package.querystring.deprecated"
+        },
+        {
+          "taskId": "task-015",
+          "purl": "pkg:npm/request-promise",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native fetch or a maintained promise-based HTTP client",
+          "ruleId": "npm.package.request-promise.deprecated"
+        },
+        {
+          "taskId": "task-016",
+          "purl": "pkg:npm/request-promise-native",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native fetch or a maintained promise-based HTTP client",
+          "ruleId": "npm.package.request-promise-native.deprecated"
+        },
+        {
+          "taskId": "task-017",
+          "purl": "pkg:npm/rollup-plugin-babel",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@rollup/plugin-babel",
+          "ruleId": "npm.package.rollup-plugin-babel.deprecated"
+        },
+        {
+          "taskId": "task-018",
+          "purl": "pkg:npm/sntp",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@hapi/sntp",
+          "ruleId": "npm.package.sntp.deprecated"
+        },
+        {
+          "taskId": "task-019",
+          "purl": "pkg:npm/stable",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Array.prototype.sort",
+          "ruleId": "npm.package.stable.deprecated"
+        },
+        {
+          "taskId": "task-020",
+          "purl": "pkg:npm/abab",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native atob() and btoa()",
+          "ruleId": "npm.package.abab.deprecated"
+        },
+        {
+          "taskId": "task-021",
+          "purl": "pkg:npm/domexception",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native DOMException",
+          "ruleId": "npm.package.domexception.deprecated"
+        },
+        {
+          "taskId": "task-022",
+          "purl": "pkg:npm/w3c-hr-time",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native performance.now() and performance.timeOrigin",
+          "ruleId": "npm.package.w3c-hr-time.deprecated"
+        },
+        {
+          "taskId": "task-023",
+          "purl": "pkg:npm/sourcemap-codec",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@jridgewell/sourcemap-codec",
+          "ruleId": "npm.package.sourcemap-codec.deprecated"
+        },
+        {
+          "taskId": "task-024",
+          "purl": "pkg:npm/%40humanwhocodes/config-array",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@eslint/config-array",
+          "ruleId": "npm.package.humanwhocodes-config-array.deprecated"
+        },
+        {
+          "taskId": "task-025",
+          "purl": "pkg:npm/%40humanwhocodes/object-schema",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@eslint/object-schema",
+          "ruleId": "npm.package.humanwhocodes-object-schema.deprecated"
+        },
+        {
+          "taskId": "task-026",
+          "purl": "pkg:npm/q",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native Promise",
+          "ruleId": "npm.package.q.deprecated"
+        },
+        {
+          "taskId": "task-027",
+          "purl": "pkg:npm/lodash.get",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Optional chaining (?.)",
+          "ruleId": "npm.package.lodash-get.deprecated"
+        },
+        {
+          "taskId": "task-028",
+          "purl": "pkg:npm/lodash.isequal",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "node:util.isDeepStrictEqual",
+          "ruleId": "npm.package.lodash-isequal.deprecated"
+        },
+        {
+          "taskId": "task-029",
+          "purl": "pkg:npm/read-package-json",
+          "version": "1.0.0",
+          "status": "end-of-life",
+          "isDeprecatedOrEol": true,
+          "replacement": "@npmcli/package-json",
+          "ruleId": "npm.package.read-package-json.eol"
+        },
+        {
+          "taskId": "task-030",
+          "purl": "pkg:npm/%40npmcli/move-file",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@npmcli/fs",
+          "ruleId": "npm.package.npmcli-move-file.deprecated"
+        },
+        {
+          "taskId": "task-031",
+          "purl": "pkg:npm/source-map-url",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "convert-source-map",
+          "ruleId": "npm.package.source-map-url.deprecated"
+        },
+        {
+          "taskId": "task-032",
+          "purl": "pkg:npm/resolve-url",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "URL",
+          "ruleId": "npm.package.resolve-url.deprecated"
+        },
+        {
+          "taskId": "task-033",
+          "purl": "pkg:npm/babel-eslint",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@babel/eslint-parser",
+          "ruleId": "npm.package.babel-eslint.deprecated"
+        },
+        {
+          "taskId": "task-034",
+          "purl": "pkg:npm/uglify-es",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "uglify-js (3.13 or later) or terser",
+          "ruleId": "npm.package.uglify-es.deprecated"
+        },
+        {
+          "taskId": "task-035",
+          "purl": "pkg:npm/crypto-js",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Web Crypto API (globalThis.crypto.subtle) or a maintained cryptography library",
+          "ruleId": "npm.package.crypto-js.deprecated"
+        },
+        {
+          "taskId": "task-036",
+          "purl": "pkg:npm/eslint-plugin-nuxt",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@nuxt/eslint-plugin",
+          "ruleId": "npm.package.eslint-plugin-nuxt.deprecated"
+        },
+        {
+          "taskId": "task-037",
+          "purl": "pkg:npm/i18next-parser",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "i18next-cli",
+          "ruleId": "npm.package.i18next-parser.deprecated"
+        },
+        {
+          "taskId": "task-038",
+          "purl": "pkg:npm/koa-router",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@koa/router",
+          "ruleId": "npm.package.koa-router.deprecated"
+        },
+        {
+          "taskId": "task-039",
+          "purl": "pkg:npm/fastify",
+          "version": "4.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-040",
+          "purl": "pkg:npm/zod",
+          "version": "3.23.8",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-041",
+          "purl": "pkg:npm/esbuild",
+          "version": "0.21.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-042",
+          "purl": "pkg:npm/vitest",
+          "version": "1.6.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-043",
+          "purl": "pkg:npm/typescript",
+          "version": "5.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-044",
+          "purl": "pkg:npm/tsx",
+          "version": "4.11.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-045",
+          "purl": "pkg:npm/pnpm",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-046",
+          "purl": "pkg:npm/prettier",
+          "version": "3.2.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-047",
+          "purl": "pkg:npm/postcss",
+          "version": "8.4.38",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-048",
+          "purl": "pkg:npm/tailwindcss",
+          "version": "3.4.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-049",
+          "purl": "pkg:npm/prisma",
+          "version": "5.14.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-050",
+          "purl": "pkg:npm/drizzle-orm",
+          "version": "0.30.10",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-051",
+          "purl": "pkg:npm/kysely",
+          "version": "0.27.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-052",
+          "purl": "pkg:npm/ioredis",
+          "version": "5.4.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-053",
+          "purl": "pkg:npm/hono",
+          "version": "4.3.11",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-054",
+          "purl": "pkg:npm/trpc",
+          "version": "10.45.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-055",
+          "purl": "pkg:npm/superstruct",
+          "version": "1.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-056",
+          "purl": "pkg:npm/valibot",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-057",
+          "purl": "pkg:npm/nanoid",
+          "version": "5.0.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-058",
+          "purl": "pkg:npm/dotenv",
+          "version": "16.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-059",
+          "purl": "pkg:npm/cross-env",
+          "version": "7.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-060",
+          "purl": "pkg:npm/execa",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-061",
+          "purl": "pkg:npm/commander",
+          "version": "12.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-062",
+          "purl": "pkg:npm/globby",
+          "version": "14.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-063",
+          "purl": "pkg:npm/chalk",
+          "version": "5.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-064",
+          "purl": "pkg:npm/picocolors",
+          "version": "1.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-065",
+          "purl": "pkg:npm/signale",
+          "version": "1.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-066",
+          "purl": "pkg:npm/ws",
+          "version": "8.17.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-067",
+          "purl": "pkg:npm/cheerio",
+          "version": "1.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-068",
+          "purl": "pkg:npm/puppeteer",
+          "version": "22.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-069",
+          "purl": "pkg:npm/koa",
+          "version": "2.15.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-070",
+          "purl": "pkg:pypi/httpx",
+          "version": "0.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-071",
+          "purl": "pkg:pypi/fastapi",
+          "version": "0.111.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-072",
+          "purl": "pkg:pypi/uvicorn",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-073",
+          "purl": "pkg:pypi/ruff",
+          "version": "0.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-074",
+          "purl": "pkg:pypi/pytest",
+          "version": "8.2.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-075",
+          "purl": "pkg:pypi/mypy",
+          "version": "1.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-076",
+          "purl": "pkg:pypi/rich",
+          "version": "13.7.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-077",
+          "purl": "pkg:pypi/click",
+          "version": "8.1.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-078",
+          "purl": "pkg:pypi/typer",
+          "version": "0.12.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-079",
+          "purl": "pkg:pypi/sqlalchemy",
+          "version": "2.0.30",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-080",
+          "purl": "pkg:pypi/alembic",
+          "version": "1.13.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-081",
+          "purl": "pkg:pypi/pydantic",
+          "version": "2.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-082",
+          "purl": "pkg:pypi/polars",
+          "version": "0.20.28",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-083",
+          "purl": "pkg:pypi/pandas",
+          "version": "2.2.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-084",
+          "purl": "pkg:pypi/numpy",
+          "version": "1.26.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-085",
+          "purl": "pkg:pypi/scipy",
+          "version": "1.13.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-086",
+          "purl": "pkg:pypi/orjson",
+          "version": "3.10.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-087",
+          "purl": "pkg:pypi/structlog",
+          "version": "24.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-088",
+          "purl": "pkg:pypi/loguru",
+          "version": "0.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-089",
+          "purl": "pkg:pypi/celery",
+          "version": "5.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-090",
+          "purl": "pkg:pypi/redis",
+          "version": "5.0.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-091",
+          "purl": "pkg:github/actions/checkout",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-092",
+          "purl": "pkg:github/actions/setup-node",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-093",
+          "purl": "pkg:github/actions/cache",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-094",
+          "purl": "pkg:docker/library/node",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-095",
+          "purl": "pkg:docker/library/python",
+          "version": "3.12.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-096",
+          "purl": "pkg:docker/library/postgres",
+          "version": "16.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-097",
+          "purl": "pkg:generic/nodejs",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-098",
+          "purl": "pkg:generic/go",
+          "version": "1.23.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-099",
+          "purl": "pkg:generic/ruby",
+          "version": "3.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-100",
+          "purl": "pkg:generic/php",
+          "version": "8.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        }
+      ]
+    },
+    {
+      "agent": "Claude Code",
+      "mode": "mcp",
+      "totalTasks": 100,
+      "deprecatedOrEolCount": 0,
+      "supportedCount": 100,
+      "deprecationRatePct": 0,
+      "picks": [
+        {
+          "taskId": "task-001",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-002",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-003",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-004",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-005",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-006",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-007",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-008",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-009",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-010",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-011",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-012",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-013",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-014",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-015",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-016",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-017",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-018",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-019",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-020",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-021",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-022",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-023",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-024",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-025",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-026",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-027",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-028",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-029",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-030",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-031",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-032",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-033",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-034",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-035",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-036",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-037",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-038",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-039",
+          "purl": "pkg:npm/fastify",
+          "version": "4.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-040",
+          "purl": "pkg:npm/zod",
+          "version": "3.23.8",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-041",
+          "purl": "pkg:npm/esbuild",
+          "version": "0.21.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-042",
+          "purl": "pkg:npm/vitest",
+          "version": "1.6.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-043",
+          "purl": "pkg:npm/typescript",
+          "version": "5.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-044",
+          "purl": "pkg:npm/tsx",
+          "version": "4.11.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-045",
+          "purl": "pkg:npm/pnpm",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-046",
+          "purl": "pkg:npm/prettier",
+          "version": "3.2.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-047",
+          "purl": "pkg:npm/postcss",
+          "version": "8.4.38",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-048",
+          "purl": "pkg:npm/tailwindcss",
+          "version": "3.4.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-049",
+          "purl": "pkg:npm/prisma",
+          "version": "5.14.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-050",
+          "purl": "pkg:npm/drizzle-orm",
+          "version": "0.30.10",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-051",
+          "purl": "pkg:npm/kysely",
+          "version": "0.27.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-052",
+          "purl": "pkg:npm/ioredis",
+          "version": "5.4.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-053",
+          "purl": "pkg:npm/hono",
+          "version": "4.3.11",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-054",
+          "purl": "pkg:npm/trpc",
+          "version": "10.45.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-055",
+          "purl": "pkg:npm/superstruct",
+          "version": "1.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-056",
+          "purl": "pkg:npm/valibot",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-057",
+          "purl": "pkg:npm/nanoid",
+          "version": "5.0.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-058",
+          "purl": "pkg:npm/dotenv",
+          "version": "16.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-059",
+          "purl": "pkg:npm/cross-env",
+          "version": "7.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-060",
+          "purl": "pkg:npm/execa",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-061",
+          "purl": "pkg:npm/commander",
+          "version": "12.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-062",
+          "purl": "pkg:npm/globby",
+          "version": "14.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-063",
+          "purl": "pkg:npm/chalk",
+          "version": "5.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-064",
+          "purl": "pkg:npm/picocolors",
+          "version": "1.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-065",
+          "purl": "pkg:npm/signale",
+          "version": "1.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-066",
+          "purl": "pkg:npm/ws",
+          "version": "8.17.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-067",
+          "purl": "pkg:npm/cheerio",
+          "version": "1.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-068",
+          "purl": "pkg:npm/puppeteer",
+          "version": "22.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-069",
+          "purl": "pkg:npm/koa",
+          "version": "2.15.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-070",
+          "purl": "pkg:pypi/httpx",
+          "version": "0.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-071",
+          "purl": "pkg:pypi/fastapi",
+          "version": "0.111.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-072",
+          "purl": "pkg:pypi/uvicorn",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-073",
+          "purl": "pkg:pypi/ruff",
+          "version": "0.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-074",
+          "purl": "pkg:pypi/pytest",
+          "version": "8.2.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-075",
+          "purl": "pkg:pypi/mypy",
+          "version": "1.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-076",
+          "purl": "pkg:pypi/rich",
+          "version": "13.7.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-077",
+          "purl": "pkg:pypi/click",
+          "version": "8.1.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-078",
+          "purl": "pkg:pypi/typer",
+          "version": "0.12.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-079",
+          "purl": "pkg:pypi/sqlalchemy",
+          "version": "2.0.30",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-080",
+          "purl": "pkg:pypi/alembic",
+          "version": "1.13.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-081",
+          "purl": "pkg:pypi/pydantic",
+          "version": "2.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-082",
+          "purl": "pkg:pypi/polars",
+          "version": "0.20.28",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-083",
+          "purl": "pkg:pypi/pandas",
+          "version": "2.2.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-084",
+          "purl": "pkg:pypi/numpy",
+          "version": "1.26.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-085",
+          "purl": "pkg:pypi/scipy",
+          "version": "1.13.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-086",
+          "purl": "pkg:pypi/orjson",
+          "version": "3.10.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-087",
+          "purl": "pkg:pypi/structlog",
+          "version": "24.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-088",
+          "purl": "pkg:pypi/loguru",
+          "version": "0.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-089",
+          "purl": "pkg:pypi/celery",
+          "version": "5.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-090",
+          "purl": "pkg:pypi/redis",
+          "version": "5.0.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-091",
+          "purl": "pkg:github/actions/checkout",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-092",
+          "purl": "pkg:github/actions/setup-node",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-093",
+          "purl": "pkg:github/actions/cache",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-094",
+          "purl": "pkg:docker/library/node",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-095",
+          "purl": "pkg:docker/library/python",
+          "version": "3.12.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-096",
+          "purl": "pkg:docker/library/postgres",
+          "version": "16.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-097",
+          "purl": "pkg:generic/nodejs",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-098",
+          "purl": "pkg:generic/go",
+          "version": "1.23.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-099",
+          "purl": "pkg:generic/ruby",
+          "version": "3.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-100",
+          "purl": "pkg:generic/php",
+          "version": "8.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        }
+      ]
+    },
+    {
+      "agent": "Claude Code",
+      "mode": "skill",
+      "totalTasks": 100,
+      "deprecatedOrEolCount": 0,
+      "supportedCount": 100,
+      "deprecationRatePct": 0,
+      "picks": [
+        {
+          "taskId": "task-001",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-002",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-003",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-004",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-005",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-006",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-007",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-008",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-009",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-010",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-011",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-012",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-013",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-014",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-015",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-016",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-017",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-018",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-019",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-020",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-021",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-022",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-023",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-024",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-025",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-026",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-027",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-028",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-029",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-030",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-031",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-032",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-033",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-034",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-035",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-036",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-037",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-038",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-039",
+          "purl": "pkg:npm/fastify",
+          "version": "4.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-040",
+          "purl": "pkg:npm/zod",
+          "version": "3.23.8",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-041",
+          "purl": "pkg:npm/esbuild",
+          "version": "0.21.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-042",
+          "purl": "pkg:npm/vitest",
+          "version": "1.6.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-043",
+          "purl": "pkg:npm/typescript",
+          "version": "5.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-044",
+          "purl": "pkg:npm/tsx",
+          "version": "4.11.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-045",
+          "purl": "pkg:npm/pnpm",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-046",
+          "purl": "pkg:npm/prettier",
+          "version": "3.2.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-047",
+          "purl": "pkg:npm/postcss",
+          "version": "8.4.38",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-048",
+          "purl": "pkg:npm/tailwindcss",
+          "version": "3.4.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-049",
+          "purl": "pkg:npm/prisma",
+          "version": "5.14.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-050",
+          "purl": "pkg:npm/drizzle-orm",
+          "version": "0.30.10",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-051",
+          "purl": "pkg:npm/kysely",
+          "version": "0.27.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-052",
+          "purl": "pkg:npm/ioredis",
+          "version": "5.4.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-053",
+          "purl": "pkg:npm/hono",
+          "version": "4.3.11",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-054",
+          "purl": "pkg:npm/trpc",
+          "version": "10.45.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-055",
+          "purl": "pkg:npm/superstruct",
+          "version": "1.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-056",
+          "purl": "pkg:npm/valibot",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-057",
+          "purl": "pkg:npm/nanoid",
+          "version": "5.0.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-058",
+          "purl": "pkg:npm/dotenv",
+          "version": "16.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-059",
+          "purl": "pkg:npm/cross-env",
+          "version": "7.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-060",
+          "purl": "pkg:npm/execa",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-061",
+          "purl": "pkg:npm/commander",
+          "version": "12.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-062",
+          "purl": "pkg:npm/globby",
+          "version": "14.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-063",
+          "purl": "pkg:npm/chalk",
+          "version": "5.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-064",
+          "purl": "pkg:npm/picocolors",
+          "version": "1.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-065",
+          "purl": "pkg:npm/signale",
+          "version": "1.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-066",
+          "purl": "pkg:npm/ws",
+          "version": "8.17.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-067",
+          "purl": "pkg:npm/cheerio",
+          "version": "1.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-068",
+          "purl": "pkg:npm/puppeteer",
+          "version": "22.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-069",
+          "purl": "pkg:npm/koa",
+          "version": "2.15.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-070",
+          "purl": "pkg:pypi/httpx",
+          "version": "0.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-071",
+          "purl": "pkg:pypi/fastapi",
+          "version": "0.111.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-072",
+          "purl": "pkg:pypi/uvicorn",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-073",
+          "purl": "pkg:pypi/ruff",
+          "version": "0.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-074",
+          "purl": "pkg:pypi/pytest",
+          "version": "8.2.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-075",
+          "purl": "pkg:pypi/mypy",
+          "version": "1.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-076",
+          "purl": "pkg:pypi/rich",
+          "version": "13.7.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-077",
+          "purl": "pkg:pypi/click",
+          "version": "8.1.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-078",
+          "purl": "pkg:pypi/typer",
+          "version": "0.12.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-079",
+          "purl": "pkg:pypi/sqlalchemy",
+          "version": "2.0.30",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-080",
+          "purl": "pkg:pypi/alembic",
+          "version": "1.13.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-081",
+          "purl": "pkg:pypi/pydantic",
+          "version": "2.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-082",
+          "purl": "pkg:pypi/polars",
+          "version": "0.20.28",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-083",
+          "purl": "pkg:pypi/pandas",
+          "version": "2.2.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-084",
+          "purl": "pkg:pypi/numpy",
+          "version": "1.26.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-085",
+          "purl": "pkg:pypi/scipy",
+          "version": "1.13.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-086",
+          "purl": "pkg:pypi/orjson",
+          "version": "3.10.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-087",
+          "purl": "pkg:pypi/structlog",
+          "version": "24.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-088",
+          "purl": "pkg:pypi/loguru",
+          "version": "0.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-089",
+          "purl": "pkg:pypi/celery",
+          "version": "5.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-090",
+          "purl": "pkg:pypi/redis",
+          "version": "5.0.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-091",
+          "purl": "pkg:github/actions/checkout",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-092",
+          "purl": "pkg:github/actions/setup-node",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-093",
+          "purl": "pkg:github/actions/cache",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-094",
+          "purl": "pkg:docker/library/node",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-095",
+          "purl": "pkg:docker/library/python",
+          "version": "3.12.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-096",
+          "purl": "pkg:docker/library/postgres",
+          "version": "16.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-097",
+          "purl": "pkg:generic/nodejs",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-098",
+          "purl": "pkg:generic/go",
+          "version": "1.23.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-099",
+          "purl": "pkg:generic/ruby",
+          "version": "3.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-100",
+          "purl": "pkg:generic/php",
+          "version": "8.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        }
+      ]
+    },
+    {
+      "agent": "Codex / Cursor",
+      "mode": "baseline",
+      "totalTasks": 100,
+      "deprecatedOrEolCount": 38,
+      "supportedCount": 62,
+      "deprecationRatePct": 38,
+      "picks": [
+        {
+          "taskId": "task-001",
+          "purl": "pkg:npm/request",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native fetch or a maintained HTTP client",
+          "ruleId": "npm.package.request.deprecated"
+        },
+        {
+          "taskId": "task-002",
+          "purl": "pkg:npm/node-sass",
+          "version": "1.0.0",
+          "status": "end-of-life",
+          "isDeprecatedOrEol": true,
+          "replacement": "sass",
+          "ruleId": "npm.package.node-sass.eol"
+        },
+        {
+          "taskId": "task-003",
+          "purl": "pkg:npm/left-pad",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "String.prototype.padStart()",
+          "ruleId": "npm.package.left-pad.deprecated"
+        },
+        {
+          "taskId": "task-004",
+          "purl": "pkg:npm/%40hapi/joi",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "joi",
+          "ruleId": "npm.package.hapi.joi.deprecated"
+        },
+        {
+          "taskId": "task-005",
+          "purl": "pkg:npm/babel-preset-es2015",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@babel/preset-env",
+          "ruleId": "npm.package.babel-preset-es2015.deprecated"
+        },
+        {
+          "taskId": "task-006",
+          "purl": "pkg:npm/boom",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@hapi/boom",
+          "ruleId": "npm.package.boom.deprecated"
+        },
+        {
+          "taskId": "task-007",
+          "purl": "pkg:npm/cryptiles",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@hapi/cryptiles",
+          "ruleId": "npm.package.cryptiles.deprecated"
+        },
+        {
+          "taskId": "task-008",
+          "purl": "pkg:npm/gulp-util",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Maintained purpose-specific modules listed by Gulp",
+          "ruleId": "npm.package.gulp-util.deprecated"
+        },
+        {
+          "taskId": "task-009",
+          "purl": "pkg:npm/inflight",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "lru-cache",
+          "ruleId": "npm.package.inflight.deprecated"
+        },
+        {
+          "taskId": "task-010",
+          "purl": "pkg:npm/jade",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "pug",
+          "ruleId": "npm.package.jade.deprecated"
+        },
+        {
+          "taskId": "task-011",
+          "purl": "pkg:npm/karma-phantomjs-launcher",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "A maintained Karma browser launcher such as karma-chrome-launcher",
+          "ruleId": "npm.package.karma-phantomjs-launcher.deprecated"
+        },
+        {
+          "taskId": "task-012",
+          "purl": "pkg:npm/natives",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "graceful-fs 4.x",
+          "ruleId": "npm.package.natives.deprecated"
+        },
+        {
+          "taskId": "task-013",
+          "purl": "pkg:npm/popper.js",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@popperjs/core",
+          "ruleId": "npm.package.popper.js.deprecated"
+        },
+        {
+          "taskId": "task-014",
+          "purl": "pkg:npm/querystring",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "URLSearchParams",
+          "ruleId": "npm.package.querystring.deprecated"
+        },
+        {
+          "taskId": "task-015",
+          "purl": "pkg:npm/request-promise",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native fetch or a maintained promise-based HTTP client",
+          "ruleId": "npm.package.request-promise.deprecated"
+        },
+        {
+          "taskId": "task-016",
+          "purl": "pkg:npm/request-promise-native",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native fetch or a maintained promise-based HTTP client",
+          "ruleId": "npm.package.request-promise-native.deprecated"
+        },
+        {
+          "taskId": "task-017",
+          "purl": "pkg:npm/rollup-plugin-babel",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@rollup/plugin-babel",
+          "ruleId": "npm.package.rollup-plugin-babel.deprecated"
+        },
+        {
+          "taskId": "task-018",
+          "purl": "pkg:npm/sntp",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@hapi/sntp",
+          "ruleId": "npm.package.sntp.deprecated"
+        },
+        {
+          "taskId": "task-019",
+          "purl": "pkg:npm/stable",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Array.prototype.sort",
+          "ruleId": "npm.package.stable.deprecated"
+        },
+        {
+          "taskId": "task-020",
+          "purl": "pkg:npm/abab",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native atob() and btoa()",
+          "ruleId": "npm.package.abab.deprecated"
+        },
+        {
+          "taskId": "task-021",
+          "purl": "pkg:npm/domexception",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native DOMException",
+          "ruleId": "npm.package.domexception.deprecated"
+        },
+        {
+          "taskId": "task-022",
+          "purl": "pkg:npm/w3c-hr-time",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native performance.now() and performance.timeOrigin",
+          "ruleId": "npm.package.w3c-hr-time.deprecated"
+        },
+        {
+          "taskId": "task-023",
+          "purl": "pkg:npm/sourcemap-codec",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@jridgewell/sourcemap-codec",
+          "ruleId": "npm.package.sourcemap-codec.deprecated"
+        },
+        {
+          "taskId": "task-024",
+          "purl": "pkg:npm/%40humanwhocodes/config-array",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@eslint/config-array",
+          "ruleId": "npm.package.humanwhocodes-config-array.deprecated"
+        },
+        {
+          "taskId": "task-025",
+          "purl": "pkg:npm/%40humanwhocodes/object-schema",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@eslint/object-schema",
+          "ruleId": "npm.package.humanwhocodes-object-schema.deprecated"
+        },
+        {
+          "taskId": "task-026",
+          "purl": "pkg:npm/q",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Native Promise",
+          "ruleId": "npm.package.q.deprecated"
+        },
+        {
+          "taskId": "task-027",
+          "purl": "pkg:npm/lodash.get",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Optional chaining (?.)",
+          "ruleId": "npm.package.lodash-get.deprecated"
+        },
+        {
+          "taskId": "task-028",
+          "purl": "pkg:npm/lodash.isequal",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "node:util.isDeepStrictEqual",
+          "ruleId": "npm.package.lodash-isequal.deprecated"
+        },
+        {
+          "taskId": "task-029",
+          "purl": "pkg:npm/read-package-json",
+          "version": "1.0.0",
+          "status": "end-of-life",
+          "isDeprecatedOrEol": true,
+          "replacement": "@npmcli/package-json",
+          "ruleId": "npm.package.read-package-json.eol"
+        },
+        {
+          "taskId": "task-030",
+          "purl": "pkg:npm/%40npmcli/move-file",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@npmcli/fs",
+          "ruleId": "npm.package.npmcli-move-file.deprecated"
+        },
+        {
+          "taskId": "task-031",
+          "purl": "pkg:npm/source-map-url",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "convert-source-map",
+          "ruleId": "npm.package.source-map-url.deprecated"
+        },
+        {
+          "taskId": "task-032",
+          "purl": "pkg:npm/resolve-url",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "URL",
+          "ruleId": "npm.package.resolve-url.deprecated"
+        },
+        {
+          "taskId": "task-033",
+          "purl": "pkg:npm/babel-eslint",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@babel/eslint-parser",
+          "ruleId": "npm.package.babel-eslint.deprecated"
+        },
+        {
+          "taskId": "task-034",
+          "purl": "pkg:npm/uglify-es",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "uglify-js (3.13 or later) or terser",
+          "ruleId": "npm.package.uglify-es.deprecated"
+        },
+        {
+          "taskId": "task-035",
+          "purl": "pkg:npm/crypto-js",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "Web Crypto API (globalThis.crypto.subtle) or a maintained cryptography library",
+          "ruleId": "npm.package.crypto-js.deprecated"
+        },
+        {
+          "taskId": "task-036",
+          "purl": "pkg:npm/eslint-plugin-nuxt",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@nuxt/eslint-plugin",
+          "ruleId": "npm.package.eslint-plugin-nuxt.deprecated"
+        },
+        {
+          "taskId": "task-037",
+          "purl": "pkg:npm/i18next-parser",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "i18next-cli",
+          "ruleId": "npm.package.i18next-parser.deprecated"
+        },
+        {
+          "taskId": "task-038",
+          "purl": "pkg:npm/koa-router",
+          "version": "1.0.0",
+          "status": "deprecated",
+          "isDeprecatedOrEol": true,
+          "replacement": "@koa/router",
+          "ruleId": "npm.package.koa-router.deprecated"
+        },
+        {
+          "taskId": "task-039",
+          "purl": "pkg:npm/fastify",
+          "version": "4.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-040",
+          "purl": "pkg:npm/zod",
+          "version": "3.23.8",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-041",
+          "purl": "pkg:npm/esbuild",
+          "version": "0.21.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-042",
+          "purl": "pkg:npm/vitest",
+          "version": "1.6.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-043",
+          "purl": "pkg:npm/typescript",
+          "version": "5.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-044",
+          "purl": "pkg:npm/tsx",
+          "version": "4.11.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-045",
+          "purl": "pkg:npm/pnpm",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-046",
+          "purl": "pkg:npm/prettier",
+          "version": "3.2.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-047",
+          "purl": "pkg:npm/postcss",
+          "version": "8.4.38",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-048",
+          "purl": "pkg:npm/tailwindcss",
+          "version": "3.4.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-049",
+          "purl": "pkg:npm/prisma",
+          "version": "5.14.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-050",
+          "purl": "pkg:npm/drizzle-orm",
+          "version": "0.30.10",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-051",
+          "purl": "pkg:npm/kysely",
+          "version": "0.27.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-052",
+          "purl": "pkg:npm/ioredis",
+          "version": "5.4.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-053",
+          "purl": "pkg:npm/hono",
+          "version": "4.3.11",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-054",
+          "purl": "pkg:npm/trpc",
+          "version": "10.45.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-055",
+          "purl": "pkg:npm/superstruct",
+          "version": "1.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-056",
+          "purl": "pkg:npm/valibot",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-057",
+          "purl": "pkg:npm/nanoid",
+          "version": "5.0.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-058",
+          "purl": "pkg:npm/dotenv",
+          "version": "16.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-059",
+          "purl": "pkg:npm/cross-env",
+          "version": "7.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-060",
+          "purl": "pkg:npm/execa",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-061",
+          "purl": "pkg:npm/commander",
+          "version": "12.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-062",
+          "purl": "pkg:npm/globby",
+          "version": "14.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-063",
+          "purl": "pkg:npm/chalk",
+          "version": "5.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-064",
+          "purl": "pkg:npm/picocolors",
+          "version": "1.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-065",
+          "purl": "pkg:npm/signale",
+          "version": "1.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-066",
+          "purl": "pkg:npm/ws",
+          "version": "8.17.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-067",
+          "purl": "pkg:npm/cheerio",
+          "version": "1.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-068",
+          "purl": "pkg:npm/puppeteer",
+          "version": "22.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-069",
+          "purl": "pkg:npm/koa",
+          "version": "2.15.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-070",
+          "purl": "pkg:pypi/httpx",
+          "version": "0.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-071",
+          "purl": "pkg:pypi/fastapi",
+          "version": "0.111.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-072",
+          "purl": "pkg:pypi/uvicorn",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-073",
+          "purl": "pkg:pypi/ruff",
+          "version": "0.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-074",
+          "purl": "pkg:pypi/pytest",
+          "version": "8.2.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-075",
+          "purl": "pkg:pypi/mypy",
+          "version": "1.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-076",
+          "purl": "pkg:pypi/rich",
+          "version": "13.7.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-077",
+          "purl": "pkg:pypi/click",
+          "version": "8.1.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-078",
+          "purl": "pkg:pypi/typer",
+          "version": "0.12.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-079",
+          "purl": "pkg:pypi/sqlalchemy",
+          "version": "2.0.30",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-080",
+          "purl": "pkg:pypi/alembic",
+          "version": "1.13.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-081",
+          "purl": "pkg:pypi/pydantic",
+          "version": "2.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-082",
+          "purl": "pkg:pypi/polars",
+          "version": "0.20.28",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-083",
+          "purl": "pkg:pypi/pandas",
+          "version": "2.2.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-084",
+          "purl": "pkg:pypi/numpy",
+          "version": "1.26.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-085",
+          "purl": "pkg:pypi/scipy",
+          "version": "1.13.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-086",
+          "purl": "pkg:pypi/orjson",
+          "version": "3.10.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-087",
+          "purl": "pkg:pypi/structlog",
+          "version": "24.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-088",
+          "purl": "pkg:pypi/loguru",
+          "version": "0.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-089",
+          "purl": "pkg:pypi/celery",
+          "version": "5.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-090",
+          "purl": "pkg:pypi/redis",
+          "version": "5.0.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-091",
+          "purl": "pkg:github/actions/checkout",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-092",
+          "purl": "pkg:github/actions/setup-node",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-093",
+          "purl": "pkg:github/actions/cache",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-094",
+          "purl": "pkg:docker/library/node",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-095",
+          "purl": "pkg:docker/library/python",
+          "version": "3.12.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-096",
+          "purl": "pkg:docker/library/postgres",
+          "version": "16.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-097",
+          "purl": "pkg:generic/nodejs",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-098",
+          "purl": "pkg:generic/go",
+          "version": "1.23.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-099",
+          "purl": "pkg:generic/ruby",
+          "version": "3.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-100",
+          "purl": "pkg:generic/php",
+          "version": "8.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        }
+      ]
+    },
+    {
+      "agent": "Codex / Cursor",
+      "mode": "mcp",
+      "totalTasks": 100,
+      "deprecatedOrEolCount": 0,
+      "supportedCount": 100,
+      "deprecationRatePct": 0,
+      "picks": [
+        {
+          "taskId": "task-001",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-002",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-003",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-004",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-005",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-006",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-007",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-008",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-009",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-010",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-011",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-012",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-013",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-014",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-015",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-016",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-017",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-018",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-019",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-020",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-021",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-022",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-023",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-024",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-025",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-026",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-027",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-028",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-029",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-030",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-031",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-032",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-033",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-034",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-035",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-036",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-037",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-038",
+          "purl": "pkg:npm/undici",
+          "version": "6.21.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-039",
+          "purl": "pkg:npm/fastify",
+          "version": "4.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-040",
+          "purl": "pkg:npm/zod",
+          "version": "3.23.8",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-041",
+          "purl": "pkg:npm/esbuild",
+          "version": "0.21.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-042",
+          "purl": "pkg:npm/vitest",
+          "version": "1.6.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-043",
+          "purl": "pkg:npm/typescript",
+          "version": "5.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-044",
+          "purl": "pkg:npm/tsx",
+          "version": "4.11.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-045",
+          "purl": "pkg:npm/pnpm",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-046",
+          "purl": "pkg:npm/prettier",
+          "version": "3.2.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-047",
+          "purl": "pkg:npm/postcss",
+          "version": "8.4.38",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-048",
+          "purl": "pkg:npm/tailwindcss",
+          "version": "3.4.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-049",
+          "purl": "pkg:npm/prisma",
+          "version": "5.14.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-050",
+          "purl": "pkg:npm/drizzle-orm",
+          "version": "0.30.10",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-051",
+          "purl": "pkg:npm/kysely",
+          "version": "0.27.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-052",
+          "purl": "pkg:npm/ioredis",
+          "version": "5.4.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-053",
+          "purl": "pkg:npm/hono",
+          "version": "4.3.11",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-054",
+          "purl": "pkg:npm/trpc",
+          "version": "10.45.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-055",
+          "purl": "pkg:npm/superstruct",
+          "version": "1.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-056",
+          "purl": "pkg:npm/valibot",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-057",
+          "purl": "pkg:npm/nanoid",
+          "version": "5.0.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-058",
+          "purl": "pkg:npm/dotenv",
+          "version": "16.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-059",
+          "purl": "pkg:npm/cross-env",
+          "version": "7.0.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-060",
+          "purl": "pkg:npm/execa",
+          "version": "9.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-061",
+          "purl": "pkg:npm/commander",
+          "version": "12.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-062",
+          "purl": "pkg:npm/globby",
+          "version": "14.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-063",
+          "purl": "pkg:npm/chalk",
+          "version": "5.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-064",
+          "purl": "pkg:npm/picocolors",
+          "version": "1.0.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-065",
+          "purl": "pkg:npm/signale",
+          "version": "1.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-066",
+          "purl": "pkg:npm/ws",
+          "version": "8.17.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-067",
+          "purl": "pkg:npm/cheerio",
+          "version": "1.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-068",
+          "purl": "pkg:npm/puppeteer",
+          "version": "22.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-069",
+          "purl": "pkg:npm/koa",
+          "version": "2.15.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-070",
+          "purl": "pkg:pypi/httpx",
+          "version": "0.27.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-071",
+          "purl": "pkg:pypi/fastapi",
+          "version": "0.111.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-072",
+          "purl": "pkg:pypi/uvicorn",
+          "version": "0.30.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-073",
+          "purl": "pkg:pypi/ruff",
+          "version": "0.4.5",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-074",
+          "purl": "pkg:pypi/pytest",
+          "version": "8.2.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-075",
+          "purl": "pkg:pypi/mypy",
+          "version": "1.10.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-076",
+          "purl": "pkg:pypi/rich",
+          "version": "13.7.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-077",
+          "purl": "pkg:pypi/click",
+          "version": "8.1.7",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-078",
+          "purl": "pkg:pypi/typer",
+          "version": "0.12.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-079",
+          "purl": "pkg:pypi/sqlalchemy",
+          "version": "2.0.30",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-080",
+          "purl": "pkg:pypi/alembic",
+          "version": "1.13.1",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-081",
+          "purl": "pkg:pypi/pydantic",
+          "version": "2.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-082",
+          "purl": "pkg:pypi/polars",
+          "version": "0.20.28",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-083",
+          "purl": "pkg:pypi/pandas",
+          "version": "2.2.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-084",
+          "purl": "pkg:pypi/numpy",
+          "version": "1.26.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-085",
+          "purl": "pkg:pypi/scipy",
+          "version": "1.13.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-086",
+          "purl": "pkg:pypi/orjson",
+          "version": "3.10.3",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-087",
+          "purl": "pkg:pypi/structlog",
+          "version": "24.1.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-088",
+          "purl": "pkg:pypi/loguru",
+          "version": "0.7.2",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-089",
+          "purl": "pkg:pypi/celery",
+          "version": "5.4.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-090",
+          "purl": "pkg:pypi/redis",
+          "version": "5.0.4",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-091",
+          "purl": "pkg:github/actions/checkout",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-092",
+          "purl": "pkg:github/actions/setup-node",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-093",
+          "purl": "pkg:github/actions/cache",
+          "version": "5.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-094",
+          "purl": "pkg:docker/library/node",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-095",
+          "purl": "pkg:docker/library/python",
+          "version": "3.12.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-096",
+          "purl": "pkg:docker/library/postgres",
+          "version": "16.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-097",
+          "purl": "pkg:generic/nodejs",
+          "version": "24.0.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-098",
+          "purl": "pkg:generic/go",
+          "version": "1.23.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-099",
+          "purl": "pkg:generic/ruby",
+          "version": "3.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        },
+        {
+          "taskId": "task-100",
+          "purl": "pkg:generic/php",
+          "version": "8.3.0",
+          "status": "ok",
+          "isDeprecatedOrEol": false,
+          "replacement": null,
+          "ruleId": null
+        }
+      ]
+    }
+  ],
+  "headlineSummary": {
+    "baselineDeprecationRatePct": 38,
+    "withEbbDeprecationRatePct": 0,
+    "reductionPercentagePoints": 38
+  }
+}
