@@ -12,6 +12,7 @@ describe("MCP Server Process (stdio)", () => {
     });
 
     let stdoutBuffer = "";
+    let stderrBuffer = "";
     // biome-ignore lint/suspicious/noExplicitAny: test responses inspection
     const responses: any[] = [];
 
@@ -30,17 +31,45 @@ describe("MCP Server Process (stdio)", () => {
       }
     });
 
+    child.stderr.on("data", (chunk: Buffer) => {
+      stderrBuffer += chunk.toString("utf8");
+    });
+
+    let exitError: Error | null = null;
+    child.on("error", (err) => {
+      exitError = err;
+    });
+    child.on("exit", (code) => {
+      if (code !== 0 && code !== null) {
+        exitError = new Error(`MCP child process exited with code ${code}. stderr: ${stderrBuffer}`);
+      }
+    });
+
     // biome-ignore lint/suspicious/noExplicitAny: generic response promise
     function waitForResponse(id: string | number): Promise<any> {
       return new Promise((resolve, reject) => {
+        let settled = false;
         const timer = setTimeout(() => {
-          reject(new Error(`Timed out waiting for response id ${id}. Current responses: ${JSON.stringify(responses)}`));
+          settled = true;
+          reject(
+            new Error(
+              `Timed out waiting for response id ${id}. Current responses: ${JSON.stringify(responses)}. stderr: ${stderrBuffer}`,
+            ),
+          );
         }, 5000);
 
         const poll = () => {
+          if (settled) return;
+          if (exitError) {
+            settled = true;
+            clearTimeout(timer);
+            reject(exitError);
+            return;
+          }
           // biome-ignore lint/suspicious/noExplicitAny: response matching
           const found = responses.find((r: any) => r.id === id);
           if (found) {
+            settled = true;
             clearTimeout(timer);
             resolve(found);
           } else {
@@ -55,141 +84,138 @@ describe("MCP Server Process (stdio)", () => {
       child.stdin.write(`${JSON.stringify(msg)}\n`);
     };
 
-    // 1. Initialize
-    send({
-      jsonrpc: "2.0",
-      id: 1,
-      method: "initialize",
-      params: {
-        protocolVersion: "2024-11-05",
-        capabilities: {},
-        clientInfo: { name: "root-test", version: "1.0.0" },
-      },
-    });
-
-    const initResp = await waitForResponse(1);
-    assert.equal(initResp.id, 1);
-    assert.equal(initResp.result.protocolVersion, "2024-11-05");
-    assert.equal(initResp.result.serverInfo.name, "@velella/ebb-mcp");
-
-    // 2. Initialized notification (must produce no response)
-    send({
-      jsonrpc: "2.0",
-      method: "notifications/initialized",
-    });
-    await new Promise((resolve) => setTimeout(resolve, 50));
-    assert.equal(responses.length, 1);
-
-    // 3. Ping
-    send({
-      jsonrpc: "2.0",
-      id: 2,
-      method: "ping",
-    });
-    const pingResp = await waitForResponse(2);
-    assert.equal(pingResp.id, 2);
-    assert.deepEqual(pingResp.result, {});
-
-    // 4. tools/list includes check tool
-    send({
-      jsonrpc: "2.0",
-      id: 3,
-      method: "tools/list",
-    });
-    const listResp = await waitForResponse(3);
-    assert.equal(listResp.id, 3);
-    assert.ok(listResp.result.tools.some((t: { name: string }) => t.name === "check"));
-
-    // 5. tools/call check tool
-    send({
-      jsonrpc: "2.0",
-      id: 4,
-      method: "tools/call",
-      params: {
-        name: "check",
-        arguments: {
-          purl: "pkg:npm/request@2.88.2",
+    try {
+      // 1. Initialize
+      send({
+        jsonrpc: "2.0",
+        id: 1,
+        method: "initialize",
+        params: {
+          protocolVersion: "2024-11-05",
+          capabilities: {},
+          clientInfo: { name: "root-test", version: "1.0.0" },
         },
-      },
-    });
-    const callResp = await waitForResponse(4);
-    assert.equal(callResp.id, 4);
-    assert.equal(callResp.result.isError, false);
-    const content = JSON.parse(callResp.result.content[0].text);
-    assert.equal(content.status, "deprecated");
-    assert.ok(content.provenance.sources.length > 0);
-    assert.ok(content.provenance.reviewers.length > 0);
+      });
 
-    // 6. tools/call check_all tool
-    send({
-      jsonrpc: "2.0",
-      id: 5,
-      method: "tools/call",
-      params: {
-        name: "check_all",
-        arguments: {
-          purls: ["pkg:npm/request@2.88.2", "pkg:npm/left-pad@1.3.0"],
+      const initResp = await waitForResponse(1);
+      assert.equal(initResp.id, 1);
+      assert.equal(initResp.result.protocolVersion, "2024-11-05");
+      assert.equal(initResp.result.serverInfo.name, "@velella/ebb-mcp");
+
+      // 2. Initialized notification (must produce no response)
+      send({
+        jsonrpc: "2.0",
+        method: "notifications/initialized",
+      });
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      assert.equal(responses.length, 1);
+
+      // 3. Ping
+      send({
+        jsonrpc: "2.0",
+        id: 2,
+        method: "ping",
+      });
+      const pingResp = await waitForResponse(2);
+      assert.equal(pingResp.id, 2);
+      assert.deepEqual(pingResp.result, {});
+
+      // 4. tools/list includes check tool
+      send({
+        jsonrpc: "2.0",
+        id: 3,
+        method: "tools/list",
+      });
+      const listResp = await waitForResponse(3);
+      assert.equal(listResp.id, 3);
+      assert.ok(listResp.result.tools.some((t: { name: string }) => t.name === "check"));
+
+      // 5. tools/call check tool
+      send({
+        jsonrpc: "2.0",
+        id: 4,
+        method: "tools/call",
+        params: {
+          name: "check",
+          arguments: {
+            purl: "pkg:npm/request@2.88.2",
+          },
         },
-      },
-    });
-    const checkAllResp = await waitForResponse(5);
-    assert.equal(checkAllResp.id, 5);
-    assert.equal(checkAllResp.result.isError, false);
-    const batchContent = JSON.parse(checkAllResp.result.content[0].text);
-    assert.equal(batchContent.summary.total, 2);
-    assert.equal(batchContent.summary.byStatus.deprecated, 2);
+      });
+      const callResp = await waitForResponse(4);
+      assert.equal(callResp.id, 4);
+      assert.equal(callResp.result.isError, false);
+      const content = JSON.parse(callResp.result.content[0].text);
+      assert.equal(content.status, "deprecated");
+      assert.ok(content.provenance.sources.length > 0);
+      assert.ok(content.provenance.reviewers.length > 0);
 
-    // 7. tools/call replacement_for tool
-    send({
-      jsonrpc: "2.0",
-      id: 6,
-      method: "tools/call",
-      params: {
-        name: "replacement_for",
-        arguments: {
-          purl: "pkg:npm/request@2.88.2",
+      // 6. tools/call check_all tool
+      send({
+        jsonrpc: "2.0",
+        id: 5,
+        method: "tools/call",
+        params: {
+          name: "check_all",
+          arguments: {
+            purls: ["pkg:npm/request@2.88.2", "pkg:npm/left-pad@1.3.0"],
+          },
         },
-      },
-    });
-    const repResp = await waitForResponse(6);
-    assert.equal(repResp.id, 6);
-    assert.equal(repResp.result.isError, false);
-    const repContent = JSON.parse(repResp.result.content[0].text);
-    assert.ok(repContent.replacement);
+      });
+      const checkAllResp = await waitForResponse(5);
+      assert.equal(checkAllResp.id, 5);
+      assert.equal(checkAllResp.result.isError, false);
+      const batchContent = JSON.parse(checkAllResp.result.content[0].text);
+      assert.equal(batchContent.summary.total, 2);
+      assert.equal(batchContent.summary.byStatus.deprecated, 2);
 
-    // 8. resources/list
-    send({
-      jsonrpc: "2.0",
-      id: 7,
-      method: "resources/list",
-    });
-    const resListResp = await waitForResponse(7);
-    assert.equal(resListResp.id, 7);
-    assert.ok(resListResp.result.resources.some((r: { uri: string }) => r.uri === "ebb://upcoming"));
+      // 7. tools/call replacement_for tool
+      send({
+        jsonrpc: "2.0",
+        id: 6,
+        method: "tools/call",
+        params: {
+          name: "replacement_for",
+          arguments: {
+            purl: "pkg:npm/request@2.88.2",
+          },
+        },
+      });
+      const repResp = await waitForResponse(6);
+      assert.equal(repResp.id, 6);
+      assert.equal(repResp.result.isError, false);
+      const repContent = JSON.parse(repResp.result.content[0].text);
+      assert.ok(repContent.replacement);
 
-    // 9. resources/read
-    send({
-      jsonrpc: "2.0",
-      id: 8,
-      method: "resources/read",
-      params: {
-        uri: "ebb://upcoming",
-      },
-    });
-    const resReadResp = await waitForResponse(8);
-    assert.equal(resReadResp.id, 8);
-    assert.equal(resReadResp.result.contents[0].uri, "ebb://upcoming");
-    const upcomingData = JSON.parse(resReadResp.result.contents[0].text);
-    assert.ok(upcomingData.count > 0);
+      // 8. resources/list
+      send({
+        jsonrpc: "2.0",
+        id: 7,
+        method: "resources/list",
+      });
+      const resListResp = await waitForResponse(7);
+      assert.equal(resListResp.id, 7);
+      assert.ok(resListResp.result.resources.some((r: { uri: string }) => r.uri === "ebb://upcoming"));
 
-    // Clean up cleanly
-    child.stdin.end();
-    await new Promise<void>((resolve) => {
-      child.on("exit", () => resolve());
-      setTimeout(() => {
+      // 9. resources/read
+      send({
+        jsonrpc: "2.0",
+        id: 8,
+        method: "resources/read",
+        params: {
+          uri: "ebb://upcoming",
+        },
+      });
+      const resReadResp = await waitForResponse(8);
+      assert.equal(resReadResp.id, 8);
+      assert.equal(resReadResp.result.contents[0].uri, "ebb://upcoming");
+      const upcomingData = JSON.parse(resReadResp.result.contents[0].text);
+      assert.ok(upcomingData.count > 0);
+    } finally {
+      child.stdin.end();
+      if (child.exitCode === null && !child.killed) {
         child.kill("SIGKILL");
-        resolve();
-      }, 500);
-    });
+      }
+    }
   });
 });
