@@ -1,0 +1,38 @@
+name: Epic
+description: Groups the tasks of one roadmap epic
+title: "Epic: name, summary"
+labels: ["type:epic"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: The overarching objective of this epic.
+    validations:
+      required: true
+
+  - type: textarea
+    id: realistic
+    attributes:
+      label: What is Realistic
+      description: Scope boundaries and pragmatic considerations.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Measurable criteria that must all be satisfied.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: Ordered checklist of child tasks.
+      value: |
+        - [ ] task: description (#issue)
+    validations:
+      required: true

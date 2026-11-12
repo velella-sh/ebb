@@ -1,0 +1,36 @@
+name: Rule Correction
+description: Report an inaccurate or outdated lifecycle rule
+title: "rule: correction for [rule-id]"
+labels: ["area:data", "type:task"]
+body:
+  - type: input
+    id: rule_id
+    attributes:
+      label: Rule ID
+      description: The unique identifier of the rule (e.g. `nodejs.runtime.eol-18`).
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_is_wrong
+    attributes:
+      label: What is Wrong
+      description: Explain the error in dates, version ranges, event type, or replacement guidance.
+    validations:
+      required: true
+
+  - type: input
+    id: evidence_url
+    attributes:
+      label: Authoritative Evidence URL
+      description: Official vendor schedule, security bulletin, or release announcement (must be https://).
+    validations:
+      required: true
+
+  - type: input
+    id: date_seen
+    attributes:
+      label: Date Seen
+      description: When you observed this source (YYYY-MM-DD).
+    validations:
+      required: true

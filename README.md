@@ -14,6 +14,7 @@
 
 <p align="center">
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/velella-sh/ebb/ci.yml?branch=main&label=CI&logo=github&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
+  <a href="https://github.com/velella-sh/ebb/actions/workflows/codeql.yml"><img alt="CodeQL" src="https://img.shields.io/github/actions/workflow/status/velella-sh/ebb/codeql.yml?branch=main&label=CodeQL&logo=github&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="https://www.npmjs.com/package/@velella/ebb"><img alt="npm" src="https://img.shields.io/npm/v/@velella/ebb?label=npm&logo=npm&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="coverage" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fvelella-sh%2Febb%2Fbadges%2Fcoverage.json&labelColor=1F1F28&style=flat"></a>
 </p>
@@ -42,6 +43,7 @@ The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](te
 - **Standard identifiers.** purl and VERS throughout, with no ecosystem-specific lookup tables to learn.
 - **Actionable.** Rules carry a replacement and migration guidance: the constraints to keep, the steps to take, and how to verify the change.
 - **Zero dependencies.** Pure ESM with zero runtime dependencies. Instant installs, zero supply-chain risk.
+- **Compact footprint.** ~268 KB packed tarball with a strict 500 KB budget enforced in CI ([docs/SIZE.md](docs/SIZE.md)).
 - **Offline by default.** The rules ship inside the package. Newer rules arrive as signed data bundles, verified with Sigstore before use.
 
 ## Quick start
