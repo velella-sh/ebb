@@ -63,7 +63,7 @@ function resolveComponentType(purlOrName: string, ruleId: string): string | unde
   return matchedRule ? parsePurl(matchedRule.purl).type : undefined;
 }
 
-function formatReplacement(purlOrName: string, ruleId: string, rawReplacement: string): string | null {
+export function formatReplacement(purlOrName: string, ruleId: string, rawReplacement: string): string | null {
   const trimmed = rawReplacement.trim();
   if (trimmed === "") return null;
   if (trimmed.toLowerCase().startsWith("pkg:")) {

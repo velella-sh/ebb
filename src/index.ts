@@ -12,6 +12,15 @@ import {
 
 export type { CheckEvent, CheckMatch, CheckResult, CheckStatus };
 
+export {
+  type CreateEbbOptions,
+  type EbbInstance,
+  type EcosystemDataInput,
+  type EcosystemInput,
+  createEbb,
+} from "./create.js";
+export { preload } from "./data/load.js";
+
 /**
  * Judges a package at `version` against the active lifecycle rules without network access.
  */

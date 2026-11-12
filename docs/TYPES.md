@@ -107,3 +107,26 @@ export interface Rule {
   provenance: Provenance;
 }
 ```
+
+## Factory Types
+
+### `CreateEbbOptions`
+Options for creating an isolated instance via `createEbb`:
+```ts
+export interface CreateEbbOptions {
+  ecosystems: readonly (string | EcosystemDataInput | readonly RegistryV2Rule[])[];
+  asOf?: string;
+}
+```
+
+### `EbbInstance`
+Scoped instance interface returned by `createEbb`:
+```ts
+export interface EbbInstance {
+  readonly loadedEcosystems: readonly string[];
+  check(purlOrName: string, version: string, asOf?: string): CheckResult;
+  checkAll(items: Iterable<CheckAllItem>): CheckAllResult;
+  replacementFor(purl: string, version: string): string | null;
+  rulesFor(purl: string, options?: RulesForOptions): Rule[];
+}
+```

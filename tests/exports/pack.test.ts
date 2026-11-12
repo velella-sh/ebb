@@ -58,7 +58,14 @@ test("every exported entry point installs and loads cleanly from a packed tarbal
 import assert from "node:assert/strict";
 
 const root = await import("@velella/ebb");
-assert.deepEqual(Object.keys(root).sort(), ["check", "checkAll", "replacementFor", "rulesFor"]);
+assert.deepEqual(Object.keys(root).sort(), [
+  "check",
+  "checkAll",
+  "createEbb",
+  "preload",
+  "replacementFor",
+  "rulesFor",
+]);
 assert.equal(root.check("node", "18.20.4").status, "end-of-life");
 assert.ok(root.rulesFor("pkg:npm/request").length > 0);
 assert.equal(root.replacementFor("pkg:npm/node-sass", "9.0.0"), "pkg:npm/sass");

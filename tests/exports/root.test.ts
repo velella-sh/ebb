@@ -23,12 +23,21 @@ import {
   type RulesForOptions,
   check,
   checkAll,
+  createEbb,
+  preload,
   replacementFor,
   rulesFor,
 } from "../../src/index.js";
 
 test("root entry exports only the public functions at runtime", () => {
-  assert.deepEqual(Object.keys(root).sort(), ["check", "checkAll", "replacementFor", "rulesFor"]);
+  assert.deepEqual(Object.keys(root).sort(), [
+    "check",
+    "checkAll",
+    "createEbb",
+    "preload",
+    "replacementFor",
+    "rulesFor",
+  ]);
 });
 
 test("root exports evaluate components and expose the public types", () => {
@@ -67,6 +76,10 @@ test("root exports evaluate components and expose the public types", () => {
 
   const replacement = replacementFor("pkg:npm/node-sass", "9.0.0");
   assert.equal(replacement, "pkg:npm/sass");
+
+  const scoped = createEbb({ ecosystems: ["npm"] });
+  assert.equal(scoped.check("pkg:npm/request", "2.88.2").status, "deprecated");
+  assert.equal(typeof preload, "function");
 
   // Compile-time assertions that result alias types stay identical to check aliases.
   const _resultStatus: ResultStatus = status;

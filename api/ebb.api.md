@@ -63,10 +63,45 @@ export type CheckResult = Result;
 // @public
 export type CheckStatus = ResultStatus;
 
+// @public
+export function createEbb(options: CreateEbbOptions): EbbInstance;
+
+// @public (undocumented)
+export interface CreateEbbOptions {
+    asOf?: string;
+    ecosystems: readonly EcosystemInput[];
+}
+
 // Warning: (ae-forgotten-export) The symbol "EBB_ERROR_CODES" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
 export type EbbErrorCode = (typeof EBB_ERROR_CODES)[number];
+
+// @public (undocumented)
+export interface EbbInstance {
+    check(purlOrName: string, version: string, asOf?: string): CheckResult;
+    checkAll(items: Iterable<CheckAllItem>): CheckAllResult;
+    readonly loadedEcosystems: readonly string[];
+    replacementFor(purl: string, version: string): string | null;
+    rulesFor(purl: string, options?: RulesForOptions): Rule[];
+}
+
+// @public (undocumented)
+export interface EcosystemDataInput {
+    // Warning: (ae-forgotten-export) The symbol "RegistryV2" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    data?: RegistryV2;
+    // (undocumented)
+    ecosystem?: string;
+    // Warning: (ae-forgotten-export) The symbol "RegistryV2Rule" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    rules: readonly RegistryV2Rule[];
+}
+
+// @public (undocumented)
+export type EcosystemInput = string | EcosystemDataInput | readonly RegistryV2Rule[];
 
 // @public
 export interface EvidenceSource {
@@ -77,6 +112,9 @@ export interface EvidenceSource {
     // (undocumented)
     url: string;
 }
+
+// @public
+export function preload(ecosystems?: readonly string[]): Promise<void>;
 
 // @public
 export function replacementFor(purl: string, version: string): string | null;
@@ -110,8 +148,6 @@ export interface ResultMatch {
 // @public
 export type ResultStatus = (typeof resultStatuses)[number];
 
-// Warning: (ae-forgotten-export) The symbol "RegistryV2Rule" needs to be exported by the entry point index.d.ts
-//
 // @public
 export type Rule = RegistryV2Rule;
 

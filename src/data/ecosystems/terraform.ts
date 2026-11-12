@@ -1,0 +1,2482 @@
+// Generated file - do not edit directly. Run npm run build:ecosystems.
+import type { RegistryV2, RegistryV2Rule } from "../../registry.js";
+
+export const ecosystem = "terraform" as const;
+
+export const rules: readonly RegistryV2Rule[] = [
+  {
+    id: "terraform.cli.end-of-support-1.15",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.15.0|<1.16.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.15 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.15 (first released 2026-04-29) stopped being one of them when Terraform 1.17 was released on 2026-10-21. The support window is taken from the dates of the hashicorp/terraform GitHub releases for 1.15.0 and 1.17.0.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2026-10-21",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.17.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.17.0",
+        accessedAt: "2026-10-30",
+      },
+      {
+        title: "hashicorp/terraform release v1.15.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
+        accessedAt: "2026-10-30",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-10-30",
+      },
+    ],
+    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
+        "Terraform state written by a newer release may not be readable by an older one, so move every place that runs plan or apply together instead of one environment at a time.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.14",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.14.0|<1.15.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.14 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.14 (first released 2025-11-19) stopped being one of them when Terraform 1.16 was released on 2026-08-26. endoflife.date records 2026-08-26 as the end-of-life date for the 1.14 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
+    severity: "high",
+    replacement: "Terraform 1.15 or later",
+    deadline: "2026-08-26",
+    sources: [
+      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "hashicorp/terraform release v1.16.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
+        accessedAt: "2026-10-21",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-10-21",
+      },
+    ],
+    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
+        "Terraform state written by a newer release may not be readable by an older one, so move every place that runs plan or apply together instead of one environment at a time.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.13",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.13.0|<1.14.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.13 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.13 (first released 2025-08-20) stopped being one of them when Terraform 1.15 was released on 2026-04-29. endoflife.date records 2026-04-29 as the end-of-life date for the 1.13 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
+    severity: "high",
+    replacement: "Terraform 1.15 or later",
+    deadline: "2026-04-29",
+    sources: [
+      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "hashicorp/terraform release v1.15.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
+        accessedAt: "2026-10-21",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-10-21",
+      },
+    ],
+    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
+        "Terraform state written by a newer release may not be readable by an older one, so move every place that runs plan or apply together instead of one environment at a time.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.12",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.12.0|<1.13.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.12 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.12 (first released 2025-05-14) stopped being one of them when Terraform 1.14 was released on 2025-11-19. endoflife.date records 2025-11-19 as the end-of-life date for the 1.12 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
+    severity: "medium",
+    replacement: "Terraform 1.15 or later",
+    deadline: "2025-11-19",
+    sources: [
+      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "hashicorp/terraform release v1.14.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.14.0",
+        accessedAt: "2026-10-21",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-10-21",
+      },
+    ],
+    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
+        "Terraform state written by a newer release may not be readable by an older one, so move every place that runs plan or apply together instead of one environment at a time.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.11",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.11.0|<1.12.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.11 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.11 (first released 2025-02-27) stopped being one of them when Terraform 1.13 was released on 2025-08-20. endoflife.date records 2025-08-20 as the end-of-life date for the 1.11 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
+    severity: "medium",
+    replacement: "Terraform 1.15 or later",
+    deadline: "2025-08-20",
+    sources: [
+      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "hashicorp/terraform release v1.13.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.13.0",
+        accessedAt: "2026-10-21",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-10-21",
+      },
+    ],
+    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
+        "Terraform state written by a newer release may not be readable by an older one, so move every place that runs plan or apply together instead of one environment at a time.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.10",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.10.0|<1.11.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.10 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.10 (first released 2024-11-26) stopped being one of them when Terraform 1.12 was released on 2025-05-14. endoflife.date records 2025-05-14 as the end-of-life date for the 1.10 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
+    severity: "medium",
+    replacement: "Terraform 1.15 or later",
+    deadline: "2025-05-14",
+    sources: [
+      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "hashicorp/terraform release v1.12.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.12.0",
+        accessedAt: "2026-10-21",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-10-21",
+      },
+    ],
+    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
+        "Terraform state written by a newer release may not be readable by an older one, so move every place that runs plan or apply together instead of one environment at a time.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.eks.end-of-support-1.33",
+    ecosystem: "terraform",
+    purl: "pkg:generic/amazon-eks",
+    vers: "vers:semver/>=1.33.0|<1.34.0",
+    event: "end-of-support",
+    title: "Amazon EKS 1.33 is past end of standard support",
+    summary:
+      "Amazon EKS 1.33 reached the end of standard support on 2026-07-29 and is in extended support until 2027-07-29. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
+    severity: "medium",
+    replacement: "Amazon EKS 1.35 or later",
+    deadline: "2026-07-29",
+    sources: [
+      {
+        title: "Amazon EKS: Understand the Kubernetes version lifecycle",
+        url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
+        "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes.",
+        "A version past end of extended support is auto-upgraded, and a version in extended support is billed at the extended-support rate.",
+      ],
+      steps: [
+        {
+          id: "raise-cluster-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set cluster_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-groups",
+          title: "Raise the node groups and add-ons",
+          instructions:
+            "Raise each aws_eks_node_group version and each managed add-on that pins a Kubernetes version so they match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-group changes are the intended ones.",
+        },
+        {
+          command: "aws eks describe-cluster --name <cluster> --query 'cluster.version'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.eks.end-of-support-1.32",
+    ecosystem: "terraform",
+    purl: "pkg:generic/amazon-eks",
+    vers: "vers:semver/>=1.32.0|<1.33.0",
+    event: "end-of-support",
+    title: "Amazon EKS 1.32 is past end of standard support",
+    summary:
+      "Amazon EKS 1.32 reached the end of standard support on 2026-03-23 and is in extended support until 2027-03-23. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
+    severity: "medium",
+    replacement: "Amazon EKS 1.35 or later",
+    deadline: "2026-03-23",
+    sources: [
+      {
+        title: "Amazon EKS: Understand the Kubernetes version lifecycle",
+        url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
+        "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes.",
+        "A version past end of extended support is auto-upgraded, and a version in extended support is billed at the extended-support rate.",
+      ],
+      steps: [
+        {
+          id: "raise-cluster-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set cluster_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-groups",
+          title: "Raise the node groups and add-ons",
+          instructions:
+            "Raise each aws_eks_node_group version and each managed add-on that pins a Kubernetes version so they match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-group changes are the intended ones.",
+        },
+        {
+          command: "aws eks describe-cluster --name <cluster> --query 'cluster.version'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.eks.end-of-support-1.31",
+    ecosystem: "terraform",
+    purl: "pkg:generic/amazon-eks",
+    vers: "vers:semver/>=1.31.0|<1.32.0",
+    event: "end-of-support",
+    title: "Amazon EKS 1.31 is past end of standard support",
+    summary:
+      "Amazon EKS 1.31 reached the end of standard support on 2025-11-26 and is in extended support until 2026-11-26. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
+    severity: "medium",
+    replacement: "Amazon EKS 1.35 or later",
+    deadline: "2025-11-26",
+    sources: [
+      {
+        title: "Amazon EKS: Understand the Kubernetes version lifecycle",
+        url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
+        "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes.",
+        "A version past end of extended support is auto-upgraded, and a version in extended support is billed at the extended-support rate.",
+      ],
+      steps: [
+        {
+          id: "raise-cluster-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set cluster_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-groups",
+          title: "Raise the node groups and add-ons",
+          instructions:
+            "Raise each aws_eks_node_group version and each managed add-on that pins a Kubernetes version so they match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-group changes are the intended ones.",
+        },
+        {
+          command: "aws eks describe-cluster --name <cluster> --query 'cluster.version'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.eks.end-of-life-1.30-and-older",
+    ecosystem: "terraform",
+    purl: "pkg:generic/amazon-eks",
+    vers: "vers:semver/<1.31.0",
+    event: "end-of-life",
+    title: "Amazon EKS 1.30 and earlier are past end of extended support",
+    summary:
+      "Amazon EKS lists 1.31 as the oldest minor version still in extended support, so 1.30 and earlier have left extended support. A cluster that reaches the end of extended support is auto-upgraded to the oldest version in extended support.",
+    severity: "high",
+    replacement: "Amazon EKS 1.35 or later",
+    sources: [
+      {
+        title: "Amazon EKS: Understand the Kubernetes version lifecycle",
+        url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
+        "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes.",
+        "A version past end of extended support is auto-upgraded, and a version in extended support is billed at the extended-support rate.",
+      ],
+      steps: [
+        {
+          id: "raise-cluster-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set cluster_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-groups",
+          title: "Raise the node groups and add-ons",
+          instructions:
+            "Raise each aws_eks_node_group version and each managed add-on that pins a Kubernetes version so they match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-group changes are the intended ones.",
+        },
+        {
+          command: "aws eks describe-cluster --name <cluster> --query 'cluster.version'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.gke.end-of-support-1.33",
+    ecosystem: "terraform",
+    purl: "pkg:generic/google-kubernetes-engine",
+    vers: "vers:semver/>=1.33.0|<1.34.0",
+    event: "end-of-support",
+    title: "GKE 1.33 is past end of standard support",
+    summary:
+      "GKE 1.33 reached the end of standard support on 2026-08-12 and is in extended support until 2027-06-12. GKE provides up to 24 months of support per minor version: about 14 months of standard support and the rest as extended support in the Extended channel.",
+    severity: "medium",
+    replacement: "GKE 1.35 or later",
+    deadline: "2026-08-12",
+    sources: [
+      {
+        title: "GKE versioning and support",
+        url: "https://cloud.google.com/kubernetes-engine/versioning",
+        accessedAt: "2026-10-26",
+      },
+      {
+        title: "GKE release schedule",
+        url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
+        "Only a cluster in the Extended channel keeps receiving security patches past the end of standard support.",
+        "Node pools and the control plane must be on compatible versions, so raise both in the same change.",
+      ],
+      steps: [
+        {
+          id: "raise-min-master-version",
+          title: "Raise the control-plane version",
+          instructions:
+            "Set min_master_version to the release in the replacement, or remove it so the cluster follows its release channel.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the node pools",
+          instructions:
+            "Raise google_container_node_pool version, or let the release channel manage it, so nodes match the control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-pool changes are the intended ones.",
+        },
+        {
+          command: "gcloud container clusters describe <cluster> --zone <zone> --format='value(currentMasterVersion)'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.gke.end-of-support-1.32",
+    ecosystem: "terraform",
+    purl: "pkg:generic/google-kubernetes-engine",
+    vers: "vers:semver/>=1.32.0|<1.33.0",
+    event: "end-of-support",
+    title: "GKE 1.32 is past end of standard support",
+    summary:
+      "GKE 1.32 reached the end of standard support on 2026-04-27 and is in extended support until 2027-02-11. GKE provides up to 24 months of support per minor version: about 14 months of standard support and the rest as extended support in the Extended channel.",
+    severity: "medium",
+    replacement: "GKE 1.35 or later",
+    deadline: "2026-04-27",
+    sources: [
+      {
+        title: "GKE versioning and support",
+        url: "https://cloud.google.com/kubernetes-engine/versioning",
+        accessedAt: "2026-10-26",
+      },
+      {
+        title: "GKE release schedule",
+        url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
+        "Only a cluster in the Extended channel keeps receiving security patches past the end of standard support.",
+        "Node pools and the control plane must be on compatible versions, so raise both in the same change.",
+      ],
+      steps: [
+        {
+          id: "raise-min-master-version",
+          title: "Raise the control-plane version",
+          instructions:
+            "Set min_master_version to the release in the replacement, or remove it so the cluster follows its release channel.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the node pools",
+          instructions:
+            "Raise google_container_node_pool version, or let the release channel manage it, so nodes match the control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-pool changes are the intended ones.",
+        },
+        {
+          command: "gcloud container clusters describe <cluster> --zone <zone> --format='value(currentMasterVersion)'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.gke.end-of-life-1.31",
+    ecosystem: "terraform",
+    purl: "pkg:generic/google-kubernetes-engine",
+    vers: "vers:semver/>=1.31.0|<1.32.0",
+    event: "end-of-life",
+    title: "GKE 1.31 is past end of extended support",
+    summary:
+      "GKE 1.31 reached the end of standard support on 2026-01-16 and the end of extended support on 2026-10-22. GKE no longer provides patches for this minor version.",
+    severity: "high",
+    replacement: "GKE 1.35 or later",
+    deadline: "2026-10-22",
+    sources: [
+      {
+        title: "GKE versioning and support",
+        url: "https://cloud.google.com/kubernetes-engine/versioning",
+        accessedAt: "2026-10-26",
+      },
+      {
+        title: "GKE release schedule",
+        url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
+        "Only a cluster in the Extended channel keeps receiving security patches past the end of standard support.",
+        "Node pools and the control plane must be on compatible versions, so raise both in the same change.",
+      ],
+      steps: [
+        {
+          id: "raise-min-master-version",
+          title: "Raise the control-plane version",
+          instructions:
+            "Set min_master_version to the release in the replacement, or remove it so the cluster follows its release channel.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the node pools",
+          instructions:
+            "Raise google_container_node_pool version, or let the release channel manage it, so nodes match the control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-pool changes are the intended ones.",
+        },
+        {
+          command: "gcloud container clusters describe <cluster> --zone <zone> --format='value(currentMasterVersion)'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.gke.end-of-life-1.30",
+    ecosystem: "terraform",
+    purl: "pkg:generic/google-kubernetes-engine",
+    vers: "vers:semver/>=1.30.0|<1.31.0",
+    event: "end-of-life",
+    title: "GKE 1.30 is past end of extended support",
+    summary:
+      "GKE 1.30 reached the end of standard support on 2025-09-30 and the end of extended support on 2026-07-30. GKE no longer provides patches for this minor version.",
+    severity: "high",
+    replacement: "GKE 1.35 or later",
+    deadline: "2026-07-30",
+    sources: [
+      {
+        title: "GKE versioning and support",
+        url: "https://cloud.google.com/kubernetes-engine/versioning",
+        accessedAt: "2026-10-26",
+      },
+      {
+        title: "GKE release schedule",
+        url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
+        "Only a cluster in the Extended channel keeps receiving security patches past the end of standard support.",
+        "Node pools and the control plane must be on compatible versions, so raise both in the same change.",
+      ],
+      steps: [
+        {
+          id: "raise-min-master-version",
+          title: "Raise the control-plane version",
+          instructions:
+            "Set min_master_version to the release in the replacement, or remove it so the cluster follows its release channel.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the node pools",
+          instructions:
+            "Raise google_container_node_pool version, or let the release channel manage it, so nodes match the control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-pool changes are the intended ones.",
+        },
+        {
+          command: "gcloud container clusters describe <cluster> --zone <zone> --format='value(currentMasterVersion)'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.gke.end-of-life-1.29-and-older",
+    ecosystem: "terraform",
+    purl: "pkg:generic/google-kubernetes-engine",
+    vers: "vers:semver/<1.30.0",
+    event: "end-of-life",
+    title: "GKE 1.29 and earlier are no longer supported",
+    summary:
+      "The GKE release schedule states that GKE 1.29 and earlier have reached end of support and are no longer supported.",
+    severity: "high",
+    replacement: "GKE 1.35 or later",
+    sources: [
+      {
+        title: "GKE versioning and support",
+        url: "https://cloud.google.com/kubernetes-engine/versioning",
+        accessedAt: "2026-10-26",
+      },
+      {
+        title: "GKE release schedule",
+        url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
+        "Only a cluster in the Extended channel keeps receiving security patches past the end of standard support.",
+        "Node pools and the control plane must be on compatible versions, so raise both in the same change.",
+      ],
+      steps: [
+        {
+          id: "raise-min-master-version",
+          title: "Raise the control-plane version",
+          instructions:
+            "Set min_master_version to the release in the replacement, or remove it so the cluster follows its release channel.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the node pools",
+          instructions:
+            "Raise google_container_node_pool version, or let the release channel manage it, so nodes match the control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and node-pool changes are the intended ones.",
+        },
+        {
+          command: "gcloud container clusters describe <cluster> --zone <zone> --format='value(currentMasterVersion)'",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.aks.end-of-support-1.33",
+    ecosystem: "terraform",
+    purl: "pkg:generic/azure-kubernetes-service",
+    vers: "vers:semver/>=1.33.0|<1.34.0",
+    event: "end-of-support",
+    title: "AKS 1.33 is past its 12-month support window",
+    summary:
+      "AKS 1.33 reached the end of its 12-month support window on 2026-07-31. Long-term support, which must be enabled for a cluster, ends on 2027-07-31.",
+    severity: "medium",
+    replacement: "Azure Kubernetes Service 1.35 or later",
+    deadline: "2026-07-31",
+    sources: [
+      {
+        title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
+        url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
+        "Long-term support is opt-in per cluster; without it, a version stops receiving patches at the end of its 12-month support window.",
+        "An agent pool cannot run a newer version than its control plane, so raise the control plane and the pools together.",
+      ],
+      steps: [
+        {
+          id: "raise-kubernetes-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set kubernetes_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the agent pools",
+          instructions:
+            "Raise each azurerm_kubernetes_cluster_node_pool orchestrator_version so the agent pools match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and agent-pool changes are the intended ones.",
+        },
+        {
+          command: "az aks show --resource-group <group> --name <cluster> --query kubernetesVersion",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.aks.end-of-support-1.32",
+    ecosystem: "terraform",
+    purl: "pkg:generic/azure-kubernetes-service",
+    vers: "vers:semver/>=1.32.0|<1.33.0",
+    event: "end-of-support",
+    title: "AKS 1.32 is past its 12-month support window",
+    summary:
+      "AKS 1.32 reached the end of its 12-month support window on 2026-03-31. Long-term support, which must be enabled for a cluster, ends on 2027-03-31.",
+    severity: "medium",
+    replacement: "Azure Kubernetes Service 1.35 or later",
+    deadline: "2026-03-31",
+    sources: [
+      {
+        title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
+        url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
+        "Long-term support is opt-in per cluster; without it, a version stops receiving patches at the end of its 12-month support window.",
+        "An agent pool cannot run a newer version than its control plane, so raise the control plane and the pools together.",
+      ],
+      steps: [
+        {
+          id: "raise-kubernetes-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set kubernetes_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the agent pools",
+          instructions:
+            "Raise each azurerm_kubernetes_cluster_node_pool orchestrator_version so the agent pools match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and agent-pool changes are the intended ones.",
+        },
+        {
+          command: "az aks show --resource-group <group> --name <cluster> --query kubernetesVersion",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.aks.end-of-support-1.31",
+    ecosystem: "terraform",
+    purl: "pkg:generic/azure-kubernetes-service",
+    vers: "vers:semver/>=1.31.0|<1.32.0",
+    event: "end-of-support",
+    title: "AKS 1.31 is past its 12-month support window",
+    summary:
+      "AKS 1.31 reached the end of its 12-month support window on 2025-11-01. Long-term support, which must be enabled for a cluster, ends on 2026-11-30.",
+    severity: "medium",
+    replacement: "Azure Kubernetes Service 1.35 or later",
+    deadline: "2025-11-01",
+    sources: [
+      {
+        title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
+        url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
+        "Long-term support is opt-in per cluster; without it, a version stops receiving patches at the end of its 12-month support window.",
+        "An agent pool cannot run a newer version than its control plane, so raise the control plane and the pools together.",
+      ],
+      steps: [
+        {
+          id: "raise-kubernetes-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set kubernetes_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the agent pools",
+          instructions:
+            "Raise each azurerm_kubernetes_cluster_node_pool orchestrator_version so the agent pools match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and agent-pool changes are the intended ones.",
+        },
+        {
+          command: "az aks show --resource-group <group> --name <cluster> --query kubernetesVersion",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.aks.end-of-life-1.30",
+    ecosystem: "terraform",
+    purl: "pkg:generic/azure-kubernetes-service",
+    vers: "vers:semver/>=1.30.0|<1.31.0",
+    event: "end-of-life",
+    title: "AKS 1.30 is past long-term support",
+    summary:
+      "AKS 1.30 reached the end of its 12-month support window on 2025-08-22 and the end of long-term support on 2026-07-31. AKS no longer provides patches for this version.",
+    severity: "high",
+    replacement: "Azure Kubernetes Service 1.35 or later",
+    deadline: "2026-07-31",
+    sources: [
+      {
+        title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
+        url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
+        "Long-term support is opt-in per cluster; without it, a version stops receiving patches at the end of its 12-month support window.",
+        "An agent pool cannot run a newer version than its control plane, so raise the control plane and the pools together.",
+      ],
+      steps: [
+        {
+          id: "raise-kubernetes-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set kubernetes_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the agent pools",
+          instructions:
+            "Raise each azurerm_kubernetes_cluster_node_pool orchestrator_version so the agent pools match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and agent-pool changes are the intended ones.",
+        },
+        {
+          command: "az aks show --resource-group <group> --name <cluster> --query kubernetesVersion",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.aks.end-of-life-1.29",
+    ecosystem: "terraform",
+    purl: "pkg:generic/azure-kubernetes-service",
+    vers: "vers:semver/>=1.29.0|<1.30.0",
+    event: "end-of-life",
+    title: "AKS 1.29 is past long-term support",
+    summary:
+      "AKS 1.29 reached the end of its 12-month support window on 2025-03-31 and the end of long-term support on 2026-04-30. AKS no longer provides patches for this version.",
+    severity: "high",
+    replacement: "Azure Kubernetes Service 1.35 or later",
+    deadline: "2026-04-30",
+    sources: [
+      {
+        title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
+        url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
+        "Long-term support is opt-in per cluster; without it, a version stops receiving patches at the end of its 12-month support window.",
+        "An agent pool cannot run a newer version than its control plane, so raise the control plane and the pools together.",
+      ],
+      steps: [
+        {
+          id: "raise-kubernetes-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set kubernetes_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the agent pools",
+          instructions:
+            "Raise each azurerm_kubernetes_cluster_node_pool orchestrator_version so the agent pools match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and agent-pool changes are the intended ones.",
+        },
+        {
+          command: "az aks show --resource-group <group> --name <cluster> --query kubernetesVersion",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.aks.end-of-life-1.28-and-older",
+    ecosystem: "terraform",
+    purl: "pkg:generic/azure-kubernetes-service",
+    vers: "vers:semver/<1.29.0",
+    event: "end-of-life",
+    title: "AKS 1.28 and earlier are no longer supported",
+    summary:
+      "AKS supports a generally available Kubernetes version for 12 months, with opt-in long-term support beyond that. Versions before 1.29 are no longer listed on the AKS supported-versions page and are past both windows.",
+    severity: "high",
+    replacement: "Azure Kubernetes Service 1.35 or later",
+    sources: [
+      {
+        title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
+        url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        accessedAt: "2026-10-26",
+      },
+    ],
+    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
+        "Long-term support is opt-in per cluster; without it, a version stops receiving patches at the end of its 12-month support window.",
+        "An agent pool cannot run a newer version than its control plane, so raise the control plane and the pools together.",
+      ],
+      steps: [
+        {
+          id: "raise-kubernetes-version",
+          title: "Raise the cluster version",
+          instructions:
+            "Set kubernetes_version to the release in the replacement, then run terraform plan and apply the control-plane upgrade.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-node-pools",
+          title: "Raise the agent pools",
+          instructions:
+            "Raise each azurerm_kubernetes_cluster_node_pool orchestrator_version so the agent pools match the new control plane.",
+          targets: "all",
+        },
+        {
+          id: "review-removed-apis",
+          title: "Remove APIs the new version deleted",
+          instructions:
+            "Read the Kubernetes deprecation guide for every minor version crossed and replace removed API versions in manifests and Helm charts before applying.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the configuration is valid.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the control-plane and agent-pool changes are the intended ones.",
+        },
+        {
+          command: "az aks show --resource-group <group> --name <cluster> --query kubernetesVersion",
+          purpose: "Confirm the control plane reports the new version.",
+        },
+        { command: "kubectl version", purpose: "Confirm kubectl and the API server agree on the version." },
+      ],
+    },
+  },
+  {
+    id: "terraform.syntax.interpolation-only",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=0.12.14",
+    event: "deprecated",
+    title: "Interpolation-only strings are deprecated",
+    summary:
+      'Terraform v0.12.14 deprecated a string whose whole value is one interpolation, such as "${var.name}": the same value is written as the bare expression var.name. Terraform still accepts the quoted form but recommends the bare expression for readability, and terraform fmt repairs simple examples. A string that mixes text with an interpolation, such as "prefix-${var.name}", is not the deprecated form and still needs its quotes.',
+    severity: "low",
+    replacement: "The same expression without the surrounding quotes, such as var.name",
+    sources: [
+      {
+        title: "hashicorp/terraform release v0.12.14",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v0.12.14",
+        accessedAt: "2026-10-31",
+      },
+      {
+        title: "Terraform 0.15 upgrade guide: legacy configuration language features",
+        url: "https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-15",
+        accessedAt: "2026-10-31",
+      },
+      {
+        title: "Terraform 0.12 upgrade guide: first-class expressions",
+        url: "https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-12",
+        accessedAt: "2026-10-31",
+      },
+    ],
+    provenance: { observedAt: "2026-10-31", reviewedAt: "2026-10-31", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Rewrite only a string whose entire value is one ${ ... } interpolation. A string with any literal text, a %{ ... } directive, or an escape sequence must keep its quotes.",
+        "Do not remove the quotes from an object key or a block label: those strings are not expressions, and the bare form would not be valid HCL.",
+        "Each rewrite is a syntactic one-to-one change with the same expression inside the interpolation, so plan output should not change.",
+      ],
+      steps: [
+        {
+          id: "drop-interpolation-quotes",
+          title: "Replace the quoted interpolation with its expression",
+          instructions:
+            'Change `value = "${var.name}"` to `value = var.name`, keeping the expression exactly as written inside the interpolation.',
+          targets: "declaration",
+        },
+        {
+          id: "align-other-interpolations",
+          title: "Repair the other interpolation-only strings",
+          instructions:
+            "Repeat for every string in *.tf that contains exactly one interpolation and no other text. Run terraform fmt to catch simple examples the codemod did not rewrite.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that the rewritten expressions are valid HCL.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Confirm the rewrite evaluates to the same values and the plan is unchanged.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.function.list-map",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=0.15.0",
+    event: "removed",
+    title: "The list() and map() functions were removed in Terraform 0.15",
+    summary:
+      "Terraform v0.12 replaced the list() and map() functions with first-class [ ... ] and { ... } syntax, and the v0.15 upgrade guide states that the deprecated functions were removed in v0.15. Replace list(a, b) with tolist([a, b]) and map(k, v) with tomap({ k = v }); because Terraform can usually infer the type from context, the bare [ ... ] and { ... } forms often work without the conversion. The list(string) and map(string) type constraints are different and remain valid.",
+    severity: "high",
+    replacement: "tolist([ ... ]) for list(), tomap({ ... }) for map()",
+    sources: [
+      {
+        title: "Terraform 0.15 upgrade guide: legacy configuration language features",
+        url: "https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-15",
+        accessedAt: "2026-10-31",
+      },
+      {
+        title: "Terraform tolist function",
+        url: "https://developer.hashicorp.com/terraform/language/functions/tolist",
+        accessedAt: "2026-10-31",
+      },
+      {
+        title: "Terraform tomap function",
+        url: "https://developer.hashicorp.com/terraform/language/functions/tomap",
+        accessedAt: "2026-10-31",
+      },
+    ],
+    provenance: { observedAt: "2026-10-31", reviewedAt: "2026-10-31", reviewer: "arminazimi" },
+    migration: {
+      constraints: [
+        "Do not rewrite a type constraint: `type = list(string)` and `type = map(object({...}))` are type constructors that still exist in Terraform 0.15 and later.",
+        "Rewrite a call only when every argument is on one line and the argument count is meaningful: list() needs at least one value, and map() needs an even number of key/value arguments.",
+        "In a map() call, write each key as an identifier or a quoted string; a bare expression key does not have the same meaning in an object constructor.",
+      ],
+      steps: [
+        {
+          id: "replace-list-map-calls",
+          title: "Replace the removed calls",
+          instructions:
+            'Change `list(a, b)` to `tolist([a, b])` and `map("k", v)` to `tomap({ k = v })`. When the surrounding context already fixes the type, the bare `[a, b]` and `{ k = v }` forms are also correct.',
+          targets: "declaration",
+        },
+        {
+          id: "align-other-calls",
+          title: "Find the calls left in other files",
+          instructions:
+            "Search *.tf for `list(` and `map(` outside variable type constraints, and rewrite the value calls the same way. Leave `list(string)`, `map(string)`, and other type constructors unchanged.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose: "Initialize without touching remote state and check that no removed function is left.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Confirm the collection types and values are unchanged apart from the rewrite.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.0",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.0.0|<1.1.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.0 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.0 (first released 2021-06-08) stopped being one of them when Terraform 1.2 was released on 2022-05-18.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2022-05-18",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.2.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.0.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.0.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.0 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.1",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.1.0|<1.2.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.1 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.1 (first released 2021-12-08) stopped being one of them when Terraform 1.3 was released on 2022-09-21.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2022-09-21",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.3.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.1.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.1.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.1 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.2",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.2.0|<1.3.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.2 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.2 (first released 2022-05-18) stopped being one of them when Terraform 1.4 was released on 2023-03-08.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2023-03-08",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.4.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.2.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.2 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.3",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.3.0|<1.4.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.3 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.3 (first released 2022-09-21) stopped being one of them when Terraform 1.5 was released on 2023-06-12.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2023-06-12",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.5.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.3.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.3 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.4",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.4.0|<1.5.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.4 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.4 (first released 2023-03-08) stopped being one of them when Terraform 1.6 was released on 2023-10-04.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2023-10-04",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.6.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.4.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.4 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.5",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.5.0|<1.6.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.5 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.5 (first released 2023-06-12) stopped being one of them when Terraform 1.7 was released on 2024-01-17.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2024-01-17",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.7.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.5.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.5 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.6",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.6.0|<1.7.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.6 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.6 (first released 2023-10-04) stopped being one of them when Terraform 1.8 was released on 2024-04-10.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2024-04-10",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.8.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.6.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.6 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.7",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.7.0|<1.8.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.7 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.7 (first released 2024-01-17) stopped being one of them when Terraform 1.9 was released on 2024-06-26.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2024-06-26",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.9.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.7.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.7 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.8",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.8.0|<1.9.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.8 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.8 (first released 2024-04-10) stopped being one of them when Terraform 1.10 was released on 2024-11-27.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2024-11-27",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.10.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.10.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.8.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.8 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+  {
+    id: "terraform.cli.end-of-support-1.9",
+    ecosystem: "terraform",
+    purl: "pkg:generic/terraform",
+    vers: "vers:semver/>=1.9.0|<1.10.0",
+    event: "end-of-support",
+    title: "Terraform CLI 1.9 is no longer a supported release line",
+    summary:
+      "HashiCorp supports the two most recent Terraform release lines. Terraform 1.9 (first released 2024-06-26) stopped being one of them when Terraform 1.11 was released on 2025-02-27.",
+    severity: "medium",
+    replacement: "Terraform 1.16 or later",
+    deadline: "2025-02-27",
+    sources: [
+      {
+        title: "hashicorp/terraform release v1.11.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.11.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "hashicorp/terraform release v1.9.0",
+        url: "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "HashiCorp Terraform support policy",
+        url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        accessedAt: "2026-11-10",
+      },
+      {
+        title: "Terraform v1.x compatibility promises",
+        url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        accessedAt: "2026-11-11",
+      },
+      {
+        title: "Terraform upgrade guides",
+        url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        accessedAt: "2026-11-11",
+      },
+    ],
+    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    migration: {
+      constraints: [
+        "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.9 will refuse to run on a newer CLI if required_version excludes it.",
+        "HashiCorp's v1.x compatibility promises say you should be able to upgrade from any v1.x release to any later v1.x release, but that later releases may introduce state formats earlier versions cannot read, and a downgrade is not guaranteed. Move every place that runs plan or apply together instead of one environment at a time, and back up the state first.",
+        "Read the upgrade guide for each release line you cross; a feature added in a later release does not work on releases that predate it.",
+        "Do not run terraform init -upgrade as part of this change unless provider upgrades are intended: it can change provider versions and rewrite .terraform.lock.hcl.",
+      ],
+      steps: [
+        {
+          id: "back-up-state",
+          title: "Back up the Terraform state",
+          instructions:
+            "Copy or snapshot the state of every workspace that this configuration manages (for example terraform state pull > backup.tfstate, or a versioned remote backend) before the first run on the new release.",
+          targets: "all",
+        },
+        {
+          id: "raise-cli-pin",
+          title: "Raise the Terraform CLI pin",
+          instructions:
+            "Change the reported .terraform-version or terraform entry in .tool-versions to the release in the replacement.",
+          targets: "declaration",
+        },
+        {
+          id: "raise-required-version",
+          title: "Raise required_version",
+          instructions:
+            "Raise the lower bound of required_version in the terraform block of each *.tf file so it admits only supported releases, and read the upgrade notes of every line you cross.",
+          targets: "all",
+        },
+        {
+          id: "align-ci-toolchain",
+          title: "Align CI and documentation",
+          instructions:
+            "Update CI workflows, Docker images, and setup documentation that install Terraform (for example hashicorp/setup-terraform) so they match the new pin.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "terraform version", purpose: "Confirm the active Terraform CLI is the intended release." },
+        {
+          command: "terraform init -backend=false && terraform validate",
+          purpose:
+            "Initialize without touching remote state and check that the configuration is valid on the new release.",
+        },
+        {
+          command: "terraform plan",
+          purpose: "Review the plan and confirm the upgrade introduces no unexpected changes.",
+        },
+      ],
+    },
+  },
+] as const;
+
+export const data: RegistryV2 = {
+  schemaVersion: "ebb.registry.v2",
+  ecosystem: "terraform",
+  freshness: { maxReviewAgeDays: 90 },
+  rules: [...rules],
+};
+
+export default rules;

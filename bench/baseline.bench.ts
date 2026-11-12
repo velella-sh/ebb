@@ -3,12 +3,23 @@
  * Measures check, checkAll (1,000 items), and data load time.
  */
 
+import { execSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import { BUNDLED_ECOSYSTEMS } from "../dist/src/data-bundle.js";
 import { configureActiveData, getActiveDataSync } from "../dist/src/data-source.js";
 import { check, checkAll } from "../dist/src/index.js";
 import { validateRegistryV2 } from "../dist/src/registry.js";
 import { type BenchmarkStats, printBenchmarkTable, runBenchmark } from "./harness.ts";
+
+export function measureImportTime(): BenchmarkStats {
+  return runBenchmark(
+    "import (@velella/ebb)",
+    () => {
+      execSync("node --input-type=module -e 'import(\"./dist/src/index.js\")'", { stdio: "ignore" });
+    },
+    { warmup: 3, iterations: 10 },
+  );
+}
 
 export function measureDataLoad(): BenchmarkStats {
   return runBenchmark(
@@ -66,10 +77,11 @@ export function measureCheckAll(): BenchmarkStats {
 }
 
 export function runBaseline(): BenchmarkStats[] {
+  const importStats = measureImportTime();
   const loadStats = measureDataLoad();
   const checkStats = measureCheck();
   const checkAllStats = measureCheckAll();
-  return [loadStats, checkStats, checkAllStats];
+  return [importStats, loadStats, checkStats, checkAllStats];
 }
 
 const isDirectExecution =

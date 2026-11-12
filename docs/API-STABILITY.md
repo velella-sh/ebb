@@ -26,8 +26,11 @@ What that check **does not** promise:
 
 | Entry point | Classification | Locked by `api/ebb.api.md` | Exports & notes |
 | --- | --- | --- | --- |
-| `@velella/ebb` | Root public API (ESM only; `require` throws ESM-only error) | Yes | Runtime: `check`, `checkAll`, `rulesFor`, `replacementFor`. Types: `CheckAllEntry`, `CheckAllError`, `CheckAllErrorCode`, `CheckAllItem`, `CheckAllResult`, `CheckAllSummary`, `CheckEvent`, `CheckMatch`, `CheckResult`, `CheckStatus`, `EbbErrorCode`, `EvidenceSource`, `Result`, `ResultEvent`, `ResultMatch`, `ResultStatus`, `Rule`, `RuleEvent`, `RulesForOptions`. |
+| `@velella/ebb` | Root public API (ESM only; `require` throws ESM-only error) | Yes | Runtime: `check`, `checkAll`, `createEbb`, `preload`, `rulesFor`, `replacementFor`. Types: `CheckAllEntry`, `CheckAllError`, `CheckAllErrorCode`, `CheckAllItem`, `CheckAllResult`, `CheckAllSummary`, `CheckEvent`, `CheckMatch`, `CheckResult`, `CheckStatus`, `CreateEbbOptions`, `EbbErrorCode`, `EbbInstance`, `EcosystemDataInput`, `EcosystemInput`, `EvidenceSource`, `Result`, `ResultEvent`, `ResultMatch`, `ResultStatus`, `Rule`, `RuleEvent`, `RulesForOptions`. |
 | `@velella/ebb/package.json` | Package metadata | No | Static JSON [`package.json`](https://github.com/velella-sh/ebb/blob/main/package.json) via `"./package.json"`. |
+| `@velella/ebb/create` | Factory entry point | No | Runtime: `createEbb`. Scoped instance factory. |
+| `@velella/ebb/data/load` | Data loading & preload | No | Runtime: `loadEcosystem`, `loadEcosystemSync`, `preload`, `purlToEcosystems`. |
+| `@velella/ebb/data/<ecosystem>` | Ecosystem data subpaths | No | 25 modules (`npm`, `python`, etc.) exporting `rules` (default and named), `data`, and `ecosystem`. |
 
 ## Experimental and `0.2.0` subpaths
 
