@@ -25,6 +25,14 @@ A rule change also needs cases in `cases/<ecosystem>.json`: one version the rule
 
 If the source is vague about versions, the event, or a date, open an issue instead of guessing.
 
+## Code path
+
+Contributors and autonomous agents working on library or tool code should follow [AGENTS.md](AGENTS.md):
+1. Claim an open issue labeled `type:task`.
+2. Branch from `main` with a descriptive name (e.g. `feat/issue-number-description`).
+3. Run `npm run check`, `npm run api:check`, `npm run lint:rules`, and `npm run size`.
+4. Open a pull request using the standard pull request template.
+
 ## Ground rules
 
 - Library code never uses the network, except `updateData()` when a caller asks for it. Tools and importers may.

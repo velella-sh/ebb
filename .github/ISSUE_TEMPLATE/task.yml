@@ -1,0 +1,44 @@
+name: Task
+description: One small change, one pull request
+title: "area: description"
+labels: ["type:task"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What this task achieves in one clear sentence.
+    validations:
+      required: true
+
+  - type: textarea
+    id: brief
+    attributes:
+      label: Agent Brief
+      description: Implementation guidelines for contributors and autonomous agents.
+      value: |
+        ### Files
+        - `path/to/file`
+
+        ### Steps
+        1. 
+        2. 
+
+        ### Do Not
+        - Do not add dependencies.
+        - Do not make unrelated changes.
+
+        ### Run
+        ```bash
+        npm run check
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: done_when
+    attributes:
+      label: Done When
+      description: The unambiguous condition that marks this task complete.
+    validations:
+      required: true

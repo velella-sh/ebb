@@ -56,6 +56,7 @@
     "test": "npm run build --silent && node --test \"dist/tests/**/*.test.js\"",
     "test:coverage": "npm run build --silent && mkdir -p coverage && node --test --experimental-test-coverage --test-coverage-exclude=\"dist/tests/**\" --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info \"dist/tests/**/*.test.js\"",
     "coverage:badge": "node dist/tools/coverage-badge.js coverage/lcov.info coverage/coverage.json",
+    "badges": "npm run build --silent && node dist/tools/badges.js",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "api": "npm run build --silent && mkdir -p api && api-extractor run --local",
@@ -64,11 +65,15 @@
     "check": "npm run format:check && npm test",
     "bench": "npm run build --silent && node --input-type=module -e \"import { runAllBenchmarks } from './bench/run.ts'; runAllBenchmarks();\"",
     "check:sources": "npm run build --silent && node dist/tools/check-sources.js",
+    "size": "npm run build --silent && node dist/tools/size.js",
     "build:data-bundle": "npm run build --silent && node dist/tools/build-data-bundle.js",
     "prepack": "npm run build --silent"
   },
   "engines": {
     "node": ">=22"
+  },
+  "ebb": {
+    "sizeBudget": 500000
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
