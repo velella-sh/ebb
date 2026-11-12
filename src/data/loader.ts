@@ -2,8 +2,6 @@
  * Isomorphic data loader interface and built-in loaders.
  */
 
-import { BUNDLED_DATA } from "./bundled-data.js";
-
 /**
  * Interface for loading ecosystem data.
  * Implementations can read from Node filesystem, in-memory bundled data,
@@ -41,7 +39,6 @@ export function createFetchLoader(options: FetchLoaderOptions = {}): DataLoader 
   return {
     async read(path: string): Promise<unknown> {
       const eco = normalizePathToEcosystem(path);
-      // Try /ecosystems/<eco>.json first (generated static API layout), then /<eco>.json
       const primaryUrl = `${baseUrl}/ecosystems/${eco}.json`;
       let res = await fetchFn(primaryUrl);
       if (!res.ok) {
@@ -78,12 +75,4 @@ export function createJsonLoader(dataMap: Record<string, unknown>): DataLoader {
       return lookup(path);
     },
   };
-}
-
-/**
- * Creates a DataLoader backed by all 25 bundled ecosystem datasets.
- * Works synchronously in any runtime (Browser, Worker, Deno, Bun, Node).
- */
-export function createBundledLoader(): DataLoader {
-  return createJsonLoader(BUNDLED_DATA);
 }

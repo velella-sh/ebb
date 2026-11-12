@@ -9,6 +9,11 @@ import {
   type CheckStatus,
   check as checkFromSubpath,
 } from "./check.js";
+import { getActiveDataSync } from "./data-source.js";
+import { setNodeLoaderProvider } from "./data/load.js";
+
+// Connect active data resolver to the data loader subsystem in Node
+setNodeLoaderProvider(getActiveDataSync);
 
 export type { CheckEvent, CheckMatch, CheckResult, CheckStatus };
 

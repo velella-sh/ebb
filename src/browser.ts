@@ -5,7 +5,7 @@
  */
 
 import { type CheckEvent, type CheckMatch, type CheckResult, type CheckStatus, check as checkImpl } from "./check.js";
-import { createBundledLoader } from "./data/loader.js";
+import { createBundledLoader } from "./data/bundled-loader.js";
 import { setDataLoader } from "./data/load.js";
 
 // Ensure bundled in-memory data loader is active by default in browser/edge
@@ -21,10 +21,11 @@ export {
   createEbb,
 } from "./create.js";
 
+export { createBundledLoader } from "./data/bundled-loader.js";
+
 export {
   type DataLoader,
   type FetchLoaderOptions,
-  createBundledLoader,
   createFetchLoader,
   createJsonLoader,
 } from "./data/loader.js";

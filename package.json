@@ -59,6 +59,11 @@
       "import": "./dist/src/data/bundled-data.js",
       "default": "./dist/src/data/bundled-data.js"
     },
+    "./data/bundled-loader": {
+      "types": "./dist/src/data/bundled-loader.d.ts",
+      "import": "./dist/src/data/bundled-loader.js",
+      "default": "./dist/src/data/bundled-loader.js"
+    },
     "./data/ecosystems": {
       "types": "./dist/src/data/ecosystems.d.ts",
       "import": "./dist/src/data/ecosystems.js",

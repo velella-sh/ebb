@@ -4,7 +4,8 @@
  */
 
 import { BUNDLED_ECOSYSTEMS } from "./ecosystems.js";
-import { type DataLoader, createBundledLoader } from "./loader.js";
+import { createBundledLoader } from "./bundled-loader.js";
+import type { DataLoader } from "./loader.js";
 import { validateRegistryV2 } from "./../registry.js";
 import type { RegistryV2Rule } from "./../registry.js";
 import { parsePurl } from "./../purl.js";
