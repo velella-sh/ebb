@@ -24,7 +24,8 @@ test("llms.txt and llms-full.txt exist and conform to llmstxt specification", ()
   assert.ok(llms.includes("## Core API Reference"), "llms.txt has core API reference");
   assert.ok(llms.includes("## CLI Quick Reference"), "llms.txt has CLI instructions");
   assert.ok(llms.includes("## MCP Server"), "llms.txt documents MCP integration");
-  assert.ok(llms.includes("https://velella.sh/ebb/"), "llms.txt has documentation links");
+  assert.ok(llms.includes("## Links and Resources"), "llms.txt has documentation links section");
+  assert.ok(llms.includes("- [Documentation]("), "llms.txt links documentation");
 
   assert.ok(llmsFull.length > llms.length, "llms-full.txt is extended");
   assert.ok(llmsFull.includes("Rule Format Specification"), "llms-full.txt documents rule schema");
