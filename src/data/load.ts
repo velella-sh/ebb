@@ -99,13 +99,13 @@ export function setDataLoader(loader: DataLoader): void {
  * In browser/worker environments, defaults to the bundled in-memory loader.
  */
 export function getDataLoader(): DataLoader {
-  if (activeDataLoader) {
-    return activeDataLoader;
+  if (!activeDataLoader) {
+    if (nodeLoaderProvider) {
+      activeDataLoader = nodeLoaderProvider();
+    } else {
+      activeDataLoader = createBundledLoader();
+    }
   }
-  if (nodeLoaderProvider) {
-    return nodeLoaderProvider();
-  }
-  activeDataLoader = createBundledLoader();
   return activeDataLoader;
 }
 
@@ -151,6 +151,7 @@ export function isEcosystemLoaded(ecosystem: string): boolean {
 export function clearLoadedEcosystems(): void {
   loadedRulesByEcosystem.clear();
   inFlightLoads.clear();
+  activeDataLoader = undefined;
   activeDataSource = undefined;
   loaderVersion++;
 }

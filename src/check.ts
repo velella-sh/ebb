@@ -4,7 +4,7 @@
  */
 
 import { BUNDLED_ECOSYSTEMS } from "./data/ecosystems.js";
-import { getDataLoader, getDataLoaderVersion, loadEcosystemSync, purlToEcosystems } from "./data/load.js";
+import { getDataLoaderVersion, loadEcosystemSync, purlToEcosystems } from "./data/load.js";
 import { productsFromRules, rankProductsForName } from "./product-name.js";
 import type { ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
@@ -63,8 +63,7 @@ const loadedEcosystems = new Set<string>();
 const allIndexedRules: RegistryV2Rule[] = [];
 /** Product catalog for bare-name resolution (same shape lookup builds). */
 let productCatalog: ProductRecord[] | undefined;
-/** The active data loader the current index was built from; rebuild when the loader changes. */
-let indexedLoader: unknown;
+/** The active data loader version sequence the current index was built from. */
 let indexedVersion = -1;
 
 function pushRule(index: Map<string, RegistryV2Rule[]>, identity: string, rule: RegistryV2Rule): void {
@@ -78,15 +77,13 @@ function pushRule(index: Map<string, RegistryV2Rule[]>, identity: string, rule: 
  * Only reads and validates ecosystems that have not yet been loaded.
  */
 function ensureEcosystemsLoaded(ecosystems: Iterable<string>): void {
-  const loader = getDataLoader();
   const version = getDataLoaderVersion();
-  if (indexedLoader !== loader || indexedVersion !== version) {
+  if (indexedVersion !== version) {
     rulesByIdentity = new Map();
     allRulesByIdentity = new Map();
     allIndexedRules.length = 0;
     loadedEcosystems.clear();
     productCatalog = undefined;
-    indexedLoader = loader;
     indexedVersion = version;
   }
   rulesByIdentity ??= new Map();
