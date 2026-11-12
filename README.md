@@ -15,6 +15,7 @@
 <p align="center">
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/velella-sh/ebb/ci.yml?branch=main&label=CI&logo=github&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="https://github.com/velella-sh/ebb/actions/workflows/codeql.yml"><img alt="CodeQL" src="https://img.shields.io/github/actions/workflow/status/velella-sh/ebb/codeql.yml?branch=main&label=CodeQL&logo=github&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
+  <a href="llms.txt"><img alt="llms.txt" src="https://img.shields.io/badge/llms.txt-standard-3F6E66?labelColor=1F1F28&style=flat"></a>
   <a href="https://www.npmjs.com/package/@velella/ebb"><img alt="npm" src="https://img.shields.io/npm/v/@velella/ebb?label=npm&logo=npm&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="coverage" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fvelella-sh%2Febb%2Fbadges%2Fcoverage.json&labelColor=1F1F28&style=flat"></a>
 </p>
@@ -42,6 +43,8 @@ The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](te
 - **Broad coverage.** 752 rules across 25 ecosystems: language runtimes, npm, PyPI, Maven, NuGet, Cargo, Go, containers, Kubernetes APIs, GitHub Actions, Terraform, and more.
 - **Standard identifiers.** purl and VERS throughout, with no ecosystem-specific lookup tables to learn.
 - **Actionable.** Rules carry a replacement and migration guidance: the constraints to keep, the steps to take, and how to verify the change.
+- **Measured impact on AI agents.** Eliminates deprecated dependency picks entirely (dropping from 38% down to 0% across 100 benchmark tasks; see [evals/agents/REPORT.md](evals/agents/REPORT.md)).
+- **LLMs and agents native.** Standard machine-readable documentation for models at [llms.txt](llms.txt) and [llms-full.txt](llms-full.txt), backed by an official MCP server and agent skills.
 - **Zero dependencies.** Pure ESM with zero runtime dependencies. Instant installs, zero supply-chain risk.
 - **Compact footprint.** ~268 KB packed tarball with a strict 500 KB budget enforced in CI ([docs/SIZE.md](docs/SIZE.md)).
 - **Offline by default.** The rules ship inside the package. Newer rules arrive as signed data bundles, verified with Sigstore before use.
@@ -275,6 +278,8 @@ These pages are also published as a site, built with [Mizzen](https://velella.sh
 - [CLI](docs/cli.md): command-line interface for offline checks and SBOM batch evaluation.
 - [Agent Skills](docs/skills.md): guardrails for AI coding agents via skills.sh.
 - [MCP server](docs/mcp.md): connect Ebb over standard stdio JSON-RPC 2.0.
+- [Agent Evaluations](evals/agents/REPORT.md): benchmark report measuring agent accuracy with and without Ebb.
+- [llms.txt](llms.txt) & [llms-full.txt](llms-full.txt): LLM-optimized documentation according to the llms.txt standard.
 - [Writing a rule](docs/RULES.md): the format, the evidence policy, and the review workflow.
 - [Importers](docs/IMPORTERS.md): tools that draft rules from authoritative sources for a maintainer to review.
 - [Data bundles, signing and trust](docs/DATA.md): how newer data is published, verified, and pinned.
