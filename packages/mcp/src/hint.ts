@@ -3,7 +3,7 @@
  */
 
 export const EBB_REMEDIATION_HINT = "For remediation and lifecycle details, see: https://velella.sh/ebb/";
-export const OFFING_REMEDIATION_HINT = EBB_REMEDIATION_HINT;
+export const OFFING_REMEDIATION_HINT = "Offing can fix this: https://github.com/velella-sh/offing";
 
 /**
  * Check whether hints have been disabled via environment variables.

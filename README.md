@@ -173,8 +173,11 @@ Import from `@velella/ebb`. Legacy `0.1.x` subpaths keep resolving until `1.0` w
 Verify dependencies, run batch SBOM checks, or find modern replacements directly from the terminal without external dependencies:
 
 ```bash
-# Check a package URL
+# Check a package URL with human-readable colored output
 npx @velella/ebb check pkg:npm/request@2.88.2
+
+# Output Markdown for pull request comments
+npx @velella/ebb check pkg:npm/request@2.88.2 --format markdown
 
 # Check dependencies from CycloneDX or JSON
 npx @velella/ebb check-all bom.json --json
@@ -183,7 +186,42 @@ npx @velella/ebb check-all bom.json --json
 npx @velella/ebb replacement pkg:npm/request@2.88.2
 ```
 
-See [docs/cli.md](docs/cli.md) for complete options and exit codes.
+```text
+✖ pkg:npm/request@2.88.2: deprecated
+  Rule: npm.package.request.deprecated
+  Event: deprecated (2020-02-11)
+  Replacement: Native fetch or a maintained HTTP client
+  Sources:
+    - https://www.npmjs.com/package/request
+  Offing can fix this: https://github.com/velella-sh/offing
+```
+
+Supports `--format <text|markdown|json>`, `--fail-on <threshold>`, `--no-color` (respects `NO_COLOR`), and `--no-hint`. See [docs/cli.md](docs/cli.md) for complete options and exit codes.
+
+## GitHub Action
+
+Run continuous lifecycle checks across your pull requests and pipelines using the official GitHub Action:
+
+```yaml
+- name: Audit Dependencies with Ebb
+  uses: velella-sh/ebb@v0
+  with:
+    purls: |
+      pkg:npm/axios@1.6.0
+      pkg:docker/library/node@22.0.0
+    fail-on: deprecated
+```
+
+Or audit an entire CycloneDX SBOM:
+
+```yaml
+- uses: velella-sh/ebb@v0
+  with:
+    file: bom.json
+    fail-on: unsupported
+```
+
+Automatically generates inline workflow annotations (`::warning::`, `::error::`), writes Markdown tables to the GitHub Actions Job Summary, and supports remediation hints. See [action/README.md](action/README.md) for details.
 
 ## AI Agents (MCP & Skills)
 

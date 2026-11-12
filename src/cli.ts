@@ -4,6 +4,18 @@ import { resolve } from "node:path";
 import { parseArgs } from "node:util";
 import { check, CheckError } from "./check.js";
 import { checkAll, checkAllWith, type CheckAllItem } from "./check-all.js";
+import {
+  createColors,
+  formatCheckAllMarkdown,
+  formatCheckAllText,
+  formatCheckMarkdown,
+  formatCheckText,
+  formatReplacementMarkdown,
+  formatReplacementText,
+  formatRulesMarkdown,
+  formatRulesText,
+  isColorSupported,
+} from "./cli/format/index.js";
 import { EbbError } from "./errors.js";
 import { formatPurl, parsePurl, PurlError } from "./purl.js";
 import { replacementFor } from "./replacement.js";
@@ -20,17 +32,22 @@ Usage:
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
 
 Options:
-  --json                 Output result in JSON format
-  --as-of <YYYY-MM-DD>   Reference date for daysLeft calculation
-  --event <name>         Filter rules by event (rules command only)
-  -h, --help             Show help
-  -v, --version          Show version
+  --format <text|markdown|json> Output format (default: text)
+  --json                        Shortcut for --format json
+  --as-of <YYYY-MM-DD>          Reference date for daysLeft calculation
+  --fail-on <threshold>         Fail threshold: scheduled, deprecated, unsupported, end-of-life, removed, error (default: deprecated)
+  --event <name>                Filter rules by event (rules command only)
+  --color                       Force colored output
+  --no-color                    Disable colored output (respects NO_COLOR env)
+  --no-hint                     Disable the Offing remediation hint
+  -h, --help                    Show help
+  -v, --version                 Show version
 
 Examples:
   ebb check pkg:npm/request@2.88.2
-  ebb check node 16.0.0 --json
+  ebb check node 16.0.0 --format markdown
   ebb check-all bom.json --json
-  cat purls.txt | ebb check-all
+  cat purls.txt | ebb check-all --fail-on scheduled
   ebb replacement pkg:npm/request 2.88.2
   ebb rules pkg:npm/express
 `;
@@ -135,6 +152,25 @@ export function parseCheckAllInput(content: string): CheckAllItem[] {
   return items;
 }
 
+const SEVERITY_LEVELS: Record<string, number> = {
+  ok: 0,
+  scheduled: 1,
+  deprecated: 2,
+  unsupported: 3,
+  "end-of-life": 4,
+  removed: 5,
+  error: 6,
+};
+
+export function shouldFail(status: string, threshold: string = "deprecated"): boolean {
+  if (threshold === "none" || threshold === "never") {
+    return false;
+  }
+  const statusSev = SEVERITY_LEVELS[status] ?? 6;
+  const threshSev = SEVERITY_LEVELS[threshold] ?? 2;
+  return statusSev >= threshSev;
+}
+
 async function readStream(stream: AsyncIterable<string | Buffer>): Promise<string> {
   const chunks: Buffer[] = [];
   for await (const chunk of stream) {
@@ -153,8 +189,13 @@ export async function runCli(
       args,
       options: {
         json: { type: "boolean", default: false },
+        format: { type: "string" },
         "as-of": { type: "string" },
         event: { type: "string" },
+        "fail-on": { type: "string" },
+        color: { type: "boolean", default: false },
+        "no-color": { type: "boolean", default: false },
+        "no-hint": { type: "boolean", default: false },
         help: { type: "boolean", short: "h", default: false },
         version: { type: "boolean", short: "v", default: false },
       },
@@ -190,6 +231,28 @@ export async function runCli(
     return 0;
   }
 
+  // Determine output format
+  let format: "text" | "markdown" | "json" = "text";
+  if (values.json) {
+    format = "json";
+  } else if (values.format) {
+    const f = String(values.format).toLowerCase();
+    if (f === "json" || f === "markdown" || f === "text") {
+      format = f;
+    } else {
+      io.stderr.write(`Error: Invalid format "${values.format}". Expected: text, markdown, json.\n`);
+      return 2;
+    }
+  }
+
+  const enableColor = isColorSupported({
+    color: Boolean(values.color),
+    noColor: Boolean(values["no-color"]),
+  });
+  const colors = createColors(enableColor);
+  const noHint = Boolean(values["no-hint"]);
+  const failOn = typeof values["fail-on"] === "string" ? values["fail-on"] : "deprecated";
+
   try {
     if (first === "check" || first.toLowerCase().startsWith("pkg:") || first.includes("/")) {
       const isCheckSubcommand = first === "check";
@@ -212,32 +275,15 @@ export async function runCli(
       const asOf = values["as-of"] as string | undefined;
       const result = check(purl, version, asOf);
 
-      if (values.json) {
+      if (format === "json") {
         io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatCheckMarkdown(purl, version, result, { noHint }));
       } else {
-        if (result.status === "ok") {
-          io.stdout.write(`✓ ${purl}@${version} is ok\n`);
-        } else {
-          io.stdout.write(`✖ ${purl}@${version}: ${result.status}\n`);
-          for (const match of result.matches) {
-            io.stdout.write(`  Rule: ${match.ruleId}\n`);
-            const dateStr = match.date ? ` (${match.date})` : "";
-            const daysStr = match.daysLeft !== null ? ` [${match.daysLeft} days left]` : "";
-            io.stdout.write(`  Event: ${match.event}${dateStr}${daysStr}\n`);
-            if (match.replacement) {
-              io.stdout.write(`  Replacement: ${match.replacement}\n`);
-            }
-            if (match.sources && match.sources.length > 0) {
-              io.stdout.write("  Sources:\n");
-              for (const s of match.sources) {
-                io.stdout.write(`    - ${s.url}\n`);
-              }
-            }
-          }
-        }
+        io.stdout.write(formatCheckText(purl, version, result, { colors, noHint }));
       }
 
-      return result.status === "ok" ? 0 : 1;
+      return shouldFail(result.status, failOn) ? 1 : 0;
     }
 
     if (first === "check-all") {
@@ -267,7 +313,7 @@ export async function runCli(
 
       const items = parseCheckAllInput(content);
       if (items.length === 0) {
-        if (values.json) {
+        if (format === "json") {
           io.stdout.write(
             JSON.stringify(
               {
@@ -283,6 +329,8 @@ export async function runCli(
               2,
             ) + "\n",
           );
+        } else if (format === "markdown") {
+          io.stdout.write("No components found to check.\n");
         } else {
           io.stdout.write("No components found to check.\n");
         }
@@ -292,56 +340,31 @@ export async function runCli(
       const asOf = values["as-of"] as string | undefined;
       const outcome = asOf ? checkAllWith(items, (p, v) => check(p, v, asOf)) : checkAll(items);
 
-      if (values.json) {
+      if (format === "json") {
         io.stdout.write(`${JSON.stringify(outcome, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatCheckAllMarkdown(items, outcome, { noHint }));
       } else {
-        for (let i = 0; i < outcome.results.length; i++) {
-          const res = outcome.results[i]!;
-          if ("status" in res && res.status === "error") {
-            io.stdout.write(`✖ [${res.index}] ${res.message}\n`);
-          } else if ("status" in res) {
-            const item = items[i];
-            const label = item ? `${item.purl}@${item.version}` : `item ${i}`;
-            if (res.status === "ok") {
-              io.stdout.write(`✓ ${label}: ok\n`);
-            } else {
-              const ruleIds = res.matches.map((m) => m.ruleId).join(", ");
-              io.stdout.write(`✖ ${label}: ${res.status}${ruleIds ? ` (${ruleIds})` : ""}\n`);
-            }
-          }
-        }
-
-        io.stdout.write(`\nSummary (${outcome.summary.total} total):\n`);
-        io.stdout.write(`  ok:          ${outcome.summary.byStatus.ok}\n`);
-        if (outcome.summary.byStatus.deprecated > 0) {
-          io.stdout.write(`  deprecated:  ${outcome.summary.byStatus.deprecated}\n`);
-        }
-        if (outcome.summary.byStatus.unsupported > 0) {
-          io.stdout.write(`  unsupported: ${outcome.summary.byStatus.unsupported}\n`);
-        }
-        if (outcome.summary.byStatus["end-of-life"] > 0) {
-          io.stdout.write(`  end-of-life: ${outcome.summary.byStatus["end-of-life"]}\n`);
-        }
-        if (outcome.summary.byStatus.removed > 0) {
-          io.stdout.write(`  removed:     ${outcome.summary.byStatus.removed}\n`);
-        }
-        if (outcome.summary.byStatus.scheduled > 0) {
-          io.stdout.write(`  scheduled:   ${outcome.summary.byStatus.scheduled}\n`);
-        }
-        if (outcome.summary.errors > 0) {
-          io.stdout.write(`  errors:      ${outcome.summary.errors}\n`);
-        }
+        io.stdout.write(formatCheckAllText(items, outcome, { colors, noHint }));
       }
 
-      const hasIssues =
-        outcome.summary.errors > 0 ||
-        outcome.summary.byStatus.deprecated > 0 ||
-        outcome.summary.byStatus.unsupported > 0 ||
-        outcome.summary.byStatus["end-of-life"] > 0 ||
-        outcome.summary.byStatus.removed > 0 ||
-        outcome.summary.byStatus.scheduled > 0;
+      // Check whether any status exceeds failOn threshold
+      let worstStatus = "ok";
+      if (outcome.summary.errors > 0) {
+        worstStatus = "error";
+      } else if (outcome.summary.byStatus.removed > 0) {
+        worstStatus = "removed";
+      } else if (outcome.summary.byStatus["end-of-life"] > 0) {
+        worstStatus = "end-of-life";
+      } else if (outcome.summary.byStatus.unsupported > 0) {
+        worstStatus = "unsupported";
+      } else if (outcome.summary.byStatus.deprecated > 0) {
+        worstStatus = "deprecated";
+      } else if (outcome.summary.byStatus.scheduled > 0) {
+        worstStatus = "scheduled";
+      }
 
-      return hasIssues ? 1 : 0;
+      return shouldFail(worstStatus, failOn) ? 1 : 0;
     }
 
     if (first === "replacement" || first === "replace") {
@@ -361,14 +384,12 @@ export async function runCli(
 
       const replacement = replacementFor(purl, version);
 
-      if (values.json) {
+      if (format === "json") {
         io.stdout.write(`${JSON.stringify({ purl, version, replacement: replacement ?? null }, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatReplacementMarkdown(purl, version, replacement));
       } else {
-        if (replacement) {
-          io.stdout.write(`${replacement}\n`);
-        } else {
-          io.stdout.write(`No suggested replacement for ${purl}@${version}\n`);
-        }
+        io.stdout.write(formatReplacementText(purl, version, replacement));
       }
 
       return replacement ? 0 : 1;
@@ -384,21 +405,12 @@ export async function runCli(
       const eventArg = typeof values.event === "string" ? (values.event as RuleEvent) : undefined;
       const rules = rulesFor(purlArg, eventArg ? { event: eventArg } : undefined);
 
-      if (values.json) {
+      if (format === "json") {
         io.stdout.write(`${JSON.stringify(rules, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatRulesMarkdown(purlArg, rules));
       } else {
-        if (rules.length === 0) {
-          io.stdout.write(`No rules found for ${purlArg}\n`);
-        } else {
-          io.stdout.write(`Found ${rules.length} rule${rules.length === 1 ? "" : "s"} for ${purlArg}:\n`);
-          for (const rule of rules) {
-            const deadline = rule.deadline ? ` (deadline: ${rule.deadline})` : "";
-            io.stdout.write(`- ${rule.id} [${rule.event}] vers: "${rule.vers}"${deadline}\n`);
-            if (rule.replacement) {
-              io.stdout.write(`    Replacement: ${rule.replacement}\n`);
-            }
-          }
-        }
+        io.stdout.write(formatRulesText(purlArg, rules));
       }
 
       return 0;

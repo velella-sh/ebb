@@ -1,0 +1,49 @@
+name: Ebb Action CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-action:
+    name: Test GitHub Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install & Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Run Ebb Action (Passing Check)
+        uses: ./
+        with:
+          purls: |
+            pkg:npm/axios@1.6.0
+            pkg:generic/node@24.0.0
+          fail-on: deprecated
+
+      - name: Run Ebb Action with Warning Only (Scheduled)
+        uses: ./
+        with:
+          purls: |
+            pkg:generic/node@22.0.0
+          fail-on: deprecated
+
+      - name: Run Ebb Action with Warning Only (fail-on none)
+        uses: ./
+        with:
+          purls: |
+            pkg:npm/request@2.88.2
+          fail-on: none

@@ -55,3 +55,10 @@ jobs:
           generate_release_notes: true
           draft: false
           prerelease: false
+
+      - name: Update major tag (v0)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -fa v0 -m "Release v0"
+          git push origin v0 --force
