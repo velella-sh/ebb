@@ -6,9 +6,9 @@ name: deploy-site
 on:
   push:
     branches: [main]
-    paths: ["docs/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   pull_request:
-    paths: ["docs/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   workflow_dispatch:
 
 permissions: {}
@@ -40,6 +40,10 @@ jobs:
         run: $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen check docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
       - name: Build the site
         run: $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen build docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen" --out "$RUNNER_TEMP/site"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build static API
+        run: npm run build:static-api -- --out "$RUNNER_TEMP/site/api/v1"
       - name: Copy LLM documentation to site
         run: cp llms.txt llms-full.txt "$RUNNER_TEMP/site/"
       - if: github.event_name != 'pull_request'

@@ -56,6 +56,7 @@
     "build:mcp": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\" && tsc -b packages/mcp/tsconfig.json",
     "build": "tsc -b tsconfig.json && npm run build:mcp",
     "build:llms": "npm run build --silent && node dist/tools/build-llms.js",
+    "build:static-api": "npm run build --silent && node dist/tools/static-api/index.js",
     "eval:agents": "npm run build --silent && node dist/tools/eval-agents.js",
     "test": "npm run build --silent && node --test \"dist/tests/**/*.test.js\"",
     "test:coverage": "npm run build --silent && mkdir -p coverage && node --test --experimental-test-coverage --test-coverage-exclude=\"dist/tests/**\" --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info \"dist/tests/**/*.test.js\"",
