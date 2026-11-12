@@ -4,7 +4,7 @@
 
 import { writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
-import { measureCheck, measureCheckAll, measureDataLoad } from "./baseline.bench.ts";
+import { measureCheck, measureCheckAll, measureDataLoad, measureImportTime } from "./baseline.bench.ts";
 import { profileCheck1000 } from "./check.bench.ts";
 import { type BenchmarkStats, printBenchmarkTable } from "./harness.ts";
 
@@ -20,6 +20,10 @@ export function runAllBenchmarks(outputPath = "bench-results.json"): BenchmarkSu
   console.log("Running Ebb benchmarks...\n");
 
   const results: Record<string, BenchmarkStats> = {};
+
+  console.log("0. Benchmarking import time...");
+  const importStats = measureImportTime();
+  results[importStats.name] = importStats;
 
   console.log("1. Benchmarking data load...");
   const dataLoadStats = measureDataLoad();

@@ -30,6 +30,26 @@
       "import": "./dist/src/index.js",
       "require": "./dist/src/cjs-error.cjs"
     },
+    "./data/load": {
+      "types": "./dist/src/data/load.d.ts",
+      "import": "./dist/src/data/load.js",
+      "default": "./dist/src/data/load.js"
+    },
+    "./data/ecosystems/*": {
+      "types": "./dist/src/data/ecosystems/*.d.ts",
+      "import": "./dist/src/data/ecosystems/*.js",
+      "default": "./dist/src/data/ecosystems/*.js"
+    },
+    "./data/*": {
+      "types": "./dist/src/data/ecosystems/*.d.ts",
+      "import": "./dist/src/data/ecosystems/*.js",
+      "default": "./dist/src/data/ecosystems/*.js"
+    },
+    "./create": {
+      "types": "./dist/src/create.d.ts",
+      "import": "./dist/src/create.js",
+      "default": "./dist/src/create.js"
+    },
     "./*": {
       "types": "./dist/src/*.d.ts",
       "import": "./dist/src/*.js",
@@ -55,6 +75,7 @@
     "postinstall": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\"",
     "build:mcp": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\" && tsc -b packages/mcp/tsconfig.json",
     "build": "tsc -b tsconfig.json && npm run build:mcp",
+    "build:ecosystems": "node dist/tools/build-ecosystem-modules.js",
     "build:llms": "npm run build --silent && node dist/tools/build-llms.js",
     "build:static-api": "npm run build --silent && node dist/tools/static-api/index.js",
     "eval:agents": "npm run build --silent && node dist/tools/eval-agents.js",
@@ -85,6 +106,7 @@
     "@microsoft/api-extractor": "^7.60.1",
     "@types/node": "^24.0.0",
     "ajv": "^8.20.0",
+    "esbuild": "^0.28.2",
     "typescript": "^5.9.0",
     "yaml": "^2.9.1"
   },

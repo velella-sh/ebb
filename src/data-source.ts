@@ -149,7 +149,7 @@ function readBundledSync(path: string): unknown {
 }
 
 function bundledData(warnings: string[], ebbVersion: string): ActiveData {
-  const registries = REQUIRED_BUNDLE_PATHS.filter((path) => !path.endsWith("-shas.json")).map(readBundledSync);
+  let cachedReviewedThrough: string | undefined;
   const cache = new Map<string, unknown>();
   const readSync = (path: string): unknown => {
     if (!cache.has(path)) cache.set(path, readBundledSync(path));
@@ -161,7 +161,13 @@ function bundledData(warnings: string[], ebbVersion: string): ActiveData {
       version: ebbVersion,
       createdAt: null,
       contentDigest: null,
-      reviewedThrough: reviewedThrough(registries as Array<Record<string, unknown>>),
+      get reviewedThrough(): string {
+        if (cachedReviewedThrough === undefined) {
+          const registries = REQUIRED_BUNDLE_PATHS.filter((path) => !path.endsWith("-shas.json")).map(readSync);
+          cachedReviewedThrough = reviewedThrough(registries as Array<Record<string, unknown>>);
+        }
+        return cachedReviewedThrough;
+      },
       signer: null,
       warnings,
     },

@@ -4,12 +4,13 @@
  */
 
 import { BUNDLED_ECOSYSTEMS } from "./data-bundle.js";
+import { loadEcosystemSync, purlToEcosystems } from "./data/load.js";
 import type { ActiveData } from "./data-source.js";
 import { getActiveDataSync } from "./data-source.js";
 import { productsFromRules, rankProductsForName } from "./product-name.js";
 import type { ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
-import { lifecycleEventPrecedence, validateRegistryV2 } from "./registry.js";
+import { lifecycleEventPrecedence } from "./registry.js";
 import type { LifecycleEvent, RegistryV2Rule } from "./registry.js";
 import {
   daysLeft as daysUntil,
@@ -19,7 +20,7 @@ import {
   type ResultMatch,
   type ResultStatus,
 } from "./result.js";
-import { compileRulesVers, getCompiledVers } from "./vers/compile.js";
+import { getCompiledVers } from "./vers/compile.js";
 import { VersError, versContains } from "./vers.js";
 
 /** Thrown when a product name is unknown or matches more than one package. */
@@ -60,6 +61,8 @@ const isVersionRule = (rule: RegistryV2Rule): boolean =>
 
 let rulesByIdentity: Map<string, RegistryV2Rule[]> | undefined;
 let allRulesByIdentity: Map<string, RegistryV2Rule[]> | undefined;
+const loadedEcosystems = new Set<string>();
+const allIndexedRules: RegistryV2Rule[] = [];
 /** Product catalog for bare-name resolution (same shape lookup builds). */
 let productCatalog: ProductRecord[] | undefined;
 /** The active data the current index was built from; rebuild when {@link configureActiveData} changes it. */
@@ -72,33 +75,50 @@ function pushRule(index: Map<string, RegistryV2Rule[]>, identity: string, rule: 
 }
 
 /**
+ * Ensures that the requested ecosystems have been loaded and added to the active index.
+ * Only reads and validates ecosystems that have not yet been loaded.
+ */
+function ensureEcosystemsLoaded(ecosystems: Iterable<string>): void {
+  const data = getActiveDataSync();
+  if (indexedFrom !== data) {
+    rulesByIdentity = new Map();
+    allRulesByIdentity = new Map();
+    allIndexedRules.length = 0;
+    loadedEcosystems.clear();
+    productCatalog = undefined;
+    indexedFrom = data;
+  }
+  rulesByIdentity ??= new Map();
+  allRulesByIdentity ??= new Map();
+
+  let addedNew = false;
+  for (const ecosystem of ecosystems) {
+    if (loadedEcosystems.has(ecosystem)) continue;
+    const rules = loadEcosystemSync(ecosystem);
+    loadedEcosystems.add(ecosystem);
+    addedNew = true;
+    for (const rule of rules) {
+      allIndexedRules.push(rule);
+      const identity = purlIdentity(rule.purl);
+      pushRule(allRulesByIdentity, identity, rule);
+      if (isVersionRule(rule)) pushRule(rulesByIdentity, identity, rule);
+    }
+  }
+  if (addedNew || productCatalog === undefined) {
+    productCatalog = productsFromRules(allIndexedRules);
+  }
+}
+
+/**
  * Active registries indexed by canonical package identity (`purlIdentity`), plus the product
  * catalog used for bare names. Uses {@link getActiveDataSync} so downloaded, verified data
  * participates the same way as in `lookup` / `bundledRules()`, while `check` stays synchronous
- * and offline (local files only). The first call can block the event loop while that data is
- * read from disk; later calls reuse the cached index until the active data changes.
+ * and offline (local files only).
+ * @internal
  */
-function rulesIndex(): Map<string, RegistryV2Rule[]> {
-  const data = getActiveDataSync();
-  if (rulesByIdentity !== undefined && indexedFrom === data) return rulesByIdentity;
-  const versionIndex = new Map<string, RegistryV2Rule[]>();
-  const fullIndex = new Map<string, RegistryV2Rule[]>();
-  const allRules: RegistryV2Rule[] = [];
-  for (const ecosystem of BUNDLED_ECOSYSTEMS) {
-    const rules = validateRegistryV2(data.readSync(`registry/${ecosystem}.json`)).rules;
-    compileRulesVers(rules);
-    allRules.push(...rules);
-    for (const rule of rules) {
-      const identity = purlIdentity(rule.purl);
-      pushRule(fullIndex, identity, rule);
-      if (isVersionRule(rule)) pushRule(versionIndex, identity, rule);
-    }
-  }
-  rulesByIdentity = versionIndex;
-  allRulesByIdentity = fullIndex;
-  productCatalog = productsFromRules(allRules);
-  indexedFrom = data;
-  return versionIndex;
+export function rulesIndex(): Map<string, RegistryV2Rule[]> {
+  ensureEcosystemsLoaded(BUNDLED_ECOSYSTEMS);
+  return rulesByIdentity!;
 }
 
 /**
@@ -107,7 +127,7 @@ function rulesIndex(): Map<string, RegistryV2Rule[]> {
  * @internal Shared with `rulesFor`.
  */
 export function resolveAllRulesForIdentity(identity: string): readonly RegistryV2Rule[] {
-  rulesIndex();
+  ensureEcosystemsLoaded(purlToEcosystems(identity));
   return allRulesByIdentity?.get(identity) ?? [];
 }
 
@@ -116,7 +136,7 @@ export function resolveAllRulesForIdentity(identity: string): readonly RegistryV
  * match wins; a tie on rule count stays ambiguous and throws.
  */
 function resolveProductName(name: string): string {
-  rulesIndex();
+  ensureEcosystemsLoaded(BUNDLED_ECOSYSTEMS);
   const ranked = rankProductsForName(name, productCatalog as ProductRecord[]);
   if (ranked.length === 0) throw new CheckError(`Unknown product "${name}".`);
   const widest = ranked[0] as ProductRecord;
@@ -135,11 +155,14 @@ function resolveProductName(name: string): string {
  * invalid purls throw.
  */
 export function resolveCandidateRules(purlOrName: string): readonly RegistryV2Rule[] {
-  const identity = purlOrName.toLowerCase().startsWith("pkg:")
-    ? // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
-      purlIdentity(parsePurl(normalizePurl(purlOrName)))
-    : purlIdentity(resolveProductName(purlOrName));
-  return rulesIndex().get(identity) ?? [];
+  if (purlOrName.toLowerCase().startsWith("pkg:")) {
+    // User-typed PURLs may need recommended remediation (e.g. mixed-case qualifier keys).
+    const identity = purlIdentity(parsePurl(normalizePurl(purlOrName)));
+    ensureEcosystemsLoaded(purlToEcosystems(purlOrName));
+    return rulesByIdentity?.get(identity) ?? [];
+  }
+  const identity = purlIdentity(resolveProductName(purlOrName));
+  return rulesByIdentity?.get(identity) ?? [];
 }
 
 /** Registry events use longer names; the check result keeps the short forms from the signature. */
