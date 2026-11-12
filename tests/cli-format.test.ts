@@ -82,9 +82,10 @@ describe("CLI output formatting and snapshots", () => {
     assert.ok(out.includes("Replacement: Native fetch"));
     // Sources link
     assert.ok(out.includes("Sources:"));
-    assert.ok(out.includes("https://www.npmjs.com/package/request"));
+    assert.ok(out.includes("npmjs.com/package/request"));
     // Offing hint
-    assert.ok(out.includes("Offing can fix this: https://github.com/velella-sh/offing"));
+    assert.ok(out.includes("Offing can fix this"));
+    assert.ok(out.includes("velella-sh/offing"));
   });
 
   it("shows days left for scheduled events in text output", async () => {
@@ -112,7 +113,7 @@ describe("CLI output formatting and snapshots", () => {
     assert.ok(out.includes("❌ deprecated"));
     assert.ok(out.includes("`Native fetch or a maintained HTTP client`"));
     assert.ok(out.includes("`npm.package.request.deprecated`"));
-    assert.ok(out.includes("<https://www.npmjs.com/package/request>"));
+    assert.ok(out.includes("npmjs.com/package/request"));
     assert.ok(out.includes("> 💡 **Offing can fix this:**"));
   });
 

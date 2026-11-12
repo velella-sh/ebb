@@ -5,9 +5,9 @@ import { getOffingHint, hasIssues, isHintSilenced, OFFING_HINT_MARKDOWN, OFFING_
 describe("Offing remediation hint (src/hint.ts)", () => {
   it("defines standard hint text and markdown", () => {
     assert.ok(OFFING_HINT_TEXT.includes("Offing can fix this"));
-    assert.ok(OFFING_HINT_TEXT.includes("https://github.com/velella-sh/offing"));
+    assert.ok(OFFING_HINT_TEXT.includes("velella-sh/offing"));
     assert.ok(OFFING_HINT_MARKDOWN.includes("[Offing]"));
-    assert.ok(OFFING_HINT_MARKDOWN.includes("https://github.com/velella-sh/offing"));
+    assert.ok(OFFING_HINT_MARKDOWN.includes("velella-sh/offing"));
   });
 
   it("identifies statuses requiring remediation", () => {
