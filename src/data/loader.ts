@@ -30,7 +30,10 @@ function normalizePathToEcosystem(path: string): string {
  * In browser and edge environments, fetches ecosystem rules on demand.
  */
 export function createFetchLoader(options: FetchLoaderOptions = {}): DataLoader {
-  const baseUrl = (options.baseUrl ?? "https://velella.sh/ebb/api/v1").replace(/\/+$/, "");
+  let baseUrl = options.baseUrl ?? "https://velella.sh/ebb/api/v1";
+  while (baseUrl.endsWith("/")) {
+    baseUrl = baseUrl.slice(0, -1);
+  }
   const fetchFn = options.fetch ?? globalThis.fetch;
   if (typeof fetchFn !== "function") {
     throw new Error("No global fetch available. Pass a custom fetch implementation in options.fetch.");

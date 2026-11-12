@@ -10,7 +10,7 @@ const PYPI_PACKAGE_PATTERN = /^(?=.*[a-z])[A-Za-z0-9][A-Za-z0-9._-]*$/;
 const MAVEN_COORDINATE_PATTERN = /^([A-Za-z0-9._-]+):([A-Za-z0-9._-]+)(?::([A-Za-z0-9._+-]+))?$/;
 const NUGET_PACKAGE_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 const GOLANG_MODULE_PATTERN = /^[a-z0-9.-]+\.[a-z]{2,}(?:\/[A-Za-z0-9._~-]+)+$/;
-const COMPOSER_PACKAGE_PATTERN = /^[a-z0-9](?:[_.-]?[a-z0-9]+)*\/[a-z0-9](?:[_.-]?[a-z0-9]+)*$/;
+const COMPOSER_PACKAGE_PATTERN = /^[a-z0-9]+(?:[._-][a-z0-9]+)*\/[a-z0-9]+(?:[._-][a-z0-9]+)*$/;
 const CARGO_CRATE_PATTERN = /^[a-z][a-z0-9_-]*$/;
 const UNDERSCORE_LOWERCASE_PACKAGE_PATTERN = /^[a-z][a-z0-9_]*$/;
 const GEM_NAME_PATTERN = /^[a-z0-9][a-z0-9._-]*$/;

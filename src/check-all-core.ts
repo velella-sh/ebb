@@ -124,22 +124,23 @@ function evaluatePair(
     cache.set(purl, new SingleEntry(version, outcome));
     return outcome;
   }
-  if (existing instanceof SingleEntry) {
-    if (existing.version === version) return existing.outcome;
+  if (existing.constructor === SingleEntry) {
+    const single = existing as SingleEntry;
+    if (single.version === version) return single.outcome;
     const outcome = runItemEvaluation(purl, version, evaluate);
     cache.set(
       purl,
       new Map<string, CachedOutcome>([
-        [existing.version, existing.outcome],
+        [single.version, single.outcome],
         [version, outcome],
       ]),
     );
     return outcome;
   }
-  let outcome = existing.get(version);
+  let outcome = (existing as Map<string, CachedOutcome>).get(version);
   if (outcome === undefined) {
     outcome = runItemEvaluation(purl, version, evaluate);
-    existing.set(version, outcome);
+    (existing as Map<string, CachedOutcome>).set(version, outcome);
   }
   return outcome;
 }
@@ -155,8 +156,9 @@ function recordOutcome(summary: CheckAllSummary, outcome: CachedOutcome, index: 
     };
   }
   summary.byStatus[outcome.status] += 1;
-  for (const match of outcome.matches) {
-    summary.byEvent[match.event] += 1;
+  const matches = outcome.matches;
+  for (let i = 0; i < matches.length; i++) {
+    summary.byEvent[matches[i]!.event] += 1;
   }
   return outcome;
 }

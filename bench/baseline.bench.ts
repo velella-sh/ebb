@@ -67,12 +67,15 @@ export function measureCheckAll(): BenchmarkStats {
     (_, i) => sampleComponents[i % sampleComponents.length]!,
   );
 
+  // Warm up checkAll so initial index creation does not skew steady-state measurement
+  checkAll(items1000);
+
   return runBenchmark(
     "checkAll (1,000 items)",
     () => {
       checkAll(items1000);
     },
-    { warmup: 5, iterations: 50 },
+    { warmup: 10, iterations: 50 },
   );
 }
 
