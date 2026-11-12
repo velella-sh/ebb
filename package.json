@@ -109,7 +109,7 @@
   "scripts": {
     "postinstall": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\"",
     "build:mcp": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\" && tsc -b packages/mcp/tsconfig.json",
-    "build": "tsc -b tsconfig.json && npm run build:mcp",
+    "build": "tsc -b tsconfig.json && npm run build:mcp && node dist/tools/annotate-jsr-types.js",
     "build:ecosystems": "node dist/tools/build-ecosystem-modules.js",
     "build:llms": "npm run build --silent && node dist/tools/build-llms.js",
     "build:static-api": "npm run build --silent && node dist/tools/static-api/index.js",

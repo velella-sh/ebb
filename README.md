@@ -17,6 +17,7 @@
   <a href="https://github.com/velella-sh/ebb/actions/workflows/codeql.yml"><img alt="CodeQL" src="https://img.shields.io/github/actions/workflow/status/velella-sh/ebb/codeql.yml?branch=main&label=CodeQL&logo=github&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="llms.txt"><img alt="llms.txt" src="https://img.shields.io/badge/llms.txt-standard-3F6E66?labelColor=1F1F28&style=flat"></a>
   <a href="https://www.npmjs.com/package/@velella/ebb"><img alt="npm" src="https://img.shields.io/npm/v/@velella/ebb?label=npm&logo=npm&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
+  <a href="https://jsr.io/@velella/ebb"><img alt="JSR" src="https://jsr.io/badges/@velella/ebb"></a>
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="coverage" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fvelella-sh%2Febb%2Fbadges%2Fcoverage.json&labelColor=1F1F28&style=flat"></a>
 </p>
 
@@ -66,8 +67,8 @@ Requires Node.js 22 or newer for Node environments, or modern Browsers / Edge ru
 | **Browsers** | Chromium, Firefox, WebKit / Safari | Zero Node dependencies, offline in-memory data, ~135 KB gzipped ([docs/BROWSER.md](docs/BROWSER.md)) |
 | **Cloudflare Workers** | `workerd` | Fast execution under the free plan budget (< 15% limit) ([docs/EDGE.md](docs/EDGE.md)) |
 | **Vercel Edge** | `edge-light` | Native V8 isolate support ([docs/EDGE.md](docs/EDGE.md)) |
-| **Deno** | `>=1.40` | Native ESM support via `npm:` or standard imports |
-| **Bun** | `>=1.0` | Full CLI and library compatibility |
+| **Deno** | `>=1.40`, `2.x` | Native ESM support via `jsr:@velella/ebb` or `npm:` ([docs/DENO.md](docs/DENO.md)) |
+| **Bun** | `>=1.0` | Full CLI and library compatibility ([docs/BUN.md](docs/BUN.md)) |
 
 ```ts
 import { check, replacementFor } from "@velella/ebb";

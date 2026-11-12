@@ -1,0 +1,33 @@
+{
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
+  "name": "@velella/ebb",
+  "version": "0.1.1",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./browser": "./dist/src/browser.js",
+    "./edge": "./dist/src/browser.js",
+    "./check": "./dist/src/check.js",
+    "./check-all": "./dist/src/check-all.js",
+    "./replacement": "./dist/src/replacement.js",
+    "./rules-for": "./dist/src/rules-for.js",
+    "./vers": "./dist/src/vers.js",
+    "./create": "./dist/src/create.js",
+    "./data/loader": "./dist/src/data/loader.js",
+    "./data/load": "./dist/src/data/load.js",
+    "./data/bundled-data": "./dist/src/data/bundled-data.js",
+    "./data/bundled-loader": "./dist/src/data/bundled-loader.js",
+    "./data/ecosystems": "./dist/src/data/ecosystems.js"
+  },
+  "publish": {
+    "include": [
+      "dist/src/**/*.js",
+      "dist/src/**/*.d.ts",
+      "registry/**/*.json",
+      "README.md",
+      "LICENSE"
+    ],
+    "exclude": [
+      "dist/tests/**"
+    ]
+  }
+}
