@@ -27,13 +27,47 @@
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
+      "browser": "./dist/src/browser.js",
+      "worker": "./dist/src/browser.js",
+      "workerd": "./dist/src/browser.js",
+      "edge-light": "./dist/src/browser.js",
       "import": "./dist/src/index.js",
       "require": "./dist/src/cjs-error.cjs"
+    },
+    "./browser": {
+      "types": "./dist/src/browser.d.ts",
+      "import": "./dist/src/browser.js",
+      "default": "./dist/src/browser.js"
+    },
+    "./edge": {
+      "types": "./dist/src/browser.d.ts",
+      "import": "./dist/src/browser.js",
+      "default": "./dist/src/browser.js"
+    },
+    "./data/loader": {
+      "types": "./dist/src/data/loader.d.ts",
+      "import": "./dist/src/data/loader.js",
+      "default": "./dist/src/data/loader.js"
     },
     "./data/load": {
       "types": "./dist/src/data/load.d.ts",
       "import": "./dist/src/data/load.js",
       "default": "./dist/src/data/load.js"
+    },
+    "./data/bundled-data": {
+      "types": "./dist/src/data/bundled-data.d.ts",
+      "import": "./dist/src/data/bundled-data.js",
+      "default": "./dist/src/data/bundled-data.js"
+    },
+    "./data/bundled-loader": {
+      "types": "./dist/src/data/bundled-loader.d.ts",
+      "import": "./dist/src/data/bundled-loader.js",
+      "default": "./dist/src/data/bundled-loader.js"
+    },
+    "./data/ecosystems": {
+      "types": "./dist/src/data/ecosystems.d.ts",
+      "import": "./dist/src/data/ecosystems.js",
+      "default": "./dist/src/data/ecosystems.js"
     },
     "./data/ecosystems/*": {
       "types": "./dist/src/data/ecosystems/*.d.ts",
@@ -50,6 +84,7 @@
       "import": "./dist/src/create.js",
       "default": "./dist/src/create.js"
     },
+    "./registry/*": "./registry/*",
     "./*": {
       "types": "./dist/src/*.d.ts",
       "import": "./dist/src/*.js",
@@ -107,6 +142,8 @@
     "@types/node": "^24.0.0",
     "ajv": "^8.20.0",
     "esbuild": "^0.28.2",
+    "miniflare": "^4.20260730.0",
+    "playwright": "^1.65.0",
     "typescript": "^5.9.0",
     "yaml": "^2.9.1"
   },

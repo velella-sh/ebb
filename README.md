@@ -56,7 +56,18 @@ The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](te
 npm install @velella/ebb
 ```
 
-Requires Node.js 22 or newer. ESM only.
+Requires Node.js 22 or newer for Node environments, or modern Browsers / Edge runtimes. ESM only.
+
+## Supported runtimes
+
+| Runtime | Support | Notes |
+| :--- | :--- | :--- |
+| **Node.js** | `>=22` | Native CLI, local cache, Sigstore bundle verification |
+| **Browsers** | Chromium, Firefox, WebKit / Safari | Zero Node dependencies, offline in-memory data, ~135 KB gzipped ([docs/BROWSER.md](docs/BROWSER.md)) |
+| **Cloudflare Workers** | `workerd` | Fast execution under the free plan budget (< 15% limit) ([docs/EDGE.md](docs/EDGE.md)) |
+| **Vercel Edge** | `edge-light` | Native V8 isolate support ([docs/EDGE.md](docs/EDGE.md)) |
+| **Deno** | `>=1.40` | Native ESM support via `npm:` or standard imports |
+| **Bun** | `>=1.0` | Full CLI and library compatibility |
 
 ```ts
 import { check, replacementFor } from "@velella/ebb";

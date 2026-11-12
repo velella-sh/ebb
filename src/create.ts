@@ -3,15 +3,21 @@
  * with rules for specific ecosystems only.
  */
 
-import { type CheckMatch, type CheckResult, type CheckStatus, normalizeVersionInput, orderMatches } from "./check.js";
-import { type CheckAllItem, type CheckAllResult, checkAllWith } from "./check-all.js";
-import { formatReplacement } from "./replacement.js";
+import {
+  type CheckMatch,
+  type CheckResult,
+  type CheckStatus,
+  normalizeVersionInput,
+  orderMatches,
+} from "./check-core.js";
+import { type CheckAllItem, type CheckAllResult, checkAllWith } from "./check-all-core.js";
+import { formatReplacement } from "./replacement-core.js";
 import { daysLeft as daysUntil, RESULT_SCHEMA_VERSION } from "./result.js";
 import { loadEcosystemSync } from "./data/load.js";
 import { productsFromRules, rankProductsForName, type ProductRecord } from "./product-name.js";
 import { normalizePurl, parsePurl, purlIdentity } from "./purl.js";
 import { lifecycleEventPrecedence, type LifecycleEvent, type RegistryV2, type RegistryV2Rule } from "./registry.js";
-import type { Rule, RulesForOptions } from "./rules-for.js";
+import type { Rule, RulesForOptions } from "./rules-for-core.js";
 import { compileRulesVers, getCompiledVers } from "./vers/compile.js";
 import { VersError, versContains } from "./vers.js";
 

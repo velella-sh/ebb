@@ -1,0 +1,17 @@
+{
+  "name": "ebb-vercel-edge-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build"
+  },
+  "dependencies": {
+    "@velella/ebb": "workspace:*"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.2.0",
+    "typescript": "^5.9.0"
+  }
+}

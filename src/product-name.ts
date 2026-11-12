@@ -33,12 +33,17 @@ export interface ProductRecord {
   rules: RegistryV2Rule[];
 }
 
+function trimHyphens(value: string): string {
+  let start = 0;
+  while (start < value.length && value.charCodeAt(start) === 45) start++;
+  let end = value.length;
+  while (end > start && value.charCodeAt(end - 1) === 45) end--;
+  return value.slice(start, end);
+}
+
 /** Fold a human product name so `"Left Pad"` and `"left-pad"` match. */
 export const normalizeProductKey = (value: string): string =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+  trimHyphens(value.toLowerCase().replace(/[^a-z0-9]+/g, "-"));
 
 /** Apply {@link PRODUCT_ALIASES} after normalizing. */
 export function productNameQuery(name: string): string {
@@ -49,11 +54,7 @@ export function productNameQuery(name: string): string {
 function productId(purl: string): string {
   const parsed = parsePurl(purl);
   const parts = [parsed.type, ...(parsed.namespace ? parsed.namespace.split("/") : []), parsed.name];
-  return parts
-    .join("-")
-    .replace(/[^a-zA-Z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .toLowerCase();
+  return trimHyphens(parts.join("-").replace(/[^a-zA-Z0-9]+/g, "-")).toLowerCase();
 }
 
 /** Group rules into products keyed by purl, with aliases from id, name, and namespace segments. */

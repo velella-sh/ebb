@@ -16,6 +16,10 @@ import { clearRegistryCache } from "./registry.js";
 import { compareStrictSemver } from "./vers/semver.js";
 import { VERSION } from "./version.js";
 import { EbbError } from "./errors.js";
+import { clearLoadedEcosystems, setNodeLoaderProvider } from "./data/load.js";
+
+// Connect active data resolver to the data loader subsystem in Node
+setNodeLoaderProvider(getActiveDataSync);
 
 export type DataSourceKind = "bundled" | "cache" | "pinned";
 
@@ -350,6 +354,7 @@ export function configureActiveData(options: DataSourceOptions = {}): void {
   configured = options;
   activeSync = undefined;
   clearRegistryCache();
+  clearLoadedEcosystems();
 }
 
 /** Reads one data file such as `registry/npm.json` from the active data. */
