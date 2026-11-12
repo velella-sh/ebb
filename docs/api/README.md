@@ -38,7 +38,7 @@ Returns all registered lifecycle rules matching the given component purl.
 
 ## Subpath Exports
 
-- `@velella/ebb/api`: Static JSON API client helpers (`fetchRule`, `fetchComponent`, `purlToApiPath`).
+- `@velella/ebb/api`: Static JSON API client helpers (`fetchRule`, `fetchComponent`, `purlToApiPath`). See [Static API Reference](../static-api.md).
 - `@velella/ebb/purl`: Package URL parser and normalizer (`parsePurl`, `normalizePurl`).
 - `@velella/ebb/vers`: Native VERS range evaluator (`parseVers`, `satisfiesVers`).
 - `@velella/ebb/errors`: Error taxonomy and stable error codes (`EbbErrorCode`).

@@ -268,7 +268,7 @@ curl -s https://velella.sh/ebb/api/v1/npm.json | jq '{ rulesCount, componentsCou
 curl -s https://velella.sh/ebb/api/v1/upcoming.json | jq '.upcoming[:3]'
 ```
 
-Features include global component indexing (`/index.json`), name prefix search (`/search-index.json`), upcoming EOL events (`/upcoming.json`), ETags for conditional caching, and zero-dependency client helpers (`fetchRule`, `fetchComponent`). See [docs/api.md](docs/api.md) for full endpoint specifications and client SDK examples.
+Features include global component indexing (`/index.json`), name prefix search (`/search-index.json`), upcoming EOL events (`/upcoming.json`), ETags for conditional caching, and zero-dependency client helpers (`fetchRule`, `fetchComponent`). See [docs/static-api.md](docs/static-api.md) for full endpoint specifications and client SDK examples.
 
 ## What a rule looks like
 
