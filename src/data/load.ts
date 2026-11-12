@@ -82,6 +82,7 @@ function checkActiveDataChanged(current: unknown): void {
 
 /** Registers a Node dynamic loader provider (used in Node runtime to connect active data). */
 export function setNodeLoaderProvider(provider: (() => DataLoader) | undefined): void {
+  if (nodeLoaderProvider === provider) return;
   nodeLoaderProvider = provider;
   activeDataLoader = undefined;
   loaderVersion++;
@@ -92,6 +93,7 @@ export function setNodeLoaderProvider(provider: (() => DataLoader) | undefined):
 
 /** Sets the active data loader for this process or runtime. */
 export function setDataLoader(loader: DataLoader): void {
+  if (activeDataLoader === loader) return;
   activeDataLoader = loader;
   loaderVersion++;
   loadedRulesByEcosystem.clear();
