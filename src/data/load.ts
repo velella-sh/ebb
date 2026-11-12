@@ -1,13 +1,16 @@
 /**
  * Lazy data loading and preloading for Ebb ecosystems.
+ * Supports configurable data loaders for Node, Browser, Edge, and Workers.
  */
 
-import { BUNDLED_ECOSYSTEMS } from "./../data-bundle.js";
-import { getActiveData, getActiveDataSync } from "./../data-source.js";
+import { BUNDLED_ECOSYSTEMS } from "./ecosystems.js";
+import { type DataLoader, createBundledLoader } from "./loader.js";
 import { validateRegistryV2 } from "./../registry.js";
 import type { RegistryV2Rule } from "./../registry.js";
 import { parsePurl } from "./../purl.js";
 import { compileRulesVers } from "./../vers/compile.js";
+
+export { BUNDLED_ECOSYSTEMS };
 
 const GENERIC_NAME_TO_ECOSYSTEM: Record<string, string> = {
   android: "android",
@@ -64,6 +67,9 @@ const loadedRulesByEcosystem = new Map<string, readonly RegistryV2Rule[]>();
 /** In-flight load promises to ensure a single async load per ecosystem. */
 const inFlightLoads = new Map<string, Promise<readonly RegistryV2Rule[]>>();
 
+let activeDataLoader: DataLoader | undefined;
+let nodeLoaderProvider: (() => DataLoader) | undefined;
+let loaderVersion = 0;
 let activeDataSource: unknown;
 
 function checkActiveDataChanged(current: unknown): void {
@@ -72,6 +78,40 @@ function checkActiveDataChanged(current: unknown): void {
     inFlightLoads.clear();
     activeDataSource = current;
   }
+}
+
+/** Registers a Node dynamic loader provider (used in Node runtime to connect active data). */
+export function setNodeLoaderProvider(provider: (() => DataLoader) | undefined): void {
+  nodeLoaderProvider = provider;
+  loaderVersion++;
+  clearLoadedEcosystems();
+}
+
+/** Sets the active data loader for this process or runtime. */
+export function setDataLoader(loader: DataLoader): void {
+  activeDataLoader = loader;
+  loaderVersion++;
+  clearLoadedEcosystems();
+}
+
+/**
+ * Gets the currently active data loader.
+ * In browser/worker environments, defaults to the bundled in-memory loader.
+ */
+export function getDataLoader(): DataLoader {
+  if (activeDataLoader) {
+    return activeDataLoader;
+  }
+  if (nodeLoaderProvider) {
+    return nodeLoaderProvider();
+  }
+  activeDataLoader = createBundledLoader();
+  return activeDataLoader;
+}
+
+/** Gets the data loader version sequence, incremented on loader changes. */
+export function getDataLoaderVersion(): number {
+  return loaderVersion;
 }
 
 /**
@@ -112,6 +152,7 @@ export function clearLoadedEcosystems(): void {
   loadedRulesByEcosystem.clear();
   inFlightLoads.clear();
   activeDataSource = undefined;
+  loaderVersion++;
 }
 
 /**
@@ -127,13 +168,13 @@ export function loadEcosystem(ecosystem: string): Promise<readonly RegistryV2Rul
 
   const promise = (async () => {
     try {
-      const activeData = await getActiveData();
-      checkActiveDataChanged(activeData);
-      // Double-check cache in case another caller populated it while awaiting getActiveData
+      const loader = getDataLoader();
+      checkActiveDataChanged(loader);
+      // Double-check cache in case another caller populated it
       const doubleCheck = loadedRulesByEcosystem.get(ecosystem);
       if (doubleCheck !== undefined) return doubleCheck;
 
-      const raw = await activeData.read(`registry/${ecosystem}.json`);
+      const raw = await loader.read(`registry/${ecosystem}.json`);
       const validated = validateRegistryV2(raw);
       compileRulesVers(validated.rules);
       loadedRulesByEcosystem.set(ecosystem, validated.rules);
@@ -149,16 +190,23 @@ export function loadEcosystem(ecosystem: string): Promise<readonly RegistryV2Rul
 
 /**
  * Synchronously loads and parses an ecosystem's rules.
- * Uses cached data if already loaded; otherwise reads synchronously via active data.
+ * Uses cached data if already loaded; otherwise reads synchronously via active data loader.
  */
 export function loadEcosystemSync(ecosystem: string): readonly RegistryV2Rule[] {
-  const activeData = getActiveDataSync();
-  checkActiveDataChanged(activeData);
+  const loader = getDataLoader();
+  checkActiveDataChanged(loader);
 
   const cached = loadedRulesByEcosystem.get(ecosystem);
   if (cached !== undefined) return cached;
 
-  const raw = activeData.readSync(`registry/${ecosystem}.json`);
+  if (typeof loader.readSync !== "function") {
+    throw new Error(
+      `The configured data loader does not support synchronous loading for ecosystem "${ecosystem}". ` +
+        `Call await preload(["${ecosystem}"]) or await loadEcosystem("${ecosystem}") before calling check().`,
+    );
+  }
+
+  const raw = loader.readSync(`registry/${ecosystem}.json`);
   const validated = validateRegistryV2(raw);
   compileRulesVers(validated.rules);
   loadedRulesByEcosystem.set(ecosystem, validated.rules);
@@ -167,7 +215,7 @@ export function loadEcosystemSync(ecosystem: string): readonly RegistryV2Rule[] 
 
 /**
  * Preloads ecosystem lifecycle data in memory for fast synchronous lookups.
- * Servers should call this at startup (e.g. during server listen).
+ * In browser/worker environments using fetchLoader, call this during initialization.
  *
  * @param ecosystems - Optional list of ecosystem names to preload. If omitted, preloads all ecosystems.
  */

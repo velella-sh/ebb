@@ -1,0 +1,6 @@
+{
+  "name": "ebb-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-11-12",
+  "compatibility_flags": ["nodejs_compat"]
+}

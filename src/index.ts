@@ -19,6 +19,7 @@ export {
   type EcosystemInput,
   createEbb,
 } from "./create.js";
+
 export { preload } from "./data/load.js";
 
 /**
@@ -28,6 +29,7 @@ export function check(purlOrName: string, version: string, asOf?: string): Check
   // Keep `@deprecated` from the legacy `./check.js` subpath off the root entry point.
   return checkFromSubpath(purlOrName, version, asOf);
 }
+
 export {
   type CheckAllEntry,
   type CheckAllError,
@@ -37,6 +39,7 @@ export {
   type CheckAllSummary,
   checkAll,
 } from "./check-all.js";
+
 export type { EvidenceSource } from "./domain.js";
 export type { EbbErrorCode } from "./errors.js";
 export { replacementFor } from "./replacement.js";

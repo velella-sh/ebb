@@ -4,37 +4,11 @@ import { resolve } from "node:path";
 
 import { DEFAULT_MAX_REVIEW_AGE_DAYS, validateRegistryV2 } from "./registry.js";
 import { EbbError } from "./errors.js";
+import { BUNDLED_ECOSYSTEMS, type BundledEcosystem } from "./data/ecosystems.js";
 
+export { BUNDLED_ECOSYSTEMS, type BundledEcosystem };
 export const DATA_BUNDLE_SCHEMA_VERSION = "ebb.data-bundle.v1" as const;
 
-/** The registries a bundle carries, in the order they are listed. The SHA map is carried as kind "sha-map". */
-export const BUNDLED_ECOSYSTEMS = [
-  "android",
-  "ci-images",
-  "container",
-  "cpp",
-  "dart",
-  "database",
-  "deno",
-  "dotnet",
-  "elixir",
-  "github-actions",
-  "go",
-  "java",
-  "kubernetes",
-  "nodejs",
-  "npm",
-  "osv",
-  "php",
-  "python",
-  "ruby",
-  "rust",
-  "scala",
-  "serverless",
-  "shell",
-  "swift",
-  "terraform",
-] as const;
 const SHA_MAP_PATH = "registry/github-actions-shas.json";
 
 /**
