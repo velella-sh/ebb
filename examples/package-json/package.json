@@ -1,0 +1,15 @@
+{
+  "name": "sample-package-json-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sample application manifest for Ebb dependency lifecycle check",
+  "dependencies": {
+    "react": "18.2.0",
+    "request": "2.88.2",
+    "left-pad": "1.3.0"
+  },
+  "devDependencies": {
+    "node-sass": "9.0.0"
+  }
+}

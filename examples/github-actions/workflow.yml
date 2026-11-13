@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Unsupported action (Node 12/16 runner)
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Unsupported action (Node 12/16 runner)
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      # Modern supported action
+      - name: Fast Checkout (Modern)
+        uses: actions/checkout@v5
