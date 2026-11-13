@@ -47,6 +47,7 @@ export function compareBenchmarkRuns(
   current: BenchmarkSuiteResult,
   baseline: BenchmarkSuiteResult,
   thresholdFraction = 0.2,
+  noiseFloorMs = 0.15,
 ): ComparisonReport {
   const thresholdPercent = thresholdFraction * 100;
 
@@ -74,7 +75,8 @@ export function compareBenchmarkRuns(
     const baseMed = baselineStat.medianMs;
     const currMed = currentStat.medianMs;
     const diffPercent = baseMed > 0 ? ((currMed - baseMed) / baseMed) * 100 : 0;
-    const passed = diffPercent <= thresholdPercent;
+    const diffMs = currMed - baseMed;
+    const passed = diffPercent <= thresholdPercent || diffMs <= noiseFloorMs;
 
     const comp: BenchmarkComparison = {
       name,

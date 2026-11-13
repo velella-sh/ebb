@@ -75,7 +75,7 @@ export function measureCheckAll(): BenchmarkStats {
     () => {
       checkAll(items1000);
     },
-    { warmup: 10, iterations: 50 },
+    { warmup: 20, iterations: 100 },
   );
 }
 
