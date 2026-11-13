@@ -1,11 +1,12 @@
 {
   "$schema": "https://jsr.io/schema/config-file.v1.json",
   "name": "@velella/ebb",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "exports": {
     ".": "./dist/src/index.js",
     "./browser": "./dist/src/browser.js",
     "./edge": "./dist/src/browser.js",
+    "./verify": "./dist/src/verify.js",
     "./check": "./dist/src/check.js",
     "./check-all": "./dist/src/check-all.js",
     "./replacement": "./dist/src/replacement.js",
