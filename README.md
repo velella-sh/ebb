@@ -17,8 +17,6 @@
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="Coverage" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fvelella-sh%2Febb%2Fbadges%2Fcoverage.json&labelColor=1F1F28&style=flat"></a>
   <a href="https://www.npmjs.com/package/@velella/ebb"><img alt="npm" src="https://img.shields.io/npm/v/@velella/ebb?label=npm&logo=npm&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="https://jsr.io/@velella/ebb"><img alt="JSR" src="https://jsr.io/badges/@velella/ebb"></a>
-  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/velella-sh/ebb?labelColor=1F1F28&color=3F6E66&style=flat"></a>
-  <a href="https://securityscorecards.dev/viewer/?uri=github.com/velella-sh/ebb"><img alt="OpenSSF Scorecard" src="https://img.shields.io/ossf-scorecard/github.com/velella-sh/ebb?label=openssf%20scorecard&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="https://skills.sh/velella-sh/ebb/ebb"><img alt="skills.sh" src="https://skills.sh/b/velella-sh/ebb"></a>
 </p>
 
