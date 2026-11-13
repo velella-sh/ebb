@@ -16,7 +16,7 @@
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/velella-sh/ebb/ci.yml?branch=main&label=CI&logo=github&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
   <a href="https://github.com/velella-sh/ebb/actions/workflows/ci.yml"><img alt="Coverage" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fvelella-sh%2Febb%2Fbadges%2Fcoverage.json&labelColor=1F1F28&style=flat"></a>
   <a href="https://www.npmjs.com/package/@velella/ebb"><img alt="npm" src="https://img.shields.io/npm/v/@velella/ebb?label=npm&logo=npm&logoColor=white&labelColor=1F1F28&color=3F6E66&style=flat"></a>
-  <a href="https://jsr.io/@velella/ebb"><img alt="JSR" src="https://jsr.io/badges/@velella/ebb"></a>
+  <a href="https://jsr.io/@velella/ebb"><img alt="JSR" src="https://img.shields.io/badge/JSR-@velella%2Febb-3F6E66?logo=jsr&logoColor=white&labelColor=1F1F28&style=flat"></a>
   <a href="https://skills.sh/velella-sh/ebb/ebb"><img alt="skills.sh" src="https://skills.sh/b/velella-sh/ebb"></a>
 </p>
 
