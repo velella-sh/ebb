@@ -23,6 +23,8 @@
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
+  <a href="docs/QUICKSTART.md">5-Min Guide</a> ·
+  <a href="#examples">Examples</a> ·
   <a href="#static-json-api">Static API</a> ·
   <a href="#what-a-rule-looks-like">Rules</a> ·
   <a href="#the-data">Data</a> ·
@@ -52,6 +54,8 @@ The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](te
 - **Offline by default.** The rules ship inside the package. Newer rules arrive as signed data bundles, verified with Sigstore before use.
 
 ## Quick start
+
+> For a 5-minute walkthrough across the library, CLI, AI agents (MCP & skills), static API, and GitHub Actions, see [**docs/QUICKSTART.md**](docs/QUICKSTART.md).
 
 ```bash
 npm install @velella/ebb
@@ -339,10 +343,28 @@ Measured across fresh processes (ESM import + cold data load + first check):
 
 Once loaded into memory, registries and precompiled VERS ranges remain cached, keeping per-component evaluations well under 1 ms.
 
+## Examples
+
+Runnable examples for common workflows and deployment environments are located in [`examples/`](examples/):
+
+| Example | Description |
+| :--- | :--- |
+| [`package.json`](examples/package-json/) | Audit Node.js dependencies directly from application manifests |
+| [CycloneDX SBOM](examples/cyclonedx/) | Evaluate software bills of materials directly via CLI or TypeScript API |
+| [Dockerfile](examples/dockerfile/) | Check container base images (`FROM`) against upstream EOL schedules |
+| [GitHub Actions](examples/github-actions/) | Audit `.github/workflows/*.yml` for retired runner action versions |
+| [Upcoming EOL](examples/upcoming-eol/) | Forecast lifecycle deadlines and calculate days left (`asOf`) |
+| [Static API](examples/static-api/) | Query Ebb from shell scripts with `curl` and `jq` without Node.js |
+| [Browser](examples/browser/) | Interactive in-memory lifecycle inspection in client-side HTML |
+| [Cloudflare & Vercel](examples/workers/) | Deploy Ebb on Edge isolates within free-tier budgets |
+| [Deno](examples/deno/) | Native Deno 2.x and JSR import examples |
+| [Bun](examples/bun/) | High-throughput lifecycle evaluations under Bun runtime |
+
 ## Documentation
 
 These pages are also published as a site, built with [Mizzen](https://velella.sh/mizzen/) and [Lateen](https://velella.sh/lateen/): <https://velella.sh/ebb/>.
 
+- [Quickstart](docs/QUICKSTART.md): 5-minute guide across library, CLI, AI agents, static API, and GitHub Actions.
 - [CLI](docs/cli.md): command-line interface for offline checks and SBOM batch evaluation.
 - [Agent Skills](docs/skills.md): guardrails for AI coding agents via skills.sh.
 - [MCP server](docs/mcp.md): connect Ebb over standard stdio JSON-RPC 2.0.
