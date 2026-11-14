@@ -61,7 +61,9 @@ jobs:
           deno-version: v2.x
 
       - name: Publish to JSR with provenance
-        run: deno publish
+        run: |
+          git checkout -- evals/agents/results.json || true
+          deno publish --allow-dirty
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
