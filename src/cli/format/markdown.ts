@@ -1,6 +1,7 @@
 import type { CheckResult, CheckMatch } from "../../check.js";
 import type { CheckAllResult, CheckAllItem } from "../../check-all.js";
 import type { RegistryV2Rule } from "../../registry.js";
+import type { UpcomingResult } from "../../upcoming.js";
 import { getOffingHint } from "../../hint.js";
 
 export interface MarkdownFormatOptions {
@@ -199,6 +200,31 @@ export function formatRulesMarkdown(purl: string, rules: RegistryV2Rule[]): stri
     const rep = r.replacement ? `\`${r.replacement}\`` : "-";
     const deadline = r.deadline ?? "-";
     lines.push(`| \`${r.id}\` | ${r.event} | \`${r.vers}\` | ${deadline} | ${rep} |`);
+  }
+  lines.push("");
+  return lines.join("\n");
+}
+
+export function formatUpcomingMarkdown(result: UpcomingResult): string {
+  const lines: string[] = [
+    `### Upcoming Lifecycle Deadlines`,
+    "",
+    `**Window:** \`${result.within}\` (as of ${result.asOf}, until ${result.until})  `,
+    `**Total events:** ${result.count}`,
+    "",
+  ];
+  if (result.items.length === 0) {
+    lines.push("No upcoming deadlines found within this window.\n");
+    return lines.join("\n");
+  }
+  lines.push("| Deadline | Days Left | Severity | PURL | Event | Replacement |");
+  lines.push("| :--- | :--- | :--- | :--- | :--- | :--- |");
+  for (const item of result.items) {
+    const rep = item.replacement ? `\`${item.replacement}\`` : "-";
+    const est = item.estimated ? " *(estimated)*" : "";
+    lines.push(
+      `| ${item.deadline}${est} | ${item.daysLeft}d | ${item.severity} | \`${item.purl}\` | ${item.event} | ${rep} |`,
+    );
   }
   lines.push("");
   return lines.join("\n");

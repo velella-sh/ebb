@@ -1,7 +1,4 @@
-import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
-import { createRequire } from "node:module";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { upcoming } from "@velella/ebb";
 import type { McpResource, McpResourceResult } from "../types.js";
 
 export interface UpcomingEvent {
@@ -21,97 +18,28 @@ export interface UpcomingResult {
   events: UpcomingEvent[];
 }
 
-function findRegistryDirectory(): string {
-  const candidates = [
-    resolve(process.cwd(), "registry"),
-    fileURLToPath(new URL("../../../../registry", import.meta.url)),
-    fileURLToPath(new URL("../../../registry", import.meta.url)),
-  ];
-
-  for (const cand of candidates) {
-    if (existsSync(cand) && statSync(cand).isDirectory()) {
-      return cand;
-    }
-  }
-
-  try {
-    const pkgJsonPath = createRequire(import.meta.url).resolve("@velella/ebb/package.json");
-    const regPath = resolve(dirname(pkgJsonPath), "registry");
-    if (existsSync(regPath)) {
-      return regPath;
-    }
-  } catch {
-    // Ignore resolution errors
-  }
-
-  return resolve(process.cwd(), "registry");
-}
-
-function daysBetween(fromIsoDate: string, targetIsoDate: string): number {
-  const fromMs = Date.parse(`${fromIsoDate}T00:00:00Z`);
-  const targetMs = Date.parse(`${targetIsoDate}T00:00:00Z`);
-  return Math.round((targetMs - fromMs) / (1000 * 60 * 60 * 24));
-}
-
-export function loadUpcomingEvents(options?: { asOf?: string | undefined }): UpcomingResult {
+export function loadUpcomingEvents(options?: {
+  asOf?: string | undefined;
+  within?: string | number | undefined;
+  ecosystem?: string | readonly string[] | undefined;
+}): UpcomingResult {
   const asOf = options?.asOf ?? new Date().toISOString().slice(0, 10);
-  const regDir = findRegistryDirectory();
-
-  if (!existsSync(regDir)) {
-    return { asOf, count: 0, events: [] };
-  }
-
-  const files = readdirSync(regDir).filter(
-    (file) => file.endsWith(".json") && !file.includes("lock") && !file.includes("shas"),
-  );
-
-  const events: UpcomingEvent[] = [];
-
-  for (const file of files) {
-    try {
-      const content = readFileSync(resolve(regDir, file), "utf8");
-      const data = JSON.parse(content) as { rules?: Array<Record<string, unknown>> };
-      for (const rule of data.rules ?? []) {
-        const deadline = typeof rule.deadline === "string" ? rule.deadline : undefined;
-        // Do not expose expired events (deadline < asOf)
-        if (!deadline || deadline < asOf) {
-          continue;
-        }
-
-        const ruleId = typeof rule.id === "string" ? rule.id : "";
-        const purl = typeof rule.purl === "string" ? rule.purl : "";
-        const event = typeof rule.event === "string" ? rule.event : "";
-        const replacement = typeof rule.replacement === "string" ? rule.replacement : null;
-        const sources = Array.isArray(rule.sources)
-          ? (rule.sources as Array<{ url: string }>)
-          : [];
-        const provenance = typeof rule.provenance === "object" && rule.provenance !== null
-          ? (rule.provenance as { reviewedAt?: string })
-          : undefined;
-
-        events.push({
-          ruleId,
-          purl,
-          event,
-          deadline,
-          daysLeft: daysBetween(asOf, deadline),
-          replacement,
-          sources,
-          reviewedAt: provenance?.reviewedAt ?? null,
-        });
-      }
-    } catch {
-      // Continue on file read error
-    }
-  }
-
-  // Sort earliest deadline first, then rule id
-  events.sort((a, b) => a.deadline.localeCompare(b.deadline) || a.ruleId.localeCompare(b.ruleId));
+  const within = options?.within ?? "10y";
+  const res = upcoming({ asOf, within, ecosystem: options?.ecosystem });
 
   return {
-    asOf,
-    count: events.length,
-    events,
+    asOf: res.asOf,
+    count: res.count,
+    events: res.items.map((it) => ({
+      ruleId: it.ruleId,
+      purl: it.purl,
+      event: it.event,
+      deadline: it.deadline,
+      daysLeft: it.daysLeft,
+      replacement: it.replacement,
+      sources: it.sources.map((s) => ({ url: s.url })),
+      reviewedAt: it.reviewedAt,
+    })),
   };
 }
 
@@ -124,17 +52,28 @@ export const upcomingResource: McpResource = {
   },
   handler: (rawUri: string): McpResourceResult => {
     let asOf: string | undefined;
+    let within: string | undefined;
+    let ecosystem: string | undefined;
+
     try {
       const parsedUrl = new URL(rawUri);
       const queryAsOf = parsedUrl.searchParams.get("asOf");
       if (queryAsOf) {
         asOf = queryAsOf;
       }
+      const queryWithin = parsedUrl.searchParams.get("within");
+      if (queryWithin) {
+        within = queryWithin;
+      }
+      const queryEcosystem = parsedUrl.searchParams.get("ecosystem");
+      if (queryEcosystem) {
+        ecosystem = queryEcosystem;
+      }
     } catch {
-      // Not a valid URL with search params, use default asOf
+      // Not a valid URL with search params, use defaults
     }
 
-    const result = loadUpcomingEvents({ asOf });
+    const result = loadUpcomingEvents({ asOf, within, ecosystem });
 
     return {
       contents: [

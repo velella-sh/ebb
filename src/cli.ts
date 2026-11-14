@@ -2,7 +2,8 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { check, checkAll, replacementFor, rulesFor } from "./index.js";
+import { check, checkAll, replacementFor, rulesFor, upcoming } from "./index.js";
+import { UpcomingError } from "./upcoming.js";
 import { CheckError } from "./check.js";
 import { checkAllWith, type CheckAllItem } from "./check-all.js";
 import {
@@ -15,6 +16,8 @@ import {
   formatReplacementText,
   formatRulesMarkdown,
   formatRulesText,
+  formatUpcomingMarkdown,
+  formatUpcomingText,
   isColorSupported,
 } from "./cli/format/index.js";
 import { EbbError } from "./errors.js";
@@ -30,11 +33,15 @@ Usage:
   ebb check-all [file] [options]             Batch check packages (file, stdin, CycloneDX)
   ebb replacement <purl> [version] [options] Show suggested replacement for a package
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
+  ebb upcoming [options]                     List upcoming end-of-life events
 
 Options:
   --format <text|markdown|json> Output format (default: text)
   --json                        Shortcut for --format json
   --as-of <YYYY-MM-DD>          Reference date for daysLeft calculation
+  --within <span|days>          Time window: 30d, 2w, 3m, 1y, or days (default: 90d)
+  --ecosystem <name>            Filter by ecosystem (e.g. npm, python)
+  --purl <purl>                 Filter by package URL
   --fail-on <threshold>         Fail threshold: scheduled, deprecated, unsupported, end-of-life, removed, error (default: deprecated)
   --event <name>                Filter rules by event (rules command only)
   --color                       Force colored output
@@ -50,6 +57,8 @@ Examples:
   cat purls.txt | ebb check-all --fail-on scheduled
   ebb replacement pkg:npm/request 2.88.2
   ebb rules pkg:npm/express
+  ebb upcoming --within 90d --ecosystem npm
+  ebb upcoming --purl pkg:npm/express --json
 `;
 
 export interface CliIo {
@@ -191,6 +200,9 @@ export async function runCli(
         json: { type: "boolean", default: false },
         format: { type: "string" },
         "as-of": { type: "string" },
+        within: { type: "string" },
+        ecosystem: { type: "string" },
+        purl: { type: "string" },
         event: { type: "string" },
         "fail-on": { type: "string" },
         color: { type: "boolean", default: false },
@@ -416,6 +428,30 @@ export async function runCli(
       return 0;
     }
 
+    if (first === "upcoming") {
+      const withinArg = typeof values.within === "string" ? values.within : undefined;
+      const ecoArg = typeof values.ecosystem === "string" ? values.ecosystem : undefined;
+      const purlArg = typeof values.purl === "string" ? values.purl : positionals[1];
+      const asOfArg = typeof values["as-of"] === "string" ? values["as-of"] : undefined;
+
+      const result = upcoming({
+        within: withinArg,
+        ecosystem: ecoArg,
+        purls: purlArg ? [purlArg] : undefined,
+        asOf: asOfArg,
+      });
+
+      if (format === "json") {
+        io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatUpcomingMarkdown(result));
+      } else {
+        io.stdout.write(formatUpcomingText(result, { colors }));
+      }
+
+      return 0;
+    }
+
     io.stderr.write(`Error: Unknown command "${first}". Run "ebb --help" for usage.\n`);
     return 2;
   } catch (err) {
@@ -424,7 +460,8 @@ export async function runCli(
       err instanceof CheckError ||
       err instanceof VersError ||
       err instanceof PurlError ||
-      err instanceof RulesForError
+      err instanceof RulesForError ||
+      err instanceof UpcomingError
     ) {
       io.stderr.write(`Error: ${err.message}\n`);
       return 2;

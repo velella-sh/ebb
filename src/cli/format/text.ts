@@ -1,6 +1,7 @@
 import type { CheckResult, CheckMatch } from "../../check.js";
 import type { CheckAllResult, CheckAllItem } from "../../check-all.js";
 import type { RegistryV2Rule } from "../../registry.js";
+import type { UpcomingResult } from "../../upcoming.js";
 import { getOffingHint } from "../../hint.js";
 import { createColors, type Colors } from "./color.js";
 
@@ -157,6 +158,29 @@ export function formatRulesText(purl: string, rules: RegistryV2Rule[]): string {
     }
     if (rule.sources && rule.sources.length > 0 && rule.sources[0]?.url) {
       lines.push(`    Source: ${rule.sources[0].url}`);
+    }
+  }
+  return `${lines.join("\n")}\n`;
+}
+
+export function formatUpcomingText(result: UpcomingResult, options?: TextFormatOptions): string {
+  const c = options?.colors ?? createColors(false);
+  const lines: string[] = [
+    `Upcoming deadlines within ${result.within} (as of ${result.asOf}, until ${result.until}): ${result.count} event${result.count === 1 ? "" : "s"}`,
+  ];
+  if (result.items.length === 0) {
+    lines.push("\nNo upcoming deadlines found within this window.\n");
+    return lines.join("\n");
+  }
+  lines.push("");
+  for (const item of result.items) {
+    const sevColor =
+      item.severity === "critical" || item.severity === "high" ? c.red : item.severity === "medium" ? c.yellow : c.dim;
+    const est = item.estimated ? " [estimated]" : "";
+    lines.push(`- ${item.deadline} (${item.daysLeft}d left) [${sevColor(item.severity)}] ${item.purl}${est}`);
+    lines.push(`    Rule: ${item.ruleId} (${item.event}) - ${item.title}`);
+    if (item.replacement) {
+      lines.push(`    Replacement: ${item.replacement}`);
     }
   }
   return `${lines.join("\n")}\n`;

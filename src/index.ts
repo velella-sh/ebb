@@ -55,3 +55,10 @@ export {
   type RulesForOptions,
   rulesFor,
 } from "./rules-for.js";
+
+export {
+  type UpcomingItem,
+  type UpcomingOptions,
+  type UpcomingResult,
+  upcoming,
+} from "./upcoming.js";

@@ -65,6 +65,7 @@ assert.deepEqual(Object.keys(root).sort(), [
   "preload",
   "replacementFor",
   "rulesFor",
+  "upcoming",
 ]);
 assert.equal(root.check("node", "18.20.4").status, "end-of-life");
 assert.ok(root.rulesFor("pkg:npm/request").length > 0);
