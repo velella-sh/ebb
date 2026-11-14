@@ -61,8 +61,9 @@ function sampleMatchingVersion(vers: string): string {
   const candidates = ["0.1.0", "1.0.0", "2.0.0", "3.0.0", "4.0.0", "5.0.0", "6.0.0", "7.0.0"];
   const matched = candidates.find((candidate) => versContains(vers, candidate));
   if (matched) return matched;
-  const firstLiteral = /([0-9]+(?:\.[0-9]+){0,2})/.exec(vers)?.[1];
-  if (firstLiteral && versContains(vers, firstLiteral)) return firstLiteral;
+  for (const part of vers.split(/[^0-9.]+/)) {
+    if (part && versContains(vers, part)) return part;
+  }
   throw new Error(`Unable to synthesize a matching version for "${vers}"`);
 }
 
