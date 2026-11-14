@@ -132,6 +132,28 @@ try {
 
 ---
 
+### `rule-not-found`
+
+**Thrown by:** `sourcesOf`
+
+**Cause:** No registered lifecycle rule with the requested `ruleId` exists, or the rule was observed after the specified `asOf` date.
+
+```ts
+import { sourcesOf, EbbError } from "@velella/ebb";
+
+try {
+  const sources = sourcesOf("unknown.package.id");
+} catch (err) {
+  if (err instanceof EbbError && err.code === "rule-not-found") {
+    console.error("Rule not found:", err.message);
+  }
+}
+```
+
+**Fix:** Verify that the rule ID matches an active lifecycle rule, or inspect available rules using `rulesFor`.
+
+---
+
 ### `internal`
 
 **Thrown by:** `required` / `fromLookupProduct` / internal parse helpers
@@ -159,6 +181,7 @@ try {
 | `src/result.ts` | 92 | `EbbError` | `invalid-date` | `"…" is not a date (YYYY-MM-DD).` |
 | `src/forecast.ts` | 113 | `EbbError` | `invalid-date` | `"…" is not a date (YYYY-MM-DD).` |
 | `src/package-files.ts` | 24, 42 | `EbbError` | `package-file-not-found` | `Ebb package file not found: …` |
+| `src/sources-of.ts` | multiple | `EbbError` | `rule-not-found` | `Rule "…" not found in registered lifecycle rules.` |
 | `src/required.ts` | 6 | `EbbError` | `internal` | `missing …` |
 | `src/result-compat.ts` | 86, 93 | `EbbError` | `internal` | `Cannot map …` |
 | `src/data-update.ts` | 203 | `DataUpdateError` | `data-update-failed` | `The release list is not valid JSON.` |

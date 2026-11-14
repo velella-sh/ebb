@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { EBB_ERROR_CODES, EbbError } from "../../src/errors.js";
 
 describe("error codes", () => {
-  it("includes all 8 error codes", () => {
+  it("includes all 9 error codes", () => {
     const expected = [
       "invalid-purl",
       "invalid-version",
@@ -12,6 +12,7 @@ describe("error codes", () => {
       "data-update-failed",
       "invalid-date",
       "package-file-not-found",
+      "rule-not-found",
       "internal",
     ];
     assert.deepEqual([...EBB_ERROR_CODES].sort(), [...expected].sort());

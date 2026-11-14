@@ -66,6 +66,7 @@ assert.deepEqual(Object.keys(root).sort(), [
   "preload",
   "replacementFor",
   "rulesFor",
+  "sourcesOf",
   "stale",
   "upcoming",
 ]);

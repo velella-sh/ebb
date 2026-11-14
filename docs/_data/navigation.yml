@@ -41,6 +41,8 @@ main:
         url: /result-model/
       - title: Rules and replacements
         url: /rules-for/
+      - title: Evidence sources
+        url: /sources/
       - title: Stale rule review
         url: /stale/
       - title: Batch checking

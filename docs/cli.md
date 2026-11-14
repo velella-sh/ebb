@@ -131,6 +131,21 @@ ebb stale --as-of 2026-11-14
 ebb stale --older-than 90d --json
 ```
 
+### `ebb sources <rule-id>`
+
+Inspects authoritative evidence sources, archive snapshot URLs, health status, and review provenance for a lifecycle rule. See [Evidence Sources](sources-of.md).
+
+```bash
+# Human-readable output
+ebb sources npm.package.request.deprecated
+
+# Markdown formatted summary
+ebb sources npm.package.request.deprecated --format markdown
+
+# JSON output
+ebb sources npm.package.request.deprecated --json
+```
+
 ---
 
 ## Formatting & Output Options

@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { asOf, check, checkAll, replacementFor, rulesFor, stale, upcoming } from "./index.js";
+import { asOf, check, checkAll, replacementFor, rulesFor, sourcesOf, stale, upcoming } from "./index.js";
 import { UpcomingError } from "./upcoming.js";
 import { CheckError } from "./check.js";
 import { checkAllWith, type CheckAllItem } from "./check-all.js";
@@ -16,6 +16,8 @@ import {
   formatReplacementText,
   formatRulesMarkdown,
   formatRulesText,
+  formatSourcesMarkdown,
+  formatSourcesText,
   formatStaleMarkdown,
   formatUpcomingMarkdown,
   formatUpcomingText,
@@ -38,6 +40,7 @@ Usage:
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
   ebb upcoming [options]                     List upcoming end-of-life events
   ebb stale [options]                        List rules whose review window has expired
+  ebb sources <rule-id> [options]            Show evidence sources and review status for a rule
 
 Options:
   --format <text|markdown|json> Output format (default: text)
@@ -512,6 +515,27 @@ export async function runCli(
       }
 
       return result.counts.stale > 0 ? 1 : 0;
+    }
+
+    if (first === "sources" || first === "sources-of") {
+      const ruleId = positionals[1];
+      if (!ruleId) {
+        io.stderr.write("Error: Missing rule id argument. Usage: ebb sources <rule-id>\n");
+        return 2;
+      }
+
+      const asOfArg = typeof values["as-of"] === "string" ? values["as-of"] : undefined;
+      const result = sourcesOf(ruleId, { asOf: asOfArg });
+
+      if (format === "json") {
+        io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatSourcesMarkdown(result));
+      } else {
+        io.stdout.write(formatSourcesText(result, { colors }));
+      }
+
+      return 0;
     }
 
     io.stderr.write(`Error: Unknown command "${first}". Run "ebb --help" for usage.\n`);

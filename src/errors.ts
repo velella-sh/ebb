@@ -7,6 +7,7 @@ export const EBB_ERROR_CODES = [
   "data-update-failed",
   "invalid-date",
   "package-file-not-found",
+  "rule-not-found",
   "internal",
 ] as const;
 export type EbbErrorCode = (typeof EBB_ERROR_CODES)[number];

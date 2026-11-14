@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import type { CheckAllEntry, CheckAllResult, CheckMatch, CheckResult } from "@velella/ebb";
+import { sourcesOf } from "@velella/ebb";
 import { getOffingHint } from "./hint.js";
 
 export interface FormattedMatch extends CheckMatch {
@@ -81,7 +82,17 @@ export function formatCheckResult(result: CheckResult): FormattedCheckResult {
       reviewerNames.add(reviewer);
     }
 
-    for (const source of match.sources) {
+    let matchSources = match.sources;
+    try {
+      const so = sourcesOf(match.ruleId);
+      if (so?.sources && so.sources.length > 0) {
+        matchSources = so.sources as unknown as typeof match.sources;
+      }
+    } catch {
+      // Keep match.sources on error
+    }
+
+    for (const source of matchSources) {
       if (source?.url) {
         sourceUrls.add(source.url);
       }
@@ -89,6 +100,7 @@ export function formatCheckResult(result: CheckResult): FormattedCheckResult {
 
     return {
       ...match,
+      sources: matchSources,
       reviewer,
     };
   });

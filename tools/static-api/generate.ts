@@ -7,6 +7,7 @@ import { purlToApiPath } from "../../src/api.js";
 import { OFFING_HINT_TEXT } from "../../src/hint.js";
 import { parsePurl, purlIdentity } from "../../src/purl.js";
 import type { RegistryV2, RegistryV2Rule } from "../../src/registry.js";
+import { sourcesOf } from "../../src/sources-of.js";
 
 export const API_SCHEMA_VERSION = "ebb.api.v1" as const;
 
@@ -393,6 +394,20 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
   const searchJson = JSON.stringify(searchDoc);
   const searchGzip = gzipSync(Buffer.from(searchJson, "utf8"));
   await writeFile(join(outDir, "search-index.json"), searchJson, "utf8");
+
+  // 9. Generate sources/<rule-id>.json files
+  const sourcesDir = join(outDir, "sources");
+  await mkdir(sourcesDir, { recursive: true });
+  for (const rule of allRules) {
+    const res = sourcesOf(rule.id, { rules: allRules });
+    const ruleSourcesDoc = {
+      schemaVersion: API_SCHEMA_VERSION,
+      version,
+      generatedAt: createdAt,
+      ...res,
+    };
+    await writeFile(join(sourcesDir, `${rule.id}.json`), JSON.stringify(ruleSourcesDoc, null, 2), "utf8");
+  }
 
   return {
     outDir,

@@ -77,6 +77,24 @@
         },
         "required": ["purl"]
       }
+    },
+    {
+      "name": "sources_of",
+      "description": "Look up authoritative evidence sources, archive snapshot URLs, health status, and review provenance for a specific Ebb lifecycle rule.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "string",
+            "description": "ID of the lifecycle rule (e.g. 'nodejs.package.express.deprecated')."
+          },
+          "asOf": {
+            "type": "string",
+            "description": "Optional reference date in YYYY-MM-DD format for time-travel evaluation."
+          }
+        },
+        "required": ["ruleId"]
+      }
     }
   ],
   "resources": [

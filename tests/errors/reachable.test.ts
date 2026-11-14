@@ -13,6 +13,7 @@ import { required } from "../../src/required.js";
 import { findPackageFileSync } from "../../src/package-files.js";
 import { DataUpdateError } from "../../src/data-update.js";
 import { DataPinError } from "../../src/data-source.js";
+import { sourcesOf } from "../../src/sources-of.js";
 
 function catchEbb(fn: () => unknown): EbbError {
   try {
@@ -85,6 +86,13 @@ describe("error codes reachable", () => {
       throw new DataPinError("malformed version string", true);
     });
     assert.equal(err.code, "invalid-data-version");
+    assert(err instanceof EbbError);
+    coveredCodes.add(err.code);
+  });
+
+  it("rule-not-found is reachable", () => {
+    const err = catchEbb(() => sourcesOf("nonexistent-test-rule-id"));
+    assert.equal(err.code, "rule-not-found");
     assert(err instanceof EbbError);
     coveredCodes.add(err.code);
   });

@@ -137,6 +137,14 @@ test("static API generation produces valid files matching JSON schema and size b
     const matchedNames = reqIndices.map((i: number) => searchDoc.items[i].name);
     assert.ok(matchedNames.includes("request"), "Prefix 'req' should match 'request'");
 
+    // Validate sources/<rule-id>.json
+    const ruleSourcesRaw = await readFile(join(tempDir, "sources/npm.package.request.deprecated.json"), "utf8");
+    const ruleSourcesDoc = JSON.parse(ruleSourcesRaw);
+    assert.equal(ruleSourcesDoc.ruleId, "npm.package.request.deprecated");
+    assert.equal(ruleSourcesDoc.schemaVersion, "ebb.api.v1");
+    assert.ok(Array.isArray(ruleSourcesDoc.sources));
+    assert.ok(ruleSourcesDoc.sources.length > 0);
+
     // Verify percent-encoded alias for scoped packages (e.g. %40types)
     const encodedCheck = await readFile(join(tempDir, "npm/@types/form-data.json"), "utf8");
     assert.ok(encodedCheck.length > 0);

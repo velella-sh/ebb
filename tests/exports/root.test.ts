@@ -38,6 +38,7 @@ test("root entry exports only the public functions at runtime", () => {
     "preload",
     "replacementFor",
     "rulesFor",
+    "sourcesOf",
     "stale",
     "upcoming",
   ]);
@@ -79,6 +80,11 @@ test("root exports evaluate components and expose the public types", () => {
 
   const replacement = replacementFor("pkg:npm/node-sass", "9.0.0");
   assert.equal(replacement, "pkg:npm/sass");
+
+  const sources = root.sourcesOf("npm.package.request.deprecated");
+  assert.equal(sources.ruleId, "npm.package.request.deprecated");
+  assert.ok(sources.sources.length > 0);
+  assert.equal(sources.reviewer, "arminazimi");
 
   const scoped = createEbb({ ecosystems: ["npm"] });
   assert.equal(scoped.check("pkg:npm/request", "2.88.2").status, "deprecated");

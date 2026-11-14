@@ -205,6 +205,7 @@ Every item needs both `purl` and `version`. Even when a PURL from CycloneDX or S
 | `"invalid-data-version"` | Active data configuration pins an invalid data version (`EbbError`). |
 | `"invalid-date"` | Query supplied an invalid ISO date (`EbbError`). |
 | `"package-file-not-found"` | Required bundled package file could not be located (`EbbError`). |
+| `"rule-not-found"` | No registered lifecycle rule with the requested id exists (`EbbError`). |
 | `"internal"` | Unexpected internal error encountered while processing the item (`EbbError`). |
 | `"data-unavailable"` | Configured data bundle could not be loaded (`EbbError`). |
 | `"data-unavailable"` | Configured data bundle could not be loaded (`EbbError`). |

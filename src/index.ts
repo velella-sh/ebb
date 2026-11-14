@@ -75,3 +75,11 @@ export {
   type StaleResult,
   stale,
 } from "./stale.js";
+
+export {
+  type SourceEntry,
+  type SourceHealthStatus,
+  type SourcesOfOptions,
+  type SourcesOfResult,
+  sourcesOf,
+} from "./sources-of.js";

@@ -14,6 +14,7 @@ export interface AsOfClient {
     checkAll(items: Iterable<CheckAllItem>): CheckAllResult;
     replacementFor(purl: string, version: string): string | null;
     rulesFor(purl: string, options?: RulesForOptions): Rule[];
+    sourcesOf(ruleId: string): SourcesOfResult;
     upcoming(options?: Omit<UpcomingOptions, "asOf">): UpcomingResult;
 }
 
@@ -185,6 +186,59 @@ export interface RulesForOptions {
 
 // @public
 export type Severity = "info" | "low" | "medium" | "high" | "critical";
+
+// @public (undocumented)
+export interface SourceEntry {
+    readonly accessedAt?: string | undefined;
+    readonly archiveUrl?: string | undefined;
+    readonly health: SourceHealthStatus;
+    readonly status: SourceHealthStatus;
+    readonly title: string;
+    readonly url: string;
+}
+
+// @public (undocumented)
+export type SourceHealthStatus = "ok" | "unreachable" | "changed" | "blocked" | "unrecorded" | "unknown";
+
+// @public
+export function sourcesOf(ruleId: string, options?: SourcesOfOptions): SourcesOfResult;
+
+// @public (undocumented)
+export interface SourcesOfOptions {
+    readonly asOf?: string | undefined;
+    readonly registries?: readonly RegistryV2[] | undefined;
+    readonly rules?: readonly RegistryV2Rule[] | undefined;
+}
+
+// @public (undocumented)
+export interface SourcesOfResult {
+    // (undocumented)
+    readonly deadline?: string | undefined;
+    // (undocumented)
+    readonly ecosystem: string;
+    // (undocumented)
+    readonly event: LifecycleEvent;
+    // (undocumented)
+    readonly observedAt: string;
+    // (undocumented)
+    readonly purl: string;
+    // (undocumented)
+    readonly replacement?: string | undefined;
+    // (undocumented)
+    readonly reviewedAt: string;
+    // (undocumented)
+    readonly reviewer: string;
+    // (undocumented)
+    readonly ruleId: string;
+    // (undocumented)
+    readonly severity: Severity;
+    // (undocumented)
+    readonly sources: readonly SourceEntry[];
+    // (undocumented)
+    readonly summary: string;
+    // (undocumented)
+    readonly title: string;
+}
 
 // @public
 export function stale(options?: StaleOptions): StaleResult;

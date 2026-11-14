@@ -2,6 +2,7 @@ import { upcomingResource } from "./resources/upcoming.js";
 import { checkTool } from "./tools/check.js";
 import { checkAllTool } from "./tools/check_all.js";
 import { replacementForTool } from "./tools/replacement.js";
+import { sourcesTool } from "./tools/sources.js";
 import type {
   JsonRpcNotification,
   JsonRpcRequest,
@@ -42,6 +43,7 @@ export class McpServer {
     this.registerTool(checkTool);
     this.registerTool(checkAllTool);
     this.registerTool(replacementForTool);
+    this.registerTool(sourcesTool);
 
     // Register built-in resources
     this.registerResource(upcomingResource);
