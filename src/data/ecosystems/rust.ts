@@ -24,7 +24,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the toolchain in rust-toolchain(.toml), CI (for example dtolnay/rust-toolchain or rustup), and container images on one supported release.",
@@ -73,7 +79,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep error types, `Display` output, and public error conversions stable for callers of this crate.",
@@ -116,7 +128,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Keep temporary directories cleaned up on drop, as before."],
       steps: [
@@ -158,7 +176,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve how colored or interactive output is chosen when stdout or stderr is not a terminal."],
       steps: [
@@ -197,7 +221,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Keep the same colors and styles in terminal output."],
       steps: [

@@ -144,6 +144,8 @@ test("drafts one form-factor rule per Play targetSdk floor from the recording", 
     observedAt: "2026-10-19",
     reviewedAt: "2026-10-19",
     reviewer: "pending-review",
+    reviewers: ["pending-review"],
+    method: "imported",
     importer: "android-1",
   });
   assert.ok(drafts.notes.some((note) => /x-android\.formFactors/.test(note)));
@@ -166,7 +168,7 @@ test("recorded drafts are additions against an unrelated inline Android registry
         summary: "A stand-in rule so the diff test does not read registry/android.json.",
         severity: "low",
         sources: [{ title: "example", url: "https://example.com/android-unrelated" }],
-        provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "test" },
+        provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "test", method: "manual" },
       },
     ],
   };

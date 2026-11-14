@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-22",
       },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Raising a minimum version in `#Requires -Version` or `PowerShellVersion` stops the script or module from loading on any host that still runs PowerShell 7.3. Confirm every runner, container, and developer machine that executes it can run the target first.",
@@ -94,7 +100,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-22",
       },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Raising a minimum version in `#Requires -Version` or `PowerShellVersion` stops the script or module from loading on any host that still runs PowerShell 7.2. Confirm every runner, container, and developer machine that executes it can run the target first.",
@@ -165,7 +177,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-22",
       },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Raising a minimum version in `#Requires -Version` or `PowerShellVersion` stops the script or module from loading on any host that still runs PowerShell 7.1. Confirm every runner, container, and developer machine that executes it can run the target first.",
@@ -236,7 +254,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-22",
       },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Raising a minimum version in `#Requires -Version` or `PowerShellVersion` stops the script or module from loading on any host that still runs PowerShell 7.0. Confirm every runner, container, and developer machine that executes it can run the target first.",
@@ -307,7 +331,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-22",
       },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Raising a minimum version in `#Requires -Version` or `PowerShellVersion` stops the script or module from loading on any host that still runs PowerShell 6.x. Confirm every runner, container, and developer machine that executes it can run the target first.",
@@ -378,7 +408,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-10",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "shell-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "shell-1",
+    },
     migration: {
       constraints: [
         "Raising a minimum version in `#Requires -Version` or `PowerShellVersion` stops the script or module from loading on any host that still runs PowerShell 7.4. Confirm every runner, container, and developer machine that executes it can run the target first.",
@@ -450,7 +487,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-10",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "shell-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "shell-1",
+    },
     migration: {
       constraints: [
         "Raising a minimum version in `#Requires -Version` or `PowerShellVersion` stops the script or module from loading on any host that still runs PowerShell 7.5. Confirm every runner, container, and developer machine that executes it can run the target first.",

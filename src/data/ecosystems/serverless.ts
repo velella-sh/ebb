@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -72,7 +78,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-29",
       },
     ],
-    provenance: { observedAt: "2026-10-29", reviewedAt: "2026-10-29", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-29",
+      reviewedAt: "2026-10-29",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -121,7 +133,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -170,7 +188,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-29",
       },
     ],
-    provenance: { observedAt: "2026-10-29", reviewedAt: "2026-10-29", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-29",
+      reviewedAt: "2026-10-29",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -219,7 +243,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -268,7 +298,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -317,7 +353,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -367,7 +409,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -417,7 +465,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -467,7 +521,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -517,7 +577,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -567,7 +633,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -617,7 +689,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-07",
       },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -665,7 +743,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -715,7 +799,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -765,7 +855,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -815,7 +911,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -865,7 +967,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -915,7 +1023,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -965,7 +1079,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1015,7 +1135,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1064,7 +1190,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1114,7 +1246,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1164,7 +1302,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1213,7 +1357,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1263,7 +1413,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1313,7 +1469,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1362,7 +1524,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1412,7 +1580,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1461,7 +1635,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1510,7 +1690,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1559,7 +1745,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1608,7 +1800,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1657,7 +1855,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1706,7 +1910,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1755,7 +1965,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1804,7 +2020,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1853,7 +2075,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1902,7 +2130,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -1951,7 +2185,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2000,7 +2240,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2049,7 +2295,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2098,7 +2350,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2147,7 +2405,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2196,7 +2460,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2245,7 +2515,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2294,7 +2570,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2343,7 +2625,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2392,7 +2680,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2441,7 +2735,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2490,7 +2790,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2539,7 +2845,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep provider.runtime, Globals.Function.Runtime, per-function Runtime, and Terraform aws_lambda_function.runtime on one AWS Lambda runtime identifier that AWS still supports.",
@@ -2588,7 +2900,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep Terraform google_cloudfunctions*_function runtime (and any matching deploy config) on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2637,7 +2955,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2687,7 +3011,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2737,7 +3067,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2787,7 +3123,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2837,7 +3179,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2886,7 +3234,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2935,7 +3289,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -2985,7 +3345,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3035,7 +3401,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3085,7 +3457,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3135,7 +3513,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3185,7 +3569,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3235,7 +3625,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3285,7 +3681,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3335,7 +3737,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3385,7 +3793,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3435,7 +3849,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3485,7 +3905,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3535,7 +3961,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3585,7 +4017,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3635,7 +4073,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3684,7 +4128,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3734,7 +4184,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3784,7 +4240,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3834,7 +4296,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3884,7 +4352,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3934,7 +4408,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -3984,7 +4464,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -4034,7 +4520,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -4084,7 +4576,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -4134,7 +4632,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every Terraform google_cloudfunctions*_function runtime on one Google Cloud Functions runtime ID that Google still supports.",
@@ -4184,7 +4688,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4233,7 +4743,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4282,7 +4798,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4331,7 +4853,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4380,7 +4908,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4429,7 +4963,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4478,7 +5018,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4527,7 +5073,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4576,7 +5128,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4625,7 +5183,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4674,7 +5238,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4723,7 +5293,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4772,7 +5348,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4821,7 +5403,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4870,7 +5458,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4919,7 +5513,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -4968,7 +5568,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5017,7 +5623,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5066,7 +5678,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5115,7 +5733,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5164,7 +5788,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5213,7 +5843,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5262,7 +5898,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5311,7 +5953,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5360,7 +6008,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5409,7 +6063,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5458,7 +6118,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5507,7 +6173,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5556,7 +6228,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5605,7 +6283,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5654,7 +6338,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5703,7 +6393,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5752,7 +6448,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5801,7 +6503,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5850,7 +6558,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5899,7 +6613,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the App Engine service runtime on an ID Google still supports; the service must be redeployed as a new version to change it.",
@@ -5948,7 +6668,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6003,7 +6729,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6059,7 +6791,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6115,7 +6853,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6171,7 +6915,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6227,7 +6977,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6283,7 +7039,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "PHP: End-of-Life Versions", url: "https://www.php.net/eol.php", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6339,7 +7101,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "PHP: End-of-Life Versions", url: "https://www.php.net/eol.php", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6395,7 +7163,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "PHP: End-of-Life Versions", url: "https://www.php.net/eol.php", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6455,7 +7229,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6515,7 +7295,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6575,7 +7361,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6635,7 +7427,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6695,7 +7493,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6755,7 +7559,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6811,7 +7621,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Temurin Support", url: "https://adoptium.net/support/", accessedAt: "2026-11-03" },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "App Service follows the community end-of-support date for each language stack and stops providing security patches and related support for that runtime version past the date.",
@@ -6867,7 +7683,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Azure Functions supports only version 4.x of the runtime host; a function app pinned to an earlier major version keeps running but is not eligible for new features, security patches, or service support.",
@@ -6922,7 +7744,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Azure Functions supports only version 4.x of the runtime host; a function app pinned to an earlier major version keeps running but is not eligible for new features, security patches, or service support.",

@@ -61,6 +61,7 @@ describe("sourcesOf", () => {
         observedAt: "2026-11-01",
         reviewedAt: "2026-11-05",
         reviewer: "reviewer-1",
+        method: "manual",
       },
     };
 
@@ -99,6 +100,7 @@ describe("sourcesOf", () => {
         observedAt: "2026-01-01",
         reviewedAt: "2026-01-02",
         reviewer: "archivist",
+        method: "manual",
       },
     };
 
@@ -143,6 +145,7 @@ describe("sourcesOf", () => {
         observedAt: "2026-11-01",
         reviewedAt: "2026-11-01",
         reviewer: "health-checker",
+        method: "manual",
       },
     };
 

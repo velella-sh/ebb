@@ -33,7 +33,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Raising the policy version can change NEW policy behavior; read the policies introduced between the old and new floor before committing.",
@@ -85,7 +91,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Raising the policy version can change NEW policy behavior; read the policies introduced between the old and new floor before committing.",
@@ -131,7 +143,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Update CMake presets, CI matrix generator names, and documented configure commands together so every surface names the same supported generator.",
@@ -177,7 +195,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Confirm the GDAL install that the project uses ships a CONFIG package before dropping FindGDAL.",
@@ -224,7 +248,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the framework search paths and the library names the project already expects when rewriting calls to find_library().",

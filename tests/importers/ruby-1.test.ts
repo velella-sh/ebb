@@ -64,6 +64,8 @@ test("drafts one end-of-life rule per eol release line from the recording", asyn
     observedAt: "2026-10-18",
     reviewedAt: "2026-10-18",
     reviewer: "pending-review",
+    reviewers: ["pending-review"],
+    method: "imported",
     importer: "ruby-1",
   });
   assert.equal(eol32.migration, undefined);

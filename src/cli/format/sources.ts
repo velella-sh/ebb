@@ -20,9 +20,17 @@ export function formatSourcesText(result: SourcesOfResult, options: FormatSource
   if (result.replacement) {
     lines.push(`${c.bold("Replacement:")} ${result.replacement}`);
   }
+  if (result.method) {
+    lines.push(`${c.bold("Method:")} ${result.method}`);
+  }
+  const reviewersText = result.reviewers && result.reviewers.length > 0 ? result.reviewers.join(", ") : result.reviewer;
   lines.push(
-    `${c.bold("Reviewer:")} ${result.reviewer} (reviewed: ${result.reviewedAt}, observed: ${result.observedAt})`,
+    `${c.bold("Reviewer:")} ${reviewersText} (reviewed: ${result.reviewedAt}, observed: ${result.observedAt})`,
   );
+  if (result.importer) {
+    const impVer = result.importerVersion ? ` (${result.importerVersion})` : "";
+    lines.push(`${c.bold("Importer:")} ${result.importer}${impVer}`);
+  }
   lines.push("");
 
   const count = result.sources.length;
@@ -66,9 +74,15 @@ export function formatSourcesMarkdown(result: SourcesOfResult): string {
   if (result.replacement) {
     lines.push(`- **Replacement:** \`${result.replacement}\``);
   }
-  lines.push(
-    `- **Reviewer:** ${result.reviewer} (reviewed: \`${result.reviewedAt}\`, observed: \`${result.observedAt}\`)`,
-  );
+  if (result.method) {
+    lines.push(`- **Method:** \`${result.method}\``);
+  }
+  const reviewersMd = result.reviewers && result.reviewers.length > 0 ? result.reviewers.join(", ") : result.reviewer;
+  lines.push(`- **Reviewer:** ${reviewersMd} (reviewed: \`${result.reviewedAt}\`, observed: \`${result.observedAt}\`)`);
+  if (result.importer) {
+    const impVer = result.importerVersion ? ` (\`${result.importerVersion}\`)` : "";
+    lines.push(`- **Importer:** \`${result.importer}\`${impVer}`);
+  }
   lines.push("");
 
   const count = result.sources.length;

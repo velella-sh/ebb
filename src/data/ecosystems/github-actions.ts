@@ -28,7 +28,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve checkout depth, credentials, submodule, and sparse-checkout behavior configured through action inputs.",
@@ -75,7 +81,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve the selected Node.js version, registry authentication, and dependency-cache behavior."],
       steps: [
@@ -121,7 +133,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve cache keys, restore-key ordering, paths, and cache-hit dependent control flow."],
       steps: [
@@ -166,7 +184,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve artifact names, selected paths, retention settings, and overwrite behavior."],
       steps: [
@@ -211,7 +235,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve artifact selection, download paths, merge behavior, and downstream file locations."],
       steps: [
@@ -257,7 +287,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve the requested Python version, caching, and architecture inputs when upgrading."],
       steps: [
@@ -303,7 +339,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve the requested Go version, module cache, and architecture inputs when upgrading."],
       steps: [
@@ -349,7 +391,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve the JDK distribution, version, build-tool cache, and publishing inputs when upgrading."],
       steps: [
@@ -395,7 +443,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the SDK version, global.json handling, and package-source authentication inputs when upgrading.",
@@ -443,7 +497,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the script, github-token, and result-encoding behavior; check the script against the target release's bundled Octokit.",
@@ -491,7 +551,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the labeler configuration file location, sync-labels behavior, and token permissions when upgrading.",
@@ -539,7 +605,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the stale and close timing, exempt labels, and operations-per-run limits when upgrading.",
@@ -587,7 +659,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve the Pages site configuration and static-site generator inputs when upgrading."],
       steps: [
@@ -633,7 +711,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the artifact name, environment, and the pages and id-token permissions the deployment job needs.",
@@ -681,7 +765,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the app identifier, private key input, owner and repository scoping, and requested permissions when upgrading.",
@@ -729,7 +819,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the welcome messages and the token inputs when upgrading; v3 renamed some inputs, so compare them with the release notes.",
@@ -777,7 +873,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the builder driver, version, and endpoint inputs; Node 24 needs Actions Runner v2.327.1 or later on self-hosted runners.",
@@ -825,7 +927,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the build context, tags, platforms, cache, and push settings; Node 24 needs Actions Runner v2.327.1 or later on self-hosted runners.",
@@ -873,7 +981,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the registry, username, and secret inputs; Node 24 needs Actions Runner v2.327.1 or later on self-hosted runners.",
@@ -921,7 +1035,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the emulated platforms and image inputs; Node 24 needs Actions Runner v2.327.1 or later on self-hosted runners.",
@@ -969,7 +1089,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the images, tags, and labels configuration so published image names do not change; Node 24 needs Actions Runner v2.327.1 or later on self-hosted runners.",
@@ -1017,7 +1143,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the release tag, name, notes, draft and prerelease flags, and the files to upload; the job still needs contents: write.",
@@ -1065,7 +1197,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the Terraform version, CLI configuration credentials, and wrapper setting when upgrading.",
@@ -1113,7 +1251,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the uv version, Python version, and cache inputs; v7 is a breaking release, so read its notes before upgrading self-hosted runners.",
@@ -1161,7 +1305,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "claude-agent" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "claude-agent",
+      reviewers: ["claude-agent"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the bake targets, files, and push settings; Node 24 needs Actions Runner v2.327.1 or later on self-hosted runners.",
@@ -1203,7 +1353,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-05",
       },
     ],
-    provenance: { observedAt: "2026-11-05", reviewedAt: "2026-11-05", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-05",
+      reviewedAt: "2026-11-05",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Use environment files with a runner version supporting them. Multiline values require delimiter syntax.",
@@ -1239,7 +1395,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-05",
       },
     ],
-    provenance: { observedAt: "2026-11-05", reviewedAt: "2026-11-05", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-05",
+      reviewedAt: "2026-11-05",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Use environment files with a runner version supporting them. Multiline values require delimiter syntax.",
@@ -1274,7 +1436,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-05",
       },
     ],
-    provenance: { observedAt: "2026-11-05", reviewedAt: "2026-11-05", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-05",
+      reviewedAt: "2026-11-05",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Use environment files with a runner version supporting them. Multiline values require delimiter syntax.",
@@ -1310,7 +1478,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-05",
       },
     ],
-    provenance: { observedAt: "2026-11-05", reviewedAt: "2026-11-05", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-05",
+      reviewedAt: "2026-11-05",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Use environment files with a runner version supporting them. Multiline values require delimiter syntax.",

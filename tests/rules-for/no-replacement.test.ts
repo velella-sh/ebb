@@ -118,7 +118,7 @@ test("replacementFor returns null without throwing for unmatched versions, unkno
     summary: "Synthetic rule deliberately omitting replacement.",
     severity: "medium",
     sources: [{ title: "fixture", url: "https://example.com/no-repl", accessedAt: "2099-01-15" }],
-    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test" },
+    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test", method: "manual" },
     "x-npm": { package: "ebb-no-repl-probe" },
   });
 

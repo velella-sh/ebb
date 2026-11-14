@@ -30,7 +30,7 @@ function rule(id: string, extra: Record<string, unknown> = {}): RegistryV2Rule {
     severity: "high",
     deadline: "2025-02-11",
     sources: [{ title: `${id} source`, url: `https://example.com/${id}` }],
-    provenance: { observedAt: "2026-10-01", reviewer: "pending-review" },
+    provenance: { observedAt: "2026-10-01", reviewer: "pending-review", method: "manual" },
     ...extra,
   } as RegistryV2Rule;
 }

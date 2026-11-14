@@ -20,7 +20,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -73,7 +79,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -126,7 +138,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -179,7 +197,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -232,7 +256,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -285,7 +315,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -338,7 +374,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -391,7 +433,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -444,7 +492,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -497,7 +551,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -550,7 +610,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -603,7 +669,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -656,7 +728,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -709,7 +787,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
       { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep environment.sdk in pubspec.yaml, the sdks block in pubspec.lock, the Flutter version pinned in .fvmrc, and the SDK used in CI on one supported release.",
@@ -772,7 +856,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "dart-1" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dart-1",
+    },
     migration: {
       constraints: [
         "analysis_server_client wraps the analysis_server protocol, so replacing it changes the call sites and not only the dependency entry: migrate the pubspec declaration and the Dart code that imports the package together.",

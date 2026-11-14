@@ -22,7 +22,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-13",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve request method, headers, authentication, redirects, timeouts, retries, proxy behavior, streaming, and response/error semantics used by each call site.",
@@ -91,7 +97,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve Sass include paths, importer behavior, output style, source maps, and generated CSS expected by the build.",
@@ -147,7 +159,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-13",
       },
     ],
-    provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-13",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve target width, fill-string behavior, string coercion, and handling of values already wider than the requested length.",
@@ -206,6 +224,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -261,6 +281,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -314,6 +336,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -369,6 +393,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -428,6 +454,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -480,6 +508,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -537,6 +567,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -590,6 +622,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -638,6 +672,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -694,6 +730,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -754,6 +792,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -813,6 +853,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -871,6 +913,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -932,6 +976,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -987,6 +1033,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1044,6 +1092,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1102,6 +1152,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1166,6 +1218,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1230,6 +1284,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1289,6 +1345,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1342,6 +1400,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1399,6 +1459,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1445,6 +1507,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1494,6 +1558,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1543,6 +1609,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1597,6 +1665,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1648,6 +1718,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1699,6 +1771,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1742,6 +1816,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1802,6 +1878,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1856,6 +1934,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1909,6 +1989,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -1959,6 +2041,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2008,6 +2092,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2054,6 +2140,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2108,6 +2196,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2162,6 +2252,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2215,6 +2307,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2268,6 +2362,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2323,6 +2419,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2378,6 +2476,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2429,6 +2529,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-10-17",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2485,6 +2587,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-10-17",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2541,6 +2645,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-10-17",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2593,6 +2699,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2662,6 +2770,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2718,6 +2828,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2774,6 +2886,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2829,6 +2943,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2889,6 +3005,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -2957,6 +3075,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3019,6 +3139,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3079,6 +3201,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3136,6 +3260,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3188,6 +3314,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3245,6 +3373,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3302,6 +3432,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3355,6 +3487,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3411,6 +3545,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3468,6 +3604,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3524,6 +3662,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3580,6 +3720,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3640,6 +3782,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3700,6 +3844,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3757,6 +3903,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3817,6 +3965,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3874,6 +4024,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -3934,6 +4086,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-19",
       reviewedAt: "2026-10-19",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "npm-deprecated",
     },
     migration: {
@@ -4000,7 +4154,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the routes, rendering modes, data fetching, and public behavior of the application; change only what each official upgrade guide requires.",
@@ -4077,7 +4237,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the routes, rendering modes, data fetching, and public behavior of the application; change only what each official upgrade guide requires.",
@@ -4149,7 +4315,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the routes, rendering modes, data fetching, and public behavior of the application; change only what each official upgrade guide requires.",
@@ -4216,7 +4388,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-25",
       },
     ],
-    provenance: { observedAt: "2026-10-25", reviewedAt: "2026-10-25", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-25",
+      reviewedAt: "2026-10-25",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the routes, rendering modes, data fetching, and public behavior of the application; change only what the Next.js 16 upgrade guide requires.",
@@ -4295,7 +4473,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-23",
       },
     ],
-    provenance: { observedAt: "2026-10-23", reviewedAt: "2026-10-23", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-23",
+      reviewedAt: "2026-10-23",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the application's JavaScript behavior and its Android and iOS native customizations while applying the official template changes.",
@@ -4381,7 +4565,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the behavior the application depends on, and check each Vue 2 behavior listed in the Vue 3 breaking changes against the reported files.",
@@ -4451,7 +4641,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-24" },
     ],
-    provenance: { observedAt: "2026-10-24", reviewedAt: "2026-10-24", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-24",
+      reviewedAt: "2026-10-24",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Update one major at a time. Each target major must be supported when you run ng update.",
@@ -4505,7 +4701,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-24" },
     ],
-    provenance: { observedAt: "2026-10-24", reviewedAt: "2026-10-24", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-24",
+      reviewedAt: "2026-10-24",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Update one major at a time. Each target major must be supported when you run ng update.",
@@ -4559,7 +4761,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Update one major at a time. Each target major must be supported when you run ng update.",
@@ -4619,7 +4827,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Update one major at a time. ng update accepts only a supported target major, and v20 is the only one-major target from v19.",
@@ -4679,7 +4893,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-21" },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "ng update accepts only a supported target major, and v19 is no longer supported, so no single ng update step from v18 or older reaches a supported major.",

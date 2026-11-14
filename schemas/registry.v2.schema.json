@@ -85,13 +85,20 @@
         },
         "provenance": {
           "type": "object",
-          "required": ["observedAt", "reviewedAt", "reviewer"],
+          "required": ["observedAt", "reviewedAt", "reviewer", "method"],
           "additionalProperties": false,
           "properties": {
             "observedAt": { "$ref": "#/$defs/date" },
             "reviewedAt": { "$ref": "#/$defs/date" },
             "reviewer": { "$ref": "#/$defs/nonEmpty" },
-            "importer": { "$ref": "#/$defs/nonEmpty" }
+            "reviewers": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/nonEmpty" }
+            },
+            "method": { "enum": ["manual", "imported", "upstream"] },
+            "importer": { "$ref": "#/$defs/nonEmpty" },
+            "importerVersion": { "$ref": "#/$defs/nonEmpty" }
           }
         },
         "migration": { "$ref": "#/$defs/migration" },

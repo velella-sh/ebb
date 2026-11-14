@@ -22,7 +22,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the JDK in the build files, the version pin files, CI, and container images on one supported release; a long-term-support release avoids repeating this migration every six months.",
@@ -76,7 +82,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Eclipse Temurin support", url: "https://adoptium.net/support/", accessedAt: "2026-10-17" },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the JDK in the build files, the version pin files, CI, and container images on one supported release; a long-term-support release avoids repeating this migration every six months.",
@@ -130,7 +142,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Eclipse Temurin support", url: "https://adoptium.net/support/", accessedAt: "2026-10-17" },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the JDK in the build files, the version pin files, CI, and container images on one supported release; a long-term-support release avoids repeating this migration every six months.",
@@ -184,7 +202,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Eclipse Temurin support", url: "https://adoptium.net/support/", accessedAt: "2026-10-17" },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the JDK in the build files, the version pin files, CI, and container images on one supported release; a long-term-support release avoids repeating this migration every six months.",
@@ -238,7 +262,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Eclipse Temurin support", url: "https://adoptium.net/support/", accessedAt: "2026-10-17" },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the JDK in the build files, the version pin files, CI, and container images on one supported release; a long-term-support release avoids repeating this migration every six months.",
@@ -291,7 +321,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi", importer: "java-2" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "java-2",
+    },
     usage: [
       { kind: "import", language: "java", module: "com.mysql" },
       { kind: "import", language: "kotlin", module: "com.mysql" },
@@ -346,7 +383,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi", importer: "java-2" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "java-2",
+    },
     usage: [
       { kind: "import", language: "java", module: "org.apache.log4j" },
       { kind: "import", language: "kotlin", module: "org.apache.log4j" },
@@ -403,7 +447,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi", importer: "java-2" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "java-2",
+    },
     migration: {
       constraints: [
         "Replace org.hibernate:hibernate-entitymanager with org.hibernate.orm:hibernate-entitymanager; the relocation in the artifact's POM names the new coordinates, so keep the version unless you intend to upgrade it.",
@@ -455,7 +506,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-25",
       },
     ],
-    provenance: { observedAt: "2026-10-25", reviewedAt: "2026-10-25", reviewer: "Aaqibhafeezkhan" },
+    provenance: {
+      observedAt: "2026-10-25",
+      reviewedAt: "2026-10-25",
+      reviewer: "Aaqibhafeezkhan",
+      reviewers: ["Aaqibhafeezkhan"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "This finding describes open-source support, not whether a commercial support contract exists.",
@@ -507,7 +564,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-25",
       },
     ],
-    provenance: { observedAt: "2026-10-25", reviewedAt: "2026-10-25", reviewer: "Aaqibhafeezkhan" },
+    provenance: {
+      observedAt: "2026-10-25",
+      reviewedAt: "2026-10-25",
+      reviewer: "Aaqibhafeezkhan",
+      reviewers: ["Aaqibhafeezkhan"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Spring Boot 2.7's extended commercial support does not mean the 2.x line remains in community open-source support.",
@@ -569,7 +632,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-25",
       },
     ],
-    provenance: { observedAt: "2026-10-25", reviewedAt: "2026-10-25", reviewer: "Aaqibhafeezkhan" },
+    provenance: {
+      observedAt: "2026-10-25",
+      reviewedAt: "2026-10-25",
+      reviewer: "Aaqibhafeezkhan",
+      reviewers: ["Aaqibhafeezkhan"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Spring Boot 4 requires Java 17 or later; verify the selected build tool and all third-party starters support the target line.",

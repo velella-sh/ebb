@@ -24,7 +24,7 @@ function sampleForecast() {
       severity: "high",
       deadline: "2026-04-11",
       sources: [{ title: "s", url: "https://example.com/soon", accessedAt: "2026-01-01" }],
-      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
     },
     {
       id: "rule.soon.duplicate-title",
@@ -37,7 +37,7 @@ function sampleForecast() {
       severity: "medium",
       deadline: "2026-06-01",
       sources: [{ title: "s", url: "https://example.com/soon2", accessedAt: "2026-01-01" }],
-      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
     },
     {
       id: "rule.medium",
@@ -50,7 +50,7 @@ function sampleForecast() {
       severity: "medium",
       deadline: "2026-06-01",
       sources: [{ title: "s", url: "https://example.com/node", accessedAt: "2026-01-01" }],
-      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
     },
     {
       id: "rule.far",
@@ -63,7 +63,7 @@ function sampleForecast() {
       severity: "low",
       deadline: "2027-04-01",
       sources: [{ title: "s", url: "https://example.com/py", accessedAt: "2026-01-01" }],
-      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
     },
   ];
   return buildForecast(

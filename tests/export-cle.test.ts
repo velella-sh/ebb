@@ -17,7 +17,7 @@ function rule(overrides: Partial<RegistryV2Rule>): RegistryV2Rule {
     severity: "high",
     deadline: "2025-01-01",
     sources: [{ title: "s", url: "https://example.com/a", accessedAt: "2025-01-01" }],
-    provenance: { observedAt: "2025-01-01", reviewedAt: "2025-01-02", reviewer: "test" },
+    provenance: { observedAt: "2025-01-01", reviewedAt: "2025-01-02", reviewer: "test", method: "manual" },
     ...overrides,
   };
 }
@@ -36,14 +36,14 @@ test("exportCle groups dated component support/life rules, sorts newest-first, a
       id: "z.eol",
       purl: "pkg:npm/z",
       event: "end-of-life",
-      provenance: { observedAt: "2025-03-01", reviewedAt: "2025-04-01", reviewer: "test" },
+      provenance: { observedAt: "2025-03-01", reviewedAt: "2025-04-01", reviewer: "test", method: "manual" },
     }),
     rule({
       id: "a.eos",
       purl: "pkg:npm/a",
       event: "end-of-support",
       deadline: "2025-06-01",
-      provenance: { observedAt: "2025-01-01", reviewedAt: "2025-05-01", reviewer: "test" },
+      provenance: { observedAt: "2025-01-01", reviewedAt: "2025-05-01", reviewer: "test", method: "manual" },
     }),
     rule({
       id: "a.sched",
@@ -51,7 +51,7 @@ test("exportCle groups dated component support/life rules, sorts newest-first, a
       event: "scheduled-end-of-life",
       deadline: "2027-01-01",
       severity: "low",
-      provenance: { observedAt: "2025-02-01", reviewedAt: "2025-02-01", reviewer: "test" },
+      provenance: { observedAt: "2025-02-01", reviewedAt: "2025-02-01", reviewer: "test", method: "manual" },
     }),
   ]);
 

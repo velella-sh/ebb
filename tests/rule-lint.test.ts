@@ -29,7 +29,7 @@ function validRule(id = "npm.package.sample.deprecated"): Record<string, unknown
     summary: "The package is deprecated and no new changes are expected.",
     severity: "high",
     sources: [{ title: "Sample notice", url: "https://example.com/sample", accessedAt: "2026-10-01" }],
-    provenance: { observedAt: "2026-10-01", reviewedAt: "2026-10-02", reviewer: "tester" },
+    provenance: { observedAt: "2026-10-01", reviewedAt: "2026-10-02", reviewer: "tester", method: "manual" },
     "x-npm": { package: "sample-package" },
   };
 }

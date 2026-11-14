@@ -52,6 +52,8 @@ test("drafts one end-of-life rule per ended release line from the recording", as
     observedAt: "2026-10-19",
     reviewedAt: "2026-10-19",
     reviewer: "pending-review",
+    reviewers: ["pending-review"],
+    method: "imported",
     importer: "php-1",
   });
   assert.equal(eol81.migration, undefined);

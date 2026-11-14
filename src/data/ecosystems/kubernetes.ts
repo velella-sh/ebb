@@ -28,7 +28,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep routing behavior unchanged: the same hosts, paths, and backends.",
@@ -98,7 +104,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep routing behavior unchanged: the same hosts, paths, and backends.",
@@ -168,7 +180,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the schedule, job template, and concurrency and history settings unchanged.",
@@ -230,7 +248,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "PodSecurityPolicy has no drop-in replacement: the admission controller was removed together with the API, so the policy must be re-expressed.",
@@ -290,7 +314,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the scaling targets and the min and max replica counts unchanged.",
@@ -352,7 +382,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -421,7 +457,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -490,7 +532,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -559,7 +607,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -629,7 +683,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -699,7 +759,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -769,7 +835,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -839,7 +911,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -909,7 +987,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -979,7 +1063,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1049,7 +1139,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1118,7 +1214,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1187,7 +1289,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1256,7 +1364,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1325,7 +1439,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1394,7 +1514,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1463,7 +1589,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1532,7 +1664,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1601,7 +1739,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1670,7 +1814,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1739,7 +1889,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1809,7 +1965,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1879,7 +2041,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -1949,7 +2117,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2019,7 +2193,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2089,7 +2269,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2158,7 +2344,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2227,7 +2419,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2296,7 +2494,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2365,7 +2569,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2434,7 +2644,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2503,7 +2719,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2572,7 +2794,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2641,7 +2869,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2710,7 +2944,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2779,7 +3019,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2848,7 +3094,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2917,7 +3169,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -2986,7 +3244,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -3055,7 +3319,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -3124,7 +3394,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -3192,7 +3468,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -3260,7 +3542,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -3329,7 +3617,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -3397,7 +3691,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the resource's behavior unchanged: the same name, namespace, labels, and spec semantics.",
@@ -3467,7 +3767,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Replace only Chart.yaml dependencies whose repository is the retired stable URL (https://charts.helm.sh/stable or https://kubernetes-charts.storage.googleapis.com).",
@@ -3525,7 +3831,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Replace only Chart.yaml dependencies whose repository is the retired incubator URL (https://charts.helm.sh/incubator or https://kubernetes-charts-incubator.storage.googleapis.com).",
@@ -3578,6 +3890,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-11-01",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -3633,6 +3947,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-11-01",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -3688,6 +4004,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-11-07",
       reviewedAt: "2026-11-07",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -3743,6 +4061,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-11-01",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -3798,6 +4118,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-11-01",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -3853,6 +4175,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-11-01",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -3908,6 +4232,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-11-01",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -3963,6 +4289,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-11-01",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "kubernetes-2",
     },
     migration: {
@@ -4013,7 +4341,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-11-01" },
     ],
-    provenance: { observedAt: "2026-11-01", reviewedAt: "2026-11-01", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-01",
+      reviewedAt: "2026-11-01",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Upstream Kubernetes maintains the three most recent minor releases, about twelve months of patch support each; managed providers (EKS, GKE, AKS) retire minors on their own calendars, often sooner.",
@@ -4072,7 +4406,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -4131,7 +4471,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -4190,7 +4536,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -4249,7 +4601,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -4307,7 +4665,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -4360,7 +4724,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -4422,7 +4792,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -4484,7 +4860,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -4546,7 +4928,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -4608,7 +4996,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -4670,7 +5064,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -4732,7 +5132,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -4794,7 +5200,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes before applying the next one.",
@@ -4860,7 +5272,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes before applying the next one.",
@@ -4926,7 +5344,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes before applying the next one.",
@@ -4992,7 +5416,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes before applying the next one.",
@@ -5058,7 +5488,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes before applying the next one.",
@@ -5124,7 +5560,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes before applying the next one.",
@@ -5189,7 +5631,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-03",
       },
     ],
-    provenance: { observedAt: "2026-11-03", reviewedAt: "2026-11-03", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-03",
+      reviewedAt: "2026-11-03",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Amazon EKS upgrades one minor version at a time, so cross each intervening minor version and read its upgrade notes before applying the next one.",

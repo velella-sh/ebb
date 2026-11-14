@@ -28,7 +28,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-10",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-10", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-10",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -91,7 +97,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-10",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-10", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-10",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -154,7 +166,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -216,7 +234,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -278,7 +302,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -340,7 +370,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -402,7 +438,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-1" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-1",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -464,7 +507,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-1" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-1",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -526,7 +576,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-1" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-1",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -588,7 +645,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-1" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-1",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -650,7 +714,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-1" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-1",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -712,7 +783,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-1" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-1",
+    },
     migration: {
       constraints: [
         "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
@@ -780,7 +858,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the data format and the blob, queue, and table names the same; only the client library changes.",
@@ -850,7 +934,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-2" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-2",
+    },
     migration: {
       constraints: [
         "Keep the account, database, and container names and the stored documents the same; only the client library changes.",
@@ -899,7 +990,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-2" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-2",
+    },
     migration: {
       constraints: [
         "Keep the namespace, queue, topic, and subscription names the same; only the client library changes.",
@@ -958,7 +1056,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi", importer: "dotnet-2" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "dotnet-2",
+    },
     migration: {
       constraints: [
         "Keep the container and blob names and the stored data the same; only the client library changes.",

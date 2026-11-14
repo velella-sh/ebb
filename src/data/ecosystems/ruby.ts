@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-18",
       },
     ],
-    provenance: { observedAt: "2026-10-18", reviewedAt: "2026-10-18", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-18",
+      reviewedAt: "2026-10-18",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -71,7 +77,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-18",
       },
     ],
-    provenance: { observedAt: "2026-10-18", reviewedAt: "2026-10-18", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-18",
+      reviewedAt: "2026-10-18",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -119,7 +131,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-18",
       },
     ],
-    provenance: { observedAt: "2026-10-18", reviewedAt: "2026-10-18", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-18",
+      reviewedAt: "2026-10-18",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -167,7 +185,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-18",
       },
     ],
-    provenance: { observedAt: "2026-10-18", reviewedAt: "2026-10-18", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-18",
+      reviewedAt: "2026-10-18",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -215,7 +239,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -263,7 +293,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -311,7 +347,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -359,7 +401,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -407,7 +455,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -455,7 +509,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -503,7 +563,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -551,7 +617,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .ruby-version, .tool-versions, the Gemfile ruby directive, Gemfile.lock RUBY VERSION, gemspec required_ruby_version, CI matrices, and container images on one supported Ruby branch.",
@@ -609,7 +681,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-23",
       },
     ],
-    provenance: { observedAt: "2026-10-23", reviewedAt: "2026-10-23", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-23",
+      reviewedAt: "2026-10-23",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve application behavior and public interfaces while applying the official Rails 8.0 and 8.1 upgrade sections in order.",
@@ -673,7 +751,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-23",
       },
     ],
-    provenance: { observedAt: "2026-10-23", reviewedAt: "2026-10-23", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-23",
+      reviewedAt: "2026-10-23",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve application behavior and public interfaces while applying the official Rails 8.1 upgrade section.",
@@ -727,7 +811,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-18",
       },
     ],
-    provenance: { observedAt: "2026-10-18", reviewedAt: "2026-10-18", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-18",
+      reviewedAt: "2026-10-18",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the Gemfile requirement, Gemfile.lock resolved version, and gemspec constraint on a published json release.",

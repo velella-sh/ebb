@@ -26,7 +26,11 @@
       "provenance": {
         "observedAt": "2026-10-16",
         "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -84,7 +88,11 @@
       "provenance": {
         "observedAt": "2026-10-16",
         "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -142,7 +150,11 @@
       "provenance": {
         "observedAt": "2026-10-16",
         "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -200,7 +212,11 @@
       "provenance": {
         "observedAt": "2026-10-16",
         "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -258,7 +274,11 @@
       "provenance": {
         "observedAt": "2026-10-16",
         "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -316,7 +336,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -378,7 +402,11 @@
       "provenance": {
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -436,7 +464,11 @@
       "provenance": {
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -493,7 +525,11 @@
       "provenance": {
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -551,7 +587,11 @@
       "provenance": {
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -609,7 +649,11 @@
       "provenance": {
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -666,7 +710,11 @@
       "provenance": {
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [

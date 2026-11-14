@@ -78,6 +78,8 @@ test("the runner stamps provenance that marks every draft as unreviewed", async 
     observedAt: "2026-10-15",
     reviewedAt: "2026-10-15",
     reviewer: PENDING_REVIEWER,
+    reviewers: [PENDING_REVIEWER],
+    method: "imported",
     importer: "test-importer",
   });
   assert.deepEqual(result.rules[0]!.sources[0]!.accessedAt, "2026-10-15");
@@ -136,7 +138,7 @@ test("the runner rejects importers that set provenance, return invalid rules, or
     importerReturning([
       {
         ...draft("npm.package.a.deprecated"),
-        provenance: { observedAt: "2020-01-01", reviewedAt: "2020-01-01", reviewer: "me" },
+        provenance: { observedAt: "2020-01-01", reviewedAt: "2020-01-01", reviewer: "me", method: "manual" },
       } as unknown as DraftRule,
     ]),
     /must not set provenance/,
@@ -237,7 +239,7 @@ test("no bundled rule is waiting for review", async () => {
   )) {
     const registry = JSON.parse(await readFile(resolve("registry", name), "utf8")) as {
       schemaVersion?: string;
-      rules?: { id: string; provenance: { reviewer: string } }[];
+      rules?: { id: string; provenance: { reviewer: string; method: "manual" } }[];
     };
     if (registry.schemaVersion !== "ebb.registry.v2") continue;
     for (const rule of registry.rules ?? [])

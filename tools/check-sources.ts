@@ -9,12 +9,17 @@
 // It never edits rules. Only `--update-lock`, run by a maintainer, writes the lock file.
 // Scans never use this tool or the network.
 
+import { execFile } from "node:child_process";
+import { createHash } from "node:crypto";
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { promisify } from "node:util";
+
+const execFileAsync = promisify(execFile);
 
 import { REGISTRY_V2_SCHEMA_VERSION, staleRules, validateRegistryV2 } from "../src/registry.js";
-import type { RegistryV2, StaleRule } from "../src/registry.js";
+import type { RegistryV2, RegistryV2Rule, StaleRule } from "../src/registry.js";
 
 export const SOURCE_CHECK_SCHEMA = "ebb.source-check.v1" as const;
 export const SOURCE_LOCK_SCHEMA = "ebb.source-lock.v1" as const;
@@ -25,12 +30,16 @@ export interface SourceObservation {
   finalUrl: string | null;
   title: string | null;
   error?: string;
+  redirected?: boolean;
+  contentSnippet?: string;
 }
 
 export interface LockEntry {
   finalUrl: string;
   title: string | null;
   checkedAt: string;
+  status?: "ok" | "unreachable" | "changed" | "blocked" | "unrecorded";
+  archiveUrl?: string;
 }
 
 export interface SourceLock {
@@ -38,7 +47,7 @@ export interface SourceLock {
   sources: Record<string, LockEntry>;
 }
 
-export type ChangeReason = "final-url" | "title";
+export type ChangeReason = "final-url" | "title" | "redirect" | "version-missing";
 
 export interface SourceReport {
   schemaVersion: typeof SOURCE_CHECK_SCHEMA;
@@ -108,11 +117,25 @@ async function inBatches<T, R>(items: readonly T[], size: number, work: (item: T
   return results;
 }
 
+export function extractRuleVersionTokens(rule: RegistryV2Rule): string[] {
+  const tokens = new Set<string>();
+  const matches = rule.vers.match(/\b\d+(?:\.\d+)+\b/g);
+  if (matches) {
+    for (const m of matches) {
+      tokens.add(m);
+      const major = m.split(".")[0];
+      if (major && Number(major) >= 10) tokens.add(major);
+    }
+  }
+  return [...tokens];
+}
+
 /** Runs every check. `observe` is injected so tests never touch the network. */
 export async function checkSources(
   input: CheckInput,
 ): Promise<{ report: SourceReport; observations: Map<string, SourceObservation> }> {
   const rulesByUrl = new Map<string, Set<string>>();
+  const rulesListByUrl = new Map<string, RegistryV2Rule[]>();
   let ruleCount = 0;
   const stale: SourceReport["stale"] = [];
   const duePromotion: SourceReport["duePromotion"] = [];
@@ -126,6 +149,8 @@ export async function checkSources(
       for (const source of rule.sources) {
         if (!rulesByUrl.has(source.url)) rulesByUrl.set(source.url, new Set());
         rulesByUrl.get(source.url)!.add(rule.id);
+        if (!rulesListByUrl.has(source.url)) rulesListByUrl.set(source.url, []);
+        rulesListByUrl.get(source.url)!.push(rule);
       }
     }
   }
@@ -169,6 +194,26 @@ export async function checkSources(
     const reasons: ChangeReason[] = [];
     if (normalizeUrl(recorded.finalUrl) !== normalizeUrl(observation.finalUrl)) reasons.push("final-url");
     if (normalizeText(recorded.title) !== normalizeText(observation.title)) reasons.push("title");
+    if (
+      observation.redirected &&
+      (new URL(url).pathname !== new URL(observation.finalUrl).pathname ||
+        new URL(url).hostname !== new URL(observation.finalUrl).hostname) &&
+      !reasons.includes("final-url")
+    ) {
+      reasons.push("redirect");
+    }
+    if (observation.contentSnippet) {
+      const associatedRules = rulesListByUrl.get(url) ?? [];
+      const versionTokens = associatedRules.flatMap(extractRuleVersionTokens);
+      if (versionTokens.length > 0) {
+        const fullText = `${observation.title ?? ""} ${observation.contentSnippet}`.toLowerCase();
+        const hasMention = versionTokens.some((tok) => fullText.includes(tok.toLowerCase()));
+        if (!hasMention) {
+          reasons.push("version-missing");
+        }
+      }
+    }
+
     if (reasons.length > 0) {
       report.changed.push({
         url,
@@ -185,9 +230,15 @@ export async function checkSources(
 }
 
 /** The lock after a maintainer accepts what was observed: reachable pages are recorded, failures and challenge pages keep their old entry. */
-export function updatedLock(lock: SourceLock, observations: Map<string, SourceObservation>, now: Date): SourceLock {
+export function updatedLock(
+  lock: SourceLock,
+  observations: Map<string, SourceObservation>,
+  now: Date,
+  report?: SourceReport,
+): SourceLock {
   const sources: Record<string, LockEntry> = {};
   for (const [url, observation] of [...observations].sort(([a], [b]) => a.localeCompare(b))) {
+    const existing = lock.sources[url];
     if (
       !isBotChallenge(observation) &&
       observation.status !== null &&
@@ -195,13 +246,18 @@ export function updatedLock(lock: SourceLock, observations: Map<string, SourceOb
       observation.status < 300 &&
       observation.finalUrl
     ) {
+      const isChanged = report?.changed.some((c) => c.url === url);
       sources[url] = {
         finalUrl: observation.finalUrl,
         title: observation.title,
         checkedAt: now.toISOString().slice(0, 10),
+        ...(existing?.status !== undefined || report !== undefined
+          ? { status: isChanged ? "changed" : (existing?.status ?? "ok") }
+          : {}),
+        ...(existing?.archiveUrl ? { archiveUrl: existing.archiveUrl } : {}),
       };
-    } else if (lock.sources[url]) {
-      sources[url] = lock.sources[url]!;
+    } else if (existing) {
+      sources[url] = existing;
     }
   }
   return { schemaVersion: SOURCE_LOCK_SCHEMA, sources };
@@ -276,10 +332,16 @@ export function renderSummary(report: SourceReport): string {
 
 const TITLE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 
-/** Fetches one page, retrying once, and reads only the start of the body. */
-export async function fetchObservation(url: string, timeoutMs = 15_000): Promise<SourceObservation> {
+/** Fetches one page, retrying on 429/5xx with backoff, and reads the start of the body. */
+export async function fetchObservation(
+  url: string,
+  timeoutMs = 15_000,
+  maxRetries = 2,
+  sleepFn: (ms: number) => Promise<void> = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+  includeSnippet = false,
+): Promise<SourceObservation> {
   let last: SourceObservation = { status: null, finalUrl: null, title: null, error: "not attempted" };
-  for (let attempt = 0; attempt < 2; attempt++) {
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
     try {
       const response = await fetch(url, {
         redirect: "follow",
@@ -291,6 +353,10 @@ export async function fetchObservation(url: string, timeoutMs = 15_000): Promise
         },
         signal: AbortSignal.timeout(timeoutMs),
       });
+
+      const finalUrl = response.url || url;
+      const redirected = response.redirected || normalizeUrl(url) !== normalizeUrl(finalUrl);
+
       let head = "";
       const reader = response.body?.getReader();
       if (reader) {
@@ -299,18 +365,173 @@ export async function fetchObservation(url: string, timeoutMs = 15_000): Promise
           const { done, value } = await reader.read();
           if (done) break;
           head += decoder.decode(value, { stream: true });
-          if (TITLE.test(head)) break;
+          if (TITLE.test(head) && !includeSnippet) break;
         }
         await reader.cancel().catch(() => undefined);
       }
       const title = TITLE.exec(head)?.[1]?.replace(/\s+/g, " ").trim() ?? null;
-      last = { status: response.status, finalUrl: response.url || url, title };
-      if (response.status < 500 && response.status !== 429) return last;
+      last = {
+        status: response.status,
+        finalUrl,
+        title,
+        ...(includeSnippet && redirected ? { redirected: true } : {}),
+        ...(includeSnippet && head ? { contentSnippet: head } : {}),
+      };
+
+      if (response.status === 429 || response.status === 503 || response.status >= 500) {
+        if (attempt < maxRetries - 1) {
+          let retryDelayMs = Math.min(500 * Math.pow(2, attempt), 4000);
+          const retryAfter = response.headers.get("retry-after");
+          if (retryAfter) {
+            const parsedSeconds = Number(retryAfter);
+            if (!Number.isNaN(parsedSeconds) && parsedSeconds > 0) {
+              retryDelayMs = Math.min(parsedSeconds * 1000, 10_000);
+            }
+          }
+          await sleepFn(retryDelayMs);
+          continue;
+        }
+      }
+
+      return last;
     } catch (error) {
       last = { status: null, finalUrl: null, title: null, error: (error as Error).message.slice(0, 120) };
+      if (attempt < maxRetries - 1) {
+        await sleepFn(Math.min(500 * Math.pow(2, attempt), 2000));
+      }
     }
   }
   return last;
+}
+
+export const DEAD_SOURCE_MARKER_PREFIX = "<!-- ebb-dead-source:";
+export const DEAD_SOURCE_LABELS = ["good first issue", "help wanted", "area: data", "type: task", "lane: free-agent"];
+
+export interface DeadSourceIssue {
+  url: string;
+  ruleIds: string[];
+  reason: string;
+  title: string;
+  body: string;
+  labels: string[];
+}
+
+export function formatDeadSourceMarker(url: string): string {
+  const hash = createHash("sha256").update(url).digest("hex").slice(0, 16);
+  return `${DEAD_SOURCE_MARKER_PREFIX} ${hash} -->`;
+}
+
+export function extractDeadSourceHash(body: string): string | null {
+  const match = body.match(/<!--\s*ebb-dead-source:\s*([a-f0-9]+)\s*-->/);
+  return match ? match[1]! : null;
+}
+
+export function renderDeadSourceIssue(entry: { url: string; reason: string; ruleIds: string[] }): DeadSourceIssue {
+  const marker = formatDeadSourceMarker(entry.url);
+  const primaryRule = entry.ruleIds[0] ?? "rule";
+  const title = `data: broken source URL for ${primaryRule}`;
+  const body = `${marker}
+### Evidence source unreachable
+
+The authoritative evidence source behind lifecycle rules is no longer reachable:
+
+- **Source URL**: \`${entry.url}\`
+- **Error / Reason**: \`${entry.reason}\`
+- **Affected rules**: ${entry.ruleIds.map((id) => `\`${id}\``).join(", ")}
+
+## Context & Contribution Guide
+
+This is a **good first issue** for community contributors.
+
+### How to fix:
+1. Locate where this evidence moved:
+   - Check the vendor's updated documentation or migration guide.
+   - Or find an archived snapshot on [Wayback Machine (archive.org)](https://web.archive.org/).
+2. Confirm the new page documents the lifecycle status and version constraints.
+3. Update \`sources\` in \`registry/<ecosystem>.json\` with the new URL (or add an \`archiveUrl\`).
+4. Update \`provenance.reviewedAt\` to today and verify with \`npm run check\`.
+5. Open a pull request!
+`;
+  return {
+    url: entry.url,
+    ruleIds: entry.ruleIds,
+    reason: entry.reason,
+    title,
+    body,
+    labels: DEAD_SOURCE_LABELS,
+  };
+}
+
+export interface IssueRecord {
+  number?: number;
+  title: string;
+  body: string;
+  state?: string;
+}
+
+export interface IssueRunner {
+  listExisting(repo?: string): Promise<IssueRecord[]>;
+  createIssue(issue: { title: string; body: string; labels: string[] }, repo?: string): Promise<number>;
+}
+
+export const defaultGitHubRunner: IssueRunner = {
+  async listExisting(repo?: string): Promise<IssueRecord[]> {
+    const args = ["issue", "list", "--json", "number,title,body,state", "--limit", "100"];
+    if (repo) args.push("--repo", repo);
+    const { stdout } = await execFileAsync("gh", args);
+    return JSON.parse(stdout || "[]") as IssueRecord[];
+  },
+  async createIssue(issue: { title: string; body: string; labels: string[] }, repo?: string): Promise<number> {
+    const args = ["issue", "create", "--title", issue.title, "--body", issue.body];
+    for (const label of issue.labels) args.push("--label", label);
+    if (repo) args.push("--repo", repo);
+    const { stdout } = await execFileAsync("gh", args);
+    const match = stdout.match(/\/issues\/(\d+)/);
+    return match ? Number(match[1]) : 0;
+  },
+};
+
+export async function openDeadSourceIssues(
+  report: SourceReport,
+  runner: IssueRunner = defaultGitHubRunner,
+  options: { maxOpen?: number; repo?: string; dryRun?: boolean } = {},
+): Promise<{ opened: DeadSourceIssue[]; skipped: string[] }> {
+  const maxOpen = options.maxOpen ?? 10;
+  const existing = await runner.listExisting(options.repo);
+  const trackedHashes = new Set<string>();
+  let openCount = 0;
+  for (const issue of existing) {
+    const hash = extractDeadSourceHash(issue.body);
+    if (hash) {
+      if (!issue.state || issue.state.toUpperCase() === "OPEN") {
+        trackedHashes.add(hash);
+        openCount++;
+      }
+    }
+  }
+
+  const opened: DeadSourceIssue[] = [];
+  const skipped: string[] = [];
+
+  for (const entry of report.unreachable) {
+    const hash = createHash("sha256").update(entry.url).digest("hex").slice(0, 16);
+    if (trackedHashes.has(hash)) {
+      skipped.push(entry.url);
+      continue;
+    }
+    if (openCount >= maxOpen) {
+      break;
+    }
+    const rendered = renderDeadSourceIssue(entry);
+    if (!options.dryRun) {
+      await runner.createIssue(rendered, options.repo);
+    }
+    opened.push(rendered);
+    trackedHashes.add(hash);
+    openCount++;
+  }
+
+  return { opened, skipped };
 }
 
 export async function loadRegistries(directory: string): Promise<{ name: string; registry: RegistryV2 }[]> {
@@ -343,7 +564,7 @@ export async function main(argv: string[]): Promise<number> {
   for (let index = 0; index < argv.length; index++) {
     const argument = argv[index]!;
     if (!argument.startsWith("--")) throw new Error(`Unexpected argument "${argument}".`);
-    if (argument === "--update-lock") flags.add(argument);
+    if (argument === "--update-lock" || argument === "--open-issues" || argument === "--dry-run") flags.add(argument);
     else
       options.set(
         argument,
@@ -376,8 +597,19 @@ export async function main(argv: string[]): Promise<number> {
   if (options.has("--summary")) await writeFile(options.get("--summary")!, summary, { flag: "a" });
   else process.stdout.write(summary);
   if (flags.has("--update-lock")) {
-    await writeFile(lockPath, `${JSON.stringify(updatedLock(lock, observations, now), null, 2)}\n`);
+    await writeFile(lockPath, `${JSON.stringify(updatedLock(lock, observations, now, report), null, 2)}\n`);
     process.stdout.write(`Updated ${lockPath}\n`);
+  }
+  if (flags.has("--open-issues")) {
+    const maxOpen = Number(options.get("--max-open-issues") ?? 10);
+    const repo = options.get("--repo");
+    const dryRun = flags.has("--dry-run");
+    const { opened, skipped } = await openDeadSourceIssues(report, defaultGitHubRunner, {
+      maxOpen,
+      ...(repo !== undefined ? { repo } : {}),
+      dryRun,
+    });
+    process.stdout.write(`Opened ${opened.length} dead source issues (${skipped.length} already tracked)\n`);
   }
 
   const failing = failingCategories(report, failOn);

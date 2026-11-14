@@ -47,7 +47,14 @@ export async function runImporter(importer: Importer, context: ImporterContext):
     return canonicalRule({
       ...draft,
       sources: draft.sources.map((source) => ({ ...source, accessedAt: observedAt })),
-      provenance: { observedAt, reviewedAt: observedAt, reviewer: PENDING_REVIEWER, importer: importer.id },
+      provenance: {
+        observedAt,
+        reviewedAt: observedAt,
+        reviewer: PENDING_REVIEWER,
+        reviewers: [PENDING_REVIEWER],
+        method: "imported",
+        importer: importer.id,
+      },
     }) as unknown as RegistryV2Rule;
   });
   rules.sort((left, right) => left.id.localeCompare(right.id));

@@ -341,6 +341,13 @@ Shortened. The full format is in [docs/RULES.md](docs/RULES.md) and [`schemas/`]
 | [`cases/`](cases/) | Behaviour cases: this purl at this version is judged by exactly these rules. |
 | [`data/`](data/) | The Sigstore trusted root used to verify data bundles offline. |
 
+### Source health & provenance
+
+Every rule cites authoritative evidence with strict auditability and health monitoring:
+- **Provenance audit trail:** Every rule specifies its creation `method` (`manual`, `imported`, or `upstream`), reviewers list, and importer metadata.
+- **Continuous link checks:** Sources are locked in [`registry/sources.lock.json`](registry/sources.lock.json) and audited weekly by [`.github/workflows/sources.yml`](.github/workflows/sources.yml) with backoff retry, redirect tracking, and content version verification.
+- **Community issue triage:** Dead links automatically open issues labeled `good first issue` and `help wanted` for straightforward replacement. See [docs/SOURCES.md](docs/SOURCES.md).
+
 ## Performance
 
 Ebb is designed for CI pipelines and real-time dependency checks where lookups cannot add noticeable latency. Every rule lookup runs in sub-millisecond time.

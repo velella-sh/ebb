@@ -20,6 +20,7 @@ function createMockRule(partial: Partial<RegistryV2Rule> & { id: string; deadlin
       observedAt: "2026-01-01",
       reviewedAt: "2026-01-01",
       reviewer: "test",
+      method: "manual",
     },
     ...(partial.replacement ? { replacement: partial.replacement } : {}),
     ...(partial["x-estimated"] ? { "x-estimated": partial["x-estimated"] } : {}),

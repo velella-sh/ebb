@@ -26,7 +26,11 @@
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -84,7 +88,11 @@
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -141,7 +149,11 @@
       "provenance": {
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [

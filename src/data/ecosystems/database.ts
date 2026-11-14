@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-29",
       },
     ],
-    provenance: { observedAt: "2026-10-29", reviewedAt: "2026-10-29", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-29",
+      reviewedAt: "2026-10-29",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A PostgreSQL data directory written by one major version cannot be started by another. Changing the image tag of a service that has a volume will fail or, worse, start with an empty database.",
@@ -97,7 +103,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: PostgreSQL", url: "https://endoflife.date/postgresql", accessedAt: "2026-10-22" },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A PostgreSQL data directory written by one major version cannot be started by another. Changing the image tag of a service that has a volume will fail or, worse, start with an empty database.",
@@ -171,7 +183,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: PostgreSQL", url: "https://endoflife.date/postgresql", accessedAt: "2026-10-22" },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A PostgreSQL data directory written by one major version cannot be started by another. Changing the image tag of a service that has a volume will fail or, worse, start with an empty database.",
@@ -245,7 +263,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: PostgreSQL", url: "https://endoflife.date/postgresql", accessedAt: "2026-10-22" },
     ],
-    provenance: { observedAt: "2026-10-22", reviewedAt: "2026-10-22", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-22",
+      reviewedAt: "2026-10-22",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A PostgreSQL data directory written by one major version cannot be started by another. Changing the image tag of a service that has a volume will fail or, worse, start with an empty database.",
@@ -318,7 +342,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-24",
       },
     ],
-    provenance: { observedAt: "2026-10-24", reviewedAt: "2026-10-24", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-24",
+      reviewedAt: "2026-10-24",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A PostgreSQL data directory written by one major version cannot be started by another. Changing the image tag of a service that has a volume will fail or, worse, start with an empty database.",
@@ -392,7 +422,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "MySQL does not support skipping major release lines on upgrade. MySQL 5.7 must move to 8.0 before 8.4; 8.0 can move to 8.4 in place.",
@@ -466,7 +502,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "MySQL does not support skipping major release lines on upgrade. MySQL 5.7 must move to 8.0 before 8.4; 8.0 can move to 8.4 in place.",
@@ -540,7 +582,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: Redis", url: "https://endoflife.date/redis", accessedAt: "2026-10-29" },
     ],
-    provenance: { observedAt: "2026-10-29", reviewedAt: "2026-10-29", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-29",
+      reviewedAt: "2026-10-29",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Redis persists data in RDB snapshots and the AOF log; a dataset written by a newer server cannot be read by an older one, so a backup taken before the upgrade is the only way back.",
@@ -619,7 +667,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "The version argument on azurerm_postgresql_flexible_server and azurerm_postgresql_server names the major version; changing it alone does not move an existing server or its data.",
@@ -702,7 +756,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "The version argument on azurerm_mysql_flexible_server and azurerm_mysql_server names the major version; changing it alone does not upgrade an existing server or its data.",
@@ -784,7 +844,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Cloud SQL moves an instance to extended support when the PostgreSQL community reaches end of life. Extended support is time-boxed to three years and is charged from 2025-05-01.",
@@ -867,7 +933,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Cloud SQL moves an instance to extended support when the PostgreSQL community reaches end of life. Extended support is time-boxed to three years and is charged.",
@@ -951,7 +1023,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Cloud SQL moves an instance to extended support when the MySQL community reaches end of life. Extended support is time-boxed to three years and is charged.",
@@ -1034,7 +1112,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1112,7 +1197,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1191,7 +1283,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1270,7 +1369,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1349,7 +1455,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1428,7 +1541,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1507,7 +1627,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1586,7 +1713,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1665,7 +1799,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1744,7 +1885,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1823,7 +1971,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1902,7 +2057,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -1981,7 +2143,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -2060,7 +2229,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "A major version upgrade on RDS or Aurora is a separate maintenance action; RDS does not apply it automatically, and changing the engine version back is not a rollback.",
@@ -2139,7 +2315,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "An ElastiCache engine upgrade is an in-place modification; the cache is unavailable while nodes are replaced, and restoring a cluster-mode-disabled cache over a newer engine is not a rollback.",
@@ -2218,7 +2401,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "An ElastiCache engine upgrade is an in-place modification; the cache is unavailable while nodes are replaced, and restoring a cluster-mode-disabled cache over a newer engine is not a rollback.",
@@ -2297,7 +2487,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "aws-rds" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "aws-rds",
+    },
     migration: {
       constraints: [
         "An ElastiCache engine upgrade is an in-place modification; the cache is unavailable while nodes are replaced, and restoring a cluster-mode-disabled cache over a newer engine is not a rollback.",
@@ -2384,7 +2581,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB documents that a deployment must upgrade through each major release in turn; it does not support jumping straight to a distant major. The 8.0 upgrade guide states that to upgrade from a version earlier than 7.0 you must successively upgrade major releases until you reach 7.0, and only then move to 8.0.",
@@ -2475,7 +2679,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB documents that a deployment must upgrade through each major release in turn; it does not support jumping straight to a distant major. The 8.0 upgrade guide states that to upgrade from a version earlier than 7.0 you must successively upgrade major releases until you reach 7.0, and only then move to 8.0.",
@@ -2566,7 +2777,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB documents that a deployment must upgrade through each major release in turn; it does not support jumping straight to a distant major. The 8.0 upgrade guide states that to upgrade from a version earlier than 7.0 you must successively upgrade major releases until you reach 7.0, and only then move to 8.0.",
@@ -2657,7 +2875,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB documents that a deployment must upgrade through each major release in turn; it does not support jumping straight to a distant major. The 8.0 upgrade guide states that to upgrade from a version earlier than 7.0 you must successively upgrade major releases until you reach 7.0, and only then move to 8.0.",
@@ -2748,7 +2973,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 5.1 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -2839,7 +3071,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 5.2 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -2930,7 +3169,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 5.3 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3021,7 +3267,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB documents that a deployment must upgrade through each major release in turn; it does not support jumping straight to a distant major. The 8.0 upgrade guide states that to upgrade from a version earlier than 7.0 you must successively upgrade major releases until you reach 7.0, and only then move to 8.0.",
@@ -3112,7 +3365,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 6.1 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3203,7 +3463,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 6.2 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3294,7 +3561,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 6.3 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3385,7 +3659,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 7.1 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3476,7 +3757,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 7.2 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3567,7 +3855,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 7.3 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3658,7 +3953,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 8.1 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3749,7 +4051,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "MongoDB 8.2 is a minor release between majors. Before MongoDB 9.0 you cannot skip minor releases; MongoDB documents moving from a minor release to the next major by upgrading through each remaining minor release first, or by downgrading to the previous major and upgrading from there.",
@@ -3835,7 +4144,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "Redis persists data in RDB snapshots and the AOF log; a dataset written by a newer server cannot be read by an older one, so a backup taken before the upgrade is the only way back.",
@@ -3918,7 +4234,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "database-2" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "database-2",
+    },
     migration: {
       constraints: [
         "Redis persists data in RDB snapshots and the AOF log; a dataset written by a newer server cannot be read by an older one, so a backup taken before the upgrade is the only way back.",

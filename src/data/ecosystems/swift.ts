@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .xcode-version, CI Xcode selections, and local installs on one Xcode release that App Store Connect still accepts.",
@@ -76,7 +82,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .xcode-version, CI Xcode selections, and local installs on one Xcode release that App Store Connect still accepts.",
@@ -127,7 +139,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Set the deployment target on the app target that is uploaded, not on a library or Swift package: libraries that declare an older platforms minimum are not changed by this rule.",

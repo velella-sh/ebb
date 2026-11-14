@@ -26,7 +26,11 @@
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -80,7 +84,11 @@
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -134,7 +142,11 @@
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -188,7 +200,11 @@
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -242,7 +258,11 @@
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -297,6 +317,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-30",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "android-1"
       },
       "migration": {
@@ -328,7 +352,9 @@
       "x-android": {
         "declaration": "targetSdk",
         "audience": "existing-apps",
-        "formFactors": ["default"],
+        "formFactors": [
+          "default"
+        ],
         "minApiLevel": 35
       }
     }

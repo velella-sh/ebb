@@ -95,6 +95,8 @@ test("drafts Xcode App Store upload bands from the recording", async () => {
     observedAt: "2026-10-19",
     reviewedAt: "2026-10-19",
     reviewer: "pending-review",
+    reviewers: ["pending-review"],
+    method: "imported",
     importer: "swift-1",
   });
 

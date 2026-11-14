@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod, go.work, CI matrices, and container images on one supported Go release.",
@@ -71,7 +77,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod, go.work, CI matrices, and container images on one supported Go release.",
@@ -119,7 +131,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod, go.work, CI matrices, and container images on one supported Go release.",
@@ -167,7 +185,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod, go.work, CI matrices, and container images on one supported Go release.",
@@ -215,7 +239,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod, go.work, CI matrices, and container images on one supported Go release.",
@@ -263,7 +293,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
       },
     ],
-    provenance: { observedAt: "2026-10-17", reviewedAt: "2026-10-17", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-17",
+      reviewedAt: "2026-10-17",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod, go.work, CI matrices, and container images on one supported Go release.",
@@ -315,7 +351,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod and go.sum consistent: after the change no package should still require cloud.google.com/go/pubsub, directly or through a replace directive.",
@@ -371,7 +413,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod and go.sum consistent: after the change no package should still require github.com/cncf/udpa/go, directly or through a replace directive.",
@@ -427,7 +475,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod and go.sum consistent: after the change no package should still require github.com/discord/lilliput, directly or through a replace directive.",
@@ -484,7 +538,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod and go.sum consistent: after the change no package should still require github.com/golang/protobuf, directly or through a replace directive.",
@@ -541,7 +601,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod and go.sum consistent: after the change no package should still require github.com/streadway/amqp, directly or through a replace directive.",
@@ -597,7 +663,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep go.mod and go.sum consistent: after the change no package should still require go.opentelemetry.io/otel/exporters/zipkin, directly or through a replace directive.",

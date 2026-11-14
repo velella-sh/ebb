@@ -36,7 +36,7 @@ function sampleRule(id: string, extra: Record<string, unknown> = {}): RegistryV2
     deadline: "2025-01-01",
     replacement: "Use alternative-package instead.",
     sources: [{ title: "npm package page", url: "https://www.npmjs.com/package/sample" }],
-    provenance: { observedAt: "2026-10-01", reviewer: "pending-review" },
+    provenance: { observedAt: "2026-10-01", reviewer: "pending-review", method: "manual" },
     ...extra,
   } as RegistryV2Rule;
 }

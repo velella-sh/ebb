@@ -26,7 +26,11 @@
       "provenance": {
         "observedAt": "2026-10-22",
         "reviewedAt": "2026-10-22",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -93,7 +97,11 @@
       "provenance": {
         "observedAt": "2026-10-22",
         "reviewedAt": "2026-10-22",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -160,7 +168,11 @@
       "provenance": {
         "observedAt": "2026-10-22",
         "reviewedAt": "2026-10-22",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -227,7 +239,11 @@
       "provenance": {
         "observedAt": "2026-10-22",
         "reviewedAt": "2026-10-22",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -294,7 +310,11 @@
       "provenance": {
         "observedAt": "2026-10-22",
         "reviewedAt": "2026-10-22",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -362,6 +382,10 @@
         "observedAt": "2026-11-10",
         "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       },
       "migration": {
@@ -431,6 +455,10 @@
         "observedAt": "2026-11-10",
         "reviewedAt": "2026-11-11",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       },
       "migration": {

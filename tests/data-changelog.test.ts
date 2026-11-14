@@ -29,6 +29,7 @@ const sampleFromRules: RegistryV2Rule[] = [
       observedAt: "2026-10-13",
       reviewedAt: "2026-10-13",
       reviewer: "arminazimi",
+      method: "manual",
     },
   },
   {
@@ -46,6 +47,7 @@ const sampleFromRules: RegistryV2Rule[] = [
       observedAt: "2026-10-15",
       reviewedAt: "2026-10-15",
       reviewer: "maintainer1",
+      method: "manual",
     },
   },
 ];
@@ -66,6 +68,7 @@ const sampleToRules: RegistryV2Rule[] = [
       observedAt: "2026-10-13",
       reviewedAt: "2026-11-14",
       reviewer: "arminazimi",
+      method: "manual",
     },
   },
   {
@@ -83,6 +86,7 @@ const sampleToRules: RegistryV2Rule[] = [
       observedAt: "2026-10-15",
       reviewedAt: "2026-10-15",
       reviewer: "maintainer1",
+      method: "manual",
     },
   },
   {
@@ -99,6 +103,7 @@ const sampleToRules: RegistryV2Rule[] = [
       observedAt: "2026-11-14",
       reviewedAt: "2026-11-14",
       reviewer: "contributor2",
+      method: "manual",
     },
   },
 ];

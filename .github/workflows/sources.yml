@@ -21,6 +21,9 @@ jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -28,9 +31,13 @@ jobs:
       - uses: $/.github/actions/setup
         with:
           cache: npm
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - run: npm run build --silent
-      - name: Check rule sources
-        run: node dist/tools/check-sources.js --out source-report.json --summary "$GITHUB_STEP_SUMMARY" --fail-on stale,changed,unreachable
+      - name: Check rule sources and open issues for dead links
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node dist/tools/check-sources.js --out source-report.json --summary "$GITHUB_STEP_SUMMARY" --open-issues --fail-on stale,changed,unreachable
       - name: Upload the report
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7

@@ -110,7 +110,9 @@ Put the evidence link in the description. Rules are reviewed data; a maintainer 
       "provenance": {
         "observedAt": "2026-10-13",
         "reviewedAt": "2026-10-14",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": ["arminazimi"],
+        "method": "manual"
       },
       "migration": {
         "constraints": ["Preserve request method, headers, authentication, redirects, and error semantics at each call site."],
@@ -157,10 +159,24 @@ A second, smaller example lives in [`examples/registry.v2.example.json`](https:/
 | `requires` | no | The lowest runtime versions the replacement works on, such as `{ "node": "18.0.0" }`. Only `node` and `python` are known. A consumer can warn when a project pins an older runtime. |
 | `deadline` | no | The date from the source, as `YYYY-MM-DD`. Omit it when the source gives none. |
 | `sources` | yes | At least one authoritative source, each with a `title`, an `https` `url`, and the `accessedAt` day you read it (`YYYY-MM-DD`). The date travels with the rule to every consumer. |
-| `provenance` | yes | See below. |
+| `provenance` | yes | Review metadata and audit trail. See [Provenance](#provenance). |
 | `migration` | no | Constraints, ordered steps, and verification commands. Consumers use it to plan the change. Step `targets` are `declaration`, `usages`, or `all`; step ids are unique within the rule. |
 | `usage` | no | Imports, calls, configuration keys, and deprecated symbols that show where a repository depends on the component. See [Symbol-level usage](#symbol-level-usage). |
 | `x-<ecosystem>` | no | Matching hints that consumers read, such as `x-npm.package`, `x-nodejs.major`, `x-python.kind`, or `x-github-actions.supportedFromMajor`. See [Ecosystem hints](#ecosystem-hints). |
+
+### Provenance
+
+Every rule carries maintainer review metadata in `provenance`:
+
+| Field | Required | Meaning |
+|---|---|---|
+| `observedAt` | yes | Day the evidence was read at its source (`YYYY-MM-DD`). |
+| `reviewedAt` | yes | Day a maintainer reviewed the rule (`YYYY-MM-DD`). Cannot precede `observedAt`. |
+| `reviewer` | yes | Primary reviewer handle (e.g. `arminazimi`). |
+| `reviewers` | no | Array of all maintainer and contributor handles who reviewed the rule (`["arminazimi"]`). |
+| `method` | yes | How the rule was produced: `manual` (authored/reviewed by human), `imported` (drafted by an importer tool), or `upstream` (direct official platform feed). |
+| `importer` | no | Name of the importer tool when `method: "imported"` (e.g. `nodejs-schedule`, `endoflife-date`). |
+| `importerVersion` | no | Version string of the importer tool that drafted the rule. |
 
 ### Symbol-level usage
 
@@ -209,7 +225,9 @@ A complete rule, also in [`examples/registry.v2.symbol.example.json`](https://gi
       "provenance": {
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": ["arminazimi"],
+        "method": "manual"
       },
       "migration": {
         "constraints": [

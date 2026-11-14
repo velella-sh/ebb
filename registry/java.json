@@ -25,7 +25,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -84,7 +88,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -143,7 +151,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -202,7 +214,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -261,7 +277,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -316,6 +336,10 @@
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "java-2"
       },
       "usage": [
@@ -382,6 +406,10 @@
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "java-2"
       },
       "usage": [
@@ -458,6 +486,10 @@
         "observedAt": "2026-10-20",
         "reviewedAt": "2026-10-20",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "java-2"
       },
       "migration": {
@@ -511,7 +543,11 @@
       "provenance": {
         "observedAt": "2026-10-25",
         "reviewedAt": "2026-10-25",
-        "reviewer": "Aaqibhafeezkhan"
+        "reviewer": "Aaqibhafeezkhan",
+        "reviewers": [
+          "Aaqibhafeezkhan"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -564,7 +600,11 @@
       "provenance": {
         "observedAt": "2026-10-25",
         "reviewedAt": "2026-10-25",
-        "reviewer": "Aaqibhafeezkhan"
+        "reviewer": "Aaqibhafeezkhan",
+        "reviewers": [
+          "Aaqibhafeezkhan"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -627,7 +667,11 @@
       "provenance": {
         "observedAt": "2026-10-25",
         "reviewedAt": "2026-10-25",
-        "reviewer": "Aaqibhafeezkhan"
+        "reviewer": "Aaqibhafeezkhan",
+        "reviewers": [
+          "Aaqibhafeezkhan"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [

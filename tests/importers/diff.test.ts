@@ -28,6 +28,7 @@ function rule(id: string, extra: Record<string, unknown> = {}, importer?: string
       observedAt: "2026-10-01",
       reviewedAt: "2026-10-02",
       reviewer: "maintainer",
+      method: "manual",
       ...(importer ? { importer } : {}),
     },
     ...extra,
@@ -40,7 +41,13 @@ const draftOf = (rules: RegistryV2Rule[], importer = "node-schedule"): DraftRegi
   observedAt: "2026-10-15",
   rules: rules.map((r) => ({
     ...r,
-    provenance: { observedAt: "2026-10-15", reviewedAt: "2026-10-15", reviewer: "pending-review", importer },
+    provenance: {
+      observedAt: "2026-10-15",
+      reviewedAt: "2026-10-15",
+      reviewer: "pending-review",
+      importer,
+      method: "manual",
+    },
   })),
   notes: [],
 });

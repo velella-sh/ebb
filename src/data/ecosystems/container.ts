@@ -28,6 +28,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "container-official-images",
     },
     migration: {
@@ -84,6 +86,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-24",
       reviewedAt: "2026-10-24",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "container-official-images",
     },
     migration: {
@@ -139,6 +143,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "container-official-images",
     },
     migration: {
@@ -195,6 +201,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-11-03",
       reviewedAt: "2026-11-03",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "container-official-images",
     },
     migration: {
@@ -245,7 +253,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A major PostgreSQL upgrade does not reuse the old data directory: the data must be dumped and restored, or migrated with pg_upgrade, before the new image can start on it.",
@@ -298,6 +312,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-24",
       reviewedAt: "2026-10-24",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -349,7 +365,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-07",
       },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A new MySQL release line can need a data directory upgrade; read the upgrade notes and take a backup before starting the new image on existing data.",
@@ -398,7 +420,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the base image, .ruby-version, Gemfile ruby requirement, and CI matrices on one supported Ruby branch.",
@@ -452,6 +480,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-29",
       reviewedAt: "2026-10-29",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -506,6 +536,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -553,6 +585,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -604,6 +638,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -655,6 +691,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -706,6 +744,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -757,6 +797,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -809,6 +851,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -861,6 +905,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -912,6 +958,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -969,6 +1017,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1020,6 +1070,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1071,6 +1123,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-20",
       reviewedAt: "2026-10-20",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1114,7 +1168,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "Ubuntu release cycle", url: "https://ubuntu.com/about/release-cycle", accessedAt: "2026-10-26" },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the base image and deployment manifests that use ubuntu on one supported Ubuntu release line.",
@@ -1156,7 +1216,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "Ubuntu release cycle", url: "https://ubuntu.com/about/release-cycle", accessedAt: "2026-10-26" },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the base image and deployment manifests that use ubuntu on one supported Ubuntu release line.",
@@ -1199,7 +1265,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Debian LTS", url: "https://wiki.debian.org/LTS", accessedAt: "2026-10-26" },
       { title: "Debian Releases", url: "https://www.debian.org/releases/", accessedAt: "2026-10-26" },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the base image and deployment manifests that use debian on one supported Debian release line.",
@@ -1239,7 +1311,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "An alpine image on a supported release line",
     deadline: "2026-04-01",
     sources: [{ title: "Alpine Linux releases", url: "https://alpinelinux.org/releases/", accessedAt: "2026-10-26" }],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the base image and deployment manifests that use alpine on one supported Alpine release line.",
@@ -1279,7 +1357,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "An alpine image on a later supported release line",
     deadline: "2026-11-01",
     sources: [{ title: "Alpine Linux releases", url: "https://alpinelinux.org/releases/", accessedAt: "2026-11-07" }],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the base image and deployment manifests that use alpine on one supported Alpine release line.",
@@ -1330,7 +1414,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-31",
       },
     ],
-    provenance: { observedAt: "2026-10-31", reviewedAt: "2026-10-31", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-31",
+      reviewedAt: "2026-10-31",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the author text exactly as it is written.",
@@ -1377,7 +1467,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-31",
       },
     ],
-    provenance: { observedAt: "2026-10-31", reviewedAt: "2026-10-31", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-31",
+      reviewedAt: "2026-10-31",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Keep the variable name and its value unchanged.", "Use one key=value assignment per variable."],
       steps: [
@@ -1413,6 +1509,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1455,6 +1553,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1505,6 +1605,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1544,6 +1646,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1594,6 +1698,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1633,6 +1739,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {
@@ -1679,6 +1787,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "endoflife-date",
     },
     migration: {

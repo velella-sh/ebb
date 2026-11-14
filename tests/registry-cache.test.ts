@@ -18,7 +18,7 @@ const sampleRegistry = {
       summary: "Sample rule",
       vers: "vers:npm/<1.0.0",
       sources: [{ title: "test", url: "https://example.com", accessedAt: "2026-01-01" }],
-      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
     },
   ],
 };

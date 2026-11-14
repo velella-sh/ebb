@@ -28,7 +28,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-07",
       },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Change only Microsoft-hosted pool.vmImage labels. This retirement does not apply to self-hosted agents, Managed DevOps Pools, or VM scale sets.",
@@ -78,7 +84,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-07",
       },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Change only Microsoft-hosted pool.vmImage labels. The macOS 14 schedule does not apply to self-hosted macOS 14 agents.",
@@ -133,7 +145,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Change only Microsoft-hosted pool.vmImage labels. This removal does not apply to self-hosted Ubuntu 20.04 agents.",
@@ -183,7 +201,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-18",
       },
     ],
-    provenance: { observedAt: "2026-10-18", reviewedAt: "2026-10-18", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-18",
+      reviewedAt: "2026-10-18",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Change only Microsoft-hosted pool.vmImage labels. The Ubuntu 22.04 schedule does not apply to self-hosted Ubuntu 22.04 agents.",
@@ -238,7 +262,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Change only Microsoft-hosted pool.vmImage labels. This retirement does not apply to self-hosted Windows Server 2019 agents, Managed DevOps Pools, or VM scale sets.",

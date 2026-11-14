@@ -28,7 +28,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-27",
       },
     ],
-    provenance: { observedAt: "2026-10-27", reviewedAt: "2026-10-27", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-27",
+      reviewedAt: "2026-10-27",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .scala-version, build.sbt scalaVersion, CI setup-java / setup-scala versions, and container images on one supported Scala release line.",
@@ -76,7 +82,13 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "Scala 3.9 LTS released", url: "https://scala-lang.org/news/3.9/", accessedAt: "2026-10-27" },
     ],
-    provenance: { observedAt: "2026-10-27", reviewedAt: "2026-10-27", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-27",
+      reviewedAt: "2026-10-27",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .scala-version, build.sbt scalaVersion, CI matrices, and container images on one supported Scala 3 LTS or Next line.",
@@ -129,7 +141,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-27",
       },
     ],
-    provenance: { observedAt: "2026-10-27", reviewedAt: "2026-10-27", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-27",
+      reviewedAt: "2026-10-27",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep project/build.properties sbt.version, the installed sbt launcher, and CI sbt setup on one supported sbt major.",

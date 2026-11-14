@@ -16,7 +16,7 @@ const sampleRules: RegistryV2Rule[] = [
     summary: "Example summary",
     vers: "vers:npm/<1.0.0",
     sources: [{ title: "test", url: "https://example.com" }],
-    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
   },
   {
     id: "RULE-2",
@@ -28,7 +28,7 @@ const sampleRules: RegistryV2Rule[] = [
     summary: "Example summary 2",
     vers: "vers:npm/>=1.0.0",
     sources: [{ title: "test", url: "https://example.com" }],
-    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
   },
   {
     id: "RULE-3",
@@ -40,7 +40,7 @@ const sampleRules: RegistryV2Rule[] = [
     summary: "Other summary",
     vers: "vers:pypi/<2.0.0",
     sources: [{ title: "test", url: "https://example.com" }],
-    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
   },
 ];
 

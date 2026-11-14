@@ -33,7 +33,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
@@ -102,7 +108,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
@@ -171,7 +183,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
@@ -240,7 +258,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
@@ -309,7 +333,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
@@ -378,7 +408,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line.",
@@ -441,7 +477,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
@@ -507,7 +549,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
@@ -573,7 +621,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
@@ -638,7 +692,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "A control plane and its node groups are upgraded separately: raise the control plane before the node groups and the add-ons that pin a Kubernetes version.",
@@ -709,7 +769,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -780,7 +846,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -851,7 +923,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -922,7 +1000,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -992,7 +1076,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "GKE upgrades one minor version at a time and may auto-upgrade a cluster whose version reaches end of support.",
@@ -1058,7 +1148,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -1124,7 +1220,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -1190,7 +1292,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -1256,7 +1364,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -1322,7 +1436,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -1387,7 +1507,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "AKS upgrades one minor version at a time and upgrades the control plane before the agent pools.",
@@ -1462,7 +1588,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-31",
       },
     ],
-    provenance: { observedAt: "2026-10-31", reviewedAt: "2026-10-31", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-31",
+      reviewedAt: "2026-10-31",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Rewrite only a string whose entire value is one ${ ... } interpolation. A string with any literal text, a %{ ... } directive, or an escape sequence must keep its quotes.",
@@ -1525,7 +1657,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-31",
       },
     ],
-    provenance: { observedAt: "2026-10-31", reviewedAt: "2026-10-31", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-31",
+      reviewedAt: "2026-10-31",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Do not rewrite a type constraint: `type = list(string)` and `type = map(object({...}))` are type constructors that still exist in Terraform 0.15 and later.",
@@ -1599,7 +1737,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.0 will refuse to run on a newer CLI if required_version excludes it.",
@@ -1690,7 +1835,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.1 will refuse to run on a newer CLI if required_version excludes it.",
@@ -1781,7 +1933,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.2 will refuse to run on a newer CLI if required_version excludes it.",
@@ -1872,7 +2031,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.3 will refuse to run on a newer CLI if required_version excludes it.",
@@ -1963,7 +2129,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.4 will refuse to run on a newer CLI if required_version excludes it.",
@@ -2054,7 +2227,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.5 will refuse to run on a newer CLI if required_version excludes it.",
@@ -2145,7 +2325,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.6 will refuse to run on a newer CLI if required_version excludes it.",
@@ -2236,7 +2423,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.7 will refuse to run on a newer CLI if required_version excludes it.",
@@ -2327,7 +2521,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.8 will refuse to run on a newer CLI if required_version excludes it.",
@@ -2418,7 +2619,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-11",
       },
     ],
-    provenance: { observedAt: "2026-11-10", reviewedAt: "2026-11-11", reviewer: "arminazimi", importer: "terraform-1" },
+    provenance: {
+      observedAt: "2026-11-10",
+      reviewedAt: "2026-11-11",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "terraform-1",
+    },
     migration: {
       constraints: [
         "Keep required_version in *.tf, the pin in .terraform-version or .tool-versions, and the Terraform version installed in CI and by every teammate on one supported release line. A configuration that still pins Terraform 1.9 will refuse to run on a newer CLI if required_version excludes it.",

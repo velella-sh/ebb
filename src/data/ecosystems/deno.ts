@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Upgrade to Deno 2.0 or later while verifying compatibility with Deno 2 breaking changes."],
       steps: [
@@ -56,7 +62,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Upgrade to Deno 2.0 or later."],
       steps: [
@@ -89,7 +101,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Upgrade to Bun 1.1 or later."],
       steps: [
@@ -121,7 +139,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Upgrade to Bun 1.1 or later."],
       steps: [

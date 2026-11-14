@@ -5,14 +5,21 @@ import { test } from "node:test";
 
 import {
   checkSources,
+  DEAD_SOURCE_LABELS,
+  DEAD_SOURCE_MARKER_PREFIX,
+  extractDeadSourceHash,
+  extractRuleVersionTokens,
   failingCategories,
   fetchObservation,
+  formatDeadSourceMarker,
   isBotChallenge,
   main,
+  openDeadSourceIssues,
+  renderDeadSourceIssue,
   renderSummary,
   updatedLock,
 } from "../tools/check-sources.js";
-import type { SourceLock, SourceObservation } from "../tools/check-sources.js";
+import type { IssueRunner, SourceLock, SourceObservation } from "../tools/check-sources.js";
 import type { RegistryV2, RegistryV2Rule } from "../src/registry.js";
 
 const NOW = new Date("2026-10-15T12:00:00Z");
@@ -28,7 +35,7 @@ function rule(id: string, urls: string[], reviewedAt = "2026-10-01"): RegistryV2
     summary: "S",
     severity: "high",
     sources: urls.map((url) => ({ title: "Source", url })),
-    provenance: { observedAt: "2026-09-01", reviewedAt, reviewer: "maintainer" },
+    provenance: { observedAt: "2026-09-01", reviewedAt, reviewer: "maintainer", method: "manual" },
   };
 }
 
@@ -358,4 +365,199 @@ test("fetchObservation follows redirects, reads the title, retries once, and rep
   assert.ok(slow.error);
   const refused = await fetchObservation("http://127.0.0.1:1/", 500);
   assert.equal(refused.status, null);
+});
+
+test("fetchObservation retries on 429 and respects Retry-After header with mock sleep", async (t) => {
+  let attempts = 0;
+  const sleeps: number[] = [];
+  const server = createServer((_req, res) => {
+    attempts++;
+    if (attempts === 1) {
+      res.writeHead(429, { "retry-after": "2" });
+      res.end("Rate limited");
+      return;
+    }
+    res.writeHead(200, { "content-type": "text/html" });
+    res.end("<title>Success</title><body>Success</body>");
+  });
+  await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
+  t.after(() => {
+    server.closeAllConnections();
+    server.close();
+  });
+  const port = (server.address() as AddressInfo).port;
+  const obs = await fetchObservation(
+    `http://127.0.0.1:${port}/test`,
+    5000,
+    3,
+    async (ms) => {
+      sleeps.push(ms);
+    },
+    true,
+  );
+  assert.equal(obs.status, 200);
+  assert.equal(obs.title, "Success");
+  assert.equal(attempts, 2);
+  assert.deepEqual(sleeps, [2000]);
+});
+
+test("detects redirects and missing version mentions in page body", async () => {
+  const url = "https://example.com/node-18";
+  const node18Rule: RegistryV2Rule = {
+    id: "nodejs.runtime.eol-18",
+    ecosystem: "nodejs",
+    purl: "pkg:generic/nodejs",
+    vers: "vers:npm/>=18.0.0|<19.0.0",
+    event: "end-of-life",
+    title: "Node 18 EOL",
+    summary: "Node 18 is EOL",
+    severity: "high",
+    sources: [{ title: "Node 18 notice", url }],
+    provenance: { observedAt: "2026-09-01", reviewedAt: "2026-09-01", reviewer: "maintainer", method: "manual" },
+  };
+
+  const tokens = extractRuleVersionTokens(node18Rule);
+  assert.ok(tokens.includes("18.0.0"));
+  assert.ok(tokens.includes("18"));
+
+  // 1. Page with different finalUrl (redirected)
+  const { report: rep1 } = await checkSources({
+    registries: [
+      { name: "nodejs", registry: { schemaVersion: "ebb.registry.v2", ecosystem: "nodejs", rules: [node18Rule] } },
+    ],
+    lock: lockOf({ [url]: { finalUrl: url, title: "Node 18" } }),
+    now: NOW,
+    observe: async () => ({
+      status: 200,
+      finalUrl: "https://example.com/home",
+      title: "Node 18",
+      contentSnippet: "Mentions Node 18 here",
+    }),
+  });
+  assert.equal(rep1.changed.length, 1);
+  assert.ok(rep1.changed[0]!.reasons.includes("final-url"));
+
+  // 2. Page that dropped version 18 mention
+  const { report: rep2 } = await checkSources({
+    registries: [
+      { name: "nodejs", registry: { schemaVersion: "ebb.registry.v2", ecosystem: "nodejs", rules: [node18Rule] } },
+    ],
+    lock: lockOf({ [url]: { finalUrl: url, title: "Generic Releases" } }),
+    now: NOW,
+    observe: async () => ({
+      status: 200,
+      finalUrl: url,
+      title: "Generic Releases",
+      contentSnippet: "We only talk about Node 22 and 24 here now.",
+    }),
+  });
+  assert.equal(rep2.changed.length, 1);
+  assert.ok(rep2.changed[0]!.reasons.includes("version-missing"));
+});
+
+test("stores health status (ok, changed) in updatedLock", () => {
+  const urlOk = "https://example.com/ok";
+  const urlChanged = "https://example.com/changed";
+  const lock: SourceLock = {
+    schemaVersion: "ebb.source-lock.v1",
+    sources: {
+      [urlOk]: { finalUrl: urlOk, title: "OK", checkedAt: "2026-10-01", status: "ok" },
+      [urlChanged]: { finalUrl: urlChanged, title: "Old Title", checkedAt: "2026-10-01", status: "ok" },
+    },
+  };
+
+  const obs = new Map<string, SourceObservation>([
+    [urlOk, { status: 200, finalUrl: urlOk, title: "OK" }],
+    [urlChanged, { status: 200, finalUrl: urlChanged, title: "New Title" }],
+  ]);
+
+  const report = {
+    schemaVersion: "ebb.source-check.v1" as const,
+    checkedAt: "2026-10-15T00:00:00Z",
+    registries: 1,
+    rules: 2,
+    sources: 2,
+    ok: 1,
+    stale: [],
+    duePromotion: [],
+    unreachable: [],
+    changed: [
+      {
+        url: urlChanged,
+        reasons: ["title" as const],
+        recorded: lock.sources[urlChanged]!,
+        current: { finalUrl: urlChanged, title: "New Title" },
+        ruleIds: ["rule.1"],
+      },
+    ],
+    blocked: [],
+    unrecorded: [],
+  };
+
+  const next = updatedLock(lock, obs, NOW, report);
+  assert.equal(next.sources[urlOk]?.status, "ok");
+  assert.equal(next.sources[urlChanged]?.status, "changed");
+});
+
+test("dead source issue generator and deduplication", async () => {
+  const deadUrl = "https://example.com/dead";
+  const entry = { url: deadUrl, reason: "HTTP 404", ruleIds: ["npm.package.foo.deprecated"] };
+  const issue = renderDeadSourceIssue(entry);
+
+  assert.ok(issue.title.includes("npm.package.foo.deprecated"));
+  assert.ok(issue.body.includes(DEAD_SOURCE_MARKER_PREFIX));
+  assert.ok(issue.body.includes(deadUrl));
+  assert.deepEqual(issue.labels, DEAD_SOURCE_LABELS);
+
+  const hash = extractDeadSourceHash(issue.body);
+  assert.ok(hash);
+  assert.equal(hash, extractDeadSourceHash(formatDeadSourceMarker(deadUrl)));
+
+  // Test issue runner with deduplication
+  const created: { title: string; body: string; labels: string[] }[] = [];
+  const mockRunner: IssueRunner = {
+    async listExisting() {
+      return [{ title: "Existing", body: issue.body, state: "OPEN" }];
+    },
+    async createIssue(iss) {
+      created.push(iss);
+      return 1;
+    },
+  };
+
+  const report = {
+    schemaVersion: "ebb.source-check.v1" as const,
+    checkedAt: "2026-10-15T00:00:00Z",
+    registries: 1,
+    rules: 1,
+    sources: 1,
+    ok: 0,
+    stale: [],
+    duePromotion: [],
+    unreachable: [entry],
+    changed: [],
+    blocked: [],
+    unrecorded: [],
+  };
+
+  // Should skip because already tracked in existing
+  const res1 = await openDeadSourceIssues(report, mockRunner, { maxOpen: 5 });
+  assert.equal(res1.opened.length, 0);
+  assert.equal(res1.skipped.length, 1);
+  assert.equal(created.length, 0);
+
+  // When not existing, it should create
+  const emptyRunner: IssueRunner = {
+    async listExisting() {
+      return [];
+    },
+    async createIssue(iss) {
+      created.push(iss);
+      return 42;
+    },
+  };
+  const res2 = await openDeadSourceIssues(report, emptyRunner, { maxOpen: 5 });
+  assert.equal(res2.opened.length, 1);
+  assert.equal(created.length, 1);
+  assert.equal(res2.opened[0]?.url, deadUrl);
 });

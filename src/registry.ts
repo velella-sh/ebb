@@ -31,14 +31,23 @@ export const lifecycleEventPrecedence: readonly LifecycleEvent[] = [
   "scheduled-end-of-life",
 ];
 
+export const provenanceMethods = ["manual", "imported", "upstream"] as const;
+export type ProvenanceMethod = (typeof provenanceMethods)[number];
+
 export interface Provenance {
   /** Date the evidence was last seen at its source (YYYY-MM-DD). */
   observedAt: string;
   /** Date a maintainer last reviewed the rule against its sources (YYYY-MM-DD). */
   reviewedAt: string;
   reviewer: string;
+  /** How the rule was created or maintained. */
+  method: ProvenanceMethod;
+  /** List of all reviewers who approved the rule. */
+  reviewers?: string[];
   /** Importer that drafted the rule, when one did. */
   importer?: string;
+  /** Version of the importer tool that drafted the rule. */
+  importerVersion?: string;
 }
 
 export interface RegistryV2Rule {
@@ -258,7 +267,7 @@ function provenanceIssues(rule: UnknownRecord, problem: Problem): void {
     problem("provenance is required");
     return;
   }
-  const { observedAt, reviewedAt, reviewer, importer } = rule.provenance;
+  const { observedAt, reviewedAt, reviewer, method, reviewers, importer, importerVersion } = rule.provenance;
   if (observedAt === undefined) problem("provenance.observedAt is required");
   else if (!isIsoDate(observedAt)) problem("provenance.observedAt must be a valid date (YYYY-MM-DD)");
   if (reviewedAt === undefined) problem("provenance.reviewedAt is required");
@@ -267,7 +276,20 @@ function provenanceIssues(rule: UnknownRecord, problem: Problem): void {
     problem("provenance.reviewedAt must not be earlier than provenance.observedAt");
   }
   if (!isNonEmptyString(reviewer)) problem("provenance.reviewer is required");
+  if (method === undefined) {
+    problem("provenance.method is required");
+  } else if (typeof method !== "string" || !(provenanceMethods as readonly string[]).includes(method)) {
+    problem("provenance.method must be one of manual, imported, or upstream");
+  }
+  if (reviewers !== undefined) {
+    if (!Array.isArray(reviewers) || reviewers.length === 0 || !reviewers.every(isNonEmptyString)) {
+      problem("provenance.reviewers must be a non-empty list of non-empty strings");
+    }
+  }
   if (importer !== undefined && !isNonEmptyString(importer)) problem("provenance.importer must be a non-empty string");
+  if (importerVersion !== undefined && !isNonEmptyString(importerVersion)) {
+    problem("provenance.importerVersion must be a non-empty string");
+  }
 }
 
 function ruleIssues(rule: unknown, index: number, ecosystem: string | undefined): string[] {

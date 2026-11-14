@@ -26,7 +26,11 @@
       "provenance": {
         "observedAt": "2026-10-13",
         "reviewedAt": "2026-10-13",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -79,7 +83,11 @@
       "provenance": {
         "observedAt": "2026-10-13",
         "reviewedAt": "2026-10-13",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "x-npm": {
         "package": "node-sass"

@@ -20,7 +20,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-10-19" },
       { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-19" },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -71,7 +77,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-10-19" },
       { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-19" },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -122,7 +134,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-10-19" },
       { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-19" },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -173,7 +191,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
       { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -224,7 +248,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
       { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -275,7 +305,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
       { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -326,7 +362,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
       { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -383,7 +425,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Laravel 12 upgrade guide", url: "https://laravel.com/docs/12.x/upgrade", accessedAt: "2026-10-23" },
       { title: "Laravel 13 upgrade guide", url: "https://laravel.com/docs/13.x/upgrade", accessedAt: "2026-10-23" },
     ],
-    provenance: { observedAt: "2026-10-23", reviewedAt: "2026-10-23", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-23",
+      reviewedAt: "2026-10-23",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve routes, middleware, authentication, authorization, queues, scheduled jobs, database migrations, and externally visible application behavior while changing the Laravel major.",
@@ -447,7 +495,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "Laravel 12 upgrade guide", url: "https://laravel.com/docs/12.x/upgrade", accessedAt: "2026-10-23" },
       { title: "Laravel 13 upgrade guide", url: "https://laravel.com/docs/13.x/upgrade", accessedAt: "2026-10-23" },
     ],
-    provenance: { observedAt: "2026-10-23", reviewedAt: "2026-10-23", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-23",
+      reviewedAt: "2026-10-23",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve routes, middleware, authentication, authorization, queues, scheduled jobs, database migrations, and externally visible application behavior while changing the Laravel major.",
@@ -514,7 +568,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve message construction, transport configuration, and delivery behavior while moving from Swiftmailer to Symfony Mailer.",
@@ -588,7 +648,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve array and parameter helper behavior while moving from Zend\\Stdlib to Laminas\\Stdlib.",
@@ -652,7 +718,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep composer.json and composer.lock consistent after removing doctrine/cache, and check that no other package still requires it.",
@@ -700,7 +772,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep composer.json and composer.lock consistent after removing fzaninotto/faker, and check that no other package still requires it.",
@@ -750,7 +828,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep composer.json and composer.lock consistent after removing sensiolabs/security-checker, and check that no other package still requires it.",

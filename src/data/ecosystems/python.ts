@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-14", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-14",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
@@ -63,7 +69,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "pytest, nose2, or unittest",
     sources: [{ title: "nose note to users", url: "https://nose.readthedocs.io/en/latest/", accessedAt: "2026-10-16" }],
-    provenance: { observedAt: "2026-10-14", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-14",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Choose one target test runner before editing tests and preserve discovery rules, fixtures, setup/teardown behavior, plugins, and command-line options.",
@@ -116,7 +128,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "django-nose project notice", url: "https://pypi.org/project/django-nose/", accessedAt: "2026-11-07" },
     ],
-    provenance: { observedAt: "2026-11-07", reviewedAt: "2026-11-07", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-07",
+      reviewedAt: "2026-11-07",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve Django settings selection, database setup, fixture loading, test labels, and any django-nose plugin behavior.",
@@ -174,7 +192,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-14", reviewedAt: "2026-10-14", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-14",
+      reviewedAt: "2026-10-14",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Treat this as a security-sensitive migration: preserve algorithms, modes, key sizes, padding, nonces or IVs, authentication tags, and serialized ciphertext formats.",
@@ -232,7 +256,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "sklearn deprecation notice", url: "https://pypi.org/project/sklearn/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep Python imports as sklearn; only the distribution name used by installers and dependency metadata changes.",
@@ -275,7 +305,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "Distribute deprecation notice", url: "https://pypi.org/project/distribute/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve build backend behavior, package metadata, entry points, and supported installer environments.",
@@ -316,7 +352,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "pycodestyle rename notice", url: "https://pypi.org/project/pycodestyle/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve selected checks, ignore lists, file exclusions, maximum line length, and CI failure behavior.",
@@ -374,7 +416,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve provider scopes, binding resolution, constructor injection, overrides, and application startup behavior.",
@@ -418,7 +466,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve test dependencies, pytest options, environment variables, supported Python versions, and CI exit behavior.",
@@ -458,7 +512,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "ipaddr supersession notice", url: "https://pypi.org/project/ipaddr/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve IPv4 and IPv6 parsing, strictness, network boundaries, address ordering, exception behavior, and text formatting.",
@@ -501,7 +561,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve task discovery, broker and result settings, periodic schedules, worker startup, retries, and Django application initialization.",
@@ -547,7 +613,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve API endpoints, authentication, statistical-variable identifiers, entity queries, response shapes, pagination, and retry behavior.",
@@ -586,7 +658,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "vsdeband deprecation notice", url: "https://pypi.org/project/vsdeband/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve filter selection, thresholds, planes, grain behavior, frame formats, and rendered video output.",
@@ -631,7 +709,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve model identifiers, checkpoints, preprocessing, forecast horizons, covariates, device selection, and output shapes.",
@@ -667,7 +751,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "trikesh",
     sources: [{ title: "saroku rename notice", url: "https://pypi.org/project/saroku/", accessedAt: "2026-10-16" }],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve command behavior, configuration, output formats, and any persisted state."],
       steps: [
@@ -701,7 +791,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: ["Preserve scan targets, configured checks, output formats, exit codes, and CI invocation."],
       steps: [
@@ -737,7 +833,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve model selection, indexing, query behavior, deployment settings, authentication, and response contracts.",
@@ -768,7 +870,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "goobook maintenance notice", url: "https://pypi.org/project/goobook/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve contact fields, address-book search, authentication, caching, and command output used by scripts.",
@@ -802,7 +910,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "pyimagej",
     sources: [{ title: "imagej rename notice", url: "https://pypi.org/project/imagej/", accessedAt: "2026-10-16" }],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve ImageJ initialization, JVM options, endpoints, datasets, conversions, and headless behavior.",
@@ -839,7 +953,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the version source, tag format, source-tree state, built metadata, editable installs, and release automation.",
@@ -873,7 +993,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "api-shield deprecation notice", url: "https://pypi.org/project/api-shield/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve feature flags, rollout state, rate limits, maintenance windows, storage, and framework adapters.",
@@ -912,7 +1038,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve HTTP, SOAP, FTP, and SFTP behavior, TLS verification, retries, processors, response envelopes, and error handling.",
@@ -949,7 +1081,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve server URLs, authentication, timeout and TLS settings, resource queries, pagination, and response models.",
@@ -986,7 +1124,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve authentication, configuration, saved credentials, scan scope, manifest output, upload behavior, and CI exit codes.",
@@ -1017,7 +1161,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "repoindex",
     sources: [{ title: "ghops deprecation notice", url: "https://pypi.org/project/ghops/", accessedAt: "2026-10-16" }],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve repository discovery, grouping, metadata, configuration, command output, and any persisted collection state.",
@@ -1059,7 +1209,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve data loading, analysis workflows, notebook integration, model behavior, and serialized artifacts relied on by users.",
@@ -1093,7 +1249,13 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       { title: "vsscale deprecation notice", url: "https://pypi.org/project/vsscale/", accessedAt: "2026-10-16" },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve scaling kernels, descaling behavior, clip formats, dimensions, chroma handling, and VapourSynth frame output.",
@@ -1134,7 +1296,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve notebook input and output paths, cell execution order, timeouts, errors, kernel selection, and rendered report artifacts.",
@@ -1175,7 +1343,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve data connectors, indexes, query behavior, prompts, model configuration, serialization, and observability used by the application.",
@@ -1216,7 +1390,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "SIE is not a drop-in replacement; preserve schemas, indexing, storage, vector search, query weighting, model behavior, and deployment requirements explicitly.",
@@ -1257,7 +1437,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve configuration, climate data inputs, diagnostics, output formats, provenance, and command behavior.",
@@ -1298,7 +1484,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve provider configuration, usage history, statusline and hook integration, CLI behavior, and the existing ~/.headroom state.",
@@ -1339,7 +1531,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve the agentops import path, CLI entrypoints, public APIs, configuration, telemetry, and stored project state.",
@@ -1378,7 +1576,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-16",
       },
     ],
-    provenance: { observedAt: "2026-10-16", reviewedAt: "2026-10-16", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-16",
+      reviewedAt: "2026-10-16",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve request parameter, query, body, and response validation; schema semantics; aiohttp middleware behavior; and error responses.",
@@ -1430,6 +1634,8 @@ export const rules: readonly RegistryV2Rule[] = [
       observedAt: "2026-10-17",
       reviewedAt: "2026-10-17",
       reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
       importer: "python-release-cycle",
     },
     migration: {
@@ -1481,7 +1687,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     "x-python": { kind: "package", package: "argparse" },
     migration: {
       constraints: [
@@ -1524,7 +1736,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     "x-python": { kind: "package", package: "enum" },
     migration: {
       constraints: [
@@ -1567,7 +1785,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     "x-python": { kind: "package", package: "google-cloud" },
     migration: {
       constraints: [
@@ -1610,7 +1834,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     "x-python": { kind: "package", package: "pathlib" },
     migration: {
       constraints: [
@@ -1649,7 +1879,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     "x-python": { kind: "package", package: "PIL" },
     migration: {
       constraints: [
@@ -1692,7 +1928,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-20",
       },
     ],
-    provenance: { observedAt: "2026-10-20", reviewedAt: "2026-10-20", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-20",
+      reviewedAt: "2026-10-20",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     "x-python": { kind: "package", package: "typing" },
     migration: {
       constraints: [
@@ -1737,7 +1979,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -1796,7 +2044,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -1855,7 +2109,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -1914,7 +2174,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -1973,7 +2239,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2037,7 +2309,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2101,7 +2379,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2165,7 +2449,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2229,7 +2519,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2293,7 +2589,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2357,7 +2659,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2421,7 +2729,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2485,7 +2799,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2549,7 +2869,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2613,7 +2939,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2677,7 +3009,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2741,7 +3079,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2805,7 +3149,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2869,7 +3219,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2933,7 +3289,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve models, migrations, settings, URL configuration, templates, and deployment configuration while changing the Django release series.",
@@ -2991,7 +3353,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3037,7 +3405,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3080,7 +3454,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3125,7 +3505,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3172,7 +3558,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3221,7 +3613,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3265,7 +3663,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3315,7 +3719,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3356,7 +3766,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3408,7 +3824,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the call unchanged; check the replacement's argument and return-type differences.",
@@ -3452,7 +3874,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3491,7 +3919,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3530,7 +3964,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3569,7 +4009,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3608,7 +4054,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3647,7 +4099,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3686,7 +4144,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3726,7 +4190,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3765,7 +4235,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3804,7 +4280,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3843,7 +4325,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3882,7 +4370,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3921,7 +4415,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -3963,7 +4463,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4002,7 +4508,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4041,7 +4553,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4080,7 +4598,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4119,7 +4643,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4159,7 +4689,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4198,7 +4734,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4237,7 +4779,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4276,7 +4824,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4315,7 +4869,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4355,7 +4915,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4420,7 +4986,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4464,7 +5036,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4507,7 +5085,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4546,7 +5130,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4593,7 +5183,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4646,7 +5242,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4692,7 +5294,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4734,7 +5342,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-21",
       },
     ],
-    provenance: { observedAt: "2026-10-21", reviewedAt: "2026-10-21", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-21",
+      reviewedAt: "2026-10-21",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the code unchanged; check the replacement's argument and return-value differences.",
@@ -4780,7 +5394,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "distutils" }],
     migration: {
       constraints: [
@@ -4824,7 +5444,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "asynchat" }],
     migration: {
       constraints: [
@@ -4868,7 +5494,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "asyncore" }],
     migration: {
       constraints: [
@@ -4912,7 +5544,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "smtpd" }],
     migration: {
       constraints: [
@@ -4956,7 +5594,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "imp" }],
     migration: {
       constraints: [
@@ -5000,7 +5644,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "aifc" }],
     migration: {
       constraints: [
@@ -5044,7 +5694,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "audioop" }],
     migration: {
       constraints: [
@@ -5088,7 +5744,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "cgi" }],
     migration: {
       constraints: [
@@ -5132,7 +5794,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "cgitb" }],
     migration: {
       constraints: [
@@ -5176,7 +5844,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "chunk" }],
     migration: {
       constraints: [
@@ -5220,7 +5894,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "crypt" }],
     migration: {
       constraints: [
@@ -5265,7 +5945,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "imghdr" }],
     migration: {
       constraints: [
@@ -5309,7 +5995,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "mailcap" }],
     migration: {
       constraints: [
@@ -5352,7 +6044,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "msilib" }],
     migration: {
       constraints: [
@@ -5395,7 +6093,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "nis" }],
     migration: {
       constraints: [
@@ -5438,7 +6142,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "nntplib" }],
     migration: {
       constraints: [
@@ -5481,7 +6191,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "ossaudiodev" }],
     migration: {
       constraints: [
@@ -5525,7 +6241,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "pipes" }],
     migration: {
       constraints: [
@@ -5569,7 +6291,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "sndhdr" }],
     migration: {
       constraints: [
@@ -5612,7 +6340,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "spwd" }],
     migration: {
       constraints: [
@@ -5656,7 +6390,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "sunau" }],
     migration: {
       constraints: [
@@ -5700,7 +6440,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "telnetlib" }],
     migration: {
       constraints: [
@@ -5744,7 +6490,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "uu" }],
     migration: {
       constraints: [
@@ -5788,7 +6540,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "xdrlib" }],
     migration: {
       constraints: [
@@ -5833,7 +6591,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-30", reviewedAt: "2026-10-30", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-30",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     usage: [{ kind: "import", language: "python", module: "lib2to3" }],
     migration: {
       constraints: [
@@ -5874,7 +6638,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-02",
       },
     ],
-    provenance: { observedAt: "2026-11-02", reviewedAt: "2026-11-02", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-11-02",
+      reviewedAt: "2026-11-02",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep the behavior of the test unchanged; each alias calls the method its replacement names.",

@@ -34,6 +34,7 @@ function makeRule(overrides: { id: string; reviewedAt: string; ecosystem?: strin
       observedAt: overrides.reviewedAt,
       reviewedAt: overrides.reviewedAt,
       reviewer: "maintainer",
+      method: "manual",
     },
   };
 }

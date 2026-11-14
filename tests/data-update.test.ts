@@ -47,7 +47,7 @@ before(async () => {
     summary: "Synthetic rule to yield a distinct contentDigest.",
     severity: "low",
     sources: [{ title: "test", url: "https://example.com/probe", accessedAt: "2099-01-01" }],
-    provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test" },
+    provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test", method: "manual" },
     "x-npm": { package: "ebb-update-probe" },
   });
   await writeFile(npmPath, `${JSON.stringify(npm)}\n`);

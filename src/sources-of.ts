@@ -9,6 +9,8 @@ import { EbbError } from "./errors.js";
 import {
   isIsoDate,
   type LifecycleEvent,
+  type Provenance,
+  type ProvenanceMethod,
   type RegistryV2,
   type RegistryV2Rule,
   validateRegistryV2,
@@ -57,6 +59,16 @@ export interface SourcesOfResult {
   readonly sources: readonly SourceEntry[];
   readonly deadline?: string | undefined;
   readonly replacement?: string | undefined;
+  /** Full provenance metadata if present. */
+  readonly provenance?: Provenance | undefined;
+  /** Creation/maintenance method (manual, imported, upstream). */
+  readonly method?: ProvenanceMethod | undefined;
+  /** All reviewers who approved the rule. */
+  readonly reviewers?: readonly string[] | undefined;
+  /** Importer that drafted the rule, when one did. */
+  readonly importer?: string | undefined;
+  /** Version of the importer tool that drafted the rule. */
+  readonly importerVersion?: string | undefined;
 }
 
 interface LockEntry {
@@ -248,6 +260,7 @@ export function sourcesOf(ruleId: string, options: SourcesOfOptions = {}): Sourc
     };
   });
 
+  const prov = foundRule.provenance;
   return {
     ruleId: foundRule.id,
     ecosystem: foundRule.ecosystem,
@@ -256,11 +269,16 @@ export function sourcesOf(ruleId: string, options: SourcesOfOptions = {}): Sourc
     title: foundRule.title,
     summary: foundRule.summary,
     severity: foundRule.severity,
-    reviewer: foundRule.provenance?.reviewer ?? "unknown",
-    reviewedAt: foundRule.provenance?.reviewedAt ?? "",
-    observedAt: foundRule.provenance?.observedAt ?? "",
+    reviewer: prov?.reviewer ?? "unknown",
+    reviewedAt: prov?.reviewedAt ?? "",
+    observedAt: prov?.observedAt ?? "",
     sources: sourceEntries,
     ...(foundRule.deadline ? { deadline: foundRule.deadline } : {}),
     ...(foundRule.replacement ? { replacement: foundRule.replacement } : {}),
+    ...(prov ? { provenance: prov } : {}),
+    ...(prov?.method ? { method: prov.method } : {}),
+    ...(prov?.reviewers ? { reviewers: prov.reviewers } : prov?.reviewer ? { reviewers: [prov.reviewer] } : {}),
+    ...(prov?.importer ? { importer: prov.importer } : {}),
+    ...(prov?.importerVersion ? { importerVersion: prov.importerVersion } : {}),
   };
 }

@@ -16,7 +16,7 @@ function makeRule(overrides: Partial<RegistryV2Rule> = {}): RegistryV2Rule {
     severity: "high",
     deadline: "2026-04-30",
     sources: [{ title: "Node.js schedule", url: "https://nodejs.org/schedule", accessedAt: "2026-01-01" }],
-    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-02", reviewer: "test" },
+    provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-02", reviewer: "test", method: "manual" },
     ...overrides,
   };
 }

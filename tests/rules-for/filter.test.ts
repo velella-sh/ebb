@@ -33,7 +33,7 @@ function makeSyntheticRule(id: string, purl: string, vers: string, event: RuleEv
     title: `ebb-filter-probe ${event} (${vers})`,
     summary: `Synthetic ${event} rule for filter test.`,
     sources: [{ title: "test fixture", url: `https://example.com/${id}`, accessedAt: "2099-01-15" }],
-    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test" },
+    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test", method: "manual" },
     "x-npm": { package: "ebb-filter-probe" },
   };
 }

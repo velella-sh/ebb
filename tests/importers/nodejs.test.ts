@@ -54,6 +54,8 @@ test("drafts one end-of-life rule per release line whose end date has passed, fr
     observedAt: "2026-10-15",
     reviewedAt: "2026-10-15",
     reviewer: "pending-review",
+    reviewers: ["pending-review"],
+    method: "imported",
     importer: "nodejs-schedule",
   });
 });

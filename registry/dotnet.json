@@ -31,7 +31,11 @@
       "provenance": {
         "observedAt": "2026-11-10",
         "reviewedAt": "2026-11-10",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -97,7 +101,11 @@
       "provenance": {
         "observedAt": "2026-11-10",
         "reviewedAt": "2026-11-10",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -163,7 +171,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -228,7 +240,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -293,7 +309,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -358,7 +378,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -424,6 +448,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-1"
       },
       "migration": {
@@ -490,6 +518,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-1"
       },
       "migration": {
@@ -556,6 +588,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-1"
       },
       "migration": {
@@ -622,6 +658,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-1"
       },
       "migration": {
@@ -688,6 +728,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-1"
       },
       "migration": {
@@ -754,6 +798,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-1"
       },
       "migration": {
@@ -824,7 +872,11 @@
       "provenance": {
         "observedAt": "2026-10-17",
         "reviewedAt": "2026-10-17",
-        "reviewer": "arminazimi"
+        "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "manual"
       },
       "migration": {
         "constraints": [
@@ -918,6 +970,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-2"
       },
       "migration": {
@@ -988,6 +1044,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-2"
       },
       "migration": {
@@ -1064,6 +1124,10 @@
         "observedAt": "2026-10-19",
         "reviewedAt": "2026-10-19",
         "reviewer": "arminazimi",
+        "reviewers": [
+          "arminazimi"
+        ],
+        "method": "imported",
         "importer": "dotnet-2"
       },
       "migration": {

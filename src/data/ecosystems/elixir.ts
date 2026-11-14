@@ -28,7 +28,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .tool-versions, mix.exs elixir:, CI setup-beam versions, and container images on one supported Elixir release line that the chosen Erlang/OTP also supports.",
@@ -81,7 +87,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .tool-versions, mix.exs elixir:, CI setup-beam versions, and container images on one supported Elixir release line that the chosen Erlang/OTP also supports.",
@@ -134,7 +146,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .tool-versions erlang pins, asdf elixir …-otp-N suffixes, CI setup-beam OTP versions, and container images on one supported OTP release that the project's Elixir supports.",
@@ -190,7 +208,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-26",
       },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep .tool-versions erlang pins, asdf elixir …-otp-N suffixes, CI setup-beam OTP versions, and container images on one supported OTP release that the project's Elixir supports.",
@@ -237,7 +261,13 @@ export const rules: readonly RegistryV2Rule[] = [
       { title: "fennec on Hex", url: "https://hex.pm/packages/fennec", accessedAt: "2026-10-26" },
       { title: "mongooseice on Hex", url: "https://hex.pm/packages/mongooseice", accessedAt: "2026-10-26" },
     ],
-    provenance: { observedAt: "2026-10-26", reviewedAt: "2026-10-26", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-26",
+      reviewedAt: "2026-10-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Preserve STUN/TURN configuration and call sites while moving from fennec to mongooseice.",

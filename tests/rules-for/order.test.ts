@@ -32,7 +32,7 @@ function makeNpmRule(id: string, purl: string, packageName: string, vers: string
     summary: "Synthetic test fixture rule for rulesFor ordering.",
     severity: "medium",
     sources: [{ title: "test fixture", url: `https://example.com/${id}`, accessedAt: "2099-01-15" }],
-    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test" },
+    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test", method: "manual" },
     "x-npm": { package: packageName },
   };
 }

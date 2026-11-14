@@ -203,6 +203,7 @@ describe("asOf scoped client", () => {
         observedAt: "2026-01-01",
         reviewedAt: "2026-01-01",
         reviewer: "tester",
+        method: "manual",
       },
     };
 

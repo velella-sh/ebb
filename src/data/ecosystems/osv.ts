@@ -20,7 +20,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-27",
       },
     ],
-    provenance: { observedAt: "2026-10-27", reviewedAt: "2026-10-27", reviewer: "arminazimi", importer: "osv" },
+    provenance: {
+      observedAt: "2026-10-27",
+      reviewedAt: "2026-10-27",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "osv",
+    },
     "x-osv": { ids: ["GHSA-p8p7-x288-28g6"], ruleId: "npm.package.request.deprecated" },
   },
   {
@@ -46,7 +53,14 @@ export const rules: readonly RegistryV2Rule[] = [
       },
       { title: "PYSEC-2018-97", url: "https://osv.dev/vulnerability/PYSEC-2018-97", accessedAt: "2026-10-27" },
     ],
-    provenance: { observedAt: "2026-10-27", reviewedAt: "2026-10-27", reviewer: "arminazimi", importer: "osv" },
+    provenance: {
+      observedAt: "2026-10-27",
+      reviewedAt: "2026-10-27",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "osv",
+    },
     "x-osv": {
       ids: ["GHSA-6528-wvf6-f6qg", "GHSA-cq27-v7xp-c356", "PYSEC-2018-97"],
       ruleId: "python.package.pycrypto.obsolete",

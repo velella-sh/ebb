@@ -33,7 +33,12 @@ async function withFixture(run: (dir: string, base: string) => Promise<void>) {
             summary: "S",
             severity: "high",
             sources: [{ title: "Source", url: `${base}/page`, accessedAt: "2024-01-01" }],
-            provenance: { observedAt: "2024-01-01", reviewedAt: "2024-01-02", reviewer: "maintainer" },
+            provenance: {
+              observedAt: "2024-01-01",
+              reviewedAt: "2024-01-02",
+              reviewer: "maintainer",
+              method: "manual",
+            },
           },
         ],
       }),

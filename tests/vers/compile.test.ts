@@ -20,7 +20,7 @@ const sampleRule: RegistryV2Rule = {
   summary: "Test summary",
   vers: "vers:npm/>=1.0.0|<2.0.0",
   sources: [{ title: "test", url: "https://example.com" }],
-  provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+  provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
 };
 
 test("compileRuleVers parses and caches compiled vers range on the rule object", () => {

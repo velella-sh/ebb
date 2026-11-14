@@ -25,7 +25,12 @@ import { importers } from "../../tools/importers/index.js";
 const rule = (id: string, importer: string | undefined, reviewedAt: string) =>
   ({
     id,
-    provenance: { observedAt: reviewedAt, reviewedAt, reviewer: "someone", ...(importer ? { importer } : {}) },
+    provenance: {
+      observedAt: reviewedAt,
+      reviewedAt,
+      reviewer: "someone",
+      ...(importer ? { importer, method: "manual" } : {}),
+    },
   }) as unknown as RegistryV2Rule;
 
 const registries = (rules: RegistryV2Rule[]) => [{ name: "go", registry: { rules } as unknown as RegistryV2 }];

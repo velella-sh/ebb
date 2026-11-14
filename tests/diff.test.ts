@@ -38,7 +38,7 @@ const baseRule1: RegistryV2Rule = {
   deadline: "2020-02-11",
   severity: "low",
   sources: [{ title: "Blog post", url: "https://example.com/blog", accessedAt: "2020-02-11" }],
-  provenance: { observedAt: "2020-02-11", reviewedAt: "2020-02-11", reviewer: "alice" },
+  provenance: { observedAt: "2020-02-11", reviewedAt: "2020-02-11", reviewer: "alice", method: "manual" },
 };
 
 const baseRule2: RegistryV2Rule = {
@@ -53,7 +53,7 @@ const baseRule2: RegistryV2Rule = {
   severity: "medium",
   replacement: "pkg:pypi/django@4.2",
   sources: [{ title: "Django LTS", url: "https://example.com/django", accessedAt: "2024-04-01" }],
-  provenance: { observedAt: "2024-04-01", reviewedAt: "2024-04-01", reviewer: "bob" },
+  provenance: { observedAt: "2024-04-01", reviewedAt: "2024-04-01", reviewer: "bob", method: "manual" },
 };
 
 test("diffRules compares identical rulesets and yields empty diff", () => {
@@ -88,7 +88,7 @@ test("diffRules identifies added and removed rules", () => {
     summary: "Rand ancient versions reached end of life.",
     severity: "medium",
     sources: [{ title: "Docs", url: "https://example.com/rand", accessedAt: "2025-01-01" }],
-    provenance: { observedAt: "2025-01-01", reviewedAt: "2025-01-01", reviewer: "charlie" },
+    provenance: { observedAt: "2025-01-01", reviewedAt: "2025-01-01", reviewer: "charlie", method: "manual" },
   };
 
   const from = [baseRule1, baseRule2];
@@ -115,7 +115,7 @@ test("diffRules tracks field-level changes: deadline shifts, event, vers, source
       { title: "Blog post", url: "https://example.com/blog", accessedAt: "2020-02-11" },
       { title: "GitHub issue", url: "https://example.com/issue-99", accessedAt: "2020-03-12" },
     ],
-    provenance: { observedAt: "2020-02-11", reviewedAt: "2020-03-12", reviewer: "dave" },
+    provenance: { observedAt: "2020-02-11", reviewedAt: "2020-03-12", reviewer: "dave", method: "manual" },
   };
 
   const result = diffRules([baseRule1], [modifiedRule1]);
@@ -223,7 +223,7 @@ test("formatDiffMarkdown produces release notes formatted markdown", () => {
     severity: "low",
     deadline: "2023-01-01",
     sources: [{ title: "Got release", url: "https://example.com/got", accessedAt: "2023-01-01" }],
-    provenance: { observedAt: "2023-01-01", reviewedAt: "2023-01-01", reviewer: "eve" },
+    provenance: { observedAt: "2023-01-01", reviewedAt: "2023-01-01", reviewer: "eve", method: "manual" },
   };
 
   const result = diffRules([baseRule1], [modifiedRule, addedRule]);

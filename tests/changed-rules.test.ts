@@ -34,7 +34,7 @@ function registryText(summary = "The package is deprecated."): string {
           severity: "high",
           replacement: "Native fetch",
           sources: [{ title: "Deprecation notice", url: "https://example.com/request", accessedAt: "2026-01-01" }],
-          provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-02", reviewer: "test" },
+          provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-02", reviewer: "test", method: "manual" },
         },
       ],
     },
@@ -49,7 +49,7 @@ const REORDERED = `{
   "rules": [
     {
       "id": "npm.package.request.deprecated",
-      "provenance": { "reviewer": "test", "reviewedAt": "2026-01-02", "observedAt": "2026-01-01" },
+      "provenance": { "reviewer": "test", "reviewedAt": "2026-01-02", "observedAt": "2026-01-01", "method": "manual" },
       "sources": [ { "url": "https://example.com/request", "title": "Deprecation notice", "accessedAt": "2026-01-01" } ],
       "severity": "high",
       "replacement": "Native fetch",

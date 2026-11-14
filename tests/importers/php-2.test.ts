@@ -138,6 +138,8 @@ test("drafts abandoned rules from the real recording, including a flag with no r
     observedAt: "2026-10-20",
     reviewedAt: "2026-10-20",
     reviewer: "pending-review",
+    reviewers: ["pending-review"],
+    method: "imported",
     importer: "php-2",
   });
 

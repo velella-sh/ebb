@@ -94,6 +94,24 @@ test("the registry v2 schema rejects incomplete or ambiguous rules", async (t) =
       },
     ],
     [
+      "missing provenance method",
+      (value: Example) => {
+        delete value.rules[0].provenance.method;
+      },
+    ],
+    [
+      "invalid provenance method",
+      (value: Example) => {
+        value.rules[0].provenance.method = "automatic";
+      },
+    ],
+    [
+      "empty provenance reviewers",
+      (value: Example) => {
+        value.rules[0].provenance.reviewers = [];
+      },
+    ],
+    [
       "timestamp instead of date",
       (value: Example) => {
         value.rules[0].provenance.reviewedAt = "2026-10-13T00:00:00Z";

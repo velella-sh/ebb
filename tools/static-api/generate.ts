@@ -198,10 +198,29 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     url: string;
     rulesCount: number;
     componentsCount: number;
+    provenance: {
+      methods: { manual: number; imported: number; upstream: number };
+      reviewersCount: number;
+    };
   }> = [];
 
   for (const [ecoName, ecoRules] of rulesByEcosystem.entries()) {
     const ecoComponents = new Set(ecoRules.map((r) => purlIdentity(r.purl)));
+    const methods = { manual: 0, imported: 0, upstream: 0 };
+    const reviewersSet = new Set<string>();
+    for (const r of ecoRules) {
+      const m = r.provenance?.method ?? (r.provenance?.importer ? "imported" : "manual");
+      if (m in methods) methods[m as keyof typeof methods]++;
+      if (r.provenance?.reviewer) reviewersSet.add(r.provenance.reviewer);
+      if (r.provenance?.reviewers) {
+        for (const rev of r.provenance.reviewers) reviewersSet.add(rev);
+      }
+    }
+    const provenanceSummary = {
+      methods,
+      reviewersCount: reviewersSet.size,
+    };
+
     const ecoDoc = {
       schemaVersion: API_SCHEMA_VERSION,
       version,
@@ -209,6 +228,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       ecosystem: ecoName,
       rulesCount: ecoRules.length,
       componentsCount: ecoComponents.size,
+      provenance: provenanceSummary,
       rules: ecoRules,
     };
 
@@ -226,6 +246,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       url: `${baseUrl}/${ecoName}.json`,
       rulesCount: ecoRules.length,
       componentsCount: ecoComponents.size,
+      provenance: provenanceSummary,
     });
   }
   ecosystemsSummary.sort((a, b) => a.name.localeCompare(b.name));

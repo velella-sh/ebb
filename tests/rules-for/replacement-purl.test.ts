@@ -187,7 +187,7 @@ test("replacementFor normalises explicit pkg: replacements and rejects invalid o
       severity: "medium",
       replacement: "  pkg:NPM/@Example/NextPkg@2.0.0?Repository_Url=https://example.com#./dist  ",
       sources: [{ title: "fixture", url: "https://example.com/valid", accessedAt: "2099-01-01" }],
-      provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test" },
+      provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test", method: "manual" },
       "x-npm": { package: "custom-valid-purl" },
     },
     {
@@ -201,7 +201,7 @@ test("replacementFor normalises explicit pkg: replacements and rejects invalid o
       severity: "medium",
       replacement: "PKG:npm/sass",
       sources: [{ title: "fixture", url: "https://example.com/invalid-scheme", accessedAt: "2099-01-01" }],
-      provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test" },
+      provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test", method: "manual" },
       "x-npm": { package: "custom-invalid-scheme" },
     },
     {
@@ -215,7 +215,7 @@ test("replacementFor normalises explicit pkg: replacements and rejects invalid o
       severity: "medium",
       replacement: "pkg:npm/",
       sources: [{ title: "fixture", url: "https://example.com/invalid", accessedAt: "2099-01-01" }],
-      provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test" },
+      provenance: { observedAt: "2099-01-01", reviewedAt: "2099-01-01", reviewer: "test", method: "manual" },
       "x-npm": { package: "custom-invalid-purl" },
     },
   ]);

@@ -60,7 +60,7 @@ test("browser: runs in Chromium, Firefox, and WebKit with identical verdicts", a
         replacement: "Native fetch or a maintained HTTP client",
         deadline: "2020-02-11",
         sources: [{ title: "notice", url: "https://www.npmjs.com/package/request", accessedAt: "2026-10-13" }],
-        provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-13", reviewer: "test" },
+        provenance: { observedAt: "2026-10-13", reviewedAt: "2026-10-13", reviewer: "test", method: "manual" },
       },
     ],
   };

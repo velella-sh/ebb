@@ -53,7 +53,7 @@ async function registryWithProbe(): Promise<string> {
         accessedAt: "2099-01-15",
       },
     ],
-    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test" },
+    provenance: { observedAt: "2099-01-15", reviewedAt: "2099-01-15", reviewer: "test", method: "manual" },
     "x-npm": { package: "ebb-check-active-data-probe" },
   });
   await writeFile(npmPath, `${JSON.stringify(npm)}\n`);

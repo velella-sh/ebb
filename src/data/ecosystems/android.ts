@@ -23,7 +23,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every module, version catalog entry, and BOM override on one Play Billing Library major that Google Play still accepts for new apps and updates.",
@@ -76,7 +82,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every module, version catalog entry, and BOM override on one Play Billing Library major that Google Play still accepts for new apps and updates.",
@@ -129,7 +141,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every module, version catalog entry, and BOM override on one Play Billing Library major that Google Play still accepts for new apps and updates.",
@@ -182,7 +200,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every module, version catalog entry, and BOM override on one Play Billing Library major that Google Play still accepts for new apps and updates.",
@@ -235,7 +259,13 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-19",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-19", reviewer: "arminazimi" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-19",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "manual",
+    },
     migration: {
       constraints: [
         "Keep every module, version catalog entry, and BOM override on one Play Billing Library major that Google Play still accepts for new apps and updates.",
@@ -289,7 +319,14 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-30",
       },
     ],
-    provenance: { observedAt: "2026-10-19", reviewedAt: "2026-10-30", reviewer: "arminazimi", importer: "android-1" },
+    provenance: {
+      observedAt: "2026-10-19",
+      reviewedAt: "2026-10-30",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "android-1",
+    },
     migration: {
       constraints: [
         "This floor applies to existing apps distributed on Google Play for default (phone and tablet) form factors; Wear OS, Android TV, Android XR, Android Automotive OS, and permanently private internal apps follow different Play requirements.",

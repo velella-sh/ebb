@@ -74,7 +74,7 @@ test("applyAsOf elevates scheduled-end-of-life findings whose deadline has passe
       severity: "low",
       deadline: "2026-04-30",
       sources: [{ title: "s", url: "https://example.com", accessedAt: "2026-01-01" }],
-      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test" },
+      provenance: { observedAt: "2026-01-01", reviewedAt: "2026-01-01", reviewer: "test", method: "manual" },
     },
   ];
   const scan: LifecycleScan = {
