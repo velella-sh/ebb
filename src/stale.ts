@@ -6,11 +6,17 @@
  * day in tests so the output is deterministic.
  */
 
-import { BUNDLED_DATA } from "./data/bundled-data.js";
+import { getDataLoader } from "./data/load.js";
 import { BUNDLED_ECOSYSTEMS } from "./data/ecosystems.js";
 import { EbbError } from "./errors.js";
-import { addDays, addMonths } from "./forecast.js";
-import { DEFAULT_MAX_REVIEW_AGE_DAYS, isIsoDate, type RegistryV2, type RegistryV2Rule } from "./registry.js";
+import {
+  DEFAULT_MAX_REVIEW_AGE_DAYS,
+  isIsoDate,
+  type RegistryV2,
+  type RegistryV2Rule,
+  validateRegistryV2,
+} from "./registry.js";
+import { addDays, addMonths } from "./upcoming.js";
 
 export const STALE_SCHEMA_VERSION = "ebb.stale.v1" as const;
 
@@ -153,10 +159,25 @@ function utcToday(clock: () => Date): string {
   return clock().toISOString().slice(0, 10);
 }
 
+const registryCache = new Map<string, RegistryV2>();
+
 function bundledRegistry(ecosystem: string): RegistryV2 | undefined {
-  const raw = BUNDLED_DATA[ecosystem];
-  if (raw === undefined || typeof raw !== "object" || raw === null) return undefined;
-  return raw as RegistryV2;
+  const cached = registryCache.get(ecosystem);
+  if (cached !== undefined) return cached;
+  try {
+    const loader = getDataLoader();
+    if (typeof loader.readSync === "function") {
+      const raw = loader.readSync(`registry/${ecosystem}.json`);
+      if (raw && typeof raw === "object") {
+        const validated = validateRegistryV2(raw);
+        registryCache.set(ecosystem, validated);
+        return validated;
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return undefined;
 }
 
 function loadDefaultRegistries(): RegistryV2[] {
