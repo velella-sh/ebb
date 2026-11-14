@@ -1,6 +1,7 @@
 import type { CheckResult, CheckMatch } from "../../check.js";
 import type { CheckAllResult, CheckAllItem } from "../../check-all.js";
 import type { RegistryV2Rule } from "../../registry.js";
+import type { StaleResult } from "../../stale.js";
 import type { UpcomingResult } from "../../upcoming.js";
 import { getOffingHint } from "../../hint.js";
 
@@ -202,6 +203,46 @@ export function formatRulesMarkdown(purl: string, rules: RegistryV2Rule[]): stri
     lines.push(`| \`${r.id}\` | ${r.event} | \`${r.vers}\` | ${deadline} | ${rep} |`);
   }
   lines.push("");
+  return lines.join("\n");
+}
+
+export function formatStaleMarkdown(result: StaleResult): string {
+  const lines: string[] = [
+    `### Stale lifecycle rules`,
+    "",
+    `**As of:** \`${result.asOf}\`  `,
+    `**Soon within:** \`${result.soonWithin}\`  `,
+    `**Counts:** ${result.counts.stale} stale · ${result.counts.staleSoon} soon · ${result.counts.fresh} fresh · ${result.counts.total} total`,
+    "",
+  ];
+
+  if (result.stale.length === 0 && result.staleSoon.length === 0) {
+    lines.push("No rules need review.\n");
+    return lines.join("\n");
+  }
+
+  if (result.stale.length > 0) {
+    lines.push("#### Already stale", "");
+    lines.push("| Rule | Reviewed | Age | Window |");
+    lines.push("| :--- | :--- | ---: | ---: |");
+    for (const entry of result.stale) {
+      lines.push(`| \`${entry.ruleId}\` | \`${entry.reviewedAt}\` | ${entry.ageDays}d | ${entry.maxReviewAgeDays}d |`);
+    }
+    lines.push("");
+  }
+
+  if (result.staleSoon.length > 0) {
+    lines.push("#### Turning stale soon", "");
+    lines.push("| Rule | Reviewed | Stale in | Window |");
+    lines.push("| :--- | :--- | ---: | ---: |");
+    for (const entry of result.staleSoon) {
+      lines.push(
+        `| \`${entry.ruleId}\` | \`${entry.reviewedAt}\` | ${entry.daysUntilStale}d | ${entry.maxReviewAgeDays}d |`,
+      );
+    }
+    lines.push("");
+  }
+
   return lines.join("\n");
 }
 

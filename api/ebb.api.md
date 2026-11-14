@@ -187,6 +187,65 @@ export interface RulesForOptions {
 export type Severity = "info" | "low" | "medium" | "high" | "critical";
 
 // @public
+export function stale(options?: StaleOptions): StaleResult;
+
+// @public (undocumented)
+export interface StaleFinding {
+    // (undocumented)
+    readonly ageDays: number;
+    readonly daysUntilStale: number;
+    // (undocumented)
+    readonly ecosystem: string;
+    // (undocumented)
+    readonly maxReviewAgeDays: number;
+    // (undocumented)
+    readonly purl: string;
+    // (undocumented)
+    readonly reviewedAt: string;
+    // (undocumented)
+    readonly reviewer: string;
+    // (undocumented)
+    readonly ruleId: string;
+    // (undocumented)
+    readonly title: string;
+}
+
+// @public (undocumented)
+export interface StaleOptions {
+    readonly asOf?: string | undefined;
+    readonly clock?: (() => Date) | undefined;
+    readonly maxReviewAgeDays?: number | Readonly<Record<string, number>> | undefined;
+    readonly olderThan?: string | number | undefined;
+    readonly registries?: readonly RegistryV2[] | undefined;
+    readonly rules?: readonly RegistryV2Rule[] | undefined;
+    readonly soonWithin?: string | number | undefined;
+}
+
+// @public (undocumented)
+export interface StaleResult {
+    // (undocumented)
+    readonly asOf: string;
+    // (undocumented)
+    readonly counts: {
+        readonly stale: number;
+        readonly staleSoon: number;
+        readonly fresh: number;
+        readonly total: number;
+    };
+    readonly olderThan: string | null;
+    // Warning: (ae-forgotten-export) The symbol "STALE_SCHEMA_VERSION" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    readonly schemaVersion: typeof STALE_SCHEMA_VERSION;
+    // (undocumented)
+    readonly soonWithin: string;
+    // (undocumented)
+    readonly stale: readonly StaleFinding[];
+    // (undocumented)
+    readonly staleSoon: readonly StaleFinding[];
+}
+
+// @public
 export function upcoming(options?: UpcomingOptions): UpcomingResult;
 
 // @public (undocumented)

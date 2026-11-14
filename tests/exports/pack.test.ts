@@ -66,6 +66,7 @@ assert.deepEqual(Object.keys(root).sort(), [
   "preload",
   "replacementFor",
   "rulesFor",
+  "stale",
   "upcoming",
 ]);
 assert.equal(root.check("node", "18.20.4").status, "end-of-life");

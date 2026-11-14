@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { asOf, check, checkAll, replacementFor, rulesFor, upcoming } from "./index.js";
+import { asOf, check, checkAll, replacementFor, rulesFor, stale, upcoming } from "./index.js";
 import { UpcomingError } from "./upcoming.js";
 import { CheckError } from "./check.js";
 import { checkAllWith, type CheckAllItem } from "./check-all.js";
@@ -16,6 +16,7 @@ import {
   formatReplacementText,
   formatRulesMarkdown,
   formatRulesText,
+  formatStaleMarkdown,
   formatUpcomingMarkdown,
   formatUpcomingText,
   isColorSupported,
@@ -23,6 +24,7 @@ import {
 import { EbbError } from "./errors.js";
 import { formatPurl, parsePurl, PurlError } from "./purl.js";
 import { RulesForError, type RuleEvent } from "./rules-for.js";
+import { formatStaleText } from "./stale.js";
 import { VersError } from "./vers.js";
 import { VERSION } from "./version.js";
 
@@ -35,12 +37,14 @@ Usage:
   ebb replacement <purl> [version] [options] Show suggested replacement for a package
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
   ebb upcoming [options]                     List upcoming end-of-life events
+  ebb stale [options]                        List rules whose review window has expired
 
 Options:
   --format <text|markdown|json> Output format (default: text)
   --json                        Shortcut for --format json
   --as-of <YYYY-MM-DD>          Reference date for time-travel lifecycle evaluation (UTC)
   --within <span|days>          Time window: 30d, 2w, 3m, 1y, or days (default: 90d)
+  --older-than <span|days>     Override review age for stale (e.g. 90d); default uses each registry
   --ecosystem <name>            Filter by ecosystem (e.g. npm, python)
   --purl <purl>                 Filter by package URL
   --fail-on <threshold>         Fail threshold: scheduled, deprecated, unsupported, end-of-life, removed, error (default: deprecated)
@@ -60,6 +64,8 @@ Examples:
   ebb rules pkg:npm/express
   ebb upcoming --within 90d --ecosystem npm
   ebb upcoming --purl pkg:npm/express --json
+  ebb stale --as-of 2026-11-14
+  ebb stale --older-than 90d --json
 `;
 
 export interface CliIo {
@@ -202,6 +208,7 @@ export async function runCli(
         format: { type: "string" },
         "as-of": { type: "string" },
         within: { type: "string" },
+        "older-than": { type: "string" },
         ecosystem: { type: "string" },
         purl: { type: "string" },
         event: { type: "string" },
@@ -483,6 +490,28 @@ export async function runCli(
       }
 
       return 0;
+    }
+
+    if (first === "stale") {
+      const asOfArg = typeof values["as-of"] === "string" ? values["as-of"] : undefined;
+      const olderThanArg = typeof values["older-than"] === "string" ? values["older-than"] : undefined;
+      const soonWithinArg = typeof values.within === "string" ? values.within : undefined;
+
+      const result = stale({
+        asOf: asOfArg,
+        olderThan: olderThanArg,
+        soonWithin: soonWithinArg,
+      });
+
+      if (format === "json") {
+        io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatStaleMarkdown(result));
+      } else {
+        io.stdout.write(formatStaleText(result));
+      }
+
+      return result.counts.stale > 0 ? 1 : 0;
     }
 
     io.stderr.write(`Error: Unknown command "${first}". Run "ebb --help" for usage.\n`);

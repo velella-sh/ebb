@@ -210,6 +210,25 @@ describe("CLI - runCli commands", () => {
     assert.equal(code, 0);
     assert.match(mock.stdout, /npm\.package\.request\.deprecated/);
   });
+
+  it("runs stale with a fixed as-of day", async () => {
+    const mock = createMockIo();
+    const code = await runCli(["stale", "--as-of", "2026-11-14", "--json"], mock.io);
+    assert.equal(code, 0);
+    const parsed = JSON.parse(mock.stdout);
+    assert.equal(parsed.schemaVersion, "ebb.stale.v1");
+    assert.equal(parsed.asOf, "2026-11-14");
+    assert.equal(parsed.counts.stale, 0);
+    assert.ok(parsed.counts.total > 0);
+  });
+
+  it("exits 1 from stale when older-than finds overdue rules", async () => {
+    const mock = createMockIo();
+    const code = await runCli(["stale", "--as-of", "2026-11-14", "--older-than", "1d", "--json"], mock.io);
+    assert.equal(code, 1);
+    const parsed = JSON.parse(mock.stdout);
+    assert.ok(parsed.counts.stale > 0);
+  });
 });
 
 describe("CLI - end-to-end binary execution", () => {

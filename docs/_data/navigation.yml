@@ -41,6 +41,8 @@ main:
         url: /result-model/
       - title: Rules and replacements
         url: /rules-for/
+      - title: Stale rule review
+        url: /stale/
       - title: Batch checking
         url: /check-all/
       - title: VERS version ranges

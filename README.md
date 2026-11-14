@@ -204,6 +204,9 @@ npx @velella/ebb replacement pkg:npm/request@2.88.2
 # Query upcoming end-of-life events within a time window
 npx @velella/ebb upcoming --within 90d --ecosystem nodejs
 
+# List rules whose review window has expired
+npx @velella/ebb stale --as-of 2026-11-14
+
 # Evaluate lifecycle status as of a specific date (time travel)
 npx @velella/ebb as-of 2027-05-01 node 22.11.0
 ```
@@ -373,6 +376,7 @@ These pages are also published as a site, built with [Mizzen](https://velella.sh
 - [CLI](docs/cli.md): command-line interface for offline checks and SBOM batch evaluation.
 - [Upcoming deadlines](docs/upcoming.md): query scheduled and upcoming end-of-life events within a time window.
 - [Time-travel evaluation (asOf)](docs/as-of.md): evaluate lifecycle status as of past or future dates with deterministic replay.
+- [Stale rule review](docs/stale.md): find rules past their review window and the weekly maintainer issue.
 - [Agent Skills](docs/skills.md): guardrails for AI coding agents via skills.sh.
 - [MCP server](docs/mcp.md): connect Ebb over standard stdio JSON-RPC 2.0.
 - [Agent Evaluations](evals/agents/REPORT.md): benchmark report measuring agent accuracy with and without Ebb.

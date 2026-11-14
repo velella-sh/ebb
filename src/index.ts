@@ -68,3 +68,10 @@ export {
   type UpcomingResult,
   upcoming,
 } from "./upcoming.js";
+
+export {
+  type StaleFinding,
+  type StaleOptions,
+  type StaleResult,
+  stale,
+} from "./stale.js";

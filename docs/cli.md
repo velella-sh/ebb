@@ -116,6 +116,21 @@ ebb rules pkg:npm/request
 ebb rules pkg:npm/request --event deprecated --json
 ```
 
+### `ebb stale`
+
+Lists lifecycle rules whose review window has expired, and rules that will expire soon. See [Stale rule review](stale.md).
+
+```bash
+# Per-registry freshness windows
+ebb stale
+
+# Fixed reference day
+ebb stale --as-of 2026-11-14
+
+# Override the review age
+ebb stale --older-than 90d --json
+```
+
 ---
 
 ## Formatting & Output Options

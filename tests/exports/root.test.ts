@@ -38,6 +38,7 @@ test("root entry exports only the public functions at runtime", () => {
     "preload",
     "replacementFor",
     "rulesFor",
+    "stale",
     "upcoming",
   ]);
 });

@@ -328,7 +328,9 @@ Supported version schemes are `semver`, `npm`, `cargo`, `golang`, `composer` (Se
 
 ## Freshness and sources
 
-Reading the data never checks freshness and never uses the network, so results stay deterministic. A weekly workflow, [`.github/workflows/sources.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/sources.yml), runs `tools/check-sources.ts` and reports, separately:
+Reading the data never checks freshness and never uses the network, so results stay deterministic. Use [`stale()`](stale.md) (or `ebb stale`) to list rules whose `provenance.reviewedAt` is older than the registry's `freshness.maxReviewAgeDays` (default 365), and rules that will cross that window within 30 days.
+
+A weekly workflow, [`.github/workflows/stale-rules.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/stale-rules.yml), opens one `good first issue` with that list. Separately, [`.github/workflows/sources.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/sources.yml) runs `tools/check-sources.ts` and reports:
 
 - **stale** rules, reviewed longer ago than their `freshness.maxReviewAgeDays`;
 - **changed** sources, whose final URL or title differs from the one recorded in `registry/sources.lock.json`;
@@ -343,7 +345,7 @@ $ npm run build
 $ node dist/tools/check-sources.js --update-lock
 :::
 
-Run it locally with `npm run check:sources`.
+Run it locally with `npm run check:sources`. The review policy (zero stale on `main`, no bulk date bumps) is in [Stale rule review](stale.md).
 
 ## Ecosystem hints
 
