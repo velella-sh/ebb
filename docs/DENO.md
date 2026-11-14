@@ -13,15 +13,30 @@ It has **zero runtime dependencies** and works with Deno's native TypeScript sup
 
 ---
 
+> [!TIP]
+> Ebb is published to both npm and JSR (`@velella/ebb`) with first-class TypeScript types and zero runtime dependencies.
+
+---
+
 ## Quick Start
 
-### Using JSR (Recommended)
+### Installation & Import
 
-Add `@velella/ebb` to your Deno project:
-
+:::code-tabs{labels='["JSR (Recommended)", "npm: Specifier"]'}
 ```bash
+# Add from JSR
 deno add jsr:@velella/ebb
 ```
+```typescript
+// Direct ESM import without prior install
+import { check } from "npm:@velella/ebb";
+
+const result = check("pkg:npm/request", "2.88.2");
+console.log(result.status); // "deprecated"
+```
+:::
+
+### Basic Usage
 
 Import and evaluate package lifecycles:
 
@@ -44,24 +59,11 @@ const batch = checkAll([
 console.log(batch.summary);
 ```
 
-Run with standard Deno permissions (read permission for local registry data if using Node/fs mode, or zero permissions if using the bundled in-memory entry point):
+Run with standard Deno permissions:
 
-```bash
-deno run --allow-read main.ts
-```
-
----
-
-### Using npm Specifier
-
-You can also import Ebb via the `npm:` specifier without installation:
-
-```typescript
-import { check } from "npm:@velella/ebb";
-
-const result = check("pkg:npm/request", "2.88.2");
-console.log(result.status); // "deprecated"
-```
+:::terminal
+$ deno run --allow-read main.ts
+:::
 
 ---
 
@@ -83,9 +85,9 @@ console.log(result.status); // "deprecated"
 
 You can run the Ebb CLI directly using `deno run`:
 
-```bash
-deno run --allow-read --allow-env npm:@velella/ebb check pkg:npm/left-pad@1.3.0
-```
+:::terminal
+$ deno run --allow-read --allow-env npm:@velella/ebb check pkg:npm/left-pad@1.3.0
+:::
 
 ---
 

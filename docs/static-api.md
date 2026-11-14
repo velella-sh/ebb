@@ -13,6 +13,11 @@ Every component, ecosystem, and index file is pre-generated from the active rule
 
 ---
 
+> [!TIP]
+> The static API requires zero server compute or database dependencies. All JSON files are statically hosted on GitHub Pages and can be cached indefinitely with ETags.
+
+---
+
 ## URL Layout
 
 Base URL: `https://velella.sh/ebb/api/v1`
@@ -37,15 +42,15 @@ Base URL: `https://velella.sh/ebb/api/v1`
 ### 1. Check a Component
 Fetch all active lifecycle rules and migration hints for a package:
 
-```bash
-curl -s https://velella.sh/ebb/api/v1/npm/request.json | jq .
-```
+:::terminal
+$ curl -s https://velella.sh/ebb/api/v1/npm/request.json | jq .
+:::
 
 Output:
 ```json
 {
   "schemaVersion": "ebb.api.v1",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "generatedAt": "2026-11-12T10:00:00.000Z",
   "purl": "pkg:npm/request",
   "type": "npm",
@@ -72,37 +77,32 @@ Output:
 ### 2. Scoped Packages & GitHub Actions
 Scoped packages support both literal `@` and percent-encoded `%40` in paths:
 
-```bash
-# npm scoped package
-curl -s https://velella.sh/ebb/api/v1/npm/@angular/core.json | jq .name
-
-# GitHub Action
-curl -s https://velella.sh/ebb/api/v1/github-actions/actions/checkout.json | jq .rules[0].title
-
-# Container image
-curl -s https://velella.sh/ebb/api/v1/docker/library/node.json | jq .rules[0].title
-```
+:::terminal
+$ curl -s https://velella.sh/ebb/api/v1/npm/@angular/core.json | jq .name
+$ curl -s https://velella.sh/ebb/api/v1/github-actions/actions/checkout.json | jq .rules[0].title
+$ curl -s https://velella.sh/ebb/api/v1/docker/library/node.json | jq .rules[0].title
+:::
 
 ### 3. Ecosystem Files
 Retrieve all rules registered for a given ecosystem:
 
-```bash
-curl -s https://velella.sh/ebb/api/v1/python.json | jq '{ ecosystem, rulesCount, componentsCount }'
-```
+:::terminal
+$ curl -s https://velella.sh/ebb/api/v1/python.json | jq '{ ecosystem, rulesCount, componentsCount }'
+:::
 
 ### 4. Upcoming Deadlines
 Check upcoming deprecation or EOL deadlines sorted chronologically:
 
-```bash
-curl -s https://velella.sh/ebb/api/v1/upcoming.json | jq '.upcoming[:5]'
-```
+:::terminal
+$ curl -s https://velella.sh/ebb/api/v1/upcoming.json | jq '.upcoming[:5]'
+:::
 
 ### 5. Search Index
 Quickly lookup component PURLs by prefix:
 
-```bash
-curl -s https://velella.sh/ebb/api/v1/search-index.json | jq '.prefixes["req"]'
-```
+:::terminal
+$ curl -s https://velella.sh/ebb/api/v1/search-index.json | jq '.prefixes["req"]'
+:::
 
 ---
 

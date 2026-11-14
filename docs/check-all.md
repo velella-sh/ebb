@@ -7,6 +7,9 @@ permalink: /check-all/
 
 [`checkAll(items)`](https://github.com/velella-sh/ebb/blob/main/src/check-all.ts) checks a batch of components synchronously on top of [`check`](https://github.com/velella-sh/ebb/blob/main/src/check.ts) and returns both positional outcomes and batch counts:
 
+> [!NOTE]
+> `checkAll` runs synchronously with zero network requests. It deduplicates identical `(purl, version)` pairs while preserving exact input ordering and returning a complete summary.
+
 ```ts
 import { checkAll, isCheckAllError } from "@velella/ebb/check-all";
 ```

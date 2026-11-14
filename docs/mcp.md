@@ -5,57 +5,21 @@ layout: doc
 permalink: /mcp/
 ---
 
+# Model Context Protocol (MCP) server
+
 Ebb provides an official [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server under `@velella/ebb-mcp` that exposes lifecycle rules, deprecation advisories, migration recommendations, and upcoming deadlines directly to AI coding agents.
 
 Before an agent chooses a runtime or suggests a library, it queries Ebb over standard stdio JSON-RPC 2.0 without making outbound network requests or installing unnecessary runtime dependencies.
 
 ## Agent setup
 
-### Claude Code
-
-Install the MCP server into Claude Code via the `claude mcp add` CLI command:
-
+:::code-tabs{labels='["Claude Code", "Gemini CLI", "Cursor (JSON)", "Claude Desktop (JSON)"]'}
 ```bash
-# Add to current workspace
 claude mcp add ebb -- npx -y @velella/ebb-mcp
-
-# Or add globally across all projects
-claude mcp add -s global ebb -- npx -y @velella/ebb-mcp
 ```
-
-Verify that the server is active:
-
-```bash
-claude mcp list
-```
-
-### Cursor
-
-Add Ebb to your workspace configuration at `.cursor/mcp.json` or your global configuration at `~/.cursor/mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "ebb": {
-      "command": "npx",
-      "args": ["-y", "@velella/ebb-mcp"]
-    }
-  }
-}
-```
-
-Once saved, reload Cursor or reopen the MCP panel to see `check`, `check_all`, `replacement_for`, and `ebb://upcoming`.
-
-### Codex & Gemini CLI
-
-For Gemini CLI or Antigravity agents:
-
 ```bash
 gemini mcp add ebb -- npx -y @velella/ebb-mcp
 ```
-
-Or declare the server in your MCP settings file:
-
 ```json
 {
   "mcpServers": {
@@ -66,39 +30,50 @@ Or declare the server in your MCP settings file:
   }
 }
 ```
+```json
+{
+  "mcpServers": {
+    "ebb": {
+      "command": "npx",
+      "args": ["-y", "@velella/ebb-mcp"]
+    }
+  }
+}
+```
+:::
 
-## Available tools
+---
+
+## Tools
+
+The server provides three tools over JSON-RPC 2.0:
 
 ### `check`
-
-Checks whether a package version is end-of-life, deprecated, or healthy.
-
-| Argument | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `purl` | `string` | Yes | Package URL (e.g., `pkg:npm/request@2.88.2` or `pkg:npm/express`) |
-| `version` | `string` | No | Version string if omitted from the `purl` argument |
-| `asOf` | `string` | No | Evaluation reference date formatted as `YYYY-MM-DD` |
+Evaluates a single component against active lifecycle rules.
+- **Parameters**:
+  - `purl` *(string, required)*: Package URL (e.g. `pkg:npm/left-pad@1.3.0` or `pkg:generic/nodejs@18.20.4`).
+  - `version` *(string, optional)*: Component version (if omitted, extracted from the PURL).
+- **Returns**: Formatted text containing the verdict, rule identifier, effective date, authoritative sources, reviewer identity, and suggested replacement.
 
 ### `check_all`
-
-Evaluates batches of dependencies simultaneously, ideal for whole-repository lockfile or SBOM audits.
-
-| Argument | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `items` | `Array<string \| { purl: string, version?: string }>` | Yes | Array of package identifiers |
-| `asOf` | `string` | No | Evaluation reference date formatted as `YYYY-MM-DD` |
+Evaluates a batch of components in a single round-trip.
+- **Parameters**:
+  - `components` *(array of objects, required)*: List of `{ purl, version? }` objects.
+- **Returns**: Markdown report with a summary table, counts by status, and individual findings.
 
 ### `replacement_for`
+Returns the suggested modern alternative for a deprecated component.
+- **Parameters**:
+  - `purl` *(string, required)*: Package URL of the retired component.
+  - `version` *(string, optional)*: Specific version.
+- **Returns**: Actionable alternative or `null`.
 
-Finds canonical replacement packages and migration notes when a component has reached end-of-life or been superseded.
+---
 
-| Argument | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `purl` | `string` | Yes | Package URL of the deprecated component |
-| `version` | `string` | No | Current version |
+## Resources
 
-## Available resources
+The server exposes one dynamic resource:
 
 ### `ebb://upcoming`
-
-Exposes all upcoming lifecycle milestones (end-of-life, end-of-support, deprecations) that have not yet expired relative to the current date. Returns events sorted with the nearest deadline first.
+- **MIME type**: `application/json`
+- **Description**: Returns all lifecycle events scheduled within the next 90 days across all ecosystems, sorted by deadline.

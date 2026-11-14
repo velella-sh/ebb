@@ -7,7 +7,10 @@ permalink: /rules/
 
 Every lifecycle claim in Ebb is a rule in `registry/`. A rule says which component is affected, in which versions, what happened to it, who says so, and when that was last checked. This page is the reference for writing one.
 
-The format is `ebb.registry.v2`. Its JSON Schema is [`schemas/registry.v2.schema.json`](https://github.com/velella-sh/ebb/blob/main/schemas/registry.v2.schema.json), and the reasoning is in [Decision 0004](decisions/0004-registry-v2.md).
+> [!IMPORTANT]
+> Rules in Ebb are reviewed data, not heuristic code. Every rule requires an authoritative source, canonical Package URL (PURL), valid VERS range, and maintainer provenance review.
+
+The format is `ebb.registry.v2`. Its JSON Schema is [`schemas/registry.v2.schema.json`](https://github.com/velella-sh/ebb/blob/main/schemas/registry.v2.schema.json), and the reasoning is in [Decision 0004](/decisions/0004-registry-v2/).
 
 A rule names a component by its [Package URL](https://github.com/package-url/purl-spec) and its versions by a [VERS](https://github.com/package-url/vers-spec) range. It never says how to find the component in a project: that is the job of whoever reads the data, such as a scanner. So a rule is useful to any tool that knows a purl and a version.
 
@@ -61,20 +64,20 @@ A case says what the rule must judge: this purl, at this version, is matched by 
 
 ### 4. Run the checks
 
-```bash
-npm ci
-npm run lint:rules   # every registry: schema, dates, source URLs, duplicate ids; and every case
-npm run check        # formatting and the whole test suite
-```
+:::terminal
+$ npm ci
+$ npm run lint:rules   # every registry: schema, dates, source URLs, duplicate ids; and every case
+$ npm run check        # formatting and the whole test suite
+:::
 
 In a pull request, [`rules.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/rules.yml) lints only the changed registry files and checks only the cases the changed rules can affect, and the job summary names each changed rule.
 
 ### 5. Open the pull request
 
-```bash
-git add registry/npm.json cases/npm.json
-git commit -m "feat(rules): add npm.package.request.deprecated"
-```
+:::terminal
+$ git add registry/npm.json cases/npm.json
+$ git commit -m "feat(rules): add npm.package.request.deprecated"
+:::
 
 Put the evidence link in the description. Rules are reviewed data; a maintainer reviews every change under `registry/`.
 
@@ -293,7 +296,7 @@ Dates are real calendar dates written `YYYY-MM-DD`; timestamps are rejected.
 | `end-of-support` | The release or version no longer receives support, for example because its runtime is gone. |
 | `end-of-life` | The project or release line has reached end of life, is unmaintained, or is archived. |
 | `removed` | The component, release, or service has been retired and no longer works. |
-| `scheduled-end-of-life` | The vendor has announced a future end of life or end of support, with a date. The rule needs that date as its `deadline` and `severity: low`. It names the affected versions exactly as the later end-of-support or end-of-life rule will. When the date has passed, a reviewed change turns it into that rule (same `id`). See [decision 0010](decisions/0010-scheduled-end-of-life.md). |
+| `scheduled-end-of-life` | The vendor has announced a future end of life or end of support, with a date. The rule needs that date as its `deadline` and `severity: low`. It names the affected versions exactly as the later end-of-support or end-of-life rule will. When the date has passed, a reviewed change turns it into that rule (same `id`). See [decision 0010](/decisions/0010-scheduled-end-of-life/). |
 
 If the source's wording fits two events, use the earlier one and quote the source in `summary`.
 
@@ -335,10 +338,10 @@ Reading the data never checks freshness and never uses the network, so results s
 
 The check never edits rules. When it reports something, review the source, update the rule and its `reviewedAt`, and refresh the lock:
 
-```bash
-npm run build
-node dist/tools/check-sources.js --update-lock
-```
+:::terminal
+$ npm run build
+$ node dist/tools/check-sources.js --update-lock
+:::
 
 Run it locally with `npm run check:sources`.
 

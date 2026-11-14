@@ -13,17 +13,33 @@ All core evaluation logic (`check`, `checkAll`, `rulesFor`, `replacementFor`, `c
 
 ---
 
+> [!TIP]
+> Ebb executes 100% offline in browser contexts with zero runtime dependencies. For optimal bundle size, use `createEbb` with specific ecosystem modules or configure the lightweight static API fetch loader.
+
+---
+
 ## Quick Start
 
-### With a Modern Bundler (Vite, Webpack, esbuild, Rollup)
+### Installation
 
-Install `@velella/ebb`:
-
+:::code-tabs{labels='["npm", "pnpm", "yarn", "bun"]'}
 ```bash
 npm install @velella/ebb
 ```
+```bash
+pnpm add @velella/ebb
+```
+```bash
+yarn add @velella/ebb
+```
+```bash
+bun add @velella/ebb
+```
+:::
 
-In your browser code, import as usual. Bundlers automatically select the `"browser"` condition defined in `package.json`:
+### Usage with Modern Bundlers (Vite, Webpack, esbuild, Rollup)
+
+Bundlers automatically resolve the `"browser"` export condition defined in `package.json`:
 
 ```typescript
 import { check, replacementFor } from "@velella/ebb";
@@ -52,7 +68,7 @@ By default, the browser entry point bundles lifecycle data in-memory:
 
 ### 2. Static API Fetch Loader (Ultra-Lightweight Bundle)
 
-If you want to keep the initial client bundle as small as possible (~15 KB gzipped), configure Ebb to load lifecycle rules on demand over HTTP from the [Ebb Static API](static-api.md):
+If you want to keep the initial client bundle as small as possible (~15 KB gzipped), configure Ebb to load lifecycle rules on demand over HTTP from the [Ebb Static API](/static-api/):
 
 ```typescript
 import { check, createFetchLoader, setDataLoader, preload } from "@velella/ebb/browser";

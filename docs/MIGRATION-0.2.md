@@ -9,6 +9,9 @@ permalink: /migration-0.2/
 
 Ebb 0.2.0 establishes the stable Core API, zero runtime dependencies, multi-runtime execution (Browser, Edge, Bun, Deno), modular per-ecosystem subpaths, lazy data loading, and native CLI, GitHub Action, and MCP / Skill support.
 
+> [!IMPORTANT]
+> Deep subpath imports such as `@velella/ebb/check.js` are deprecated and will be removed in 1.0. All core functions are now exported directly from the package root.
+
 ---
 
 ## What Changed in 0.2.0
@@ -39,28 +42,25 @@ Ebb 0.2.0 establishes the stable Core API, zero runtime dependencies, multi-runt
 
 ### 1. Update Imports to the Root Package
 
-#### Before (0.1.x):
+:::code-tabs{labels='["Before (0.1.x)", "After (0.2.0)"]'}
 ```ts
 import { check } from "@velella/ebb/check.js";
 import { bundledRules } from "@velella/ebb/bundled-rules.js";
 ```
-
-#### After (0.2.0):
 ```ts
 import { check, checkAll, replacementFor, rulesFor } from "@velella/ebb";
 ```
+:::
 
 ---
 
 ### 2. Evaluating a Single Component
 
-#### Before (0.1.x):
+:::code-tabs{labels='["Before (0.1.x)", "After (0.2.0)"]'}
 ```ts
 const result = check("pkg:npm/left-pad", "1.3.0");
 // Return shape was untyped and lacked schemaVersion
 ```
-
-#### After (0.2.0):
 ```ts
 import { check } from "@velella/ebb";
 
@@ -71,19 +71,17 @@ if (result.status !== "ok") {
   }
 }
 ```
+:::
 
 ---
 
 ### 3. Migrating Batch Lookups to `checkAll`
 
-#### Before:
-Iterating individually with `check()` caused repeated identity resolution:
+:::code-tabs{labels='["Before (Individual Loops)", "After (checkAll)"]'}
 ```ts
+// Iterating individually caused repeated identity resolution
 const results = packages.map(pkg => check(pkg.purl, pkg.version));
 ```
-
-#### After:
-Use `checkAll` for single-pass indexing, automatic deduplication, and summary reporting:
 ```ts
 import { checkAll } from "@velella/ebb";
 
@@ -94,6 +92,7 @@ const { results, summary } = checkAll([
 
 console.log(`Evaluated ${summary.total} components: ${summary.byStatus.deprecated} deprecated, ${summary.byStatus["end-of-life"]} EOL.`);
 ```
+:::
 
 ---
 
@@ -101,19 +100,18 @@ console.log(`Evaluated ${summary.total} components: ${summary.byStatus.deprecate
 
 If your application verified Ebb bundle signatures, you no longer need any external Sigstore packages installed in your dependencies.
 
-#### Before (0.1.x):
+:::code-tabs{labels='["Before (0.1.x)", "After (0.2.0)"]'}
 ```ts
 // Required sigstore and @sigstore/* peer dependencies
 import { verifyDataBundle } from "@velella/ebb";
 ```
-
-#### After (0.2.0):
 ```ts
 import { verifyArtifactSignature, verifyDataBundle } from "@velella/ebb/verify";
 
 // Runs with zero external dependencies via standard node:crypto
 const verified = verifyDataBundle(bundleBytes, signatureJson, options);
 ```
+:::
 
 ---
 

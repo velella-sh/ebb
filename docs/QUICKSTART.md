@@ -11,6 +11,9 @@ Get your first lifecycle answer with Ebb in under five minutes.
 
 Ebb is the open almanac of software end-of-life. It answers whether a package, runtime, container image, or tool is **active**, **deprecated**, **unsupported**, or **end-of-life**, explains why with authoritative evidence, and suggests what to replace it with.
 
+> [!TIP]
+> Ebb runs completely offline with **zero runtime dependencies** and microsecond evaluation speed.
+
 Choose your interface below:
 - [1. Library Quickstart](#1-library-quickstart-typescript--javascript)
 - [2. CLI Quickstart](#2-cli-quickstart)
@@ -26,18 +29,23 @@ Choose your interface below:
 
 ### Installation
 
-Install via npm, JSR, or Bun:
-
+:::code-tabs{labels='["npm", "pnpm", "yarn", "bun", "deno"]'}
 ```bash
-# npm / pnpm / yarn
 npm install @velella/ebb
-
-# Deno via JSR
-deno add jsr:@velella/ebb
-
-# Bun
+```
+```bash
+pnpm add @velella/ebb
+```
+```bash
+yarn add @velella/ebb
+```
+```bash
 bun add @velella/ebb
 ```
+```bash
+deno add jsr:@velella/ebb
+```
+:::
 
 ### Checking a Component
 
@@ -92,13 +100,8 @@ const res = check("pkg:npm/request", "2.88.2");
 
 Run directly without installing via `npx`:
 
-```bash
-npx @velella/ebb check pkg:npm/request@2.88.2
-```
-
-### Output:
-
-```text
+:::terminal
+$ npx @velella/ebb check pkg:npm/request@2.88.2
 ✖ pkg:npm/request@2.88.2: deprecated
   Rule: npm.package.request.deprecated
   Event: deprecated (2020-02-11)
@@ -106,7 +109,7 @@ npx @velella/ebb check pkg:npm/request@2.88.2
   Sources:
     - https://www.npmjs.com/package/request
   Offing can fix this: https://github.com/velella-sh/offing
-```
+:::
 
 ### Common CLI Tasks
 
@@ -154,11 +157,12 @@ The MCP server exposes:
 
 Install the skill for Claude Code, Antigravity, or Cursor:
 
-```bash
-npx skills add velella-sh/ebb
-```
+:::terminal
+$ npx skills add velella-sh/ebb
+:::
 
-In benchmark evaluations, adding Ebb reduced agent picks of deprecated dependencies from **38% down to 0%** ([evals/agents/REPORT.md](../evals/agents/REPORT.md)).
+> [!NOTE]
+> In benchmark evaluations, adding Ebb reduced agent picks of deprecated dependencies from **38% down to 0%**.
 
 ---
 
@@ -169,13 +173,10 @@ Ebb hosts a zero-dependency static JSON API updated on every release at:
 
 You can query it from shell scripts, cURL, or `fetch` without installing any npm package:
 
-```bash
-# Check any component
-curl -sSL https://velella.sh/ebb/api/v1/npm/request.json | jq .
-
-# Get upcoming end-of-life dates across all ecosystems
-curl -sSL https://velella.sh/ebb/api/v1/upcoming.json | jq .
-```
+:::terminal
+$ curl -sSL https://velella.sh/ebb/api/v1/npm/request.json | jq .
+$ curl -sSL https://velella.sh/ebb/api/v1/upcoming.json | jq .
+:::
 
 ### Programmatic TypeScript Client
 
@@ -225,31 +226,36 @@ Understanding what Ebb does *not* do helps position it correctly in your securit
 
 ## Frequently Asked Questions (FAQ)
 
-### Where do Ebb's lifecycle rules come from?
+:::details{summary="Where do Ebb's lifecycle rules come from?"}
 Every rule in Ebb is backed by authoritative primary sources: official release schedules, vendor deprecation notices, package registry metadata, and foundation roadmaps. Every rule records the exact source URL, retrieval date, and maintainer review date.
+:::
 
-### Does Ebb make network requests during `check()`?
+:::details{summary="Does Ebb make network requests during check()?"}
 No. All active rules are bundled directly into the package. Ebb executes completely offline and in-memory, evaluating packages in microseconds. Updates can be pinned or refreshed as cryptographically signed Sigstore bundles.
+:::
 
-### What do the lifecycle statuses mean?
+:::details{summary="What do the lifecycle statuses mean?"}
 - **`ok`**: The component version is currently maintained and supported.
 - **`scheduled`**: A future end-of-life or deprecation date has been announced.
 - **`deprecated`**: The author or registry has declared the package deprecated.
 - **`unsupported`**: Maintenance, bug fixes, and security patches have ceased.
 - **`end-of-life`**: The release line has reached terminal end-of-life.
 - **`removed`**: The package or API has been removed from upstream registries or runtimes.
+:::
 
-### How does Ebb compare to endoflife.date?
+:::details{summary="How does Ebb compare to endoflife.date?"}
 Ebb is designed for developer tooling and programmatic automation:
 1. **Standard Identifiers**: Uses Package URL (`pkg:npm/react`) and VERS version ranges (`vers:npm/<18.0.0`), eliminating ecosystem-specific naming guesswork.
 2. **Microsecond Performance**: Precompiled ranges evaluate 600,000+ components per second offline.
 3. **Actionable Replacements**: Rules include explicit migration constraints, steps, and verification commands.
 4. **Agent-Native**: First-class MCP server and skills designed to constrain LLM generation.
+:::
 
-### Can I run Ebb in environments without Node.js?
+:::details{summary="Can I run Ebb in environments without Node.js?"}
 Yes! Ebb runs natively on:
 - **Deno** (`jsr:@velella/ebb`)
 - **Bun** (`bun add @velella/ebb`)
 - **Modern Browsers** (Chromium, Firefox, Safari)
 - **Edge Runtimes** (Cloudflare Workers, Vercel Edge)
 - **Shell / cURL** via the static JSON API.
+:::

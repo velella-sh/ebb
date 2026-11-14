@@ -9,6 +9,9 @@ permalink: /size/
 
 Ebb is designed to be lightweight, fast to install, and dependency-free.
 
+> [!NOTE]
+> Ebb enforces a strict 500 KB packed tarball budget in CI. The v0.2.0 release measures ~268 KB packed.
+
 ## Current Numbers
 
 - **Packed Tarball Size:** ~268 KB
@@ -51,9 +54,9 @@ Consumers using subpaths like `@velella/ebb/data/<ecosystem>` only bundle or loa
 
 Package size is measured automatically using `npm pack --dry-run --json` via:
 
-```bash
-npm run size
-```
+:::terminal
+$ npm run size
+:::
 
 The tool calculates:
 1. Total packed tarball size.

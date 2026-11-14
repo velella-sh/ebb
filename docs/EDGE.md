@@ -11,6 +11,11 @@ Ebb is fully supported in serverless Edge runtimes, including **Cloudflare Worke
 
 ---
 
+> [!NOTE]
+> Ebb's complete 25-ecosystem bundle is ~135 KB compressed, using only ~13% of Cloudflare Workers' 1 MB free-tier compressed bundle limit.
+
+---
+
 ## Why Ebb Works at the Edge
 
 Edge runtimes execute code in V8 isolates without access to standard Node.js APIs like `node:fs` or `node:child_process`.
@@ -22,11 +27,11 @@ Ebb is architected for edge runtimes:
 
 ---
 
-## Cloudflare Workers
+## Edge Handlers
 
-### Minimal Handler
-
+:::code-tabs{labels='["Cloudflare Workers", "Vercel Edge Functions"]'}
 ```typescript
+// Cloudflare Worker (wrangler.jsonc)
 import { check, checkAll } from "@velella/ebb";
 
 export default {
@@ -40,16 +45,8 @@ export default {
   },
 };
 ```
-
-See [examples/workers/cloudflare/](file:///Users/armin/Desktop/pp/ebb/repo/examples/workers/cloudflare) for complete setup with `wrangler.jsonc`.
-
----
-
-## Vercel Edge Functions
-
-### Minimal Edge Function (`api/check.ts`)
-
 ```typescript
+// Vercel Edge Function (api/check.ts)
 import { check } from "@velella/ebb";
 
 export const config = {
@@ -64,8 +61,7 @@ export default async function handler(request: Request): Promise<Response> {
   return Response.json(check(purl, version));
 }
 ```
-
-See [examples/workers/vercel/](file:///Users/armin/Desktop/pp/ebb/repo/examples/workers/vercel) for complete setup.
+:::
 
 ---
 

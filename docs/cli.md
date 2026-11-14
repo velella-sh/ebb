@@ -5,28 +5,31 @@ layout: doc
 permalink: /cli/
 ---
 
+# Command-Line Interface (CLI)
+
 Ebb includes an official zero-dependency command-line interface (`ebb`) that lets you inspect component lifecycle statuses, evaluate dependencies against deprecation and end-of-life rules, and find suggested replacements offline.
 
 ## Quick start
 
-Run without installation via `npx`:
-
+:::code-tabs{labels='["npx", "bunx", "global"]'}
 ```bash
 npx @velella/ebb check pkg:npm/request@2.88.2
 ```
-
-Or install globally:
-
+```bash
+bunx @velella/ebb check pkg:npm/request@2.88.2
+```
 ```bash
 npm install -g @velella/ebb
 ebb check pkg:npm/request@2.88.2
 ```
+:::
 
 ## Terminal Output Format
 
 Ebb produces structured, human-readable terminal output with ANSI colors, source links, replacement guidance, and remaining days for scheduled end-of-life events:
 
-```text
+:::terminal
+$ ebb check pkg:npm/request@2.88.2
 ✖ pkg:npm/request@2.88.2: deprecated
   Rule: npm.package.request.deprecated
   Event: deprecated (2020-02-11)
@@ -34,11 +37,12 @@ Ebb produces structured, human-readable terminal output with ANSI colors, source
   Sources:
     - https://www.npmjs.com/package/request
   Offing can fix this: https://github.com/velella-sh/offing
-```
+:::
 
 For scheduled upcoming events:
 
-```text
+:::terminal
+$ ebb check pkg:docker/library/node@22.0.0
 ⚠ pkg:docker/library/node@22.0.0: scheduled
   Rule: container.node.eol-22-and-older
   Event: scheduled (2027-04-30) [484 days left]
@@ -46,7 +50,9 @@ For scheduled upcoming events:
   Sources:
     - https://nodejs.org/en/about/eol
   Offing can fix this: https://github.com/velella-sh/offing
-```
+:::
+
+---
 
 ## Commands
 
@@ -93,10 +99,10 @@ ebb check-all bom.json --json
 
 Finds suggested replacements or migration recommendations for deprecated packages.
 
-```bash
-ebb replacement pkg:npm/request@2.88.2
-# Native fetch or a maintained HTTP client
-```
+:::terminal
+$ ebb replacement pkg:npm/request@2.88.2
+Native fetch or a maintained HTTP client
+:::
 
 ### `ebb rules <purl>`
 
@@ -109,6 +115,8 @@ ebb rules pkg:npm/request
 # Filter by event
 ebb rules pkg:npm/request --event deprecated --json
 ```
+
+---
 
 ## Formatting & Output Options
 
@@ -124,6 +132,11 @@ ebb rules pkg:npm/request --event deprecated --json
 - `--no-color` / `NO_COLOR`: Disables ANSI colors, conforming to the [NO_COLOR specification](https://no-color.org/).
 - `--color`: Forces colored output.
 - `--no-hint` / `EBB_NO_HINT=1`: Disables the Offing remediation hint line.
+
+> [!TIP]
+> In CI workflows, use `--format markdown` to generate clean PR comment summaries, or `--json` to pipe into downstream automation.
+
+---
 
 ## Exit codes
 

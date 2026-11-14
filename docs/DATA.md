@@ -1,11 +1,14 @@
 ---
 title: "Lifecycle data: updates, signing, and trust"
-description: "Ebb's rules live in registry/."
+description: "Offline-first lifecycle data, Sigstore keyless verification, signed bundle trust model, and cache pinning."
 layout: doc
 permalink: /data/
 ---
 
 Ebb's rules live in `registry/`. Every release of `@velella/ebb` ships them, so they are always available offline. Between package releases the same rules are published as signed **data bundles**, so a consumer can fetch newer rules and prove they came from this repository's release workflow. This page explains how that works, what is checked, and what Ebb promises.
+
+> [!IMPORTANT]
+> Downloaded data bundles are cryptographically verified via Sigstore keyless signatures before being loaded into cache. If verification fails, Ebb falls back immediately to its trusted bundled data.
 
 ## What you can rely on
 
@@ -49,11 +52,11 @@ A pin selects exactly bundle `X` from the cache, or `bundled` for the data shipp
 
 ## What is in a bundle
 
-One JSON file (`ebb.data-bundle.v1`, [schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json), [decision record](decisions/0006-data-bundle.md)) with a manifest and the data files: the lifecycle registries (one JSON file per ecosystem under `registry/`), the GitHub Actions SHA map, and the OSV cross-reference (`registry/osv.json`). The manifest lists each file's SHA-256, size, and rule count, a content address for the whole set, the build time, and the oldest Ebb version that can read it (`minimumEbbVersion`). Versions look like `2026.10.16`, with `.N` for a second bundle on the same day. Building the bundle is deterministic: the same registry files and build time give the same bytes.
+One JSON file (`ebb.data-bundle.v1`, [schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json), [decision record](/decisions/0006-data-bundle/)) with a manifest and the data files: the lifecycle registries (one JSON file per ecosystem under `registry/`), the GitHub Actions SHA map, and the OSV cross-reference (`registry/osv.json`). The manifest lists each file's SHA-256, size, and rule count, a content address for the whole set, the build time, and the oldest Ebb version that can read it (`minimumEbbVersion`). Versions look like `2026.10.16`, with `.N` for a second bundle on the same day. Building the bundle is deterministic: the same registry files and build time give the same bytes.
 
 ### OSV advisories
 
-`registry/osv.json` maps lifecycle rule ids to OSV advisory identifiers that have **no fixed version** for that package. The `osv` [importer](IMPORTERS.md) drafts those rows at maintainer time from the OSV API; reading the data never calls OSV.
+`registry/osv.json` maps lifecycle rule ids to OSV advisory identifiers that have **no fixed version** for that package. The `osv` [importer](/importers/) drafts those rows at maintainer time from the OSV API; reading the data never calls OSV.
 
 ## Trust model
 
@@ -76,13 +79,13 @@ The certificates and log keys come from the Sigstore public-good trusted root, w
 
 To check a release by hand with [cosign](https://docs.sigstore.dev/):
 
-```bash
-cosign verify-blob \
+:::terminal
+$ cosign verify-blob \
   --bundle ebb-data-2026.10.16.json.sigstore.json \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   --certificate-identity-regexp '^https://github\.com/velella-sh/ebb/\.github/workflows/data-release\.yml@refs/(?:tags/data-v\d{4}\.\d{2}\.\d{2}(?:\.\d+)?|heads/main)$' \
   ebb-data-2026.10.16.json
-```
+:::
 
 ### What this does not protect against
 

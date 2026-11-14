@@ -72,10 +72,23 @@ async function activateCustomNpmRules(rules: Array<Record<string, unknown>>): Pr
 
 function sampleMatchingVersion(vers: string): string {
   const candidates = ["0.1.0", "1.0.0", "2.0.0", "2.1.0", "6.0.0", "8.0.31", "18.0.0", "19.0.0"];
-  const matched = candidates.find((candidate) => versContains(vers, candidate));
+  const matched = candidates.find((candidate) => {
+    try {
+      return versContains(vers, candidate);
+    } catch {
+      return false;
+    }
+  });
   if (matched) return matched;
-  for (const part of vers.split(/[^0-9A-Za-z.-]+/)) {
-    if (part && versContains(vers, part)) return part;
+  const stripped = vers.replace(/^vers:[a-z0-9_.-]+\//i, "");
+  for (const part of stripped.split(/[^0-9A-Za-z.-]+/)) {
+    if (/^\d/.test(part)) {
+      try {
+        if (versContains(vers, part)) return part;
+      } catch {
+        // ignore candidates that are not valid version strings for this scheme
+      }
+    }
   }
   throw new Error(`Unable to synthesize a matching version for "${vers}"`);
 }

@@ -7,6 +7,9 @@ permalink: /vers/
 
 Ebb parses, normalises, formats, and evaluates [VERS (`vers:`)](https://github.com/package-url/vers-spec) version ranges offline via [`@velella/ebb/vers`](https://github.com/velella-sh/ebb/blob/main/src/vers.ts). Every built-in versioning scheme lives in one lookup table in [`src/vers/schemes.ts`](https://github.com/velella-sh/ebb/blob/main/src/vers/schemes.ts).
 
+> [!NOTE]
+> Ebb includes a fully conforming VERS implementation across all 9 major package ecosystems with zero external semver runtime dependencies.
+
 ```ts
 import {
   SUPPORTED_SCHEMES,

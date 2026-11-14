@@ -15,6 +15,9 @@ import { rulesFor } from "@velella/ebb/rules-for";
 import { replacementFor } from "@velella/ebb/replacement";
 ```
 
+> [!TIP]
+> Both `rulesFor` and `replacementFor` can also be imported directly from the package root: `import { rulesFor, replacementFor } from "@velella/ebb"`.
+
 By design, neither function reads arbitrary project files or accesses the network; only the first lookup reads Ebb's active local rule bundle, and later calls reuse the warm index.
 
 ## Listing rules with `rulesFor`

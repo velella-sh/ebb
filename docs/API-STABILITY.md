@@ -7,6 +7,9 @@ permalink: /api-stability/
 
 `@velella/ebb` exposes a single locked TypeScript entry point at the package root (`@velella/ebb`), alongside temporary `"./*"` subpath exports kept for `0.x` compatibility and experimental helpers.
 
+> [!IMPORTANT]
+> The root entry point `@velella/ebb` is strictly locked in CI by `api/ebb.api.md`. Any unreviewed signature or export diff fails CI.
+
 ## What the API report enforces
 
 CI locks the root entry point (`"."` → [`src/index.ts`](https://github.com/velella-sh/ebb/blob/main/src/index.ts)) by running `npm run api:check` (`api-extractor run --print-api-report-diff`) against [`api/ebb.api.md`](https://github.com/velella-sh/ebb/blob/main/api/ebb.api.md).
@@ -28,6 +31,7 @@ What that check **does not** promise:
 | --- | --- | --- | --- |
 | `@velella/ebb` | Root public API (ESM only; `require` throws ESM-only error) | Yes | Runtime: `check`, `checkAll`, `createEbb`, `preload`, `rulesFor`, `replacementFor`. Types: `CheckAllEntry`, `CheckAllError`, `CheckAllErrorCode`, `CheckAllItem`, `CheckAllResult`, `CheckAllSummary`, `CheckEvent`, `CheckMatch`, `CheckResult`, `CheckStatus`, `CreateEbbOptions`, `EbbErrorCode`, `EbbInstance`, `EcosystemDataInput`, `EcosystemInput`, `EvidenceSource`, `Result`, `ResultEvent`, `ResultMatch`, `ResultStatus`, `Rule`, `RuleEvent`, `RulesForOptions`. |
 | `@velella/ebb/package.json` | Package metadata | No | Static JSON [`package.json`](https://github.com/velella-sh/ebb/blob/main/package.json) via `"./package.json"`. |
+| `@velella/ebb/verify` | Zero-dependency verification entry point | No | Runtime: `verifyDataBundle`, `verifyArtifactSignature`, `verifyReleaseLog`. Native `node:crypto` implementation. |
 | `@velella/ebb/create` | Factory entry point | No | Runtime: `createEbb`. Scoped instance factory. |
 | `@velella/ebb/data/load` | Data loading & preload | No | Runtime: `loadEcosystem`, `loadEcosystemSync`, `preload`, `purlToEcosystems`. |
 | `@velella/ebb/data/<ecosystem>` | Ecosystem data subpaths | No | 25 modules (`npm`, `python`, etc.) exporting `rules` (default and named), `data`, and `ecosystem`. |

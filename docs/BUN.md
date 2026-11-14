@@ -13,15 +13,18 @@ All APIs (`check`, `checkAll`, `rulesFor`, `replacementFor`, `createEbb`), CLI c
 
 ---
 
+> [!TIP]
+> Ebb has zero runtime dependencies and starts up under Bun in less than 20 ms.
+
+---
+
 ## Quick Start
 
 ### Installation
 
-Install `@velella/ebb` using `bun add`:
-
-```bash
-bun add @velella/ebb
-```
+:::terminal
+$ bun add @velella/ebb
+:::
 
 ### Basic Usage
 
@@ -48,25 +51,20 @@ console.log(batch.summary);
 
 Run with Bun:
 
-```bash
-bun run index.ts
-```
+:::terminal
+$ bun run index.ts
+:::
 
 ---
 
 ## Running the CLI with `bunx`
 
-You can run the Ebb CLI instantly with `bunx` without installing:
+Run the Ebb CLI instantly with `bunx` without installing:
 
-```bash
-bunx @velella/ebb check pkg:npm/left-pad@1.3.0
-```
-
-Or for batch checks:
-
-```bash
-bunx @velella/ebb check package.json
-```
+:::terminal
+$ bunx @velella/ebb check pkg:npm/left-pad@1.3.0
+$ bunx @velella/ebb check package.json
+:::
 
 ---
 
