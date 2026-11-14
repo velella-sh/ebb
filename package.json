@@ -119,7 +119,8 @@
     "LICENSE-DATA",
     "ATTRIBUTION.md",
     "!registry/sources.lock.json",
-    "!**/*.map"
+    "!**/*.map",
+    "!registry/github-actions-shas.json"
   ],
   "scripts": {
     "postinstall": "node -e \"const fs=require('fs'); fs.mkdirSync('packages/mcp/node_modules/@velella', {recursive: true}); try { fs.symlinkSync('../../../..', 'packages/mcp/node_modules/@velella/ebb', 'junction'); } catch {}\"",

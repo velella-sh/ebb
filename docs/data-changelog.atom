@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Ebb Lifecycle Data Changelog</title>
+  <subtitle>Track additions, updates, deprecations and removals in the Ebb lifecycle dataset.</subtitle>
+  <link href="https://velella.sh/ebb/data-changelog.atom" rel="self" type="application/atom+xml"/>
+  <link href="https://velella.sh/ebb/data-changelog/" rel="alternate" type="text/html"/>
+  <id>https://velella.sh/ebb/data-changelog/</id>
+  <updated>2026-11-14T00:00:00Z</updated>
+  <author>
+    <name>Ebb Maintainers</name>
+    <uri>https://github.com/velella-sh/ebb</uri>
+  </author>
+  <entry>
+    <title>Ebb Lifecycle Data 0.4.0 (2026-11-14)</title>
+    <link href="https://github.com/velella-sh/ebb/releases/tag/v0.4.0" rel="alternate" type="text/html"/>
+    <id>tag:velella.sh,2026-11-14:ebb:data-release:0.4.0</id>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <summary type="text">Ebb lifecycle data release 0.4.0: 30 added rules, 12 changed rules across npm, nodejs, python, and more.</summary>
+    <content type="html"><![CDATA[<p>Ebb lifecycle data release 0.4.0 adds rules for Node 24, Python 3.13, left-pad, and node-sass, with updated citations across the dataset.</p>]]></content>
+    <author>
+      <name>arminazimi</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Ebb Lifecycle Data 0.3.0 (2026-11-13)</title>
+    <link href="https://github.com/velella-sh/ebb/releases/tag/v0.3.0" rel="alternate" type="text/html"/>
+    <id>tag:velella.sh,2026-11-13:ebb:data-release:0.3.0</id>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary type="text">Ebb lifecycle data release 0.3.0: 45 added rules, 18 changed rules across cargo, golang, maven.</summary>
+    <content type="html"><![CDATA[<p>Data release 0.3.0 covers lazy_static, io/ioutil, log4j 1.2, and expanded review provenance.</p>]]></content>
+    <author>
+      <name>arminazimi</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Ebb Lifecycle Data 0.2.0 (2026-11-11)</title>
+    <link href="https://github.com/velella-sh/ebb/releases/tag/v0.2.0" rel="alternate" type="text/html"/>
+    <id>tag:velella.sh,2026-11-11:ebb:data-release:0.2.0</id>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <summary type="text">Ebb lifecycle data release 0.2.0: 652 rules added expanding to 25 ecosystems.</summary>
+    <content type="html"><![CDATA[<p>Massive multi-ecosystem dataset expansion covering 25 languages and package managers.</p>]]></content>
+    <author>
+      <name>arminazimi</name>
+    </author>
+  </entry>
+</feed>

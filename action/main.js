@@ -115,6 +115,10 @@ export function runAction(env = process.env, io = { stdout: process.stdout, stde
   // 3. Print human text or markdown to action log
   io.stdout.write(markdownSummary);
 
+  if (markdownSummary.includes("⚠️ **Warning:** Lifecycle data is")) {
+    io.stdout.write("::warning title=Ebb Data Stale::Lifecycle data is stale. Consider updating or pinning.\n");
+  }
+
   // 4. Emit GitHub Workflow annotations
   let worstStatus = "ok";
   if (outcome.summary) {

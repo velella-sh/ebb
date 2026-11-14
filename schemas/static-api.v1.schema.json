@@ -112,6 +112,17 @@
         "rulesCount": { "type": "integer", "minimum": 0 },
         "componentsCount": { "type": "integer", "minimum": 0 },
         "ecosystemsCount": { "type": "integer", "minimum": 0 },
+        "freshness": {
+          "type": "object",
+          "required": ["reviewedThrough", "ageDays", "stale", "staleAfterDays"],
+          "additionalProperties": false,
+          "properties": {
+            "reviewedThrough": { "type": "string" },
+            "ageDays": { "type": "integer", "minimum": 0 },
+            "stale": { "type": "boolean" },
+            "staleAfterDays": { "type": "integer", "minimum": 0 }
+          }
+        },
         "components": {
           "type": "object",
           "additionalProperties": { "$ref": "#/$defs/indexComponent" }

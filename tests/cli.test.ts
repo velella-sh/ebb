@@ -258,6 +258,39 @@ describe("CLI - runCli commands", () => {
     assert.equal(code, 1);
     assert.match(mock.stderr, /Cannot roll back/);
   });
+
+  it("runs data-status command with text, markdown, and json formats", async () => {
+    // 1. Text format
+    const mockText = createMockIo();
+    const codeText = await runCli(["data-status", "--as-of", "2026-11-14"], mockText.io);
+    assert.equal(codeText, 0);
+    assert.match(mockText.stdout, /Lifecycle data status:/);
+    assert.match(mockText.stdout, /Source:\s+bundled/);
+
+    // 2. Markdown format
+    const mockMd = createMockIo();
+    const codeMd = await runCli(["data-status", "--as-of", "2026-11-14", "--format", "markdown"], mockMd.io);
+    assert.equal(codeMd, 0);
+    assert.match(mockMd.stdout, /### Ebb Lifecycle Data Status/);
+
+    // 3. JSON format
+    const mockJson = createMockIo();
+    const codeJson = await runCli(["data-status", "--as-of", "2026-11-14", "--json"], mockJson.io);
+    assert.equal(codeJson, 0);
+    const parsed = JSON.parse(mockJson.stdout);
+    assert.equal(parsed.schemaVersion, "ebb.data-status.v1");
+    assert.equal(parsed.source, "bundled");
+    assert.equal(parsed.stale, false);
+  });
+
+  it("exits 1 from data-status when max-age threshold is exceeded", async () => {
+    const mock = createMockIo();
+    const code = await runCli(["data-status", "--as-of", "2026-11-14", "--max-age", "0", "--json"], mock.io);
+    assert.equal(code, 1);
+    const parsed = JSON.parse(mock.stdout);
+    assert.equal(parsed.stale, true);
+    assert.ok(parsed.warnings.length > 0);
+  });
 });
 
 describe("CLI - end-to-end binary execution", () => {

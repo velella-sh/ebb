@@ -206,6 +206,21 @@ ebb diff 2026.10.01 2026.10.16 --format markdown
 ebb diff --ecosystem npm --json
 ```
 
+### `ebb data-status`
+
+Display active lifecycle data freshness, source origin, review date, and evidence age in calendar days. Flags stale data exceeding the 30-day (or configured) threshold.
+
+```bash
+# Print human-readable status
+ebb data-status
+
+# Output as JSON
+ebb data-status --json
+
+# Set a custom threshold
+ebb data-status --max-age 14
+```
+
 ---
 
 ## Formatting & Output Options

@@ -3,10 +3,12 @@ import type { CheckAllResult, CheckAllItem } from "../../check-all.js";
 import type { RegistryV2Rule } from "../../registry.js";
 import type { StaleResult } from "../../stale.js";
 import type { UpcomingResult } from "../../upcoming.js";
+import type { DataStatus } from "../../data-status.js";
 import { getOffingHint } from "../../hint.js";
 
 export interface MarkdownFormatOptions {
   noHint?: boolean | undefined;
+  dataStatus?: DataStatus | undefined;
 }
 
 function statusEmoji(status: string): string {
@@ -39,6 +41,17 @@ export function formatCheckMarkdown(
 
   if (result.status === "ok") {
     lines.push(`✅ \`${purl}@${version}\` is supported and has no known end-of-life or deprecation findings.\n`);
+    if (options?.dataStatus) {
+      const s = options.dataStatus;
+      lines.push(
+        `---\n*Lifecycle data: ${s.source} (${s.version}) · ${s.ageDays}d old (reviewed through ${s.reviewedThrough})*\n`,
+      );
+      if (s.stale) {
+        lines.push(
+          `> ⚠️ **Warning:** Lifecycle data is ${s.ageDays} days old (exceeds ${s.staleAfterDays}d freshness threshold). Run \`ebb update\` to refresh.\n`,
+        );
+      }
+    }
     return lines.join("\n");
   }
 
@@ -67,6 +80,18 @@ export function formatCheckMarkdown(
   const hint = getOffingHint(result.status, { noHint: options?.noHint, markdown: true });
   if (hint) {
     lines.push(`\n> ${hint}`);
+  }
+
+  if (options?.dataStatus) {
+    const s = options.dataStatus;
+    lines.push(
+      `\n---\n*Lifecycle data: ${s.source} (${s.version}) · ${s.ageDays}d old (reviewed through ${s.reviewedThrough})*`,
+    );
+    if (s.stale) {
+      lines.push(
+        `\n> ⚠️ **Warning:** Lifecycle data is ${s.ageDays} days old (exceeds ${s.staleAfterDays}d freshness threshold). Run \`ebb update\` to refresh.\n`,
+      );
+    }
   }
 
   lines.push("");
@@ -169,6 +194,18 @@ export function formatCheckAllMarkdown(
     const hint = getOffingHint("deprecated", { noHint: options?.noHint, markdown: true });
     if (hint) {
       lines.push(`\n> ${hint}`);
+    }
+  }
+
+  if (options?.dataStatus) {
+    const s = options.dataStatus;
+    lines.push(
+      `\n---\n*Lifecycle data: ${s.source} (${s.version}) · ${s.ageDays}d old (reviewed through ${s.reviewedThrough})*`,
+    );
+    if (s.stale) {
+      lines.push(
+        `\n> ⚠️ **Warning:** Lifecycle data is ${s.ageDays} days old (exceeds ${s.staleAfterDays}d freshness threshold). Run \`ebb update\` to refresh.\n`,
+      );
     }
   }
 

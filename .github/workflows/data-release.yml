@@ -140,6 +140,21 @@ jobs:
             --certificate-identity-regexp "${IDENTITY_PATTERN}" \
             out/release-log.jsonl
 
+      - name: Generate data changelog and Atom feed
+        run: |
+          PREVIOUS_BUNDLE=""
+          if [ -n "${PREVIOUS_TAG}" ]; then
+            gh release download "${PREVIOUS_TAG}" --pattern "ebb-data-*.json" --dir previous-data 2>/dev/null \
+              && PREVIOUS_BUNDLE=$(find previous-data -name "ebb-data-*.json" | grep -v "sigstore" | head -n 1) || true
+          fi
+          node dist/tools/data-changelog.js \
+            ${PREVIOUS_BUNDLE:+--from "$PREVIOUS_BUNDLE"} \
+            --to "${BUNDLE}" \
+            --version "${VERSION}" \
+            --date "$(echo "${CREATED_AT}" | cut -dT -f1)" \
+            --out-md DATA-CHANGELOG.md \
+            --out-feed out/data-changelog.atom
+
       - name: Checksums
         run: (cd out && sha256sum ebb-data-*.json ebb-data-*.sigstore.json release-log.jsonl release-log.jsonl.sigstore.json > SHA256SUMS)
 

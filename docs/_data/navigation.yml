@@ -17,6 +17,10 @@ main:
         url: /importers/
       - title: Data bundles and trust
         url: /data/
+      - title: Data freshness
+        url: /freshness/
+      - title: Data changelog
+        url: /data-changelog/
       - title: Static JSON API
         url: /static-api/
   - title: Runtimes

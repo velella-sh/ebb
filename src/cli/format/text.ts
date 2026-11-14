@@ -2,12 +2,14 @@ import type { CheckResult, CheckMatch } from "../../check.js";
 import type { CheckAllResult, CheckAllItem } from "../../check-all.js";
 import type { RegistryV2Rule } from "../../registry.js";
 import type { UpcomingResult } from "../../upcoming.js";
+import type { DataStatus } from "../../data-status.js";
 import { getOffingHint } from "../../hint.js";
 import { createColors, type Colors } from "./color.js";
 
 export interface TextFormatOptions {
   colors?: Colors | undefined;
   noHint?: boolean | undefined;
+  dataStatus?: DataStatus | undefined;
 }
 
 export function formatCheckText(
@@ -21,6 +23,17 @@ export function formatCheckText(
 
   if (result.status === "ok") {
     lines.push(`${c.green("✓")} ${purl}@${version} is ok`);
+    if (options?.dataStatus) {
+      const s = options.dataStatus;
+      lines.push(c.dim(`Data: ${s.source} (${s.version}), ${s.ageDays}d old (reviewed ${s.reviewedThrough})`));
+      if (s.stale) {
+        lines.push(
+          c.yellow(
+            `⚠ Warning: Data is ${s.ageDays}d old (exceeds ${s.staleAfterDays}d threshold). Run 'ebb update' to refresh.`,
+          ),
+        );
+      }
+    }
     return `${lines.join("\n")}\n`;
   }
 
@@ -48,6 +61,18 @@ export function formatCheckText(
   const hint = getOffingHint(result.status, { noHint: options?.noHint });
   if (hint) {
     lines.push(`  ${hint}`);
+  }
+
+  if (options?.dataStatus) {
+    const s = options.dataStatus;
+    lines.push(c.dim(`\nData: ${s.source} (${s.version}), ${s.ageDays}d old (reviewed ${s.reviewedThrough})`));
+    if (s.stale) {
+      lines.push(
+        c.yellow(
+          `⚠ Warning: Data is ${s.ageDays}d old (exceeds ${s.staleAfterDays}d threshold). Run 'ebb update' to refresh.`,
+        ),
+      );
+    }
   }
 
   return `${lines.join("\n")}\n`;
@@ -131,6 +156,18 @@ export function formatCheckAllText(
     const hint = getOffingHint("deprecated", { noHint: options?.noHint });
     if (hint) {
       lines.push(`\n${hint}`);
+    }
+  }
+
+  if (options?.dataStatus) {
+    const s = options.dataStatus;
+    lines.push(c.dim(`\nData: ${s.source} (${s.version}), ${s.ageDays}d old (reviewed ${s.reviewedThrough})`));
+    if (s.stale) {
+      lines.push(
+        c.yellow(
+          `⚠ Warning: Data is ${s.ageDays}d old (exceeds ${s.staleAfterDays}d threshold). Run 'ebb update' to refresh.`,
+        ),
+      );
     }
   }
 

@@ -263,6 +263,20 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
   await writeFile(join(outDir, "all.json"), finalAllJson, "utf8");
 
   // 5. Generate index.json
+  let latestReviewDate = "1970-01-01";
+  for (const rule of allRules) {
+    const rev = rule.provenance?.reviewedAt;
+    if (rev && rev > latestReviewDate) {
+      latestReviewDate = rev;
+    }
+  }
+  const createdDate = new Date(createdAt);
+  const reviewedTime = Date.parse(`${latestReviewDate}T00:00:00Z`);
+  const ageDays = Number.isNaN(reviewedTime)
+    ? 0
+    : Math.max(0, Math.floor((createdDate.getTime() - reviewedTime) / (24 * 60 * 60 * 1000)));
+  const stale = ageDays > 30;
+
   const indexDoc = {
     schemaVersion: API_SCHEMA_VERSION,
     version,
@@ -270,6 +284,12 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     rulesCount: allRules.length,
     componentsCount: rulesByComponent.size,
     ecosystemsCount: rulesByEcosystem.size,
+    freshness: {
+      reviewedThrough: latestReviewDate,
+      ageDays,
+      stale,
+      staleAfterDays: 30,
+    },
     components: indexComponents,
   };
   const indexJson = JSON.stringify(indexDoc, null, 2);

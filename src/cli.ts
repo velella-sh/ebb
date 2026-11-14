@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
 import { asOf, check, checkAll, replacementFor, rulesFor, sourcesOf, stale, upcoming } from "./index.js";
+import { dataStatus } from "./data-status.js";
 import { rollback, update } from "./data-update.js";
 import { diff, formatDiffMarkdown, formatDiffText } from "./diff.js";
 import { verify, verifyArtifactSignature, type VerifiedSigner } from "./verify.js";
@@ -47,6 +48,7 @@ Usage:
   ebb verify <file> [options]                Verify a data bundle or artifact signature
   ebb update [options]                       Update lifecycle data safely and reversibly
   ebb diff [from] [to] [options]             Compare two data releases, versions, or files
+  ebb data-status [options]                  Show active lifecycle data freshness and origin
 
 Options:
   --format <text|markdown|json> Output format (default: text)
@@ -54,6 +56,7 @@ Options:
   --as-of <YYYY-MM-DD>          Reference date for time-travel lifecycle evaluation (UTC)
   --within <span|days>          Time window: 30d, 2w, 3m, 1y, or days (default: 90d)
   --older-than <span|days>     Override review age for stale (e.g. 90d); default uses each registry
+  --max-age <days>              Freshness warning threshold in days (default: 30)
   --ecosystem <name>            Filter by ecosystem (e.g. npm, python)
   --purl <purl>                 Filter by package URL
   --fail-on <threshold>         Fail threshold: scheduled, deprecated, unsupported, end-of-life, removed, error (default: deprecated)
@@ -232,6 +235,7 @@ export async function runCli(
         "as-of": { type: "string" },
         within: { type: "string" },
         "older-than": { type: "string" },
+        "max-age": { type: "string" },
         ecosystem: { type: "string" },
         purl: { type: "string" },
         event: { type: "string" },
@@ -323,13 +327,15 @@ export async function runCli(
 
       const asOf = values["as-of"] as string | undefined;
       const result = check(purl, version, asOf);
+      const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
+      const status = dataStatus({ now: asOf, maxAgeDays: maxAgeArg });
 
       if (format === "json") {
         io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
       } else if (format === "markdown") {
-        io.stdout.write(formatCheckMarkdown(purl, version, result, { noHint }));
+        io.stdout.write(formatCheckMarkdown(purl, version, result, { noHint, dataStatus: status }));
       } else {
-        io.stdout.write(formatCheckText(purl, version, result, { colors, noHint }));
+        io.stdout.write(formatCheckText(purl, version, result, { colors, noHint, dataStatus: status }));
       }
 
       return shouldFail(result.status, failOn) ? 1 : 0;
@@ -355,13 +361,15 @@ export async function runCli(
 
       const client = asOf(dateArg);
       const result = client.check(purl, version);
+      const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
+      const status = dataStatus({ now: dateArg, maxAgeDays: maxAgeArg });
 
       if (format === "json") {
         io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
       } else if (format === "markdown") {
-        io.stdout.write(formatCheckMarkdown(purl, version, result, { noHint }));
+        io.stdout.write(formatCheckMarkdown(purl, version, result, { noHint, dataStatus: status }));
       } else {
-        io.stdout.write(formatCheckText(purl, version, result, { colors, noHint }));
+        io.stdout.write(formatCheckText(purl, version, result, { colors, noHint, dataStatus: status }));
       }
 
       return shouldFail(result.status, failOn) ? 1 : 0;
@@ -420,13 +428,15 @@ export async function runCli(
 
       const asOf = values["as-of"] as string | undefined;
       const outcome = asOf ? checkAllWith(items, (p, v) => check(p, v, asOf)) : checkAll(items);
+      const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
+      const status = dataStatus({ now: asOf, maxAgeDays: maxAgeArg });
 
       if (format === "json") {
         io.stdout.write(`${JSON.stringify(outcome, null, 2)}\n`);
       } else if (format === "markdown") {
-        io.stdout.write(formatCheckAllMarkdown(items, outcome, { noHint }));
+        io.stdout.write(formatCheckAllMarkdown(items, outcome, { noHint, dataStatus: status }));
       } else {
-        io.stdout.write(formatCheckAllText(items, outcome, { colors, noHint }));
+        io.stdout.write(formatCheckAllText(items, outcome, { colors, noHint, dataStatus: status }));
       }
 
       // Check whether any status exceeds failOn threshold
@@ -755,6 +765,53 @@ export async function runCli(
         }
         return 2;
       }
+    }
+
+    if (first === "data-status" || first === "status" || first === "freshness") {
+      const nowArg = values["as-of"] as string | undefined;
+      const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
+      const status = dataStatus({ now: nowArg, maxAgeDays: maxAgeArg });
+
+      if (format === "json") {
+        io.stdout.write(`${JSON.stringify(status, null, 2)}\n`);
+        return status.stale ? 1 : 0;
+      }
+
+      if (format === "markdown") {
+        const mdLines: string[] = [
+          "### Ebb Lifecycle Data Status\n",
+          `- **Source:** \`${status.source}\` (\`${status.version}\`)`,
+          `- **Reviewed Through:** \`${status.reviewedThrough}\``,
+          `- **Age:** ${status.ageDays} days`,
+          `- **Stale Threshold:** ${status.staleAfterDays} days`,
+          `- **Status:** ${status.stale ? "❌ Stale" : "✅ Fresh"}`,
+        ];
+        if (status.warnings.length > 0) {
+          mdLines.push("\n**Warnings:**");
+          for (const w of status.warnings) {
+            mdLines.push(`- ⚠️ ${w}`);
+          }
+        }
+        io.stdout.write(`${mdLines.join("\n")}\n`);
+        return status.stale ? 1 : 0;
+      }
+
+      const lines: string[] = [
+        `Lifecycle data status:`,
+        `  Source:           ${status.source} (${status.version})`,
+        `  Reviewed through: ${status.reviewedThrough}`,
+        `  Data age:         ${status.ageDays} days`,
+        `  Freshness limit:  ${status.staleAfterDays} days`,
+        `  Status:           ${status.stale ? colors.yellow("stale") : colors.green("fresh")}`,
+      ];
+      if (status.warnings.length > 0) {
+        lines.push(`  Warnings:`);
+        for (const w of status.warnings) {
+          lines.push(`    - ${colors.yellow(w)}`);
+        }
+      }
+      io.stdout.write(`${lines.join("\n")}\n`);
+      return status.stale ? 1 : 0;
     }
 
     io.stderr.write(`Error: Unknown command "${first}". Run "ebb --help" for usage.\n`);

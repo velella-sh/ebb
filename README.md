@@ -396,6 +396,8 @@ These pages are also published as a site, built with [Mizzen](https://velella.sh
 - [Writing a rule](docs/RULES.md): the format, the evidence policy, and the review workflow.
 - [Importers](docs/IMPORTERS.md): tools that draft rules from authoritative sources for a maintainer to review.
 - [Data bundles, signing and trust](docs/DATA.md): how newer data is published, verified, and pinned.
+- [Data freshness policy](docs/freshness.md): how Ebb measures evidence age, enforces review windows, and stays fresh.
+- [Data changelog](DATA-CHANGELOG.md): track additions, updates, deprecations, and removals in the dataset.
 - [Design decisions](docs/decisions/): the records behind the registry format, importers, and data bundles.
 
 ## Using Ebb in your tool
