@@ -1,4 +1,4 @@
-import { diff, formatDiffMarkdown } from "@velella/ebb";
+import { diff, formatDiffMarkdown } from "@velella/ebb/diff";
 import type { McpTool, McpToolResult } from "../types.js";
 
 export const diffTool: McpTool = {

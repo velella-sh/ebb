@@ -63,19 +63,12 @@ assert.deepEqual(Object.keys(root).sort(), [
   "check",
   "checkAll",
   "createEbb",
-  "diff",
-  "diffRules",
-  "formatDiffMarkdown",
-  "formatDiffText",
   "preload",
   "replacementFor",
-  "rollback",
   "rulesFor",
   "sourcesOf",
   "stale",
   "upcoming",
-  "update",
-  "updateData",
 ]);
 assert.equal(root.check("node", "18.20.4").status, "end-of-life");
 assert.ok(root.rulesFor("pkg:npm/request").length > 0);

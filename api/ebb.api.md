@@ -23,24 +23,6 @@ export interface AsOfOptions {
     readonly rules?: readonly Rule[] | undefined;
 }
 
-// @public (undocumented)
-export interface ChangedRuleDiff {
-    // (undocumented)
-    readonly changes: readonly RuleFieldChange[];
-    // (undocumented)
-    readonly ecosystem: string;
-    // (undocumented)
-    readonly fromRule: RegistryV2Rule;
-    // (undocumented)
-    readonly id: string;
-    // (undocumented)
-    readonly purl: string;
-    // (undocumented)
-    readonly title: string;
-    // (undocumented)
-    readonly toRule: RegistryV2Rule;
-}
-
 // @public
 export function check(purlOrName: string, version: string, asOf?: string): CheckResult;
 
@@ -120,69 +102,6 @@ export interface DataBundle {
 }
 
 // @public (undocumented)
-export interface DataDiffResult {
-    // (undocumented)
-    readonly added: readonly RegistryV2Rule[];
-    // (undocumented)
-    readonly changed: readonly ChangedRuleDiff[];
-    // (undocumented)
-    readonly from: {
-        description: string;
-        version?: string | undefined;
-    };
-    // (undocumented)
-    readonly removed: readonly RegistryV2Rule[];
-    // (undocumented)
-    readonly renamed: readonly RenamedRuleDiff[];
-    // Warning: (ae-forgotten-export) The symbol "DATA_DIFF_SCHEMA_VERSION" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
-    readonly schemaVersion: typeof DATA_DIFF_SCHEMA_VERSION;
-    // (undocumented)
-    readonly summary: DataDiffSummary;
-    // (undocumented)
-    readonly to: {
-        description: string;
-        version?: string | undefined;
-    };
-}
-
-// @public (undocumented)
-export interface DataDiffSummary {
-    // (undocumented)
-    readonly added: number;
-    // (undocumented)
-    readonly byEcosystem: Record<string, {
-        added: number;
-        changed: number;
-        removed: number;
-        renamed: number;
-    }>;
-    // (undocumented)
-    readonly byEvent: Record<string, {
-        added: number;
-        changed: number;
-        removed: number;
-    }>;
-    // (undocumented)
-    readonly changed: number;
-    // (undocumented)
-    readonly removed: number;
-    // (undocumented)
-    readonly renamed: number;
-    // (undocumented)
-    readonly totalFrom: number;
-    // (undocumented)
-    readonly totalTo: number;
-}
-
-// @public (undocumented)
-export interface DataRollbackOptions extends DataSourceOptions {
-    // (undocumented)
-    fetch?: typeof fetch;
-}
-
-// @public (undocumented)
 export interface DataSourceOptions {
     cacheDirectory?: string;
     // (undocumented)
@@ -199,79 +118,6 @@ export interface DataSourceOptions {
     // Warning: (ae-forgotten-export) The symbol "VerifiedSigner" needs to be exported by the entry point index.d.ts
     verifySignature?: (bytes: Uint8Array, signatureJson: string) => VerifiedSigner;
 }
-
-// @public (undocumented)
-export interface DataUpdateOptions extends DataSourceOptions {
-    allowDowngrade?: boolean | undefined;
-    channel?: "stable" | "next" | undefined;
-    check?: boolean | undefined;
-    // (undocumented)
-    fetch?: typeof fetch | undefined;
-    // (undocumented)
-    releasesUrl?: string | undefined;
-    version?: string | undefined;
-}
-
-// @public (undocumented)
-export interface DataUpdateResult {
-    // (undocumented)
-    cacheDirectory: string;
-    // (undocumented)
-    contentDigest: string | null;
-    // (undocumented)
-    createdAt: string | null;
-    from: {
-        source: string;
-        version: string;
-    };
-    rules: Record<string, {
-        before: number | null;
-        after: number;
-    }>;
-    // Warning: (ae-forgotten-export) The symbol "DATA_UPDATE_SCHEMA_VERSION" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
-    schemaVersion: typeof DATA_UPDATE_SCHEMA_VERSION;
-    // (undocumented)
-    signer: {
-        identity: string;
-        issuer: string;
-    } | null;
-    // (undocumented)
-    status: "updated" | "up-to-date" | "downloaded" | "rolled-back" | "update-available";
-    summary?: {
-        totalBefore: number;
-        totalAfter: number;
-        delta: number;
-    };
-    to: {
-        source: string;
-        version: string;
-    };
-}
-
-// @public
-export function diff(from?: DiffTarget, to?: DiffTarget, options?: DiffOptions): Promise<DataDiffResult>;
-
-// @public (undocumented)
-export interface DiffOptions extends DataSourceOptions {
-    // (undocumented)
-    readonly ecosystem?: string | readonly string[] | undefined;
-}
-
-// @public
-export function diffRules(fromRules: Iterable<RegistryV2Rule>, toRules: Iterable<RegistryV2Rule>, options?: {
-    fromLabel?: string | undefined;
-    toLabel?: string | undefined;
-    ecosystem?: string | readonly string[] | undefined;
-}): DataDiffResult;
-
-// @public (undocumented)
-export type DiffTarget = string | DataBundle | {
-    manifest?: Partial<DataBundle["manifest"]>;
-    files?: Record<string, unknown>;
-    rules?: readonly RegistryV2Rule[];
-} | Iterable<RegistryV2Rule>;
 
 // Warning: (ae-forgotten-export) The symbol "EBB_ERROR_CODES" needs to be exported by the entry point index.d.ts
 //
@@ -311,14 +157,6 @@ export interface EvidenceSource {
     // (undocumented)
     url: string;
 }
-
-// @public
-export function formatDiffMarkdown(result: DataDiffResult): string;
-
-// @public
-export function formatDiffText(result: DataDiffResult, options?: {
-    color?: boolean;
-}): string;
 
 // @public
 export function preload(ecosystems?: readonly string[]): Promise<void>;
@@ -367,24 +205,6 @@ export interface RegistryV2Rule {
     vers: string;
 }
 
-// @public (undocumented)
-export interface RenamedRuleDiff {
-    // (undocumented)
-    readonly changes: readonly RuleFieldChange[];
-    // (undocumented)
-    readonly ecosystem: string;
-    // (undocumented)
-    readonly fromId: string;
-    // (undocumented)
-    readonly fromRule: RegistryV2Rule;
-    // (undocumented)
-    readonly purl: string;
-    // (undocumented)
-    readonly toId: string;
-    // (undocumented)
-    readonly toRule: RegistryV2Rule;
-}
-
 // @public
 export function replacementFor(purl: string, version: string): string | null;
 
@@ -418,27 +238,10 @@ export interface ResultMatch {
 export type ResultStatus = (typeof resultStatuses)[number];
 
 // @public
-export function rollback(options?: DataRollbackOptions): Promise<DataUpdateResult>;
-
-// @public
 export type Rule = RegistryV2Rule;
 
 // @public
 export type RuleEvent = LifecycleEvent;
-
-// @public (undocumented)
-export interface RuleFieldChange {
-    // (undocumented)
-    readonly description?: string | undefined;
-    // (undocumented)
-    readonly field: string;
-    // (undocumented)
-    readonly from: unknown;
-    // (undocumented)
-    readonly shiftDays?: number | undefined;
-    // (undocumented)
-    readonly to: unknown;
-}
 
 // @public
 export function rulesFor(purl: string, options?: RulesForOptions): Rule[];
@@ -617,12 +420,6 @@ export interface UpcomingResult {
     // (undocumented)
     readonly within: string;
 }
-
-// @public
-export function update(options?: DataUpdateOptions): Promise<DataUpdateResult>;
-
-// @public @deprecated
-export const updateData: typeof update;
 
 // (No @packageDocumentation comment for this package)
 

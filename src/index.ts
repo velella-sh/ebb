@@ -86,26 +86,3 @@ export {
   type SourcesOfResult,
   sourcesOf,
 } from "./sources-of.js";
-
-export {
-  type ChangedRuleDiff,
-  type DataDiffResult,
-  type DataDiffSummary,
-  type DiffOptions,
-  type DiffTarget,
-  type RenamedRuleDiff,
-  type RuleFieldChange,
-  diff,
-  diffRules,
-  formatDiffMarkdown,
-  formatDiffText,
-} from "./diff.js";
-
-export {
-  type DataRollbackOptions,
-  type DataUpdateOptions,
-  type DataUpdateResult,
-  rollback,
-  update,
-  updateData,
-} from "./data-update.js";
