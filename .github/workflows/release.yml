@@ -45,7 +45,13 @@ jobs:
         run: npm run build:llms
 
       - name: Publish to npm with provenance
-        run: npm publish --provenance --access public
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [ "$(npm view @velella/ebb@$VERSION version 2>/dev/null)" = "$VERSION" ]; then
+            echo "@velella/ebb@$VERSION is already published to npm, skipping."
+          else
+            npm publish --provenance --access public
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -55,7 +61,7 @@ jobs:
           deno-version: v2.x
 
       - name: Publish to JSR with provenance
-        run: deno publish --provenance
+        run: deno publish
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
