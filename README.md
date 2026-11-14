@@ -213,6 +213,12 @@ npx @velella/ebb sources npm.package.request.deprecated
 # Verify a downloaded data bundle or artifact signature offline
 npx @velella/ebb verify dist/data/bundle.json
 
+# Update lifecycle data safely and reversibly
+npx @velella/ebb update
+
+# Compare two data releases and inspect rule changes
+npx @velella/ebb diff 2026.10.01 2026.10.16 --format markdown
+
 # Evaluate lifecycle status as of a specific date (time travel)
 npx @velella/ebb as-of 2027-05-01 node 22.11.0
 ```

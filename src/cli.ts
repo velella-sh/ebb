@@ -3,6 +3,8 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
 import { asOf, check, checkAll, replacementFor, rulesFor, sourcesOf, stale, upcoming } from "./index.js";
+import { rollback, update } from "./data-update.js";
+import { diff, formatDiffMarkdown, formatDiffText } from "./diff.js";
 import { verify, verifyArtifactSignature, type VerifiedSigner } from "./verify.js";
 import { UpcomingError } from "./upcoming.js";
 import { CheckError } from "./check.js";
@@ -43,6 +45,8 @@ Usage:
   ebb stale [options]                        List rules whose review window has expired
   ebb sources <rule-id> [options]            Show evidence sources and review status for a rule
   ebb verify <file> [options]                Verify a data bundle or artifact signature
+  ebb update [options]                       Update lifecycle data safely and reversibly
+  ebb diff [from] [to] [options]             Compare two data releases, versions, or files
 
 Options:
   --format <text|markdown|json> Output format (default: text)
@@ -55,6 +59,11 @@ Options:
   --fail-on <threshold>         Fail threshold: scheduled, deprecated, unsupported, end-of-life, removed, error (default: deprecated)
   --event <name>                Filter rules by event (rules command only)
   --signature <file>            Explicit signature file path (default: <file>.sigstore.json)
+  --check                       Check for data updates without downloading
+  --rollback                    Roll back to previous cached data version or bundled
+  --channel <stable|next>       Update channel: stable (default) or next
+  --allow-downgrade             Allow updating to an older data version
+  --data-version <version>      Specify a data version to download
   --color                       Force colored output
   --no-color                    Disable colored output (respects NO_COLOR env)
   --no-hint                     Disable the Offing remediation hint
@@ -74,6 +83,12 @@ Examples:
   ebb stale --older-than 90d --json
   ebb verify dist/data/bundle.json
   ebb verify bundle.json --signature bundle.json.sigstore.json
+  ebb update
+  ebb update --check
+  ebb update --rollback
+  ebb diff
+  ebb diff 2026.10.01 2026.10.16
+  ebb diff --format markdown
 `;
 
 export interface CliIo {
@@ -222,6 +237,11 @@ export async function runCli(
         event: { type: "string" },
         signature: { type: "string" },
         "fail-on": { type: "string" },
+        check: { type: "boolean", default: false },
+        rollback: { type: "boolean", default: false },
+        channel: { type: "string" },
+        "allow-downgrade": { type: "boolean", default: false },
+        "data-version": { type: "string" },
         color: { type: "boolean", default: false },
         "no-color": { type: "boolean", default: false },
         "no-hint": { type: "boolean", default: false },
@@ -644,6 +664,94 @@ export async function runCli(
           io.stdout.write(`${JSON.stringify({ ok: false, file: fileArg, error: msg }, null, 2)}\n`);
         } else {
           io.stderr.write(`Error: Verification failed for ${fileArg}: ${msg}\n`);
+        }
+        return 2;
+      }
+    }
+
+    if (first === "update") {
+      const rollbackFlag = Boolean(values.rollback);
+      const checkFlag = Boolean(values.check);
+      const allowDowngrade = Boolean(values["allow-downgrade"]);
+      const channel = (values.channel as "stable" | "next" | undefined) ?? "stable";
+      const targetVersion = (values["data-version"] as string | undefined) ?? positionals[1];
+
+      try {
+        if (rollbackFlag) {
+          const res = await rollback();
+          if (format === "json") {
+            io.stdout.write(`${JSON.stringify(res, null, 2)}\n`);
+          } else {
+            io.stdout.write(
+              `✓ Rolled back data successfully:\n  Active: ${res.to.version} (${res.to.source})\n  Previous: ${res.from.version} (${res.from.source})\n`,
+            );
+          }
+          return 0;
+        }
+
+        const updateOpts: Parameters<typeof update>[0] = {
+          check: checkFlag,
+          allowDowngrade,
+          channel,
+        };
+        if (targetVersion) {
+          updateOpts.version = targetVersion;
+        }
+        const res = await update(updateOpts);
+
+        if (format === "json") {
+          io.stdout.write(`${JSON.stringify(res, null, 2)}\n`);
+        } else {
+          if (res.status === "up-to-date") {
+            io.stdout.write(`Data is already up to date (${res.to.version}, ${res.to.source}).\n`);
+          } else if (res.status === "update-available") {
+            io.stdout.write(
+              `Data update available: ${res.from.version} → ${res.to.version}.\nRun "ebb update" to download and apply.\n`,
+            );
+          } else if (res.status === "downloaded") {
+            io.stdout.write(`✓ Downloaded data version ${res.to.version} to cache (pinned).\n`);
+          } else {
+            const deltaStr = res.summary
+              ? ` (${res.summary.delta >= 0 ? `+${res.summary.delta}` : res.summary.delta} rules)`
+              : "";
+            io.stdout.write(
+              `✓ Updated data successfully:\n  Active: ${res.to.version} (${res.to.source})${deltaStr}\n  Previous: ${res.from.version} (${res.from.source})\n  Digest: ${res.contentDigest ?? "n/a"}\n  Signer: ${res.signer?.identity ?? "n/a"}\n`,
+            );
+          }
+        }
+        return 0;
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (format === "json") {
+          io.stdout.write(`${JSON.stringify({ ok: false, error: msg }, null, 2)}\n`);
+        } else {
+          io.stderr.write(`Error: Update failed: ${msg}\n`);
+        }
+        return 1;
+      }
+    }
+
+    if (first === "diff") {
+      const fromArg = positionals[1];
+      const toArg = positionals[2];
+      const ecoArg = values.ecosystem as string | undefined;
+
+      try {
+        const res = await diff(fromArg, toArg, { ecosystem: ecoArg });
+        if (format === "json") {
+          io.stdout.write(`${JSON.stringify(res, null, 2)}\n`);
+        } else if (format === "markdown") {
+          io.stdout.write(formatDiffMarkdown(res));
+        } else {
+          io.stdout.write(`${formatDiffText(res, { color: enableColor })}\n`);
+        }
+        return 0;
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (format === "json") {
+          io.stdout.write(`${JSON.stringify({ ok: false, error: msg }, null, 2)}\n`);
+        } else {
+          io.stderr.write(`Error: Diff failed: ${msg}\n`);
         }
         return 2;
       }

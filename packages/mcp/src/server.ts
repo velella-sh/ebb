@@ -1,6 +1,7 @@
 import { upcomingResource } from "./resources/upcoming.js";
 import { checkTool } from "./tools/check.js";
 import { checkAllTool } from "./tools/check_all.js";
+import { diffTool } from "./tools/diff.js";
 import { replacementForTool } from "./tools/replacement.js";
 import { sourcesTool } from "./tools/sources.js";
 import type {
@@ -42,6 +43,7 @@ export class McpServer {
     // Register built-in tools
     this.registerTool(checkTool);
     this.registerTool(checkAllTool);
+    this.registerTool(diffTool);
     this.registerTool(replacementForTool);
     this.registerTool(sourcesTool);
 

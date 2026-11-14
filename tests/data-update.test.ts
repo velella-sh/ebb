@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import { cp, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import http from "node:http";
+import type { AddressInfo } from "node:net";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { after, before, test } from "node:test";
@@ -12,6 +14,8 @@ import {
   DATA_UPDATE_SCHEMA_VERSION,
   DataUpdateError,
   latestDataRelease,
+  rollback,
+  update,
   updateData,
 } from "../src/data-update.js";
 import { VERSION } from "../src/version.js";
@@ -491,4 +495,233 @@ test("dataStatusFrom, dataInfoFrom, and getDataStatus compute ageDays and stalen
   assert.equal(activeStatus.source, "bundled");
   assert.equal(activeStatus.stale, true);
   configureActiveData({});
+});
+
+test("update() supports check mode, channel selection, and summary delta", async () => {
+  const cache = await mkdtemp(join(workspace, "check-cache-"));
+  const baseUrl = "https://example.com";
+  const releasesUrl = `${baseUrl}/releases.json`;
+
+  const stableRelease = {
+    tag_name: "data-v2099.04.01",
+    draft: false,
+    prerelease: false,
+    assets: [
+      { name: "ebb-data-2099.04.01.json", browser_download_url: `${baseUrl}/bundle-stable.json` },
+      { name: "ebb-data-2099.04.01.json.sigstore.json", browser_download_url: `${baseUrl}/sig-stable.json` },
+    ],
+  };
+
+  const nextRelease = {
+    tag_name: "data-v2099.05.01-next.1",
+    draft: false,
+    prerelease: true,
+    assets: [
+      { name: "ebb-data-2099.05.01-next.1.json", browser_download_url: `${baseUrl}/bundle-next.json` },
+      { name: "ebb-data-2099.05.01-next.1.json.sigstore.json", browser_download_url: `${baseUrl}/sig-next.json` },
+    ],
+  };
+
+  const releases = [stableRelease, nextRelease];
+
+  // Channel "stable" ignores the prerelease
+  assert.equal(latestDataRelease(releases, undefined, "stable")?.version, "2099.04.01");
+  // Channel "next" selects the newer prerelease
+  assert.equal(latestDataRelease(releases, undefined, "next")?.version, "2099.05.01-next.1");
+
+  // check: true checks if update is available without downloading bundle or modifying cache
+  const checkResult = await update({
+    check: true,
+    cacheDirectory: cache,
+    releasesUrl,
+    ebbVersion: VERSION,
+    fetch: mockFetch({
+      [releasesUrl]: () => new Response(JSON.stringify(releases), { status: 200 }),
+    }),
+  });
+  assert.equal(checkResult.status, "update-available");
+  assert.equal(checkResult.to.version, "2099.04.01");
+  assert.ok(checkResult.summary);
+
+  // Cache remains empty
+  const entries = await readdir(cache);
+  assert.deepEqual(entries, []);
+});
+
+test("rollback() reverts to previous cached version and back to bundled data", async () => {
+  const cache = await mkdtemp(join(workspace, "rollback-cache-"));
+  const baseUrl = "https://example.com";
+  const releasesUrl = `${baseUrl}/releases.json`;
+
+  const bundle1 = await buildDataBundle({
+    root: fixtureRepo,
+    createdAt: "2099-01-01T00:00:00Z",
+    minimumEbbVersion: "0.0.1",
+  });
+  const bundle2 = await buildDataBundle({
+    root: mutatedRepo,
+    createdAt: "2099-02-01T00:00:00Z",
+    minimumEbbVersion: "0.0.1",
+  });
+
+  // Rollback on bundled data throws error
+  await assert.rejects(
+    () => rollback({ cacheDirectory: cache }),
+    (err: unknown) => err instanceof DataUpdateError && /Cannot roll back/.test(err.message),
+  );
+
+  // Install version 1
+  await update({
+    cacheDirectory: cache,
+    releasesUrl,
+    ebbVersion: VERSION,
+    verifySignature,
+    fetch: mockFetch({
+      [releasesUrl]: () => new Response(JSON.stringify(releasesFor(bundle1.manifest.version)), { status: 200 }),
+      [`${baseUrl}/bundle-${bundle1.manifest.version}.json`]: () =>
+        new Response(serializeDataBundle(bundle1), { status: 200 }),
+      [`${baseUrl}/bundle-${bundle1.manifest.version}.sigstore.json`]: () => new Response("{}", { status: 200 }),
+    }),
+  });
+
+  // Install version 2
+  await update({
+    cacheDirectory: cache,
+    releasesUrl,
+    ebbVersion: VERSION,
+    verifySignature,
+    fetch: mockFetch({
+      [releasesUrl]: () => new Response(JSON.stringify(releasesFor(bundle2.manifest.version)), { status: 200 }),
+      [`${baseUrl}/bundle-${bundle2.manifest.version}.json`]: () =>
+        new Response(serializeDataBundle(bundle2), { status: 200 }),
+      [`${baseUrl}/bundle-${bundle2.manifest.version}.sigstore.json`]: () => new Response("{}", { status: 200 }),
+    }),
+  });
+
+  // Active data is version 2
+  const activeNow = await resolveActiveData({ cacheDirectory: cache, verifySignature });
+  assert.equal(activeNow.info.version, "2099.02.01");
+
+  // Rollback 1: version 2 -> version 1
+  const rolled1 = await rollback({ cacheDirectory: cache, verifySignature });
+  assert.equal(rolled1.status, "rolled-back");
+  assert.equal(rolled1.from.version, "2099.02.01");
+  assert.equal(rolled1.to.version, "2099.01.01");
+  assert.equal(rolled1.to.source, "cache");
+
+  // Rollback 2: version 1 -> bundled
+  const rolled2 = await rollback({ cacheDirectory: cache, verifySignature });
+  assert.equal(rolled2.status, "rolled-back");
+  assert.equal(rolled2.from.version, "2099.01.01");
+  assert.equal(rolled2.to.source, "bundled");
+
+  // Further rollback throws
+  await assert.rejects(
+    () => rollback({ cacheDirectory: cache, verifySignature }),
+    (err: unknown) => err instanceof DataUpdateError && /Cannot roll back/.test(err.message),
+  );
+});
+
+test("update() with a local HTTP server downloads and applies update atomically", async () => {
+  const cache = await mkdtemp(join(workspace, "server-cache-"));
+  const bundle = await buildDataBundle({
+    root: fixtureRepo,
+    createdAt: "2099-06-01T00:00:00Z",
+    minimumEbbVersion: "0.0.1",
+  });
+  const serialized = serializeDataBundle(bundle);
+
+  const server = http.createServer((req, res) => {
+    if (req.url === "/releases.json") {
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end(
+        JSON.stringify([
+          {
+            tag_name: "data-v2099.06.01",
+            assets: [
+              { name: "ebb-data-2099.06.01.json", browser_download_url: `http://127.0.0.1:${port}/bundle.json` },
+              {
+                name: "ebb-data-2099.06.01.json.sigstore.json",
+                browser_download_url: `http://127.0.0.1:${port}/bundle.sigstore.json`,
+              },
+            ],
+          },
+        ]),
+      );
+    } else if (req.url === "/bundle.json") {
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end(serialized);
+    } else if (req.url === "/bundle.sigstore.json") {
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end("{}");
+    } else {
+      res.writeHead(404).end();
+    }
+  });
+
+  await new Promise<void>((res) => server.listen(0, "127.0.0.1", res));
+  const port = (server.address() as AddressInfo).port;
+
+  try {
+    const result = await update({
+      cacheDirectory: cache,
+      releasesUrl: `http://127.0.0.1:${port}/releases.json`,
+      verifySignature,
+    });
+    assert.equal(result.status, "updated");
+    assert.equal(result.to.version, "2099.06.01");
+  } finally {
+    server.close();
+  }
+});
+
+test("update() aborts cleanly on failed download midway leaving cache unchanged", async () => {
+  const cache = await mkdtemp(join(workspace, "midway-cache-"));
+  const server = http.createServer((req, res) => {
+    if (req.url === "/releases.json") {
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end(
+        JSON.stringify([
+          {
+            tag_name: "data-v2099.07.01",
+            assets: [
+              { name: "ebb-data-2099.07.01.json", browser_download_url: `http://127.0.0.1:${port}/bundle.json` },
+              {
+                name: "ebb-data-2099.07.01.json.sigstore.json",
+                browser_download_url: `http://127.0.0.1:${port}/bundle.sigstore.json`,
+              },
+            ],
+          },
+        ]),
+      );
+    } else if (req.url === "/bundle.json") {
+      // Send partial body and abruptly destroy connection
+      res.writeHead(200, { "content-type": "application/json" });
+      res.write('{"manifest":');
+      res.destroy();
+    } else {
+      res.writeHead(404).end();
+    }
+  });
+
+  await new Promise<void>((res) => server.listen(0, "127.0.0.1", res));
+  const port = (server.address() as AddressInfo).port;
+
+  try {
+    await assert.rejects(
+      () =>
+        update({
+          cacheDirectory: cache,
+          releasesUrl: `http://127.0.0.1:${port}/releases.json`,
+          verifySignature,
+        }),
+      (err: unknown) => err instanceof DataUpdateError && /Could not download/.test(err.message),
+    );
+
+    // Verify cache directory has no partial active file or bundle
+    const active = await resolveActiveData({ cacheDirectory: cache });
+    assert.equal(active.info.source, "bundled");
+  } finally {
+    server.close();
+  }
 });

@@ -95,6 +95,32 @@
         },
         "required": ["ruleId"]
       }
+    },
+    {
+      "name": "diff",
+      "description": "Compare two software lifecycle data versions, dates, files, or active data and report added, changed, removed, and renamed rules with field-level delta tracking.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Starting version, date (YYYY-MM-DD), bundle file path, 'bundled', or 'active' (default: 'bundled')."
+          },
+          "to": {
+            "type": "string",
+            "description": "Target version, date (YYYY-MM-DD), bundle file path, or 'active' (default: 'active')."
+          },
+          "ecosystem": {
+            "type": "string",
+            "description": "Optional ecosystem filter (e.g. 'npm', 'pypi', 'go')."
+          },
+          "format": {
+            "type": "string",
+            "enum": ["markdown", "json"],
+            "description": "Output format: 'markdown' (default) or 'json'."
+          }
+        }
+      }
     }
   ],
   "resources": [

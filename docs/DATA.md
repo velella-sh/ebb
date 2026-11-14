@@ -149,6 +149,82 @@ gh release download data-vYYYY.MM.DD --repo velella-sh/ebb --pattern 'release-lo
 node dist/tools/data-release-log.js check release-log.jsonl --previous older-release-log.jsonl
 ```
 
+## Updating lifecycle data (`update` and `rollback`)
+
+Ebb separates software release lifecycles from data releases. You do not need to install a new npm package release to get fresh lifecycle rules.
+
+### Safe, atomic update
+
+```ts
+import { update, rollback } from "@velella/ebb";
+
+// Fetch the newest verified data release
+const result = await update();
+console.log(result.status); // "updated" | "up-to-date"
+console.log(result.to.version); // e.g. "2026.10.20"
+
+// Check for updates without downloading
+const check = await update({ check: true });
+if (check.status === "update-available") {
+  console.log(`Update available: ${check.to.version}`);
+}
+
+// Roll back to previous cached data or bundled data
+const reverted = await rollback();
+console.log(reverted.status); // "rolled-back"
+```
+
+CLI:
+```bash
+# Update active lifecycle data
+ebb update
+
+# Check for updates without writing to disk
+ebb update --check
+
+# Roll back to the previous version
+ebb update --rollback
+```
+
+### Safety guarantees
+- **Zero network on import:** Ebb never checks for updates automatically or phones home. Network requests occur solely when `update()` or `ebb update` is explicitly called.
+- **Offline signature verification:** The downloaded bundle is completely verified against Sigstore before anything is written to the user cache.
+- **Atomic staging:** Downloads stage into an isolated PID-tagged directory and swap via atomic filesystem rename, ensuring no half-written state if interrupted.
+- **Rollback protection:** Downgrading to older sequence numbers or timestamps is rejected unless `--allow-downgrade` is provided.
+
+---
+
+## Comparing data releases (`diff`)
+
+`diff()` compares two lifecycle data versions, bundles, dates, or active data and reports all added, changed, removed, and renamed rules with field-level delta tracking.
+
+```ts
+import { diff, formatDiffMarkdown } from "@velella/ebb";
+
+// Compare two releases
+const result = await diff("2026.10.01", "2026.10.16");
+console.log(result.summary); // { added: 12, changed: 3, removed: 0, renamed: 1 }
+
+// Generate Markdown release notes
+const markdown = formatDiffMarkdown(result);
+console.log(markdown);
+```
+
+### CLI diff
+```bash
+# Compare bundled data to active data
+ebb diff
+
+# Compare two versions
+ebb diff 2026.10.01 2026.10.16
+
+# Generate Markdown release notes
+ebb diff 2026.10.01 2026.10.16 --format markdown
+```
+
+### Renamed rule tracking
+`diff` identifies renamed rules both from explicit declarations (`renamedFrom`, `x-renamed-from`) and heuristically when a rule in the same ecosystem retains its package URL and event under a new identifier, preventing false churn in release notes.
+
 ## License and attribution
 
 Ebb's code is [MIT](https://github.com/velella-sh/ebb/blob/main/LICENSE). The data, meaning the registry JSON under `registry/` and the schemas under `schemas/`, is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([`LICENSE-DATA`](https://github.com/velella-sh/ebb/blob/main/LICENSE-DATA)), which allows use and redistribution, including commercially, with attribution and an indication of changes. See [`ATTRIBUTION.md`](../ATTRIBUTION.md).

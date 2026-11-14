@@ -1,8 +1,8 @@
-import { mkdir, readdir, rename, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import http from "node:http";
 import { join } from "node:path";
 
-import { checkRollbackGuard, DataBundleError } from "./data-bundle.js";
+import { BUNDLED_ECOSYSTEMS, checkRollbackGuard, DataBundleError } from "./data-bundle.js";
 import {
   ACTIVE_FILE,
   BUNDLE_FILE,
@@ -20,12 +20,14 @@ export const DATA_UPDATE_SCHEMA_VERSION = "ebb.data-update.v1" as const;
 /** Where releases are listed. `EBB_DATA_URL` points this at a mirror or, in tests, a local server. */
 export const DEFAULT_RELEASES_URL = "https://api.github.com/repos/velella-sh/ebb/releases?per_page=30";
 
+export const PREVIOUS_FILE = "previous.json";
+
 const MAXIMUM_BUNDLE_BYTES = 20 * 1024 * 1024;
 const MAXIMUM_SIGNATURE_BYTES = 1024 * 1024;
 const MAXIMUM_LISTING_BYTES = 4 * 1024 * 1024;
 const REQUEST_TIMEOUT_MS = 30_000;
 const KEEP_VERSIONS = 3;
-const TAG_PATTERN = /^data-v(\d{4}\.\d{2}\.\d{2}(?:\.\d+)?)$/;
+const TAG_PATTERN = /^data-v(\d{4}\.\d{2}\.\d{2}(?:\.\d+)?(?:-[a-zA-Z0-9.]+)?)$/;
 
 export class DataUpdateError extends EbbError {
   constructor(message: string) {
@@ -36,16 +38,22 @@ export class DataUpdateError extends EbbError {
 
 export interface DataUpdateResult {
   schemaVersion: typeof DATA_UPDATE_SCHEMA_VERSION;
-  status: "updated" | "up-to-date" | "downloaded";
+  status: "updated" | "up-to-date" | "downloaded" | "rolled-back" | "update-available";
   /** The data that was active before: its source and version. */
   from: { source: string; version: string };
-  /** The data active now. */
+  /** The data active now (or candidate version if checking). */
   to: { source: string; version: string };
   createdAt: string | null;
   contentDigest: string | null;
   signer: { identity: string; issuer: string } | null;
   /** Rules per registry, before and after, for what changed. */
   rules: Record<string, { before: number | null; after: number }>;
+  /** Summary of rule counts before and after the update. */
+  summary?: {
+    totalBefore: number;
+    totalAfter: number;
+    delta: number;
+  };
   cacheDirectory: string;
 }
 
@@ -54,11 +62,15 @@ export interface DataUpdateOptions extends DataSourceOptions {
    * Download this exact bundle version (to pin it) instead of the newest. The download is stored beside the others
    * and is not made the active data, so fetching an older version never rolls back what other commands use.
    */
-  version?: string;
-  releasesUrl?: string;
+  version?: string | undefined;
+  releasesUrl?: string | undefined;
   /** Accept a bundle older than the active data. Never the default: a replayed old bundle is a rollback. */
-  allowDowngrade?: boolean;
-  fetch?: typeof fetch;
+  allowDowngrade?: boolean | undefined;
+  /** Release channel: "stable" (default) or "next" (includes pre-releases). */
+  channel?: "stable" | "next" | undefined;
+  /** Check if an update is available without downloading or applying it. */
+  check?: boolean | undefined;
+  fetch?: typeof fetch | undefined;
 }
 
 interface ReleaseAsset {
@@ -71,18 +83,26 @@ type LatestRelease = { version: string; bundleUrl: string; signatureUrl: string 
 interface Release {
   tag_name: string;
   draft?: boolean;
+  prerelease?: boolean;
   assets?: ReleaseAsset[];
 }
 
-/** Numeric ordering of bundle versions such as 2026.10.16 and 2026.10.16.2. */
+/** Numeric ordering of bundle versions such as 2026.10.16 and 2026.10.16.2, with prerelease support. */
 export function compareBundleVersions(left: string, right: string): number {
-  const parts = (version: string) => version.split(".").map(Number);
+  const parts = (version: string) => {
+    const [numPart, prePart] = version.split("-");
+    const nums = numPart!.split(".").map(Number);
+    return { nums, pre: prePart ?? null };
+  };
   const a = parts(left);
   const b = parts(right);
-  for (let index = 0; index < Math.max(a.length, b.length); index++) {
-    const difference = (a[index] ?? 1) - (b[index] ?? 1);
+  for (let index = 0; index < Math.max(a.nums.length, b.nums.length); index++) {
+    const difference = (a.nums[index] ?? 1) - (b.nums[index] ?? 1);
     if (difference !== 0) return difference;
   }
+  if (a.pre === null && b.pre !== null) return 1; // stable is newer than prerelease of same version
+  if (a.pre !== null && b.pre === null) return -1;
+  if (a.pre !== null && b.pre !== null) return a.pre.localeCompare(b.pre);
   return 0;
 }
 
@@ -127,11 +147,17 @@ async function download(url: string, limit: number, what: string, request: typeo
 }
 
 /** The newest `data-v…` release that has both a bundle and its signature. */
-export function latestDataRelease(releases: Release[], only?: string): LatestRelease | undefined {
+export function latestDataRelease(
+  releases: Release[],
+  only?: string,
+  channel: "stable" | "next" = "stable",
+): LatestRelease | undefined {
   let best: LatestRelease | undefined;
   for (const release of releases) {
     const version = TAG_PATTERN.exec(release.tag_name)?.[1];
     if (!version || release.draft || (only !== undefined && version !== only)) continue;
+    const isPrerelease = Boolean(release.prerelease || version.includes("-"));
+    if (channel === "stable" && isPrerelease) continue;
     const bundle = release.assets?.find((asset) => asset.name === `ebb-data-${version}.json`);
     const signature = release.assets?.find((asset) => asset.name === `ebb-data-${version}.json.sigstore.json`);
     if (!bundle || !signature) continue;
@@ -151,6 +177,20 @@ function rulesByRegistry(files: Record<string, Record<string, unknown>>): Record
         Array.isArray(content.rules) ? content.rules.length : 0,
       ]),
   );
+}
+
+function computeRuleDeltaSummary(rules: DataUpdateResult["rules"]): {
+  totalBefore: number;
+  totalAfter: number;
+  delta: number;
+} {
+  let totalBefore = 0;
+  let totalAfter = 0;
+  for (const info of Object.values(rules)) {
+    if (info.before !== null) totalBefore += info.before;
+    totalAfter += info.after;
+  }
+  return { totalBefore, totalAfter, delta: totalAfter - totalBefore };
 }
 
 async function writeAtomically(path: string, content: string | Uint8Array): Promise<void> {
@@ -190,11 +230,25 @@ function describeSource(info: { source: string; version: string }): { source: st
   return { source: info.source, version: info.version };
 }
 
+async function extractRegistryFiles(data: ActiveData): Promise<Record<string, Record<string, unknown>>> {
+  const result: Record<string, Record<string, unknown>> = {};
+  for (const eco of BUNDLED_ECOSYSTEMS) {
+    const path = `registry/${eco}.json`;
+    try {
+      result[path] = (await data.read(path)) as Record<string, unknown>;
+    } catch {
+      // Not in this dataset
+    }
+  }
+  return result;
+}
+
 /** The newest release the listing offers (or the exact one asked for); its absence is an error. */
 async function findLatestRelease(
   releasesUrl: string,
   version: string | undefined,
   request: typeof fetch,
+  channel: "stable" | "next" = "stable",
 ): Promise<LatestRelease> {
   const listing = await download(releasesUrl, MAXIMUM_LISTING_BYTES, "the release list", request);
   let releases: Release[];
@@ -206,7 +260,7 @@ async function findLatestRelease(
     if (err instanceof DataUpdateError) throw err;
     throw new DataUpdateError("The release list is not valid JSON.");
   }
-  const latest = latestDataRelease(releases, version);
+  const latest = latestDataRelease(releases, version, channel);
   if (!latest)
     throw new DataUpdateError(
       version ? `No signed data release ${version} was found.` : "No signed data release was found.",
@@ -269,6 +323,7 @@ function upToDateResult(
     contentDigest: stamp.contentDigest,
     signer: stamp.signer,
     rules,
+    summary: computeRuleDeltaSummary(rules),
     cacheDirectory: cache,
   };
 }
@@ -308,20 +363,45 @@ async function stageBundle(directory: string, bytes: Uint8Array, signature: stri
  * Downloads the newest signed data bundle into the user cache. This is the only place Ebb uses the network,
  * and it runs only when the user asks. The download is verified completely before anything is written; the cache
  * pointer changes last, atomically, so an interrupted or refused update leaves the previous data in place.
- * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
-export async function updateData(options: DataUpdateOptions = {}): Promise<DataUpdateResult> {
+export async function update(options: DataUpdateOptions = {}): Promise<DataUpdateResult> {
   const request = options.fetch ?? fetch;
   if (!options.fetch && typeof http.setGlobalProxyFromEnv === "function") http.setGlobalProxyFromEnv();
   const cache = options.cacheDirectory ?? defaultCacheDirectory();
   const releasesUrl = options.releasesUrl ?? process.env.EBB_DATA_URL ?? DEFAULT_RELEASES_URL;
 
-  if (options.version !== undefined && !/^\d{4}\.\d{2}\.\d{2}(?:\.\d+)?$/.test(options.version)) {
+  if (options.version !== undefined && !/^\d{4}\.\d{2}\.\d{2}(?:\.\d+)?(?:-[a-zA-Z0-9.]+)?$/.test(options.version)) {
     throw new DataUpdateError(`"${options.version}" is not a data version. Use a version such as 2026.10.01.`);
   }
   const { pinnedVersion: _ignored, ...sourceOptions } = options;
   const before = await resolveActiveData(sourceOptions);
-  const latest = await findLatestRelease(releasesUrl, options.version, request);
+
+  if (options.check) {
+    const latest = await findLatestRelease(releasesUrl, options.version, request, options.channel ?? "stable");
+    const rules = await ruleChanges(before, {});
+    const isNewer = compareBundleVersions(latest.version, before.info.version) > 0;
+    if (!isNewer || (before.info.source === "bundled" && latest.version <= before.info.reviewedThrough)) {
+      return upToDateResult(before.info, rules, cache, {
+        createdAt: before.info.createdAt,
+        contentDigest: before.info.contentDigest,
+        signer: before.info.signer,
+      });
+    }
+    return {
+      schemaVersion: DATA_UPDATE_SCHEMA_VERSION,
+      status: "update-available",
+      from: describeSource(before.info),
+      to: { source: "remote", version: latest.version },
+      createdAt: null,
+      contentDigest: null,
+      signer: null,
+      rules,
+      summary: computeRuleDeltaSummary(rules),
+      cacheDirectory: cache,
+    };
+  }
+
+  const latest = await findLatestRelease(releasesUrl, options.version, request, options.channel ?? "stable");
   const bytes = await download(latest.bundleUrl, MAXIMUM_BUNDLE_BYTES, `data bundle ${latest.version}`, request);
   const signature = Buffer.from(
     await download(latest.signatureUrl, MAXIMUM_SIGNATURE_BYTES, `the signature of ${latest.version}`, request),
@@ -341,12 +421,99 @@ export async function updateData(options: DataUpdateOptions = {}): Promise<DataU
   );
 }
 
+/**
+ * Backward compatibility alias for {@link update}.
+ * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
+ */
+export const updateData = update;
+
+export interface DataRollbackOptions extends DataSourceOptions {
+  fetch?: typeof fetch;
+}
+
+/**
+ * Rolls back the active data to the previous cached version or back to bundled data if no previous cache exists.
+ */
+export async function rollback(options: DataRollbackOptions = {}): Promise<DataUpdateResult> {
+  const cache = options.cacheDirectory ?? defaultCacheDirectory();
+  const current = await resolveActiveData(options);
+
+  if (current.info.source !== "cache") {
+    throw new DataUpdateError(
+      `Cannot roll back: active data is ${current.info.source} (${current.info.version}), not a downloaded update.`,
+    );
+  }
+
+  let previousVersion: string | null = null;
+  const previousFilePath = join(cache, "data", PREVIOUS_FILE);
+  try {
+    const raw = await readFile(previousFilePath, "utf8");
+    const parsed = JSON.parse(raw) as { version?: string };
+    if (typeof parsed.version === "string") {
+      previousVersion = parsed.version;
+    }
+  } catch {
+    // previous.json does not exist
+  }
+
+  if (!previousVersion) {
+    try {
+      const entries = (await readdir(join(cache, "data"), { withFileTypes: true }))
+        .filter((entry) => entry.isDirectory() && /^\d{4}\.\d{2}\.\d{2}/.test(entry.name))
+        .map((entry) => entry.name)
+        .filter((name) => compareBundleVersions(name, current.info.version) < 0)
+        .sort(compareBundleVersions);
+      if (entries.length > 0) {
+        previousVersion = entries[entries.length - 1]!;
+      }
+    } catch {
+      // directory error
+    }
+  }
+
+  const activeFilePath = join(cache, "data", ACTIVE_FILE);
+
+  if (previousVersion) {
+    await writeAtomically(activeFilePath, `${JSON.stringify({ version: previousVersion })}\n`);
+    try {
+      await rm(previousFilePath, { force: true });
+    } catch {
+      // ignore
+    }
+  } else {
+    try {
+      await rm(activeFilePath, { force: true });
+      await rm(previousFilePath, { force: true });
+    } catch {
+      // ignore
+    }
+  }
+
+  const after = await resolveActiveData(options);
+  const rules = await ruleChanges(current, await extractRegistryFiles(after));
+  const summary = computeRuleDeltaSummary(rules);
+
+  return {
+    schemaVersion: DATA_UPDATE_SCHEMA_VERSION,
+    status: "rolled-back",
+    from: describeSource(current.info),
+    to: describeSource(after.info),
+    createdAt: after.info.createdAt,
+    contentDigest: after.info.contentDigest,
+    signer: after.info.signer,
+    rules,
+    summary,
+    cacheDirectory: cache,
+  };
+}
+
 /** Decides what the verified bundle changes on disk, and reports it. Nothing is written when it is already current. */
 async function applyUpdate(pending: PendingUpdate, options: DataUpdateOptions): Promise<DataUpdateResult> {
   const { before, bytes, signature, bundle, signer, rules, cache } = pending;
   const current = before.info;
   const version = bundle.manifest.version;
   const directory = cachedBundleDirectory(cache, version);
+  const summary = computeRuleDeltaSummary(rules);
 
   if (current.source === "cache" && current.contentDigest === bundle.manifest.contentDigest) {
     return upToDateResult(current, rules, cache, {
@@ -366,6 +533,7 @@ async function applyUpdate(pending: PendingUpdate, options: DataUpdateOptions): 
       contentDigest: bundle.manifest.contentDigest,
       signer,
       rules,
+      summary,
       cacheDirectory: cache,
     };
   }
@@ -374,6 +542,15 @@ async function applyUpdate(pending: PendingUpdate, options: DataUpdateOptions): 
     return upToDateResult(current, rules, cache, { createdAt: null, contentDigest: null, signer: null });
   }
   assertNotRollback(current, bundle.manifest, options.allowDowngrade);
+
+  // Preserve previous active version before switching
+  if (current.source === "cache" && current.version !== version) {
+    try {
+      await writeAtomically(join(cache, "data", PREVIOUS_FILE), `${JSON.stringify({ version: current.version })}\n`);
+    } catch {
+      // directory might not be created yet, will be staged below
+    }
+  }
 
   await stageBundle(directory, bytes, signature);
   await writeAtomically(join(cache, "data", ACTIVE_FILE), `${JSON.stringify({ version })}\n`);
@@ -389,6 +566,7 @@ async function applyUpdate(pending: PendingUpdate, options: DataUpdateOptions): 
     contentDigest: after.info.contentDigest,
     signer: after.info.signer ?? signer,
     rules,
+    summary,
     cacheDirectory: cache,
   };
 }

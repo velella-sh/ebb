@@ -161,6 +161,51 @@ ebb verify bundle.json --signature bundle.json.sigstore.json
 ebb verify dist/data/bundle.json --json
 ```
 
+### `ebb update`
+
+Updates lifecycle data safely, atomically, and reversibly without upgrading the npm package. Downloads the newest signed data release, verifies the Sigstore signature offline, and updates the local user cache. Supports rollback to previous versions.
+
+```bash
+# Update to the latest verified data release
+ebb update
+
+# Check for updates without downloading
+ebb update --check
+
+# Roll back to the previous cached data version or bundled data
+ebb update --rollback
+
+# Pin a specific data version
+ebb update 2026.10.15
+
+# Use the pre-release channel
+ebb update --channel next
+
+# Output machine-readable JSON
+ebb update --json
+```
+
+### `ebb diff [from] [to]`
+
+Compares two data releases, bundle files, dates, or active data and reports added, changed, removed, and renamed rules with field-level change tracking (deadline shifts, event upgrades, source updates).
+
+```bash
+# Compare bundled data to active cached data
+ebb diff
+
+# Compare two versions
+ebb diff 2026.10.01 2026.10.16
+
+# Compare bundle files
+ebb diff dist/bundle-v1.json dist/bundle-v2.json
+
+# Generate Markdown release notes
+ebb diff 2026.10.01 2026.10.16 --format markdown
+
+# Filter by ecosystem
+ebb diff --ecosystem npm --json
+```
+
 ---
 
 ## Formatting & Output Options

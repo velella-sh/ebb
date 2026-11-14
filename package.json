@@ -49,6 +49,16 @@
       "import": "./dist/src/verify.js",
       "default": "./dist/src/verify.js"
     },
+    "./diff": {
+      "types": "./dist/src/diff.d.ts",
+      "import": "./dist/src/diff.js",
+      "default": "./dist/src/diff.js"
+    },
+    "./data-update": {
+      "types": "./dist/src/data-update.d.ts",
+      "import": "./dist/src/data-update.js",
+      "default": "./dist/src/data-update.js"
+    },
     "./data/loader": {
       "types": "./dist/src/data/loader.d.ts",
       "import": "./dist/src/data/loader.js",

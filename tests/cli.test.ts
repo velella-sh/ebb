@@ -229,6 +229,35 @@ describe("CLI - runCli commands", () => {
     const parsed = JSON.parse(mock.stdout);
     assert.ok(parsed.counts.stale > 0);
   });
+
+  it("runs diff command with text, markdown, and json formats", async () => {
+    // 1. Text format
+    const mockText = createMockIo();
+    const codeText = await runCli(["diff", "bundled", "active"], mockText.io);
+    assert.equal(codeText, 0);
+    assert.match(mockText.stdout, /ebb diff:/);
+
+    // 2. Markdown format
+    const mockMd = createMockIo();
+    const codeMd = await runCli(["diff", "bundled", "active", "--format", "markdown"], mockMd.io);
+    assert.equal(codeMd, 0);
+    assert.match(mockMd.stdout, /# Ebb Lifecycle Data Diff/);
+
+    // 3. JSON format
+    const mockJson = createMockIo();
+    const codeJson = await runCli(["diff", "bundled", "active", "--json"], mockJson.io);
+    assert.equal(codeJson, 0);
+    const parsed = JSON.parse(mockJson.stdout);
+    assert.equal(parsed.schemaVersion, "ebb.data-diff.v1");
+    assert.ok(parsed.summary);
+  });
+
+  it("runs update command with --rollback on bundled data and exits with error code 1", async () => {
+    const mock = createMockIo();
+    const code = await runCli(["update", "--rollback"], mock.io);
+    assert.equal(code, 1);
+    assert.match(mock.stderr, /Cannot roll back/);
+  });
 });
 
 describe("CLI - end-to-end binary execution", () => {

@@ -35,12 +35,19 @@ test("root entry exports only the public functions at runtime", () => {
     "check",
     "checkAll",
     "createEbb",
+    "diff",
+    "diffRules",
+    "formatDiffMarkdown",
+    "formatDiffText",
     "preload",
     "replacementFor",
+    "rollback",
     "rulesFor",
     "sourcesOf",
     "stale",
     "upcoming",
+    "update",
+    "updateData",
   ]);
 });
 
@@ -89,6 +96,19 @@ test("root exports evaluate components and expose the public types", () => {
   const scoped = createEbb({ ecosystems: ["npm"] });
   assert.equal(scoped.check("pkg:npm/request", "2.88.2").status, "deprecated");
   assert.equal(typeof preload, "function");
+
+  assert.equal(typeof root.diff, "function");
+  assert.equal(typeof root.diffRules, "function");
+  assert.equal(typeof root.formatDiffMarkdown, "function");
+  assert.equal(typeof root.formatDiffText, "function");
+  assert.equal(typeof root.update, "function");
+  assert.equal(typeof root.rollback, "function");
+  assert.equal(typeof root.updateData, "function");
+
+  // In-memory diffRules evaluation
+  const emptyDiff = root.diffRules([], []);
+  assert.equal(emptyDiff.schemaVersion, "ebb.data-diff.v1");
+  assert.equal(emptyDiff.summary.added, 0);
 
   // Compile-time assertions that result alias types stay identical to check aliases.
   const _resultStatus: ResultStatus = status;

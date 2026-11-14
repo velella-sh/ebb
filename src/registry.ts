@@ -58,6 +58,8 @@ export interface RegistryV2Rule {
   provenance: Provenance;
   migration?: MigrationGuidance;
   usage?: UsageMatcher[];
+  /** Previous rule ID if this rule was renamed. */
+  renamedFrom?: string;
   /** Ecosystem matching hints such as `x-npm` or `x-github-actions`. */
   [extension: `x-${string}`]: Record<string, unknown>;
 }
