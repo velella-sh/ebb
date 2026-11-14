@@ -145,7 +145,11 @@ test("offing contract: all 25 ecosystem datasets load rules adhering to schemaVe
 
 test("offing contract: remediation hints point to Offing and can be silenced", () => {
   const hint = getOffingHint("deprecated");
-  assert.ok(hint?.includes("https://github.com/velella-sh/offing"));
+  assert.ok(hint);
+  const hintUrl = new URL(hint);
+  assert.equal(hintUrl.protocol, "https:");
+  assert.equal(hintUrl.host, "github.com");
+  assert.ok(hintUrl.pathname === "/velella-sh/offing" || hintUrl.pathname === "/velella-sh/offing/");
 
   const noHintForOk = getOffingHint("ok");
   assert.equal(noHintForOk, null);
