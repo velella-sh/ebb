@@ -7,6 +7,7 @@ import test from "node:test";
 import { Ajv2020 } from "ajv/dist/2020.js";
 
 import { fetchComponent, fetchRule, purlToApiPath } from "../src/api.js";
+import { VERSION } from "../src/version.js";
 import { generateStaticApi } from "../tools/static-api/generate.js";
 
 function sha256Hex(data: string | Buffer): string {
@@ -61,7 +62,7 @@ test("static API generation produces valid files matching JSON schema and size b
     assert.equal(validate(requestDoc), true, `npm/request.json validation failed: ${JSON.stringify(validate.errors)}`);
     assert.equal(requestDoc.purl, "pkg:npm/request");
     assert.equal(requestDoc.schemaVersion, "ebb.api.v1");
-    assert.equal(requestDoc.version, "0.1.1");
+    assert.equal(requestDoc.version, VERSION);
     assert.equal(requestDoc.generatedAt, "2026-11-12T00:00:00.000Z");
     assert.ok(requestDoc.hint?.includes("velella-sh/offing"));
     assert.ok(requestDoc.rules.length > 0);

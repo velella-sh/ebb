@@ -101,7 +101,10 @@ export async function fetchComponent(purl: string, options?: FetchRuleOptions): 
     throw new Error("No global fetch available. Pass a custom fetch implementation in options.fetch.");
   }
 
-  const baseUrl = (options?.baseUrl ?? DEFAULT_STATIC_API_BASE_URL).replace(/\/+$/, "");
+  let baseUrl = options?.baseUrl ?? DEFAULT_STATIC_API_BASE_URL;
+  while (baseUrl.endsWith("/")) {
+    baseUrl = baseUrl.slice(0, -1);
+  }
   const relPath = purlToApiPath(purl);
   const url = `${baseUrl}/${relPath}`;
 

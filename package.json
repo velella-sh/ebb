@@ -1,6 +1,6 @@
 {
   "name": "@velella/ebb",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "The open almanac of software end-of-life.",
   "keywords": [
     "end-of-life",
@@ -43,6 +43,11 @@
       "types": "./dist/src/browser.d.ts",
       "import": "./dist/src/browser.js",
       "default": "./dist/src/browser.js"
+    },
+    "./verify": {
+      "types": "./dist/src/verify.d.ts",
+      "import": "./dist/src/verify.js",
+      "default": "./dist/src/verify.js"
     },
     "./data/loader": {
       "types": "./dist/src/data/loader.d.ts",

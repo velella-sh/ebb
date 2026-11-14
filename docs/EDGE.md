@@ -1,3 +1,10 @@
+---
+title: Running Ebb at the Edge
+description: Running Ebb in Cloudflare Workers, Vercel Edge Functions, and modern edge environments.
+layout: doc
+permalink: /edge/
+---
+
 # Running Ebb at the Edge
 
 Ebb is fully supported in serverless Edge runtimes, including **Cloudflare Workers (`workerd`)**, **Vercel Edge Functions (`edge-light`)**, Fastly Compute, and Deno Deploy.

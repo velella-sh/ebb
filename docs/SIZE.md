@@ -1,3 +1,10 @@
+---
+title: Bundle Size and Limits
+description: Bundle size budgets and zero-dependency footprint of Ebb.
+layout: doc
+permalink: /size/
+---
+
 # Package Size and Budget
 
 Ebb is designed to be lightweight, fast to install, and dependency-free.

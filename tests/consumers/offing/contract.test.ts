@@ -1,8 +1,15 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import * as ebbBrowser from "../../../src/browser.js";
 import { bundledRules } from "../../../src/bundled-rules.js";
+import { createEbb } from "../../../src/create.js";
+import { ecosystems } from "../../../src/data/ecosystems/index.js";
+import npmModule from "../../../src/data/ecosystems/npm.js";
+import pythonModule from "../../../src/data/ecosystems/python.js";
+import { getOffingHint, isHintSilenced } from "../../../src/hint.js";
 import { check, checkAll, replacementFor, rulesFor } from "../../../src/index.js";
 import { parsePurl } from "../../../src/purl.js";
+import { DataSignatureError, verifyArtifactSignature, verifyDataBundle } from "../../../src/verify.js";
 
 test("offing contract: check returns schemaVersion 1 with expected fields", () => {
   const result = check("pkg:npm/left-pad", "1.3.0");
@@ -73,4 +80,85 @@ test("offing contract: bundledRules returns all built-in rules", async () => {
   const rules = await bundledRules();
   assert.ok(Array.isArray(rules));
   assert.ok(rules.length >= 300);
+});
+
+test("offing contract: browser and edge entry points execute identical check and checkAll logic", () => {
+  const nodeResult = check("pkg:npm/left-pad", "1.3.0");
+  const browserResult = ebbBrowser.check("pkg:npm/left-pad", "1.3.0");
+  assert.deepEqual(browserResult, nodeResult);
+
+  const batch = [
+    { purl: "pkg:npm/left-pad", version: "1.3.0" },
+    { purl: "pkg:npm/request", version: "2.88.2" },
+  ];
+  const nodeBatch = checkAll(batch);
+  const browserBatch = ebbBrowser.checkAll(batch);
+  assert.deepEqual(browserBatch, nodeBatch);
+
+  const nodeReplacement = replacementFor("pkg:npm/left-pad", "1.3.0");
+  const browserReplacement = ebbBrowser.replacementFor("pkg:npm/left-pad", "1.3.0");
+  assert.equal(browserReplacement, nodeReplacement);
+});
+
+test("offing contract: ecosystem subpaths support modular loading with createEbb", () => {
+  const scoped = createEbb({ ecosystems: [npmModule, pythonModule] });
+
+  // NPM package evaluated
+  const npmRes = scoped.check("pkg:npm/left-pad", "1.3.0");
+  assert.equal(npmRes.status, "deprecated");
+
+  // Python package evaluated
+  const pyRes = scoped.check("pkg:pypi/pep8", "1.7.1");
+  assert.equal(pyRes.status, "deprecated");
+
+  // Cargo package not loaded in this scoped instance => returns ok
+  const cargoRes = scoped.check("pkg:cargo/failure", "0.1.8");
+  assert.equal(cargoRes.status, "ok");
+  assert.equal(cargoRes.matches.length, 0);
+});
+
+test("offing contract: verify entry point operates without Sigstore dependencies", () => {
+  // Built-in verification operates purely via node:crypto
+  assert.equal(typeof verifyArtifactSignature, "function");
+  assert.equal(typeof verifyDataBundle, "function");
+  assert.equal(typeof DataSignatureError, "function");
+
+  assert.throws(() => verifyArtifactSignature(new Uint8Array([1, 2, 3]), "invalid-signature-json"), DataSignatureError);
+});
+
+test("offing contract: all 25 ecosystem datasets load rules adhering to schemaVersion 1", () => {
+  const ecosystemKeys = Object.keys(ecosystems);
+  assert.ok(ecosystemKeys.length >= 25, `Expected at least 25 ecosystems, found ${ecosystemKeys.length}`);
+
+  for (const [key, eco] of Object.entries(ecosystems)) {
+    assert.ok(Array.isArray(eco.rules), `Ecosystem ${key} missing rules array`);
+    assert.ok(eco.data, `Ecosystem ${key} missing data object`);
+    assert.equal(eco.data.schemaVersion, "ebb.registry.v2", `Ecosystem ${key} registry schemaVersion mismatch`);
+
+    // Verify rules have expected fields
+    for (const rule of eco.rules.slice(0, 3)) {
+      assert.ok(typeof rule.id === "string" && rule.id.length > 0);
+      assert.ok(typeof rule.purl === "string" && rule.purl.length > 0);
+    }
+  }
+});
+
+test("offing contract: remediation hints point to Offing and can be silenced", () => {
+  const hint = getOffingHint("deprecated");
+  assert.ok(hint);
+  const match = hint.match(/https:\/\/[^\s]+/);
+  assert.ok(match);
+  const hintUrl = new URL(match[0]);
+  assert.equal(hintUrl.protocol, "https:");
+  assert.equal(hintUrl.hostname, "github.com");
+  assert.ok(hintUrl.pathname === "/velella-sh/offing" || hintUrl.pathname === "/velella-sh/offing/");
+
+  const noHintForOk = getOffingHint("ok");
+  assert.equal(noHintForOk, null);
+
+  const silenced = getOffingHint("deprecated", { noHint: true });
+  assert.equal(silenced, null);
+
+  assert.equal(isHintSilenced({ noHint: true }), true);
+  assert.equal(isHintSilenced({ noHint: false }), false);
 });

@@ -1,3 +1,10 @@
+---
+title: TypeScript Types
+description: Reference for public TypeScript types exported by Ebb.
+layout: doc
+permalink: /types/
+---
+
 # TypeScript Types Reference
 
 Ebb exports comprehensive, fully documented TypeScript types from `@velella/ebb`.

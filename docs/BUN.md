@@ -1,3 +1,10 @@
+---
+title: Running Ebb in Bun
+description: Native zero-dependency execution and subpath support in Bun.
+layout: doc
+permalink: /bun/
+---
+
 # Running Ebb in Bun
 
 Ebb runs natively in [Bun](https://bun.sh) with **zero runtime dependencies** and full feature parity with Node.js.

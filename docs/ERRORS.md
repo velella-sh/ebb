@@ -1,3 +1,10 @@
+---
+title: Error Handling
+description: Structured and typed error handling in Ebb.
+layout: doc
+permalink: /errors/
+---
+
 # Ebb Error Codes
 
 Every error Ebb throws on purpose is an `EbbError` with a stable `code` field. Callers can branch on the code without matching message strings.

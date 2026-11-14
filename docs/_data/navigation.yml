@@ -3,14 +3,38 @@ main:
     children:
       - title: Overview
         url: /
+      - title: Quickstart
+        url: /quickstart/
+      - title: Migrating to 0.2.0
+        url: /migration-0.2/
   - title: Guides
     children:
       - title: Writing a rule
         url: /rules/
+      - title: Command line (CLI)
+        url: /cli/
       - title: Importers
         url: /importers/
       - title: Data bundles and trust
         url: /data/
+      - title: Static JSON API
+        url: /static-api/
+  - title: Runtimes
+    children:
+      - title: Browser
+        url: /browser/
+      - title: Edge & Workers
+        url: /edge/
+      - title: Deno & JSR
+        url: /deno/
+      - title: Bun
+        url: /bun/
+  - title: Agents
+    children:
+      - title: Agent Skills
+        url: /skills/
+      - title: MCP server
+        url: /mcp/
   - title: Reference
     children:
       - title: Result model
@@ -23,12 +47,14 @@ main:
         url: /vers/
       - title: API stability
         url: /api-stability/
-  - title: Agents
-    children:
-      - title: Agent Skills
-        url: /skills/
-      - title: MCP server
-        url: /mcp/
+      - title: TypeScript types
+        url: /types/
+      - title: Error handling
+        url: /errors/
+      - title: Bundle size & limits
+        url: /size/
+      - title: Lifecycle labels
+        url: /labels/
   - title: Decisions
     children:
       - title: Registry v2

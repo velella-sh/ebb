@@ -1,3 +1,10 @@
+---
+title: Running Ebb in Deno & JSR
+description: Native TypeScript and JSR usage of @velella/ebb in Deno with zero runtime dependencies.
+layout: doc
+permalink: /deno/
+---
+
 # Running Ebb in Deno & JSR
 
 Ebb runs in [Deno](https://deno.com) natively and is published to [JSR](https://jsr.io/@velella/ebb) as `@velella/ebb`.

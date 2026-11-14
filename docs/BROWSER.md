@@ -1,3 +1,10 @@
+---
+title: Running Ebb in the Browser
+description: Zero-dependency client-side software lifecycle evaluation in modern web browsers.
+layout: doc
+permalink: /browser/
+---
+
 # Running Ebb in the Browser
 
 Ebb runs in modern web browsers with **zero Node.js dependencies**, zero native bindings, and zero runtime polyfills.
