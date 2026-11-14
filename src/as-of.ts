@@ -3,26 +3,25 @@
  * Replays rules observed on or before `date`, and judges scheduled events relative to `date`.
  */
 
-import { resolveCandidateRules } from "./check.js";
 import {
   type CheckEvent,
   type CheckMatch,
   type CheckResult,
   normalizeVersionInput,
   orderMatches,
+  resolveCandidateRules,
   statusFromMatches,
 } from "./check-core.js";
 import { type CheckAllItem, type CheckAllResult, checkAllWith } from "./check-all-core.js";
 import { EbbError } from "./errors.js";
 import { isIsoDate, type LifecycleEvent, type RegistryV2Rule } from "./registry.js";
 import { daysLeft as daysUntil, RESULT_SCHEMA_VERSION } from "./result.js";
-import { rulesFor, type Rule, type RulesForOptions } from "./rules-for.js";
-import { upcoming, type UpcomingOptions, type UpcomingResult } from "./upcoming.js";
+import { type Rule, type RulesForOptions, rulesFor } from "./rules-for-core.js";
+import { type UpcomingOptions, type UpcomingResult, upcoming } from "./upcoming.js";
 import { VersError, versContains } from "./vers.js";
 import { getCompiledVers } from "./vers/compile.js";
 
-// Legacy imports preserved for subpath backwards compatibility
-import { bundledRules } from "./bundled-rules.js";
+// Legacy types preserved for subpath backwards compatibility
 import type { LifecycleScan } from "./domain.js";
 
 const REACHED_SEVERITY = "high" as const;
@@ -198,10 +197,11 @@ export function asOf(date: string, options?: AsOfOptions): AsOfClient {
 export async function applyAsOf<Scan extends LifecycleScan>(
   result: Scan,
   asOfDate: string,
-  rules: readonly RegistryV2Rule[] | Promise<readonly RegistryV2Rule[]> = bundledRules(),
+  rules?: readonly RegistryV2Rule[] | Promise<readonly RegistryV2Rule[]>,
 ): Promise<Scan & { asOf: string }> {
+  const resolvedRules = rules ?? (await import("./bundled-rules.js")).bundledRules();
   const reached = new Set(
-    (await rules)
+    (await resolvedRules)
       .filter(
         (rule) => rule.event === "scheduled-end-of-life" && rule.deadline !== undefined && rule.deadline <= asOfDate,
       )
