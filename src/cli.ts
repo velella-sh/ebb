@@ -2,7 +2,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { check, checkAll, replacementFor, rulesFor, upcoming } from "./index.js";
+import { asOf, check, checkAll, replacementFor, rulesFor, upcoming } from "./index.js";
 import { UpcomingError } from "./upcoming.js";
 import { CheckError } from "./check.js";
 import { checkAllWith, type CheckAllItem } from "./check-all.js";
@@ -30,6 +30,7 @@ const HELP_TEXT = `ebb - The open almanac of software end-of-life
 
 Usage:
   ebb check <purl> [version] [options]       Check lifecycle status of a package
+  ebb as-of <date> <purl> [version]          Evaluate lifecycle status as of a specific date
   ebb check-all [file] [options]             Batch check packages (file, stdin, CycloneDX)
   ebb replacement <purl> [version] [options] Show suggested replacement for a package
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
@@ -38,7 +39,7 @@ Usage:
 Options:
   --format <text|markdown|json> Output format (default: text)
   --json                        Shortcut for --format json
-  --as-of <YYYY-MM-DD>          Reference date for daysLeft calculation
+  --as-of <YYYY-MM-DD>          Reference date for time-travel lifecycle evaluation (UTC)
   --within <span|days>          Time window: 30d, 2w, 3m, 1y, or days (default: 90d)
   --ecosystem <name>            Filter by ecosystem (e.g. npm, python)
   --purl <purl>                 Filter by package URL
@@ -286,6 +287,38 @@ export async function runCli(
 
       const asOf = values["as-of"] as string | undefined;
       const result = check(purl, version, asOf);
+
+      if (format === "json") {
+        io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatCheckMarkdown(purl, version, result, { noHint }));
+      } else {
+        io.stdout.write(formatCheckText(purl, version, result, { colors, noHint }));
+      }
+
+      return shouldFail(result.status, failOn) ? 1 : 0;
+    }
+
+    if (first === "as-of") {
+      const dateArg = positionals[1];
+      const purlArg = positionals[2];
+      const versionArg = positionals[3];
+
+      if (!dateArg || !purlArg) {
+        io.stderr.write("Error: Missing arguments. Usage: ebb as-of <YYYY-MM-DD> <purl> [version]\n");
+        return 2;
+      }
+
+      const { purl, version } = extractPurlAndVersion(purlArg, versionArg);
+      if (!version) {
+        io.stderr.write(
+          `Error: Version is required for "${purlArg}". Specify it as an argument or in the PURL (e.g. "${purlArg}@1.0.0").\n`,
+        );
+        return 2;
+      }
+
+      const client = asOf(dateArg);
+      const result = client.check(purl, version);
 
       if (format === "json") {
         io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);

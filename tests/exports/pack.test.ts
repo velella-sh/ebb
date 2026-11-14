@@ -59,6 +59,7 @@ import assert from "node:assert/strict";
 
 const root = await import("@velella/ebb");
 assert.deepEqual(Object.keys(root).sort(), [
+  "asOf",
   "check",
   "checkAll",
   "createEbb",

@@ -205,7 +205,7 @@ function toCheckMatch(rule: RegistryV2Rule, asOf: string | undefined): CheckMatc
   };
 }
 
-function statusFromMatches(matches: readonly CheckMatch[]): CheckStatus {
+export function statusFromMatches(matches: readonly CheckMatch[]): CheckStatus {
   if (matches.length === 0) return "ok";
   return statusPrecedence.find((event) => matches.some((match) => match.event === event)) ?? matches[0]!.event;
 }

@@ -1,4 +1,4 @@
-import { checkAll, type CheckAllItem } from "@velella/ebb";
+import { asOf, checkAll, type CheckAllItem } from "@velella/ebb";
 import { formatCheckAllResult } from "../format.js";
 import type { McpTool, McpToolResult } from "../types.js";
 import { extractPurlAndVersion } from "./check.js";
@@ -74,6 +74,10 @@ export const checkAllTool: McpTool = {
           },
           description: "Alias for items.",
         },
+        asOf: {
+          type: "string",
+          description: "Optional reference date in YYYY-MM-DD format for time-travel lifecycle evaluation.",
+        },
       },
     },
   },
@@ -91,9 +95,11 @@ export const checkAllTool: McpTool = {
       };
     }
 
+    const asOfArg = typeof args.asOf === "string" ? args.asOf : undefined;
+
     try {
       const items = normalizeBatchItems(rawList);
-      const rawResult = checkAll(items);
+      const rawResult = asOfArg ? asOf(asOfArg).checkAll(items) : checkAll(items);
       const result = formatCheckAllResult(rawResult);
 
       return {

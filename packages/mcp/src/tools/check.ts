@@ -1,4 +1,4 @@
-import { check } from "@velella/ebb";
+import { asOf, check } from "@velella/ebb";
 import { formatCheckResult } from "../format.js";
 import type { McpTool, McpToolResult } from "../types.js";
 
@@ -83,7 +83,7 @@ export const checkTool: McpTool = {
     }
 
     try {
-      const rawResult = check(purl, version, asOfArg);
+      const rawResult = asOfArg ? asOf(asOfArg).check(purl, version) : check(purl, version);
       const result = formatCheckResult(rawResult);
       return {
         content: [

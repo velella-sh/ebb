@@ -5,6 +5,24 @@
 ```ts
 
 // @public
+export function asOf(date: string, options?: AsOfOptions): AsOfClient;
+
+// @public (undocumented)
+export interface AsOfClient {
+    readonly asOf: string;
+    check(purlOrName: string, version: string): CheckResult;
+    checkAll(items: Iterable<CheckAllItem>): CheckAllResult;
+    replacementFor(purl: string, version: string): string | null;
+    rulesFor(purl: string, options?: RulesForOptions): Rule[];
+    upcoming(options?: Omit<UpcomingOptions, "asOf">): UpcomingResult;
+}
+
+// @public (undocumented)
+export interface AsOfOptions {
+    readonly rules?: readonly Rule[] | undefined;
+}
+
+// @public
 export function check(purlOrName: string, version: string, asOf?: string): CheckResult;
 
 // @public

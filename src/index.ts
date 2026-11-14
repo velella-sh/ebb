@@ -36,6 +36,12 @@ export function check(purlOrName: string, version: string, asOf?: string): Check
 }
 
 export {
+  type AsOfClient,
+  type AsOfOptions,
+  asOf,
+} from "./as-of.js";
+
+export {
   type CheckAllEntry,
   type CheckAllError,
   type CheckAllErrorCode,

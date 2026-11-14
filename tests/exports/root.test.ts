@@ -31,6 +31,7 @@ import {
 
 test("root entry exports only the public functions at runtime", () => {
   assert.deepEqual(Object.keys(root).sort(), [
+    "asOf",
     "check",
     "checkAll",
     "createEbb",
