@@ -1,3 +1,10 @@
+---
+title: Lifecycle Labels
+description: Authoritative vocabulary and states for software lifecycle rules.
+layout: doc
+permalink: /labels/
+---
+
 # GitHub Issue Labels
 
 Ebb uses structured labels to categorize and route work efficiently for human maintainers and autonomous agents.

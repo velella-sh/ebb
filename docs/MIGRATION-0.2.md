@@ -1,3 +1,10 @@
+---
+title: Migrating to Ebb 0.2.0
+description: Guide for migrating to Ebb 0.2.0 from 0.1.x, including zero runtime dependencies and multi-runtime execution.
+layout: doc
+permalink: /migration-0.2/
+---
+
 # Migrating to Ebb 0.2.0
 
 Ebb 0.2.0 establishes the stable Core API, zero runtime dependencies, multi-runtime execution (Browser, Edge, Bun, Deno), modular per-ecosystem subpaths, lazy data loading, and native CLI, GitHub Action, and MCP / Skill support.

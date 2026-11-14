@@ -35,9 +35,11 @@ jobs:
           mkdir "$RUNNER_TEMP/site-tools"
           cd "$RUNNER_TEMP/site-tools"
           npm init -y >/dev/null
-          npm install --no-audit --no-fund --save-exact @velella/mizzen@0.1.0 @velella/lateen@0.1.0
+          npm install --no-audit --no-fund --save-exact @velella/mizzen@0.2.0 @velella/lateen@0.2.2
       - name: Check the site
-        run: $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen check docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
+        run: |
+          $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen doctor docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
+          $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen check docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
       - name: Build the site
         run: $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen build docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen" --out "$RUNNER_TEMP/site"
       - name: Install dependencies

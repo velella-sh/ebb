@@ -1,3 +1,10 @@
+---
+title: Static Lifecycle API (v1)
+description: Public static zero-dependency JSON API on GitHub Pages for component and ecosystem lifecycle rules.
+layout: doc
+permalink: /static-api/
+---
+
 # Ebb Static Lifecycle API (v1)
 
 Ebb provides a public, static, zero-dependency JSON API hosted directly on GitHub Pages at `https://velella.sh/ebb/api/v1/`.

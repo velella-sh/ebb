@@ -18,6 +18,8 @@ theme:
       svg: /brand/favicon.svg
       ico: /brand/favicon.ico
       apple: /brand/apple-touch-icon.png
+    editPage:
+      headingLinks: true
     footer:
       copyright: "© Velella"
       license: "MIT license"
