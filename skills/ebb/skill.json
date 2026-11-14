@@ -4,7 +4,7 @@
   "owner": "velella-sh",
   "repository": "https://github.com/velella-sh/ebb",
   "description": "Verify package and runtime deprecation and EOL dates before adding dependencies.",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "entrypoint": "SKILL.md",
   "install": {

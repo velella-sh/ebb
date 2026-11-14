@@ -87,7 +87,7 @@ When writing or reviewing CI configurations (`.github/workflows/*.yml`):
    - Add Ebb's official zero-dependency Action to guard workflows against deprecated dependencies:
      ```yaml
      - name: Verify dependencies with Ebb
-       uses: velella-sh/ebb@v0.3.0 # or @main
+       uses: velella-sh/ebb@v0.2.0 # or @main
        with:
          fail-on: deprecated # scheduled | deprecated | unsupported | end-of-life | removed | error
      ```

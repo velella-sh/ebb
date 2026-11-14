@@ -1,6 +1,6 @@
 {
   "name": "@velella/ebb-skill",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Official Agent Skill for Ebb: verify dependency deprecation and EOL status before install.",
   "repository": {
     "type": "git",
