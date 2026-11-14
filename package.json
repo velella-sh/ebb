@@ -154,7 +154,6 @@
   },
   "overrides": {
     "minimatch": "^11.0.8",
-    "sharp": "^0.35.5",
     "undici": "^7.30.2"
   },
   "publishConfig": {
