@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { gunzipSync } from "node:zlib";
 
 import {
   dataBundleIntegrityProblems,
@@ -117,18 +118,39 @@ export function verifyDataBundle(
   signatureJson: string,
   options: DataSourceOptions = {},
 ): VerifiedDataBundle {
+  let rawBytes = bytes;
+  let isGzip = false;
+  if (bytes.length >= 2 && bytes[0] === 0x1f && bytes[1] === 0x8b) {
+    isGzip = true;
+    try {
+      rawBytes = gunzipSync(bytes);
+    } catch {
+      throw new DataBundleError("The bundle is gzipped but corrupted.");
+    }
+  }
+
   let signer: VerifiedSigner;
   try {
-    signer = options.verifySignature
-      ? options.verifySignature(bytes, signatureJson)
-      : verifyArtifactSignature(bytes, signatureJson, options.signerPolicy, options.trustedRoot);
+    if (options.verifySignature) {
+      signer = options.verifySignature(bytes, signatureJson);
+    } else {
+      try {
+        signer = verifyArtifactSignature(bytes, signatureJson, options.signerPolicy, options.trustedRoot);
+      } catch (err) {
+        if (isGzip && err instanceof DataSignatureError && err.message.includes("digest mismatch")) {
+          signer = verifyArtifactSignature(rawBytes, signatureJson, options.signerPolicy, options.trustedRoot);
+        } else {
+          throw err;
+        }
+      }
+    }
   } catch (error) {
     if (error instanceof DataSignatureError) throw new DataBundleError(error.message);
     throw error;
   }
   let parsed: unknown;
   try {
-    parsed = JSON.parse(Buffer.from(bytes).toString("utf8"));
+    parsed = JSON.parse(Buffer.from(rawBytes).toString("utf8"));
   } catch {
     throw new DataBundleError("The bundle is not valid JSON.");
   }
@@ -141,7 +163,8 @@ export function verifyDataBundle(
     throw new DataBundleError(`The bundle needs Ebb ${minimum} or newer.`);
   }
   const listed = new Set(bundle.manifest.files.map((file) => file.path));
-  const missing = REQUIRED_BUNDLE_PATHS.filter((path) => !listed.has(path));
+  const required = bundle.manifest.ecosystem ? [`registry/${bundle.manifest.ecosystem}.json`] : REQUIRED_BUNDLE_PATHS;
+  const missing = required.filter((path) => !listed.has(path));
   if (missing.length > 0) throw new DataBundleError(`The bundle is incomplete: ${missing.join(", ")} missing.`);
   const [integrityProblem] = dataBundleIntegrityProblems(bundle);
   if (integrityProblem !== undefined) throw new DataBundleError(integrityProblem);

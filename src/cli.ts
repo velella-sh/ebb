@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
 import { asOf, check, checkAll, replacementFor, rulesFor, sourcesOf, stale, upcoming } from "./index.js";
+import { verify, verifyArtifactSignature, type VerifiedSigner } from "./verify.js";
 import { UpcomingError } from "./upcoming.js";
 import { CheckError } from "./check.js";
 import { checkAllWith, type CheckAllItem } from "./check-all.js";
@@ -41,6 +42,7 @@ Usage:
   ebb upcoming [options]                     List upcoming end-of-life events
   ebb stale [options]                        List rules whose review window has expired
   ebb sources <rule-id> [options]            Show evidence sources and review status for a rule
+  ebb verify <file> [options]                Verify a data bundle or artifact signature
 
 Options:
   --format <text|markdown|json> Output format (default: text)
@@ -52,6 +54,7 @@ Options:
   --purl <purl>                 Filter by package URL
   --fail-on <threshold>         Fail threshold: scheduled, deprecated, unsupported, end-of-life, removed, error (default: deprecated)
   --event <name>                Filter rules by event (rules command only)
+  --signature <file>            Explicit signature file path (default: <file>.sigstore.json)
   --color                       Force colored output
   --no-color                    Disable colored output (respects NO_COLOR env)
   --no-hint                     Disable the Offing remediation hint
@@ -69,6 +72,8 @@ Examples:
   ebb upcoming --purl pkg:npm/express --json
   ebb stale --as-of 2026-11-14
   ebb stale --older-than 90d --json
+  ebb verify dist/data/bundle.json
+  ebb verify bundle.json --signature bundle.json.sigstore.json
 `;
 
 export interface CliIo {
@@ -215,6 +220,7 @@ export async function runCli(
         ecosystem: { type: "string" },
         purl: { type: "string" },
         event: { type: "string" },
+        signature: { type: "string" },
         "fail-on": { type: "string" },
         color: { type: "boolean", default: false },
         "no-color": { type: "boolean", default: false },
@@ -536,6 +542,111 @@ export async function runCli(
       }
 
       return 0;
+    }
+
+    if (first === "verify") {
+      const fileArg = positionals[1];
+      if (!fileArg) {
+        io.stderr.write("Error: Missing file argument. Usage: ebb verify <file> [--signature <sig-file>]\n");
+        return 2;
+      }
+
+      const filePath = resolve(fileArg);
+      const signatureArg = typeof values.signature === "string" ? values.signature : undefined;
+      const sigPath = signatureArg ? resolve(signatureArg) : `${filePath}.sigstore.json`;
+
+      let fileBytes: Buffer;
+      try {
+        fileBytes = readFileSync(filePath);
+      } catch {
+        io.stderr.write(`Error: Bundle file not found: ${filePath}\n`);
+        return 2;
+      }
+
+      let signatureJson: string;
+      try {
+        signatureJson = readFileSync(sigPath, "utf8");
+      } catch {
+        io.stderr.write(`Error: Signature file not found: ${sigPath}\n`);
+        return 2;
+      }
+
+      try {
+        let isBundle = true;
+        let verifiedBundle: ReturnType<typeof verify> | undefined;
+        let verifiedSigner: VerifiedSigner;
+
+        try {
+          verifiedBundle = verify(fileBytes, signatureJson);
+          verifiedSigner = verifiedBundle.signer;
+        } catch (bundleErr) {
+          const msg = bundleErr instanceof Error ? bundleErr.message : String(bundleErr);
+          if (
+            msg.includes("not valid JSON") ||
+            msg.includes("must have a manifest") ||
+            msg.includes("Unsupported bundle format")
+          ) {
+            isBundle = false;
+            verifiedSigner = verifyArtifactSignature(fileBytes, signatureJson);
+          } else {
+            throw bundleErr;
+          }
+        }
+
+        if (format === "json") {
+          const out =
+            isBundle && verifiedBundle
+              ? {
+                  ok: true,
+                  file: fileArg,
+                  status: "valid",
+                  version: verifiedBundle.bundle.manifest.version,
+                  schemaVersion: verifiedBundle.bundle.manifest.schemaVersion,
+                  sequence: verifiedBundle.bundle.manifest.sequence ?? null,
+                  ecosystem: verifiedBundle.bundle.manifest.ecosystem ?? null,
+                  contentDigest: verifiedBundle.bundle.manifest.contentDigest,
+                  files: verifiedBundle.bundle.manifest.files.length,
+                  signer: {
+                    identity: verifiedSigner.identity,
+                    issuer: verifiedSigner.issuer,
+                  },
+                }
+              : {
+                  ok: true,
+                  file: fileArg,
+                  status: "valid",
+                  type: "artifact",
+                  signer: {
+                    identity: verifiedSigner.identity,
+                    issuer: verifiedSigner.issuer,
+                  },
+                };
+          io.stdout.write(`${JSON.stringify(out, null, 2)}\n`);
+        } else {
+          let text = `Verified: ${fileArg}\nStatus: valid\nSigner: ${verifiedSigner.identity}\nIssuer: ${verifiedSigner.issuer}\n`;
+          if (isBundle && verifiedBundle) {
+            text += `Version: ${verifiedBundle.bundle.manifest.version} (${verifiedBundle.bundle.manifest.schemaVersion})\n`;
+            if (verifiedBundle.bundle.manifest.sequence) {
+              text += `Sequence: ${verifiedBundle.bundle.manifest.sequence}\n`;
+            }
+            if (verifiedBundle.bundle.manifest.ecosystem) {
+              text += `Ecosystem: ${verifiedBundle.bundle.manifest.ecosystem}\n`;
+            }
+            text += `Digest: ${verifiedBundle.bundle.manifest.contentDigest}\n`;
+            text += `Files: ${verifiedBundle.bundle.manifest.files.length}\n`;
+          }
+          io.stdout.write(text);
+        }
+        return 0;
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (format === "json") {
+          io.stdout.write(`${JSON.stringify({ ok: false, file: fileArg, error: msg }, null, 2)}\n`);
+        } else {
+          io.stderr.write(`Error: Verification failed for ${fileArg}: ${msg}\n`);
+        }
+        return 2;
+      }
     }
 
     io.stderr.write(`Error: Unknown command "${first}". Run "ebb --help" for usage.\n`);

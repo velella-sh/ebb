@@ -146,6 +146,21 @@ ebb sources npm.package.request.deprecated --format markdown
 ebb sources npm.package.request.deprecated --json
 ```
 
+### `ebb verify <file>`
+
+Verifies a lifecycle data bundle or release artifact against its Sigstore keyless signature offline. Enforces signer identity, content digest, file integrity, and rollback protection. See [Lifecycle Data](DATA.md).
+
+```bash
+# Verify a bundle against its default companion signature (<file>.sigstore.json)
+ebb verify dist/data/bundle.json
+
+# Explicit signature path
+ebb verify bundle.json --signature bundle.json.sigstore.json
+
+# Machine-readable JSON
+ebb verify dist/data/bundle.json --json
+```
+
 ---
 
 ## Formatting & Output Options

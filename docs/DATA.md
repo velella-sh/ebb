@@ -52,13 +52,18 @@ A pin selects exactly bundle `X` from the cache, or `bundled` for the data shipp
 
 ## What is in a bundle
 
-One JSON file (`ebb.data-bundle.v1`, [schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json), [decision record](/decisions/0006-data-bundle/)) with a manifest and the data files: the lifecycle registries (one JSON file per ecosystem under `registry/`), the GitHub Actions SHA map, and the OSV cross-reference (`registry/osv.json`). The manifest lists each file's SHA-256, size, and rule count, a content address for the whole set, the build time, and the oldest Ebb version that can read it (`minimumEbbVersion`). Versions look like `2026.10.16`, with `.N` for a second bundle on the same day. Building the bundle is deterministic: the same registry files and build time give the same bytes.
+Ebb data bundles package lifecycle registries, GitHub Actions SHA maps, and OSV cross-references (`registry/osv.json`) into content-addressed archives:
+
+- **Bundle v2 (`ebb.data-bundle.v2`)**: Includes a monotonically increasing `sequence` number for rollback protection, UTC `createdAt` timestamp, per-file digests and sizes, and a `digestList` for fast delta diffing. Also supports optional gzip compression (`.json.gz` saving >70% transfer size) and scoped per-ecosystem bundles. See [bundle.v2.schema.json](https://github.com/velella-sh/ebb/blob/main/schemas/bundle.v2.schema.json).
+- **Bundle v1 (`ebb.data-bundle.v1`)**: The initial format ([schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json), [decision record](/decisions/0006-data-bundle/)). Ebb maintains full backward compatibility and reads both v1 and v2 bundles cleanly.
+
+Building the bundle is deterministic: the same registry files and build parameters yield identical bytes.
 
 ### OSV advisories
 
 `registry/osv.json` maps lifecycle rule ids to OSV advisory identifiers that have **no fixed version** for that package. The `osv` [importer](/importers/) drafts those rows at maintainer time from the OSV API; reading the data never calls OSV.
 
-## Trust model
+## Trust model and verification
 
 A bundle is signed with **Sigstore keyless signing**. There is no long-lived signing key to steal or lose: the release workflow proves who it is to Sigstore with a short-lived GitHub identity token, receives a certificate that lasts minutes, signs the bundle, and the signature is recorded in a public transparency log.
 
@@ -72,8 +77,46 @@ Ebb accepts a bundle only if **all** of these hold, checked offline:
    ```
 
    A valid signature from any other workflow, repository, or branch is refused.
-3. The format is one Ebb understands and its `minimumEbbVersion` is not newer than the installed package.
+3. The format is one Ebb understands (v1 or v2) and its `minimumEbbVersion` is not newer than the installed package.
 4. The bundle is complete, and every file matches its digest and size, with nothing missing or extra.
+5. **Rollback guard**: A bundle with a sequence number, creation date, or version older than the currently active data is rejected to prevent rollback attacks.
+
+### Verification API
+
+Cryptographic bundle verification is exported from the `@velella/ebb/verify` subpath:
+
+```ts
+import { verify, refreshTrustedRoot } from "@velella/ebb/verify";
+
+// Verify offline with bundled Sigstore trusted root
+const { bundle, signer } = verify(bundleBytes, signatureJson);
+console.log(`Verified bundle ${bundle.manifest.version} signed by ${signer.identity}`);
+
+// Optionally refresh trusted root CA safely
+refreshTrustedRoot(customTrustedRootJson);
+```
+
+### CLI verification
+
+Verify any downloaded bundle or release artifact directly using the CLI:
+
+:::terminal
+$ ebb verify dist/data/bundle.json
+Verified: dist/data/bundle.json
+Status: valid
+Signer: https://github.com/velella-sh/ebb/.github/workflows/data-release.yml@refs/heads/main
+Issuer: https://token.actions.githubusercontent.com
+Version: 2026.10.16 (ebb.data-bundle.v2)
+Sequence: 1
+Digest: sha256:7f...
+Files: 26
+:::
+
+Or output machine-readable JSON:
+
+:::terminal
+$ ebb verify dist/data/bundle.json --signature dist/data/bundle.json.sigstore.json --json
+:::
 
 The certificates and log keys come from the Sigstore public-good trusted root, which ships in the package (`data/sigstore-trusted-root.json`) so that verification needs no network. That is also why consumers should keep Ebb reasonably current: if Sigstore rotates its keys and the root in the installed package is too old, signatures made after the rotation stop verifying. Ebb then falls back to its bundled data and says so; it does not skip the check.
 

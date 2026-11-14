@@ -45,6 +45,7 @@ export const TrustedRoot = {
 };
 
 let bundledRoot: TrustedRoot | undefined;
+let customTrustedRoot: TrustedRoot | undefined;
 
 /** The Sigstore public-good trusted root shipped with the package (`data/sigstore-trusted-root.json`). */
 function bundledTrustedRoot(): TrustedRoot {
@@ -52,6 +53,85 @@ function bundledTrustedRoot(): TrustedRoot {
     readFileSync(findPackageFileSync("data/sigstore-trusted-root.json", import.meta.url), "utf8"),
   ) as TrustedRoot;
   return bundledRoot;
+}
+
+/**
+ * Returns the currently active trusted root (refreshed custom root if set, otherwise the shipped default).
+ */
+export function getTrustedRoot(): TrustedRoot {
+  return customTrustedRoot ?? bundledTrustedRoot();
+}
+
+/**
+ * Safely refreshes the active trusted root.
+ * Validates that the root structure contains valid certificate authorities and certificate chains
+ * before accepting it.
+ *
+ * @param root - The new TrustedRoot object, JSON string, or UTF-8 bytes
+ * @returns The validated and stored TrustedRoot
+ * @throws {DataSignatureError} If the root structure or certificates are invalid
+ */
+export function refreshTrustedRoot(root: TrustedRoot | string | Uint8Array): TrustedRoot {
+  let parsed: unknown;
+  if (typeof root === "string") {
+    try {
+      parsed = JSON.parse(root);
+    } catch {
+      throw new DataSignatureError("Cannot refresh trusted root: invalid JSON string.");
+    }
+  } else if (root instanceof Uint8Array) {
+    try {
+      parsed = JSON.parse(Buffer.from(root).toString("utf8"));
+    } catch {
+      throw new DataSignatureError("Cannot refresh trusted root: invalid JSON bytes.");
+    }
+  } else {
+    parsed = root;
+  }
+
+  if (
+    !parsed ||
+    typeof parsed !== "object" ||
+    Array.isArray(parsed) ||
+    !("certificateAuthorities" in parsed) ||
+    !Array.isArray((parsed as TrustedRoot).certificateAuthorities) ||
+    (parsed as TrustedRoot).certificateAuthorities!.length === 0
+  ) {
+    throw new DataSignatureError("Cannot refresh trusted root: missing or empty certificateAuthorities.");
+  }
+
+  const typedRoot = parsed as TrustedRoot;
+  let hasValidCert = false;
+  for (const ca of typedRoot.certificateAuthorities ?? []) {
+    for (const certItem of ca.certChain?.certificates ?? []) {
+      if (typeof certItem.rawBytes === "string" && certItem.rawBytes.length > 0) {
+        try {
+          new X509Certificate(Buffer.from(certItem.rawBytes, "base64"));
+          hasValidCert = true;
+          break;
+        } catch {
+          // ignore invalid candidate
+        }
+      }
+    }
+    if (hasValidCert) break;
+  }
+
+  if (!hasValidCert) {
+    throw new DataSignatureError(
+      "Cannot refresh trusted root: no valid X.509 certificate found in certificate authorities.",
+    );
+  }
+
+  customTrustedRoot = typedRoot;
+  return customTrustedRoot;
+}
+
+/**
+ * Resets the active trusted root back to the shipped bundled root.
+ */
+export function resetTrustedRoot(): void {
+  customTrustedRoot = undefined;
 }
 
 function extractIdentity(san: string | undefined): string {
@@ -102,11 +182,14 @@ function extractOidcIssuer(certDer: Buffer): string {
  * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export function verifyArtifactSignature(
-  artifact: Uint8Array,
-  signatureJson: string,
+  artifact: Uint8Array | string,
+  signatureJson: string | Uint8Array,
   policy: SignerPolicy = DATA_SIGNER,
-  trustedRoot: TrustedRoot = bundledTrustedRoot(),
+  trustedRoot: TrustedRoot = getTrustedRoot(),
 ): VerifiedSigner {
+  const artifactBytes = typeof artifact === "string" ? Buffer.from(artifact, "utf8") : artifact;
+  const signatureText = typeof signatureJson === "string" ? signatureJson : Buffer.from(signatureJson).toString("utf8");
+
   let parsed: {
     mediaType?: unknown;
     verificationMaterial?: {
@@ -119,7 +202,7 @@ export function verifyArtifactSignature(
     };
   };
   try {
-    parsed = JSON.parse(signatureJson);
+    parsed = JSON.parse(signatureText);
   } catch {
     throw new DataSignatureError("The signature file is not valid JSON.");
   }
@@ -157,7 +240,7 @@ export function verifyArtifactSignature(
     parsed.messageSignature.messageDigest.algorithm?.toLowerCase().includes("sha256")
       ? "sha256"
       : "sha256";
-  const actualDigest = createHash(algo).update(artifact).digest();
+  const actualDigest = createHash(algo).update(artifactBytes).digest();
   if (!actualDigest.equals(expectedDigest)) {
     throw new DataSignatureError("The signature did not verify: digest mismatch");
   }
@@ -165,7 +248,7 @@ export function verifyArtifactSignature(
   // Verify signature
   const signatureBuffer = Buffer.from(parsed.messageSignature.signature, "base64");
   try {
-    const verified = verify(algo, artifact, cert.publicKey, signatureBuffer);
+    const verified = verify(algo, artifactBytes, cert.publicKey, signatureBuffer);
     if (!verified) {
       throw new DataSignatureError("The signature did not verify: cryptographic signature check failed");
     }

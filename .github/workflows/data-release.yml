@@ -85,6 +85,22 @@ jobs:
           echo "BUNDLE=out/ebb-data-${VERSION}.json" >> "$GITHUB_ENV"
           echo "VERSION=${VERSION}" >> "$GITHUB_ENV"
 
+      - name: Build per-ecosystem bundles and compress with gzip
+        env:
+          CREATED_AT: ${{ steps.version.outputs.created_at }}
+          REVISION: ${{ steps.version.outputs.revision }}
+        run: |
+          gzip -k -9 "${BUNDLE}"
+          # Build per-ecosystem v2 bundles
+          for eco in npm python pypi cargo golang maven nuget rubygems; do
+            node dist/tools/build-data-bundle.js \
+              --created-at "$CREATED_AT" \
+              --revision "$REVISION" \
+              --ecosystem "$eco" \
+              --gzip \
+              --out "out/ebb-data-${VERSION}-${eco}.json"
+          done
+
       - uses: sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532 # v4.1.3
 
       - name: Sign the bundle (keyless)

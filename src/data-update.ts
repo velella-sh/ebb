@@ -2,7 +2,7 @@ import { mkdir, readdir, rename, rm, writeFile } from "node:fs/promises";
 import http from "node:http";
 import { join } from "node:path";
 
-import { DataBundleError } from "./data-bundle.js";
+import { checkRollbackGuard, DataBundleError } from "./data-bundle.js";
 import {
   ACTIVE_FILE,
   BUNDLE_FILE,
@@ -279,10 +279,17 @@ function assertNotRollback(
   manifest: VerifiedDataBundle["bundle"]["manifest"],
   allowDowngrade: boolean | undefined,
 ): void {
-  if (current.source === "cache" && current.createdAt && manifest.createdAt < current.createdAt && !allowDowngrade) {
-    throw new DataUpdateError(
-      `Refusing data bundle ${manifest.version}: it is older than the active data ${current.version}. A replayed older bundle would roll the rules back.`,
+  if (current.source === "cache" && !allowDowngrade) {
+    const check = checkRollbackGuard(
+      { version: current.version, createdAt: current.createdAt },
+      { version: manifest.version, createdAt: manifest.createdAt, sequence: manifest.sequence },
+      allowDowngrade,
     );
+    if (check.isRollback) {
+      throw new DataUpdateError(
+        `Refusing data bundle ${manifest.version}: it is older than the active data ${current.version}. A replayed older bundle would roll the rules back.`,
+      );
+    }
   }
 }
 

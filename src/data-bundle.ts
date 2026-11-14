@@ -1,13 +1,18 @@
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { gunzipSync, gzipSync } from "node:zlib";
 
 import { DEFAULT_MAX_REVIEW_AGE_DAYS, validateRegistryV2 } from "./registry.js";
 import { EbbError } from "./errors.js";
 import { BUNDLED_ECOSYSTEMS, type BundledEcosystem } from "./data/ecosystems.js";
 
 export { BUNDLED_ECOSYSTEMS, type BundledEcosystem };
-export const DATA_BUNDLE_SCHEMA_VERSION = "ebb.data-bundle.v1" as const;
+export const DATA_BUNDLE_V1_SCHEMA_VERSION = "ebb.data-bundle.v1" as const;
+export const DATA_BUNDLE_V2_SCHEMA_VERSION = "ebb.data-bundle.v2" as const;
+export const DATA_BUNDLE_SCHEMA_VERSION = DATA_BUNDLE_V1_SCHEMA_VERSION;
+export const SUPPORTED_BUNDLE_SCHEMA_VERSIONS = [DATA_BUNDLE_V1_SCHEMA_VERSION, DATA_BUNDLE_V2_SCHEMA_VERSION] as const;
+export type DataBundleSchemaVersion = (typeof SUPPORTED_BUNDLE_SCHEMA_VERSIONS)[number];
 
 const SHA_MAP_PATH = "registry/github-actions-shas.json";
 
@@ -34,11 +39,15 @@ export interface DataBundleFile {
 }
 
 export interface DataBundleManifest {
-  schemaVersion: typeof DATA_BUNDLE_SCHEMA_VERSION;
+  schemaVersion: DataBundleSchemaVersion;
+  sequence?: number;
   version: string;
   createdAt: string;
   minimumEbbVersion: string;
   contentDigest: string;
+  ecosystem?: string;
+  digestList?: string[];
+  digests?: Record<string, string>;
   files: DataBundleFile[];
 }
 
@@ -98,6 +107,12 @@ export interface BuildOptions {
   /** Bundles on the same day take a revision: 2026.10.16 is revision 1, 2026.10.16.2 is revision 2. */
   revision?: number;
   minimumEbbVersion: string;
+  /** Format version: "v1" or "v2". Defaults to "v1" unless format="v2", sequence, or ecosystem is specified. */
+  format?: "v1" | "v2";
+  /** Monotonically increasing sequence number for v2 bundles. */
+  sequence?: number;
+  /** Scopes bundle to a single ecosystem. */
+  ecosystem?: BundledEcosystem;
 }
 
 export function bundleVersion(createdAt: string, revision = 1): string {
@@ -125,8 +140,9 @@ export async function buildDataBundle(options: BuildOptions): Promise<DataBundle
   const version = bundleVersion(options.createdAt, options.revision);
   const files: Record<string, Record<string, unknown>> = {};
   const entries: DataBundleFile[] = [];
+  const ecosystems = options.ecosystem ? [options.ecosystem] : BUNDLED_ECOSYSTEMS;
 
-  for (const ecosystem of BUNDLED_ECOSYSTEMS) {
+  for (const ecosystem of ecosystems) {
     const path = `registry/${ecosystem}.json`;
     const content = await readJson(root, path);
     const registry = validateRegistryV2(content);
@@ -144,26 +160,133 @@ export async function buildDataBundle(options: BuildOptions): Promise<DataBundle
     });
   }
 
-  const shaMap = await readJson(root, SHA_MAP_PATH);
-  files[SHA_MAP_PATH] = shaMap;
-  entries.push({ path: SHA_MAP_PATH, kind: "sha-map", ...describeFile(SHA_MAP_PATH, shaMap) });
+  if (!options.ecosystem) {
+    const shaMap = await readJson(root, SHA_MAP_PATH);
+    files[SHA_MAP_PATH] = shaMap;
+    entries.push({ path: SHA_MAP_PATH, kind: "sha-map", ...describeFile(SHA_MAP_PATH, shaMap) });
+  }
 
   entries.sort((left, right) => (left.path < right.path ? -1 : 1));
+
+  const isV2 = options.format === "v2" || options.sequence !== undefined || options.ecosystem !== undefined;
+  const schemaVersion = isV2 ? DATA_BUNDLE_V2_SCHEMA_VERSION : DATA_BUNDLE_V1_SCHEMA_VERSION;
+
+  const manifest: DataBundleManifest = {
+    schemaVersion,
+    version,
+    createdAt: options.createdAt,
+    minimumEbbVersion: options.minimumEbbVersion,
+    contentDigest: computeContentDigest(entries),
+    files: entries,
+  };
+
+  if (isV2) {
+    manifest.sequence = options.sequence ?? options.revision ?? 1;
+    manifest.digestList = entries.map((entry) => `${entry.path} ${entry.sha256}`);
+    manifest.digests = Object.fromEntries(entries.map((entry) => [entry.path, entry.sha256]));
+    if (options.ecosystem) {
+      manifest.ecosystem = options.ecosystem;
+    }
+  }
+
   return {
-    manifest: {
-      schemaVersion: DATA_BUNDLE_SCHEMA_VERSION,
-      version,
-      createdAt: options.createdAt,
-      minimumEbbVersion: options.minimumEbbVersion,
-      contentDigest: computeContentDigest(entries),
-      files: entries,
-    },
+    manifest,
     files,
   };
 }
 
 /** The bytes that are signed and published: the bundle in canonical JSON plus a final newline. */
 export const serializeDataBundle = (bundle: DataBundle): string => `${canonicalJson(bundle)}\n`;
+
+/**
+ * Compresses a serialized data bundle or buffer with gzip.
+ */
+export function compressBundle(bundle: DataBundle | string | Uint8Array): Uint8Array {
+  const text =
+    typeof bundle === "string" ? bundle : bundle instanceof Uint8Array ? bundle : serializeDataBundle(bundle);
+  return gzipSync(typeof text === "string" ? Buffer.from(text, "utf8") : text);
+}
+
+/**
+ * Decompresses a gzipped data bundle buffer. Returns uncompressed text.
+ * If data is not gzipped, returns it decoded as utf8.
+ */
+export function decompressBundle(data: Uint8Array | string): string {
+  if (typeof data === "string") return data;
+  if (data.length >= 2 && data[0] === 0x1f && data[1] === 0x8b) {
+    return gunzipSync(data).toString("utf8");
+  }
+  return Buffer.from(data).toString("utf8");
+}
+
+/** Numeric ordering of bundle versions such as 2026.10.16 and 2026.10.16.2. */
+export function compareBundleVersions(left: string, right: string): number {
+  const parts = (version: string) => version.split(".").map(Number);
+  const a = parts(left);
+  const b = parts(right);
+  for (let index = 0; index < Math.max(a.length, b.length); index++) {
+    const difference = (a[index] ?? 1) - (b[index] ?? 1);
+    if (difference !== 0) return difference;
+  }
+  return 0;
+}
+
+export interface RollbackCheckTarget {
+  version: string;
+  createdAt?: string | null | undefined;
+  sequence?: number | null | undefined;
+}
+
+/**
+ * Evaluates whether an incoming bundle is older than the current bundle (rollback attempt).
+ * Returns { isRollback: boolean, reason?: string }.
+ */
+export function checkRollbackGuard(
+  current: RollbackCheckTarget,
+  incoming: RollbackCheckTarget,
+  allowDowngrade = false,
+): { isRollback: boolean; reason?: string } {
+  if (allowDowngrade) {
+    return { isRollback: false };
+  }
+
+  // 1. Check sequence number if both are present
+  if (
+    current.sequence !== undefined &&
+    current.sequence !== null &&
+    incoming.sequence !== undefined &&
+    incoming.sequence !== null
+  ) {
+    if (incoming.sequence < current.sequence) {
+      return {
+        isRollback: true,
+        reason: `Incoming bundle sequence ${incoming.sequence} is older than active sequence ${current.sequence}.`,
+      };
+    }
+  }
+
+  // 2. Check createdAt if both are present
+  if (current.createdAt && incoming.createdAt) {
+    if (incoming.createdAt < current.createdAt) {
+      return {
+        isRollback: true,
+        reason: `Incoming bundle created at ${incoming.createdAt} is older than active data created at ${current.createdAt}.`,
+      };
+    }
+  }
+
+  // 3. Check version via compareBundleVersions
+  if (current.version && incoming.version) {
+    if (compareBundleVersions(incoming.version, current.version) < 0) {
+      return {
+        isRollback: true,
+        reason: `Incoming bundle version ${incoming.version} is older than active version ${current.version}.`,
+      };
+    }
+  }
+
+  return { isRollback: false };
+}
 
 /**
  * Checks that a bundle is internally consistent: every listed file is present with the listed digest, size, and
@@ -228,11 +351,29 @@ function isBundleObject(item: unknown): item is Record<string, unknown> {
 
 function manifestProblems(manifest: Record<string, unknown>): string[] {
   const problems: string[] = [];
-  if (manifest.schemaVersion !== DATA_BUNDLE_SCHEMA_VERSION)
+  if (
+    manifest.schemaVersion !== DATA_BUNDLE_V1_SCHEMA_VERSION &&
+    manifest.schemaVersion !== DATA_BUNDLE_V2_SCHEMA_VERSION
+  ) {
     problems.push(`Unsupported bundle format "${String(manifest.schemaVersion)}".`);
+  }
   for (const [key, pattern, problem] of MANIFEST_STRING_FIELDS) {
     const field = manifest[key];
     if (typeof field !== "string" || !pattern.test(field)) problems.push(problem);
+  }
+  if (manifest.schemaVersion === DATA_BUNDLE_V2_SCHEMA_VERSION) {
+    if (
+      manifest.sequence !== undefined &&
+      (!Number.isInteger(manifest.sequence) || (manifest.sequence as number) < 1)
+    ) {
+      problems.push("The sequence number must be a positive integer.");
+    }
+    if (manifest.digestList !== undefined && !Array.isArray(manifest.digestList)) {
+      problems.push("digestList must be an array of strings.");
+    }
+    if (manifest.ecosystem !== undefined && typeof manifest.ecosystem !== "string") {
+      problems.push("ecosystem must be a string.");
+    }
   }
   return problems;
 }

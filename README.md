@@ -210,6 +210,9 @@ npx @velella/ebb stale --as-of 2026-11-14
 # Inspect evidence sources and review provenance for a rule
 npx @velella/ebb sources npm.package.request.deprecated
 
+# Verify a downloaded data bundle or artifact signature offline
+npx @velella/ebb verify dist/data/bundle.json
+
 # Evaluate lifecycle status as of a specific date (time travel)
 npx @velella/ebb as-of 2027-05-01 node 22.11.0
 ```
