@@ -29,6 +29,18 @@ async function buildBrowserBundle(): Promise<string> {
 }
 
 test("browser: runs in Chromium, Firefox, and WebKit with identical verdicts", async (t) => {
+  const browsers = [
+    { name: "Chromium", type: chromium },
+    { name: "Firefox", type: firefox },
+    { name: "WebKit", type: webkit },
+  ];
+
+  const availableBrowsers = browsers.filter((b) => isBrowserAvailable(b.type));
+  if (availableBrowsers.length === 0) {
+    t.skip("No Playwright browser binaries installed");
+    return;
+  }
+
   const bundleCode = await buildBrowserBundle();
 
   // Mock static API response for fetch loader test
@@ -84,18 +96,6 @@ test("browser: runs in Chromium, Firefox, and WebKit with identical verdicts", a
   const port = (server.address() as { port: number }).port;
   const bundleUrl = `http://127.0.0.1:${port}/bundle.js`;
   const apiUrl = `http://127.0.0.1:${port}/api/v1`;
-
-  const browsers = [
-    { name: "Chromium", type: chromium },
-    { name: "Firefox", type: firefox },
-    { name: "WebKit", type: webkit },
-  ];
-
-  const availableBrowsers = browsers.filter((b) => isBrowserAvailable(b.type));
-  if (availableBrowsers.length === 0) {
-    t.skip("No Playwright browser binaries installed");
-    return;
-  }
 
   try {
     for (const { name, type } of browsers) {
