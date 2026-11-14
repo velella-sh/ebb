@@ -108,5 +108,5 @@ Ebb stores verified bundles in `~/.cache/ebb/data` (Linux) or `~/Library/Caches/
   uses: actions/cache@v4
   with:
     path: ~/.cache/ebb
-    key: ebb-data-${{ runner.os }}-${{ steps.date.outputs.date }}
+    key: ebb-data-\{{ runner.os }}-\{{ steps.date.outputs.date }}
 ```
