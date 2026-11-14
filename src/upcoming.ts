@@ -59,7 +59,7 @@ export interface UpcomingOptions {
   readonly ecosystem?: string | readonly string[] | undefined;
   /**
    * Filter events by target PURL(s).
-   * When a version is present (e.g. pkg:npm/express@4.18.0), only rules matching that version are returned.
+   * When a version is present (e.g. `pkg:npm/express@4.18.0`), only rules matching that version are returned.
    */
   readonly purls?: readonly string[] | undefined;
   /**

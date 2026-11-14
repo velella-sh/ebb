@@ -3,10 +3,10 @@
  * Offing re-exports these from its own `domain.ts`.
  */
 
-export const severityValues = ["info", "low", "medium", "high", "critical"] as const;
-
 /** How much attention a finding or rule deserves, from informational to critical. */
-export type Severity = (typeof severityValues)[number];
+export type Severity = "info" | "low" | "medium" | "high" | "critical";
+
+export const severityValues: readonly Severity[] = ["info", "low", "medium", "high", "critical"] as const;
 
 /** An authoritative page a lifecycle claim was read from, with the day it was reviewed. */
 export interface EvidenceSource {

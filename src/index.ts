@@ -45,7 +45,7 @@ export {
   checkAll,
 } from "./check-all.js";
 
-export type { EvidenceSource } from "./domain.js";
+export type { EvidenceSource, Severity } from "./domain.js";
 export type { EbbErrorCode } from "./errors.js";
 export { replacementFor } from "./replacement.js";
 export type { Result, ResultEvent, ResultMatch, ResultStatus } from "./result.js";

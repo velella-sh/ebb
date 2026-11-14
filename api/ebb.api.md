@@ -165,6 +165,63 @@ export interface RulesForOptions {
     event?: RuleEvent | undefined;
 }
 
+// @public
+export type Severity = "info" | "low" | "medium" | "high" | "critical";
+
+// @public
+export function upcoming(options?: UpcomingOptions): UpcomingResult;
+
+// @public (undocumented)
+export interface UpcomingItem {
+    // (undocumented)
+    readonly daysLeft: number;
+    // (undocumented)
+    readonly deadline: string;
+    // (undocumented)
+    readonly ecosystem: string;
+    // (undocumented)
+    readonly estimated: boolean;
+    // (undocumented)
+    readonly event: LifecycleEvent;
+    // (undocumented)
+    readonly purl: string;
+    // (undocumented)
+    readonly replacement: string | null;
+    // (undocumented)
+    readonly reviewedAt: string | null;
+    // (undocumented)
+    readonly ruleId: string;
+    // (undocumented)
+    readonly severity: Severity;
+    // (undocumented)
+    readonly sources: EvidenceSource[];
+    // (undocumented)
+    readonly title: string;
+}
+
+// @public (undocumented)
+export interface UpcomingOptions {
+    readonly asOf?: string | undefined;
+    readonly ecosystem?: string | readonly string[] | undefined;
+    readonly purls?: readonly string[] | undefined;
+    readonly rules?: readonly RegistryV2Rule[] | undefined;
+    readonly within?: string | number | undefined;
+}
+
+// @public (undocumented)
+export interface UpcomingResult {
+    // (undocumented)
+    readonly asOf: string;
+    // (undocumented)
+    readonly count: number;
+    // (undocumented)
+    readonly items: UpcomingItem[];
+    // (undocumented)
+    readonly until: string;
+    // (undocumented)
+    readonly within: string;
+}
+
 // (No @packageDocumentation comment for this package)
 
 ```
