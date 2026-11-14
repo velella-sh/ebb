@@ -200,6 +200,9 @@ npx @velella/ebb check-all bom.json --json
 
 # Find recommended replacement
 npx @velella/ebb replacement pkg:npm/request@2.88.2
+
+# Query upcoming end-of-life events within a time window
+npx @velella/ebb upcoming --within 90d --ecosystem nodejs
 ```
 
 ```text
@@ -365,6 +368,7 @@ These pages are also published as a site, built with [Mizzen](https://velella.sh
 
 - [Quickstart](docs/QUICKSTART.md): 5-minute guide across library, CLI, AI agents, static API, and GitHub Actions.
 - [CLI](docs/cli.md): command-line interface for offline checks and SBOM batch evaluation.
+- [Upcoming deadlines](docs/upcoming.md): query scheduled and upcoming end-of-life events within a time window.
 - [Agent Skills](docs/skills.md): guardrails for AI coding agents via skills.sh.
 - [MCP server](docs/mcp.md): connect Ebb over standard stdio JSON-RPC 2.0.
 - [Agent Evaluations](evals/agents/REPORT.md): benchmark report measuring agent accuracy with and without Ebb.
