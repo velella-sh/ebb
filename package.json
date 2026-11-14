@@ -144,7 +144,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
     "@microsoft/api-extractor": "^7.60.1",
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.6.6",
     "ajv": "^8.20.0",
     "esbuild": "^0.28.2",
     "miniflare": "^4.20260730.0",
