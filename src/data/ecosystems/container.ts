@@ -17,11 +17,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A node image on a supported release line, such as node:22",
     deadline: "2026-04-30",
     sources: [
-      { title: "Node.js end-of-life releases", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-10-16" },
+      {
+        title: "Node.js end-of-life releases",
+        url: "https://nodejs.org/en/about/eol",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://nodejs.org/en/about/eol",
+        archivedAt: "2026-10-16",
+      },
       {
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -75,11 +84,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A node image on a later supported release line, such as node:24",
     deadline: "2027-04-30",
     sources: [
-      { title: "Node.js end-of-life releases", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-10-16" },
+      {
+        title: "Node.js end-of-life releases",
+        url: "https://nodejs.org/en/about/eol",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://nodejs.org/en/about/eol",
+        archivedAt: "2026-10-16",
+      },
       {
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-24",
+        archiveUrl:
+          "https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-24",
       },
     ],
     provenance: {
@@ -132,11 +150,19 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A python image on a supported release line",
     deadline: "2026-10-01",
     sources: [
-      { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-10-16" },
+      {
+        title: "Status of Python versions",
+        url: "https://devguide.python.org/versions/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://devguide.python.org/versions/",
+        archivedAt: "2026-10-16",
+      },
       {
         title: "Python release cycle (machine-readable)",
         url: "https://peps.python.org/api/release-cycle.json",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://peps.python.org/api/release-cycle.json",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -190,11 +216,19 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A python image on a later supported release line",
     deadline: "2027-10-31",
     sources: [
-      { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-10-16" },
+      {
+        title: "Status of Python versions",
+        url: "https://devguide.python.org/versions/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://devguide.python.org/versions/",
+        archivedAt: "2026-10-16",
+      },
       {
         title: "Python release cycle (machine-readable)",
         url: "https://peps.python.org/api/release-cycle.json",
         accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://peps.python.org/api/release-cycle.json",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -251,6 +285,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -306,6 +342,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PostgreSQL release policy (vendor)",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-24",
+        archiveUrl: "https://web.archive.org/web/20261024000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-24",
       },
     ],
     provenance: {
@@ -363,6 +401,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MySQL end-of-life notice",
         url: "https://www.mysql.com/support/eol-notice.html",
         accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/eol-notice.html",
+        archivedAt: "2026-11-07",
       },
     ],
     provenance: {
@@ -418,6 +458,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -474,6 +516,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-29",
+        archiveUrl: "https://web.archive.org/web/20261029000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-29",
       },
     ],
     provenance: {
@@ -530,6 +574,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Caddy release policy (vendor)",
         url: "https://github.com/caddyserver/caddy/security",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://github.com/caddyserver/caddy/security",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -579,7 +625,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A golang image on a supported release line",
     deadline: "2026-08-19",
     sources: [
-      { title: "Go release policy (vendor)", url: "https://go.dev/doc/devel/release#policy", accessedAt: "2026-10-20" },
+      {
+        title: "Go release policy (vendor)",
+        url: "https://go.dev/doc/devel/release#policy",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://go.dev/doc/devel/release#policy",
+        archivedAt: "2026-10-20",
+      },
     ],
     provenance: {
       observedAt: "2026-10-20",
@@ -632,6 +684,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MariaDB release policy (vendor)",
         url: "https://mariadb.org/about/#maintenance-policy",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://mariadb.org/about/#maintenance-policy",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -685,6 +739,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Redis release policy (vendor)",
         url: "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -738,6 +795,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Redis release policy (vendor)",
         url: "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -791,6 +851,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Apache ZooKeeper release policy (vendor)",
         url: "https://zookeeper.apache.org/releases/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://zookeeper.apache.org/releases/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -845,6 +907,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Drupal release policy (vendor)",
         url: "https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -899,6 +964,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Traefik release policy (vendor)",
         url: "https://doc.traefik.io/traefik/deprecation/releases",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://doc.traefik.io/traefik/deprecation/releases",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -952,6 +1019,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "ClickHouse security policy: supported versions",
         url: "https://github.com/ClickHouse/ClickHouse/blob/master/SECURITY.md",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://github.com/ClickHouse/ClickHouse/blob/master/SECURITY.md",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1006,11 +1076,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Couchbase software lifecycle schedules",
         url: "https://www.couchbase.com/support-policy/EOL/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.couchbase.com/support-policy/EOL/",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Couchbase enterprise software support policy",
         url: "https://www.couchbase.com/support-policy/enterprise-software/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://www.couchbase.com/support-policy/enterprise-software/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1064,6 +1139,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Apache CouchDB security policy",
         url: "https://docs.couchdb.org/en/stable/cve/index.html",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://docs.couchdb.org/en/stable/cve/index.html",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1117,6 +1194,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "phpMyAdmin downloads and version support policy",
         url: "https://www.phpmyadmin.net/downloads/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.phpmyadmin.net/downloads/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1166,7 +1245,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "An ubuntu image on a supported release line",
     deadline: "2025-05-31",
     sources: [
-      { title: "Ubuntu release cycle", url: "https://ubuntu.com/about/release-cycle", accessedAt: "2026-10-26" },
+      {
+        title: "Ubuntu release cycle",
+        url: "https://ubuntu.com/about/release-cycle",
+        accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://ubuntu.com/about/release-cycle",
+        archivedAt: "2026-10-26",
+      },
     ],
     provenance: {
       observedAt: "2026-10-26",
@@ -1214,7 +1299,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "An ubuntu image on a later supported release line",
     deadline: "2027-06-01",
     sources: [
-      { title: "Ubuntu release cycle", url: "https://ubuntu.com/about/release-cycle", accessedAt: "2026-10-26" },
+      {
+        title: "Ubuntu release cycle",
+        url: "https://ubuntu.com/about/release-cycle",
+        accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://ubuntu.com/about/release-cycle",
+        archivedAt: "2026-10-26",
+      },
     ],
     provenance: {
       observedAt: "2026-10-26",
@@ -1262,8 +1353,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A debian image on a supported release line",
     deadline: "2026-08-31",
     sources: [
-      { title: "Debian LTS", url: "https://wiki.debian.org/LTS", accessedAt: "2026-10-26" },
-      { title: "Debian Releases", url: "https://www.debian.org/releases/", accessedAt: "2026-10-26" },
+      {
+        title: "Debian LTS",
+        url: "https://wiki.debian.org/LTS",
+        accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://wiki.debian.org/LTS",
+        archivedAt: "2026-10-26",
+      },
+      {
+        title: "Debian Releases",
+        url: "https://www.debian.org/releases/",
+        accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://www.debian.org/releases/",
+        archivedAt: "2026-10-26",
+      },
     ],
     provenance: {
       observedAt: "2026-10-26",
@@ -1310,7 +1413,15 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "An alpine image on a supported release line",
     deadline: "2026-04-01",
-    sources: [{ title: "Alpine Linux releases", url: "https://alpinelinux.org/releases/", accessedAt: "2026-10-26" }],
+    sources: [
+      {
+        title: "Alpine Linux releases",
+        url: "https://alpinelinux.org/releases/",
+        accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://alpinelinux.org/releases/",
+        archivedAt: "2026-10-26",
+      },
+    ],
     provenance: {
       observedAt: "2026-10-26",
       reviewedAt: "2026-10-26",
@@ -1356,7 +1467,15 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "An alpine image on a later supported release line",
     deadline: "2026-11-01",
-    sources: [{ title: "Alpine Linux releases", url: "https://alpinelinux.org/releases/", accessedAt: "2026-11-07" }],
+    sources: [
+      {
+        title: "Alpine Linux releases",
+        url: "https://alpinelinux.org/releases/",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://alpinelinux.org/releases/",
+        archivedAt: "2026-11-07",
+      },
+    ],
     provenance: {
       observedAt: "2026-11-07",
       reviewedAt: "2026-11-07",
@@ -1407,11 +1526,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Dockerfile reference: MAINTAINER (deprecated)",
         url: "https://docs.docker.com/reference/dockerfile/#maintainer-deprecated",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://docs.docker.com/reference/dockerfile/#maintainer-deprecated",
+        archivedAt: "2026-10-31",
       },
       {
         title: "Docker build check: MaintainerDeprecated",
         url: "https://docs.docker.com/reference/build-checks/maintainer-deprecated/",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://docs.docker.com/reference/build-checks/maintainer-deprecated/",
+        archivedAt: "2026-10-31",
       },
     ],
     provenance: {
@@ -1460,11 +1585,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Docker build check: LegacyKeyValueFormat",
         url: "https://docs.docker.com/reference/build-checks/legacy-key-value-format/",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://docs.docker.com/reference/build-checks/legacy-key-value-format/",
+        archivedAt: "2026-10-31",
       },
       {
         title: "Dockerfile reference: ENV",
         url: "https://docs.docker.com/reference/dockerfile/#env",
         accessedAt: "2026-10-31",
+        archiveUrl: "https://web.archive.org/web/20261031000000/https://docs.docker.com/reference/dockerfile/#env",
+        archivedAt: "2026-10-31",
       },
     ],
     provenance: {
@@ -1503,7 +1633,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "An Ubuntu release in standard support, such as 24.04 LTS",
     deadline: "2025-05-31",
     sources: [
-      { title: "Ubuntu release cycle", url: "https://ubuntu.com/about/release-cycle", accessedAt: "2026-10-30" },
+      {
+        title: "Ubuntu release cycle",
+        url: "https://ubuntu.com/about/release-cycle",
+        accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://ubuntu.com/about/release-cycle",
+        archivedAt: "2026-10-30",
+      },
     ],
     provenance: {
       observedAt: "2026-10-30",
@@ -1546,8 +1682,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Debian 12 or 13",
     deadline: "2026-08-31",
     sources: [
-      { title: "Debian releases", url: "https://www.debian.org/releases/", accessedAt: "2026-10-30" },
-      { title: "Debian Long Term Support", url: "https://wiki.debian.org/LTS", accessedAt: "2026-10-30" },
+      {
+        title: "Debian releases",
+        url: "https://www.debian.org/releases/",
+        accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://www.debian.org/releases/",
+        archivedAt: "2026-10-30",
+      },
+      {
+        title: "Debian Long Term Support",
+        url: "https://wiki.debian.org/LTS",
+        accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://wiki.debian.org/LTS",
+        archivedAt: "2026-10-30",
+      },
     ],
     provenance: {
       observedAt: "2026-10-30",
@@ -1594,11 +1742,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Red Hat Enterprise Linux 7 end of maintenance",
         url: "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/rhel-7-end-of-maintenance",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/rhel-7-end-of-maintenance",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Red Hat product life cycles",
         url: "https://access.redhat.com/product-life-cycles",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://access.redhat.com/product-life-cycles",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1641,7 +1794,15 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "CentOS Stream 9 or 10, or a distribution with a published lifecycle",
     deadline: "2024-06-30",
-    sources: [{ title: "CentOS Linux", url: "https://www.centos.org/centos-linux/", accessedAt: "2026-10-30" }],
+    sources: [
+      {
+        title: "CentOS Linux",
+        url: "https://www.centos.org/centos-linux/",
+        accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://www.centos.org/centos-linux/",
+        archivedAt: "2026-10-30",
+      },
+    ],
     provenance: {
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
@@ -1687,11 +1848,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon Linux 2 release notes",
         url: "https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Amazon Linux 2023 release cadence",
         url: "https://docs.aws.amazon.com/linux/al2023/ug/release-cadence.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/linux/al2023/ug/release-cadence.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1734,7 +1901,15 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "Alpine Linux 3.21 or later",
     deadline: "2026-04-01",
-    sources: [{ title: "Alpine Linux releases", url: "https://alpinelinux.org/releases/", accessedAt: "2026-10-30" }],
+    sources: [
+      {
+        title: "Alpine Linux releases",
+        url: "https://alpinelinux.org/releases/",
+        accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://alpinelinux.org/releases/",
+        archivedAt: "2026-10-30",
+      },
+    ],
     provenance: {
       observedAt: "2026-10-30",
       reviewedAt: "2026-10-30",
@@ -1776,11 +1951,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "SLES 15 SP7 or SLES 16",
     deadline: "2025-12-31",
     sources: [
-      { title: "SUSE product support lifecycle", url: "https://www.suse.com/lifecycle/", accessedAt: "2026-10-30" },
+      {
+        title: "SUSE product support lifecycle",
+        url: "https://www.suse.com/lifecycle/",
+        accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://www.suse.com/lifecycle/",
+        archivedAt: "2026-10-30",
+      },
       {
         title: "SLES 15 SP6 lifecycle and support",
         url: "https://documentation.suse.com/sles/15-SP6/html/SLES-all/cha-upgrade-background.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://documentation.suse.com/sles/15-SP6/html/SLES-all/cha-upgrade-background.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {

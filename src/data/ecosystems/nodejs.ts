@@ -20,6 +20,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -76,6 +79,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -127,7 +133,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "critical",
     replacement: "Node.js 22 LTS or later",
     sources: [
-      { title: "Node.js end-of-life releases", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-10-16" },
+      {
+        title: "Node.js end-of-life releases",
+        url: "https://nodejs.org/en/about/eol",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://nodejs.org/en/about/eol",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-13",
@@ -190,6 +202,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -247,6 +262,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -304,6 +322,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -361,6 +382,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -417,6 +441,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0034 fs.exists",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -462,6 +488,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0005 Buffer() constructor",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -509,6 +537,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0044 util.isArray",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -553,6 +583,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0060 util._extend",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -597,6 +629,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0045 to DEP0058 util.is* functions",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -641,6 +675,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0169 url.parse",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -687,6 +723,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0106 crypto.createCipher",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -734,6 +772,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0111 process.binding",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -779,6 +819,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0147 fs.rmdir recursive",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -858,6 +900,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0064 tls.createSecurePair",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -902,6 +946,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0045",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -946,6 +992,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0046",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -990,6 +1038,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0047",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1034,6 +1084,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0048",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1078,6 +1130,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0049",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1122,6 +1176,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0050",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1166,6 +1222,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0051",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1210,6 +1268,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0052",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1254,6 +1314,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0053",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1298,6 +1360,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0054",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1342,6 +1406,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0055",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1386,6 +1452,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0057",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1430,6 +1498,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0058",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1474,6 +1544,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0059",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1518,6 +1590,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0026",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1561,6 +1635,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0027",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1604,6 +1680,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0028",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1647,6 +1725,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0029",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1691,6 +1771,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0030",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1736,6 +1818,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0022",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1780,6 +1864,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0023",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1824,6 +1910,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0010",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1868,6 +1956,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0011",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1912,6 +2002,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0115",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -1961,6 +2053,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0093",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2004,6 +2098,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0091",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2048,6 +2144,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0100",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2092,6 +2190,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0130",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2135,6 +2235,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0138",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2178,6 +2280,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0144",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2223,6 +2327,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0161",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2268,6 +2374,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0134",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2311,6 +2419,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0175",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2354,6 +2464,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0197",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2398,6 +2510,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0176",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2448,6 +2562,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0095",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2491,6 +2607,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0096",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2534,6 +2652,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0126",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2578,6 +2698,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0127",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2622,6 +2744,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0006",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2700,6 +2824,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0110",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2761,6 +2887,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0154",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2876,6 +3004,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0179",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2922,6 +3052,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0181",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2967,6 +3099,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0180",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3012,6 +3146,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0146",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3056,6 +3192,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0173",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3100,6 +3238,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0205",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3143,6 +3283,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0080",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3187,6 +3329,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0070",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3231,6 +3375,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0071",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3274,6 +3420,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0107",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3317,6 +3465,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0076",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3360,6 +3510,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0042",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3404,6 +3556,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0043",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3447,6 +3601,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0121",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3492,6 +3648,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0017",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3535,6 +3693,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0069",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3577,6 +3737,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0035",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3622,6 +3784,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0039",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3665,6 +3829,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0191",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3708,6 +3874,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js deprecations: DEP0142",
         url: "https://nodejs.org/api/deprecations.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nodejs.org/api/deprecations.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3753,6 +3921,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node.js Release Working Group schedule",
         url: "https://github.com/nodejs/Release/blob/main/schedule.json",
         accessedAt: "2026-10-24",
+        archiveUrl:
+          "https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json",
+        archivedAt: "2026-10-24",
       },
     ],
     provenance: {

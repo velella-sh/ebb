@@ -21,6 +21,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Xcode 15 — App Store upcoming requirements",
         url: "https://developer.apple.com/news/upcoming-requirements/?id=04292024a",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://developer.apple.com/news/upcoming-requirements/?id=04292024a",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -80,6 +83,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "SDK minimum requirements — App Store upcoming requirements (Xcode 26)",
         url: "https://developer.apple.com/news/upcoming-requirements/?id=04282026a",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://developer.apple.com/news/upcoming-requirements/?id=04282026a",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -137,6 +143,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "iOS and iPadOS minimum system requirements — App Store upcoming requirements",
         url: "https://developer.apple.com/news/upcoming-requirements/?id=0992026a",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://developer.apple.com/news/upcoming-requirements/?id=0992026a",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {

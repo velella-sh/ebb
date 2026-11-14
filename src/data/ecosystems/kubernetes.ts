@@ -21,11 +21,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -97,11 +103,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -173,11 +185,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -241,11 +259,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -307,11 +331,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.26: Electrifying (release announcement, 2022-12-09)",
         url: "https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -375,11 +405,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -450,11 +486,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -525,11 +567,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -600,11 +648,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -675,12 +729,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -751,12 +811,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -827,12 +893,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -903,12 +975,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -979,12 +1057,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1055,12 +1139,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1131,12 +1221,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1207,11 +1303,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1282,11 +1384,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1357,11 +1465,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1432,11 +1546,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1507,11 +1627,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1582,11 +1708,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1657,11 +1789,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1732,11 +1870,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1807,11 +1951,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1882,11 +2032,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1957,12 +2113,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2033,12 +2195,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2109,12 +2277,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2185,12 +2359,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2261,12 +2441,18 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2337,11 +2523,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.26: Electrifying (release announcement, 2022-12-09)",
         url: "https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -2412,11 +2604,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.29: Mandala (release announcement, 2023-12-13)",
         url: "https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2487,11 +2685,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.32: Penelope (release announcement, 2024-12-11)",
         url: "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2562,11 +2766,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.26: Electrifying (release announcement, 2022-12-09)",
         url: "https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -2637,11 +2847,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.29: Mandala (release announcement, 2023-12-13)",
         url: "https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2712,11 +2928,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.32: Penelope (release announcement, 2024-12-11)",
         url: "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -2787,11 +3009,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -2862,11 +3090,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -2937,11 +3171,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3012,11 +3252,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3087,11 +3333,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3162,11 +3414,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3237,11 +3495,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3312,11 +3576,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3387,11 +3657,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3461,11 +3737,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3535,11 +3817,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes v1.27: Chill Vibes (release announcement, 2023-04-11)",
         url: "https://kubernetes.io/blog/2023/04/11/kubernetes-v1-27-release/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2023/04/11/kubernetes-v1-27-release/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -3610,11 +3898,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3684,11 +3978,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -3760,11 +4060,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Helm Chart Repository Deprecation Update (2020-10-30)",
         url: "https://helm.sh/blog/charts-repo-deprecation/",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://helm.sh/blog/charts-repo-deprecation/",
+        archivedAt: "2026-10-26",
       },
       {
         title: "Helm community: stable repository charts — new locations",
         url: "https://github.com/helm/community/blob/main/stable-repo-charts-new-locations.md",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://github.com/helm/community/blob/main/stable-repo-charts-new-locations.md",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -3824,11 +4129,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Helm Chart Repository Deprecation Update (2020-10-30)",
         url: "https://helm.sh/blog/charts-repo-deprecation/",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://helm.sh/blog/charts-repo-deprecation/",
+        archivedAt: "2026-10-26",
       },
       {
         title: "Helm community: stable repository charts — new locations",
         url: "https://github.com/helm/community/blob/main/stable-repo-charts-new-locations.md",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://github.com/helm/community/blob/main/stable-repo-charts-new-locations.md",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -3884,7 +4194,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.37 or later",
     deadline: "2027-06-28",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-10-17" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -3941,7 +4257,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.37 or later",
     deadline: "2027-02-28",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-10-17" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -3998,7 +4320,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.37 or later",
     deadline: "2026-10-27",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-11-07" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -4055,7 +4383,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.34 or later",
     deadline: "2026-06-28",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-10-17" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -4112,7 +4446,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.34 or later",
     deadline: "2026-02-28",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-10-17" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -4169,7 +4509,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.34 or later",
     deadline: "2025-11-11",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-10-17" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -4226,7 +4572,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.34 or later",
     deadline: "2025-07-15",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-10-17" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -4283,7 +4635,13 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Kubernetes 1.34 or later",
     deadline: "2025-02-28",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-10-17" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -4339,7 +4697,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "Kubernetes 1.34 or later",
     sources: [
-      { title: "Kubernetes release history", url: "https://kubernetes.io/releases/", accessedAt: "2026-11-01" },
+      {
+        title: "Kubernetes release history",
+        url: "https://kubernetes.io/releases/",
+        accessedAt: "2026-11-01",
+        archiveUrl: "https://web.archive.org/web/20261101000000/https://kubernetes.io/releases/",
+        archivedAt: "2026-11-01",
+      },
     ],
     provenance: {
       observedAt: "2026-11-01",
@@ -4399,11 +4763,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-30",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4464,11 +4833,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-30",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4529,11 +4903,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-30",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4594,11 +4973,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-30",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4658,11 +5042,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-30",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4722,6 +5111,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -4790,6 +5182,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -4858,6 +5253,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -4926,6 +5324,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -4994,6 +5395,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5062,6 +5466,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5130,6 +5537,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5198,6 +5608,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5270,6 +5683,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5342,6 +5758,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5414,6 +5833,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5486,6 +5908,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5558,6 +5983,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -5629,6 +6057,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {

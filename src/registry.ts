@@ -252,6 +252,16 @@ function sourceIssues(source: unknown, sourceIndex: number, problem: Problem): v
   } else if (!isIsoDate(source.accessedAt)) {
     problem(`sources[${sourceIndex}].accessedAt must be a valid date (YYYY-MM-DD)`);
   }
+  if (isRecord(source) && source.archiveUrl !== undefined) {
+    if (!isNonEmptyString(source.archiveUrl) || !/^https:\/\/\S+$/.test(source.archiveUrl)) {
+      problem(`sources[${sourceIndex}].archiveUrl must be an https URL`);
+    }
+  }
+  if (isRecord(source) && source.archivedAt !== undefined) {
+    if (!isIsoDate(source.archivedAt)) {
+      problem(`sources[${sourceIndex}].archivedAt must be a valid date (YYYY-MM-DD)`);
+    }
+  }
 }
 
 function sourcesIssues(rule: UnknownRecord, problem: Problem): void {

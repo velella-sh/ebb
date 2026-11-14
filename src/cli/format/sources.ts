@@ -45,7 +45,8 @@ export function formatSourcesText(result: SourcesOfResult, options: FormatSource
       lines.push(`${i + 1}. ${c.bold(s.title)} ${healthBadge}`);
       lines.push(`   URL: ${s.url}`);
       if (s.archiveUrl) {
-        lines.push(`   Archive: ${s.archiveUrl}`);
+        const at = s.archivedAt ? ` (archived: ${s.archivedAt})` : "";
+        lines.push(`   Archive: ${s.archiveUrl}${at}`);
       }
       if (s.accessedAt) {
         lines.push(`   Accessed: ${s.accessedAt}`);
@@ -97,7 +98,8 @@ export function formatSourcesMarkdown(result: SourcesOfResult): string {
       lines.push(`${i + 1}. **${s.title}** \`[${s.health}]\``);
       lines.push(`   - URL: <${s.url}>`);
       if (s.archiveUrl) {
-        lines.push(`   - Archive: <${s.archiveUrl}>`);
+        const at = s.archivedAt ? ` (archived: \`${s.archivedAt}\`)` : "";
+        lines.push(`   - Archive: <${s.archiveUrl}>${at}`);
       }
       if (s.accessedAt) {
         lines.push(`   - Accessed: \`${s.accessedAt}\``);

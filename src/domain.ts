@@ -13,6 +13,8 @@ export interface EvidenceSource {
   title: string;
   url: string;
   accessedAt?: string;
+  archiveUrl?: string;
+  archivedAt?: string;
 }
 
 export const sourceLanguageValues = [

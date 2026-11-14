@@ -21,6 +21,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -75,6 +77,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -129,6 +133,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -183,6 +189,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -237,6 +245,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -291,6 +301,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://go.dev/doc/devel/release",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -344,11 +356,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "cloud.google.com/go/pubsub v1.51.1 go.mod",
         url: "https://proxy.golang.org/cloud.google.com/go/pubsub/@v/v1.51.1.mod",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://proxy.golang.org/cloud.google.com/go/pubsub/@v/v1.51.1.mod",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Go module deprecation reference",
         url: "https://go.dev/ref/mod#go-mod-file-module-deprecation",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://go.dev/ref/mod#go-mod-file-module-deprecation",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -406,11 +423,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "github.com/cncf/udpa/go v0.0.0-20220112060539-c52dc94e7fbe go.mod",
         url: "https://proxy.golang.org/github.com/cncf/udpa/go/@v/v0.0.0-20220112060539-c52dc94e7fbe.mod",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://proxy.golang.org/github.com/cncf/udpa/go/@v/v0.0.0-20220112060539-c52dc94e7fbe.mod",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Go module deprecation reference",
         url: "https://go.dev/ref/mod#go-mod-file-module-deprecation",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://go.dev/ref/mod#go-mod-file-module-deprecation",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -468,11 +490,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "github.com/discord/lilliput v1.5.1 go.mod",
         url: "https://proxy.golang.org/github.com/discord/lilliput/@v/v1.5.1.mod",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://proxy.golang.org/github.com/discord/lilliput/@v/v1.5.1.mod",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Go module deprecation reference",
         url: "https://go.dev/ref/mod#go-mod-file-module-deprecation",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://go.dev/ref/mod#go-mod-file-module-deprecation",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -531,11 +558,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "github.com/golang/protobuf v1.5.4 go.mod",
         url: "https://proxy.golang.org/github.com/golang/protobuf/@v/v1.5.4.mod",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://proxy.golang.org/github.com/golang/protobuf/@v/v1.5.4.mod",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Go module deprecation reference",
         url: "https://go.dev/ref/mod#go-mod-file-module-deprecation",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://go.dev/ref/mod#go-mod-file-module-deprecation",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -594,11 +626,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "github.com/streadway/amqp v1.1.0 go.mod",
         url: "https://proxy.golang.org/github.com/streadway/amqp/@v/v1.1.0.mod",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://proxy.golang.org/github.com/streadway/amqp/@v/v1.1.0.mod",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Go module deprecation reference",
         url: "https://go.dev/ref/mod#go-mod-file-module-deprecation",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://go.dev/ref/mod#go-mod-file-module-deprecation",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -656,11 +693,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "go.opentelemetry.io/otel/exporters/zipkin v1.47.0 go.mod",
         url: "https://proxy.golang.org/go.opentelemetry.io/otel/exporters/zipkin/@v/v1.47.0.mod",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://proxy.golang.org/go.opentelemetry.io/otel/exporters/zipkin/@v/v1.47.0.mod",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Go module deprecation reference",
         url: "https://go.dev/ref/mod#go-mod-file-module-deprecation",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://go.dev/ref/mod#go-mod-file-module-deprecation",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {

@@ -21,6 +21,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         accessedAt: "2026-10-22",
+        archiveUrl:
+          "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
+        archivedAt: "2026-10-22",
       },
     ],
     provenance: {
@@ -98,6 +101,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         accessedAt: "2026-10-22",
+        archiveUrl:
+          "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
+        archivedAt: "2026-10-22",
       },
     ],
     provenance: {
@@ -175,6 +181,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         accessedAt: "2026-10-22",
+        archiveUrl:
+          "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
+        archivedAt: "2026-10-22",
       },
     ],
     provenance: {
@@ -252,6 +261,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         accessedAt: "2026-10-22",
+        archiveUrl:
+          "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
+        archivedAt: "2026-10-22",
       },
     ],
     provenance: {
@@ -329,6 +341,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         accessedAt: "2026-10-22",
+        archiveUrl:
+          "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
+        archivedAt: "2026-10-22",
       },
     ],
     provenance: {
@@ -406,6 +421,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
+        archivedAt: "2026-11-10",
       },
     ],
     provenance: {
@@ -485,6 +503,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
+        archivedAt: "2026-11-10",
       },
     ],
     provenance: {

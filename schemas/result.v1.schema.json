@@ -63,7 +63,9 @@
       "properties": {
         "title": { "$ref": "#/$defs/nonEmpty" },
         "url": { "type": "string", "pattern": "^https://" },
-        "accessedAt": { "$ref": "#/$defs/date" }
+        "accessedAt": { "$ref": "#/$defs/date" },
+        "archiveUrl": { "type": "string", "pattern": "^https://" },
+        "archivedAt": { "$ref": "#/$defs/date" }
       }
     }
   }

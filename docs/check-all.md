@@ -116,7 +116,9 @@ Every valid entry in `results` has the schema documented in [Result model](resul
         {
           "title": "Node Sass is end-of-life",
           "url": "https://sass-lang.com/blog/node-sass-is-end-of-life/",
-          "accessedAt": "2026-10-16"
+          "accessedAt": "2026-10-16",
+          "archiveUrl": "https://web.archive.org/web/20261016000000/https://sass-lang.com/blog/node-sass-is-end-of-life/",
+          "archivedAt": "2026-10-16"
         }
       ],
       "reviewedAt": "2026-10-14"
@@ -131,12 +133,16 @@ Every valid entry in `results` has the schema documented in [Result model](resul
         {
           "title": "node-sass package deprecation notice",
           "url": "https://www.npmjs.com/package/node-sass",
-          "accessedAt": "2026-10-30"
+          "accessedAt": "2026-10-30",
+          "archiveUrl": "https://web.archive.org/web/20261030000000/https://www.npmjs.com/package/node-sass",
+          "archivedAt": "2026-10-30"
         },
         {
           "title": "node-sass registry metadata",
           "url": "https://registry.npmjs.org/node-sass",
-          "accessedAt": "2026-10-30"
+          "accessedAt": "2026-10-30",
+          "archiveUrl": "https://web.archive.org/web/20261030000000/https://registry.npmjs.org/node-sass",
+          "archivedAt": "2026-10-30"
         }
       ],
       "reviewedAt": "2026-10-30"

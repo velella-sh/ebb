@@ -21,11 +21,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Microsoft-hosted agents for Azure Pipelines",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
+        archivedAt: "2026-11-07",
       },
       {
         title: "Upcoming Updates for Azure Pipelines Agents Images",
         url: "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
+        archivedAt: "2026-11-07",
       },
     ],
     provenance: {
@@ -82,6 +88,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Microsoft-hosted image deprecation schedule",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
+        archivedAt: "2026-11-07",
       },
     ],
     provenance: {
@@ -138,11 +147,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Upcoming Updates for Azure Pipelines Agents Images",
         url: "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Microsoft-hosted agents for Azure Pipelines",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -199,6 +214,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Microsoft-hosted image deprecation schedule",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
         accessedAt: "2026-10-18",
+        archiveUrl:
+          "https://web.archive.org/web/20261018000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
+        archivedAt: "2026-10-18",
       },
     ],
     provenance: {
@@ -255,11 +273,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Upcoming Updates for Azure Pipelines Agents Images",
         url: "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Microsoft-hosted agents for Azure Pipelines",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {

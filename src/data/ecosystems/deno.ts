@@ -21,6 +21,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Deno 2.0.0 Release",
         url: "https://github.com/denoland/deno/releases/tag/v2.0.0",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/denoland/deno/releases/tag/v2.0.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -60,6 +62,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Deno 1.0.0 Release",
         url: "https://github.com/denoland/deno/releases/tag/v1.0.0",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/denoland/deno/releases/tag/v1.0.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -99,6 +103,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Bun 1.1.0 Release",
         url: "https://github.com/oven-sh/bun/releases/tag/bun-v1.1.0",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/oven-sh/bun/releases/tag/bun-v1.1.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -137,6 +143,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Bun 1.0.0 Release",
         url: "https://github.com/oven-sh/bun/releases/tag/bun-v1.0.0",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/oven-sh/bun/releases/tag/bun-v1.0.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {

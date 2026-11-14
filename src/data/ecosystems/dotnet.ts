@@ -21,11 +21,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-10",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-11-10",
       },
     ],
     provenance: {
@@ -90,11 +96,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-10",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-11-10",
       },
     ],
     provenance: {
@@ -159,11 +171,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-17",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -227,11 +245,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-17",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -295,11 +319,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-17",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -363,11 +393,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-17",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -431,11 +467,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-19",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -500,11 +542,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-19",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -569,11 +617,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-19",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -638,11 +692,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-19",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -707,11 +767,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-19",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -776,11 +842,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-10-19",
       },
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -846,16 +918,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "WindowsAzure.Storage on NuGet (deprecation metadata)",
         url: "https://www.nuget.org/packages/WindowsAzure.Storage",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://www.nuget.org/packages/WindowsAzure.Storage",
+        archivedAt: "2026-10-17",
       },
       {
         title: "NuGet package deprecation",
         url: "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
+        archivedAt: "2026-10-17",
       },
       {
         title: "Azure SDK support policies",
         url: "https://azure.github.io/azure-sdk/policies_support.html",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://azure.github.io/azure-sdk/policies_support.html",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -927,11 +1007,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Microsoft.Azure.DocumentDB on NuGet (deprecation metadata)",
         url: "https://www.nuget.org/packages/Microsoft.Azure.DocumentDB",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://www.nuget.org/packages/Microsoft.Azure.DocumentDB",
+        archivedAt: "2026-10-19",
       },
       {
         title: "NuGet package deprecation",
         url: "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -983,11 +1069,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Microsoft.Azure.ServiceBus on NuGet (deprecation metadata)",
         url: "https://www.nuget.org/packages/Microsoft.Azure.ServiceBus",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://www.nuget.org/packages/Microsoft.Azure.ServiceBus",
+        archivedAt: "2026-10-19",
       },
       {
         title: "NuGet package deprecation",
         url: "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -1049,11 +1141,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Microsoft.Azure.Storage.Blob on NuGet (deprecation metadata)",
         url: "https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob",
+        archivedAt: "2026-10-19",
       },
       {
         title: "NuGet package deprecation",
         url: "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {

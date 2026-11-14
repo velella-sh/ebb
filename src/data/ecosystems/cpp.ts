@@ -21,16 +21,23 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "CMake 4.0 release notes (compatibility older than 3.5 removed)",
         url: "https://cmake.org/cmake/help/latest/release/4.0.html",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/release/4.0.html",
+        archivedAt: "2026-10-19",
       },
       {
         title: "cmake_minimum_required (Changed in 4.0)",
         url: "https://cmake.org/cmake/help/latest/command/cmake_minimum_required.html",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/command/cmake_minimum_required.html",
+        archivedAt: "2026-10-19",
       },
       {
         title: "CMake 4.0.0 GitHub release",
         url: "https://github.com/Kitware/CMake/releases/tag/v4.0.0",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://github.com/Kitware/CMake/releases/tag/v4.0.0",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -79,16 +86,23 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "CMake 3.31 release notes (compatibility older than 3.10 deprecated)",
         url: "https://cmake.org/cmake/help/latest/release/3.31.html",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/release/3.31.html",
+        archivedAt: "2026-10-19",
       },
       {
         title: "cmake_minimum_required (Changed in 3.31)",
         url: "https://cmake.org/cmake/help/latest/command/cmake_minimum_required.html",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/command/cmake_minimum_required.html",
+        archivedAt: "2026-10-19",
       },
       {
         title: "CMake 3.31.0 GitHub release",
         url: "https://github.com/Kitware/CMake/releases/tag/v3.31.0",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://github.com/Kitware/CMake/releases/tag/v3.31.0",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -136,11 +150,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "CMake 3.31 release notes (Visual Studio 12 2013 generator removed)",
         url: "https://cmake.org/cmake/help/latest/release/3.31.html",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/release/3.31.html",
+        archivedAt: "2026-10-19",
       },
       {
         title: "Visual Studio 12 2013 generator documentation",
         url: "https://cmake.org/cmake/help/latest/generator/Visual%20Studio%2012%202013.html",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/generator/Visual%20Studio%2012%202013.html",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -188,11 +207,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "CMake 4.0 release notes (FindGDAL deprecated)",
         url: "https://cmake.org/cmake/help/latest/release/4.0.html",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/release/4.0.html",
+        archivedAt: "2026-10-19",
       },
       {
         title: "FindGDAL module documentation",
         url: "https://cmake.org/cmake/help/latest/module/FindGDAL.html",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/module/FindGDAL.html",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -241,11 +265,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "CMake 3.31 release notes (CMakeFindFrameworks deprecated)",
         url: "https://cmake.org/cmake/help/latest/release/3.31.html",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/release/3.31.html",
+        archivedAt: "2026-10-19",
       },
       {
         title: "CMakeFindFrameworks module documentation",
         url: "https://cmake.org/cmake/help/latest/module/CMakeFindFrameworks.html",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://cmake.org/cmake/help/latest/module/CMakeFindFrameworks.html",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {

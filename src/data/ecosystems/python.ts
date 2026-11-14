@@ -16,11 +16,19 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A supported Python release",
     deadline: "2025-10-31",
     sources: [
-      { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-10-16" },
+      {
+        title: "Status of Python versions",
+        url: "https://devguide.python.org/versions/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://devguide.python.org/versions/",
+        archivedAt: "2026-10-16",
+      },
       {
         title: "PEP 596 — Python 3.9 release schedule",
         url: "https://peps.python.org/pep-0596/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://peps.python.org/pep-0596/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -68,7 +76,15 @@ export const rules: readonly RegistryV2Rule[] = [
       "The project warns that nose has been in maintenance mode for years and recommends alternatives for new projects.",
     severity: "high",
     replacement: "pytest, nose2, or unittest",
-    sources: [{ title: "nose note to users", url: "https://nose.readthedocs.io/en/latest/", accessedAt: "2026-10-16" }],
+    sources: [
+      {
+        title: "nose note to users",
+        url: "https://nose.readthedocs.io/en/latest/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://nose.readthedocs.io/en/latest/",
+        archivedAt: "2026-10-16",
+      },
+    ],
     provenance: {
       observedAt: "2026-10-14",
       reviewedAt: "2026-10-14",
@@ -126,7 +142,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "pytest-django or Django unittest",
     sources: [
-      { title: "django-nose project notice", url: "https://pypi.org/project/django-nose/", accessedAt: "2026-11-07" },
+      {
+        title: "django-nose project notice",
+        url: "https://pypi.org/project/django-nose/",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://pypi.org/project/django-nose/",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -190,6 +212,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Archived PyCrypto repository warning",
         url: "https://github.com/pycrypto/pycrypto",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://github.com/pycrypto/pycrypto",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -254,7 +278,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "scikit-learn",
     sources: [
-      { title: "sklearn deprecation notice", url: "https://pypi.org/project/sklearn/", accessedAt: "2026-10-16" },
+      {
+        title: "sklearn deprecation notice",
+        url: "https://pypi.org/project/sklearn/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/sklearn/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -303,7 +333,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "setuptools",
     sources: [
-      { title: "Distribute deprecation notice", url: "https://pypi.org/project/distribute/", accessedAt: "2026-10-16" },
+      {
+        title: "Distribute deprecation notice",
+        url: "https://pypi.org/project/distribute/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/distribute/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -350,7 +386,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "pycodestyle",
     sources: [
-      { title: "pycodestyle rename notice", url: "https://pypi.org/project/pycodestyle/", accessedAt: "2026-10-16" },
+      {
+        title: "pycodestyle rename notice",
+        url: "https://pypi.org/project/pycodestyle/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/pycodestyle/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -404,16 +446,23 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "pyinj archival and migration notice",
         url: "https://pypi.org/project/pyinj/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/pyinj/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "pyinj project status (PyPI Simple API)",
         url: "https://pypi.org/simple/pyinj/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/simple/pyinj/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "Project status markers (PEP 792)",
         url: "https://packaging.python.org/specifications/project-status-markers/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://packaging.python.org/specifications/project-status-markers/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -464,6 +513,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "pytest-runner deprecation notice",
         url: "https://pypi.org/project/pytest-runner/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/pytest-runner/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -510,7 +561,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "ipaddress",
     sources: [
-      { title: "ipaddr supersession notice", url: "https://pypi.org/project/ipaddr/", accessedAt: "2026-10-16" },
+      {
+        title: "ipaddr supersession notice",
+        url: "https://pypi.org/project/ipaddr/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/ipaddr/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -559,6 +616,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "django-celery retirement notice",
         url: "https://pypi.org/project/django-celery/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/django-celery/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -611,6 +670,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "datacommons deprecation notice",
         url: "https://pypi.org/project/datacommons/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/datacommons/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -656,7 +717,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "vsjetpack",
     sources: [
-      { title: "vsdeband deprecation notice", url: "https://pypi.org/project/vsdeband/", accessedAt: "2026-10-16" },
+      {
+        title: "vsdeband deprecation notice",
+        url: "https://pypi.org/project/vsdeband/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/vsdeband/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -707,6 +774,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "multimodal-timesfm rename notice",
         url: "https://pypi.org/project/multimodal-timesfm/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/multimodal-timesfm/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -750,7 +819,15 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "The maintainer states that saroku was renamed and is no longer maintained under that name.",
     severity: "medium",
     replacement: "trikesh",
-    sources: [{ title: "saroku rename notice", url: "https://pypi.org/project/saroku/", accessedAt: "2026-10-16" }],
+    sources: [
+      {
+        title: "saroku rename notice",
+        url: "https://pypi.org/project/saroku/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/saroku/",
+        archivedAt: "2026-10-16",
+      },
+    ],
     provenance: {
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
@@ -789,6 +866,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "seofleet-cli deprecation notice",
         url: "https://pypi.org/project/seofleet-cli/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/seofleet-cli/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -831,6 +910,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "superlinked-server deprecation notice",
         url: "https://pypi.org/project/superlinked-server/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/superlinked-server/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -868,7 +949,13 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "The maintainer states that the project is no longer maintained.",
     severity: "medium",
     sources: [
-      { title: "goobook maintenance notice", url: "https://pypi.org/project/goobook/", accessedAt: "2026-10-16" },
+      {
+        title: "goobook maintenance notice",
+        url: "https://pypi.org/project/goobook/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/goobook/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -909,7 +996,15 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "The maintainers state that the imagej Python package was renamed to pyimagej.",
     severity: "medium",
     replacement: "pyimagej",
-    sources: [{ title: "imagej rename notice", url: "https://pypi.org/project/imagej/", accessedAt: "2026-10-16" }],
+    sources: [
+      {
+        title: "imagej rename notice",
+        url: "https://pypi.org/project/imagej/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/imagej/",
+        archivedAt: "2026-10-16",
+      },
+    ],
     provenance: {
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
@@ -951,6 +1046,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "poetry-version-plugin deprecation notice",
         url: "https://pypi.org/project/poetry-version-plugin/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/poetry-version-plugin/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -991,7 +1088,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "waygate",
     sources: [
-      { title: "api-shield deprecation notice", url: "https://pypi.org/project/api-shield/", accessedAt: "2026-10-16" },
+      {
+        title: "api-shield deprecation notice",
+        url: "https://pypi.org/project/api-shield/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/api-shield/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1036,6 +1139,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "asyncio-gateway migration notice",
         url: "https://pypi.org/project/asyncio-gateway/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/asyncio-gateway/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1079,6 +1184,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "opennms-api-wrapper rename notice",
         url: "https://pypi.org/project/opennms-api-wrapper/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/opennms-api-wrapper/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1122,6 +1229,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "apisec-surface rename notice",
         url: "https://pypi.org/project/apisec-surface/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/apisec-surface/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1160,7 +1269,15 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "The maintainer states that ghops is deprecated and no longer maintained, and directs users to repoindex.",
     severity: "high",
     replacement: "repoindex",
-    sources: [{ title: "ghops deprecation notice", url: "https://pypi.org/project/ghops/", accessedAt: "2026-10-16" }],
+    sources: [
+      {
+        title: "ghops deprecation notice",
+        url: "https://pypi.org/project/ghops/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/ghops/",
+        archivedAt: "2026-10-16",
+      },
+    ],
     provenance: {
       observedAt: "2026-10-16",
       reviewedAt: "2026-10-16",
@@ -1207,6 +1324,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "mondobrain maintenance and replacement notice",
         url: "https://pypi.org/project/mondobrain/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/mondobrain/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1247,7 +1366,13 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "vsjetpack",
     sources: [
-      { title: "vsscale deprecation notice", url: "https://pypi.org/project/vsscale/", accessedAt: "2026-10-16" },
+      {
+        title: "vsscale deprecation notice",
+        url: "https://pypi.org/project/vsscale/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/vsscale/",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1294,6 +1419,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "BatchNotebook deprecation notice",
         url: "https://pypi.org/project/BatchNotebook/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/BatchNotebook/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1341,6 +1468,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "llama-index-experimental lifecycle notice",
         url: "https://pypi.org/project/llama-index-experimental/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/llama-index-experimental/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1388,6 +1517,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "superlinked legacy framework notice",
         url: "https://pypi.org/project/superlinked/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/superlinked/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1435,6 +1566,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "cmip_ref rename and maintenance notice",
         url: "https://pypi.org/project/cmip-ref/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/cmip-ref/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1482,6 +1615,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "headroom-cli rename and migration notice",
         url: "https://pypi.org/project/headroom-cli/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/headroom-cli/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1529,6 +1664,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "agentops-toolkit rename notice",
         url: "https://pypi.org/project/agentops-toolkit/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/agentops-toolkit/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1574,6 +1711,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "aiohttp-valera-validator rename notice",
         url: "https://pypi.org/project/aiohttp-valera-validator/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/aiohttp-valera-validator/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1618,16 +1757,26 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "A supported Python release",
     deadline: "2026-10-01",
     sources: [
-      { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-10-16" },
+      {
+        title: "Status of Python versions",
+        url: "https://devguide.python.org/versions/",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://devguide.python.org/versions/",
+        archivedAt: "2026-10-16",
+      },
       {
         title: "Python release cycle (machine-readable)",
         url: "https://peps.python.org/api/release-cycle.json",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://peps.python.org/api/release-cycle.json",
+        archivedAt: "2026-10-17",
       },
       {
         title: "PEP 619 — Python 3.10 release schedule",
         url: "https://peps.python.org/pep-0619/",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://peps.python.org/pep-0619/",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -1675,16 +1824,27 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "PyPI marks argparse as archived: the project does not expect to be updated in the future.",
     severity: "medium",
     sources: [
-      { title: "argparse on PyPI", url: "https://pypi.org/project/argparse/", accessedAt: "2026-10-20" },
+      {
+        title: "argparse on PyPI",
+        url: "https://pypi.org/project/argparse/",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/project/argparse/",
+        archivedAt: "2026-10-20",
+      },
       {
         title: "argparse project status (PyPI Simple API)",
         url: "https://pypi.org/simple/argparse/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/simple/argparse/",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Project status markers (PEP 792)",
         url: "https://packaging.python.org/specifications/project-status-markers/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://packaging.python.org/specifications/project-status-markers/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1724,16 +1884,27 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "PyPI marks enum as archived: the project does not expect to be updated in the future.",
     severity: "medium",
     sources: [
-      { title: "enum on PyPI", url: "https://pypi.org/project/enum/", accessedAt: "2026-10-20" },
+      {
+        title: "enum on PyPI",
+        url: "https://pypi.org/project/enum/",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/project/enum/",
+        archivedAt: "2026-10-20",
+      },
       {
         title: "enum project status (PyPI Simple API)",
         url: "https://pypi.org/simple/enum/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/simple/enum/",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Project status markers (PEP 792)",
         url: "https://packaging.python.org/specifications/project-status-markers/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://packaging.python.org/specifications/project-status-markers/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1773,16 +1944,27 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "PyPI marks google-cloud as archived: the project does not expect to be updated in the future.",
     severity: "medium",
     sources: [
-      { title: "google-cloud on PyPI", url: "https://pypi.org/project/google-cloud/", accessedAt: "2026-10-20" },
+      {
+        title: "google-cloud on PyPI",
+        url: "https://pypi.org/project/google-cloud/",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/project/google-cloud/",
+        archivedAt: "2026-10-20",
+      },
       {
         title: "google-cloud project status (PyPI Simple API)",
         url: "https://pypi.org/simple/google-cloud/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/simple/google-cloud/",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Project status markers (PEP 792)",
         url: "https://packaging.python.org/specifications/project-status-markers/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://packaging.python.org/specifications/project-status-markers/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1822,16 +2004,27 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "PyPI marks pathlib as archived: the project does not expect to be updated in the future.",
     severity: "medium",
     sources: [
-      { title: "pathlib on PyPI", url: "https://pypi.org/project/pathlib/", accessedAt: "2026-10-20" },
+      {
+        title: "pathlib on PyPI",
+        url: "https://pypi.org/project/pathlib/",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/project/pathlib/",
+        archivedAt: "2026-10-20",
+      },
       {
         title: "pathlib project status (PyPI Simple API)",
         url: "https://pypi.org/simple/pathlib/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/simple/pathlib/",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Project status markers (PEP 792)",
         url: "https://packaging.python.org/specifications/project-status-markers/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://packaging.python.org/specifications/project-status-markers/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1871,12 +2064,27 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "PyPI marks PIL as archived: the project does not expect to be updated in the future.",
     severity: "medium",
     sources: [
-      { title: "PIL on PyPI", url: "https://pypi.org/project/pil/", accessedAt: "2026-10-20" },
-      { title: "PIL project status (PyPI Simple API)", url: "https://pypi.org/simple/pil/", accessedAt: "2026-10-20" },
+      {
+        title: "PIL on PyPI",
+        url: "https://pypi.org/project/pil/",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/project/pil/",
+        archivedAt: "2026-10-20",
+      },
+      {
+        title: "PIL project status (PyPI Simple API)",
+        url: "https://pypi.org/simple/pil/",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/simple/pil/",
+        archivedAt: "2026-10-20",
+      },
       {
         title: "Project status markers (PEP 792)",
         url: "https://packaging.python.org/specifications/project-status-markers/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://packaging.python.org/specifications/project-status-markers/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1916,16 +2124,27 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "PyPI marks typing as archived: the project does not expect to be updated in the future.",
     severity: "medium",
     sources: [
-      { title: "typing on PyPI", url: "https://pypi.org/project/typing/", accessedAt: "2026-10-20" },
+      {
+        title: "typing on PyPI",
+        url: "https://pypi.org/project/typing/",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/project/typing/",
+        archivedAt: "2026-10-20",
+      },
       {
         title: "typing project status (PyPI Simple API)",
         url: "https://pypi.org/simple/typing/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://pypi.org/simple/typing/",
+        archivedAt: "2026-10-20",
       },
       {
         title: "Project status markers (PEP 792)",
         url: "https://packaging.python.org/specifications/project-status-markers/",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://packaging.python.org/specifications/project-status-markers/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -1972,11 +2191,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2037,11 +2262,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2102,11 +2333,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2167,11 +2404,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2232,11 +2475,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2297,16 +2546,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 1.8 release notes (1.8.19)",
         url: "https://docs.djangoproject.com/en/1.8/releases/1.8.19/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.8/releases/1.8.19/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2367,16 +2624,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 1.9 release notes (1.9.13)",
         url: "https://docs.djangoproject.com/en/1.9/releases/1.9.13/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.9/releases/1.9.13/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2437,16 +2702,25 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 1.10 release notes (1.10.8)",
         url: "https://docs.djangoproject.com/en/1.10/releases/1.10.8/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.10/releases/1.10.8/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2507,16 +2781,25 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 1.11 release notes (1.11.29)",
         url: "https://docs.djangoproject.com/en/1.11/releases/1.11.29/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.11/releases/1.11.29/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2577,16 +2860,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 2.0 release notes (2.0.13)",
         url: "https://docs.djangoproject.com/en/2.0/releases/2.0.13/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/2.0/releases/2.0.13/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2647,16 +2938,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 2.1 release notes (2.1.15)",
         url: "https://docs.djangoproject.com/en/2.1/releases/2.1.15/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/2.1/releases/2.1.15/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2717,16 +3016,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 2.2 release notes (2.2.28)",
         url: "https://docs.djangoproject.com/en/2.2/releases/2.2.28/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/2.2/releases/2.2.28/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2787,16 +3094,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 3.0 release notes (3.0.14)",
         url: "https://docs.djangoproject.com/en/3.0/releases/3.0.14/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/3.0/releases/3.0.14/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2857,16 +3172,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 3.1 release notes (3.1.14)",
         url: "https://docs.djangoproject.com/en/3.1/releases/3.1.14/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/3.1/releases/3.1.14/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2927,16 +3250,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 3.2 release notes (3.2.25)",
         url: "https://docs.djangoproject.com/en/3.2/releases/3.2.25/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/3.2/releases/3.2.25/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2997,16 +3328,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 4.0 release notes (4.0.10)",
         url: "https://docs.djangoproject.com/en/4.0/releases/4.0.10/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/4.0/releases/4.0.10/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3067,16 +3406,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 4.1 release notes (4.1.13)",
         url: "https://docs.djangoproject.com/en/4.1/releases/4.1.13/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/4.1/releases/4.1.13/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3137,16 +3484,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 4.2 release notes (4.2.30)",
         url: "https://docs.djangoproject.com/en/4.2/releases/4.2.30/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/4.2/releases/4.2.30/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3207,16 +3562,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 5.0 release notes (5.0.14)",
         url: "https://docs.djangoproject.com/en/5.0/releases/5.0.14/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.0/releases/5.0.14/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3277,16 +3640,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django 5.1 release notes (5.1.15)",
         url: "https://docs.djangoproject.com/en/5.1/releases/5.1.15/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.1/releases/5.1.15/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3346,11 +3717,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "datetime documentation",
         url: "https://docs.python.org/3/library/datetime.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/library/datetime.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3398,11 +3773,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "datetime documentation",
         url: "https://docs.python.org/3/library/datetime.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/library/datetime.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3452,6 +3831,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3498,11 +3879,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.14",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3551,11 +3937,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.14",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3606,11 +3997,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.14",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3661,6 +4057,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3717,6 +4115,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.11",
         url: "https://docs.python.org/3/whatsnew/3.11.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.11.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3764,6 +4164,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Python deprecations: pending removal in 3.14",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.14.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3817,11 +4220,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "What's New in Python 3.11",
         url: "https://docs.python.org/3/whatsnew/3.11.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.11.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3872,6 +4279,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3917,6 +4326,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -3962,6 +4373,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4007,6 +4420,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4052,6 +4467,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4097,6 +4514,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4142,6 +4561,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4188,6 +4609,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4233,6 +4656,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4278,6 +4703,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4323,6 +4750,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4368,6 +4797,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4413,6 +4844,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4461,6 +4894,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4506,6 +4941,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4551,6 +4988,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4596,6 +5035,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4641,6 +5082,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4687,6 +5130,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4732,6 +5177,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4777,6 +5224,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4822,6 +5271,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4867,6 +5318,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4913,6 +5366,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4984,6 +5439,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Python deprecations: pending removal in 3.17",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.17.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.17.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5029,11 +5487,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.15",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5078,11 +5541,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.15",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5128,6 +5596,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5176,11 +5646,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.15",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5235,11 +5710,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.16",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.16.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.16.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5287,11 +5767,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Python deprecations: pending removal in 3.15",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.15.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5340,6 +5825,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Python deprecations: pending removal in 3.16",
         url: "https://docs.python.org/3/deprecations/pending-removal-in-3.16.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.python.org/3/deprecations/pending-removal-in-3.16.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -5387,11 +5875,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 632 — Deprecate distutils module",
         url: "https://peps.python.org/pep-0632/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0632/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5437,11 +5929,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5487,11 +5983,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5537,11 +6037,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5587,11 +6091,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Python 3.11 documentation: imp — Access the import internals",
         url: "https://docs.python.org/3.11/library/imp.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3.11/library/imp.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5637,11 +6145,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5687,11 +6199,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5737,11 +6253,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5787,11 +6307,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5837,11 +6361,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5887,11 +6415,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5938,11 +6470,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5988,11 +6524,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6037,11 +6577,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6086,11 +6630,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6135,11 +6683,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6184,11 +6736,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6234,11 +6790,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6284,11 +6844,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6333,11 +6897,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6383,11 +6951,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6433,11 +7005,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6483,11 +7059,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6533,11 +7113,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PEP 594 — Removing dead batteries from the standard library",
         url: "https://peps.python.org/pep-0594/",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://peps.python.org/pep-0594/",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6584,11 +7168,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.13",
         url: "https://docs.python.org/3/whatsnew/3.13.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.13.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "What's New in Python 3.9",
         url: "https://docs.python.org/3/whatsnew/3.9.html",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://docs.python.org/3/whatsnew/3.9.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6636,6 +7224,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "What's New in Python 3.12",
         url: "https://docs.python.org/3/whatsnew/3.12.html",
         accessedAt: "2026-11-02",
+        archiveUrl: "https://web.archive.org/web/20261102000000/https://docs.python.org/3/whatsnew/3.12.html",
+        archivedAt: "2026-11-02",
       },
     ],
     provenance: {

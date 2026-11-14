@@ -20,6 +20,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "request package deprecation notice",
         url: "https://www.npmjs.com/package/request",
         accessedAt: "2026-10-13",
+        archiveUrl: "https://web.archive.org/web/20261013000000/https://www.npmjs.com/package/request",
+        archivedAt: "2026-10-13",
       },
     ],
     provenance: {
@@ -95,6 +97,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node Sass is end-of-life",
         url: "https://sass-lang.com/blog/node-sass-is-end-of-life/",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://sass-lang.com/blog/node-sass-is-end-of-life/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -157,6 +161,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "left-pad package deprecation notice",
         url: "https://www.npmjs.com/package/left-pad",
         accessedAt: "2026-10-13",
+        archiveUrl: "https://web.archive.org/web/20261013000000/https://www.npmjs.com/package/left-pad",
+        archivedAt: "2026-10-13",
       },
     ],
     provenance: {
@@ -213,11 +219,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@hapi/joi package deprecation notice",
         url: "https://www.npmjs.com/package/@hapi/joi",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/@hapi/joi",
+        archivedAt: "2026-10-16",
       },
       {
         title: "@hapi/joi registry metadata",
         url: "https://registry.npmjs.org/@hapi%2fjoi/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/@hapi%2fjoi/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -270,11 +280,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "babel-preset-es2015 package deprecation notice",
         url: "https://www.npmjs.com/package/babel-preset-es2015",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/babel-preset-es2015",
+        archivedAt: "2026-10-16",
       },
       {
         title: "babel-preset-es2015 registry metadata",
         url: "https://registry.npmjs.org/babel-preset-es2015/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/babel-preset-es2015/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -329,8 +343,20 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "@hapi/boom",
     sources: [
-      { title: "boom package deprecation notice", url: "https://www.npmjs.com/package/boom", accessedAt: "2026-10-16" },
-      { title: "boom registry metadata", url: "https://registry.npmjs.org/boom/latest", accessedAt: "2026-10-16" },
+      {
+        title: "boom package deprecation notice",
+        url: "https://www.npmjs.com/package/boom",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/boom",
+        archivedAt: "2026-10-16",
+      },
+      {
+        title: "boom registry metadata",
+        url: "https://registry.npmjs.org/boom/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/boom/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -382,11 +408,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "cryptiles package deprecation notice",
         url: "https://www.npmjs.com/package/cryptiles",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/cryptiles",
+        archivedAt: "2026-10-16",
       },
       {
         title: "cryptiles registry metadata",
         url: "https://registry.npmjs.org/cryptiles/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/cryptiles/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -443,11 +473,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "gulp-util package deprecation notice",
         url: "https://www.npmjs.com/package/gulp-util",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/gulp-util",
+        archivedAt: "2026-10-16",
       },
       {
         title: "gulp-util registry metadata",
         url: "https://registry.npmjs.org/gulp-util/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/gulp-util/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -497,11 +531,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "har-validator package deprecation notice",
         url: "https://www.npmjs.com/package/har-validator",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/har-validator",
+        archivedAt: "2026-10-16",
       },
       {
         title: "har-validator registry metadata",
         url: "https://registry.npmjs.org/har-validator/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/har-validator/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -556,11 +594,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "inflight package deprecation notice",
         url: "https://www.npmjs.com/package/inflight",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/inflight",
+        archivedAt: "2026-10-16",
       },
       {
         title: "inflight registry metadata",
         url: "https://registry.npmjs.org/inflight/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/inflight/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -615,8 +657,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "istanbul package deprecation notice",
         url: "https://www.npmjs.com/package/istanbul",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/istanbul",
+        archivedAt: "2026-10-16",
       },
-      { title: "istanbul version metadata", url: "https://registry.npmjs.org/istanbul", accessedAt: "2026-10-16" },
+      {
+        title: "istanbul version metadata",
+        url: "https://registry.npmjs.org/istanbul",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/istanbul",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -665,8 +715,20 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "pug",
     sources: [
-      { title: "jade package deprecation notice", url: "https://www.npmjs.com/package/jade", accessedAt: "2026-10-16" },
-      { title: "jade registry metadata", url: "https://registry.npmjs.org/jade/latest", accessedAt: "2026-10-16" },
+      {
+        title: "jade package deprecation notice",
+        url: "https://www.npmjs.com/package/jade",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/jade",
+        archivedAt: "2026-10-16",
+      },
+      {
+        title: "jade registry metadata",
+        url: "https://registry.npmjs.org/jade/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/jade/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -719,11 +781,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "karma-phantomjs-launcher package deprecation notice",
         url: "https://www.npmjs.com/package/karma-phantomjs-launcher",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/karma-phantomjs-launcher",
+        archivedAt: "2026-10-16",
       },
       {
         title: "karma-phantomjs-launcher registry metadata",
         url: "https://registry.npmjs.org/karma-phantomjs-launcher/latest",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/karma-phantomjs-launcher/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -781,11 +848,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "natives package deprecation notice",
         url: "https://www.npmjs.com/package/natives",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/natives",
+        archivedAt: "2026-10-16",
       },
       {
         title: "natives registry metadata",
         url: "https://registry.npmjs.org/natives/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/natives/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -842,11 +913,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "node-pre-gyp package deprecation notice",
         url: "https://www.npmjs.com/package/node-pre-gyp",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/node-pre-gyp",
+        archivedAt: "2026-10-16",
       },
       {
         title: "node-pre-gyp version metadata",
         url: "https://registry.npmjs.org/node-pre-gyp",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/node-pre-gyp",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -906,8 +981,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "node-sass package deprecation notice",
         url: "https://www.npmjs.com/package/node-sass",
         accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://www.npmjs.com/package/node-sass",
+        archivedAt: "2026-10-30",
       },
-      { title: "node-sass registry metadata", url: "https://registry.npmjs.org/node-sass", accessedAt: "2026-10-30" },
+      {
+        title: "node-sass registry metadata",
+        url: "https://registry.npmjs.org/node-sass",
+        accessedAt: "2026-10-30",
+        archiveUrl: "https://web.archive.org/web/20261030000000/https://registry.npmjs.org/node-sass",
+        archivedAt: "2026-10-30",
+      },
     ],
     provenance: {
       observedAt: "2026-10-30",
@@ -969,8 +1052,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "nomnom package deprecation notice",
         url: "https://www.npmjs.com/package/nomnom",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/nomnom",
+        archivedAt: "2026-10-16",
       },
-      { title: "nomnom registry metadata", url: "https://registry.npmjs.org/nomnom/latest", accessedAt: "2026-10-16" },
+      {
+        title: "nomnom registry metadata",
+        url: "https://registry.npmjs.org/nomnom/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/nomnom/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1026,8 +1117,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "popper.js package deprecation notice",
         url: "https://www.npmjs.com/package/popper.js",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/popper.js",
+        archivedAt: "2026-10-16",
       },
-      { title: "popper.js version metadata", url: "https://registry.npmjs.org/popper.js", accessedAt: "2026-10-16" },
+      {
+        title: "popper.js version metadata",
+        url: "https://registry.npmjs.org/popper.js",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/popper.js",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1081,11 +1180,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "protractor package deprecation notice",
         url: "https://www.npmjs.com/package/protractor",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/protractor",
+        archivedAt: "2026-10-16",
       },
       {
         title: "protractor registry metadata",
         url: "https://registry.npmjs.org/protractor/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/protractor/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1141,11 +1244,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "querystring package deprecation notice",
         url: "https://www.npmjs.com/package/querystring",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/querystring",
+        archivedAt: "2026-10-16",
       },
       {
         title: "querystring registry metadata",
         url: "https://registry.npmjs.org/querystring/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/querystring/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1202,16 +1309,23 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "request-promise package deprecation notice",
         url: "https://www.npmjs.com/package/request-promise",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/request-promise",
+        archivedAt: "2026-10-16",
       },
       {
         title: "request-promise registry metadata",
         url: "https://registry.npmjs.org/request-promise/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/request-promise/latest",
+        archivedAt: "2026-10-16",
       },
       {
         title: "Node.js 18 release announcement: global fetch",
         url: "https://nodejs.org/en/blog/announcements/v18-release-announce",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://nodejs.org/en/blog/announcements/v18-release-announce",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1268,16 +1382,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "request-promise-native package deprecation notice",
         url: "https://www.npmjs.com/package/request-promise-native",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/request-promise-native",
+        archivedAt: "2026-10-16",
       },
       {
         title: "request-promise-native registry metadata",
         url: "https://registry.npmjs.org/request-promise-native/latest",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/request-promise-native/latest",
+        archivedAt: "2026-10-16",
       },
       {
         title: "Node.js 18 release announcement: global fetch",
         url: "https://nodejs.org/en/blog/announcements/v18-release-announce",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://nodejs.org/en/blog/announcements/v18-release-announce",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1334,11 +1456,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "rollup-plugin-babel package deprecation notice",
         url: "https://www.npmjs.com/package/rollup-plugin-babel",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/rollup-plugin-babel",
+        archivedAt: "2026-10-16",
       },
       {
         title: "rollup-plugin-babel version metadata",
         url: "https://registry.npmjs.org/rollup-plugin-babel",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/rollup-plugin-babel",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1393,8 +1519,20 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "@hapi/sntp",
     sources: [
-      { title: "sntp package deprecation notice", url: "https://www.npmjs.com/package/sntp", accessedAt: "2026-10-16" },
-      { title: "sntp registry metadata", url: "https://registry.npmjs.org/sntp/latest", accessedAt: "2026-10-16" },
+      {
+        title: "sntp package deprecation notice",
+        url: "https://www.npmjs.com/package/sntp",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/sntp",
+        archivedAt: "2026-10-16",
+      },
+      {
+        title: "sntp registry metadata",
+        url: "https://registry.npmjs.org/sntp/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/sntp/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1452,8 +1590,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "stable package deprecation notice",
         url: "https://www.npmjs.com/package/stable",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/stable",
+        archivedAt: "2026-10-16",
       },
-      { title: "stable registry metadata", url: "https://registry.npmjs.org/stable/latest", accessedAt: "2026-10-16" },
+      {
+        title: "stable registry metadata",
+        url: "https://registry.npmjs.org/stable/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/stable/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1500,8 +1646,20 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "Native atob() and btoa()",
     sources: [
-      { title: "abab package deprecation notice", url: "https://www.npmjs.com/package/abab", accessedAt: "2026-10-16" },
-      { title: "abab registry metadata", url: "https://registry.npmjs.org/abab/latest", accessedAt: "2026-10-16" },
+      {
+        title: "abab package deprecation notice",
+        url: "https://www.npmjs.com/package/abab",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/abab",
+        archivedAt: "2026-10-16",
+      },
+      {
+        title: "abab registry metadata",
+        url: "https://registry.npmjs.org/abab/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/abab/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1547,11 +1705,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "domexception package deprecation notice",
         url: "https://www.npmjs.com/package/domexception",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/domexception",
+        archivedAt: "2026-10-16",
       },
       {
         title: "domexception registry metadata",
         url: "https://registry.npmjs.org/domexception/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/domexception/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1598,11 +1760,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "w3c-hr-time package deprecation notice",
         url: "https://www.npmjs.com/package/w3c-hr-time",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/w3c-hr-time",
+        archivedAt: "2026-10-16",
       },
       {
         title: "w3c-hr-time registry metadata",
         url: "https://registry.npmjs.org/w3c-hr-time/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/w3c-hr-time/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1654,11 +1820,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "sourcemap-codec package deprecation notice",
         url: "https://www.npmjs.com/package/sourcemap-codec",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/sourcemap-codec",
+        archivedAt: "2026-10-16",
       },
       {
         title: "sourcemap-codec registry metadata",
         url: "https://registry.npmjs.org/sourcemap-codec/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/sourcemap-codec/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1707,11 +1877,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@humanwhocodes/config-array package deprecation notice",
         url: "https://www.npmjs.com/package/@humanwhocodes/config-array",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/@humanwhocodes/config-array",
+        archivedAt: "2026-10-16",
       },
       {
         title: "@humanwhocodes/config-array registry metadata",
         url: "https://registry.npmjs.org/@humanwhocodes%2Fconfig-array/latest",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/@humanwhocodes%2Fconfig-array/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1760,11 +1936,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@humanwhocodes/object-schema package deprecation notice",
         url: "https://www.npmjs.com/package/@humanwhocodes/object-schema",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/@humanwhocodes/object-schema",
+        archivedAt: "2026-10-16",
       },
       {
         title: "@humanwhocodes/object-schema registry metadata",
         url: "https://registry.npmjs.org/@humanwhocodes%2Fobject-schema/latest",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/@humanwhocodes%2Fobject-schema/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1809,8 +1991,20 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "Native Promise",
     sources: [
-      { title: "q package deprecation notice", url: "https://www.npmjs.com/package/q", accessedAt: "2026-10-16" },
-      { title: "q registry metadata", url: "https://registry.npmjs.org/q/latest", accessedAt: "2026-10-16" },
+      {
+        title: "q package deprecation notice",
+        url: "https://www.npmjs.com/package/q",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/q",
+        archivedAt: "2026-10-16",
+      },
+      {
+        title: "q registry metadata",
+        url: "https://registry.npmjs.org/q/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/q/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -1867,11 +2061,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "lodash.get package deprecation notice",
         url: "https://www.npmjs.com/package/lodash.get",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/lodash.get",
+        archivedAt: "2026-10-16",
       },
       {
         title: "lodash.get registry metadata",
         url: "https://registry.npmjs.org/lodash.get/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/lodash.get/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1923,11 +2121,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "lodash.isequal package deprecation notice",
         url: "https://www.npmjs.com/package/lodash.isequal",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/lodash.isequal",
+        archivedAt: "2026-10-16",
       },
       {
         title: "lodash.isequal registry metadata",
         url: "https://registry.npmjs.org/lodash.isequal/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/lodash.isequal/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1982,8 +2184,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "npmlog package deprecation notice",
         url: "https://www.npmjs.com/package/npmlog",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/npmlog",
+        archivedAt: "2026-10-16",
       },
-      { title: "npmlog registry metadata", url: "https://registry.npmjs.org/npmlog/latest", accessedAt: "2026-10-16" },
+      {
+        title: "npmlog registry metadata",
+        url: "https://registry.npmjs.org/npmlog/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/npmlog/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -2030,11 +2240,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "are-we-there-yet package deprecation notice",
         url: "https://www.npmjs.com/package/are-we-there-yet",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/are-we-there-yet",
+        archivedAt: "2026-10-16",
       },
       {
         title: "are-we-there-yet registry metadata",
         url: "https://registry.npmjs.org/are-we-there-yet/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/are-we-there-yet/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -2085,8 +2299,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "gauge package deprecation notice",
         url: "https://www.npmjs.com/package/gauge",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/gauge",
+        archivedAt: "2026-10-16",
       },
-      { title: "gauge registry metadata", url: "https://registry.npmjs.org/gauge/latest", accessedAt: "2026-10-16" },
+      {
+        title: "gauge registry metadata",
+        url: "https://registry.npmjs.org/gauge/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/gauge/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -2133,8 +2355,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "osenv package deprecation notice",
         url: "https://www.npmjs.com/package/osenv",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/osenv",
+        archivedAt: "2026-10-16",
       },
-      { title: "osenv registry metadata", url: "https://registry.npmjs.org/osenv/latest", accessedAt: "2026-10-16" },
+      {
+        title: "osenv registry metadata",
+        url: "https://registry.npmjs.org/osenv/latest",
+        accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/osenv/latest",
+        archivedAt: "2026-10-16",
+      },
     ],
     provenance: {
       observedAt: "2026-10-16",
@@ -2185,11 +2415,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "read-package-json package deprecation notice",
         url: "https://www.npmjs.com/package/read-package-json",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/read-package-json",
+        archivedAt: "2026-10-16",
       },
       {
         title: "read-package-json registry metadata",
         url: "https://registry.npmjs.org/read-package-json/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/read-package-json/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -2241,11 +2475,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@npmcli/move-file package deprecation notice",
         url: "https://www.npmjs.com/package/@npmcli/move-file",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/@npmcli/move-file",
+        archivedAt: "2026-10-16",
       },
       {
         title: "@npmcli/move-file registry metadata",
         url: "https://registry.npmjs.org/@npmcli%2Fmove-file/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/@npmcli%2Fmove-file/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -2296,11 +2534,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "figgy-pudding package deprecation notice",
         url: "https://www.npmjs.com/package/figgy-pudding",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/figgy-pudding",
+        archivedAt: "2026-10-16",
       },
       {
         title: "figgy-pudding registry metadata",
         url: "https://registry.npmjs.org/figgy-pudding/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/figgy-pudding/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -2351,11 +2593,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "fstream package deprecation notice",
         url: "https://www.npmjs.com/package/fstream",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://www.npmjs.com/package/fstream",
+        archivedAt: "2026-10-16",
       },
       {
         title: "fstream registry metadata",
         url: "https://registry.npmjs.org/fstream/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/fstream/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -2408,11 +2654,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "source-map-url maintainer deprecation notice",
         url: "https://github.com/lydell/source-map-url#deprecated",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://github.com/lydell/source-map-url#deprecated",
+        archivedAt: "2026-10-16",
       },
       {
         title: "source-map-url registry metadata",
         url: "https://registry.npmjs.org/source-map-url/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/source-map-url/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -2465,11 +2715,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "resolve-url maintainer deprecation notice",
         url: "https://github.com/lydell/resolve-url#deprecated",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://github.com/lydell/resolve-url#deprecated",
+        archivedAt: "2026-10-16",
       },
       {
         title: "resolve-url registry metadata",
         url: "https://registry.npmjs.org/resolve-url/latest",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://registry.npmjs.org/resolve-url/latest",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -2518,11 +2772,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "@babel/eslint-parser",
     sources: [
-      { title: "babel-eslint on npm", url: "https://www.npmjs.com/package/babel-eslint", accessedAt: "2026-10-17" },
+      {
+        title: "babel-eslint on npm",
+        url: "https://www.npmjs.com/package/babel-eslint",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://www.npmjs.com/package/babel-eslint",
+        archivedAt: "2026-10-17",
+      },
       {
         title: "babel-eslint version metadata",
         url: "https://registry.npmjs.org/babel-eslint",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://registry.npmjs.org/babel-eslint",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -2580,8 +2842,20 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "ESLint with typescript-eslint",
     sources: [
-      { title: "tslint on npm", url: "https://www.npmjs.com/package/tslint", accessedAt: "2026-10-17" },
-      { title: "tslint version metadata", url: "https://registry.npmjs.org/tslint", accessedAt: "2026-10-17" },
+      {
+        title: "tslint on npm",
+        url: "https://www.npmjs.com/package/tslint",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://www.npmjs.com/package/tslint",
+        archivedAt: "2026-10-17",
+      },
+      {
+        title: "tslint version metadata",
+        url: "https://registry.npmjs.org/tslint",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://registry.npmjs.org/tslint",
+        archivedAt: "2026-10-17",
+      },
     ],
     provenance: {
       observedAt: "2026-10-17",
@@ -2634,11 +2908,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "uglify-js (3.13 or later) or terser",
     sources: [
-      { title: "uglify-es on npm", url: "https://www.npmjs.com/package/uglify-es", accessedAt: "2026-10-17" },
+      {
+        title: "uglify-es on npm",
+        url: "https://www.npmjs.com/package/uglify-es",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://www.npmjs.com/package/uglify-es",
+        archivedAt: "2026-10-17",
+      },
       {
         title: "uglify-es registry metadata",
         url: "https://registry.npmjs.org/uglify-es/latest",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://registry.npmjs.org/uglify-es/latest",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -2688,11 +2970,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "Web Crypto API (globalThis.crypto.subtle) or a maintained cryptography library",
     sources: [
-      { title: "crypto-js on npm", url: "https://www.npmjs.com/package/crypto-js", accessedAt: "2026-10-19" },
+      {
+        title: "crypto-js on npm",
+        url: "https://www.npmjs.com/package/crypto-js",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/crypto-js",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "crypto-js registry metadata",
         url: "https://registry.npmjs.org/crypto-js/latest",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/crypto-js/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -2759,11 +3049,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "eslint-plugin-nuxt on npm",
         url: "https://www.npmjs.com/package/eslint-plugin-nuxt",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/eslint-plugin-nuxt",
+        archivedAt: "2026-10-19",
       },
       {
         title: "eslint-plugin-nuxt registry metadata",
         url: "https://registry.npmjs.org/eslint-plugin-nuxt/latest",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/eslint-plugin-nuxt/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -2817,11 +3111,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "i18next-cli",
     sources: [
-      { title: "i18next-parser on npm", url: "https://www.npmjs.com/package/i18next-parser", accessedAt: "2026-10-19" },
+      {
+        title: "i18next-parser on npm",
+        url: "https://www.npmjs.com/package/i18next-parser",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/i18next-parser",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "i18next-parser registry metadata",
         url: "https://registry.npmjs.org/i18next-parser/latest",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/i18next-parser/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -2875,11 +3177,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "@koa/router",
     sources: [
-      { title: "koa-router on npm", url: "https://www.npmjs.com/package/koa-router", accessedAt: "2026-10-19" },
+      {
+        title: "koa-router on npm",
+        url: "https://www.npmjs.com/package/koa-router",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/koa-router",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "koa-router registry metadata",
         url: "https://registry.npmjs.org/koa-router/latest",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/koa-router/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -2932,11 +3242,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "medium",
     replacement: "Nuxt 3",
     sources: [
-      { title: "@nuxt/types on npm", url: "https://www.npmjs.com/package/@nuxt/types", accessedAt: "2026-10-19" },
+      {
+        title: "@nuxt/types on npm",
+        url: "https://www.npmjs.com/package/@nuxt/types",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@nuxt/types",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "@nuxt/types registry metadata",
         url: "https://registry.npmjs.org/@nuxt%2ftypes/latest",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@nuxt%2ftypes/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -2994,11 +3312,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@nuxt/typescript-build on npm",
         url: "https://www.npmjs.com/package/@nuxt/typescript-build",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@nuxt/typescript-build",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@nuxt/typescript-build registry metadata",
         url: "https://registry.npmjs.org/@nuxt%2ftypescript-build/latest",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@nuxt%2ftypescript-build/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3059,16 +3382,23 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "react-beautiful-dnd on npm",
         url: "https://www.npmjs.com/package/react-beautiful-dnd",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/react-beautiful-dnd",
+        archivedAt: "2026-10-19",
       },
       {
         title: "react-beautiful-dnd version metadata",
         url: "https://registry.npmjs.org/react-beautiful-dnd",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/react-beautiful-dnd",
+        archivedAt: "2026-10-19",
       },
       {
         title: "react-beautiful-dnd deprecation announcement",
         url: "https://github.com/atlassian/react-beautiful-dnd/issues/2672",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://github.com/atlassian/react-beautiful-dnd/issues/2672",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3128,11 +3458,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "rollup-plugin-terser on npm",
         url: "https://www.npmjs.com/package/rollup-plugin-terser",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/rollup-plugin-terser",
+        archivedAt: "2026-10-19",
       },
       {
         title: "rollup-plugin-terser registry metadata",
         url: "https://registry.npmjs.org/rollup-plugin-terser/latest",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/rollup-plugin-terser/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3190,11 +3524,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "socket.io-redis on npm",
         url: "https://www.npmjs.com/package/socket.io-redis",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/socket.io-redis",
+        archivedAt: "2026-10-19",
       },
       {
         title: "socket.io-redis version metadata",
         url: "https://registry.npmjs.org/socket.io-redis",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/socket.io-redis",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3249,11 +3587,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "low",
     replacement: "diff",
     sources: [
-      { title: "@types/diff on npm", url: "https://www.npmjs.com/package/@types/diff", accessedAt: "2026-10-19" },
+      {
+        title: "@types/diff on npm",
+        url: "https://www.npmjs.com/package/@types/diff",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/diff",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "@types/diff version metadata",
         url: "https://registry.npmjs.org/@types%2fdiff",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fdiff",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3303,11 +3649,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "low",
     replacement: "dotenv",
     sources: [
-      { title: "@types/dotenv on npm", url: "https://www.npmjs.com/package/@types/dotenv", accessedAt: "2026-10-19" },
+      {
+        title: "@types/dotenv on npm",
+        url: "https://www.npmjs.com/package/@types/dotenv",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/dotenv",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "@types/dotenv version metadata",
         url: "https://registry.npmjs.org/@types%2fdotenv",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fdotenv",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3362,11 +3716,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/emoji-regex on npm",
         url: "https://www.npmjs.com/package/@types/emoji-regex",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/emoji-regex",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/emoji-regex version metadata",
         url: "https://registry.npmjs.org/@types%2femoji-regex",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2femoji-regex",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3421,11 +3779,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/form-data on npm",
         url: "https://www.npmjs.com/package/@types/form-data",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/form-data",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/form-data version metadata",
         url: "https://registry.npmjs.org/@types%2fform-data",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fform-data",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3476,11 +3838,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "low",
     replacement: "glob",
     sources: [
-      { title: "@types/glob on npm", url: "https://www.npmjs.com/package/@types/glob", accessedAt: "2026-10-19" },
+      {
+        title: "@types/glob on npm",
+        url: "https://www.npmjs.com/package/@types/glob",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/glob",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "@types/glob version metadata",
         url: "https://registry.npmjs.org/@types%2fglob",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fglob",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3534,11 +3904,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/koa-helmet on npm",
         url: "https://www.npmjs.com/package/@types/koa-helmet",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/koa-helmet",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/koa-helmet version metadata",
         url: "https://registry.npmjs.org/@types%2fkoa-helmet",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fkoa-helmet",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3593,11 +3967,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/koa-useragent on npm",
         url: "https://www.npmjs.com/package/@types/koa-useragent",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/koa-useragent",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/koa-useragent version metadata",
         url: "https://registry.npmjs.org/@types%2fkoa-useragent",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fkoa-useragent",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3651,11 +4029,19 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "low",
     replacement: "pako",
     sources: [
-      { title: "@types/pako on npm", url: "https://www.npmjs.com/package/@types/pako", accessedAt: "2026-10-19" },
+      {
+        title: "@types/pako on npm",
+        url: "https://www.npmjs.com/package/@types/pako",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/pako",
+        archivedAt: "2026-10-19",
+      },
       {
         title: "@types/pako version metadata",
         url: "https://registry.npmjs.org/@types%2fpako",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fpako",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3709,11 +4095,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/react-virtualized-auto-sizer on npm",
         url: "https://www.npmjs.com/package/@types/react-virtualized-auto-sizer",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/react-virtualized-auto-sizer",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/react-virtualized-auto-sizer version metadata",
         url: "https://registry.npmjs.org/@types%2freact-virtualized-auto-sizer",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2freact-virtualized-auto-sizer",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3771,11 +4163,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/react-window on npm",
         url: "https://www.npmjs.com/package/@types/react-window",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/react-window",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/react-window version metadata",
         url: "https://registry.npmjs.org/@types%2freact-window",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2freact-window",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3833,11 +4229,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/refractor on npm",
         url: "https://www.npmjs.com/package/@types/refractor",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/refractor",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/refractor version metadata",
         url: "https://registry.npmjs.org/@types%2frefractor",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2frefractor",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3892,11 +4292,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/sanitize-filename on npm",
         url: "https://www.npmjs.com/package/@types/sanitize-filename",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/sanitize-filename",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/sanitize-filename version metadata",
         url: "https://registry.npmjs.org/@types%2fsanitize-filename",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fsanitize-filename",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -3954,11 +4358,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/sequelize on npm",
         url: "https://www.npmjs.com/package/@types/sequelize",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/sequelize",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/sequelize version metadata",
         url: "https://registry.npmjs.org/@types%2fsequelize",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fsequelize",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -4013,11 +4421,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "@types/socket.io-client on npm",
         url: "https://www.npmjs.com/package/@types/socket.io-client",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@types/socket.io-client",
+        archivedAt: "2026-10-19",
       },
       {
         title: "@types/socket.io-client version metadata",
         url: "https://registry.npmjs.org/@types%2fsocket.io-client",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@types%2fsocket.io-client",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -4075,11 +4487,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "vue2-script-setup-transform on npm",
         url: "https://www.npmjs.com/package/vue2-script-setup-transform",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/vue2-script-setup-transform",
+        archivedAt: "2026-10-19",
       },
       {
         title: "vue2-script-setup-transform registry metadata",
         url: "https://registry.npmjs.org/vue2-script-setup-transform/latest",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/vue2-script-setup-transform/latest",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -4132,26 +4550,44 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Next.js 16 (Active LTS)",
     deadline: "2023-10-26",
     sources: [
-      { title: "Next.js support policy", url: "https://nextjs.org/support-policy", accessedAt: "2026-10-21" },
+      {
+        title: "Next.js support policy",
+        url: "https://nextjs.org/support-policy",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nextjs.org/support-policy",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "Next.js upgrade guide: version 13",
         url: "https://nextjs.org/docs/pages/building-your-application/upgrading/version-13",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/pages/building-your-application/upgrading/version-13",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 14",
         url: "https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 15",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-15",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-15",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4220,21 +4656,36 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Next.js 16 (Active LTS)",
     deadline: "2024-10-26",
     sources: [
-      { title: "Next.js support policy", url: "https://nextjs.org/support-policy", accessedAt: "2026-10-21" },
+      {
+        title: "Next.js support policy",
+        url: "https://nextjs.org/support-policy",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nextjs.org/support-policy",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "Next.js upgrade guide: version 14",
         url: "https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 15",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-15",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-15",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4303,16 +4754,28 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Next.js 16 (Active LTS)",
     deadline: "2025-10-26",
     sources: [
-      { title: "Next.js support policy", url: "https://nextjs.org/support-policy", accessedAt: "2026-10-21" },
+      {
+        title: "Next.js support policy",
+        url: "https://nextjs.org/support-policy",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://nextjs.org/support-policy",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "Next.js upgrade guide: version 15",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-15",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-15",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4381,11 +4844,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Next.js 16 (Active LTS)",
     deadline: "2026-10-21",
     sources: [
-      { title: "Next.js support policy", url: "https://nextjs.org/support-policy", accessedAt: "2026-10-25" },
+      {
+        title: "Next.js support policy",
+        url: "https://nextjs.org/support-policy",
+        accessedAt: "2026-10-25",
+        archiveUrl: "https://web.archive.org/web/20261025000000/https://nextjs.org/support-policy",
+        archivedAt: "2026-10-25",
+      },
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
         accessedAt: "2026-10-25",
+        archiveUrl:
+          "https://web.archive.org/web/20261025000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
+        archivedAt: "2026-10-25",
       },
     ],
     provenance: {
@@ -4456,21 +4928,31 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "React Native Releases Working Group support policy",
         url: "https://github.com/reactwg/react-native-releases/blob/main/docs/support.md",
         accessedAt: "2026-10-23",
+        archiveUrl:
+          "https://web.archive.org/web/20261023000000/https://github.com/reactwg/react-native-releases/blob/main/docs/support.md",
+        archivedAt: "2026-10-23",
       },
       {
         title: "React Native releases overview",
         url: "https://reactnative.dev/releases/overview",
         accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://reactnative.dev/releases/overview",
+        archivedAt: "2026-10-23",
       },
       {
         title: "React Native upgrading guide",
         url: "https://reactnative.dev/docs/upgrading",
         accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://reactnative.dev/docs/upgrading",
+        archivedAt: "2026-10-23",
       },
       {
         title: "React Native Upgrade Helper",
         url: "https://react-native-community.github.io/upgrade-helper/",
         accessedAt: "2026-10-23",
+        archiveUrl:
+          "https://web.archive.org/web/20261023000000/https://react-native-community.github.io/upgrade-helper/",
+        archivedAt: "2026-10-23",
       },
     ],
     provenance: {
@@ -4547,22 +5029,41 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Vue 3 (vue@^3), following the Vue 3 migration guide",
     deadline: "2023-12-31",
     sources: [
-      { title: "Vue 2 LTS, EOL & Extended Support", url: "https://v2.vuejs.org/lts/", accessedAt: "2026-10-21" },
-      { title: "Vue 3 Migration Guide", url: "https://v3-migration.vuejs.org/", accessedAt: "2026-10-21" },
+      {
+        title: "Vue 2 LTS, EOL & Extended Support",
+        url: "https://v2.vuejs.org/lts/",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://v2.vuejs.org/lts/",
+        archivedAt: "2026-10-21",
+      },
+      {
+        title: "Vue 3 Migration Guide",
+        url: "https://v3-migration.vuejs.org/",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://v3-migration.vuejs.org/",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "Vue 3 Migration Guide: Migration Build",
         url: "https://v3-migration.vuejs.org/migration-build.html",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://v3-migration.vuejs.org/migration-build.html",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Vue 3 Migration Guide: Breaking Changes",
         url: "https://v3-migration.vuejs.org/breaking-changes/",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://v3-migration.vuejs.org/breaking-changes/",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Vue 3 Migration Guide: Global API",
         url: "https://v3-migration.vuejs.org/breaking-changes/global-api.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://v3-migration.vuejs.org/breaking-changes/global-api.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -4638,8 +5139,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
         accessedAt: "2026-10-24",
+        archiveUrl: "https://web.archive.org/web/20261024000000/https://angular.dev/reference/releases",
+        archivedAt: "2026-10-24",
       },
-      { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-24" },
+      {
+        title: "Angular Update Guide",
+        url: "https://angular.dev/update-guide",
+        accessedAt: "2026-10-24",
+        archiveUrl: "https://web.archive.org/web/20261024000000/https://angular.dev/update-guide",
+        archivedAt: "2026-10-24",
+      },
     ],
     provenance: {
       observedAt: "2026-10-24",
@@ -4698,8 +5207,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
         accessedAt: "2026-10-24",
+        archiveUrl: "https://web.archive.org/web/20261024000000/https://angular.dev/reference/releases",
+        archivedAt: "2026-10-24",
       },
-      { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-24" },
+      {
+        title: "Angular Update Guide",
+        url: "https://angular.dev/update-guide",
+        accessedAt: "2026-10-24",
+        archiveUrl: "https://web.archive.org/web/20261024000000/https://angular.dev/update-guide",
+        archivedAt: "2026-10-24",
+      },
     ],
     provenance: {
       observedAt: "2026-10-24",
@@ -4758,8 +5275,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/reference/releases",
+        archivedAt: "2026-10-21",
       },
-      { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-21" },
+      {
+        title: "Angular Update Guide",
+        url: "https://angular.dev/update-guide",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/update-guide",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
@@ -4824,8 +5349,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/reference/releases",
+        archivedAt: "2026-10-21",
       },
-      { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-21" },
+      {
+        title: "Angular Update Guide",
+        url: "https://angular.dev/update-guide",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/update-guide",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
@@ -4890,8 +5423,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/reference/releases",
+        archivedAt: "2026-10-21",
       },
-      { title: "Angular Update Guide", url: "https://angular.dev/update-guide", accessedAt: "2026-10-21" },
+      {
+        title: "Angular Update Guide",
+        url: "https://angular.dev/update-guide",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/update-guide",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",

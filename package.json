@@ -120,6 +120,7 @@
     "ATTRIBUTION.md",
     "!registry/sources.lock.json",
     "!**/*.map",
+    "!dist/*.txt",
     "!registry/github-actions-shas.json"
   ],
   "scripts": {
@@ -142,6 +143,7 @@
     "check": "npm run format:check && npm test",
     "bench": "npm run build --silent && node --input-type=module -e \"import { runAllBenchmarks } from './bench/run.ts'; runAllBenchmarks();\"",
     "check:sources": "npm run build --silent && node dist/tools/check-sources.js",
+    "archive:sources": "npm run build --silent && node dist/tools/archive-sources.js",
     "size": "npm run build --silent && node dist/tools/size.js",
     "build:data-bundle": "npm run build --silent && node dist/tools/build-data-bundle.js",
     "prepack": "npm run build --silent && npm run build:llms"

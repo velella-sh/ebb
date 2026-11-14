@@ -21,6 +21,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -76,6 +79,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-29",
+        archiveUrl:
+          "https://web.archive.org/web/20261029000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-29",
       },
     ],
     provenance: {
@@ -131,6 +137,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -186,6 +195,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-29",
+        archiveUrl:
+          "https://web.archive.org/web/20261029000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-29",
       },
     ],
     provenance: {
@@ -241,6 +253,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -296,6 +311,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -351,6 +369,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -407,6 +428,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -463,6 +487,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -519,6 +546,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -575,6 +605,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -631,6 +664,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -687,6 +723,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-11-07",
       },
     ],
     provenance: {
@@ -741,6 +780,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -797,6 +839,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -853,6 +898,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -909,6 +957,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -965,6 +1016,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1021,6 +1075,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1077,6 +1134,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1133,6 +1193,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1188,6 +1251,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1244,6 +1310,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1300,6 +1369,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1355,6 +1427,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1411,6 +1486,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1467,6 +1545,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1522,6 +1603,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1578,6 +1662,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1633,6 +1720,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1688,6 +1778,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1743,6 +1836,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1798,6 +1894,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1853,6 +1952,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1908,6 +2010,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1963,6 +2068,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2018,6 +2126,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2073,6 +2184,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2128,6 +2242,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2183,6 +2300,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2238,6 +2358,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2293,6 +2416,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2348,6 +2474,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2403,6 +2532,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2458,6 +2590,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2513,6 +2648,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2568,6 +2706,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2623,6 +2764,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2678,6 +2822,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2733,6 +2880,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2788,6 +2938,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2843,6 +2996,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2898,6 +3054,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -2953,6 +3112,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3009,6 +3171,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3065,6 +3230,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3121,6 +3289,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3177,6 +3348,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3232,6 +3406,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3287,6 +3464,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3343,6 +3523,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3399,6 +3582,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3455,6 +3641,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3511,6 +3700,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3567,6 +3759,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3623,6 +3818,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3679,6 +3877,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3735,6 +3936,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3791,6 +3995,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3847,6 +4054,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3903,6 +4113,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -3959,6 +4172,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4015,6 +4231,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4071,6 +4290,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4126,6 +4348,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4182,6 +4407,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4238,6 +4466,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4294,6 +4525,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4350,6 +4584,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4406,6 +4643,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4462,6 +4702,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4518,6 +4761,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4574,6 +4820,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4630,6 +4879,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4686,6 +4938,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4741,6 +4996,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4796,6 +5054,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4851,6 +5112,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4906,6 +5170,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -4961,6 +5228,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5016,6 +5286,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5071,6 +5344,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5126,6 +5402,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5181,6 +5460,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5236,6 +5518,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5291,6 +5576,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5346,6 +5634,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5401,6 +5692,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5456,6 +5750,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5511,6 +5808,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5566,6 +5866,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5621,6 +5924,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5676,6 +5982,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5731,6 +6040,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5786,6 +6098,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5841,6 +6156,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5896,6 +6214,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -5951,6 +6272,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6006,6 +6330,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6061,6 +6388,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6116,6 +6446,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6171,6 +6504,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6226,6 +6562,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6281,6 +6620,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6336,6 +6678,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6391,6 +6736,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6446,6 +6794,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6501,6 +6852,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6556,6 +6910,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6611,6 +6968,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -6665,8 +7025,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
+      {
+        title: "Node.js End-of-life",
+        url: "https://nodejs.org/en/about/eol",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -6726,8 +7095,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
+      {
+        title: "Node.js End-of-life",
+        url: "https://nodejs.org/en/about/eol",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -6788,8 +7166,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
+      {
+        title: "Node.js End-of-life",
+        url: "https://nodejs.org/en/about/eol",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -6850,8 +7237,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "Node.js End-of-life", url: "https://nodejs.org/en/about/eol", accessedAt: "2026-11-03" },
+      {
+        title: "Node.js End-of-life",
+        url: "https://nodejs.org/en/about/eol",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -6912,8 +7308,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-11-03" },
+      {
+        title: "Status of Python versions",
+        url: "https://devguide.python.org/versions/",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://devguide.python.org/versions/",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -6974,8 +7379,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-11-03" },
+      {
+        title: "Status of Python versions",
+        url: "https://devguide.python.org/versions/",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://devguide.python.org/versions/",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -7036,8 +7450,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "PHP: End-of-Life Versions", url: "https://www.php.net/eol.php", accessedAt: "2026-11-03" },
+      {
+        title: "PHP: End-of-Life Versions",
+        url: "https://www.php.net/eol.php",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://www.php.net/eol.php",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -7098,8 +7521,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "PHP: End-of-Life Versions", url: "https://www.php.net/eol.php", accessedAt: "2026-11-03" },
+      {
+        title: "PHP: End-of-Life Versions",
+        url: "https://www.php.net/eol.php",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://www.php.net/eol.php",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -7160,8 +7592,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "PHP: End-of-Life Versions", url: "https://www.php.net/eol.php", accessedAt: "2026-11-03" },
+      {
+        title: "PHP: End-of-Life Versions",
+        url: "https://www.php.net/eol.php",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://www.php.net/eol.php",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -7222,11 +7663,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -7288,11 +7735,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -7354,11 +7807,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -7420,11 +7879,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -7486,11 +7951,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -7552,11 +8023,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -7618,8 +8095,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
+        archivedAt: "2026-11-03",
       },
-      { title: "Temurin Support", url: "https://adoptium.net/support/", accessedAt: "2026-11-03" },
+      {
+        title: "Temurin Support",
+        url: "https://adoptium.net/support/",
+        accessedAt: "2026-11-03",
+        archiveUrl: "https://web.archive.org/web/20261103000000/https://adoptium.net/support/",
+        archivedAt: "2026-11-03",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
@@ -7681,6 +8167,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Compare Azure Functions runtime versions",
         url: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {
@@ -7742,6 +8231,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Compare Azure Functions runtime versions",
         url: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
         accessedAt: "2026-11-03",
+        archiveUrl:
+          "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
+        archivedAt: "2026-11-03",
       },
     ],
     provenance: {

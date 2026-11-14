@@ -193,3 +193,30 @@ To update `registry/sources.lock.json` after reviewing reported changes:
 node dist/tools/check-sources.js --update-lock
 ```
 
+---
+
+## Wayback Machine Archival & Coverage
+
+To guarantee that lifecycle claims remain auditable even if an upstream vendor modifies or deletes their documentation, every source URL is archived in the **Wayback Machine** (`web.archive.org`) and **archive.today**.
+
+### Archival Standards
+
+- **Target Coverage:** At least 95% of all evidence URLs have an immutable snapshot URL recorded in both `registry/sources.lock.json` and rule metadata.
+- **Automated Fallback:** When the Wayback Machine API throttles (HTTP 429) or experiences downtime, requests automatically fall back to `archive.today`.
+- **Reviewer Inspection:** Snapshot URLs and capture dates are exposed directly in `sourcesOf(ruleId)` and the `ebb sources <rule-id>` CLI output.
+
+### Archival Commands
+
+Measure archive coverage across all registries:
+
+```bash
+node dist/tools/archive-sources.js --report
+```
+
+Backfill missing archive URLs across all registry files and `sources.lock.json`:
+
+```bash
+node dist/tools/archive-sources.js --backfill
+```
+
+

@@ -21,11 +21,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Elixir security policy",
         url: "https://github.com/elixir-lang/elixir/security/policy",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/security/policy",
+        archivedAt: "2026-10-26",
       },
       {
         title: "Elixir v1.20.0 release",
         url: "https://github.com/elixir-lang/elixir/releases/tag/v1.20.0",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/releases/tag/v1.20.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -80,11 +85,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Elixir security policy",
         url: "https://github.com/elixir-lang/elixir/security/policy",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/security/policy",
+        archivedAt: "2026-10-26",
       },
       {
         title: "Elixir v1.19.0 release",
         url: "https://github.com/elixir-lang/elixir/releases/tag/v1.19.0",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/releases/tag/v1.19.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -139,11 +149,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Erlang/OTP security policy",
         url: "https://github.com/erlang/otp/security/policy",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/security/policy",
+        archivedAt: "2026-10-26",
       },
       {
         title: "OTP 29.0 release",
         url: "https://github.com/erlang/otp/releases/tag/OTP-29.0",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/releases/tag/OTP-29.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -201,11 +215,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Erlang/OTP security policy",
         url: "https://github.com/erlang/otp/security/policy",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/security/policy",
+        archivedAt: "2026-10-26",
       },
       {
         title: "OTP 28.0 release",
         url: "https://github.com/erlang/otp/releases/tag/OTP-28.0",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/releases/tag/OTP-28.0",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -258,8 +276,20 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "mongooseice",
     sources: [
-      { title: "fennec on Hex", url: "https://hex.pm/packages/fennec", accessedAt: "2026-10-26" },
-      { title: "mongooseice on Hex", url: "https://hex.pm/packages/mongooseice", accessedAt: "2026-10-26" },
+      {
+        title: "fennec on Hex",
+        url: "https://hex.pm/packages/fennec",
+        accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://hex.pm/packages/fennec",
+        archivedAt: "2026-10-26",
+      },
+      {
+        title: "mongooseice on Hex",
+        url: "https://hex.pm/packages/mongooseice",
+        accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://hex.pm/packages/mongooseice",
+        archivedAt: "2026-10-26",
+      },
     ],
     provenance: {
       observedAt: "2026-10-26",

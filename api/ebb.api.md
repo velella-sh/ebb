@@ -153,6 +153,10 @@ export interface EvidenceSource {
     // (undocumented)
     accessedAt?: string;
     // (undocumented)
+    archivedAt?: string;
+    // (undocumented)
+    archiveUrl?: string;
+    // (undocumented)
     title: string;
     // (undocumented)
     url: string;
@@ -273,6 +277,7 @@ export type Severity = "info" | "low" | "medium" | "high" | "critical";
 // @public (undocumented)
 export interface SourceEntry {
     readonly accessedAt?: string | undefined;
+    readonly archivedAt?: string | undefined;
     readonly archiveUrl?: string | undefined;
     readonly health: SourceHealthStatus;
     readonly status: SourceHealthStatus;

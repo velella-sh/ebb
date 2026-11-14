@@ -21,6 +21,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -80,6 +83,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -139,6 +145,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -198,6 +207,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -257,6 +269,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -317,6 +332,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Meet Google Play's target API level requirement",
         url: "https://developer.android.com/google/play/requirements/target-sdk",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://developer.android.com/google/play/requirements/target-sdk",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {

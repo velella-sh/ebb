@@ -17,8 +17,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2026-08-12",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
+        archivedAt: "2026-10-21",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
@@ -76,8 +88,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2026-05-18",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
+        archivedAt: "2026-10-21",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
@@ -135,8 +159,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2026-02-11",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
+        archivedAt: "2026-10-21",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
@@ -194,8 +230,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2025-11-12",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
+        archivedAt: "2026-10-21",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
@@ -253,8 +301,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2025-08-13",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-10-21" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-10-21" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
+        archivedAt: "2026-10-21",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
+        archivedAt: "2026-10-21",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
@@ -312,8 +372,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2025-05-14",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -371,8 +443,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2025-02-12",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -430,8 +514,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2024-12-11",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -489,8 +585,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2024-08-07",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -548,8 +656,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2024-05-14",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -607,8 +727,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2024-02-15",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -666,8 +798,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2023-12-06",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -725,8 +869,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2023-08-16",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -784,8 +940,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Dart 3.13 or later",
     deadline: "2023-05-10",
     sources: [
-      { title: "Dart security policy", url: "https://dart.dev/security", accessedAt: "2026-11-07" },
-      { title: "Dart changelog", url: "https://dart.dev/changelog", accessedAt: "2026-11-07" },
+      {
+        title: "Dart security policy",
+        url: "https://dart.dev/security",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
+        archivedAt: "2026-11-07",
+      },
+      {
+        title: "Dart changelog",
+        url: "https://dart.dev/changelog",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -844,16 +1012,23 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "analysis_server_client on pub.dev",
         url: "https://pub.dev/packages/analysis_server_client",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://pub.dev/packages/analysis_server_client",
+        archivedAt: "2026-10-21",
       },
       {
         title: "analysis_server_client package metadata",
         url: "https://pub.dev/api/packages/analysis_server_client",
         accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://pub.dev/api/packages/analysis_server_client",
+        archivedAt: "2026-10-21",
       },
       {
         title: "Hosted Pub Repository Specification Version 2",
         url: "https://github.com/dart-lang/pub/blob/master/doc/repository-spec-v2.md",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://github.com/dart-lang/pub/blob/master/doc/repository-spec-v2.md",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {

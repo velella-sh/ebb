@@ -21,11 +21,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Scala development guarantees — Scala 2.11 status",
         url: "https://scala-lang.org/development/",
         accessedAt: "2026-10-27",
+        archiveUrl: "https://web.archive.org/web/20261027000000/https://scala-lang.org/development/",
+        archivedAt: "2026-10-27",
       },
       {
         title: "Scala 2 maintenance plans",
         url: "https://www.scala-lang.org/blog/2024/12/16/scala-2-maintenance.html",
         accessedAt: "2026-10-27",
+        archiveUrl:
+          "https://web.archive.org/web/20261027000000/https://www.scala-lang.org/blog/2024/12/16/scala-2-maintenance.html",
+        archivedAt: "2026-10-27",
       },
     ],
     provenance: {
@@ -79,8 +84,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Scala development guarantees — Scala 3 LTS",
         url: "https://scala-lang.org/development/",
         accessedAt: "2026-10-27",
+        archiveUrl: "https://web.archive.org/web/20261027000000/https://scala-lang.org/development/",
+        archivedAt: "2026-10-27",
       },
-      { title: "Scala 3.9 LTS released", url: "https://scala-lang.org/news/3.9/", accessedAt: "2026-10-27" },
+      {
+        title: "Scala 3.9 LTS released",
+        url: "https://scala-lang.org/news/3.9/",
+        accessedAt: "2026-10-27",
+        archiveUrl: "https://web.archive.org/web/20261027000000/https://scala-lang.org/news/3.9/",
+        archivedAt: "2026-10-27",
+      },
     ],
     provenance: {
       observedAt: "2026-10-27",
@@ -134,11 +147,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "sbt download — release timeline",
         url: "https://www.scala-sbt.org/download/",
         accessedAt: "2026-10-27",
+        archiveUrl: "https://web.archive.org/web/20261027000000/https://www.scala-sbt.org/download/",
+        archivedAt: "2026-10-27",
       },
       {
         title: "Migrating from sbt 0.13.x",
         url: "https://www.scala-sbt.org/1.x/docs/Migrating-from-sbt-013x.html",
         accessedAt: "2026-10-27",
+        archiveUrl:
+          "https://web.archive.org/web/20261027000000/https://www.scala-sbt.org/1.x/docs/Migrating-from-sbt-013x.html",
+        archivedAt: "2026-10-27",
       },
     ],
     provenance: {

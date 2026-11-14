@@ -30,6 +30,8 @@ export interface SourceEntry {
   readonly accessedAt?: string | undefined;
   /** Archive snapshot URL (e.g. Wayback Machine), when one exists. */
   readonly archiveUrl?: string | undefined;
+  /** Date the archive snapshot was captured (YYYY-MM-DD), when recorded. */
+  readonly archivedAt?: string | undefined;
   /** Health status of the source page. */
   readonly health: SourceHealthStatus;
   /** Alias for `health`. */
@@ -76,6 +78,7 @@ interface LockEntry {
   title?: string | null;
   checkedAt?: string;
   archiveUrl?: string;
+  archivedAt?: string;
   status?: SourceHealthStatus;
 }
 
@@ -97,6 +100,17 @@ function bundledRegistry(ecosystem: string): RegistryV2 | undefined {
   } catch {
     // DataLoader error ignored
   }
+
+  try {
+    const filePath = findPackageFileSync(`registry/${ecosystem}.json`, import.meta.url);
+    const content = JSON.parse(readFileSync(filePath, "utf8"));
+    const validated = validateRegistryV2(content);
+    registryCache.set(ecosystem, validated);
+    return validated;
+  } catch {
+    // File not found on disk ignored
+  }
+
   return undefined;
 }
 
@@ -186,6 +200,23 @@ function resolveArchiveUrl(
   return undefined;
 }
 
+function resolveArchivedAt(
+  source: Record<string, unknown>,
+  lock: Record<string, LockEntry> | null,
+): string | undefined {
+  if (typeof source.archivedAt === "string" && source.archivedAt) {
+    return source.archivedAt;
+  }
+  const url = typeof source.url === "string" ? source.url : "";
+  if (lock) {
+    const entry = lock[url] ?? lock[url.replace(/\/$/, "")] ?? lock[`${url}/`];
+    if (typeof entry?.archivedAt === "string" && entry.archivedAt) {
+      return entry.archivedAt;
+    }
+  }
+  return undefined;
+}
+
 /**
  * Returns evidence sources, archive snapshot URLs, health status, and review provenance
  * for an individual lifecycle rule.
@@ -250,11 +281,13 @@ export function sourcesOf(ruleId: string, options: SourcesOfOptions = {}): Sourc
     const sRec = s as unknown as Record<string, unknown>;
     const health = resolveSourceHealth(sRec, lock);
     const archiveUrl = resolveArchiveUrl(sRec, lock);
+    const archivedAt = resolveArchivedAt(sRec, lock);
     return {
       title: s.title,
       url: s.url,
       ...(s.accessedAt ? { accessedAt: s.accessedAt } : {}),
       ...(archiveUrl ? { archiveUrl } : {}),
+      ...(archivedAt ? { archivedAt } : {}),
       health,
       status: health,
     };

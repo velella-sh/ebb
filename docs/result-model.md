@@ -42,6 +42,8 @@ Defined in `src/domain.ts` and used by both `ResultMatch.sources` and `LookupFin
 | `title` | `string` | Name of the evidence page. |
 | `url` | `string` | URL of that page (`https://`). |
 | `accessedAt` | `string` (optional) | Day the page was reviewed (`YYYY-MM-DD`). |
+| `archiveUrl` | `string` (optional) | Archived snapshot URL (`https://`). |
+| `archivedAt` | `string` (optional) | Day the snapshot was recorded (`YYYY-MM-DD`). |
 
 ## Complete examples
 
@@ -284,6 +286,28 @@ Example:
 
 - **Type:** `YYYY-MM-DD` `string` (optional)
 - **Meaning:** Calendar day that source page was fetched or checked when recording provenance, when supplied by the registry rule. Distinct from `reviewedAt` on the rule/match.
+
+Example:
+
+```json
+"2026-10-24"
+```
+
+### `archiveUrl`
+
+- **Type:** `https://` URL `string` (optional)
+- **Meaning:** Archived copy of the evidence page (Wayback Machine or archive.today) preserving the claim.
+
+Example:
+
+```json
+"https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json"
+```
+
+### `archivedAt`
+
+- **Type:** `YYYY-MM-DD` `string` (optional)
+- **Meaning:** Calendar day the archive snapshot was recorded or captured.
 
 Example:
 

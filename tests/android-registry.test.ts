@@ -73,13 +73,10 @@ test("existing default targetSdk below 35 matches Play's end-of-support floor", 
     rule.replacement,
     "targetSdk 35 or higher (existing apps (availability to new users on newer OS versions); default (phone and tablet) apps)",
   );
-  assert.deepEqual(rule.sources, [
-    {
-      title: "Meet Google Play's target API level requirement",
-      url: "https://developer.android.com/google/play/requirements/target-sdk",
-      accessedAt: "2026-10-30",
-    },
-  ]);
+  assert.equal(rule.sources.length, 1);
+  assert.equal(rule.sources[0]!.title, "Meet Google Play's target API level requirement");
+  assert.equal(rule.sources[0]!.url, "https://developer.android.com/google/play/requirements/target-sdk");
+  assert.equal(rule.sources[0]!.accessedAt, "2026-10-30");
   assert.match(rule.summary, /Existing apps must target Android 15 \(API level 35\)/);
   assert.match(rule.summary, /extension to 2026-11-01/);
   assert.equal(rule.provenance.reviewer, "arminazimi");

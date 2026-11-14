@@ -21,6 +21,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-29",
+        archiveUrl: "https://web.archive.org/web/20261029000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-29",
       },
     ],
     provenance: {
@@ -100,8 +102,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-22",
+        archiveUrl: "https://web.archive.org/web/20261022000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-22",
       },
-      { title: "endoflife.date: PostgreSQL", url: "https://endoflife.date/postgresql", accessedAt: "2026-10-22" },
+      {
+        title: "endoflife.date: PostgreSQL",
+        url: "https://endoflife.date/postgresql",
+        accessedAt: "2026-10-22",
+        archiveUrl: "https://web.archive.org/web/20261022000000/https://endoflife.date/postgresql",
+        archivedAt: "2026-10-22",
+      },
     ],
     provenance: {
       observedAt: "2026-10-22",
@@ -180,8 +190,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-22",
+        archiveUrl: "https://web.archive.org/web/20261022000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-22",
       },
-      { title: "endoflife.date: PostgreSQL", url: "https://endoflife.date/postgresql", accessedAt: "2026-10-22" },
+      {
+        title: "endoflife.date: PostgreSQL",
+        url: "https://endoflife.date/postgresql",
+        accessedAt: "2026-10-22",
+        archiveUrl: "https://web.archive.org/web/20261022000000/https://endoflife.date/postgresql",
+        archivedAt: "2026-10-22",
+      },
     ],
     provenance: {
       observedAt: "2026-10-22",
@@ -260,8 +278,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-22",
+        archiveUrl: "https://web.archive.org/web/20261022000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-22",
       },
-      { title: "endoflife.date: PostgreSQL", url: "https://endoflife.date/postgresql", accessedAt: "2026-10-22" },
+      {
+        title: "endoflife.date: PostgreSQL",
+        url: "https://endoflife.date/postgresql",
+        accessedAt: "2026-10-22",
+        archiveUrl: "https://web.archive.org/web/20261022000000/https://endoflife.date/postgresql",
+        archivedAt: "2026-10-22",
+      },
     ],
     provenance: {
       observedAt: "2026-10-22",
@@ -340,6 +366,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-24",
+        archiveUrl: "https://web.archive.org/web/20261024000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-24",
       },
     ],
     provenance: {
@@ -419,8 +447,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
+        archivedAt: "2026-11-07",
       },
-      { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
+      {
+        title: "endoflife.date: MySQL",
+        url: "https://endoflife.date/mysql",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -499,8 +536,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
+        archivedAt: "2026-11-07",
       },
-      { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
+      {
+        title: "endoflife.date: MySQL",
+        url: "https://endoflife.date/mysql",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -579,8 +625,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Redis Open Source version management",
         url: "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
         accessedAt: "2026-10-29",
+        archiveUrl:
+          "https://web.archive.org/web/20261029000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+        archivedAt: "2026-10-29",
       },
-      { title: "endoflife.date: Redis", url: "https://endoflife.date/redis", accessedAt: "2026-10-29" },
+      {
+        title: "endoflife.date: Redis",
+        url: "https://endoflife.date/redis",
+        accessedAt: "2026-10-29",
+        archiveUrl: "https://web.archive.org/web/20261029000000/https://endoflife.date/redis",
+        archivedAt: "2026-10-29",
+      },
     ],
     provenance: {
       observedAt: "2026-10-29",
@@ -660,11 +715,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Azure Database for PostgreSQL version policy",
         url: "https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-version-policy",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-version-policy",
+        archivedAt: "2026-10-26",
       },
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -748,13 +808,25 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Azure Database for MySQL version support policy",
         url: "https://learn.microsoft.com/en-us/azure/mysql/concepts-version-policy",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://learn.microsoft.com/en-us/azure/mysql/concepts-version-policy",
+        archivedAt: "2026-11-07",
       },
       {
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
+        archivedAt: "2026-11-07",
       },
-      { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
+      {
+        title: "endoflife.date: MySQL",
+        url: "https://endoflife.date/mysql",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -837,11 +909,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud SQL for PostgreSQL database versions and version policies",
         url: "https://cloud.google.com/sql/docs/postgres/db-versions",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/sql/docs/postgres/db-versions",
+        archivedAt: "2026-10-26",
       },
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -926,11 +1002,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud SQL for PostgreSQL database versions and version policies",
         url: "https://cloud.google.com/sql/docs/postgres/db-versions",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/sql/docs/postgres/db-versions",
+        archivedAt: "2026-10-26",
       },
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://www.postgresql.org/support/versioning/",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1015,13 +1095,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Cloud SQL for MySQL database versions and version policies",
         url: "https://cloud.google.com/sql/docs/mysql/db-versions",
         accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://cloud.google.com/sql/docs/mysql/db-versions",
+        archivedAt: "2026-11-07",
       },
       {
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
         accessedAt: "2026-11-07",
+        archiveUrl:
+          "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
+        archivedAt: "2026-11-07",
       },
-      { title: "endoflife.date: MySQL", url: "https://endoflife.date/mysql", accessedAt: "2026-11-07" },
+      {
+        title: "endoflife.date: MySQL",
+        url: "https://endoflife.date/mysql",
+        accessedAt: "2026-11-07",
+        archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
+        archivedAt: "2026-11-07",
+      },
     ],
     provenance: {
       observedAt: "2026-11-07",
@@ -1105,11 +1196,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1190,11 +1287,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1276,11 +1379,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1362,11 +1471,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1448,11 +1563,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1534,11 +1655,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1620,11 +1747,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MySQL on Amazon RDS versions",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1706,11 +1839,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MySQL on Amazon RDS versions",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1792,11 +1931,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1878,11 +2023,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -1964,11 +2115,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2050,11 +2207,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2136,11 +2299,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon Aurora MySQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2222,11 +2391,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Release calendars for Amazon Aurora MySQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2308,11 +2483,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Engine versions and upgrading in ElastiCache",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "ElastiCache Extended Support",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2394,11 +2575,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Engine versions and upgrading in ElastiCache",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "ElastiCache Extended Support",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2480,11 +2667,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Engine versions and upgrading in ElastiCache",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
+        archivedAt: "2026-10-30",
       },
       {
         title: "ElastiCache Extended Support",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -2564,21 +2757,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2662,21 +2864,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2760,21 +2971,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2858,21 +3078,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2956,21 +3185,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3054,21 +3292,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3152,21 +3399,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3250,21 +3506,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3348,21 +3613,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3446,21 +3720,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3544,21 +3827,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3642,21 +3934,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3740,21 +4041,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3838,21 +4148,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -3936,21 +4255,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -4034,21 +4362,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "MongoDB Server support policy (vendor)",
         url: "https://www.mongodb.com/legal/support-policy",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://www.mongodb.com/legal/support-policy",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/mongodb",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/mongodb",
+        archivedAt: "2026-11-10",
       },
       {
         title: "MongoDB Versions and Upgrade Paths",
         url: "https://www.mongodb.com/docs/mongodb-versions/",
         accessedAt: "2026-11-11",
+        archiveUrl: "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/mongodb-versions/",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Upgrade a Replica Set to MongoDB 8.0",
         url: "https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://www.mongodb.com/docs/manual/release-notes/8.0-upgrade-replica-set/",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -4132,16 +4469,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Redis support policy (vendor)",
         url: "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/redis",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/redis",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Redis 7.0 release notes",
         url: "https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -4222,16 +4567,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Redis support policy (vendor)",
         url: "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+        archivedAt: "2026-11-10",
       },
       {
         title: "endoflife.date (index; the vendor page above is the evidence)",
         url: "https://endoflife.date/redis",
         accessedAt: "2026-11-10",
+        archiveUrl: "https://web.archive.org/web/20261110000000/https://endoflife.date/redis",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Redis 7.0 release notes",
         url: "https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {

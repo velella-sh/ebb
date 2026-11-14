@@ -346,6 +346,7 @@ Shortened. The full format is in [docs/RULES.md](docs/RULES.md) and [`schemas/`]
 Every rule cites authoritative evidence with strict auditability and health monitoring:
 - **Provenance audit trail:** Every rule specifies its creation `method` (`manual`, `imported`, or `upstream`), reviewers list, and importer metadata.
 - **Continuous link checks:** Sources are locked in [`registry/sources.lock.json`](registry/sources.lock.json) and audited weekly by [`.github/workflows/sources.yml`](.github/workflows/sources.yml) with backoff retry, redirect tracking, and content version verification.
+- **Wayback archive preservation:** 100% of evidence sources are archived in the Wayback Machine and archive.today, preserving immutable proof of lifecycle events.
 - **Community issue triage:** Dead links automatically open issues labeled `good first issue` and `help wanted` for straightforward replacement. See [docs/sources-of.md](docs/sources-of.md).
 
 ## Performance

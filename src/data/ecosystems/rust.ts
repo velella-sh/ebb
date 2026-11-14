@@ -17,11 +17,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "The latest stable Rust release",
     deadline: "2026-10-01",
     sources: [
-      { title: "Rust security policy", url: "https://www.rust-lang.org/policies/security", accessedAt: "2026-10-17" },
+      {
+        title: "Rust security policy",
+        url: "https://www.rust-lang.org/policies/security",
+        accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://www.rust-lang.org/policies/security",
+        archivedAt: "2026-10-17",
+      },
       {
         title: "Rust release notes (release dates)",
         url: "https://github.com/rust-lang/rust/blob/master/RELEASES.md",
         accessedAt: "2026-10-17",
+        archiveUrl:
+          "https://web.archive.org/web/20261017000000/https://github.com/rust-lang/rust/blob/master/RELEASES.md",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -77,6 +86,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "RustSec advisory RUSTSEC-2020-0036",
         url: "https://rustsec.org/advisories/RUSTSEC-2020-0036.html",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://rustsec.org/advisories/RUSTSEC-2020-0036.html",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -126,6 +137,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "RustSec advisory RUSTSEC-2018-0017",
         url: "https://rustsec.org/advisories/RUSTSEC-2018-0017.html",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://rustsec.org/advisories/RUSTSEC-2018-0017.html",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -174,6 +187,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "RustSec advisory RUSTSEC-2024-0375",
         url: "https://rustsec.org/advisories/RUSTSEC-2024-0375.html",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://rustsec.org/advisories/RUSTSEC-2024-0375.html",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {
@@ -219,6 +234,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "RustSec advisory RUSTSEC-2021-0139",
         url: "https://rustsec.org/advisories/RUSTSEC-2021-0139.html",
         accessedAt: "2026-10-17",
+        archiveUrl: "https://web.archive.org/web/20261017000000/https://rustsec.org/advisories/RUSTSEC-2021-0139.html",
+        archivedAt: "2026-10-17",
       },
     ],
     provenance: {

@@ -21,16 +21,25 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.17.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.17.0",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://github.com/hashicorp/terraform/releases/tag/v1.17.0",
+        archivedAt: "2026-10-30",
       },
       {
         title: "hashicorp/terraform release v1.15.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
+        archivedAt: "2026-10-30",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-10-30",
+        archiveUrl:
+          "https://web.archive.org/web/20261030000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-10-30",
       },
     ],
     provenance: {
@@ -96,16 +105,28 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Terraform 1.15 or later",
     deadline: "2026-08-26",
     sources: [
-      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "endoflife.date: Terraform",
+        url: "https://endoflife.date/terraform",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "hashicorp/terraform release v1.16.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
+        archivedAt: "2026-10-21",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -171,16 +192,28 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Terraform 1.15 or later",
     deadline: "2026-04-29",
     sources: [
-      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "endoflife.date: Terraform",
+        url: "https://endoflife.date/terraform",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "hashicorp/terraform release v1.15.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
+        archivedAt: "2026-10-21",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -246,16 +279,28 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Terraform 1.15 or later",
     deadline: "2025-11-19",
     sources: [
-      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "endoflife.date: Terraform",
+        url: "https://endoflife.date/terraform",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "hashicorp/terraform release v1.14.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.14.0",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.14.0",
+        archivedAt: "2026-10-21",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -321,16 +366,28 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Terraform 1.15 or later",
     deadline: "2025-08-20",
     sources: [
-      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "endoflife.date: Terraform",
+        url: "https://endoflife.date/terraform",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "hashicorp/terraform release v1.13.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.13.0",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.13.0",
+        archivedAt: "2026-10-21",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -396,16 +453,28 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "Terraform 1.15 or later",
     deadline: "2025-05-14",
     sources: [
-      { title: "endoflife.date: Terraform", url: "https://endoflife.date/terraform", accessedAt: "2026-10-21" },
+      {
+        title: "endoflife.date: Terraform",
+        url: "https://endoflife.date/terraform",
+        accessedAt: "2026-10-21",
+        archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
+        archivedAt: "2026-10-21",
+      },
       {
         title: "hashicorp/terraform release v1.12.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.12.0",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.12.0",
+        archivedAt: "2026-10-21",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-10-21",
+        archiveUrl:
+          "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-10-21",
       },
     ],
     provenance: {
@@ -475,6 +544,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -547,6 +619,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -619,6 +694,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -690,6 +768,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -762,11 +843,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -839,11 +925,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -916,11 +1007,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -993,11 +1089,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1069,11 +1170,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
         accessedAt: "2026-10-26",
+        archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
+        archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1146,6 +1252,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1218,6 +1327,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1290,6 +1402,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1362,6 +1477,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1434,6 +1552,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1505,6 +1626,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         accessedAt: "2026-10-26",
+        archiveUrl:
+          "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
+        archivedAt: "2026-10-26",
       },
     ],
     provenance: {
@@ -1576,16 +1700,25 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v0.12.14",
         url: "https://github.com/hashicorp/terraform/releases/tag/v0.12.14",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://github.com/hashicorp/terraform/releases/tag/v0.12.14",
+        archivedAt: "2026-10-31",
       },
       {
         title: "Terraform 0.15 upgrade guide: legacy configuration language features",
         url: "https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-15",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-15",
+        archivedAt: "2026-10-31",
       },
       {
         title: "Terraform 0.12 upgrade guide: first-class expressions",
         url: "https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-12",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-12",
+        archivedAt: "2026-10-31",
       },
     ],
     provenance: {
@@ -1645,16 +1778,25 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Terraform 0.15 upgrade guide: legacy configuration language features",
         url: "https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-15",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://developer.hashicorp.com/terraform/language/v1.1.x/upgrade-guides/0-15",
+        archivedAt: "2026-10-31",
       },
       {
         title: "Terraform tolist function",
         url: "https://developer.hashicorp.com/terraform/language/functions/tolist",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://developer.hashicorp.com/terraform/language/functions/tolist",
+        archivedAt: "2026-10-31",
       },
       {
         title: "Terraform tomap function",
         url: "https://developer.hashicorp.com/terraform/language/functions/tomap",
         accessedAt: "2026-10-31",
+        archiveUrl:
+          "https://web.archive.org/web/20261031000000/https://developer.hashicorp.com/terraform/language/functions/tomap",
+        archivedAt: "2026-10-31",
       },
     ],
     provenance: {
@@ -1715,26 +1857,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.2.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.0.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.0.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.0.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -1813,26 +1970,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.3.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.1.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.1.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.1.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -1911,26 +2083,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.4.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.2.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2009,26 +2196,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.5.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.3.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2107,26 +2309,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.6.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.4.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2205,26 +2422,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.7.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.5.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2303,26 +2535,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.8.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.6.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2401,26 +2648,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.9.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.7.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2499,26 +2761,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.10.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.10.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.10.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.8.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {
@@ -2597,26 +2874,41 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "hashicorp/terraform release v1.11.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.11.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.11.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "hashicorp/terraform release v1.9.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
+        archivedAt: "2026-11-10",
       },
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
         accessedAt: "2026-11-10",
+        archiveUrl:
+          "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
+        archivedAt: "2026-11-10",
       },
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
+        archivedAt: "2026-11-11",
       },
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
         accessedAt: "2026-11-11",
+        archiveUrl:
+          "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
+        archivedAt: "2026-11-11",
       },
     ],
     provenance: {

@@ -54,6 +54,15 @@
           "accessedAt": {
             "description": "Day the source was read for this record (YYYY-MM-DD). Every finding carries it.",
             "$ref": "#/$defs/date"
+          },
+          "archiveUrl": {
+            "description": "Archived snapshot URL (e.g. Wayback Machine) preserving this evidence.",
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "archivedAt": {
+            "description": "Day the snapshot was archived (YYYY-MM-DD).",
+            "$ref": "#/$defs/date"
           }
         }
       }

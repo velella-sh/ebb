@@ -17,8 +17,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "PHP 8.3 or later",
     deadline: "2025-12-31",
     sources: [
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-10-19" },
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-19" },
+      {
+        title: "PHP unsupported branches",
+        url: "https://www.php.net/eol.php",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.php.net/eol.php",
+        archivedAt: "2026-10-19",
+      },
+      {
+        title: "PHP supported versions",
+        url: "https://www.php.net/supported-versions.php",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.php.net/supported-versions.php",
+        archivedAt: "2026-10-19",
+      },
     ],
     provenance: {
       observedAt: "2026-10-19",
@@ -74,8 +86,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "PHP 8.3 or later",
     deadline: "2023-11-26",
     sources: [
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-10-19" },
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-19" },
+      {
+        title: "PHP unsupported branches",
+        url: "https://www.php.net/eol.php",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.php.net/eol.php",
+        archivedAt: "2026-10-19",
+      },
+      {
+        title: "PHP supported versions",
+        url: "https://www.php.net/supported-versions.php",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.php.net/supported-versions.php",
+        archivedAt: "2026-10-19",
+      },
     ],
     provenance: {
       observedAt: "2026-10-19",
@@ -131,8 +155,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "PHP 8.3 or later",
     deadline: "2022-11-28",
     sources: [
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-10-19" },
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-19" },
+      {
+        title: "PHP unsupported branches",
+        url: "https://www.php.net/eol.php",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.php.net/eol.php",
+        archivedAt: "2026-10-19",
+      },
+      {
+        title: "PHP supported versions",
+        url: "https://www.php.net/supported-versions.php",
+        accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://www.php.net/supported-versions.php",
+        archivedAt: "2026-10-19",
+      },
     ],
     provenance: {
       observedAt: "2026-10-19",
@@ -188,8 +224,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "PHP 8.4 or later",
     deadline: "2021-12-06",
     sources: [
-      { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
+      {
+        title: "PHP release branches",
+        url: "https://www.php.net/releases/branches.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/releases/branches.php",
+        archivedAt: "2026-10-20",
+      },
+      {
+        title: "PHP supported versions",
+        url: "https://www.php.net/supported-versions.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/supported-versions.php",
+        archivedAt: "2026-10-20",
+      },
     ],
     provenance: {
       observedAt: "2026-10-20",
@@ -245,8 +293,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "PHP 8.4 or later",
     deadline: "2020-11-30",
     sources: [
-      { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
+      {
+        title: "PHP release branches",
+        url: "https://www.php.net/releases/branches.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/releases/branches.php",
+        archivedAt: "2026-10-20",
+      },
+      {
+        title: "PHP supported versions",
+        url: "https://www.php.net/supported-versions.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/supported-versions.php",
+        archivedAt: "2026-10-20",
+      },
     ],
     provenance: {
       observedAt: "2026-10-20",
@@ -302,8 +362,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "PHP 8.4 or later",
     deadline: "2019-12-01",
     sources: [
-      { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
+      {
+        title: "PHP release branches",
+        url: "https://www.php.net/releases/branches.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/releases/branches.php",
+        archivedAt: "2026-10-20",
+      },
+      {
+        title: "PHP supported versions",
+        url: "https://www.php.net/supported-versions.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/supported-versions.php",
+        archivedAt: "2026-10-20",
+      },
     ],
     provenance: {
       observedAt: "2026-10-20",
@@ -359,8 +431,20 @@ export const rules: readonly RegistryV2Rule[] = [
     replacement: "PHP 8.4 or later",
     deadline: "2019-01-10",
     sources: [
-      { title: "PHP release branches", url: "https://www.php.net/releases/branches.php", accessedAt: "2026-10-20" },
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-10-20" },
+      {
+        title: "PHP release branches",
+        url: "https://www.php.net/releases/branches.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/releases/branches.php",
+        archivedAt: "2026-10-20",
+      },
+      {
+        title: "PHP supported versions",
+        url: "https://www.php.net/supported-versions.php",
+        accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.php.net/supported-versions.php",
+        archivedAt: "2026-10-20",
+      },
     ],
     provenance: {
       observedAt: "2026-10-20",
@@ -420,10 +504,30 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Laravel support policy",
         url: "https://laravel.com/docs/releases#support-policy",
         accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://laravel.com/docs/releases#support-policy",
+        archivedAt: "2026-10-23",
       },
-      { title: "Laravel 11 upgrade guide", url: "https://laravel.com/docs/11.x/upgrade", accessedAt: "2026-10-23" },
-      { title: "Laravel 12 upgrade guide", url: "https://laravel.com/docs/12.x/upgrade", accessedAt: "2026-10-23" },
-      { title: "Laravel 13 upgrade guide", url: "https://laravel.com/docs/13.x/upgrade", accessedAt: "2026-10-23" },
+      {
+        title: "Laravel 11 upgrade guide",
+        url: "https://laravel.com/docs/11.x/upgrade",
+        accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://laravel.com/docs/11.x/upgrade",
+        archivedAt: "2026-10-23",
+      },
+      {
+        title: "Laravel 12 upgrade guide",
+        url: "https://laravel.com/docs/12.x/upgrade",
+        accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://laravel.com/docs/12.x/upgrade",
+        archivedAt: "2026-10-23",
+      },
+      {
+        title: "Laravel 13 upgrade guide",
+        url: "https://laravel.com/docs/13.x/upgrade",
+        accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://laravel.com/docs/13.x/upgrade",
+        archivedAt: "2026-10-23",
+      },
     ],
     provenance: {
       observedAt: "2026-10-23",
@@ -491,9 +595,23 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Laravel support policy",
         url: "https://laravel.com/docs/releases#support-policy",
         accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://laravel.com/docs/releases#support-policy",
+        archivedAt: "2026-10-23",
       },
-      { title: "Laravel 12 upgrade guide", url: "https://laravel.com/docs/12.x/upgrade", accessedAt: "2026-10-23" },
-      { title: "Laravel 13 upgrade guide", url: "https://laravel.com/docs/13.x/upgrade", accessedAt: "2026-10-23" },
+      {
+        title: "Laravel 12 upgrade guide",
+        url: "https://laravel.com/docs/12.x/upgrade",
+        accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://laravel.com/docs/12.x/upgrade",
+        archivedAt: "2026-10-23",
+      },
+      {
+        title: "Laravel 13 upgrade guide",
+        url: "https://laravel.com/docs/13.x/upgrade",
+        accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://laravel.com/docs/13.x/upgrade",
+        archivedAt: "2026-10-23",
+      },
     ],
     provenance: {
       observedAt: "2026-10-23",
@@ -561,11 +679,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "swiftmailer/swiftmailer on Packagist",
         url: "https://packagist.org/packages/swiftmailer/swiftmailer",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://packagist.org/packages/swiftmailer/swiftmailer",
+        archivedAt: "2026-10-19",
       },
       {
         title: "The end of Swiftmailer (Symfony Blog)",
         url: "https://symfony.com/blog/the-end-of-swiftmailer",
         accessedAt: "2026-10-19",
+        archiveUrl: "https://web.archive.org/web/20261019000000/https://symfony.com/blog/the-end-of-swiftmailer",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -641,11 +763,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "zendframework/zend-stdlib on Packagist",
         url: "https://packagist.org/packages/zendframework/zend-stdlib",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://packagist.org/packages/zendframework/zend-stdlib",
+        archivedAt: "2026-10-19",
       },
       {
         title: "Endings and Beginnings: Goodbye, and Please Welcome the Laminas Project!",
         url: "https://www.zendframework.com/blog/2020-01-24-laminas-launch.html",
         accessedAt: "2026-10-19",
+        archiveUrl:
+          "https://web.archive.org/web/20261019000000/https://www.zendframework.com/blog/2020-01-24-laminas-launch.html",
+        archivedAt: "2026-10-19",
       },
     ],
     provenance: {
@@ -711,11 +839,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "doctrine/cache on Packagist",
         url: "https://packagist.org/packages/doctrine/cache",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://packagist.org/packages/doctrine/cache",
+        archivedAt: "2026-10-20",
       },
       {
         title: "doctrine/cache Composer metadata",
         url: "https://repo.packagist.org/p2/doctrine/cache.json",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://repo.packagist.org/p2/doctrine/cache.json",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -765,11 +897,15 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "fzaninotto/faker on Packagist",
         url: "https://packagist.org/packages/fzaninotto/faker",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://packagist.org/packages/fzaninotto/faker",
+        archivedAt: "2026-10-20",
       },
       {
         title: "fzaninotto/faker Composer metadata",
         url: "https://repo.packagist.org/p2/fzaninotto/faker.json",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://repo.packagist.org/p2/fzaninotto/faker.json",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -821,11 +957,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "sensiolabs/security-checker on Packagist",
         url: "https://packagist.org/packages/sensiolabs/security-checker",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://packagist.org/packages/sensiolabs/security-checker",
+        archivedAt: "2026-10-20",
       },
       {
         title: "sensiolabs/security-checker Composer metadata",
         url: "https://repo.packagist.org/p2/sensiolabs/security-checker.json",
         accessedAt: "2026-10-20",
+        archiveUrl:
+          "https://web.archive.org/web/20261020000000/https://repo.packagist.org/p2/sensiolabs/security-checker.json",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {

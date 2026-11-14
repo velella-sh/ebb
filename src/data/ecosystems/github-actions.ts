@@ -21,11 +21,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/checkout runtime guidance",
         url: "https://github.com/actions/checkout#checkout-v5",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://github.com/actions/checkout#checkout-v5",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -74,11 +79,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/setup-node v5 runtime guidance",
         url: "https://github.com/actions/setup-node#breaking-changes-in-v5",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/setup-node#breaking-changes-in-v5",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -126,11 +137,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/cache runtime and service guidance",
         url: "https://github.com/actions/cache#whats-new",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://github.com/actions/cache#whats-new",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -177,11 +193,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "Deprecation notice for artifact actions v3",
         url: "https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -228,11 +250,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "Deprecation notice for artifact actions v3",
         url: "https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -280,11 +308,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/setup-python v6.0.0 release notes",
         url: "https://github.com/actions/setup-python/releases/tag/v6.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/setup-python/releases/tag/v6.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -332,11 +366,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/setup-go v6.2.0 release notes (action.yml moves to node24)",
         url: "https://github.com/actions/setup-go/releases/tag/v6.2.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/setup-go/releases/tag/v6.2.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -384,11 +424,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/setup-java v5.0.0 release notes",
         url: "https://github.com/actions/setup-java/releases/tag/v5.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/setup-java/releases/tag/v5.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -436,11 +482,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/setup-dotnet v5.0.0 release notes",
         url: "https://github.com/actions/setup-dotnet/releases/tag/v5.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/setup-dotnet/releases/tag/v5.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -490,11 +542,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/github-script v8 release notes",
         url: "https://github.com/actions/github-script/releases/tag/v8",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/github-script/releases/tag/v8",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -544,11 +602,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/labeler v6.0.0 release notes",
         url: "https://github.com/actions/labeler/releases/tag/v6.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://github.com/actions/labeler/releases/tag/v6.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -598,11 +661,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/stale v10.0.0 release notes",
         url: "https://github.com/actions/stale/releases/tag/v10.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl: "https://web.archive.org/web/20261016000000/https://github.com/actions/stale/releases/tag/v10.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -652,11 +720,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/configure-pages v6.0.0 release notes",
         url: "https://github.com/actions/configure-pages/releases/tag/v6.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/configure-pages/releases/tag/v6.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -704,11 +778,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/deploy-pages v5.0.0 release notes",
         url: "https://github.com/actions/deploy-pages/releases/tag/v5.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/deploy-pages/releases/tag/v5.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -758,11 +838,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/create-github-app-token v3.0.0 release notes",
         url: "https://github.com/actions/create-github-app-token/releases/tag/v3.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/create-github-app-token/releases/tag/v3.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -812,11 +898,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "actions/first-interaction v3.0.0 release notes",
         url: "https://github.com/actions/first-interaction/releases/tag/v3.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/actions/first-interaction/releases/tag/v3.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -866,11 +958,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "docker/setup-buildx-action v4.0.0 release notes",
         url: "https://github.com/docker/setup-buildx-action/releases/tag/v4.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/docker/setup-buildx-action/releases/tag/v4.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -920,11 +1018,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "docker/build-push-action v7.0.0 release notes",
         url: "https://github.com/docker/build-push-action/releases/tag/v7.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/docker/build-push-action/releases/tag/v7.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -974,11 +1078,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "docker/login-action v4.0.0 release notes",
         url: "https://github.com/docker/login-action/releases/tag/v4.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/docker/login-action/releases/tag/v4.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1028,11 +1138,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "docker/setup-qemu-action v4.0.0 release notes",
         url: "https://github.com/docker/setup-qemu-action/releases/tag/v4.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/docker/setup-qemu-action/releases/tag/v4.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1082,11 +1198,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "docker/metadata-action v6.0.0 release notes",
         url: "https://github.com/docker/metadata-action/releases/tag/v6.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/docker/metadata-action/releases/tag/v6.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1136,11 +1258,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "softprops/action-gh-release v3.0.0 release notes",
         url: "https://github.com/softprops/action-gh-release/releases/tag/v3.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/softprops/action-gh-release/releases/tag/v3.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1190,11 +1318,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "hashicorp/setup-terraform v4.0.0 release notes",
         url: "https://github.com/hashicorp/setup-terraform/releases/tag/v4.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/hashicorp/setup-terraform/releases/tag/v4.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1244,11 +1378,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "astral-sh/setup-uv v7.0.0 release notes",
         url: "https://github.com/astral-sh/setup-uv/releases/tag/v7.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/astral-sh/setup-uv/releases/tag/v7.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1298,11 +1438,17 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
+        archivedAt: "2026-10-16",
       },
       {
         title: "docker/bake-action v7.0.0 release notes",
         url: "https://github.com/docker/bake-action/releases/tag/v7.0.0",
         accessedAt: "2026-10-16",
+        archiveUrl:
+          "https://web.archive.org/web/20261016000000/https://github.com/docker/bake-action/releases/tag/v7.0.0",
+        archivedAt: "2026-10-16",
       },
     ],
     provenance: {
@@ -1351,6 +1497,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GitHub Actions: Deprecating save-state and set-output commands",
         url: "https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/",
         accessedAt: "2026-11-05",
+        archiveUrl:
+          "https://web.archive.org/web/20261105000000/https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/",
+        archivedAt: "2026-11-05",
       },
     ],
     provenance: {
@@ -1393,6 +1542,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GitHub Actions: Deprecating save-state and set-output commands",
         url: "https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/",
         accessedAt: "2026-11-05",
+        archiveUrl:
+          "https://web.archive.org/web/20261105000000/https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/",
+        archivedAt: "2026-11-05",
       },
     ],
     provenance: {
@@ -1434,6 +1586,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GitHub Actions: Removing set-env and add-path commands on November 16",
         url: "https://github.blog/changelog/2020-11-09-github-actions-removing-set-env-and-add-path-commands-on-november-16/",
         accessedAt: "2026-11-05",
+        archiveUrl:
+          "https://web.archive.org/web/20261105000000/https://github.blog/changelog/2020-11-09-github-actions-removing-set-env-and-add-path-commands-on-november-16/",
+        archivedAt: "2026-11-05",
       },
     ],
     provenance: {
@@ -1476,6 +1631,9 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "GitHub Actions: Removing set-env and add-path commands on November 16",
         url: "https://github.blog/changelog/2020-11-09-github-actions-removing-set-env-and-add-path-commands-on-november-16/",
         accessedAt: "2026-11-05",
+        archiveUrl:
+          "https://web.archive.org/web/20261105000000/https://github.blog/changelog/2020-11-09-github-actions-removing-set-env-and-add-path-commands-on-november-16/",
+        archivedAt: "2026-11-05",
       },
     ],
     provenance: {

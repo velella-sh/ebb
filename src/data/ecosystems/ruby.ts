@@ -21,6 +21,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-18",
+        archiveUrl: "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-18",
       },
     ],
     provenance: {
@@ -75,6 +77,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-18",
+        archiveUrl: "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-18",
       },
     ],
     provenance: {
@@ -129,6 +133,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-18",
+        archiveUrl: "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-18",
       },
     ],
     provenance: {
@@ -183,6 +189,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-18",
+        archiveUrl: "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-18",
       },
     ],
     provenance: {
@@ -237,6 +245,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -291,6 +301,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -345,6 +357,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -399,6 +413,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -453,6 +469,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -507,6 +525,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -561,6 +581,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -615,6 +637,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby maintenance branches",
         url: "https://www.ruby-lang.org/en/downloads/branches/",
         accessedAt: "2026-10-20",
+        archiveUrl: "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
+        archivedAt: "2026-10-20",
       },
     ],
     provenance: {
@@ -669,16 +693,24 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby on Rails maintenance policy",
         url: "https://rubyonrails.org/maintenance",
         accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://rubyonrails.org/maintenance",
+        archivedAt: "2026-10-23",
       },
       {
         title: "Rails releases and end-of-support announcement",
         url: "https://rubyonrails.org/2025/10/29/new-rails-releases-and-end-of-support-announcement",
         accessedAt: "2026-10-23",
+        archiveUrl:
+          "https://web.archive.org/web/20261023000000/https://rubyonrails.org/2025/10/29/new-rails-releases-and-end-of-support-announcement",
+        archivedAt: "2026-10-23",
       },
       {
         title: "Upgrading Ruby on Rails",
         url: "https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
         accessedAt: "2026-10-23",
+        archiveUrl:
+          "https://web.archive.org/web/20261023000000/https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
+        archivedAt: "2026-10-23",
       },
     ],
     provenance: {
@@ -744,11 +776,16 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "Ruby on Rails maintenance policy",
         url: "https://rubyonrails.org/maintenance",
         accessedAt: "2026-10-23",
+        archiveUrl: "https://web.archive.org/web/20261023000000/https://rubyonrails.org/maintenance",
+        archivedAt: "2026-10-23",
       },
       {
         title: "Upgrading Ruby on Rails",
         url: "https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
         accessedAt: "2026-10-23",
+        archiveUrl:
+          "https://web.archive.org/web/20261023000000/https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
+        archivedAt: "2026-10-23",
       },
     ],
     provenance: {
@@ -809,6 +846,8 @@ export const rules: readonly RegistryV2Rule[] = [
         title: "RubyGems: json 2.17.1.1 is yanked",
         url: "https://rubygems.org/gems/json/versions/2.17.1.1",
         accessedAt: "2026-10-18",
+        archiveUrl: "https://web.archive.org/web/20261018000000/https://rubygems.org/gems/json/versions/2.17.1.1",
+        archivedAt: "2026-10-18",
       },
     ],
     provenance: {
