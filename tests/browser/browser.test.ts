@@ -1,8 +1,18 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import http from "node:http";
 import { test } from "node:test";
 import esbuild from "esbuild";
-import { chromium, firefox, webkit } from "playwright";
+import { type BrowserType, chromium, firefox, webkit } from "playwright";
+
+function isBrowserAvailable(type: BrowserType): boolean {
+  try {
+    const execPath = type.executablePath();
+    return Boolean(execPath && fs.existsSync(execPath));
+  } catch {
+    return false;
+  }
+}
 
 // Bundle ebb/browser for client execution
 async function buildBrowserBundle(): Promise<string> {
@@ -81,9 +91,15 @@ test("browser: runs in Chromium, Firefox, and WebKit with identical verdicts", a
     { name: "WebKit", type: webkit },
   ];
 
+  const availableBrowsers = browsers.filter((b) => isBrowserAvailable(b.type));
+  if (availableBrowsers.length === 0) {
+    t.skip("No Playwright browser binaries installed");
+    return;
+  }
+
   try {
     for (const { name, type } of browsers) {
-      await t.test(`runs test suite in ${name}`, async () => {
+      await t.test(`runs test suite in ${name}`, { skip: !isBrowserAvailable(type) }, async () => {
         const browser = await type.launch({ headless: true });
         try {
           const context = await browser.newContext();
