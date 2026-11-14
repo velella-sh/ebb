@@ -38,7 +38,7 @@ jobs:
           node dist/tools/badges.js
 
       - name: Deploy Badges to Branch
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           publish_branch: badges
           publish_dir: ./coverage
