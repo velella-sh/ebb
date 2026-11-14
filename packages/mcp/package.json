@@ -9,7 +9,7 @@
     "lifecycle",
     "agent"
   ],
-  "homepage": "https://github.com/velella-sh/ebb#readme",
+  "homepage": "https://velella.sh/ebb",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/velella-sh/ebb.git"

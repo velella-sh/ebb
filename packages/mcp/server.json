@@ -5,7 +5,7 @@
   "description": "Official Model Context Protocol server for Ebb: verify package end-of-life dates, deprecations, and replacement targets.",
   "version": "0.1.0",
   "license": "MIT",
-  "homepage": "https://github.com/velella-sh/ebb#readme",
+  "homepage": "https://velella.sh/ebb",
   "repository": {
     "type": "git",
     "url": "https://github.com/velella-sh/ebb.git"
