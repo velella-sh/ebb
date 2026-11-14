@@ -162,6 +162,23 @@ export interface EvidenceSource {
 export function preload(ecosystems?: readonly string[]): Promise<void>;
 
 // @public (undocumented)
+export interface Provenance {
+    importer?: string;
+    importerVersion?: string;
+    method: ProvenanceMethod;
+    observedAt: string;
+    reviewedAt: string;
+    // (undocumented)
+    reviewer: string;
+    reviewers?: string[];
+}
+
+// Warning: (ae-forgotten-export) The symbol "provenanceMethods" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type ProvenanceMethod = (typeof provenanceMethods)[number];
+
+// @public (undocumented)
 export interface RegistryV2Rule {
     [extension: `x-${string}`]: Record<string, unknown>;
     // (undocumented)
@@ -178,8 +195,6 @@ export interface RegistryV2Rule {
     //
     // (undocumented)
     migration?: MigrationGuidance;
-    // Warning: (ae-forgotten-export) The symbol "Provenance" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     provenance: Provenance;
     // (undocumented)
@@ -286,8 +301,12 @@ export interface SourcesOfResult {
     readonly ecosystem: string;
     // (undocumented)
     readonly event: LifecycleEvent;
+    readonly importer?: string | undefined;
+    readonly importerVersion?: string | undefined;
+    readonly method?: ProvenanceMethod | undefined;
     // (undocumented)
     readonly observedAt: string;
+    readonly provenance?: Provenance | undefined;
     // (undocumented)
     readonly purl: string;
     // (undocumented)
@@ -296,6 +315,7 @@ export interface SourcesOfResult {
     readonly reviewedAt: string;
     // (undocumented)
     readonly reviewer: string;
+    readonly reviewers?: readonly string[] | undefined;
     // (undocumented)
     readonly ruleId: string;
     // (undocumented)
