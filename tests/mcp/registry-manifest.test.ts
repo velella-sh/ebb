@@ -1,65 +1,70 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
+import { resolve } from "node:path";
 import { describe, it } from "node:test";
 import { McpServer } from "../../src/mcp/index.js";
 
+const require = createRequire(import.meta.url);
+
 describe("MCP server.json registry manifest", () => {
-  const manifestPath = fileURLToPath(new URL("../../../server.json", import.meta.url));
-  const rawContent = readFileSync(manifestPath, "utf8");
-  const manifest = JSON.parse(rawContent);
-  const server = new McpServer();
+  const manifestPath = resolve(process.cwd(), "server.json");
+  const schemaPath = resolve(process.cwd(), "schemas/vendor/mcp-server.schema.json");
+  const pkgPath = resolve(process.cwd(), "package.json");
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
+    name: string;
+    version: string;
+    description: string;
+    packages: Array<{
+      registryType: string;
+      identifier: string;
+      version: string;
+      packageArguments?: Array<{ type: string; value?: string }>;
+      transport: { type: string };
+    }>;
+  };
+  const pkg = JSON.parse(readFileSync(pkgPath, "utf8")) as {
+    name: string;
+    version: string;
+    mcpName?: string;
+  };
+  const schema = JSON.parse(readFileSync(schemaPath, "utf8"));
 
-  it("conforms to standard MCP server manifest structure", () => {
-    assert.equal(manifest.name, "@velella/ebb-mcp");
-    assert.equal(manifest.version, "0.1.0");
-    assert.ok(typeof manifest.description === "string" && manifest.description.length > 0);
-    assert.equal(manifest.license, "MIT");
-    assert.ok(manifest.homepage);
-    assert.ok(manifest.repository);
+  it("matches package version, mcpName, and npm stdio package with mcp arg", () => {
+    assert.equal(pkg.mcpName, manifest.name);
+    assert.equal(manifest.version, pkg.version);
+    assert.equal(manifest.name, "io.github.velella-sh/ebb");
+    assert.ok(manifest.description.length <= 100);
+
+    assert.equal(manifest.packages.length, 1);
+    const npmPkg = manifest.packages[0]!;
+    assert.equal(npmPkg.registryType, "npm");
+    assert.equal(npmPkg.identifier, "@velella/ebb");
+    assert.equal(npmPkg.version, pkg.version);
+    assert.equal(npmPkg.transport.type, "stdio");
+    assert.ok(npmPkg.packageArguments?.some((a) => a.type === "positional" && a.value === "mcp"));
   });
 
-  it("configures stdio transport for agent execution", () => {
-    assert.ok(manifest.transport);
-    assert.equal(manifest.transport.type, "stdio");
-    assert.ok(manifest.transport.command);
-    assert.ok(Array.isArray(manifest.transport.args));
+  it("validates against the vendored MCP server schema without fetching", () => {
+    const AjvModule = require("ajv") as { default?: new (opts?: object) => { compile: (s: unknown) => (data: unknown) => boolean; errors?: unknown }; };
+    const Ajv = AjvModule.default ?? (AjvModule as unknown as new (opts?: object) => { compile: (s: unknown) => (data: unknown) => boolean; errors?: unknown });
+    const ajv = new Ajv({ strict: false, validateFormats: false });
+    const validate = ajv.compile(schema);
+    const ok = validate(manifest);
+    assert.equal(ok, true, `schema errors: ${JSON.stringify(ajv.errors ?? (validate as { errors?: unknown }).errors, null, 2)}`);
   });
 
-  it("lists all registered tools with valid input schemas", async () => {
+  it("lists runtime tools that remain available through the MCP server", async () => {
+    const server = new McpServer();
     const resp = await server.handleMessage({
       jsonrpc: "2.0",
       id: 1,
       method: "tools/list",
     });
-
     const runtimeTools = (resp?.result as { tools: Array<{ name: string }> }).tools;
-    const manifestTools = manifest.tools as Array<{ name: string; inputSchema: { type: string } }>;
-
-    assert.ok(Array.isArray(manifestTools));
-    assert.equal(manifestTools.length, runtimeTools.length);
-
-    for (const rt of runtimeTools) {
-      const match = manifestTools.find((t) => t.name === rt.name);
-      assert.ok(match, `Tool ${rt.name} missing in server.json`);
-      assert.equal(match.inputSchema.type, "object");
-    }
-  });
-
-  it("lists all registered resources", async () => {
-    const resp = await server.handleMessage({
-      jsonrpc: "2.0",
-      id: 2,
-      method: "resources/list",
-    });
-
-    const runtimeResources = (resp?.result as { resources: Array<{ uri: string }> }).resources;
-    const manifestResources = manifest.resources as Array<{ uri: string }>;
-
-    assert.ok(Array.isArray(manifestResources));
-    for (const rr of runtimeResources) {
-      const match = manifestResources.find((r) => r.uri === rr.uri);
-      assert.ok(match, `Resource ${rr.uri} missing in server.json`);
+    const expected = ["check", "check_all", "diff", "replacement_for", "sources_of"];
+    for (const name of expected) {
+      assert.ok(runtimeTools.some((t) => t.name === name), `missing runtime tool ${name}`);
     }
   });
 });

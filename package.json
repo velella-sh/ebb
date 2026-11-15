@@ -114,6 +114,7 @@
     "./package.json": "./package.json"
   },
   "files": [
+    "server.json",
     "dist/src",
     "data",
     "registry",
@@ -175,5 +176,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "mcpName": "io.github.velella-sh/ebb"
 }

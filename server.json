@@ -1,134 +1,30 @@
 {
-  "$schema": "https://modelcontextprotocol.io/schema/server.json",
-  "name": "@velella/ebb-mcp",
-  "title": "Ebb Lifecycle & Deprecation MCP Server",
-  "description": "Official Model Context Protocol server for Ebb: verify package end-of-life dates, deprecations, and replacement targets.",
-  "version": "0.1.0",
-  "license": "MIT",
-  "homepage": "https://velella.sh/ebb",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.velella-sh/ebb",
+  "title": "Ebb Lifecycle & Deprecation",
+  "description": "Check package end-of-life, deprecations, replacements, and upcoming deadlines offline.",
+  "version": "0.2.0",
+  "websiteUrl": "https://velella.sh/ebb",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/velella-sh/ebb.git"
+    "url": "https://github.com/velella-sh/ebb",
+    "source": "github"
   },
-  "publisher": {
-    "name": "Velella",
-    "url": "https://velella.sh"
-  },
-  "transport": {
-    "type": "stdio",
-    "command": "npx",
-    "args": ["-y", "@velella/ebb-mcp"]
-  },
-  "capabilities": {
-    "tools": {},
-    "resources": {}
-  },
-  "tools": [
+  "packages": [
     {
-      "name": "check",
-      "description": "Check a package URL (PURL) or software product at a specific version against known end-of-life and deprecation dates.",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "purl": {
-            "type": "string",
-            "description": "Package URL (e.g. 'pkg:npm/request@2.88.2', 'pkg:npm/request', 'pkg:pypi/django@1.11') or bare product name (e.g. 'node', 'django')."
-          },
-          "version": {
-            "type": "string",
-            "description": "Version string to check (e.g. '2.88.2'). If omitted, version embedded in the PURL is used."
-          },
-          "asOf": {
-            "type": "string",
-            "description": "Optional reference date in YYYY-MM-DD format to compute daysLeft relative to."
-          }
-        },
-        "required": ["purl"]
-      }
-    },
-    {
-      "name": "check_all",
-      "description": "Check multiple package URLs (PURLs) or dependencies in batch against known end-of-life and deprecation dates.",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "purls": {
-            "type": "array",
-            "description": "List of package URLs (e.g. 'pkg:npm/request@2.88.2') or objects to check in batch."
-          }
-        },
-        "required": ["purls"]
-      }
-    },
-    {
-      "name": "replacement_for",
-      "description": "Get the recommended replacement package or migration target for a deprecated or end-of-life component version.",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "purl": {
-            "type": "string",
-            "description": "Package URL (e.g. 'pkg:npm/request@2.88.2', 'pkg:npm/request') or bare product name (e.g. 'node', 'django')."
-          },
-          "version": {
-            "type": "string",
-            "description": "Version string (e.g. '2.88.2'). If omitted, version embedded in the PURL is used."
-          }
-        },
-        "required": ["purl"]
-      }
-    },
-    {
-      "name": "sources_of",
-      "description": "Look up authoritative evidence sources, archive snapshot URLs, health status, and review provenance for a specific Ebb lifecycle rule.",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "ruleId": {
-            "type": "string",
-            "description": "ID of the lifecycle rule (e.g. 'nodejs.package.express.deprecated')."
-          },
-          "asOf": {
-            "type": "string",
-            "description": "Optional reference date in YYYY-MM-DD format for time-travel evaluation."
-          }
-        },
-        "required": ["ruleId"]
-      }
-    },
-    {
-      "name": "diff",
-      "description": "Compare two software lifecycle data versions, dates, files, or active data and report added, changed, removed, and renamed rules with field-level delta tracking.",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "from": {
-            "type": "string",
-            "description": "Starting version, date (YYYY-MM-DD), bundle file path, 'bundled', or 'active' (default: 'bundled')."
-          },
-          "to": {
-            "type": "string",
-            "description": "Target version, date (YYYY-MM-DD), bundle file path, or 'active' (default: 'active')."
-          },
-          "ecosystem": {
-            "type": "string",
-            "description": "Optional ecosystem filter (e.g. 'npm', 'pypi', 'go')."
-          },
-          "format": {
-            "type": "string",
-            "enum": ["markdown", "json"],
-            "description": "Output format: 'markdown' (default) or 'json'."
-          }
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@velella/ebb",
+      "version": "0.2.0",
+      "runtimeHint": "npx",
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
         }
+      ],
+      "transport": {
+        "type": "stdio"
       }
-    }
-  ],
-  "resources": [
-    {
-      "uri": "ebb://upcoming",
-      "name": "Upcoming software end-of-life and deprecations",
-      "description": "Scheduled software deprecation and end-of-life dates that have not yet occurred.",
-      "mimeType": "application/json"
     }
   ]
 }
