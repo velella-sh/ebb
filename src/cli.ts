@@ -50,6 +50,7 @@ Usage:
   ebb diff [from] [to] [options]             Compare two data releases, versions, or files
   ebb data-status [options]                  Show active lifecycle data freshness and origin
   ebb mcp                                    Start the Model Context Protocol stdio server
+  ebb mcp --print-config <agent>             Print MCP config snippet for an agent
 
 Options:
   --format <text|markdown|json> Output format (default: text)
@@ -250,6 +251,7 @@ export async function runCli(
         color: { type: "boolean", default: false },
         "no-color": { type: "boolean", default: false },
         "no-hint": { type: "boolean", default: false },
+        "print-config": { type: "string" },
         help: { type: "boolean", short: "h", default: false },
         version: { type: "boolean", short: "v", default: false },
       },
@@ -286,6 +288,17 @@ export async function runCli(
   }
 
   if (first === "mcp") {
+    if (typeof values["print-config"] === "string") {
+      const { printMcpConfig } = await import("./cli/mcp-config.js");
+      try {
+        io.stdout.write(printMcpConfig(values["print-config"]));
+        return 0;
+      } catch (err) {
+        io.stderr.write(`Error: ${err instanceof Error ? err.message : String(err)}\n`);
+        return 2;
+      }
+    }
+
     const { McpServer, listenStdio } = await import("./mcp/index.js");
     const server = new McpServer({ name: "@velella/ebb", version: VERSION });
     listenStdio(server, {
