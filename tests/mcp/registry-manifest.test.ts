@@ -46,12 +46,22 @@ describe("MCP server.json registry manifest", () => {
   });
 
   it("validates against the vendored MCP server schema without fetching", () => {
-    const AjvModule = require("ajv") as { default?: new (opts?: object) => { compile: (s: unknown) => (data: unknown) => boolean; errors?: unknown }; };
-    const Ajv = AjvModule.default ?? (AjvModule as unknown as new (opts?: object) => { compile: (s: unknown) => (data: unknown) => boolean; errors?: unknown });
+    const AjvModule = require("ajv") as {
+      default?: new (opts?: object) => { compile: (s: unknown) => (data: unknown) => boolean; errors?: unknown };
+    };
+    const Ajv =
+      AjvModule.default ??
+      (AjvModule as unknown as new (
+        opts?: object,
+      ) => { compile: (s: unknown) => (data: unknown) => boolean; errors?: unknown });
     const ajv = new Ajv({ strict: false, validateFormats: false });
     const validate = ajv.compile(schema);
     const ok = validate(manifest);
-    assert.equal(ok, true, `schema errors: ${JSON.stringify(ajv.errors ?? (validate as { errors?: unknown }).errors, null, 2)}`);
+    assert.equal(
+      ok,
+      true,
+      `schema errors: ${JSON.stringify(ajv.errors ?? (validate as { errors?: unknown }).errors, null, 2)}`,
+    );
   });
 
   it("lists runtime tools that remain available through the MCP server", async () => {
@@ -64,7 +74,10 @@ describe("MCP server.json registry manifest", () => {
     const runtimeTools = (resp?.result as { tools: Array<{ name: string }> }).tools;
     const expected = ["check", "check_all", "diff", "replacement_for", "sources_of"];
     for (const name of expected) {
-      assert.ok(runtimeTools.some((t) => t.name === name), `missing runtime tool ${name}`);
+      assert.ok(
+        runtimeTools.some((t) => t.name === name),
+        `missing runtime tool ${name}`,
+      );
     }
   });
 });
