@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { MCP_PRINT_CONFIG_AGENTS, printMcpConfig } from "../src/cli/mcp-config.js";
+import { MCP_PRINT_CONFIG_AGENTS, getMcpAgentConfig, printMcpConfig } from "../src/cli/mcp-config.js";
 import { runCli } from "../src/cli.js";
 
 function createIo() {
@@ -31,72 +31,22 @@ function createIo() {
 }
 
 describe("ebb mcp --print-config", () => {
-  it("prints snapshots for every supported agent using npx -y @velella/ebb mcp", () => {
-    const snapshots: Record<string, string> = {};
+  it("prints Path + official snippet for every supported agent using npx -y @velella/ebb mcp", () => {
     for (const agent of MCP_PRINT_CONFIG_AGENTS) {
       const snippet = printMcpConfig(agent);
+      const cfg = getMcpAgentConfig(agent);
+      assert.match(snippet, /^Path: /);
+      assert.ok(snippet.startsWith(`Path: ${cfg.path}\n`));
       assert.match(snippet, /npx/);
       assert.match(snippet, /@velella\/ebb/);
       assert.match(snippet, /\bmcp\b/);
       assert.ok(!snippet.includes("@velella/" + ["ebb", "mcp"].join("-")));
-      snapshots[agent] = snippet;
+      assert.ok(cfg.path.length > 0);
     }
 
-    assert.deepEqual(snapshots, {
-      "claude-code": "claude mcp add ebb -- npx -y @velella/ebb mcp\n",
-      gemini: "gemini mcp add ebb -- npx -y @velella/ebb mcp\n",
-      cursor: `${JSON.stringify(
-        {
-          mcpServers: {
-            ebb: {
-              command: "npx",
-              args: ["-y", "@velella/ebb", "mcp"],
-            },
-          },
-        },
-        null,
-        2,
-      )}\n`,
-      codex: `[mcp_servers.ebb]\ncommand = "npx"\nargs = ${JSON.stringify(["-y", "@velella/ebb", "mcp"])}\n`,
-      vscode: `${JSON.stringify(
-        {
-          servers: {
-            ebb: {
-              command: "npx",
-              args: ["-y", "@velella/ebb", "mcp"],
-            },
-          },
-        },
-        null,
-        2,
-      )}\n`,
-      windsurf: `${JSON.stringify(
-        {
-          mcpServers: {
-            ebb: {
-              command: "npx",
-              args: ["-y", "@velella/ebb", "mcp"],
-            },
-          },
-        },
-        null,
-        2,
-      )}\n`,
-      zed: `${JSON.stringify(
-        {
-          context_servers: {
-            ebb: {
-              command: {
-                path: "npx",
-                args: ["-y", "@velella/ebb", "mcp"],
-              },
-            },
-          },
-        },
-        null,
-        2,
-      )}\n`,
-    });
+    // Zed uses the flat command/args shape from current Zed docs.
+    assert.match(printMcpConfig("zed"), /"command": "npx"/);
+    assert.ok(!printMcpConfig("zed").includes('"path": "npx"'));
   });
 
   it("writes the snippet through the CLI without starting stdio", async () => {

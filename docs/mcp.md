@@ -26,16 +26,22 @@ Supported agents: `claude-code`, `cursor`, `codex`, `gemini`, `vscode`, `windsur
 ## Agent setup
 
 Snippets below are generated from `ebb mcp --print-config <agent>` and all run `npx -y @velella/ebb mcp`.
+Each block starts with the same `Path:` line the CLI prints.
 
 ### Claude Code
 
-```bash
+<!-- mcp-print-config:claude-code -->
+```text
+Path: claude CLI (`claude mcp add`)
 claude mcp add ebb -- npx -y @velella/ebb mcp
 ```
+<!-- /mcp-print-config:claude-code -->
 
 ### Cursor
 
-```json
+<!-- mcp-print-config:cursor -->
+```text
+Path: ~/.cursor/mcp.json (or project .cursor/mcp.json)
 {
   "mcpServers": {
     "ebb": {
@@ -49,24 +55,33 @@ claude mcp add ebb -- npx -y @velella/ebb mcp
   }
 }
 ```
+<!-- /mcp-print-config:cursor -->
 
 ### Codex
 
-```toml
+<!-- mcp-print-config:codex -->
+```text
+Path: ~/.codex/config.toml
 [mcp_servers.ebb]
 command = "npx"
 args = ["-y","@velella/ebb","mcp"]
 ```
+<!-- /mcp-print-config:codex -->
 
 ### Gemini CLI
 
-```bash
+<!-- mcp-print-config:gemini -->
+```text
+Path: gemini CLI (`gemini mcp add`)
 gemini mcp add ebb -- npx -y @velella/ebb mcp
 ```
+<!-- /mcp-print-config:gemini -->
 
 ### VS Code
 
-```json
+<!-- mcp-print-config:vscode -->
+```text
+Path: .vscode/mcp.json
 {
   "servers": {
     "ebb": {
@@ -80,10 +95,13 @@ gemini mcp add ebb -- npx -y @velella/ebb mcp
   }
 }
 ```
+<!-- /mcp-print-config:vscode -->
 
 ### Windsurf
 
-```json
+<!-- mcp-print-config:windsurf -->
+```text
+Path: ~/.codeium/windsurf/mcp_config.json
 {
   "mcpServers": {
     "ebb": {
@@ -97,27 +115,29 @@ gemini mcp add ebb -- npx -y @velella/ebb mcp
   }
 }
 ```
+<!-- /mcp-print-config:windsurf -->
 
 ### Zed
 
-```json
+<!-- mcp-print-config:zed -->
+```text
+Path: Zed settings.json (`context_servers`; open via `zed: open settings file`)
 {
   "context_servers": {
     "ebb": {
-      "command": {
-        "path": "npx",
-        "args": [
-          "-y",
-          "@velella/ebb",
-          "mcp"
-        ]
-      }
+      "command": "npx",
+      "args": [
+        "-y",
+        "@velella/ebb",
+        "mcp"
+      ],
+      "env": {}
     }
   }
 }
 ```
+<!-- /mcp-print-config:zed -->
 
----
 
 ## Tools
 
@@ -175,50 +195,79 @@ Verify the installed package can load data and answer a known check without star
 npx -y @velella/ebb mcp --self-test
 ```
 
-A successful run prints a single line such as `ebb mcp self-test ok (@velella/ebb 0.2.0, data …)` and exits `0`.
+A successful run prints a single line such as `ebb mcp self-test ok (@velella/ebb 0.3.0, data …)` and exits `0`.
 
 ---
 
 ## Troubleshooting
 
-### Server not listed in the agent
-
-Confirm the agent config runs `npx -y @velella/ebb mcp` (including the trailing `mcp` argument). Print a fresh snippet with `npx -y @velella/ebb mcp --print-config <agent>` and replace the old entry. Restart the agent after saving config. Then run:
+Start here. Before changing agent config, confirm the package itself works:
 
 ```bash
 npx -y @velella/ebb mcp --self-test
 ```
 
-If self-test fails, the package or data load is broken before the agent ever talks to stdio.
+A successful run prints one line and exits `0`. On failure, fix the install or data before debugging the agent.
+
+### Server not listed in the agent
+
+**Cause:** The agent config is missing, points at the old package name, or omits the `mcp` argument.
+
+**Fix:** Print a fresh snippet with `npx -y @velella/ebb mcp --print-config <agent>`, paste it at the `Path:` the CLI names, and restart the agent. Then re-run `--self-test`.
 
 ### Old Node.js
 
-Ebb requires Node.js `>=22` (`package.json` `engines`). The bin entry refuses older runtimes with empty stdout and a stderr message like:
+**Cause:** Ebb requires Node.js `>=22` (`package.json` `engines`). The bin entry refuses older runtimes with empty stdout and this stderr message:
 
 ```text
 ebb requires Node.js >=22. This process is running v18.20.0. Please upgrade Node.js and try again.
 ```
 
-Upgrade Node, then re-run `--self-test`.
+**Fix:** Upgrade Node, then re-run `--self-test`.
 
 ### Stale npx cache
 
-`npx -y` should fetch the latest publish, but a sticky cache can keep an old tarball. Clear the npx cache for the package and retry:
+**Cause:** A sticky npx cache can keep an old tarball even with `-y`.
+
+**Fix:** Prefer a temporary cache (does not wipe your whole npm cache):
 
 ```bash
-npm cache clean --force
-npx -y @velella/ebb mcp --self-test
+NPM_CONFIG_CACHE=$(mktemp -d) npx -y @velella/ebb mcp --self-test
 ```
+
+Or remove only the cached `@velella/ebb` entry under your npm cache (`$(npm config get cache)/_npx`) and retry `npx -y @velella/ebb mcp --self-test`.
 
 ### Proxy / network installs
 
-`npx` needs registry access once to download `@velella/ebb`. Configure npm proxy settings (`HTTP_PROXY` / `HTTPS_PROXY` / `npm config set proxy`) if you are behind a corporate proxy. After the package is cached locally, the MCP server itself stays offline: it does not call the network while answering lifecycle tools.
+**Cause:** `npx` needs registry access once to download `@velella/ebb`.
+
+**Fix:** Configure npm proxy settings (`HTTP_PROXY` / `HTTPS_PROXY` / `npm config set proxy`) if you are behind a corporate proxy. After the package is cached locally, the MCP server itself stays offline: it does not call the network while answering lifecycle tools.
 
 ### Self-test failures
 
-`--self-test` loads bundled data and checks `pkg:npm/request@2.88.2`. On failure it prints one of:
+**Cause:** Bundled/pinned data could not load, or the known check did not return `deprecated`.
+
+**Fix:** `--self-test` drives the MCP `check` tool handler against `pkg:npm/request@2.88.2`. On failure it prints one of:
 
 - `self-test check failed: expected status "deprecated", got "…"`
 - `self-test failed: …`
 
 Fix the install or data bundle before debugging agent wiring.
+
+---
+
+## Release smoke (after publish)
+
+Do **not** run this against an unpublished version. After `@velella/ebb@0.3.0` is on npm:
+
+1. Empty the npx cache for a clean fetch:
+   ```bash
+   NPM_CONFIG_CACHE=$(mktemp -d) npx -y @velella/ebb@0.3.0 mcp --self-test
+   ```
+2. Start the server from that same empty cache and complete an `initialize` round-trip:
+   ```bash
+   NPM_CONFIG_CACHE=$(mktemp -d) npx -y @velella/ebb@0.3.0 mcp
+   ```
+   Send a JSON-RPC `initialize` on stdin and confirm `serverInfo.name` is `@velella/ebb` and `serverInfo.version` is `0.3.0`.
+
+Pre-merge coverage of the same install path uses the packed tarball stdio test (`tests/mcp/packed.test.ts`) against version `0.3.0` in an empty temp directory.

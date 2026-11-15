@@ -303,7 +303,7 @@ export async function runCli(
 
     if (values["self-test"]) {
       const { runMcpSelfTest } = await import("./mcp/self-test.js");
-      const result = runMcpSelfTest();
+      const result = await runMcpSelfTest();
       if (result.ok) {
         io.stdout.write(`${result.line}\n`);
         return 0;

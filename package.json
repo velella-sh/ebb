@@ -1,6 +1,6 @@
 {
   "name": "@velella/ebb",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The open almanac of software end-of-life.",
   "keywords": [
     "end-of-life",
@@ -146,7 +146,7 @@
     "api:check": "npm run build --silent && api-extractor run --print-api-report-diff",
     "lint:rules": "npm run build --silent && node dist/tools/changed-rules.js --all",
     "check": "npm run format:check && npm test",
-    "bench": "npm run build --silent && node --input-type=module -e \"import { runAllBenchmarks } from './bench/run.ts'; runAllBenchmarks();\" && node --input-type=module -e \"import { runMcpStartBenchmark, MCP_START_CI_CEILING_MS } from './bench/mcp-start.bench.ts'; const s = await runMcpStartBenchmark(5); if (s.medianMs > MCP_START_CI_CEILING_MS) throw new Error('MCP cold-start ' + s.medianMs.toFixed(2) + 'ms exceeds CI ceiling ' + MCP_START_CI_CEILING_MS + 'ms');\"",
+    "bench": "npm run build --silent && node --input-type=module -e \"import { runAllBenchmarks } from './bench/run.ts'; runAllBenchmarks();\" && node dist/tools/mcp-start-ci-check.js",
     "check:sources": "npm run build --silent && node dist/tools/check-sources.js",
     "archive:sources": "npm run build --silent && node dist/tools/archive-sources.js",
     "size": "npm run build --silent && node dist/tools/size.js",

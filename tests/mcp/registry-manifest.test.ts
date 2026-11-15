@@ -22,6 +22,11 @@ describe("MCP server.json registry manifest", () => {
       packageArguments?: Array<{ type: string; value?: string }>;
       transport: { type: string };
     }>;
+    _meta?: {
+      "io.modelcontextprotocol.registry/publisher-provided"?: {
+        tools?: string[];
+      };
+    };
   };
   const pkg = JSON.parse(readFileSync(pkgPath, "utf8")) as {
     name: string;
@@ -29,6 +34,7 @@ describe("MCP server.json registry manifest", () => {
     mcpName?: string;
   };
   const schema = JSON.parse(readFileSync(schemaPath, "utf8"));
+  const publisherMeta = manifest._meta?.["io.modelcontextprotocol.registry/publisher-provided"];
 
   it("matches package version, mcpName, and npm stdio package with mcp arg", () => {
     assert.equal(pkg.mcpName, manifest.name);
@@ -64,20 +70,33 @@ describe("MCP server.json registry manifest", () => {
     );
   });
 
-  it("lists runtime tools that remain available through the MCP server", async () => {
+  it("lists tools in publisher-provided metadata exactly equal to tools/list", async () => {
+    assert.ok(publisherMeta?.tools, "server.json must declare tools under publisher-provided _meta");
+    const declared = [...publisherMeta.tools].sort();
+
     const server = new McpServer();
     const resp = await server.handleMessage({
       jsonrpc: "2.0",
       id: 1,
       method: "tools/list",
     });
-    const runtimeTools = (resp?.result as { tools: Array<{ name: string }> }).tools;
-    const expected = ["check", "check_all", "diff", "replacement_for", "sources_of"];
-    for (const name of expected) {
-      assert.ok(
-        runtimeTools.some((t) => t.name === name),
-        `missing runtime tool ${name}`,
-      );
-    }
+    const runtimeTools = (resp?.result as { tools: Array<{ name: string }> }).tools.map((t) => t.name).sort();
+    assert.deepEqual(
+      declared,
+      runtimeTools,
+      `manifest tools ${JSON.stringify(declared)} must equal tools/list ${JSON.stringify(runtimeTools)}`,
+    );
+  });
+
+  it("fails the equality check when a tool name differs", async () => {
+    const server = new McpServer();
+    const resp = await server.handleMessage({
+      jsonrpc: "2.0",
+      id: 1,
+      method: "tools/list",
+    });
+    const runtimeTools = (resp?.result as { tools: Array<{ name: string }> }).tools.map((t) => t.name).sort();
+    const drifted = [...runtimeTools, "not-a-real-tool"].sort();
+    assert.notDeepEqual(drifted, runtimeTools);
   });
 });

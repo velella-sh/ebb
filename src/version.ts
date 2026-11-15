@@ -3,4 +3,4 @@
  * bundled data reports this as its version. Kept equal to `package.json` by a test.
  * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
-export const VERSION = "0.2.0";
+export const VERSION = "0.3.0";

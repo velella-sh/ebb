@@ -47,5 +47,7 @@ Measured with `bench/mcp-start.bench.ts` (fresh `ebb mcp` process, JSON-RPC `ini
 |---|---|---|---|---|---|
 | **MCP cold-start** (`ebb mcp` → initialize) | 5 | 37.1599 | **38.4933** | 39.5151 | 26 |
 
-Baseline median recorded for regression checks: **50 ms** (allows ~20% headroom over the measured 38.5 ms median). Failures trigger when median exceeds baseline by more than 20% (`bench/mcp-start.bench.ts`).
+Local baseline median recorded for regression checks: **50 ms** (allows ~20% headroom over the measured 38.5 ms median).
+
+CI (`ubuntu-latest`, Node 22) baseline median: **100 ms** (`MCP_START_CI_BASELINE_MEDIAN_MS`). The Benchmark workflow runs `tools/mcp-start-ci-check.ts` via `npm run bench` and fails when the median exceeds that baseline by more than 20%.
 

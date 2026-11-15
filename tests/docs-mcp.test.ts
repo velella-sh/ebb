@@ -19,14 +19,35 @@ const DOC_PATHS = [
   "llms-full.txt",
 ] as const;
 
+function extractAgentTab(mcpDoc: string, agent: string): string {
+  const start = `<!-- mcp-print-config:${agent} -->`;
+  const end = `<!-- /mcp-print-config:${agent} -->`;
+  const from = mcpDoc.indexOf(start);
+  const to = mcpDoc.indexOf(end);
+  assert.ok(from >= 0, `docs/mcp.md missing start marker for ${agent}`);
+  assert.ok(to > from, `docs/mcp.md missing end marker for ${agent}`);
+  const block = mcpDoc.slice(from + start.length, to);
+  const fence = block.match(/```text\n([\s\S]*?)```/);
+  assert.ok(fence, `docs/mcp.md missing text fence for ${agent}`);
+  return fence[1]!;
+}
+
 describe("MCP docs", () => {
-  it("documents every --print-config agent with generated snippets", () => {
+  it("compares each docs/mcp.md agent tab to CLI --print-config output", () => {
     const mcpDoc = readFileSync(resolve(root, "docs/mcp.md"), "utf8");
     for (const agent of MCP_PRINT_CONFIG_AGENTS) {
-      assert.ok(mcpDoc.includes(`\`${agent}\``) || mcpDoc.includes(agent), `docs/mcp.md missing ${agent}`);
-      const snippet = printMcpConfig(agent).trim();
-      assert.ok(mcpDoc.includes(snippet), `docs/mcp.md missing generated snippet for ${agent}`);
+      const fromDocs = extractAgentTab(mcpDoc, agent);
+      const fromCli = printMcpConfig(agent);
+      assert.equal(fromDocs, fromCli, `docs tab for ${agent} drifted from CLI`);
     }
+  });
+
+  it("starts troubleshooting with self-test and documents a temp-cache npx fix", () => {
+    const mcpDoc = readFileSync(resolve(root, "docs/mcp.md"), "utf8");
+    const troubleshooting = mcpDoc.slice(mcpDoc.indexOf("## Troubleshooting"));
+    assert.match(troubleshooting, /^## Troubleshooting\n\nStart here[\s\S]*npx -y @velella\/ebb mcp --self-test/);
+    assert.match(troubleshooting, /NPM_CONFIG_CACHE=\$\(mktemp -d\)/);
+    assert.match(troubleshooting, /Release smoke \(after publish\)/);
   });
 
   it("fails if the retired MCP package name remains in tracked docs or code", () => {
