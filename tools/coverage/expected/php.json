@@ -1,0 +1,30 @@
+{
+  "runtime": "php",
+  "purl": "pkg:generic/php",
+  "registry": "php.json",
+  "scheduleUrl": "https://www.php.net/supported-versions.php",
+  "reviewedAt": "2026-11-15",
+  "sources": [
+    {
+      "title": "PHP supported versions",
+      "url": "https://www.php.net/supported-versions.php",
+      "accessedAt": "2026-11-15"
+    },
+    {
+      "title": "PHP unsupported branches",
+      "url": "https://www.php.net/eol.php",
+      "accessedAt": "2026-11-15"
+    }
+  ],
+  "lines": [
+    { "id": "7.2", "sampleVersion": "7.2.34", "firstReleased": "2017-11-30", "end": { "date": "2020-11-30", "precision": "day" }, "status": "ended" },
+    { "id": "7.3", "sampleVersion": "7.3.33", "firstReleased": "2018-12-06", "end": { "date": "2021-12-06", "precision": "day" }, "status": "ended" },
+    { "id": "7.4", "sampleVersion": "7.4.33", "firstReleased": "2019-11-28", "end": { "date": "2022-11-28", "precision": "day" }, "status": "ended" },
+    { "id": "8.0", "sampleVersion": "8.0.30", "firstReleased": "2020-11-26", "end": { "date": "2023-11-26", "precision": "day" }, "status": "ended" },
+    { "id": "8.1", "sampleVersion": "8.1.31", "firstReleased": "2021-11-25", "end": { "date": "2025-12-31", "precision": "day" }, "status": "ended" },
+    { "id": "8.2", "sampleVersion": "8.2.26", "firstReleased": "2022-12-08", "end": { "date": "2026-12-31", "precision": "day" }, "status": "supported", "requiresScheduled": true },
+    { "id": "8.3", "sampleVersion": "8.3.14", "firstReleased": "2023-11-23", "end": { "date": "2027-12-31", "precision": "day" }, "status": "supported", "requiresScheduled": true },
+    { "id": "8.4", "sampleVersion": "8.4.0", "firstReleased": "2024-11-21", "end": { "date": "2028-12-31", "precision": "day" }, "status": "supported", "requiresScheduled": true },
+    { "id": "8.5", "sampleVersion": "8.5.0", "firstReleased": "2025-11-20", "end": { "date": "2029-12-31", "precision": "day" }, "status": "supported", "requiresScheduled": true }
+  ]
+}

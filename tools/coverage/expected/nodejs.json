@@ -1,0 +1,33 @@
+{
+  "runtime": "nodejs",
+  "purl": "pkg:generic/nodejs",
+  "registry": "nodejs.json",
+  "scheduleUrl": "https://github.com/nodejs/Release/blob/main/schedule.json",
+  "reviewedAt": "2026-11-15",
+  "sources": [
+    {
+      "title": "Node.js Release Working Group schedule",
+      "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+      "accessedAt": "2026-11-15"
+    }
+  ],
+  "lines": [
+    { "id": "10", "sampleVersion": "10.24.1", "firstReleased": "2018-04-24", "end": { "date": "2021-04-30", "precision": "day" }, "status": "ended" },
+    { "id": "11", "sampleVersion": "11.15.0", "firstReleased": "2018-10-23", "end": { "date": "2019-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "12", "sampleVersion": "12.22.12", "firstReleased": "2019-04-23", "end": { "date": "2022-04-30", "precision": "day" }, "status": "ended" },
+    { "id": "13", "sampleVersion": "13.14.0", "firstReleased": "2019-10-22", "end": { "date": "2020-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "14", "sampleVersion": "14.21.3", "firstReleased": "2020-04-21", "end": { "date": "2023-04-30", "precision": "day" }, "status": "ended" },
+    { "id": "15", "sampleVersion": "15.14.0", "firstReleased": "2020-10-20", "end": { "date": "2021-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "16", "sampleVersion": "16.20.2", "firstReleased": "2021-04-20", "end": { "date": "2023-09-11", "precision": "day" }, "status": "ended" },
+    { "id": "17", "sampleVersion": "17.9.1", "firstReleased": "2021-10-19", "end": { "date": "2022-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "18", "sampleVersion": "18.20.4", "firstReleased": "2022-04-19", "end": { "date": "2025-04-30", "precision": "day" }, "status": "ended" },
+    { "id": "19", "sampleVersion": "19.9.0", "firstReleased": "2022-10-18", "end": { "date": "2023-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "20", "sampleVersion": "20.18.0", "firstReleased": "2023-04-18", "end": { "date": "2026-04-30", "precision": "day" }, "status": "ended" },
+    { "id": "21", "sampleVersion": "21.7.3", "firstReleased": "2023-10-17", "end": { "date": "2024-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "22", "sampleVersion": "22.11.0", "firstReleased": "2024-04-24", "end": { "date": "2027-04-30", "precision": "day" }, "status": "supported", "requiresScheduled": true },
+    { "id": "23", "sampleVersion": "23.11.0", "firstReleased": "2024-10-16", "end": { "date": "2025-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "24", "sampleVersion": "24.1.0", "firstReleased": "2025-05-06", "end": { "date": "2028-04-30", "precision": "day" }, "status": "supported", "requiresScheduled": true },
+    { "id": "25", "sampleVersion": "25.0.0", "firstReleased": "2025-10-15", "end": { "date": "2026-06-01", "precision": "day" }, "status": "ended" },
+    { "id": "26", "sampleVersion": "26.0.0", "firstReleased": "2026-05-05", "end": { "date": "2029-04-30", "precision": "day" }, "status": "supported", "requiresScheduled": true }
+  ]
+}

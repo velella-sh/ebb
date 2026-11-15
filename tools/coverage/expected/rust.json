@@ -1,0 +1,38 @@
+{
+  "runtime": "rust",
+  "purl": "pkg:generic/rust",
+  "registry": "rust.json",
+  "scheduleUrl": "https://doc.rust-lang.org/book/appendix-07-nightly-rust.html",
+  "reviewedAt": "2026-11-15",
+  "sources": [
+    {
+      "title": "Rust Book — How Rust is Made and Nightly Rust (maintenance time)",
+      "url": "https://doc.rust-lang.org/book/appendix-07-nightly-rust.html",
+      "accessedAt": "2026-11-15"
+    },
+    {
+      "title": "Rust security policy",
+      "url": "https://www.rust-lang.org/policies/security",
+      "accessedAt": "2026-11-15"
+    },
+    {
+      "title": "Rust release notes (release dates)",
+      "url": "https://github.com/rust-lang/rust/blob/master/RELEASES.md",
+      "accessedAt": "2026-11-15"
+    }
+  ],
+  "lines": [
+    {
+      "id": "1.98-and-older",
+      "sampleVersion": "1.98.0",
+      "end": { "date": "2026-10-01", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "1.99",
+      "sampleVersion": "1.99.0",
+      "firstReleased": "2026-10-01",
+      "status": "policy"
+    }
+  ]
+}

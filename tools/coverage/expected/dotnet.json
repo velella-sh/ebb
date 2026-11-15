@@ -1,0 +1,30 @@
+{
+  "runtime": "dotnet",
+  "purl": "pkg:generic/dotnet",
+  "registry": "dotnet.json",
+  "scheduleUrl": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+  "reviewedAt": "2026-11-15",
+  "sources": [
+    {
+      "title": ".NET and .NET Core support policy",
+      "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+      "accessedAt": "2026-11-15"
+    }
+  ],
+  "lines": [
+    { "id": "1.0", "sampleVersion": "1.0.16", "firstReleased": "2016-06-27", "end": { "date": "2019-06-27", "precision": "day" }, "status": "ended" },
+    { "id": "1.1", "sampleVersion": "1.1.13", "firstReleased": "2016-11-16", "end": { "date": "2019-06-27", "precision": "day" }, "status": "ended" },
+    { "id": "2.0", "sampleVersion": "2.0.9", "firstReleased": "2017-08-14", "end": { "date": "2018-10-01", "precision": "day" }, "status": "ended" },
+    { "id": "2.1", "sampleVersion": "2.1.30", "firstReleased": "2018-05-30", "end": { "date": "2021-08-21", "precision": "day" }, "status": "ended" },
+    { "id": "2.2", "sampleVersion": "2.2.8", "firstReleased": "2018-12-04", "end": { "date": "2019-12-23", "precision": "day" }, "status": "ended" },
+    { "id": "3.0", "sampleVersion": "3.0.3", "firstReleased": "2019-09-23", "end": { "date": "2020-03-03", "precision": "day" }, "status": "ended" },
+    { "id": "3.1", "sampleVersion": "3.1.32", "firstReleased": "2019-12-03", "end": { "date": "2022-12-13", "precision": "day" }, "status": "ended" },
+    { "id": "5.0", "sampleVersion": "5.0.17", "firstReleased": "2020-11-10", "end": { "date": "2022-05-10", "precision": "day" }, "status": "ended" },
+    { "id": "6.0", "sampleVersion": "6.0.36", "firstReleased": "2021-11-08", "end": { "date": "2024-11-12", "precision": "day" }, "status": "ended" },
+    { "id": "7.0", "sampleVersion": "7.0.20", "firstReleased": "2022-11-08", "end": { "date": "2024-05-14", "precision": "day" }, "status": "ended" },
+    { "id": "8.0", "sampleVersion": "8.0.34", "firstReleased": "2023-11-14", "end": { "date": "2026-11-10", "precision": "day" }, "status": "ended" },
+    { "id": "9.0", "sampleVersion": "9.0.23", "firstReleased": "2024-11-12", "end": { "date": "2026-11-10", "precision": "day" }, "status": "ended" },
+    { "id": "10.0", "sampleVersion": "10.0.0", "firstReleased": "2025-11-11", "end": { "date": "2028-11-14", "precision": "day" }, "status": "supported", "requiresScheduled": true },
+    { "id": "11.0", "sampleVersion": "11.0.0", "firstReleased": "2026-11-10", "end": { "date": "2028-11-14", "precision": "day" }, "status": "supported", "requiresScheduled": true }
+  ]
+}

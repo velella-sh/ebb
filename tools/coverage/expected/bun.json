@@ -1,0 +1,16 @@
+{
+  "runtime": "bun",
+  "purl": "pkg:generic/bun",
+  "registry": "deno.json",
+  "scheduleUrl": "https://bun.com/",
+  "reviewedAt": "2026-11-15",
+  "sources": [
+    {
+      "title": "Bun homepage",
+      "url": "https://bun.com/",
+      "accessedAt": "2026-11-15"
+    }
+  ],
+  "coverageLimit": "Bun publishes no official dated support or LTS schedule. Ebb records that limit here and does not require dated Bun release-line rules.",
+  "lines": []
+}
