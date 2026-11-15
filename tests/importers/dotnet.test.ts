@@ -64,13 +64,15 @@ test("the committed runtime rules match what the importer drafts from the record
   const registry = validateRegistryV2(JSON.parse(await readFile("registry/dotnet.json", "utf8")));
   const committed = registry.rules.filter((rule) => rule.purl === "pkg:generic/dotnet");
   assert.ok(committed.length >= 4);
-  for (const rule of committed) {
-    const draft = drafts.find((candidate) => candidate.id === rule.id);
-    assert.ok(draft, `${rule.id} is drafted by the importer`);
+  assert.ok(drafts.length >= 1);
+  // Coverage may keep scheduled lines beyond the importer's twelve-month horizon (decision 0010).
+  for (const draft of drafts) {
+    const rule = committed.find((candidate) => candidate.id === draft.id);
+    assert.ok(rule, `${draft.id} is committed in the registry`);
     for (const field of ["purl", "vers", "event", "title", "summary", "severity", "replacement", "deadline"] as const) {
-      assert.deepEqual(rule[field], draft[field], `${rule.id} ${field}`);
+      assert.deepEqual(rule[field], draft[field], `${draft.id} ${field}`);
     }
-    assert.deepEqual(withoutAccessDates(rule.sources), withoutAccessDates(draft.sources), `${rule.id} sources`);
+    assert.deepEqual(withoutAccessDates(rule.sources), withoutAccessDates(draft.sources), `${draft.id} sources`);
   }
 });
 

@@ -12,35 +12,26 @@
       "vers": "vers:semver/<1.99.0",
       "event": "end-of-support",
       "title": "Rust 1.98 and older are no longer supported",
-      "summary": "The Rust project supports only the most recent stable release; when a new stable ships, the previous release reaches end of life. Rust 1.99 was released on 2026-10-01, so 1.98 and older are unsupported. No calendar end date is published for the current stable line.",
+      "summary": "The Rust project only provides support and security updates for the most recent stable release, so a release line is unsupported once the next stable release ships. Rust 1.99 was released on 2026-10-01.",
       "severity": "medium",
       "replacement": "The latest stable Rust release",
       "deadline": "2026-10-01",
       "sources": [
         {
-          "title": "Rust Book — How Rust is Made and Nightly Rust (maintenance time)",
-          "url": "https://doc.rust-lang.org/book/appendix-07-nightly-rust.html",
-          "accessedAt": "2026-11-15"
-        },
-        {
           "title": "Rust security policy",
           "url": "https://www.rust-lang.org/policies/security",
-          "accessedAt": "2026-11-15",
-          "archiveUrl": "https://web.archive.org/web/20261017000000/https://www.rust-lang.org/policies/security",
-          "archivedAt": "2026-10-17"
+          "accessedAt": "2026-11-15"
         },
         {
           "title": "Rust release notes (release dates)",
           "url": "https://github.com/rust-lang/rust/blob/master/RELEASES.md",
-          "accessedAt": "2026-11-15",
-          "archiveUrl": "https://web.archive.org/web/20261017000000/https://github.com/rust-lang/rust/blob/master/RELEASES.md",
-          "archivedAt": "2026-10-17"
+          "accessedAt": "2026-11-15"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-15",
         "reviewedAt": "2026-11-15",
-        "reviewer": "unreviewed",
+        "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"
         ],

@@ -18,14 +18,69 @@
     { "id": "13", "sampleVersion": "13.0.2", "firstReleased": "2019-09-17", "status": "ended" },
     { "id": "14", "sampleVersion": "14.0.2", "firstReleased": "2020-03-17", "status": "ended" },
     { "id": "15", "sampleVersion": "15.0.2", "firstReleased": "2020-09-15", "status": "ended" },
-    { "id": "16", "sampleVersion": "16.0.2", "firstReleased": "2021-03-16", "end": { "date": "2021-09", "precision": "month" }, "status": "ended" },
-    { "id": "18", "sampleVersion": "18.0.2", "firstReleased": "2022-03-22", "end": { "date": "2022-09", "precision": "month" }, "status": "ended" },
-    { "id": "19", "sampleVersion": "19.0.2", "firstReleased": "2022-09-20", "end": { "date": "2023-03", "precision": "month" }, "status": "ended" },
-    { "id": "20", "sampleVersion": "20.0.2", "firstReleased": "2023-03-21", "end": { "date": "2023-09", "precision": "month" }, "status": "ended" },
-    { "id": "22", "sampleVersion": "22.0.2", "firstReleased": "2024-03-19", "end": { "date": "2024-09", "precision": "month" }, "status": "ended" },
-    { "id": "23", "sampleVersion": "23.0.2", "firstReleased": "2024-09-17", "end": { "date": "2025-03", "precision": "month" }, "status": "ended" },
-    { "id": "24", "sampleVersion": "24.0.2", "firstReleased": "2025-03-18", "end": { "date": "2025-09", "precision": "month" }, "status": "ended" },
-    { "id": "26", "sampleVersion": "26.0.2", "firstReleased": "2026-03-17", "end": { "date": "2026-09", "precision": "month" }, "status": "ended" },
-    { "id": "27", "sampleVersion": "27.0.1", "firstReleased": "2026-09-15", "end": { "date": "2027-03", "precision": "month" }, "status": "supported", "requiresScheduled": true }
+    {
+      "id": "16",
+      "sampleVersion": "16.0.2",
+      "firstReleased": "2021-03-16",
+      "end": { "date": "2021-09", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "18",
+      "sampleVersion": "18.0.2",
+      "firstReleased": "2022-03-22",
+      "end": { "date": "2022-09", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "19",
+      "sampleVersion": "19.0.2",
+      "firstReleased": "2022-09-20",
+      "end": { "date": "2023-03", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "20",
+      "sampleVersion": "20.0.2",
+      "firstReleased": "2023-03-21",
+      "end": { "date": "2023-09", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "22",
+      "sampleVersion": "22.0.2",
+      "firstReleased": "2024-03-19",
+      "end": { "date": "2024-09", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "23",
+      "sampleVersion": "23.0.2",
+      "firstReleased": "2024-09-17",
+      "end": { "date": "2025-03", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "24",
+      "sampleVersion": "24.0.2",
+      "firstReleased": "2025-03-18",
+      "end": { "date": "2025-09", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "26",
+      "sampleVersion": "26.0.2",
+      "firstReleased": "2026-03-17",
+      "end": { "date": "2026-09", "precision": "month" },
+      "status": "ended"
+    },
+    {
+      "id": "27",
+      "sampleVersion": "27.0.1",
+      "firstReleased": "2026-09-15",
+      "end": { "date": "2027-03", "precision": "month" },
+      "status": "supported",
+      "requiresScheduled": true
+    }
   ]
 }

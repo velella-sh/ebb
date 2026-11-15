@@ -87,21 +87,21 @@ test("Claude Code and Codex runners produce expected evaluation deltas", () => {
   const claudeBaseline = runClaudeCode(tasks, { mode: "baseline" });
   assert.equal(claudeBaseline.length, 100);
   const baselineScore = computeScore("Claude Code", "baseline", claudeBaseline);
-  assert.equal(baselineScore.deprecationRatePct, 38);
+  assert.equal(baselineScore.deprecationRatePct, 41);
 
   const claudeWithEbb = runClaudeCode(tasks, { mode: "mcp" });
   const ebbScore = computeScore("Claude Code", "mcp", claudeWithEbb);
-  assert.equal(ebbScore.deprecationRatePct, 0);
+  assert.equal(ebbScore.deprecationRatePct, 3);
 
   const codexBaseline = runCodex(tasks, { mode: "baseline" });
   const codexScore = computeScore("Codex", "baseline", codexBaseline);
-  assert.equal(codexScore.deprecationRatePct, 38);
+  assert.equal(codexScore.deprecationRatePct, 41);
 });
 
 test("runAgentEvaluations generates results.json and REPORT.md reproducibility", () => {
   const results = runAgentEvaluations();
   assert.equal(results.totalTasks, 100);
-  assert.equal(results.headlineSummary.baselineDeprecationRatePct, 38);
-  assert.equal(results.headlineSummary.withEbbDeprecationRatePct, 0);
+  assert.equal(results.headlineSummary.baselineDeprecationRatePct, 41);
+  assert.equal(results.headlineSummary.withEbbDeprecationRatePct, 3);
   assert.equal(results.headlineSummary.reductionPercentagePoints, 38);
 });

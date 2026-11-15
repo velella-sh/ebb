@@ -6,9 +6,9 @@ name: deploy-site
 on:
   push:
     branches: [main]
-    paths: ["docs/**", "registry/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   pull_request:
-    paths: ["docs/**", "registry/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   workflow_dispatch:
 
 permissions: {}
@@ -36,14 +36,19 @@ jobs:
           cd "$RUNNER_TEMP/site-tools"
           npm init -y >/dev/null
           npm install --no-audit --no-fund --save-exact @velella/mizzen@0.2.0 @velella/lateen@0.2.2
+      - name: Install dependencies
+        run: npm ci
+      - name: Publish runtime coverage table into the docs
+        run: |
+          npm run build --silent
+          # Checker exits 1 when gaps remain; still write the status table for the site.
+          node dist/tools/coverage/runtimes.js --write-docs || true
       - name: Check the site
         run: |
           $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen doctor docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
           $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen check docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
       - name: Build the site
         run: $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen build docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen" --out "$RUNNER_TEMP/site"
-      - name: Install dependencies
-        run: npm ci
       - name: Build static API
         run: npm run build:static-api -- --out "$RUNNER_TEMP/site/api/v1"
       - name: Copy LLM documentation to site

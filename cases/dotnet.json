@@ -13,17 +13,17 @@
     {
       "purl": "pkg:generic/dotnet",
       "version": "10.0.0",
-      "rules": ["dotnet.runtime.scheduled-end-of-support-10.0"]
+      "rules": ["dotnet.runtime.end-of-support-10.0"]
     },
     {
       "purl": "pkg:generic/dotnet",
       "version": "10.0.1",
-      "rules": ["dotnet.runtime.scheduled-end-of-support-10.0"]
+      "rules": ["dotnet.runtime.end-of-support-10.0"]
     },
     {
       "purl": "pkg:generic/dotnet",
       "version": "11.0.0",
-      "rules": ["dotnet.runtime.scheduled-end-of-support-11.0"]
+      "rules": ["dotnet.runtime.end-of-support-11.0"]
     },
     {
       "purl": "pkg:generic/dotnet",
@@ -33,7 +33,7 @@
     {
       "purl": "pkg:generic/dotnet",
       "version": "11.0.1",
-      "rules": ["dotnet.runtime.scheduled-end-of-support-11.0"]
+      "rules": ["dotnet.runtime.end-of-support-11.0"]
     },
     {
       "purl": "pkg:generic/dotnet",

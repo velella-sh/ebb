@@ -20,7 +20,9 @@ test("known packages resolve to their candidate rules", () => {
     "nodejs.runtime.eol-21",
     "nodejs.runtime.eol-22",
     "nodejs.runtime.eol-23",
+    "nodejs.runtime.eol-24",
     "nodejs.runtime.eol-25",
+    "nodejs.runtime.eol-26",
     "nodejs.runtime.legacy",
   ]);
   assert.equal(resolveCandidateRules("pkg:npm/left-pad").length, 1);
@@ -52,8 +54,8 @@ test("check throws for an invalid purl", () => {
 });
 
 test("check keeps candidate resolution and still returns the original version", () => {
-  const result = check("pkg:generic/nodejs", "24.0.0", AS_OF);
-  assert.equal(result.version, "24.0.0");
+  const result = check("pkg:generic/nodejs", "27.0.0", AS_OF);
+  assert.equal(result.version, "27.0.0");
   assert.equal(result.status, "ok");
   assert.deepEqual(result.matches, []);
 });

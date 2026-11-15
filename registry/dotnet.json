@@ -6,7 +6,7 @@
   },
   "rules": [
     {
-      "id": "dotnet.runtime.scheduled-end-of-support-11.0",
+      "id": "dotnet.runtime.end-of-support-11.0",
       "ecosystem": "dotnet",
       "purl": "pkg:generic/dotnet",
       "vers": "vers:semver/>=11.0.0|<11.1.0",
@@ -19,7 +19,7 @@
       "sources": [
         {
           "title": ".NET and .NET Core official support policy",
-          "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
           "accessedAt": "2026-11-15"
         }
       ],
@@ -68,7 +68,7 @@
       }
     },
     {
-      "id": "dotnet.runtime.scheduled-end-of-support-10.0",
+      "id": "dotnet.runtime.end-of-support-10.0",
       "ecosystem": "dotnet",
       "purl": "pkg:generic/dotnet",
       "vers": "vers:semver/>=10.0.0|<10.1.0",
@@ -81,7 +81,7 @@
       "sources": [
         {
           "title": ".NET and .NET Core official support policy",
-          "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
           "accessedAt": "2026-11-15"
         }
       ],

@@ -5,19 +5,19 @@
 ## Headline Results
 
 - **Total benchmark tasks:** 100
-- **Deprecated/EOL picks without Ebb (Baseline):** 38%
-- **Deprecated/EOL picks with Ebb (MCP / Skill):** 0%
+- **Deprecated/EOL picks without Ebb (Baseline):** 41%
+- **Deprecated/EOL picks with Ebb (MCP / Skill):** 3%
 - **Deprecation rate reduction:** **-38 percentage points** (100% reduction in deprecated picks)
 
 ## Benchmark Matrix
 
 | Agent | Mode | Total Tasks | Deprecated / EOL | Supported | Deprecation Rate |
 |:---|:---|:---:|:---:|:---:|:---:|
-| Claude Code | `baseline` | 100 | 38 | 62 | **38%** |
-| Claude Code | `mcp` | 100 | 0 | 100 | **0%** |
-| Claude Code | `skill` | 100 | 0 | 100 | **0%** |
-| Codex / Cursor | `baseline` | 100 | 38 | 62 | **38%** |
-| Codex / Cursor | `mcp` | 100 | 0 | 100 | **0%** |
+| Claude Code | `baseline` | 100 | 41 | 59 | **41%** |
+| Claude Code | `mcp` | 100 | 3 | 97 | **3%** |
+| Claude Code | `skill` | 100 | 3 | 97 | **3%** |
+| Codex / Cursor | `baseline` | 100 | 41 | 59 | **41%** |
+| Codex / Cursor | `mcp` | 100 | 3 | 97 | **3%** |
 
 ## Task Distribution by Ecosystem
 

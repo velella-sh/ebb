@@ -42,7 +42,7 @@ test("every code example documented in llms.txt executes accurately", async () =
   // Example 2: checkAll()
   const checkAllRes = checkAll([
     { purl: "pkg:npm/request", version: "2.88.2" },
-    { purl: "pkg:generic/nodejs", version: "24.0.0" },
+    { purl: "pkg:generic/nodejs", version: "27.0.0" },
   ]);
   assert.equal(checkAllRes.summary.total, 2);
   assert.equal(checkAllRes.summary.byStatus.deprecated, 1);

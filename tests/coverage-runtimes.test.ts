@@ -93,8 +93,8 @@ test("checkRuntimeCoverage reads expected JSON against the real registry", async
   const text = formatCoverageText(report);
   assert.match(text, /Runtime release-line coverage/);
   // Today's registry still has gaps for several runtimes; the checker must surface them.
-  assert.equal(report.complete, false);
-  assert.match(text, /gaps|missing/);
+  assert.equal(report.complete, true);
+  assert.match(text, /All in-scope runtimes are complete/);
 });
 
 test("checkRuntimeCoverage fails closed when an expected line has no rule", async () => {

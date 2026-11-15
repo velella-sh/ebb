@@ -104,7 +104,7 @@ test('replacementFor returns null (never "") across every version rule in bundle
 });
 
 test("replacementFor returns null without throwing for unmatched versions, unknown packages, and synthetic rules without replacement", async () => {
-  assert.strictEqual(replacementFor("pkg:generic/nodejs", "24.0.0"), null);
+  assert.strictEqual(replacementFor("pkg:generic/nodejs", "27.0.0"), null);
   assert.strictEqual(replacementFor("pkg:npm/express", "4.21.0"), null);
   assert.strictEqual(replacementFor("pkg:npm/this-package-does-not-exist", "1.0.0"), null);
 

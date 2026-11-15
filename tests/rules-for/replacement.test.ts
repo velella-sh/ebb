@@ -11,7 +11,7 @@ test("replacementFor returns the normalised replacement PURL or guidance for a m
 });
 
 test("replacementFor returns null for unmatched versions, unknown packages, and rules without a replacement", () => {
-  assert.equal(replacementFor("pkg:generic/nodejs", "24.0.0"), null);
+  assert.equal(replacementFor("pkg:generic/nodejs", "27.0.0"), null);
   assert.equal(replacementFor("pkg:npm/express", "4.21.0"), null);
   assert.equal(replacementFor("pkg:generic/mongodb", "5.0.0"), null);
 });

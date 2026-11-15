@@ -22,12 +22,48 @@
     { "id": "1.17", "sampleVersion": "1.17.13", "firstReleased": "2021-08-16", "status": "ended" },
     { "id": "1.18", "sampleVersion": "1.18.10", "firstReleased": "2022-03-15", "status": "ended" },
     { "id": "1.19", "sampleVersion": "1.19.13", "firstReleased": "2022-08-02", "status": "ended" },
-    { "id": "1.20", "sampleVersion": "1.20.14", "firstReleased": "2023-02-01", "end": { "date": "2024-02-06", "precision": "day" }, "status": "ended" },
-    { "id": "1.21", "sampleVersion": "1.21.13", "firstReleased": "2023-08-08", "end": { "date": "2024-08-13", "precision": "day" }, "status": "ended" },
-    { "id": "1.22", "sampleVersion": "1.22.12", "firstReleased": "2024-02-06", "end": { "date": "2025-02-11", "precision": "day" }, "status": "ended" },
-    { "id": "1.23", "sampleVersion": "1.23.6", "firstReleased": "2024-08-13", "end": { "date": "2025-08-12", "precision": "day" }, "status": "ended" },
-    { "id": "1.24", "sampleVersion": "1.24.0", "firstReleased": "2025-02-11", "end": { "date": "2026-02-10", "precision": "day" }, "status": "ended" },
-    { "id": "1.25", "sampleVersion": "1.25.0", "firstReleased": "2025-08-12", "end": { "date": "2026-08-19", "precision": "day" }, "status": "ended" },
+    {
+      "id": "1.20",
+      "sampleVersion": "1.20.14",
+      "firstReleased": "2023-02-01",
+      "end": { "date": "2024-02-06", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "1.21",
+      "sampleVersion": "1.21.13",
+      "firstReleased": "2023-08-08",
+      "end": { "date": "2024-08-13", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "1.22",
+      "sampleVersion": "1.22.12",
+      "firstReleased": "2024-02-06",
+      "end": { "date": "2025-02-11", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "1.23",
+      "sampleVersion": "1.23.6",
+      "firstReleased": "2024-08-13",
+      "end": { "date": "2025-08-12", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "1.24",
+      "sampleVersion": "1.24.0",
+      "firstReleased": "2025-02-11",
+      "end": { "date": "2026-02-10", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "1.25",
+      "sampleVersion": "1.25.0",
+      "firstReleased": "2025-08-12",
+      "end": { "date": "2026-08-19", "precision": "day" },
+      "status": "ended"
+    },
     { "id": "1.26", "sampleVersion": "1.26.0", "firstReleased": "2026-02-10", "status": "policy" },
     { "id": "1.27", "sampleVersion": "1.27.0", "firstReleased": "2026-08-19", "status": "policy" }
   ]

@@ -9,12 +9,12 @@ const AS_OF = "2026-04-01";
 
 test("check returns ok with no matches and the original version", () => {
   // Node.js 24 has no bundled rule yet, so this stays the empty-result shape.
-  const result: CheckResult = check("pkg:generic/nodejs", "24.0.0", AS_OF);
+  const result: CheckResult = check("pkg:generic/nodejs", "27.0.0", AS_OF);
   assert.deepEqual(result, {
     schemaVersion: RESULT_SCHEMA_VERSION,
     status: "ok",
     matches: [],
-    version: "24.0.0",
+    version: "27.0.0",
     asOf: AS_OF,
   });
 });

@@ -17,14 +17,73 @@
     }
   ],
   "lines": [
-    { "id": "3.7", "sampleVersion": "3.7.17", "firstReleased": "2018-06-27", "end": { "date": "2023-06-27", "precision": "day" }, "status": "ended" },
-    { "id": "3.8", "sampleVersion": "3.8.20", "firstReleased": "2019-10-14", "end": { "date": "2024-10-07", "precision": "day" }, "status": "ended" },
-    { "id": "3.9", "sampleVersion": "3.9.21", "firstReleased": "2020-10-05", "end": { "date": "2025-10-31", "precision": "day" }, "status": "ended" },
-    { "id": "3.10", "sampleVersion": "3.10.14", "firstReleased": "2021-10-04", "end": { "date": "2026-10-01", "precision": "day" }, "status": "ended" },
-    { "id": "3.11", "sampleVersion": "3.11.10", "firstReleased": "2022-10-24", "end": { "date": "2027-10", "precision": "month" }, "status": "supported", "requiresScheduled": true },
-    { "id": "3.12", "sampleVersion": "3.12.7", "firstReleased": "2023-10-02", "end": { "date": "2028-10", "precision": "month" }, "status": "supported", "requiresScheduled": true },
-    { "id": "3.13", "sampleVersion": "3.13.0", "firstReleased": "2024-10-07", "end": { "date": "2029-10", "precision": "month" }, "status": "supported", "requiresScheduled": true },
-    { "id": "3.14", "sampleVersion": "3.14.0", "firstReleased": "2025-10-07", "end": { "date": "2030-10", "precision": "month" }, "status": "supported", "requiresScheduled": true },
-    { "id": "3.15", "sampleVersion": "3.15.0", "firstReleased": "2026-10-09", "end": { "date": "2031-10", "precision": "month" }, "status": "supported", "requiresScheduled": true }
+    {
+      "id": "3.7",
+      "sampleVersion": "3.7.17",
+      "firstReleased": "2018-06-27",
+      "end": { "date": "2023-06-27", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "3.8",
+      "sampleVersion": "3.8.20",
+      "firstReleased": "2019-10-14",
+      "end": { "date": "2024-10-07", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "3.9",
+      "sampleVersion": "3.9.21",
+      "firstReleased": "2020-10-05",
+      "end": { "date": "2025-10-31", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "3.10",
+      "sampleVersion": "3.10.14",
+      "firstReleased": "2021-10-04",
+      "end": { "date": "2026-10-01", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "3.11",
+      "sampleVersion": "3.11.10",
+      "firstReleased": "2022-10-24",
+      "end": { "date": "2027-10", "precision": "month" },
+      "status": "supported",
+      "requiresScheduled": true
+    },
+    {
+      "id": "3.12",
+      "sampleVersion": "3.12.7",
+      "firstReleased": "2023-10-02",
+      "end": { "date": "2028-10", "precision": "month" },
+      "status": "supported",
+      "requiresScheduled": true
+    },
+    {
+      "id": "3.13",
+      "sampleVersion": "3.13.0",
+      "firstReleased": "2024-10-07",
+      "end": { "date": "2029-10", "precision": "month" },
+      "status": "supported",
+      "requiresScheduled": true
+    },
+    {
+      "id": "3.14",
+      "sampleVersion": "3.14.0",
+      "firstReleased": "2025-10-07",
+      "end": { "date": "2030-10", "precision": "month" },
+      "status": "supported",
+      "requiresScheduled": true
+    },
+    {
+      "id": "3.15",
+      "sampleVersion": "3.15.0",
+      "firstReleased": "2026-10-09",
+      "end": { "date": "2031-10", "precision": "month" },
+      "status": "supported",
+      "requiresScheduled": true
+    }
   ]
 }

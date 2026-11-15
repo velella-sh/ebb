@@ -33,7 +33,7 @@ Output:
 ```text
 Lifecycle data status:
   Source:           bundled (0.2.0)
-  Reviewed through: 2026-11-11
+  Reviewed through: 2026-11-15
   Data age:         3 days
   Freshness limit:  30 days
   Status:           fresh

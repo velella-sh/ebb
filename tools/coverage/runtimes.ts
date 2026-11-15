@@ -116,8 +116,7 @@ export function assessRuntime(expected: ExpectedRuntime, rules: readonly Registr
 
   for (const line of expected.lines) {
     const matches = matchingEndRules(rules, line.sampleVersion);
-    const needsScheduled =
-      line.requiresScheduled === true || (line.status === "supported" && line.end !== undefined);
+    const needsScheduled = line.requiresScheduled === true || (line.status === "supported" && line.end !== undefined);
 
     // Still-supported policy lines (no published calendar end) must not be forced into an end rule.
     if (line.status === "policy" || (line.status === "supported" && !needsScheduled)) {
@@ -217,10 +216,7 @@ export function formatCoverageText(report: CoverageReport): string {
 }
 
 export function formatCoverageTable(report: CoverageReport): string {
-  const rows = [
-    "| Runtime | Status | Missing lines | Missing scheduled |",
-    "| --- | --- | --- | --- |",
-  ];
+  const rows = ["| Runtime | Status | Missing lines | Missing scheduled |", "| --- | --- | --- | --- |"];
   for (const runtime of report.runtimes) {
     const status = runtime.coverageLimit ? "limit" : runtime.complete ? "complete" : "gaps";
     const missing = runtime.missingLines.length > 0 ? runtime.missingLines.join(", ") : "—";
@@ -240,6 +236,49 @@ export async function writeCoverageDoc(report: CoverageReport, path = COVERAGE_D
   const table = `\n\n${formatCoverageTable(report)}\n`;
   const next = `${existing.slice(0, begin + TABLE_BEGIN.length)}${table}${existing.slice(end)}`;
   await writeFile(path, next);
+}
+
+/** Marker embedded in gap issues so the weekly job can dedupe while open. */
+export const COVERAGE_ISSUE_MARKER = "<!-- ebb-runtime-coverage-gap -->";
+
+export function coverageIssueTitle(runtime: string): string {
+  return `runtime coverage gap: ${runtime}`;
+}
+
+export function coverageIssueMarker(runtime: string): string {
+  return `${COVERAGE_ISSUE_MARKER} runtime=${runtime}`;
+}
+
+export function formatCoverageIssueBody(runtime: RuntimeCoverage): string {
+  const lines = [
+    coverageIssueMarker(runtime.runtime),
+    "",
+    `The offline runtime coverage checker found gaps for **${runtime.runtime}**.`,
+    "",
+    "This issue is opened by the weekly importers workflow. It does not edit `registry/`.",
+    "",
+  ];
+  if (runtime.missingLines.length > 0) {
+    lines.push("### Missing end rules", "", runtime.missingLines.map((id) => `- [ ] \`${id}\``).join("\n"), "");
+  }
+  if (runtime.missingScheduled.length > 0) {
+    lines.push(
+      "### Missing scheduled rules",
+      "",
+      runtime.missingScheduled.map((id) => `- [ ] \`${id}\``).join("\n"),
+      "",
+    );
+  }
+  lines.push(
+    "### How to fix",
+    "",
+    "1. Read the official schedule URL on [`docs/coverage.md`](../blob/main/docs/coverage.md).",
+    "2. Add or update rules in `registry/` from that source only.",
+    "3. Refresh `tools/coverage/expected/` if the reviewed line list changed.",
+    "4. Add cases and run `npm run lint:rules` and `node dist/tools/coverage/runtimes.js`.",
+    "",
+  );
+  return `${lines.join("\n")}\n`;
 }
 
 function parseArgs(argv: string[]): { writeDocs: boolean } {

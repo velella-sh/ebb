@@ -29,7 +29,7 @@ test("offing contract: check returns schemaVersion 1 with expected fields", () =
 });
 
 test("offing contract: check handles clean components", () => {
-  const result = check("pkg:generic/nodejs", "24.0.0");
+  const result = check("pkg:generic/nodejs", "27.0.0");
   assert.equal(result.schemaVersion, 1);
   assert.equal(result.status, "ok");
   assert.deepEqual(result.matches, []);
@@ -38,7 +38,7 @@ test("offing contract: check handles clean components", () => {
 test("offing contract: checkAll returns batch results and summary", () => {
   const batch = [
     { purl: "pkg:npm/left-pad", version: "1.3.0" },
-    { purl: "pkg:generic/nodejs", version: "24.0.0" },
+    { purl: "pkg:generic/nodejs", version: "27.0.0" },
     { purl: "node", version: "18.20.4" },
   ];
 

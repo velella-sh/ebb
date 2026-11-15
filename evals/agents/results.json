@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-11-12T10:53:12.101Z",
+  "timestamp": "2026-11-15T07:17:02.589Z",
   "totalTasks": 100,
   "runs": [
     {
       "agent": "Claude Code",
       "mode": "baseline",
       "totalTasks": 100,
-      "deprecatedOrEolCount": 38,
-      "supportedCount": 62,
-      "deprecationRatePct": 38,
+      "deprecatedOrEolCount": 41,
+      "supportedCount": 59,
+      "deprecationRatePct": 41,
       "picks": [
         {
           "taskId": "task-001",
@@ -878,10 +878,10 @@
           "taskId": "task-097",
           "purl": "pkg:generic/nodejs",
           "version": "24.0.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Node.js 24 LTS or later",
+          "ruleId": "nodejs.runtime.eol-24"
         },
         {
           "taskId": "task-098",
@@ -896,19 +896,19 @@
           "taskId": "task-099",
           "purl": "pkg:generic/ruby",
           "version": "3.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Ruby 3.4 or later",
+          "ruleId": "ruby.runtime.eol-3.3"
         },
         {
           "taskId": "task-100",
           "purl": "pkg:generic/php",
           "version": "8.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "unsupported",
+          "isDeprecatedOrEol": true,
+          "replacement": "PHP 8.5 or later",
+          "ruleId": "php.runtime.end-of-active-support-8.3"
         }
       ]
     },
@@ -916,9 +916,9 @@
       "agent": "Claude Code",
       "mode": "mcp",
       "totalTasks": 100,
-      "deprecatedOrEolCount": 0,
-      "supportedCount": 100,
-      "deprecationRatePct": 0,
+      "deprecatedOrEolCount": 3,
+      "supportedCount": 97,
+      "deprecationRatePct": 3,
       "picks": [
         {
           "taskId": "task-001",
@@ -1788,10 +1788,10 @@
           "taskId": "task-097",
           "purl": "pkg:generic/nodejs",
           "version": "24.0.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Node.js 24 LTS or later",
+          "ruleId": "nodejs.runtime.eol-24"
         },
         {
           "taskId": "task-098",
@@ -1806,19 +1806,19 @@
           "taskId": "task-099",
           "purl": "pkg:generic/ruby",
           "version": "3.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Ruby 3.4 or later",
+          "ruleId": "ruby.runtime.eol-3.3"
         },
         {
           "taskId": "task-100",
           "purl": "pkg:generic/php",
           "version": "8.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "unsupported",
+          "isDeprecatedOrEol": true,
+          "replacement": "PHP 8.5 or later",
+          "ruleId": "php.runtime.end-of-active-support-8.3"
         }
       ]
     },
@@ -1826,9 +1826,9 @@
       "agent": "Claude Code",
       "mode": "skill",
       "totalTasks": 100,
-      "deprecatedOrEolCount": 0,
-      "supportedCount": 100,
-      "deprecationRatePct": 0,
+      "deprecatedOrEolCount": 3,
+      "supportedCount": 97,
+      "deprecationRatePct": 3,
       "picks": [
         {
           "taskId": "task-001",
@@ -2698,10 +2698,10 @@
           "taskId": "task-097",
           "purl": "pkg:generic/nodejs",
           "version": "24.0.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Node.js 24 LTS or later",
+          "ruleId": "nodejs.runtime.eol-24"
         },
         {
           "taskId": "task-098",
@@ -2716,19 +2716,19 @@
           "taskId": "task-099",
           "purl": "pkg:generic/ruby",
           "version": "3.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Ruby 3.4 or later",
+          "ruleId": "ruby.runtime.eol-3.3"
         },
         {
           "taskId": "task-100",
           "purl": "pkg:generic/php",
           "version": "8.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "unsupported",
+          "isDeprecatedOrEol": true,
+          "replacement": "PHP 8.5 or later",
+          "ruleId": "php.runtime.end-of-active-support-8.3"
         }
       ]
     },
@@ -2736,9 +2736,9 @@
       "agent": "Codex / Cursor",
       "mode": "baseline",
       "totalTasks": 100,
-      "deprecatedOrEolCount": 38,
-      "supportedCount": 62,
-      "deprecationRatePct": 38,
+      "deprecatedOrEolCount": 41,
+      "supportedCount": 59,
+      "deprecationRatePct": 41,
       "picks": [
         {
           "taskId": "task-001",
@@ -3608,10 +3608,10 @@
           "taskId": "task-097",
           "purl": "pkg:generic/nodejs",
           "version": "24.0.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Node.js 24 LTS or later",
+          "ruleId": "nodejs.runtime.eol-24"
         },
         {
           "taskId": "task-098",
@@ -3626,19 +3626,19 @@
           "taskId": "task-099",
           "purl": "pkg:generic/ruby",
           "version": "3.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Ruby 3.4 or later",
+          "ruleId": "ruby.runtime.eol-3.3"
         },
         {
           "taskId": "task-100",
           "purl": "pkg:generic/php",
           "version": "8.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "unsupported",
+          "isDeprecatedOrEol": true,
+          "replacement": "PHP 8.5 or later",
+          "ruleId": "php.runtime.end-of-active-support-8.3"
         }
       ]
     },
@@ -3646,9 +3646,9 @@
       "agent": "Codex / Cursor",
       "mode": "mcp",
       "totalTasks": 100,
-      "deprecatedOrEolCount": 0,
-      "supportedCount": 100,
-      "deprecationRatePct": 0,
+      "deprecatedOrEolCount": 3,
+      "supportedCount": 97,
+      "deprecationRatePct": 3,
       "picks": [
         {
           "taskId": "task-001",
@@ -4518,10 +4518,10 @@
           "taskId": "task-097",
           "purl": "pkg:generic/nodejs",
           "version": "24.0.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Node.js 24 LTS or later",
+          "ruleId": "nodejs.runtime.eol-24"
         },
         {
           "taskId": "task-098",
@@ -4536,26 +4536,26 @@
           "taskId": "task-099",
           "purl": "pkg:generic/ruby",
           "version": "3.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "scheduled",
+          "isDeprecatedOrEol": true,
+          "replacement": "Ruby 3.4 or later",
+          "ruleId": "ruby.runtime.eol-3.3"
         },
         {
           "taskId": "task-100",
           "purl": "pkg:generic/php",
           "version": "8.3.0",
-          "status": "ok",
-          "isDeprecatedOrEol": false,
-          "replacement": null,
-          "ruleId": null
+          "status": "unsupported",
+          "isDeprecatedOrEol": true,
+          "replacement": "PHP 8.5 or later",
+          "ruleId": "php.runtime.end-of-active-support-8.3"
         }
       ]
     }
   ],
   "headlineSummary": {
-    "baselineDeprecationRatePct": 38,
-    "withEbbDeprecationRatePct": 0,
+    "baselineDeprecationRatePct": 41,
+    "withEbbDeprecationRatePct": 3,
     "reductionPercentagePoints": 38
   }
 }

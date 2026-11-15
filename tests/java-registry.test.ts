@@ -19,7 +19,7 @@ const ORACLE = "https://www.oracle.com/java/technologies/java-se-support-roadmap
 const TEMURIN = "https://adoptium.net/support/";
 
 test("java registry has five valid end-of-support rules that cite the Oracle roadmap", async () => {
-  const all = await rules();
+  const all = (await rules()).filter((rule) => rule.event === "end-of-support");
   assert.equal(all.length, 5);
   for (const rule of all) {
     assert.equal(rule.purl, "pkg:generic/java");
@@ -33,6 +33,14 @@ test("java registry has five valid end-of-support rules that cite the Oracle roa
       `${rule.id} cites another source`,
     );
     assert.equal(rule.deadline, undefined, `${rule.id}: the sources give a month, not a day`);
+  }
+  const scheduled = (await rules()).filter((rule) => rule.event === "scheduled-end-of-life");
+  assert.ok(scheduled.length >= 1);
+  for (const rule of scheduled) {
+    assert.ok(
+      rule.sources.every((source) => source.url === TEMURIN),
+      rule.id,
+    );
   }
 });
 
@@ -51,7 +59,8 @@ test("only non-LTS feature releases fall inside a range; LTS releases never do",
   const affected = (major: number) => ranges.some((range) => versContains(range, jdkRuleVersion(major)));
   for (const major of [9, 10, 12, 13, 14, 15, 16, 18, 19, 20, 22, 23, 24, 26])
     assert.equal(affected(major), true, `Java ${major}`);
-  for (const major of [8, 11, 17, 21, 25, 27, 28, 29]) assert.equal(affected(major), false, `Java ${major}`);
+  for (const major of [8, 11, 17, 21, 25, 28, 29]) assert.equal(affected(major), false, `Java ${major}`);
+  assert.equal(affected(27), true, `Java 27`);
 });
 
 test("relocation rules name Maven coordinates and cite the artifact's own POM", async () => {

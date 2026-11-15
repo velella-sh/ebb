@@ -59,10 +59,10 @@ test("fromLookupProduct equals check and passes result.v1 schema on every case i
 });
 
 test("fromLookupProduct maps supported products and product-name queries like check", async () => {
-  const safe = await lookupProduct("pkg:generic/nodejs", "24.0.0");
+  const safe = await lookupProduct("pkg:generic/nodejs", "27.0.0");
   assert.equal(safe.status, "supported");
-  assert.deepEqual(fromLookupProduct(safe), check("pkg:generic/nodejs", "24.0.0"));
-  assert.deepEqual(fromLookupProduct(safe, AS_OF), check("pkg:generic/nodejs", "24.0.0", AS_OF));
+  assert.deepEqual(fromLookupProduct(safe), check("pkg:generic/nodejs", "27.0.0"));
+  assert.deepEqual(fromLookupProduct(safe, AS_OF), check("pkg:generic/nodejs", "27.0.0", AS_OF));
 
   for (const [name, version] of [
     ["node", "18.20.4"],
@@ -80,7 +80,7 @@ test("fromLookupProduct rejects missing versions, invalid asOf dates, and unknow
   const withoutVersion = await lookupProduct("node");
   assert.throws(() => fromLookupProduct(withoutVersion), /version/i);
 
-  const safe = await lookupProduct("pkg:generic/nodejs", "24.0.0");
+  const safe = await lookupProduct("pkg:generic/nodejs", "27.0.0");
   assert.throws(() => fromLookupProduct(safe, "2026-02-30"), /not a date/i);
 
   const ended = await lookupProduct("node", "18.20.4");

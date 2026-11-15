@@ -14,9 +14,30 @@
   "lines": [
     { "id": "0.x", "sampleVersion": "0.42.0", "end": { "date": "2020-05-13", "precision": "day" }, "status": "ended" },
     { "id": "1.x", "sampleVersion": "1.46.3", "end": { "date": "2024-10-09", "precision": "day" }, "status": "ended" },
-    { "id": "lts-2.1", "sampleVersion": "2.1.0", "end": { "date": "2025-04-30", "precision": "day" }, "status": "ended" },
-    { "id": "lts-2.2", "sampleVersion": "2.2.0", "end": { "date": "2025-10-31", "precision": "day" }, "status": "ended" },
-    { "id": "lts-2.5", "sampleVersion": "2.5.0", "end": { "date": "2026-04-30", "precision": "day" }, "status": "ended" },
-    { "id": "lts-2.9", "sampleVersion": "2.9.3", "end": { "date": "2027-01-31", "precision": "day" }, "status": "supported", "requiresScheduled": true }
+    {
+      "id": "lts-2.1",
+      "sampleVersion": "2.1.0",
+      "end": { "date": "2025-04-30", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "lts-2.2",
+      "sampleVersion": "2.2.0",
+      "end": { "date": "2025-10-31", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "lts-2.5",
+      "sampleVersion": "2.5.0",
+      "end": { "date": "2026-04-30", "precision": "day" },
+      "status": "ended"
+    },
+    {
+      "id": "lts-2.9",
+      "sampleVersion": "2.9.3",
+      "end": { "date": "2027-01-31", "precision": "day" },
+      "status": "supported",
+      "requiresScheduled": true
+    }
   ]
 }

@@ -59,11 +59,11 @@ test("README example expressions produce the documented results", () => {
   assert.equal(replacementFor("pkg:npm/request", "2.88.2"), "Native fetch or a maintained HTTP client");
 
   assert.equal(check("pkg:npm/left-pad", "1.3.0").status, "deprecated");
-  assert.deepEqual(check("pkg:generic/nodejs", "24.0.0"), {
+  assert.deepEqual(check("pkg:generic/nodejs", "27.0.0"), {
     schemaVersion: 1,
     status: "ok",
     matches: [],
-    version: "24.0.0",
+    version: "27.0.0",
   });
 
   const node22 = check("pkg:generic/nodejs", "22.11.0", "2026-04-01");

@@ -280,3 +280,92 @@ jobs:
           set -e
           # Exit 10 means disagreements were found and reported; anything else but 0 is a failure.
           if [ "$code" -ne 0 ] && [ "$code" -ne 10 ]; then exit "$code"; fi
+
+  runtime-coverage:
+    name: runtime coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: $/.github/actions/setup
+        with:
+          cache: npm
+      - run: npm run build --silent
+      - name: Report runtime coverage gaps (never edits registry/)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'EOF'
+          import { writeFileSync } from "node:fs";
+          import {
+            checkRuntimeCoverage,
+            coverageIssueMarker,
+            coverageIssueTitle,
+            formatCoverageIssueBody,
+            formatCoverageText,
+          } from "./dist/tools/coverage/runtimes.js";
+
+          const report = await checkRuntimeCoverage();
+          const text = formatCoverageText(report);
+          process.stdout.write(text);
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            writeFileSync(process.env.GITHUB_STEP_SUMMARY, `${text}\n`, { flag: "a" });
+          }
+          writeFileSync("runtime-coverage.json", `${JSON.stringify(report, null, 2)}\n`);
+
+          const gaps = report.runtimes.filter((runtime) => !runtime.complete);
+          writeFileSync(
+            "runtime-coverage-gaps.env",
+            `GAP_COUNT=${gaps.length}\nGAP_RUNTIMES=${gaps.map((runtime) => runtime.runtime).join(",")}\n`,
+          );
+          for (const runtime of gaps) {
+            writeFileSync(`runtime-coverage-issue-${runtime.runtime}.md`, formatCoverageIssueBody(runtime));
+            writeFileSync(`runtime-coverage-title-${runtime.runtime}.txt`, coverageIssueTitle(runtime.runtime));
+            writeFileSync(`runtime-coverage-marker-${runtime.runtime}.txt`, coverageIssueMarker(runtime.runtime));
+          }
+          EOF
+
+          # shellcheck source=/dev/null
+          source runtime-coverage-gaps.env
+          if [ "$GAP_COUNT" -eq 0 ]; then
+            echo "No runtime coverage gaps; leaving issues unchanged."
+            exit 0
+          fi
+
+          IFS=',' read -r -a runtimes <<< "$GAP_RUNTIMES"
+          for runtime in "${runtimes[@]}"; do
+            marker="$(cat "runtime-coverage-marker-${runtime}.txt")"
+            existing="$(
+              gh issue list --state open --limit 100 --json number,body \
+                --jq ".[] | select(.body | contains(\"$marker\")) | .number" \
+                | head -n 1
+            )"
+            if [ -n "$existing" ]; then
+              echo "Updating coverage gap issue #$existing for $runtime"
+              gh issue edit "$existing" \
+                --title "$(cat "runtime-coverage-title-${runtime}.txt")" \
+                --body-file "runtime-coverage-issue-${runtime}.md"
+            else
+              echo "Opening coverage gap issue for $runtime"
+              gh issue create \
+                --title "$(cat "runtime-coverage-title-${runtime}.txt")" \
+                --body-file "runtime-coverage-issue-${runtime}.md" \
+                --label "type:task"
+            fi
+          done
+      - name: Upload the coverage report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: runtime-coverage
+          path: |
+            runtime-coverage.json
+            runtime-coverage-issue-*.md
+          if-no-files-found: warn

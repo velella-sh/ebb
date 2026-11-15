@@ -118,8 +118,8 @@ check("pkg:npm/left-pad", "1.3.0");
 // }
 
 // A safe version
-check("pkg:generic/nodejs", "24.0.0");
-// { schemaVersion: 1, status: "ok", matches: [], version: "24.0.0" }
+check("pkg:generic/nodejs", "27.0.0");
+// { schemaVersion: 1, status: "ok", matches: [], version: "27.0.0" }
 
 // A product name
 check("node", "18.20.4");

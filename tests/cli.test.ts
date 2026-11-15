@@ -72,7 +72,7 @@ describe("CLI - unit parsing", () => {
   });
 
   it("parses check-all json array input", () => {
-    const raw = JSON.stringify(["pkg:npm/request@2.88.2", "pkg:generic/nodejs@24.0.0"]);
+    const raw = JSON.stringify(["pkg:npm/request@2.88.2", "pkg:generic/nodejs@27.0.0"]);
     const items = parseCheckAllInput(raw);
     assert.equal(items.length, 2);
     assert.equal(items[0]?.purl, "pkg:npm/request");
@@ -82,18 +82,18 @@ describe("CLI - unit parsing", () => {
   it("parses check-all CycloneDX input", () => {
     const raw = JSON.stringify({
       bomFormat: "CycloneDX",
-      components: [{ purl: "pkg:npm/request@2.88.2" }, { purl: "pkg:generic/nodejs", version: "24.0.0" }],
+      components: [{ purl: "pkg:npm/request@2.88.2" }, { purl: "pkg:generic/nodejs", version: "27.0.0" }],
     });
     const items = parseCheckAllInput(raw);
     assert.equal(items.length, 2);
     assert.equal(items[0]?.purl, "pkg:npm/request");
     assert.equal(items[0]?.version, "2.88.2");
     assert.equal(items[1]?.purl, "pkg:generic/nodejs");
-    assert.equal(items[1]?.version, "24.0.0");
+    assert.equal(items[1]?.version, "27.0.0");
   });
 
   it("parses check-all newline-separated input", () => {
-    const raw = "# comment\npkg:npm/request@2.88.2\n\npkg:generic/nodejs@24.0.0\n";
+    const raw = "# comment\npkg:npm/request@2.88.2\n\npkg:generic/nodejs@27.0.0\n";
     const items = parseCheckAllInput(raw);
     assert.equal(items.length, 2);
     assert.equal(items[0]?.purl, "pkg:npm/request");
@@ -119,7 +119,7 @@ describe("CLI - runCli commands", () => {
 
   it("returns 0 for clean package on check", async () => {
     const mock = createMockIo();
-    const code = await runCli(["check", "pkg:generic/nodejs@24.0.0", "--as-of", "2026-04-01"], mock.io);
+    const code = await runCli(["check", "pkg:generic/nodejs@27.0.0", "--as-of", "2026-04-01"], mock.io);
     assert.equal(code, 0);
     assert.match(mock.stdout, /is ok/);
   });
@@ -171,7 +171,7 @@ describe("CLI - runCli commands", () => {
   });
 
   it("runs check-all over stdin", async () => {
-    const input = JSON.stringify(["pkg:npm/request@2.88.2", "pkg:generic/nodejs@24.0.0"]);
+    const input = JSON.stringify(["pkg:npm/request@2.88.2", "pkg:generic/nodejs@27.0.0"]);
     const mock = createMockIo(input);
     const code = await runCli(["check-all", "-", "--json", "--as-of", "2026-04-01"], mock.io);
     assert.equal(code, 1); // has 1 deprecated package
@@ -199,7 +199,7 @@ describe("CLI - runCli commands", () => {
 
   it("returns 1 for replacement when none exists", async () => {
     const mock = createMockIo();
-    const code = await runCli(["replacement", "pkg:generic/nodejs@24.0.0"], mock.io);
+    const code = await runCli(["replacement", "pkg:generic/nodejs@27.0.0"], mock.io);
     assert.equal(code, 1);
     assert.match(mock.stdout, /No suggested replacement/);
   });
@@ -262,20 +262,20 @@ describe("CLI - runCli commands", () => {
   it("runs data-status command with text, markdown, and json formats", async () => {
     // 1. Text format
     const mockText = createMockIo();
-    const codeText = await runCli(["data-status", "--as-of", "2026-11-14"], mockText.io);
+    const codeText = await runCli(["data-status", "--as-of", "2026-11-18"], mockText.io);
     assert.equal(codeText, 0);
     assert.match(mockText.stdout, /Lifecycle data status:/);
     assert.match(mockText.stdout, /Source:\s+bundled/);
 
     // 2. Markdown format
     const mockMd = createMockIo();
-    const codeMd = await runCli(["data-status", "--as-of", "2026-11-14", "--format", "markdown"], mockMd.io);
+    const codeMd = await runCli(["data-status", "--as-of", "2026-11-18", "--format", "markdown"], mockMd.io);
     assert.equal(codeMd, 0);
     assert.match(mockMd.stdout, /### Ebb Lifecycle Data Status/);
 
     // 3. JSON format
     const mockJson = createMockIo();
-    const codeJson = await runCli(["data-status", "--as-of", "2026-11-14", "--json"], mockJson.io);
+    const codeJson = await runCli(["data-status", "--as-of", "2026-11-18", "--json"], mockJson.io);
     assert.equal(codeJson, 0);
     const parsed = JSON.parse(mockJson.stdout);
     assert.equal(parsed.schemaVersion, "ebb.data-status.v1");
@@ -285,7 +285,7 @@ describe("CLI - runCli commands", () => {
 
   it("exits 1 from data-status when max-age threshold is exceeded", async () => {
     const mock = createMockIo();
-    const code = await runCli(["data-status", "--as-of", "2026-11-14", "--max-age", "0", "--json"], mock.io);
+    const code = await runCli(["data-status", "--as-of", "2026-11-18", "--max-age", "0", "--json"], mock.io);
     assert.equal(code, 1);
     const parsed = JSON.parse(mock.stdout);
     assert.equal(parsed.stale, true);

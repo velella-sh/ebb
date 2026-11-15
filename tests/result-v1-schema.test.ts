@@ -67,7 +67,7 @@ test("a sample result and live check outputs match the schema", async () => {
   assert.equal(withoutAsOf.schemaVersion, 1);
   assert.equal(validate(withoutAsOf), true, JSON.stringify(validate.errors));
 
-  const empty = check("pkg:generic/nodejs", "24.0.0", "2026-04-01");
+  const empty = check("pkg:generic/nodejs", "27.0.0", "2026-04-01");
   assert.equal(empty.schemaVersion, 1);
   assert.equal(validate(empty), true, JSON.stringify(validate.errors));
 });

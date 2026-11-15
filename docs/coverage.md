@@ -41,7 +41,16 @@ The table below is filled at documentation build time by `tools/coverage/runtime
 
 | Runtime | Status | Missing lines | Missing scheduled |
 | --- | --- | --- | --- |
-| _(generated at build)_ | | | |
+| bun | limit | — | — |
+| deno | complete | — | — |
+| dotnet | complete | — | — |
+| go | complete | — | — |
+| java | complete | — | — |
+| nodejs | complete | — | — |
+| php | complete | — | — |
+| python | complete | — | — |
+| ruby | complete | — | — |
+| rust | complete | — | — |
 
 <!-- runtime-coverage:end -->
 
