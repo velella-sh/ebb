@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "3.2.6",
+      "rules": [
+        "ruby.runtime.eol-3.2"
+      ]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "3.3.0",
+      "rules": [
+        "ruby.runtime.eol-3.3"
+      ]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "3.3.6",
+      "rules": [
+        "ruby.runtime.eol-3.3"
+      ]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "3.4.0",
+      "rules": []
+    }
+  ]
+}
