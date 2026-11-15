@@ -176,3 +176,49 @@ npx -y @velella/ebb mcp --self-test
 ```
 
 A successful run prints a single line such as `ebb mcp self-test ok (@velella/ebb 0.2.0, data …)` and exits `0`.
+
+---
+
+## Troubleshooting
+
+### Server not listed in the agent
+
+Confirm the agent config runs `npx -y @velella/ebb mcp` (including the trailing `mcp` argument). Print a fresh snippet with `npx -y @velella/ebb mcp --print-config <agent>` and replace the old entry. Restart the agent after saving config. Then run:
+
+```bash
+npx -y @velella/ebb mcp --self-test
+```
+
+If self-test fails, the package or data load is broken before the agent ever talks to stdio.
+
+### Old Node.js
+
+Ebb requires Node.js `>=22` (`package.json` `engines`). The bin entry refuses older runtimes with empty stdout and a stderr message like:
+
+```text
+ebb requires Node.js >=22. This process is running v18.20.0. Please upgrade Node.js and try again.
+```
+
+Upgrade Node, then re-run `--self-test`.
+
+### Stale npx cache
+
+`npx -y` should fetch the latest publish, but a sticky cache can keep an old tarball. Clear the npx cache for the package and retry:
+
+```bash
+npm cache clean --force
+npx -y @velella/ebb mcp --self-test
+```
+
+### Proxy / network installs
+
+`npx` needs registry access once to download `@velella/ebb`. Configure npm proxy settings (`HTTP_PROXY` / `HTTPS_PROXY` / `npm config set proxy`) if you are behind a corporate proxy. After the package is cached locally, the MCP server itself stays offline: it does not call the network while answering lifecycle tools.
+
+### Self-test failures
+
+`--self-test` loads bundled data and checks `pkg:npm/request@2.88.2`. On failure it prints one of:
+
+- `self-test check failed: expected status "deprecated", got "…"`
+- `self-test failed: …`
+
+Fix the install or data bundle before debugging agent wiring.
