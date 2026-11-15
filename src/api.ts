@@ -33,6 +33,22 @@ export interface ApiComponentDocument {
   hint?: string | undefined;
   /** Feed URL for this component, present when it has a deadline that has not passed. */
   calendar?: string | undefined;
+  /** Release lines derived from this component's rules. Omitted on older documents. */
+  versions?: {
+    asOf: string;
+    complete: boolean;
+    reason: string;
+    recommendation: { lineId: string; reason: string } | null;
+    notes: string[];
+    lines: Array<{
+      id: string;
+      vers: string;
+      status: "ended" | "ending" | "no-known-end";
+      endDate: string | null;
+      ruleId: string;
+      event: string;
+    }>;
+  };
 }
 
 /**

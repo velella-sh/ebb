@@ -79,6 +79,14 @@ export {
 export type { EvidenceSource } from "./domain.js";
 export type { EbbErrorCode } from "./errors.js";
 export { replacementFor } from "./replacement-core.js";
+export {
+  type ReleaseLine,
+  type ReleaseLineStatus,
+  type SupportedVersionsOptions,
+  type SupportedVersionsResult,
+  type VersionRecommendation,
+  supportedVersions,
+} from "./pick-version.js";
 export type { Result, ResultEvent, ResultMatch, ResultStatus } from "./result.js";
 export {
   type Rule,

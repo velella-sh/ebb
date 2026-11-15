@@ -108,6 +108,15 @@ describe("Examples Suite (Epic 18)", () => {
     });
   });
 
+  describe("examples/pick-version", () => {
+    it("prints the release lines Ebb would take for Node.js, Python, and request", () => {
+      const stdout = runNodeScript("examples/pick-version/pick-version.ts");
+      assert.match(stdout, /pkg:generic\/nodejs: complete=true recommended=26\.x/);
+      assert.match(stdout, /pkg:generic\/python: complete=true recommended=3\.15/);
+      assert.match(stdout, /pkg:npm\/request: complete=true recommended=none/);
+    });
+  });
+
   describe("runtime and platform examples structure", () => {
     it("verifies all example directories and documentation files exist", () => {
       const expectedPaths = [

@@ -5,6 +5,7 @@ import { gzipSync } from "node:zlib";
 
 import { purlToApiPath } from "../../src/api.js";
 import { OFFING_HINT_TEXT } from "../../src/hint.js";
+import { supportedVersions } from "../../src/pick-version.js";
 import { parsePurl, purlIdentity } from "../../src/purl.js";
 import type { RegistryV2, RegistryV2Rule } from "../../src/registry.js";
 import { sourcesOf } from "../../src/sources-of.js";
@@ -38,6 +39,18 @@ export interface GenerateStaticApiResult {
 
 export function sha256Hex(data: string | Buffer): string {
   return createHash("sha256").update(data).digest("hex");
+}
+
+/**
+ * The day used to classify release lines. At least as late as every rule's observedAt, so the
+ * versions section describes the rules stored in the same file.
+ */
+export function versionsAsOf(createdAt: string, rules: readonly RegistryV2Rule[]): string {
+  let day = createdAt.slice(0, 10);
+  for (const rule of rules) {
+    if (rule.provenance.observedAt > day) day = rule.provenance.observedAt;
+  }
+  return day;
 }
 
 export async function generateStaticApi(options: GenerateStaticApiOptions): Promise<GenerateStaticApiResult> {
@@ -151,6 +164,10 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
 
     const hasIssue = comp.rules.length > 0;
     const calendar = calendarFeeds.get(purl);
+    const versionReport = supportedVersions(purl, {
+      asOf: versionsAsOf(createdAt, comp.rules),
+      rules: comp.rules,
+    });
 
     const compDoc = {
       schemaVersion: API_SCHEMA_VERSION,
@@ -162,6 +179,14 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       ...(namespace ? { namespace } : {}),
       ecosystems: Array.from(comp.ecosystems).sort(),
       rules: comp.rules,
+      versions: {
+        asOf: versionReport.asOf,
+        complete: versionReport.complete,
+        reason: versionReport.reason,
+        recommendation: versionReport.recommendation,
+        notes: versionReport.notes,
+        lines: versionReport.lines,
+      },
       ...(hasIssue ? { hint: OFFING_HINT_TEXT } : {}),
       ...(calendar ? { calendar } : {}),
     };

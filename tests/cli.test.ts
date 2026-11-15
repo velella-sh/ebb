@@ -293,6 +293,46 @@ describe("CLI - runCli commands", () => {
   });
 });
 
+describe("CLI versions", () => {
+  it("prints text, markdown, and json for a runtime", async () => {
+    const text = createMockIo();
+    assert.equal(await runCli(["versions", "node", "--as-of", "2026-11-15"], text.io), 0);
+    assert.match(text.stdout, /26\.x/);
+    assert.match(text.stdout, /recommended/);
+    assert.doesNotMatch(text.stdout, /\u001b/);
+
+    const markdown = createMockIo();
+    assert.equal(await runCli(["versions", "node", "--as-of", "2026-11-15", "--format", "markdown"], markdown.io), 0);
+    assert.match(markdown.stdout, /\| 26\.x \|/);
+    assert.match(markdown.stdout, /recommended/);
+
+    const json = createMockIo();
+    assert.equal(await runCli(["versions", "pkg:npm/request", "--as-of", "2026-11-15", "--json"], json.io), 0);
+    const parsed = JSON.parse(json.stdout) as { recommendation: null; lines: Array<{ id: string }> };
+    assert.equal(parsed.recommendation, null);
+    assert.equal(parsed.lines[0]?.id, "*");
+  });
+
+  it("prints an empty answer for an unknown component", async () => {
+    const mock = createMockIo();
+    const code = await runCli(
+      ["versions", "pkg:npm/not-a-real-ebb-package", "--as-of", "2026-11-15", "--json"],
+      mock.io,
+    );
+    assert.equal(code, 0);
+    const parsed = JSON.parse(mock.stdout) as { lines: unknown[]; complete: boolean };
+    assert.deepEqual(parsed.lines, []);
+    assert.equal(parsed.complete, false);
+  });
+
+  it("rejects a bad reference date", async () => {
+    const mock = createMockIo();
+    const code = await runCli(["versions", "node", "--as-of", "yesterday"], mock.io);
+    assert.equal(code, 2);
+    assert.match(mock.stderr, /not a date/);
+  });
+});
+
 describe("CLI - end-to-end binary execution", () => {
   it("executes CLI process via node", async () => {
     try {

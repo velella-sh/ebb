@@ -13,6 +13,8 @@ main:
         url: /rules/
       - title: Command line (CLI)
         url: /cli/
+      - title: Which version to install
+        url: /pick-version/
       - title: Importers
         url: /importers/
       - title: Data bundles and trust
@@ -79,3 +81,5 @@ main:
         url: /decisions/0010-scheduled-end-of-life/
       - title: Incomplete purls
         url: /decisions/0011-check-incomplete-purls/
+      - title: Which version to install
+        url: /decisions/pick-version/

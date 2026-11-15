@@ -201,6 +201,9 @@ npx @velella/ebb check-all bom.json --json
 # Find recommended replacement
 npx @velella/ebb replacement pkg:npm/request@2.88.2
 
+# Which release line to take
+npx @velella/ebb versions node --as-of 2026-11-15
+
 # Query upcoming end-of-life events within a time window
 npx @velella/ebb upcoming --within 90d --ecosystem nodejs
 
@@ -287,7 +290,7 @@ claude mcp add ebb -- npx -y @velella/ebb mcp
 # "ebb": { "command": "npx", "args": ["-y", "@velella/ebb", "mcp"] }
 ```
 
-Print a snippet for any supported agent with `npx -y @velella/ebb mcp --print-config <agent>`. Exposes `check`, `check_all`, `replacement_for`, and the `ebb://upcoming` resource. See [MCP Server](docs/mcp.md).
+Print a snippet for any supported agent with `npx -y @velella/ebb mcp --print-config <agent>`. Exposes `check`, `check_all`, `pick_version`, `replacement_for`, and the `ebb://upcoming` resource. See [MCP Server](docs/mcp.md).
 
 ## Static JSON API
 
@@ -382,6 +385,7 @@ Runnable examples for common workflows and deployment environments are located i
 | [Dockerfile](examples/dockerfile/) | Check container base images (`FROM`) against upstream EOL schedules |
 | [GitHub Actions](examples/github-actions/) | Audit `.github/workflows/*.yml` for retired runner action versions |
 | [Upcoming EOL](examples/upcoming-eol/) | Forecast lifecycle deadlines and calculate days left (`asOf`) |
+| [Which version](examples/pick-version/) | List release lines and the one Ebb would take |
 | [Static API](examples/static-api/) | Query Ebb from shell scripts with `curl` and `jq` without Node.js |
 | [Browser](examples/browser/) | Interactive in-memory lifecycle inspection in client-side HTML |
 | [Cloudflare & Vercel](examples/workers/) | Deploy Ebb on Edge isolates within free-tier budgets |
@@ -394,6 +398,7 @@ These pages are also published as a site, built with [Mizzen](https://velella.sh
 
 - [Quickstart](docs/QUICKSTART.md): 5-minute guide across library, CLI, AI agents, static API, and GitHub Actions.
 - [CLI](docs/cli.md): command-line interface for offline checks and SBOM batch evaluation.
+- [Which version to install](docs/pick-version.md): release lines for a runtime or package, and the line Ebb would take.
 - [Upcoming deadlines](docs/upcoming.md): query scheduled and upcoming end-of-life events within a time window.
 - [Calendar](docs/calendar.md): subscribe to end-of-life dates in Google Calendar, Apple Calendar, or Outlook.
 - [Time-travel evaluation (asOf)](docs/as-of.md): evaluate lifecycle status as of past or future dates with deterministic replay.

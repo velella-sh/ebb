@@ -73,9 +73,17 @@ Output:
       "deadline": "2020-02-11"
     }
   ],
-  "hint": "Offing can fix this: https://github.com/velella-sh/offing"
+  "hint": "Offing can fix this: https://github.com/velella-sh/offing",
+  "versions": {
+    "asOf": "2026-11-15",
+    "complete": true,
+    "recommendation": null,
+    "lines": [{ "id": "*", "status": "ended", "endDate": "2020-02-11", "ruleId": "npm.package.request.deprecated" }]
+  }
 }
 ```
+
+`versions` is the release-line summary from `supportedVersions` for the rules in that file. It is optional on older documents. See [Which version should I install](pick-version.md).
 
 ### 2. Scoped Packages & GitHub Actions
 Scoped packages support both literal `@` and percent-encoded `%40` in paths:

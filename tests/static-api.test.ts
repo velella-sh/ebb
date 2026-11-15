@@ -71,6 +71,13 @@ test("static API generation produces valid files matching JSON schema and size b
 
     const nodeDoc = JSON.parse(await readFile(join(tempDir, "generic/nodejs.json"), "utf8"));
     assert.equal(nodeDoc.calendar, "https://velella.sh/ebb/api/v1/calendar/generic/nodejs.ics");
+    assert.equal(nodeDoc.versions.complete, true);
+    assert.equal(nodeDoc.versions.recommendation.lineId, "26.x");
+    assert.ok(nodeDoc.versions.lines.some((line: { id: string }) => line.id === "22.x"));
+    assert.ok(JSON.stringify(nodeDoc.versions).length < 4000);
+    assert.equal(requestDoc.versions.lines[0].id, "*");
+    assert.equal(requestDoc.versions.lines[0].status, "ended");
+    assert.equal(requestDoc.versions.recommendation, null);
     const nodeFeed = await readFile(join(tempDir, "calendar/generic/nodejs.ics"), "utf8");
     assert.match(nodeFeed, /UID:nodejs\.runtime\.eol-22@velella\.sh/);
     const allFeed = await readFile(join(tempDir, "calendar/all.ics"), "utf8");

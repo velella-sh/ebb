@@ -55,6 +55,7 @@ export class McpServer {
         { diffTool },
         { replacementForTool },
         { sourcesTool },
+        { pickVersionTool },
       ] = await Promise.all([
         import("./resources/upcoming.js"),
         import("./tools/check.js"),
@@ -62,12 +63,14 @@ export class McpServer {
         import("./tools/diff.js"),
         import("./tools/replacement.js"),
         import("./tools/sources.js"),
+        import("./tools/pick_version.js"),
       ]);
       this.registerTool(checkTool);
       this.registerTool(checkAllTool);
       this.registerTool(diffTool);
       this.registerTool(replacementForTool);
       this.registerTool(sourcesTool);
+      this.registerTool(pickVersionTool);
       this.registerResource(upcomingResource);
     })();
     await this.builtinsPromise;

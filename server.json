@@ -29,7 +29,7 @@
   ],
   "_meta": {
     "io.modelcontextprotocol.registry/publisher-provided": {
-      "tools": ["check", "check_all", "diff", "replacement_for", "sources_of"]
+      "tools": ["check", "check_all", "diff", "pick_version", "replacement_for", "sources_of"]
     }
   }
 }

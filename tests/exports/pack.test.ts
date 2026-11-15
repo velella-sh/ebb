@@ -71,6 +71,7 @@ assert.deepEqual(Object.keys(root).sort(), [
   "rulesFor",
   "sourcesOf",
   "stale",
+  "supportedVersions",
   "toICal",
   "upcoming",
 ]);

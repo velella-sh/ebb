@@ -2,7 +2,17 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { asOf, check, checkAll, replacementFor, rulesFor, sourcesOf, stale, upcoming } from "./index.js";
+import {
+  asOf,
+  check,
+  checkAll,
+  replacementFor,
+  rulesFor,
+  sourcesOf,
+  stale,
+  supportedVersions,
+  upcoming,
+} from "./index.js";
 import { dataStatus } from "./data-status.js";
 import { rollback, update } from "./data-update.js";
 import { diff, formatDiffMarkdown, formatDiffText } from "./diff.js";
@@ -25,6 +35,8 @@ import {
   formatStaleMarkdown,
   formatUpcomingMarkdown,
   formatUpcomingText,
+  formatVersionsMarkdown,
+  formatVersionsText,
   isColorSupported,
 } from "./cli/format/index.js";
 import { EbbError } from "./errors.js";
@@ -41,6 +53,7 @@ Usage:
   ebb as-of <date> <purl> [version]          Evaluate lifecycle status as of a specific date
   ebb check-all [file] [options]             Batch check packages (file, stdin, CycloneDX)
   ebb replacement <purl> [version] [options] Show suggested replacement for a package
+  ebb versions <purl> [options]              List release lines and recommend one
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
   ebb upcoming [options]                     List upcoming end-of-life events
   ebb stale [options]                        List rules whose review window has expired
@@ -82,6 +95,7 @@ Examples:
   ebb check-all bom.json --json
   cat purls.txt | ebb check-all --fail-on scheduled
   ebb replacement pkg:npm/request 2.88.2
+  ebb versions node --as-of 2026-11-15
   ebb rules pkg:npm/express
   ebb upcoming --within 90d --ecosystem npm
   ebb upcoming --purl pkg:npm/express --json
@@ -523,6 +537,27 @@ export async function runCli(
       }
 
       return replacement ? 0 : 1;
+    }
+
+    if (first === "versions") {
+      const purlArg = positionals[1];
+      if (!purlArg) {
+        io.stderr.write("Error: Missing package argument. Usage: ebb versions <purl> [--as-of YYYY-MM-DD]\n");
+        return 2;
+      }
+
+      const asOfArg = typeof values["as-of"] === "string" ? values["as-of"] : undefined;
+      const result = supportedVersions(purlArg, asOfArg === undefined ? undefined : { asOf: asOfArg });
+
+      if (format === "json") {
+        io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+      } else if (format === "markdown") {
+        io.stdout.write(formatVersionsMarkdown(result));
+      } else {
+        io.stdout.write(formatVersionsText(result));
+      }
+
+      return 0;
     }
 
     if (first === "rules") {

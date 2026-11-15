@@ -15,6 +15,7 @@ export interface AsOfClient {
     replacementFor(purl: string, version: string): string | null;
     rulesFor(purl: string, options?: RulesForOptions): Rule[];
     sourcesOf(ruleId: string): SourcesOfResult;
+    supportedVersions(purlOrName: string): SupportedVersionsResult;
     upcoming(options?: Omit<UpcomingOptions, "asOf">): UpcomingResult;
 }
 
@@ -225,6 +226,25 @@ export interface RegistryV2Rule {
 }
 
 // @public
+export interface ReleaseLine {
+    // (undocumented)
+    readonly endDate: string | null;
+    // (undocumented)
+    readonly event: LifecycleEvent;
+    // (undocumented)
+    readonly id: string;
+    // (undocumented)
+    readonly ruleId: string;
+    // (undocumented)
+    readonly status: ReleaseLineStatus;
+    // (undocumented)
+    readonly vers: string;
+}
+
+// @public
+export type ReleaseLineStatus = "ended" | "ending" | "no-known-end";
+
+// @public
 export function replacementFor(purl: string, version: string): string | null;
 
 // @public
@@ -394,6 +414,30 @@ export interface StaleResult {
 }
 
 // @public
+export function supportedVersions(purlOrName: string, options?: SupportedVersionsOptions): SupportedVersionsResult;
+
+// @public (undocumented)
+export interface SupportedVersionsOptions {
+    readonly asOf?: string | undefined;
+    readonly rules?: readonly RegistryV2Rule[] | undefined;
+}
+
+// @public
+export interface SupportedVersionsResult {
+    // (undocumented)
+    readonly asOf: string;
+    readonly complete: boolean;
+    // (undocumented)
+    readonly lines: readonly ReleaseLine[];
+    // (undocumented)
+    readonly notes: readonly string[];
+    readonly purl: string | null;
+    readonly reason: string;
+    // (undocumented)
+    readonly recommendation: VersionRecommendation | null;
+}
+
+// @public
 export function toICal(options?: ToICalOptions): string;
 
 // @public (undocumented)
@@ -460,6 +504,14 @@ export interface UpcomingResult {
     readonly until: string;
     // (undocumented)
     readonly within: string;
+}
+
+// @public
+export interface VersionRecommendation {
+    // (undocumented)
+    readonly lineId: string;
+    // (undocumented)
+    readonly reason: string;
 }
 
 // (No @packageDocumentation comment for this package)

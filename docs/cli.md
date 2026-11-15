@@ -104,6 +104,16 @@ $ ebb replacement pkg:npm/request@2.88.2
 Native fetch or a maintained HTTP client
 :::
 
+### `ebb versions <purl>`
+
+Lists the release lines Ebb can name for a runtime or package, and marks the one it recommends. The recommendation is the line whose known end date is furthest ahead, when that date is more than 180 days after `--as-of`. The output says what Ebb knows. It does not say the line is supported. See [Which version should I install](pick-version.md).
+
+```bash
+ebb versions node --as-of 2026-11-15
+ebb versions python --as-of 2026-11-15 --format markdown
+ebb versions pkg:npm/request --as-of 2026-11-15 --json
+```
+
 ### `ebb rules <purl>`
 
 Lists all registered lifecycle rules matching a package or product.

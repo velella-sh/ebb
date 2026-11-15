@@ -40,6 +40,7 @@ test("root entry exports only the public functions at runtime", () => {
     "rulesFor",
     "sourcesOf",
     "stale",
+    "supportedVersions",
     "toICal",
     "upcoming",
   ]);

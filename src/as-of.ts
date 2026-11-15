@@ -19,6 +19,7 @@ import { daysLeft as daysUntil, RESULT_SCHEMA_VERSION } from "./result.js";
 import { type Rule, type RulesForOptions, rulesFor } from "./rules-for-core.js";
 import { type UpcomingOptions, type UpcomingResult, upcoming } from "./upcoming.js";
 import { type SourcesOfResult, sourcesOf } from "./sources-of.js";
+import { type SupportedVersionsResult, supportedVersions as supportedVersionsQuery } from "./pick-version.js";
 import { VersError, versContains } from "./vers.js";
 import { getCompiledVers } from "./vers/compile.js";
 
@@ -47,6 +48,8 @@ export interface AsOfClient {
   upcoming(options?: Omit<UpcomingOptions, "asOf">): UpcomingResult;
   /** Returns evidence sources and review provenance for a rule as of this date. */
   sourcesOf(ruleId: string): SourcesOfResult;
+  /** Release lines and the recommendation, classified on this date. */
+  supportedVersions(purlOrName: string): SupportedVersionsResult;
 }
 
 function requireIsoDate(value: string): void {
@@ -190,6 +193,7 @@ export function asOf(date: string, options?: AsOfOptions): AsOfClient {
     replacementFor: evaluateReplacementFor,
     upcoming: evaluateUpcoming,
     sourcesOf: (ruleId: string) => sourcesOf(ruleId, { asOf: date, rules: customRules }),
+    supportedVersions: (purlOrName: string) => supportedVersionsQuery(purlOrName, { asOf: date, rules: customRules }),
   };
 }
 
