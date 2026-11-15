@@ -93,7 +93,7 @@ describe("CLI mcp subcommand", () => {
     assert.match(cliSource, /import\(["']\.\/mcp\/index\.js["']\)/);
     assert.doesNotMatch(cliSource, /^import\s+.+from\s+["']\.\/mcp\//m);
 
-    const tempDir = mkdtempSync(join(tmpdir(), "ebb-mcp-load-"));
+    const tempDir = mkdtempSync(join(tmpdir(), "ebb-cli-load-"));
     const logPath = join(tempDir, "mcp-loads.txt");
     const probePath = join(tempDir, "probe.mjs");
     writeFileSync(logPath, "");

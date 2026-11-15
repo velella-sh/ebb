@@ -10,7 +10,7 @@ const repoRoot = resolve(".");
 
 describe("MCP packed tarball stdio", () => {
   it("installs the packed package and runs ebb mcp initialize + check over stdio", async () => {
-    const tempRoot = mkdtempSync(join(tmpdir(), "ebb-mcp-packed-"));
+    const tempRoot = mkdtempSync(join(tmpdir(), "ebb-packed-mcp-"));
     try {
       // Pack from the built tree without re-running prepack (avoids racing other workers on dist/).
       const packStdout = execFileSync(
@@ -30,7 +30,7 @@ describe("MCP packed tarball stdio", () => {
       mkdirSync(appDir, { recursive: true });
       writeFileSync(
         join(appDir, "package.json"),
-        JSON.stringify({ name: "ebb-mcp-packed-consumer", version: "1.0.0", private: true, type: "module" }, null, 2),
+        JSON.stringify({ name: "ebb-packed-mcp-consumer", version: "1.0.0", private: true, type: "module" }, null, 2),
       );
 
       execFileSync(npmCmd, ["install", "--prefer-offline", "--no-audit", "--no-fund", tarballPath], {

@@ -274,20 +274,20 @@ npx skills add velella-sh/ebb
 
 The skill equips agents with a check-before-add workflow: discovering project runtimes (`.nvmrc`, `Dockerfile`), checking new packages before install, and verifying GitHub Actions runner deprecations. See [Agent Skills](docs/skills.md).
 
-### MCP Server (`@velella/ebb-mcp`)
+### MCP Server (`ebb mcp`)
 
 Connect Ebb directly to agent environments via the Model Context Protocol over stdio:
 
 ```bash
 # Claude Code
-claude mcp add ebb -- npx -y @velella/ebb-mcp
+claude mcp add ebb -- npx -y @velella/ebb mcp
 
 # Cursor / Codex / Gemini
 # Declare in your mcp.json under mcpServers:
-# "ebb": { "command": "npx", "args": ["-y", "@velella/ebb-mcp"] }
+# "ebb": { "command": "npx", "args": ["-y", "@velella/ebb", "mcp"] }
 ```
 
-Exposes `check`, `check_all`, `replacement_for`, and the `ebb://upcoming` resource. See [MCP Server](docs/mcp.md).
+Print a snippet for any supported agent with `npx -y @velella/ebb mcp --print-config <agent>`. Exposes `check`, `check_all`, `replacement_for`, and the `ebb://upcoming` resource. See [MCP Server](docs/mcp.md).
 
 ## Static JSON API
 

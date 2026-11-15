@@ -96,7 +96,7 @@ When writing or reviewing CI configurations (`.github/workflows/*.yml`):
 
 ### 1. Via Ebb Model Context Protocol (MCP)
 
-If the `@velella/ebb-mcp` server is configured in your agent environment, prefer calling the MCP tools:
+If the `@velella/ebb mcp` server is configured in your agent environment, prefer calling the MCP tools:
 - `check(purl, version?)`: Check a single component (e.g. `pkg:npm/request@2.88.2` or product `"node"`, version `"18.0.0"`).
 - `check_all(items)`: Batch-check an array of PURLs or `{ purl, version }` objects.
 - `replacement_for(purl, version)`: Look up the migration target or replacement package.

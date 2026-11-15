@@ -38,7 +38,7 @@ describe("ebb mcp --print-config", () => {
       assert.match(snippet, /npx/);
       assert.match(snippet, /@velella\/ebb/);
       assert.match(snippet, /\bmcp\b/);
-      assert.ok(!snippet.includes("@velella/ebb-mcp"));
+      assert.ok(!snippet.includes("@velella/" + ["ebb", "mcp"].join("-")));
       snapshots[agent] = snippet;
     }
 

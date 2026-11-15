@@ -105,4 +105,4 @@ ebb upcoming --within 90d --format markdown
 
 ## MCP Resource
 
-For AI coding agents and MCP clients, Ebb exposes the `ebb://upcoming` resource via `@velella/ebb-mcp`, supporting optional `within`, `asOf`, and `ecosystem` parameters.
+For AI coding agents and MCP clients, Ebb exposes the `ebb://upcoming` resource via `npx -y @velella/ebb mcp`, supporting optional `within`, `asOf`, and `ecosystem` parameters.

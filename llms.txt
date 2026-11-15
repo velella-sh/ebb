@@ -102,13 +102,14 @@ npx @velella/ebb check-all sbom.json
 
 ## MCP Server
 
-Add to Claude Code, Cursor, or Codex settings:
+Start with `npx -y @velella/ebb mcp`. Print agent snippets with `npx -y @velella/ebb mcp --print-config <agent>` (`claude-code`, `cursor`, `codex`, `gemini`, `vscode`, `windsurf`, `zed`).
+
 ```json
 {
   "mcpServers": {
     "ebb": {
-      "command": "node",
-      "args": ["packages/mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "@velella/ebb", "mcp"]
     }
   }
 }

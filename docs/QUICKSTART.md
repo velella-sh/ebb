@@ -142,7 +142,7 @@ Add to your `claude_desktop_config.json`, Cursor, or Antigravity config:
   "mcpServers": {
     "ebb": {
       "command": "npx",
-      "args": ["-y", "@velella/ebb-mcp"]
+      "args": ["-y", "@velella/ebb", "mcp"]
     }
   }
 }
