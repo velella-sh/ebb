@@ -2225,6 +2225,381 @@
       }
     },
     {
+      "id": "python.runtime.eol-3.11",
+      "ecosystem": "python",
+      "purl": "pkg:generic/python",
+      "vers": "vers:pypi/>=3.11|<3.12",
+      "event": "scheduled-end-of-life",
+      "title": "Python 3.11 reaches end-of-life in October 2027",
+      "summary": "The Python release cycle schedules Python 3.11 end of life as 2027-10 (month precision; no day-of-month is published). Security fixes from the Python core team stop after that month.",
+      "severity": "low",
+      "replacement": "A supported Python release",
+      "deadline": "2027-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "PEP 664 — Python 3.11 release schedule",
+          "url": "https://peps.python.org/pep-0664/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
+          "Confirm binary wheels and framework dependencies support the selected Python release."
+        ],
+        "steps": [
+          {
+            "id": "update-python-declaration",
+            "title": "Update the Python requirement",
+            "instructions": "Raise the reported requires-python range or pinned runtime to a supported Python release.",
+            "targets": "declaration"
+          },
+          {
+            "id": "align-python-runtimes",
+            "title": "Align runtime surfaces",
+            "instructions": "Update matching version files, CI matrices, container images, and deployment configuration.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "python --version",
+            "purpose": "Confirm the active Python runtime is supported."
+          },
+          {
+            "command": "python -m pytest",
+            "purpose": "Run the Python test suite on the target runtime."
+          },
+          {
+            "command": "python -m pip check",
+            "purpose": "Check installed dependency compatibility."
+          }
+        ]
+      },
+      "x-python": {
+        "kind": "runtime",
+        "maximumVersion": "3.11",
+        "scheduled": true,
+        "endOfLifeMonth": "2027-10"
+      }
+    },
+    {
+      "id": "python.runtime.eol-3.12",
+      "ecosystem": "python",
+      "purl": "pkg:generic/python",
+      "vers": "vers:pypi/>=3.12|<3.13",
+      "event": "scheduled-end-of-life",
+      "title": "Python 3.12 reaches end-of-life in October 2028",
+      "summary": "The Python release cycle schedules Python 3.12 end of life as 2028-10 (month precision; no day-of-month is published). Security fixes from the Python core team stop after that month.",
+      "severity": "low",
+      "replacement": "A supported Python release",
+      "deadline": "2028-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "PEP 693 — Python 3.12 release schedule",
+          "url": "https://peps.python.org/pep-0693/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
+          "Confirm binary wheels and framework dependencies support the selected Python release."
+        ],
+        "steps": [
+          {
+            "id": "update-python-declaration",
+            "title": "Update the Python requirement",
+            "instructions": "Raise the reported requires-python range or pinned runtime to a supported Python release.",
+            "targets": "declaration"
+          },
+          {
+            "id": "align-python-runtimes",
+            "title": "Align runtime surfaces",
+            "instructions": "Update matching version files, CI matrices, container images, and deployment configuration.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "python --version",
+            "purpose": "Confirm the active Python runtime is supported."
+          },
+          {
+            "command": "python -m pytest",
+            "purpose": "Run the Python test suite on the target runtime."
+          },
+          {
+            "command": "python -m pip check",
+            "purpose": "Check installed dependency compatibility."
+          }
+        ]
+      },
+      "x-python": {
+        "kind": "runtime",
+        "maximumVersion": "3.12",
+        "scheduled": true,
+        "endOfLifeMonth": "2028-10"
+      }
+    },
+    {
+      "id": "python.runtime.eol-3.13",
+      "ecosystem": "python",
+      "purl": "pkg:generic/python",
+      "vers": "vers:pypi/>=3.13|<3.14",
+      "event": "scheduled-end-of-life",
+      "title": "Python 3.13 reaches end-of-life in October 2029",
+      "summary": "The Python release cycle schedules Python 3.13 end of life as 2029-10 (month precision; no day-of-month is published). Security fixes from the Python core team stop after that month.",
+      "severity": "low",
+      "replacement": "A supported Python release",
+      "deadline": "2029-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "PEP 719 — Python 3.13 release schedule",
+          "url": "https://peps.python.org/pep-0719/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
+          "Confirm binary wheels and framework dependencies support the selected Python release."
+        ],
+        "steps": [
+          {
+            "id": "update-python-declaration",
+            "title": "Update the Python requirement",
+            "instructions": "Raise the reported requires-python range or pinned runtime to a supported Python release.",
+            "targets": "declaration"
+          },
+          {
+            "id": "align-python-runtimes",
+            "title": "Align runtime surfaces",
+            "instructions": "Update matching version files, CI matrices, container images, and deployment configuration.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "python --version",
+            "purpose": "Confirm the active Python runtime is supported."
+          },
+          {
+            "command": "python -m pytest",
+            "purpose": "Run the Python test suite on the target runtime."
+          },
+          {
+            "command": "python -m pip check",
+            "purpose": "Check installed dependency compatibility."
+          }
+        ]
+      },
+      "x-python": {
+        "kind": "runtime",
+        "maximumVersion": "3.13",
+        "scheduled": true,
+        "endOfLifeMonth": "2029-10"
+      }
+    },
+    {
+      "id": "python.runtime.eol-3.14",
+      "ecosystem": "python",
+      "purl": "pkg:generic/python",
+      "vers": "vers:pypi/>=3.14|<3.15",
+      "event": "scheduled-end-of-life",
+      "title": "Python 3.14 reaches end-of-life in October 2030",
+      "summary": "The Python release cycle schedules Python 3.14 end of life as 2030-10 (month precision; no day-of-month is published). Security fixes from the Python core team stop after that month.",
+      "severity": "low",
+      "replacement": "A supported Python release",
+      "deadline": "2030-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "PEP 745 — Python 3.14 release schedule",
+          "url": "https://peps.python.org/pep-0745/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
+          "Confirm binary wheels and framework dependencies support the selected Python release."
+        ],
+        "steps": [
+          {
+            "id": "update-python-declaration",
+            "title": "Update the Python requirement",
+            "instructions": "Raise the reported requires-python range or pinned runtime to a supported Python release.",
+            "targets": "declaration"
+          },
+          {
+            "id": "align-python-runtimes",
+            "title": "Align runtime surfaces",
+            "instructions": "Update matching version files, CI matrices, container images, and deployment configuration.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "python --version",
+            "purpose": "Confirm the active Python runtime is supported."
+          },
+          {
+            "command": "python -m pytest",
+            "purpose": "Run the Python test suite on the target runtime."
+          },
+          {
+            "command": "python -m pip check",
+            "purpose": "Check installed dependency compatibility."
+          }
+        ]
+      },
+      "x-python": {
+        "kind": "runtime",
+        "maximumVersion": "3.14",
+        "scheduled": true,
+        "endOfLifeMonth": "2030-10"
+      }
+    },
+    {
+      "id": "python.runtime.eol-3.15",
+      "ecosystem": "python",
+      "purl": "pkg:generic/python",
+      "vers": "vers:pypi/>=3.15|<3.16",
+      "event": "scheduled-end-of-life",
+      "title": "Python 3.15 reaches end-of-life in October 2031",
+      "summary": "The Python release cycle schedules Python 3.15 end of life as 2031-10 (month precision; no day-of-month is published). Security fixes from the Python core team stop after that month.",
+      "severity": "low",
+      "replacement": "A supported Python release",
+      "deadline": "2031-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json",
+          "accessedAt": "2026-11-15"
+        },
+        {
+          "title": "PEP 790 — Python 3.15 release schedule",
+          "url": "https://peps.python.org/pep-0790/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
+          "Confirm binary wheels and framework dependencies support the selected Python release."
+        ],
+        "steps": [
+          {
+            "id": "update-python-declaration",
+            "title": "Update the Python requirement",
+            "instructions": "Raise the reported requires-python range or pinned runtime to a supported Python release.",
+            "targets": "declaration"
+          },
+          {
+            "id": "align-python-runtimes",
+            "title": "Align runtime surfaces",
+            "instructions": "Update matching version files, CI matrices, container images, and deployment configuration.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "python --version",
+            "purpose": "Confirm the active Python runtime is supported."
+          },
+          {
+            "command": "python -m pytest",
+            "purpose": "Run the Python test suite on the target runtime."
+          },
+          {
+            "command": "python -m pip check",
+            "purpose": "Check installed dependency compatibility."
+          }
+        ]
+      },
+      "x-python": {
+        "kind": "runtime",
+        "maximumVersion": "3.15",
+        "scheduled": true,
+        "endOfLifeMonth": "2031-10"
+      }
+    },
+    {
       "id": "python.package.argparse.archived",
       "ecosystem": "python",
       "purl": "pkg:pypi/argparse",
