@@ -25,23 +25,26 @@ Supported agents: `claude-code`, `cursor`, `codex`, `gemini`, `vscode`, `windsur
 
 ## Agent setup
 
-Snippets below are generated from `ebb mcp --print-config <agent>` and all run `npx -y @velella/ebb mcp`.
-Each block starts with the same `Path:` line the CLI prints.
+Snippets below are generated from `ebb mcp --print-config <agent>` (copyable body only). The config path or command scope for each client is listed in the table, not inside the tab body.
 
-### Claude Code
+| Agent | Config path / command scope |
+|---|---|
+| Claude Code | claude CLI (`claude mcp add`) |
+| Cursor | ~/.cursor/mcp.json (or project .cursor/mcp.json) |
+| Codex | ~/.codex/config.toml |
+| Gemini CLI | gemini CLI (`gemini mcp add`) |
+| VS Code | .vscode/mcp.json |
+| Windsurf | ~/.codeium/windsurf/mcp_config.json |
+| Zed | Zed settings.json (`context_servers`; open via `zed: open settings file`) |
 
+:::code-tabs{labels='["Claude Code","Cursor","Codex","Gemini CLI","VS Code","Windsurf","Zed"]'}
 <!-- mcp-print-config:claude-code -->
-```text
-Path: claude CLI (`claude mcp add`)
+```bash
 claude mcp add ebb -- npx -y @velella/ebb mcp
 ```
 <!-- /mcp-print-config:claude-code -->
-
-### Cursor
-
 <!-- mcp-print-config:cursor -->
-```text
-Path: ~/.cursor/mcp.json (or project .cursor/mcp.json)
+```json
 {
   "mcpServers": {
     "ebb": {
@@ -56,32 +59,20 @@ Path: ~/.cursor/mcp.json (or project .cursor/mcp.json)
 }
 ```
 <!-- /mcp-print-config:cursor -->
-
-### Codex
-
 <!-- mcp-print-config:codex -->
-```text
-Path: ~/.codex/config.toml
+```toml
 [mcp_servers.ebb]
 command = "npx"
 args = ["-y","@velella/ebb","mcp"]
 ```
 <!-- /mcp-print-config:codex -->
-
-### Gemini CLI
-
 <!-- mcp-print-config:gemini -->
-```text
-Path: gemini CLI (`gemini mcp add`)
+```bash
 gemini mcp add ebb -- npx -y @velella/ebb mcp
 ```
 <!-- /mcp-print-config:gemini -->
-
-### VS Code
-
 <!-- mcp-print-config:vscode -->
-```text
-Path: .vscode/mcp.json
+```json
 {
   "servers": {
     "ebb": {
@@ -96,12 +87,8 @@ Path: .vscode/mcp.json
 }
 ```
 <!-- /mcp-print-config:vscode -->
-
-### Windsurf
-
 <!-- mcp-print-config:windsurf -->
-```text
-Path: ~/.codeium/windsurf/mcp_config.json
+```json
 {
   "mcpServers": {
     "ebb": {
@@ -116,12 +103,8 @@ Path: ~/.codeium/windsurf/mcp_config.json
 }
 ```
 <!-- /mcp-print-config:windsurf -->
-
-### Zed
-
 <!-- mcp-print-config:zed -->
-```text
-Path: Zed settings.json (`context_servers`; open via `zed: open settings file`)
+```json
 {
   "context_servers": {
     "ebb": {
@@ -137,7 +120,7 @@ Path: Zed settings.json (`context_servers`; open via `zed: open settings file`)
 }
 ```
 <!-- /mcp-print-config:zed -->
-
+:::
 
 ## Tools
 
@@ -195,7 +178,7 @@ Verify the installed package can load data and answer a known check without star
 npx -y @velella/ebb mcp --self-test
 ```
 
-A successful run prints a single line such as `ebb mcp self-test ok (@velella/ebb 0.3.0, data …)` and exits `0`.
+A successful run prints a single line such as `ebb mcp self-test ok (@velella/ebb <version>, data …)` and exits `0`.
 
 ---
 
@@ -258,16 +241,17 @@ Fix the install or data bundle before debugging agent wiring.
 
 ## Release smoke (after publish)
 
-Do **not** run this against an unpublished version. After `@velella/ebb@0.3.0` is on npm:
+Do **not** run this against an unpublished version. After `@velella/ebb` is on npm:
 
-1. Empty the npx cache for a clean fetch:
+1. Empty-cache self-test (unpinned latest):
    ```bash
-   NPM_CONFIG_CACHE=$(mktemp -d) npx -y @velella/ebb@0.3.0 mcp --self-test
+   NPM_CONFIG_CACHE=$(mktemp -d) npx -y @velella/ebb mcp --self-test
    ```
-2. Start the server from that same empty cache and complete an `initialize` round-trip:
+2. Empty-cache stdio handshake (unpinned):
    ```bash
-   NPM_CONFIG_CACHE=$(mktemp -d) npx -y @velella/ebb@0.3.0 mcp
+   CACHE=$(mktemp -d)
+   NPM_CONFIG_CACHE="$CACHE" npx -y @velella/ebb mcp
    ```
-   Send a JSON-RPC `initialize` on stdin and confirm `serverInfo.name` is `@velella/ebb` and `serverInfo.version` is `0.3.0`.
+   Send a JSON-RPC `initialize` on stdin. Assert `result.serverInfo.name` equals the installed package name and `result.serverInfo.version` equals the installed `package.json` `version` (read from the npx install under that cache). Then close stdin.
 
-Pre-merge coverage of the same install path uses the packed tarball stdio test (`tests/mcp/packed.test.ts`) against version `0.3.0` in an empty temp directory.
+Pre-merge coverage of the same install path uses the packed tarball stdio test (`tests/mcp/packed.test.ts`) against the version in this repo's `package.json` in an empty temp directory.

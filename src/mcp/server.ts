@@ -1,4 +1,3 @@
-import { VERSION } from "../version.js";
 import type {
   JsonRpcNotification,
   JsonRpcRequest,
@@ -9,10 +8,14 @@ import type {
   McpServerInfo,
   McpTool,
 } from "./types.js";
+import { readInstalledPackageMeta } from "./package-meta.js";
 
 export const LATEST_PROTOCOL_VERSION = "2024-11-05";
-export const SERVER_NAME = "@velella/ebb";
-export const SERVER_VERSION = VERSION;
+
+const installed = readInstalledPackageMeta();
+export const SERVER_NAME = installed.name;
+/** Version reported in initialize; always taken from the installed package.json. */
+export const SERVER_VERSION = installed.version;
 
 export class McpServer {
   private readonly info: McpServerInfo;
@@ -27,9 +30,10 @@ export class McpServer {
     version?: string;
     capabilities?: McpServerCapabilities;
   }) {
+    const meta = readInstalledPackageMeta();
     this.info = {
-      name: options?.name ?? SERVER_NAME,
-      version: options?.version ?? SERVER_VERSION,
+      name: options?.name ?? meta.name,
+      version: options?.version ?? meta.version,
     };
     this.capabilities = options?.capabilities ?? {
       tools: {},

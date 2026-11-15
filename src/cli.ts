@@ -313,7 +313,8 @@ export async function runCli(
     }
 
     const { McpServer, listenStdio } = await import("./mcp/index.js");
-    const server = new McpServer({ name: "@velella/ebb", version: VERSION });
+    // serverInfo.version comes from the installed package.json inside McpServer.
+    const server = new McpServer();
     listenStdio(server, {
       input: process.stdin,
       output: process.stdout,
