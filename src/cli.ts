@@ -51,6 +51,7 @@ Usage:
   ebb data-status [options]                  Show active lifecycle data freshness and origin
   ebb mcp                                    Start the Model Context Protocol stdio server
   ebb mcp --print-config <agent>             Print MCP config snippet for an agent
+  ebb mcp --self-test                        Verify MCP data load with one known check
 
 Options:
   --format <text|markdown|json> Output format (default: text)
@@ -252,6 +253,7 @@ export async function runCli(
         "no-color": { type: "boolean", default: false },
         "no-hint": { type: "boolean", default: false },
         "print-config": { type: "string" },
+        "self-test": { type: "boolean", default: false },
         help: { type: "boolean", short: "h", default: false },
         version: { type: "boolean", short: "v", default: false },
       },
@@ -297,6 +299,17 @@ export async function runCli(
         io.stderr.write(`Error: ${err instanceof Error ? err.message : String(err)}\n`);
         return 2;
       }
+    }
+
+    if (values["self-test"]) {
+      const { runMcpSelfTest } = await import("./mcp/self-test.js");
+      const result = runMcpSelfTest();
+      if (result.ok) {
+        io.stdout.write(`${result.line}\n`);
+        return 0;
+      }
+      io.stderr.write(`${result.error ?? "self-test failed"}\n`);
+      return 1;
     }
 
     const { McpServer, listenStdio } = await import("./mcp/index.js");
