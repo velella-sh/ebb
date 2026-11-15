@@ -56,4 +56,40 @@ describe("StdioJsonRpcSession wait cleanup", () => {
     assert.equal(session.pendingWaitCount, 0);
     await session.dispose();
   });
+
+  for (const { label, output, message } of [
+    { label: "a non-JSON-RPC line", output: "invalid stdout\n", message: /non-JSON-RPC stdout line/ },
+    { label: "an unterminated line", output: "invalid stdout", message: /unterminated line/ },
+  ]) {
+    it(`rejects ${label} after a valid check response`, async () => {
+      const fake = createFakeStdioChild();
+      const session = new StdioJsonRpcSession(fake.child);
+      try {
+        fake.pushStdout('{"jsonrpc":"2.0","id":2,"result":{"isError":false}}\n');
+        assert.equal((await session.waitForResponse(2)).id, 2);
+
+        const finished = session.finish();
+        fake.pushStdout(output);
+        fake.close();
+        await assert.rejects(finished, { causeKind: "parse", message });
+      } finally {
+        await session.dispose();
+      }
+    });
+  }
+
+  it("rejects a nonzero exit after a valid response", async () => {
+    const fake = createFakeStdioChild();
+    const session = new StdioJsonRpcSession(fake.child);
+    try {
+      fake.pushStdout('{"jsonrpc":"2.0","id":2,"result":{"isError":false}}\n');
+      assert.equal((await session.waitForResponse(2)).id, 2);
+
+      const finished = session.finish();
+      fake.close(1);
+      await assert.rejects(finished, { causeKind: "exit", message: /exited with code 1/ });
+    } finally {
+      await session.dispose();
+    }
+  });
 });

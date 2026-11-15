@@ -3,7 +3,7 @@
  * Guarantees timers and listeners are cleared on settle, timeout, parse error, or child exit.
  */
 
-import { EventEmitter } from "node:events";
+import { EventEmitter, once } from "node:events";
 import type { ChildProcessWithoutNullStreams } from "node:child_process";
 
 export class StdioWaitError extends Error {
@@ -106,8 +106,33 @@ export class StdioJsonRpcSession {
     this.child.stdin.write(`${JSON.stringify(message)}\n`);
   }
 
-  endStdin(): void {
-    this.child.stdin.end();
+  async finish(): Promise<void> {
+    const timeoutMs = this.options.timeoutMs ?? 10000;
+    if (!this.closed && !this.fatal) {
+      const signal = AbortSignal.timeout(timeoutMs);
+      // Register before ending stdin so close is observed even if the child exits immediately.
+      const close = once(this.child, "close", { signal });
+      this.child.stdin.end();
+      try {
+        await close;
+      } catch (err) {
+        if (signal.aborted) {
+          throw new StdioWaitError(`Timed out waiting for MCP child to close after ${timeoutMs}ms`, "timeout");
+        }
+        throw this.fatal ?? err;
+      }
+    }
+
+    if (this.fatal) throw this.fatal;
+    if (this.stdoutBuffer) {
+      throw new StdioWaitError(
+        `MCP stdout ended with an unterminated line: ${JSON.stringify(this.stdoutBuffer)}`,
+        "parse",
+      );
+    }
+    if (this.exitCode !== 0) {
+      throw new StdioWaitError(`MCP child exited with code ${this.exitCode}`, "exit");
+    }
   }
 
   waitForResponse(id: string | number): Promise<JsonRpcMessage> {

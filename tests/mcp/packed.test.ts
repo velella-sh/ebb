@@ -114,7 +114,7 @@ describe("MCP packed tarball stdio", () => {
       const payload = JSON.parse(checkResp.result.content[0]!.text) as { status: string };
       assert.equal(payload.status, "deprecated");
 
-      session.endStdin();
+      await session.finish();
       assert.ok(session.allResponses.length >= 2);
       assert.equal(session.stderr, "", `unexpected stderr: ${session.stderr}`);
     } finally {
