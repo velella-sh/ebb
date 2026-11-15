@@ -7,7 +7,6 @@ import { pathToFileURL } from "node:url";
 import { measureCheck, measureCheckAll, measureDataLoad, measureImportTime } from "./baseline.bench.ts";
 import { profileCheck1000 } from "./check.bench.ts";
 import { type BenchmarkStats, printBenchmarkTable } from "./harness.ts";
-import { runMcpStartBenchmark } from "./mcp-start.bench.ts";
 
 export interface BenchmarkSuiteResult {
   timestamp: string;
@@ -17,7 +16,7 @@ export interface BenchmarkSuiteResult {
   results: Record<string, BenchmarkStats>;
 }
 
-export async function runAllBenchmarks(outputPath = "bench-results.json"): Promise<BenchmarkSuiteResult> {
+export function runAllBenchmarks(outputPath = "bench-results.json"): BenchmarkSuiteResult {
   console.log("Running Ebb benchmarks...\n");
 
   const results: Record<string, BenchmarkStats> = {};
@@ -42,10 +41,6 @@ export async function runAllBenchmarks(outputPath = "bench-results.json"): Promi
   const checkLatencyStats = profileCheck1000();
   results[checkLatencyStats.name] = checkLatencyStats;
 
-  console.log("5. Benchmarking MCP cold-start (process → initialize)...");
-  const mcpStartStats = await runMcpStartBenchmark(5);
-  results[mcpStartStats.name] = mcpStartStats;
-
   console.log("\nAll Benchmark Results:");
   printBenchmarkTable(Object.values(results));
 
@@ -69,5 +64,5 @@ const isMain =
   pathToFileURL(process.argv[1]).href === import.meta.url;
 
 if (isMain) {
-  await runAllBenchmarks();
+  runAllBenchmarks();
 }

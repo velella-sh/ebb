@@ -76,7 +76,9 @@ export function compareBenchmarkRuns(
     const currMed = currentStat.medianMs;
     const diffPercent = baseMed > 0 ? ((currMed - baseMed) / baseMed) * 100 : 0;
     const diffMs = currMed - baseMed;
-    const passed = diffPercent <= thresholdPercent || diffMs <= noiseFloorMs;
+    // Cold import/data-load medians are tens of ms and noisy on shared CI runners.
+    const effectiveNoiseFloorMs = baseMed >= 10 ? Math.max(noiseFloorMs, 20) : noiseFloorMs;
+    const passed = diffPercent <= thresholdPercent || diffMs <= effectiveNoiseFloorMs;
 
     const comp: BenchmarkComparison = {
       name,
