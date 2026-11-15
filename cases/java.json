@@ -8,12 +8,16 @@
     {
       "purl": "pkg:generic/java",
       "version": "10.0.0",
-      "rules": ["java.jdk.end-of-support-9-10"]
+      "rules": [
+        "java.jdk.end-of-support-9-10"
+      ]
     },
     {
       "purl": "pkg:generic/java",
       "version": "16.0.0",
-      "rules": ["java.jdk.end-of-support-12-16"]
+      "rules": [
+        "java.jdk.end-of-support-12-16"
+      ]
     },
     {
       "purl": "pkg:generic/java",
@@ -28,17 +32,49 @@
     {
       "purl": "pkg:generic/java",
       "version": "23.0.0",
-      "rules": ["java.jdk.end-of-support-22-24"]
+      "rules": [
+        "java.jdk.end-of-support-22-24"
+      ]
     },
     {
       "purl": "pkg:maven/org.springframework.boot/spring-boot",
       "version": "2.7.18",
-      "rules": ["java.maven.spring-boot.legacy-2x.end-of-support"]
+      "rules": [
+        "java.maven.spring-boot.legacy-2x.end-of-support"
+      ]
     },
     {
       "purl": "pkg:maven/org.springframework.boot/spring-boot",
       "version": "3.3.0",
-      "rules": ["java.maven.spring-boot.legacy-3x.end-of-support"]
+      "rules": [
+        "java.maven.spring-boot.legacy-3x.end-of-support"
+      ]
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "26.0.2",
+      "rules": [
+        "java.jdk.end-of-support-26"
+      ]
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "27.0.0",
+      "rules": [
+        "java.jdk.scheduled-end-of-support-27"
+      ]
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "27.0.1",
+      "rules": [
+        "java.jdk.scheduled-end-of-support-27"
+      ]
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "28.0.0",
+      "rules": []
     }
   ]
 }

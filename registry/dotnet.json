@@ -6,6 +6,130 @@
   },
   "rules": [
     {
+      "id": "dotnet.runtime.scheduled-end-of-support-11.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=11.0.0|<11.1.0",
+      "event": "scheduled-end-of-life",
+      "title": ".NET 11 reaches end of support on 2028-11-14",
+      "summary": ".NET 11 (Standard Term Support) is scheduled to reach end of support on 2028-11-14 per the official .NET support policy. Microsoft will stop shipping security and quality fixes for that line after that date.",
+      "severity": "low",
+      "replacement": ".NET 10 (LTS), or the newest supported LTS release",
+      "deadline": "2028-11-14",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
+          "Read the breaking-changes list of each release between the old and new line before raising the target.",
+          "This line is still supported today; the rule is a warning ahead of the announced date, so plan the move before it."
+        ],
+        "steps": [
+          {
+            "id": "raise-target-framework",
+            "title": "Raise the target framework",
+            "instructions": "Change the reported TargetFramework (or TargetFrameworks entry) from the 11.0 line to a supported LTS line (see the replacement), for example net10.0.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-sdk-pin",
+            "title": "Raise the SDK pin",
+            "instructions": "Update the sdk version in global.json to an SDK of the same supported line, or remove the pin if the repository does not need one.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-and-images",
+            "title": "Align CI and container images",
+            "instructions": "Update setup-dotnet versions in CI and the mcr.microsoft.com/dotnet images in Dockerfiles to the new line.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "dotnet --list-sdks && dotnet --list-runtimes",
+            "purpose": "Confirm the SDK and runtime in use are the intended supported release."
+          },
+          {
+            "command": "dotnet build && dotnet test",
+            "purpose": "Build and test every project on the new target."
+          }
+        ]
+      }
+    },
+    {
+      "id": "dotnet.runtime.scheduled-end-of-support-10.0",
+      "ecosystem": "dotnet",
+      "purl": "pkg:generic/dotnet",
+      "vers": "vers:semver/>=10.0.0|<10.1.0",
+      "event": "scheduled-end-of-life",
+      "title": ".NET 10 reaches end of support on 2028-11-14",
+      "summary": ".NET 10 (Long Term Support) is scheduled to reach end of support on 2028-11-14 per the official .NET support policy. Microsoft will stop shipping security and quality fixes for that line after that date.",
+      "severity": "low",
+      "replacement": ".NET 10 (LTS), or the newest supported LTS release",
+      "deadline": "2028-11-14",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Move the project files, global.json, CI images, and container base images to the same release line; a mix hides the old runtime.",
+          "Read the breaking-changes list of each release between the old and new line before raising the target.",
+          "This line is still supported today; the rule is a warning ahead of the announced date, so plan the move before it."
+        ],
+        "steps": [
+          {
+            "id": "raise-target-framework",
+            "title": "Raise the target framework",
+            "instructions": "Change the reported TargetFramework (or TargetFrameworks entry) from the 10.0 line to a supported LTS line (see the replacement), for example net10.0.",
+            "targets": "declaration"
+          },
+          {
+            "id": "raise-sdk-pin",
+            "title": "Raise the SDK pin",
+            "instructions": "Update the sdk version in global.json to an SDK of the same supported line, or remove the pin if the repository does not need one.",
+            "targets": "all"
+          },
+          {
+            "id": "align-ci-and-images",
+            "title": "Align CI and container images",
+            "instructions": "Update setup-dotnet versions in CI and the mcr.microsoft.com/dotnet images in Dockerfiles to the new line.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "dotnet --list-sdks && dotnet --list-runtimes",
+            "purpose": "Confirm the SDK and runtime in use are the intended supported release."
+          },
+          {
+            "command": "dotnet build && dotnet test",
+            "purpose": "Build and test every project on the new target."
+          }
+        ]
+      }
+    },
+    {
       "id": "dotnet.runtime.end-of-support-9.0",
       "ecosystem": "dotnet",
       "purl": "pkg:generic/dotnet",

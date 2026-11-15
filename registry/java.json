@@ -737,6 +737,67 @@
           }
         ]
       }
+    },
+    {
+      "id": "java.jdk.scheduled-end-of-support-27",
+      "ecosystem": "java",
+      "purl": "pkg:generic/java",
+      "vers": "vers:semver/>=27.0.0|<28.0.0",
+      "event": "scheduled-end-of-life",
+      "title": "Eclipse Temurin / OpenJDK 27 reaches end of availability in March 2027",
+      "summary": "The Eclipse Temurin support page lists Java 27 End of Availability as March 2027 (month precision; no day-of-month is published). This rule uses Temurin availability dates only and does not mix vendor roadmaps.",
+      "severity": "low",
+      "replacement": "Java 25 (LTS) or later",
+      "deadline": "2027-03-31",
+      "sources": [
+        {
+          "title": "Eclipse Temurin support",
+          "url": "https://adoptium.net/support/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep the JDK in the build files, the version pin files, CI, and container images on one supported release; a long-term-support release avoids repeating this migration every six months.",
+          "Check that the Gradle or Maven version in the project can run on the target JDK (the Gradle compatibility matrix lists the supported Java versions).",
+          "A compile level (`maven.compiler.release`, `sourceCompatibility`) is not the JDK that runs the code: lower it only if the code must still run on an older runtime."
+        ],
+        "steps": [
+          {
+            "id": "update-jdk-declaration",
+            "title": "Move the reported declaration to a supported JDK",
+            "instructions": "Change the reported version to a long-term-support release (see the replacement) in the build file or the version pin file.",
+            "targets": "declaration"
+          },
+          {
+            "id": "align-jdk-surfaces",
+            "title": "Align the other JDK declarations",
+            "instructions": "Update every other pom.xml, Gradle toolchain, `.java-version`, `.sdkmanrc`, `.tool-versions`, CI JDK setup, and container base image that names the old release, so the repository agrees.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "./mvnw -B verify || ./gradlew build",
+            "purpose": "Build and test the project on the new JDK with the wrapper the project uses."
+          },
+          {
+            "command": "java -version",
+            "purpose": "Confirm the JDK on the path (or the one the toolchain selects) is the intended release."
+          }
+        ]
+      },
+      "x-java": {
+        "vendor": "eclipse-temurin",
+        "featureRelease": 27,
+        "endOfAvailabilityMonth": "2027-03"
+      }
     }
   ]
 }
