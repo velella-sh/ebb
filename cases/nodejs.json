@@ -3,26 +3,69 @@
     {
       "purl": "pkg:generic/nodejs",
       "version": "16.20.2",
-      "rules": ["nodejs.runtime.legacy"]
+      "rules": [
+        "nodejs.runtime.legacy"
+      ]
     },
     {
       "purl": "pkg:generic/nodejs",
       "version": "18.20.4",
-      "rules": ["nodejs.runtime.eol-18"]
+      "rules": [
+        "nodejs.runtime.eol-18"
+      ]
     },
     {
       "purl": "pkg:generic/nodejs",
       "version": "20.18.0",
-      "rules": ["nodejs.runtime.eol-20"]
+      "rules": [
+        "nodejs.runtime.eol-20"
+      ]
     },
     {
       "purl": "pkg:generic/nodejs",
       "version": "22.11.0",
-      "rules": ["nodejs.runtime.eol-22"]
+      "rules": [
+        "nodejs.runtime.eol-22"
+      ]
     },
     {
       "purl": "pkg:generic/nodejs",
       "version": "24.1.0",
+      "rules": [
+        "nodejs.runtime.eol-24"
+      ]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "24.0.0",
+      "rules": [
+        "nodejs.runtime.eol-24"
+      ]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "25.0.0",
+      "rules": [
+        "nodejs.runtime.eol-25"
+      ]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "26.0.0",
+      "rules": [
+        "nodejs.runtime.eol-26"
+      ]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "26.1.0",
+      "rules": [
+        "nodejs.runtime.eol-26"
+      ]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "27.0.0",
       "rules": []
     }
   ]
