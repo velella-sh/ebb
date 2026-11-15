@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.20.14",
+      "rules": [
+        "go.runtime.end-of-support-1.20-and-older"
+      ]
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.25.0",
+      "rules": [
+        "go.runtime.end-of-support-1.25"
+      ]
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.26.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.27.0",
+      "rules": []
+    }
+  ]
+}

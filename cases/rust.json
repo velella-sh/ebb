@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/rust",
+      "version": "1.98.0",
+      "rules": [
+        "rust.toolchain.end-of-support-1.98-and-older"
+      ]
+    },
+    {
+      "purl": "pkg:generic/rust",
+      "version": "1.98.1",
+      "rules": [
+        "rust.toolchain.end-of-support-1.98-and-older"
+      ]
+    },
+    {
+      "purl": "pkg:generic/rust",
+      "version": "1.99.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/rust",
+      "version": "1.99.1",
+      "rules": []
+    }
+  ]
+}
