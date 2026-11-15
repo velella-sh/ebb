@@ -39,3 +39,13 @@ Measured with `bench/cold-start.bench.ts` in fresh, isolated processes (10 itera
 - Total cold start time (from fresh process spawn to first completed lifecycle check) is ~88.1 ms on Node 24 and ~122.2 ms on Node 22.
 - Once loaded, steady-state lookups operate under sub-millisecond times (~0.0018 ms).
 
+## MCP Cold Start (process → initialize)
+
+Measured with `bench/mcp-start.bench.ts` (fresh `ebb mcp` process, JSON-RPC `initialize` round-trip). Built-in tools/resources load lazily after initialize so the handshake stays cheap.
+
+| Metric | Iterations | Min (ms) | Median (ms) | P99 (ms) | Ops/sec |
+|---|---|---|---|---|---|
+| **MCP cold-start** (`ebb mcp` → initialize) | 5 | 37.1599 | **38.4933** | 39.5151 | 26 |
+
+Baseline median recorded for regression checks: **50 ms** (allows ~20% headroom over the measured 38.5 ms median). Failures trigger when median exceeds baseline by more than 20% (`bench/mcp-start.bench.ts`).
+

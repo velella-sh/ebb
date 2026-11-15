@@ -1,10 +1,4 @@
 import { VERSION } from "../version.js";
-import { upcomingResource } from "./resources/upcoming.js";
-import { checkTool } from "./tools/check.js";
-import { checkAllTool } from "./tools/check_all.js";
-import { diffTool } from "./tools/diff.js";
-import { replacementForTool } from "./tools/replacement.js";
-import { sourcesTool } from "./tools/sources.js";
 import type {
   JsonRpcNotification,
   JsonRpcRequest,
@@ -26,6 +20,7 @@ export class McpServer {
   private readonly tools = new Map<string, McpTool>();
   private readonly resources = new Map<string, McpResource>();
   private initialized = false;
+  private builtinsPromise: Promise<void> | null = null;
 
   constructor(options?: {
     name?: string;
@@ -40,16 +35,38 @@ export class McpServer {
       tools: {},
       resources: {},
     };
+  }
 
-    // Register built-in tools
-    this.registerTool(checkTool);
-    this.registerTool(checkAllTool);
-    this.registerTool(diffTool);
-    this.registerTool(replacementForTool);
-    this.registerTool(sourcesTool);
-
-    // Register built-in resources
-    this.registerResource(upcomingResource);
+  /** Lazily load built-in tools/resources so initialize stays cheap. */
+  private async ensureBuiltins(): Promise<void> {
+    if (this.builtinsPromise) {
+      await this.builtinsPromise;
+      return;
+    }
+    this.builtinsPromise = (async () => {
+      const [
+        { upcomingResource },
+        { checkTool },
+        { checkAllTool },
+        { diffTool },
+        { replacementForTool },
+        { sourcesTool },
+      ] = await Promise.all([
+        import("./resources/upcoming.js"),
+        import("./tools/check.js"),
+        import("./tools/check_all.js"),
+        import("./tools/diff.js"),
+        import("./tools/replacement.js"),
+        import("./tools/sources.js"),
+      ]);
+      this.registerTool(checkTool);
+      this.registerTool(checkAllTool);
+      this.registerTool(diffTool);
+      this.registerTool(replacementForTool);
+      this.registerTool(sourcesTool);
+      this.registerResource(upcomingResource);
+    })();
+    await this.builtinsPromise;
   }
 
   public registerTool(tool: McpTool): void {
@@ -65,7 +82,6 @@ export class McpServer {
   }
 
   public getResource(uri: string): McpResource | undefined {
-    // Exact match or base uri without query params
     if (this.resources.has(uri)) {
       return this.resources.get(uri);
     }
@@ -91,7 +107,6 @@ export class McpServer {
       };
     }
 
-    // Notifications have no id and must not produce a response
     const isNotification = msg.id === undefined || msg.id === null;
 
     if (isNotification) {
@@ -140,17 +155,21 @@ export class McpServer {
         return {};
       }
       case "tools/list": {
+        await this.ensureBuiltins();
         const tools = Array.from(this.tools.values()).map((t) => t.definition);
         return { tools };
       }
       case "tools/call": {
+        await this.ensureBuiltins();
         return this.handleToolCall(params);
       }
       case "resources/list": {
+        await this.ensureBuiltins();
         const resources = Array.from(this.resources.values()).map((r) => r.definition);
         return { resources };
       }
       case "resources/read": {
+        await this.ensureBuiltins();
         return this.handleResourceRead(params);
       }
       default: {
