@@ -3,54 +3,57 @@
     {
       "purl": "pkg:generic/php",
       "version": "8.1.31",
-      "rules": [
-        "php.runtime.eol-8.1"
-      ]
+      "rules": ["php.runtime.eol-8.1"]
     },
     {
       "purl": "pkg:generic/php",
       "version": "8.2.0",
-      "rules": [
-        "php.runtime.end-of-active-support-8.2",
-        "php.runtime.eol-8.2"
-      ]
+      "rules": ["php.runtime.end-of-active-support-8.2", "php.runtime.eol-8.2"]
     },
     {
       "purl": "pkg:generic/php",
       "version": "8.2.26",
-      "rules": [
-        "php.runtime.end-of-active-support-8.2",
-        "php.runtime.eol-8.2"
-      ]
+      "rules": ["php.runtime.end-of-active-support-8.2", "php.runtime.eol-8.2"]
     },
     {
       "purl": "pkg:generic/php",
       "version": "8.3.14",
-      "rules": [
-        "php.runtime.end-of-active-support-8.3",
-        "php.runtime.eol-8.3"
-      ]
+      "rules": ["php.runtime.end-of-active-support-8.3", "php.runtime.eol-8.3"]
     },
     {
       "purl": "pkg:generic/php",
       "version": "8.4.0",
-      "rules": [
-        "php.runtime.end-of-active-support-8.4",
-        "php.runtime.eol-8.4"
-      ]
+      "rules": ["php.runtime.end-of-active-support-8.4", "php.runtime.eol-8.4"]
     },
     {
       "purl": "pkg:generic/php",
       "version": "8.5.0",
-      "rules": [
-        "php.runtime.end-of-active-support-8.5",
-        "php.runtime.eol-8.5"
-      ]
+      "rules": ["php.runtime.end-of-active-support-8.5", "php.runtime.eol-8.5"]
     },
     {
       "purl": "pkg:generic/php",
       "version": "8.6.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "8.3.0",
+      "rules": ["php.runtime.end-of-active-support-8.3", "php.runtime.eol-8.3"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "8.4.1",
+      "rules": ["php.runtime.end-of-active-support-8.4", "php.runtime.eol-8.4"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "8.5.1",
+      "rules": ["php.runtime.end-of-active-support-8.5", "php.runtime.eol-8.5"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "8.2.99",
+      "rules": ["php.runtime.end-of-active-support-8.2", "php.runtime.eol-8.2"]
     }
   ]
 }

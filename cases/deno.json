@@ -3,42 +3,57 @@
     {
       "purl": "pkg:generic/deno",
       "version": "1.46.3",
-      "rules": [
-        "deno.runtime.eol-1.x"
-      ]
+      "rules": ["deno.runtime.eol-1.x"]
     },
     {
       "purl": "pkg:generic/deno",
       "version": "2.1.0",
-      "rules": [
-        "deno.runtime.lts-2-1.end-of-support"
-      ]
+      "rules": ["deno.runtime.lts-2-1.end-of-support"]
     },
     {
       "purl": "pkg:generic/deno",
       "version": "2.2.0",
-      "rules": [
-        "deno.runtime.lts-2-2.end-of-support"
-      ]
+      "rules": ["deno.runtime.lts-2-2.end-of-support"]
     },
     {
       "purl": "pkg:generic/deno",
       "version": "2.5.0",
-      "rules": [
-        "deno.runtime.lts-2-5.end-of-support"
-      ]
+      "rules": ["deno.runtime.lts-2-5.end-of-support"]
     },
     {
       "purl": "pkg:generic/deno",
       "version": "2.9.3",
-      "rules": [
-        "deno.runtime.lts-2-9.scheduled-end-of-support"
-      ]
+      "rules": ["deno.runtime.lts-2-9.scheduled-end-of-support"]
     },
     {
       "purl": "pkg:generic/deno",
       "version": "2.10.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/deno",
+      "version": "2.1.4",
+      "rules": ["deno.runtime.lts-2-1.end-of-support"]
+    },
+    {
+      "purl": "pkg:generic/deno",
+      "version": "2.2.8",
+      "rules": ["deno.runtime.lts-2-2.end-of-support"]
+    },
+    {
+      "purl": "pkg:generic/deno",
+      "version": "2.5.4",
+      "rules": ["deno.runtime.lts-2-5.end-of-support"]
+    },
+    {
+      "purl": "pkg:generic/deno",
+      "version": "2.9.0",
+      "rules": ["deno.runtime.lts-2-9.scheduled-end-of-support"]
+    },
+    {
+      "purl": "pkg:generic/deno",
+      "version": "2.9.99",
+      "rules": ["deno.runtime.lts-2-9.scheduled-end-of-support"]
     }
   ]
 }
