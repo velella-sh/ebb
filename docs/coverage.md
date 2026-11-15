@@ -45,6 +45,13 @@ The table below is filled at documentation build time by `tools/coverage/runtime
 
 <!-- runtime-coverage:end -->
 
+## Limits
+
+- **Bun:** No official dated support or LTS schedule is published. Existing historical Bun entries in `registry/deno.json` are not expanded; new dated Bun rules are not added until Bun publishes a schedule.
+- **Deno:** Coverage tracks the official LTS maintenance table on the Deno stability page. Undated stable-channel minors without an LTS row are not given invented end dates.
+- **Ruby 3.4 / 4.0 / 4.1:** The maintenance branches page lists EOL as TBD; those lines stay policy-only until a date is published.
+- **Java LTS (Temurin):** “At least …” availability floors are not treated as end dates, so no scheduled rule is invented from them.
+
 ## Checker
 
 ```bash

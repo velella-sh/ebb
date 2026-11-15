@@ -200,6 +200,182 @@
           }
         ]
       }
+    },
+    {
+      "id": "deno.runtime.lts-2-1.end-of-support",
+      "ecosystem": "deno",
+      "purl": "pkg:generic/deno",
+      "vers": "vers:semver/>=2.1.0|<2.2.0",
+      "event": "end-of-support",
+      "title": "Deno LTS 2.1 is no longer maintained",
+      "summary": "The Deno LTS table lists maintenance for the 2.1 LTS line ending on 2025-04-30. That LTS line no longer receives backported security or critical bug fixes.",
+      "severity": "high",
+      "replacement": "Deno LTS 2.9 (until 2027-01-31) or current stable",
+      "deadline": "2025-04-30",
+      "sources": [
+        {
+          "title": "Deno stability and releases (LTS)",
+          "url": "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep deno.json / deno.jsonc, CI setup, and deployment pins on one Deno release channel."
+        ],
+        "steps": [
+          {
+            "id": "upgrade-deno-runtime",
+            "title": "Upgrade Deno runtime",
+            "instructions": "Update the Deno version pin to a currently maintained release (stable or LTS) using the project's existing install path.",
+            "targets": "declaration"
+          }
+        ],
+        "verification": [
+          {
+            "command": "deno --version",
+            "purpose": "Confirm active Deno runtime version."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deno.runtime.lts-2-2.end-of-support",
+      "ecosystem": "deno",
+      "purl": "pkg:generic/deno",
+      "vers": "vers:semver/>=2.2.0|<2.3.0",
+      "event": "end-of-support",
+      "title": "Deno LTS 2.2 is no longer maintained",
+      "summary": "The Deno LTS table lists maintenance for the 2.2 LTS line ending on 2025-10-31. That LTS line no longer receives backported security or critical bug fixes.",
+      "severity": "high",
+      "replacement": "Deno LTS 2.9 (until 2027-01-31) or current stable",
+      "deadline": "2025-10-31",
+      "sources": [
+        {
+          "title": "Deno stability and releases (LTS)",
+          "url": "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep deno.json / deno.jsonc, CI setup, and deployment pins on one Deno release channel."
+        ],
+        "steps": [
+          {
+            "id": "upgrade-deno-runtime",
+            "title": "Upgrade Deno runtime",
+            "instructions": "Update the Deno version pin to a currently maintained release (stable or LTS) using the project's existing install path.",
+            "targets": "declaration"
+          }
+        ],
+        "verification": [
+          {
+            "command": "deno --version",
+            "purpose": "Confirm active Deno runtime version."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deno.runtime.lts-2-5.end-of-support",
+      "ecosystem": "deno",
+      "purl": "pkg:generic/deno",
+      "vers": "vers:semver/>=2.5.0|<2.6.0",
+      "event": "end-of-support",
+      "title": "Deno LTS 2.5 is no longer maintained",
+      "summary": "The Deno LTS table lists maintenance for the 2.5 LTS line ending on 2026-04-30. That LTS line no longer receives backported security or critical bug fixes.",
+      "severity": "high",
+      "replacement": "Deno LTS 2.9 (until 2027-01-31) or current stable",
+      "deadline": "2026-04-30",
+      "sources": [
+        {
+          "title": "Deno stability and releases (LTS)",
+          "url": "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep deno.json / deno.jsonc, CI setup, and deployment pins on one Deno release channel."
+        ],
+        "steps": [
+          {
+            "id": "upgrade-deno-runtime",
+            "title": "Upgrade Deno runtime",
+            "instructions": "Update the Deno version pin to a currently maintained release (stable or LTS) using the project's existing install path.",
+            "targets": "declaration"
+          }
+        ],
+        "verification": [
+          {
+            "command": "deno --version",
+            "purpose": "Confirm active Deno runtime version."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deno.runtime.lts-2-9.scheduled-end-of-support",
+      "ecosystem": "deno",
+      "purl": "pkg:generic/deno",
+      "vers": "vers:semver/>=2.9.0|<2.10.0",
+      "event": "scheduled-end-of-life",
+      "title": "Deno LTS 2.9 maintenance ends on 2027-01-31",
+      "summary": "The Deno LTS table schedules maintenance for the 2.9 LTS line through 2027-01-31. After that date the LTS channel moves on and 2.9 no longer receives LTS backports.",
+      "severity": "low",
+      "replacement": "The next Deno LTS line or current stable",
+      "deadline": "2027-01-31",
+      "sources": [
+        {
+          "title": "Deno stability and releases (LTS)",
+          "url": "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
+          "accessedAt": "2026-11-15"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-15",
+        "reviewedAt": "2026-11-15",
+        "reviewer": "unreviewed",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep deno.json / deno.jsonc, CI setup, and deployment pins on one Deno release channel."
+        ],
+        "steps": [
+          {
+            "id": "upgrade-deno-runtime",
+            "title": "Upgrade Deno runtime",
+            "instructions": "Update the Deno version pin to a currently maintained release (stable or LTS) using the project's existing install path.",
+            "targets": "declaration"
+          }
+        ],
+        "verification": [
+          {
+            "command": "deno --version",
+            "purpose": "Confirm active Deno runtime version."
+          }
+        ]
+      }
     }
   ]
 }
