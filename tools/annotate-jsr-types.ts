@@ -15,7 +15,8 @@ export function annotateJsrTypes(dir = "dist/src"): void {
       entry.isFile() &&
       entry.name.endsWith(".js") &&
       !entry.name.endsWith(".map") &&
-      entry.name !== "cli.js"
+      entry.name !== "cli.js" &&
+      entry.name !== "bin.js"
     ) {
       const dts = full.replace(/\.js$/, ".d.ts");
       if (existsSync(dts)) {

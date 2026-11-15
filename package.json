@@ -22,7 +22,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "ebb": "./dist/src/cli.js"
+    "ebb": "./dist/src/bin.js"
   },
   "exports": {
     ".": {

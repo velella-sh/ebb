@@ -876,7 +876,10 @@ export async function runCli(
 const isMain =
   import.meta.url === `file://${process.argv[1]}` ||
   (process.argv[1] &&
-    (process.argv[1].endsWith("/cli.js") || process.argv[1].endsWith("/bin/ebb") || process.argv[1].endsWith("/ebb")));
+    (process.argv[1].endsWith("/cli.js") ||
+      process.argv[1].endsWith("/bin.js") ||
+      process.argv[1].endsWith("/bin/ebb") ||
+      process.argv[1].endsWith("/ebb")));
 
 if (isMain) {
   runCli(process.argv.slice(2))
