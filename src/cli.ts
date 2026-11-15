@@ -49,6 +49,7 @@ Usage:
   ebb update [options]                       Update lifecycle data safely and reversibly
   ebb diff [from] [to] [options]             Compare two data releases, versions, or files
   ebb data-status [options]                  Show active lifecycle data freshness and origin
+  ebb mcp                                    Start the Model Context Protocol stdio server
 
 Options:
   --format <text|markdown|json> Output format (default: text)
@@ -281,6 +282,17 @@ export async function runCli(
 
   if (first === "version") {
     io.stdout.write(`ebb ${VERSION}\n`);
+    return 0;
+  }
+
+  if (first === "mcp") {
+    const { McpServer, listenStdio } = await import("./mcp/index.js");
+    const server = new McpServer({ name: "@velella/ebb", version: VERSION });
+    listenStdio(server, {
+      input: process.stdin,
+      output: process.stdout,
+      exitOnClose: true,
+    });
     return 0;
   }
 

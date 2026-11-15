@@ -48,7 +48,10 @@ test("every exported entry point installs and loads cleanly from a packed tarbal
     });
 
     const installedDistSrc = join(appDir, "node_modules", "@velella", "ebb", "dist", "src");
-    const subpaths = (await collectJsModules(installedDistSrc)).filter((name) => name !== "index");
+    // ./mcp is a public export; ./mcp/* is intentionally blocked (null).
+    const subpaths = (await collectJsModules(installedDistSrc)).filter(
+      (name) => name !== "index" && name !== "mcp" && !name.startsWith("mcp/"),
+    );
     assert.ok(subpaths.length >= 40, `expected >= 40 dist/src subpaths in tarball, found ${subpaths.length}`);
 
     const verifyScript = join(appDir, "verify.mjs");
@@ -77,6 +80,10 @@ assert.equal(root.checkAll([{ purl: "pkg:npm/left-pad", version: "1.3.0" }]).sum
 
 const pkg = await import("@velella/ebb/package.json", { with: { type: "json" } });
 assert.equal(pkg.default.name, "@velella/ebb");
+
+const mcp = await import("@velella/ebb/mcp");
+assert.equal(typeof mcp.McpServer, "function");
+await assert.rejects(() => import("@velella/ebb/mcp/format"), (err) => err?.code === "ERR_PACKAGE_PATH_NOT_EXPORTED");
 
 const subpaths = JSON.parse(process.env.EBB_SUBPATHS);
 for (const subpath of subpaths) {

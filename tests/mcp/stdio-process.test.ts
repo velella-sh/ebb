@@ -100,7 +100,7 @@ describe("MCP Server Process (stdio)", () => {
       const initResp = await waitForResponse(1);
       assert.equal(initResp.id, 1);
       assert.equal(initResp.result.protocolVersion, "2024-11-05");
-      assert.equal(initResp.result.serverInfo.name, "@velella/ebb-mcp");
+      assert.equal(initResp.result.serverInfo.name, "@velella/ebb");
 
       // 2. Initialized notification (must produce no response)
       send({

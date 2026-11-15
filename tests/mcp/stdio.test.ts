@@ -65,7 +65,7 @@ describe("MCP Stdio Transport", () => {
       capabilities: Record<string, unknown>;
     };
     assert.equal(result.protocolVersion, "2024-11-05");
-    assert.equal(result.serverInfo.name, "@velella/ebb-mcp");
+    assert.equal(result.serverInfo.name, "@velella/ebb");
     assert.ok(result.capabilities.tools);
     assert.ok(result.capabilities.resources);
 

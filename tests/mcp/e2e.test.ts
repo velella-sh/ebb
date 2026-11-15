@@ -70,7 +70,7 @@ describe("MCP Server End-to-End (real stdio pipes)", () => {
     const initResp = await waitForResponse(1);
     assert.equal(initResp.id, 1);
     assert.equal(initResp.result.protocolVersion, "2024-11-05");
-    assert.equal(initResp.result.serverInfo.name, "@velella/ebb-mcp");
+    assert.equal(initResp.result.serverInfo.name, "@velella/ebb");
     assert.ok(initResp.result.capabilities.tools);
     assert.ok(initResp.result.capabilities.resources);
 

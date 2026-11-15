@@ -1,3 +1,4 @@
+import { VERSION } from "../version.js";
 import { upcomingResource } from "./resources/upcoming.js";
 import { checkTool } from "./tools/check.js";
 import { checkAllTool } from "./tools/check_all.js";
@@ -16,8 +17,8 @@ import type {
 } from "./types.js";
 
 export const LATEST_PROTOCOL_VERSION = "2024-11-05";
-export const SERVER_NAME = "@velella/ebb-mcp";
-export const SERVER_VERSION = "0.1.0";
+export const SERVER_NAME = "@velella/ebb";
+export const SERVER_VERSION = VERSION;
 
 export class McpServer {
   private readonly info: McpServerInfo;
