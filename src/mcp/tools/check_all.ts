@@ -1,4 +1,4 @@
-import { asOf, checkAll, type CheckAllItem } from "@velella/ebb";
+import { asOf, checkAll, type CheckAllItem } from "../../index.js";
 import { formatCheckAllResult } from "../format.js";
 import type { McpTool, McpToolResult } from "../types.js";
 import { extractPurlAndVersion } from "./check.js";

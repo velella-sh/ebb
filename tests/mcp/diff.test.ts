@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { McpServer } from "../src/index.js";
-import type { McpToolResult } from "../src/types.js";
+import { McpServer } from "../../src/mcp/index.js";
+import type { McpToolResult } from "../../src/mcp/types.js";
 
 describe("MCP diff tool", () => {
   const server = new McpServer();

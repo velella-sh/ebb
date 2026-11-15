@@ -1,221 +1,163 @@
 import assert from "node:assert/strict";
-import { spawn } from "node:child_process";
-import { resolve } from "node:path";
+import { PassThrough } from "node:stream";
 import { describe, it } from "node:test";
+import { McpServer, listenStdio } from "../../src/mcp/index.js";
+import type { JsonRpcResponse } from "../../src/mcp/types.js";
 
-const serverPath = resolve(process.cwd(), "packages/mcp/dist/src/index.js");
+function setupStdioSession() {
+  const server = new McpServer();
+  const clientInput = new PassThrough(); // server stdin
+  const serverOutput = new PassThrough(); // server stdout
 
-describe("MCP Server Process (stdio)", () => {
-  it("starts and communicates over stdio with json-rpc 2.0 handshake and tool call", async () => {
-    const child = spawn("node", [serverPath], {
-      stdio: ["pipe", "pipe", "pipe"],
-    });
+  const responses: JsonRpcResponse[] = [];
+  let buffer = "";
 
-    let stdoutBuffer = "";
-    let stderrBuffer = "";
-    // biome-ignore lint/suspicious/noExplicitAny: test responses inspection
-    const responses: any[] = [];
-
-    child.stdout.on("data", (chunk: Buffer) => {
-      stdoutBuffer += chunk.toString("utf8");
-      const lines = stdoutBuffer.split("\n");
-      stdoutBuffer = lines.pop() ?? "";
-      for (const line of lines) {
-        if (line.trim()) {
-          try {
-            responses.push(JSON.parse(line));
-          } catch {
-            // ignore non-json
-          }
-        }
+  serverOutput.on("data", (chunk: Buffer) => {
+    buffer += chunk.toString("utf8");
+    const lines = buffer.split("\n");
+    buffer = lines.pop() ?? "";
+    for (const line of lines) {
+      if (line.trim()) {
+        responses.push(JSON.parse(line));
       }
-    });
-
-    child.stderr.on("data", (chunk: Buffer) => {
-      stderrBuffer += chunk.toString("utf8");
-    });
-
-    let exitError: Error | null = null;
-    child.on("error", (err) => {
-      exitError = err;
-    });
-    child.on("exit", (code) => {
-      if (code !== 0 && code !== null) {
-        exitError = new Error(`MCP child process exited with code ${code}. stderr: ${stderrBuffer}`);
-      }
-    });
-
-    // biome-ignore lint/suspicious/noExplicitAny: generic response promise
-    function waitForResponse(id: string | number): Promise<any> {
-      return new Promise((resolve, reject) => {
-        let settled = false;
-        const timer = setTimeout(() => {
-          settled = true;
-          reject(
-            new Error(
-              `Timed out waiting for response id ${id}. Current responses: ${JSON.stringify(responses)}. stderr: ${stderrBuffer}`,
-            ),
-          );
-        }, 5000);
-
-        const poll = () => {
-          if (settled) return;
-          if (exitError) {
-            settled = true;
-            clearTimeout(timer);
-            reject(exitError);
-            return;
-          }
-          // biome-ignore lint/suspicious/noExplicitAny: response matching
-          const found = responses.find((r: any) => r.id === id);
-          if (found) {
-            settled = true;
-            clearTimeout(timer);
-            resolve(found);
-          } else {
-            setTimeout(poll, 10);
-          }
-        };
-        poll();
-      });
     }
+  });
 
-    const send = (msg: Record<string, unknown>) => {
-      child.stdin.write(`${JSON.stringify(msg)}\n`);
+  const close = listenStdio(server, { input: clientInput, output: serverOutput });
+
+  async function send(message: Record<string, unknown>): Promise<void> {
+    clientInput.write(`${JSON.stringify(message)}\n`);
+    await new Promise((resolve) => setTimeout(resolve, 20));
+  }
+
+  return {
+    server,
+    send,
+    responses,
+    close,
+  };
+}
+
+describe("MCP Stdio Transport", () => {
+  it("initializes cleanly with protocolVersion 2024-11-05", async () => {
+    const session = setupStdioSession();
+
+    await session.send({
+      jsonrpc: "2.0",
+      id: 1,
+      method: "initialize",
+      params: {
+        protocolVersion: "2024-11-05",
+        capabilities: {},
+        clientInfo: { name: "test-client", version: "1.0.0" },
+      },
+    });
+
+    assert.equal(session.responses.length, 1);
+    const resp = session.responses[0];
+    assert.ok(resp);
+    assert.equal(resp.id, 1);
+    assert.equal(resp.jsonrpc, "2.0");
+
+    const result = resp.result as {
+      protocolVersion: string;
+      serverInfo: { name: string; version: string };
+      capabilities: Record<string, unknown>;
     };
+    assert.equal(result.protocolVersion, "2024-11-05");
+    assert.equal(result.serverInfo.name, "@velella/ebb-mcp");
+    assert.ok(result.capabilities.tools);
+    assert.ok(result.capabilities.resources);
 
-    try {
-      // 1. Initialize
-      send({
-        jsonrpc: "2.0",
-        id: 1,
-        method: "initialize",
-        params: {
-          protocolVersion: "2024-11-05",
-          capabilities: {},
-          clientInfo: { name: "root-test", version: "1.0.0" },
-        },
-      });
+    session.close();
+  });
 
-      const initResp = await waitForResponse(1);
-      assert.equal(initResp.id, 1);
-      assert.equal(initResp.result.protocolVersion, "2024-11-05");
-      assert.equal(initResp.result.serverInfo.name, "@velella/ebb-mcp");
+  it("handles notifications/initialized without sending a response", async () => {
+    const session = setupStdioSession();
 
-      // 2. Initialized notification (must produce no response)
-      send({
-        jsonrpc: "2.0",
-        method: "notifications/initialized",
-      });
-      await new Promise((resolve) => setTimeout(resolve, 50));
-      assert.equal(responses.length, 1);
+    await session.send({
+      jsonrpc: "2.0",
+      method: "notifications/initialized",
+    });
 
-      // 3. Ping
-      send({
-        jsonrpc: "2.0",
-        id: 2,
-        method: "ping",
-      });
-      const pingResp = await waitForResponse(2);
-      assert.equal(pingResp.id, 2);
-      assert.deepEqual(pingResp.result, {});
+    assert.equal(session.responses.length, 0);
+    assert.equal(session.server.isInitialized(), true);
 
-      // 4. tools/list includes check tool
-      send({
-        jsonrpc: "2.0",
-        id: 3,
-        method: "tools/list",
-      });
-      const listResp = await waitForResponse(3);
-      assert.equal(listResp.id, 3);
-      assert.ok(listResp.result.tools.some((t: { name: string }) => t.name === "check"));
+    session.close();
+  });
 
-      // 5. tools/call check tool
-      send({
-        jsonrpc: "2.0",
-        id: 4,
-        method: "tools/call",
-        params: {
-          name: "check",
-          arguments: {
-            purl: "pkg:npm/request@2.88.2",
-          },
-        },
-      });
-      const callResp = await waitForResponse(4);
-      assert.equal(callResp.id, 4);
-      assert.equal(callResp.result.isError, false);
-      const content = JSON.parse(callResp.result.content[0].text);
-      assert.equal(content.status, "deprecated");
-      assert.ok(content.provenance.sources.length > 0);
-      assert.ok(content.provenance.reviewers.length > 0);
+  it("responds to ping", async () => {
+    const session = setupStdioSession();
 
-      // 6. tools/call check_all tool
-      send({
-        jsonrpc: "2.0",
-        id: 5,
-        method: "tools/call",
-        params: {
-          name: "check_all",
-          arguments: {
-            purls: ["pkg:npm/request@2.88.2", "pkg:npm/left-pad@1.3.0"],
-          },
-        },
-      });
-      const checkAllResp = await waitForResponse(5);
-      assert.equal(checkAllResp.id, 5);
-      assert.equal(checkAllResp.result.isError, false);
-      const batchContent = JSON.parse(checkAllResp.result.content[0].text);
-      assert.equal(batchContent.summary.total, 2);
-      assert.equal(batchContent.summary.byStatus.deprecated, 2);
+    await session.send({
+      jsonrpc: "2.0",
+      id: 42,
+      method: "ping",
+    });
 
-      // 7. tools/call replacement_for tool
-      send({
-        jsonrpc: "2.0",
-        id: 6,
-        method: "tools/call",
-        params: {
-          name: "replacement_for",
-          arguments: {
-            purl: "pkg:npm/request@2.88.2",
-          },
-        },
-      });
-      const repResp = await waitForResponse(6);
-      assert.equal(repResp.id, 6);
-      assert.equal(repResp.result.isError, false);
-      const repContent = JSON.parse(repResp.result.content[0].text);
-      assert.ok(repContent.replacement);
+    assert.equal(session.responses.length, 1);
+    const resp = session.responses[0];
+    assert.ok(resp);
+    assert.equal(resp.id, 42);
+    assert.deepEqual(resp.result, {});
 
-      // 8. resources/list
-      send({
-        jsonrpc: "2.0",
-        id: 7,
-        method: "resources/list",
-      });
-      const resListResp = await waitForResponse(7);
-      assert.equal(resListResp.id, 7);
-      assert.ok(resListResp.result.resources.some((r: { uri: string }) => r.uri === "ebb://upcoming"));
+    session.close();
+  });
 
-      // 9. resources/read
-      send({
-        jsonrpc: "2.0",
-        id: 8,
-        method: "resources/read",
-        params: {
-          uri: "ebb://upcoming",
-        },
-      });
-      const resReadResp = await waitForResponse(8);
-      assert.equal(resReadResp.id, 8);
-      assert.equal(resReadResp.result.contents[0].uri, "ebb://upcoming");
-      const upcomingData = JSON.parse(resReadResp.result.contents[0].text);
-      assert.ok(upcomingData.count > 0);
-    } finally {
-      child.stdin.end();
-      if (child.exitCode === null && !child.killed) {
-        child.kill("SIGKILL");
-      }
-    }
+  it("returns tools list from tools/list", async () => {
+    const session = setupStdioSession();
+
+    await session.send({
+      jsonrpc: "2.0",
+      id: "req-tools",
+      method: "tools/list",
+    });
+
+    assert.equal(session.responses.length, 1);
+    const resp = session.responses[0];
+    assert.ok(resp);
+    assert.equal(resp.id, "req-tools");
+    const result = resp.result as { tools: Array<{ name: string }> };
+    assert.ok(Array.isArray(result.tools));
+    assert.ok(result.tools.some((t) => t.name === "check"));
+
+    session.close();
+  });
+
+  it("returns JSON-RPC parse error on malformed input", async () => {
+    const server = new McpServer();
+    const input = new PassThrough();
+    const output = new PassThrough();
+    const responses: JsonRpcResponse[] = [];
+    output.on("data", (chunk: Buffer) => {
+      responses.push(JSON.parse(chunk.toString("utf8").trim()));
+    });
+    const close = listenStdio(server, { input, output });
+
+    input.write("THIS_IS_NOT_VALID_JSON\n");
+    await new Promise((resolve) => setTimeout(resolve, 20));
+
+    assert.equal(responses.length, 1);
+    const resp = responses[0];
+    assert.ok(resp);
+    assert.equal(resp.error?.code, -32700);
+
+    close();
+  });
+
+  it("returns -32600 on invalid request without jsonrpc 2.0", async () => {
+    const session = setupStdioSession();
+
+    await session.send({
+      id: 99,
+      method: "ping",
+    });
+
+    assert.equal(session.responses.length, 1);
+    const resp = session.responses[0];
+    assert.ok(resp);
+    assert.equal(resp.error?.code, -32600);
+
+    session.close();
   });
 });

@@ -12,12 +12,7 @@ export const OFFING_REMEDIATION_HINT = "Offing can fix this: https://github.com/
 export function isHintSilenced(): boolean {
   const ebbNoHint = process.env.EBB_NO_HINT;
   const offingNoHint = process.env.OFFING_NO_HINT;
-  return (
-    ebbNoHint === "1" ||
-    ebbNoHint === "true" ||
-    offingNoHint === "1" ||
-    offingNoHint === "true"
-  );
+  return ebbNoHint === "1" || ebbNoHint === "true" || offingNoHint === "1" || offingNoHint === "true";
 }
 
 /**

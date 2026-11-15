@@ -1,4 +1,4 @@
-import { asOf, check } from "@velella/ebb";
+import { asOf, check } from "../../index.js";
 import { formatCheckResult } from "../format.js";
 import type { McpTool, McpToolResult } from "../types.js";
 
@@ -9,9 +9,8 @@ export function extractPurlAndVersion(
   const trimmedPurl = purlInput.trim();
   if (explicitVersion && explicitVersion.trim()) {
     const atIdx = trimmedPurl.lastIndexOf("@");
-    const cleanPurl = atIdx !== -1 && trimmedPurl.toLowerCase().startsWith("pkg:")
-      ? trimmedPurl.slice(0, atIdx)
-      : trimmedPurl;
+    const cleanPurl =
+      atIdx !== -1 && trimmedPurl.toLowerCase().startsWith("pkg:") ? trimmedPurl.slice(0, atIdx) : trimmedPurl;
     return { purl: cleanPurl, version: explicitVersion.trim() };
   }
 
@@ -40,8 +39,7 @@ export const checkTool: McpTool = {
         },
         version: {
           type: "string",
-          description:
-            "Version string to check (e.g. '2.88.2'). If omitted, version embedded in the PURL is used.",
+          description: "Version string to check (e.g. '2.88.2'). If omitted, version embedded in the PURL is used.",
         },
         asOf: {
           type: "string",

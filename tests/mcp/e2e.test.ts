@@ -3,11 +3,11 @@ import { spawn } from "node:child_process";
 import { describe, it } from "node:test";
 import { fileURLToPath } from "node:url";
 
-const serverPath = fileURLToPath(new URL("../src/index.js", import.meta.url));
+const serverPath = fileURLToPath(new URL("./run-stdio-server.js", import.meta.url));
 
 describe("MCP Server End-to-End (real stdio pipes)", () => {
   it("executes complete lifecycle: handshake, tools/list, tool invocations, and resource reads", async () => {
-    const child = spawn("node", [serverPath], {
+    const child = spawn(process.execPath, [serverPath], {
       stdio: ["pipe", "pipe", "pipe"],
     });
 

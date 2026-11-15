@@ -189,9 +189,7 @@ export class McpServer {
       };
     }
 
-    const args = typeof toolArgs === "object" && toolArgs !== null
-      ? (toolArgs as Record<string, unknown>)
-      : {};
+    const args = typeof toolArgs === "object" && toolArgs !== null ? (toolArgs as Record<string, unknown>) : {};
 
     return await tool.handler(args);
   }

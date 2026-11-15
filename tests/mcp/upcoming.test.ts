@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { McpServer } from "../src/index.js";
-import { loadUpcomingEvents } from "../src/resources/upcoming.js";
-import type { McpResourceResult } from "../src/types.js";
+import { McpServer } from "../../src/mcp/index.js";
+import { loadUpcomingEvents } from "../../src/mcp/resources/upcoming.js";
+import type { McpResourceResult } from "../../src/mcp/types.js";
 
 describe("loadUpcomingEvents", () => {
   it("loads future events and excludes expired ones relative to asOf", () => {
@@ -26,10 +26,7 @@ describe("loadUpcomingEvents", () => {
     for (let i = 1; i < result.events.length; i++) {
       const prev = result.events[i - 1]!;
       const curr = result.events[i]!;
-      assert.ok(
-        prev.deadline <= curr.deadline,
-        `Expected ${prev.deadline} <= ${curr.deadline}`,
-      );
+      assert.ok(prev.deadline <= curr.deadline, `Expected ${prev.deadline} <= ${curr.deadline}`);
     }
   });
 });

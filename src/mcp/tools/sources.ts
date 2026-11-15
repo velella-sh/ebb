@@ -1,4 +1,4 @@
-import { sourcesOf } from "@velella/ebb";
+import { sourcesOf } from "../../index.js";
 import type { McpTool, McpToolResult } from "../types.js";
 
 export const sourcesTool: McpTool = {

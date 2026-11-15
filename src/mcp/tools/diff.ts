@@ -1,4 +1,4 @@
-import { diff, formatDiffMarkdown } from "@velella/ebb/diff";
+import { diff, formatDiffMarkdown } from "../../diff.js";
 import type { McpTool, McpToolResult } from "../types.js";
 
 export const diffTool: McpTool = {
@@ -11,7 +11,8 @@ export const diffTool: McpTool = {
       properties: {
         from: {
           type: "string",
-          description: "Starting version, date (YYYY-MM-DD), bundle file path, 'bundled', or 'active' (default: 'bundled').",
+          description:
+            "Starting version, date (YYYY-MM-DD), bundle file path, 'bundled', or 'active' (default: 'bundled').",
         },
         to: {
           type: "string",

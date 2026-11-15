@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { McpServer } from "../src/index.js";
-import { normalizeBatchItems } from "../src/tools/check_all.js";
-import type { McpToolResult } from "../src/types.js";
+import { McpServer } from "../../src/mcp/index.js";
+import { normalizeBatchItems } from "../../src/mcp/tools/check_all.js";
+import type { McpToolResult } from "../../src/mcp/types.js";
 
 describe("normalizeBatchItems", () => {
   it("normalizes array of PURL strings", () => {

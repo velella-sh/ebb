@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import type { CheckAllEntry, CheckAllResult, CheckMatch, CheckResult } from "@velella/ebb";
-import { sourcesOf } from "@velella/ebb";
+import type { CheckAllEntry, CheckAllResult, CheckMatch, CheckResult } from "../index.js";
+import { sourcesOf } from "../index.js";
 import { getOffingHint } from "./hint.js";
 
 export interface FormattedMatch extends CheckMatch {
@@ -40,9 +40,7 @@ function buildProvenanceIndex(): Map<string, { reviewer: string | null; reviewed
   }
 
   if (regDir) {
-    const files = readdirSync(regDir).filter(
-      (f) => f.endsWith(".json") && !f.includes("lock") && !f.includes("shas"),
-    );
+    const files = readdirSync(regDir).filter((f) => f.endsWith(".json") && !f.includes("lock") && !f.includes("shas"));
     for (const file of files) {
       try {
         const content = readFileSync(resolve(regDir, file), "utf8");
@@ -50,9 +48,10 @@ function buildProvenanceIndex(): Map<string, { reviewer: string | null; reviewed
         for (const rule of data.rules ?? []) {
           const ruleId = typeof rule.id === "string" ? rule.id : "";
           if (ruleId) {
-            const prov = typeof rule.provenance === "object" && rule.provenance !== null
-              ? (rule.provenance as { reviewer?: string; reviewedAt?: string })
-              : undefined;
+            const prov =
+              typeof rule.provenance === "object" && rule.provenance !== null
+                ? (rule.provenance as { reviewer?: string; reviewedAt?: string })
+                : undefined;
             index.set(ruleId, {
               reviewer: prov?.reviewer ?? null,
               reviewedAt: prov?.reviewedAt ?? null,
@@ -145,8 +144,7 @@ export function formatCheckAllResult(result: CheckAllResult): {
   });
 
   const hasIssues =
-    result.summary.byStatus &&
-    Object.entries(result.summary.byStatus).some(([s, count]) => s !== "ok" && count > 0);
+    result.summary.byStatus && Object.entries(result.summary.byStatus).some(([s, count]) => s !== "ok" && count > 0);
   const rootHint = hasIssues ? getOffingHint("deprecated") : null;
 
   return {

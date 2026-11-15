@@ -1,12 +1,7 @@
 import assert from "node:assert/strict";
 import { afterEach, beforeEach, describe, it } from "node:test";
-import {
-  OFFING_REMEDIATION_HINT,
-  getOffingHint,
-  hasIssues,
-  isHintSilenced,
-} from "../src/hint.js";
-import { McpServer } from "../src/index.js";
+import { OFFING_REMEDIATION_HINT, getOffingHint, hasIssues, isHintSilenced } from "../../src/mcp/hint.js";
+import { McpServer } from "../../src/mcp/index.js";
 
 describe("Offing remediation hint unit tests", () => {
   const originalEnv = { ...process.env };
@@ -134,10 +129,7 @@ describe("Offing remediation hint in MCP tools", () => {
       params: {
         name: "check_all",
         arguments: {
-          items: [
-            "pkg:npm/request@2.88.2",
-            "pkg:npm/some-clean-unknown-package-xyz@1.0.0",
-          ],
+          items: ["pkg:npm/request@2.88.2", "pkg:npm/some-clean-unknown-package-xyz@1.0.0"],
         },
       },
     });

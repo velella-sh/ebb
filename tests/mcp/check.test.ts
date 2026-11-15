@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { McpServer } from "../src/index.js";
-import { extractPurlAndVersion } from "../src/tools/check.js";
-import type { McpToolResult } from "../src/types.js";
+import { McpServer } from "../../src/mcp/index.js";
+import { extractPurlAndVersion } from "../../src/mcp/tools/check.js";
+import type { McpToolResult } from "../../src/mcp/types.js";
 
 describe("extractPurlAndVersion", () => {
   it("extracts version from PURL string", () => {

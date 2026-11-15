@@ -1,4 +1,4 @@
-import { replacementFor } from "@velella/ebb";
+import { replacementFor } from "../../index.js";
 import type { McpTool, McpToolResult } from "../types.js";
 import { extractPurlAndVersion } from "./check.js";
 
@@ -17,8 +17,7 @@ export const replacementForTool: McpTool = {
         },
         version: {
           type: "string",
-          description:
-            "Version string (e.g. '2.88.2'). If omitted, version embedded in the PURL is used.",
+          description: "Version string (e.g. '2.88.2'). If omitted, version embedded in the PURL is used.",
         },
       },
       required: ["purl"],

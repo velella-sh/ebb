@@ -2,10 +2,10 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
-import { McpServer } from "../src/index.js";
+import { McpServer } from "../../src/mcp/index.js";
 
 describe("MCP server.json registry manifest", () => {
-  const manifestPath = fileURLToPath(new URL("../../server.json", import.meta.url));
+  const manifestPath = fileURLToPath(new URL("../../../server.json", import.meta.url));
   const rawContent = readFileSync(manifestPath, "utf8");
   const manifest = JSON.parse(rawContent);
   const server = new McpServer();

@@ -1,4 +1,4 @@
-import { upcoming } from "@velella/ebb";
+import { upcoming } from "../../index.js";
 import type { McpResource, McpResourceResult } from "../types.js";
 
 export interface UpcomingEvent {
