@@ -73,6 +73,12 @@ jobs:
             parsePurl("pkg:npm/request@2.88.2");
             console.log(`${rules.length} rules load from the packed package`);
           '
+      - name: Packed MCP stdio smoke
+        run: |
+          # Covered by tests/mcp/packed.test.ts in npm run check; re-run here so CI fails
+          # loudly if dist/src/mcp is missing from package.json "files".
+          npm run build --silent
+          node --test dist/tests/mcp/packed.test.js
 
   # Measures line coverage and publishes it for the README badge. It runs on main only, and holds the
   # only write permission in this workflow: it can push the `badges` branch and nothing else. The badge
