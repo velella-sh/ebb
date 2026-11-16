@@ -18,9 +18,9 @@ The evaluation benchmarks unassisted agents against agents equipped with Ebb lif
 - **Evaluation Date**: `2026-11-16`
 - **Benchmark Tasks**: 100 realistic prompts across 5 ecosystems
 - **Repetitions per Mode**: 3 repetitions per task and mode (reporting mean and range)
-- **Baseline Deprecation Rate (Unassisted)**: **38%** (range: 38% - 38%)
-- **With Ebb Deprecation Rate (MCP / Skill)**: **0%** (range: 0% - 0%)
-- **Deprecation Rate Reduction**: **-38 percentage points** (100% reduction in deprecated picks)
+- **Baseline Deprecation Rate (Unassisted)**: **38%** (range: 38% - 38%) — simulated runs only
+- **With Ebb Deprecation Rate (MCP / Skill)**: **0%** (range: 0% - 0%) — simulated runs only
+- **Deprecation Rate Reduction**: **-38 percentage points** — simulated; real runs pending
 
 ---
 

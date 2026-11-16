@@ -43,10 +43,10 @@ The library passes the official purl-spec suite: 586 of 586 tests ([fixtures](te
 ## Why Ebb
 
 - **Evidence, not opinion.** Every rule cites the authoritative source behind it, the date that source was read, and who reviewed the rule and when.
-- **Broad coverage.** 752 rules across 25 ecosystems: language runtimes, npm, PyPI, Maven, NuGet, Cargo, Go, containers, Kubernetes APIs, GitHub Actions, Terraform, and more.
+- **Broad coverage.** 830 rules across 26 registry files: language runtimes, npm, PyPI, Maven, NuGet, Cargo, Go, containers, Kubernetes APIs, GitHub Actions, Terraform, and more.
 - **Standard identifiers.** purl and VERS throughout, with no ecosystem-specific lookup tables to learn.
 - **Actionable.** Rules carry a replacement and migration guidance: the constraints to keep, the steps to take, and how to verify the change.
-- **Impact on AI agents.** Eliminates deprecated dependency picks across 100 benchmark tasks (dropping from 38% down to 0% in evaluations; see the [Agent Evaluations Guide](docs/agent-evals.md) and [evals/agents/REPORT.md](evals/agents/REPORT.md)).
+- **Impact on AI agents.** Measured across 100 benchmark tasks: 38% deprecated picks without Ebb, 0% with Ebb (simulated runs; see the [Agent Evaluations Guide](docs/agent-evals.md) and [evals/agents/REPORT.md](evals/agents/REPORT.md)).
 - **LLMs and agents native.** Standard machine-readable documentation for models at [llms.txt](llms.txt) and [llms-full.txt](llms-full.txt), backed by an official MCP server and agent skills.
 - **Zero dependencies.** Pure ESM with zero runtime dependencies. Instant installs, zero supply-chain risk.
 - **Compact footprint.** ~268 KB packed tarball with a strict 500 KB budget enforced in CI ([docs/SIZE.md](docs/SIZE.md)).
@@ -348,7 +348,7 @@ Shortened. The full format is in [docs/RULES.md](docs/RULES.md) and [`schemas/`]
 Every rule cites authoritative evidence with strict auditability and health monitoring:
 - **Provenance audit trail:** Every rule specifies its creation `method` (`manual`, `imported`, or `upstream`), reviewers list, and importer metadata.
 - **Continuous link checks:** Sources are locked in [`registry/sources.lock.json`](registry/sources.lock.json) and audited weekly by [`.github/workflows/sources.yml`](.github/workflows/sources.yml) with backoff retry, redirect tracking, and content version verification.
-- **Wayback archive preservation:** 100% of evidence sources are archived in the Wayback Machine and archive.today, preserving immutable proof of lifecycle events.
+- **Wayback archive preservation:** Evidence sources can be archived to the Wayback Machine and archive.today via `tools/archive-sources.ts`, preserving snapshots of lifecycle events.
 - **Community issue triage:** Dead links automatically open issues labeled `good first issue` and `help wanted` for straightforward replacement. See [docs/sources-of.md](docs/sources-of.md).
 
 ## Performance
@@ -359,10 +359,10 @@ Measured using `npm run bench`:
 
 | Operation | Target | Median latency | Throughput |
 |---|---|---|---|
-| **`check` (single)** | Single component (`pkg:npm/left-pad`) | 0.0016 ms | ~625,000 ops/s |
+| **`check` (single)** | Single component (`pkg:npm/left-pad`) | 0.004 ms | ~250,000 ops/s |
 | **`check` (per-component)** | 1,000 components | 0.0029 ms | ~345,000 ops/s |
-| **`checkAll`** | 1,000 components batch | 0.0525 ms | ~19,000 batches/s |
-| **Data load** | All 25 bundled registries (752 rules) | 12.7 ms | ~79 loads/s |
+| **`checkAll`** | 1,000 components batch | 0.0703 ms | ~14,000 batches/s |
+| **Data load** | All 26 bundled registries (830 rules) | 8.9 ms | ~112 loads/s |
 
 ### Cold start overhead
 
