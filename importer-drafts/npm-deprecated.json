@@ -1,7 +1,7 @@
 {
   "importer": "npm-deprecated",
   "ecosystem": "npm",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-17",
   "rules": [
     {
       "id": "npm.package.babel-eslint.deprecated",
@@ -16,18 +16,22 @@
         {
           "title": "babel-eslint on npm",
           "url": "https://www.npmjs.com/package/babel-eslint",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "babel-eslint registry metadata",
           "url": "https://registry.npmjs.org/babel-eslint",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -47,18 +51,22 @@
         {
           "title": "babel-preset-es2015 on npm",
           "url": "https://www.npmjs.com/package/babel-preset-es2015",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "babel-preset-es2015 registry metadata",
           "url": "https://registry.npmjs.org/babel-preset-es2015",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -78,18 +86,22 @@
         {
           "title": "boom on npm",
           "url": "https://www.npmjs.com/package/boom",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "boom registry metadata",
           "url": "https://registry.npmjs.org/boom",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -109,18 +121,22 @@
         {
           "title": "cryptiles on npm",
           "url": "https://www.npmjs.com/package/cryptiles",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "cryptiles registry metadata",
           "url": "https://registry.npmjs.org/cryptiles",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -140,18 +156,22 @@
         {
           "title": "crypto-js on npm",
           "url": "https://www.npmjs.com/package/crypto-js",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "crypto-js registry metadata",
           "url": "https://registry.npmjs.org/crypto-js",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -171,18 +191,22 @@
         {
           "title": "eslint-plugin-nuxt on npm",
           "url": "https://www.npmjs.com/package/eslint-plugin-nuxt",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "eslint-plugin-nuxt registry metadata",
           "url": "https://registry.npmjs.org/eslint-plugin-nuxt",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -202,18 +226,22 @@
         {
           "title": "gulp-util on npm",
           "url": "https://www.npmjs.com/package/gulp-util",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "gulp-util registry metadata",
           "url": "https://registry.npmjs.org/gulp-util",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -233,18 +261,22 @@
         {
           "title": "@hapi/joi on npm",
           "url": "https://www.npmjs.com/package/@hapi/joi",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@hapi/joi registry metadata",
           "url": "https://registry.npmjs.org/@hapi%2fjoi",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -264,18 +296,22 @@
         {
           "title": "har-validator on npm",
           "url": "https://www.npmjs.com/package/har-validator",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "har-validator registry metadata",
           "url": "https://registry.npmjs.org/har-validator",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -295,18 +331,22 @@
         {
           "title": "i18next-parser on npm",
           "url": "https://www.npmjs.com/package/i18next-parser",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "i18next-parser registry metadata",
           "url": "https://registry.npmjs.org/i18next-parser",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -326,18 +366,22 @@
         {
           "title": "inflight on npm",
           "url": "https://www.npmjs.com/package/inflight",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "inflight registry metadata",
           "url": "https://registry.npmjs.org/inflight",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -357,18 +401,22 @@
         {
           "title": "istanbul on npm",
           "url": "https://www.npmjs.com/package/istanbul",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "istanbul registry metadata",
           "url": "https://registry.npmjs.org/istanbul",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -388,18 +436,22 @@
         {
           "title": "jade on npm",
           "url": "https://www.npmjs.com/package/jade",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "jade registry metadata",
           "url": "https://registry.npmjs.org/jade",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -419,18 +471,22 @@
         {
           "title": "karma-phantomjs-launcher on npm",
           "url": "https://www.npmjs.com/package/karma-phantomjs-launcher",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "karma-phantomjs-launcher registry metadata",
           "url": "https://registry.npmjs.org/karma-phantomjs-launcher",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -450,18 +506,22 @@
         {
           "title": "koa-router on npm",
           "url": "https://www.npmjs.com/package/koa-router",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "koa-router registry metadata",
           "url": "https://registry.npmjs.org/koa-router",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -481,18 +541,22 @@
         {
           "title": "left-pad on npm",
           "url": "https://www.npmjs.com/package/left-pad",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "left-pad registry metadata",
           "url": "https://registry.npmjs.org/left-pad",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -512,18 +576,22 @@
         {
           "title": "natives on npm",
           "url": "https://www.npmjs.com/package/natives",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "natives registry metadata",
           "url": "https://registry.npmjs.org/natives",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -543,18 +611,22 @@
         {
           "title": "node-pre-gyp on npm",
           "url": "https://www.npmjs.com/package/node-pre-gyp",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "node-pre-gyp registry metadata",
           "url": "https://registry.npmjs.org/node-pre-gyp",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -574,18 +646,22 @@
         {
           "title": "node-sass on npm",
           "url": "https://www.npmjs.com/package/node-sass",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "node-sass registry metadata",
           "url": "https://registry.npmjs.org/node-sass",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -605,18 +681,22 @@
         {
           "title": "nomnom on npm",
           "url": "https://www.npmjs.com/package/nomnom",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "nomnom registry metadata",
           "url": "https://registry.npmjs.org/nomnom",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -636,18 +716,22 @@
         {
           "title": "@nuxt/types on npm",
           "url": "https://www.npmjs.com/package/@nuxt/types",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@nuxt/types registry metadata",
           "url": "https://registry.npmjs.org/@nuxt%2ftypes",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -667,18 +751,22 @@
         {
           "title": "@nuxt/typescript-build on npm",
           "url": "https://www.npmjs.com/package/@nuxt/typescript-build",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@nuxt/typescript-build registry metadata",
           "url": "https://registry.npmjs.org/@nuxt%2ftypescript-build",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -698,18 +786,22 @@
         {
           "title": "popper.js on npm",
           "url": "https://www.npmjs.com/package/popper.js",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "popper.js registry metadata",
           "url": "https://registry.npmjs.org/popper.js",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -729,18 +821,22 @@
         {
           "title": "protractor on npm",
           "url": "https://www.npmjs.com/package/protractor",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "protractor registry metadata",
           "url": "https://registry.npmjs.org/protractor",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -760,18 +856,22 @@
         {
           "title": "querystring on npm",
           "url": "https://www.npmjs.com/package/querystring",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "querystring registry metadata",
           "url": "https://registry.npmjs.org/querystring",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -791,18 +891,22 @@
         {
           "title": "react-beautiful-dnd on npm",
           "url": "https://www.npmjs.com/package/react-beautiful-dnd",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "react-beautiful-dnd registry metadata",
           "url": "https://registry.npmjs.org/react-beautiful-dnd",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -822,18 +926,22 @@
         {
           "title": "request-promise-native on npm",
           "url": "https://www.npmjs.com/package/request-promise-native",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "request-promise-native registry metadata",
           "url": "https://registry.npmjs.org/request-promise-native",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -853,18 +961,22 @@
         {
           "title": "request-promise on npm",
           "url": "https://www.npmjs.com/package/request-promise",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "request-promise registry metadata",
           "url": "https://registry.npmjs.org/request-promise",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -884,18 +996,22 @@
         {
           "title": "request on npm",
           "url": "https://www.npmjs.com/package/request",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "request registry metadata",
           "url": "https://registry.npmjs.org/request",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -915,18 +1031,22 @@
         {
           "title": "rollup-plugin-babel on npm",
           "url": "https://www.npmjs.com/package/rollup-plugin-babel",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "rollup-plugin-babel registry metadata",
           "url": "https://registry.npmjs.org/rollup-plugin-babel",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -946,18 +1066,22 @@
         {
           "title": "rollup-plugin-terser on npm",
           "url": "https://www.npmjs.com/package/rollup-plugin-terser",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "rollup-plugin-terser registry metadata",
           "url": "https://registry.npmjs.org/rollup-plugin-terser",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -977,18 +1101,22 @@
         {
           "title": "sntp on npm",
           "url": "https://www.npmjs.com/package/sntp",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "sntp registry metadata",
           "url": "https://registry.npmjs.org/sntp",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1008,18 +1136,22 @@
         {
           "title": "socket.io-redis on npm",
           "url": "https://www.npmjs.com/package/socket.io-redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "socket.io-redis registry metadata",
           "url": "https://registry.npmjs.org/socket.io-redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1039,18 +1171,22 @@
         {
           "title": "tslint on npm",
           "url": "https://www.npmjs.com/package/tslint",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "tslint registry metadata",
           "url": "https://registry.npmjs.org/tslint",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1070,18 +1206,22 @@
         {
           "title": "@types/diff on npm",
           "url": "https://www.npmjs.com/package/@types/diff",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/diff registry metadata",
           "url": "https://registry.npmjs.org/@types%2fdiff",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1101,18 +1241,22 @@
         {
           "title": "@types/dotenv on npm",
           "url": "https://www.npmjs.com/package/@types/dotenv",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/dotenv registry metadata",
           "url": "https://registry.npmjs.org/@types%2fdotenv",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1132,18 +1276,22 @@
         {
           "title": "@types/emoji-regex on npm",
           "url": "https://www.npmjs.com/package/@types/emoji-regex",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/emoji-regex registry metadata",
           "url": "https://registry.npmjs.org/@types%2femoji-regex",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1163,18 +1311,22 @@
         {
           "title": "@types/form-data on npm",
           "url": "https://www.npmjs.com/package/@types/form-data",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/form-data registry metadata",
           "url": "https://registry.npmjs.org/@types%2fform-data",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1194,18 +1346,22 @@
         {
           "title": "@types/glob on npm",
           "url": "https://www.npmjs.com/package/@types/glob",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/glob registry metadata",
           "url": "https://registry.npmjs.org/@types%2fglob",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1225,18 +1381,22 @@
         {
           "title": "@types/koa-helmet on npm",
           "url": "https://www.npmjs.com/package/@types/koa-helmet",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/koa-helmet registry metadata",
           "url": "https://registry.npmjs.org/@types%2fkoa-helmet",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1256,18 +1416,22 @@
         {
           "title": "@types/koa-useragent on npm",
           "url": "https://www.npmjs.com/package/@types/koa-useragent",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/koa-useragent registry metadata",
           "url": "https://registry.npmjs.org/@types%2fkoa-useragent",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1287,18 +1451,22 @@
         {
           "title": "@types/pako on npm",
           "url": "https://www.npmjs.com/package/@types/pako",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/pako registry metadata",
           "url": "https://registry.npmjs.org/@types%2fpako",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1318,18 +1486,22 @@
         {
           "title": "@types/react-virtualized-auto-sizer on npm",
           "url": "https://www.npmjs.com/package/@types/react-virtualized-auto-sizer",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/react-virtualized-auto-sizer registry metadata",
           "url": "https://registry.npmjs.org/@types%2freact-virtualized-auto-sizer",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1349,18 +1521,22 @@
         {
           "title": "@types/react-window on npm",
           "url": "https://www.npmjs.com/package/@types/react-window",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/react-window registry metadata",
           "url": "https://registry.npmjs.org/@types%2freact-window",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1380,18 +1556,22 @@
         {
           "title": "@types/refractor on npm",
           "url": "https://www.npmjs.com/package/@types/refractor",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/refractor registry metadata",
           "url": "https://registry.npmjs.org/@types%2frefractor",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1411,18 +1591,22 @@
         {
           "title": "@types/sanitize-filename on npm",
           "url": "https://www.npmjs.com/package/@types/sanitize-filename",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/sanitize-filename registry metadata",
           "url": "https://registry.npmjs.org/@types%2fsanitize-filename",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1442,18 +1626,22 @@
         {
           "title": "@types/sequelize on npm",
           "url": "https://www.npmjs.com/package/@types/sequelize",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/sequelize registry metadata",
           "url": "https://registry.npmjs.org/@types%2fsequelize",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1473,18 +1661,22 @@
         {
           "title": "@types/socket.io-client on npm",
           "url": "https://www.npmjs.com/package/@types/socket.io-client",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "@types/socket.io-client registry metadata",
           "url": "https://registry.npmjs.org/@types%2fsocket.io-client",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1504,18 +1696,22 @@
         {
           "title": "uglify-es on npm",
           "url": "https://www.npmjs.com/package/uglify-es",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "uglify-es registry metadata",
           "url": "https://registry.npmjs.org/uglify-es",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
@@ -1535,18 +1731,22 @@
         {
           "title": "vue2-script-setup-transform on npm",
           "url": "https://www.npmjs.com/package/vue2-script-setup-transform",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "vue2-script-setup-transform registry metadata",
           "url": "https://registry.npmjs.org/vue2-script-setup-transform",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "npm-deprecated"
       },
       "x-npm": {
