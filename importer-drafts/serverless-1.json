@@ -1,7 +1,7 @@
 {
   "importer": "serverless-1",
   "ecosystem": "serverless",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-17",
   "rules": [
     {
       "id": "serverless.aws-lambda.dotnet5.0",
@@ -12,19 +12,23 @@
       "title": "AWS Lambda .NET 5 (container only) runtime is end-of-life",
       "summary": "The AWS Lambda runtimes table lists dotnet5.0 under Deprecated runtimes with deprecation date 2022-05-10. AWS no longer applies security or other updates to that managed runtime.",
       "severity": "high",
-      "replacement": "dotnet10 or dotnet9",
+      "replacement": "dotnet10",
       "deadline": "2022-05-10",
       "sources": [
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -37,19 +41,23 @@
       "title": "AWS Lambda .NET 6 runtime is end-of-life",
       "summary": "The AWS Lambda runtimes table lists dotnet6 under Deprecated runtimes with deprecation date 2024-12-20. AWS no longer applies security or other updates to that managed runtime.",
       "severity": "high",
-      "replacement": "dotnet10 or dotnet9",
+      "replacement": "dotnet10",
       "deadline": "2024-12-20",
       "sources": [
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -62,19 +70,81 @@
       "title": "AWS Lambda .NET 7 (container only) runtime is end-of-life",
       "summary": "The AWS Lambda runtimes table lists dotnet7 under Deprecated runtimes with deprecation date 2024-05-14. AWS no longer applies security or other updates to that managed runtime.",
       "severity": "high",
-      "replacement": "dotnet10 or dotnet9",
+      "replacement": "dotnet10",
       "deadline": "2024-05-14",
       "sources": [
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "serverless-1"
+      }
+    },
+    {
+      "id": "serverless.aws-lambda.dotnet8",
+      "ecosystem": "serverless",
+      "purl": "pkg:generic/aws-lambda-runtime/dotnet8",
+      "vers": "vers:semver/*",
+      "event": "end-of-life",
+      "title": "AWS Lambda .NET 8 runtime is end-of-life",
+      "summary": "The AWS Lambda runtimes table lists dotnet8 under Deprecated runtimes with deprecation date 2026-11-10. AWS no longer applies security or other updates to that managed runtime.",
+      "severity": "high",
+      "replacement": "dotnet10",
+      "deadline": "2026-11-10",
+      "sources": [
+        {
+          "title": "AWS Lambda runtimes",
+          "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+          "accessedAt": "2026-11-17"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "serverless-1"
+      }
+    },
+    {
+      "id": "serverless.aws-lambda.dotnet9",
+      "ecosystem": "serverless",
+      "purl": "pkg:generic/aws-lambda-runtime/dotnet9",
+      "vers": "vers:semver/*",
+      "event": "end-of-life",
+      "title": "AWS Lambda .NET 9 (container only) runtime is end-of-life",
+      "summary": "The AWS Lambda runtimes table lists dotnet9 under Deprecated runtimes with deprecation date 2026-11-10. AWS no longer applies security or other updates to that managed runtime.",
+      "severity": "high",
+      "replacement": "dotnet10",
+      "deadline": "2026-11-10",
+      "sources": [
+        {
+          "title": "AWS Lambda runtimes",
+          "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
+          "accessedAt": "2026-11-17"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -87,19 +157,23 @@
       "title": "AWS Lambda .NET Core 1.0 runtime is end-of-life",
       "summary": "The AWS Lambda runtimes table lists dotnetcore1.0 under Deprecated runtimes with deprecation date 2019-06-27. AWS no longer applies security or other updates to that managed runtime.",
       "severity": "high",
-      "replacement": "dotnet10 or dotnet9",
+      "replacement": "dotnet10",
       "deadline": "2019-06-27",
       "sources": [
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -112,19 +186,23 @@
       "title": "AWS Lambda .NET Core 2.0 runtime is end-of-life",
       "summary": "The AWS Lambda runtimes table lists dotnetcore2.0 under Deprecated runtimes with deprecation date 2019-05-30. AWS no longer applies security or other updates to that managed runtime.",
       "severity": "high",
-      "replacement": "dotnet10 or dotnet9",
+      "replacement": "dotnet10",
       "deadline": "2019-05-30",
       "sources": [
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -137,19 +215,23 @@
       "title": "AWS Lambda .NET Core 2.1 runtime is end-of-life",
       "summary": "The AWS Lambda runtimes table lists dotnetcore2.1 under Deprecated runtimes with deprecation date 2022-01-05. AWS no longer applies security or other updates to that managed runtime.",
       "severity": "high",
-      "replacement": "dotnet10 or dotnet9",
+      "replacement": "dotnet10",
       "deadline": "2022-01-05",
       "sources": [
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -162,19 +244,23 @@
       "title": "AWS Lambda .NET Core 3.1 runtime is end-of-life",
       "summary": "The AWS Lambda runtimes table lists dotnetcore3.1 under Deprecated runtimes with deprecation date 2023-04-03. AWS no longer applies security or other updates to that managed runtime.",
       "severity": "high",
-      "replacement": "dotnet10 or dotnet9",
+      "replacement": "dotnet10",
       "deadline": "2023-04-03",
       "sources": [
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -193,13 +279,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -218,13 +308,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -243,13 +337,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -268,13 +366,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -293,13 +395,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -318,13 +424,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -343,13 +453,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -368,13 +482,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -393,13 +511,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -418,13 +540,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -443,13 +569,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -468,13 +598,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -493,13 +627,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -518,13 +656,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -543,13 +685,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -568,13 +714,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -593,13 +743,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -618,13 +772,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -643,13 +801,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -668,13 +830,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -693,13 +859,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -718,13 +888,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -743,13 +917,17 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     },
@@ -768,18 +946,22 @@
         {
           "title": "AWS Lambda runtimes",
           "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "serverless-1"
       }
     }
   ],
   "notes": [
-    "Drafted 31 rules on 2026-11-10: 31 end-of-life, 0 scheduled."
+    "Drafted 33 rules on 2026-11-17: 33 end-of-life, 0 scheduled."
   ]
 }
