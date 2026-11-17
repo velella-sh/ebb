@@ -1,7 +1,7 @@
 {
   "importer": "dotnet-2",
   "ecosystem": "dotnet",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-17",
   "rules": [
     {
       "id": "dotnet.package.microsoft-azure-documentdb.deprecated",
@@ -18,18 +18,22 @@
         {
           "title": "Microsoft.Azure.DocumentDB on NuGet (deprecation metadata)",
           "url": "https://www.nuget.org/packages/Microsoft.Azure.DocumentDB",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "NuGet package deprecation",
           "url": "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "dotnet-2"
       }
     },
@@ -48,18 +52,22 @@
         {
           "title": "Microsoft.Azure.ServiceBus on NuGet (deprecation metadata)",
           "url": "https://www.nuget.org/packages/Microsoft.Azure.ServiceBus",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "NuGet package deprecation",
           "url": "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "dotnet-2"
       }
     },
@@ -78,18 +86,22 @@
         {
           "title": "Microsoft.Azure.Storage.Blob on NuGet (deprecation metadata)",
           "url": "https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "NuGet package deprecation",
           "url": "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "dotnet-2"
       }
     },
@@ -108,18 +120,22 @@
         {
           "title": "WindowsAzure.Storage on NuGet (deprecation metadata)",
           "url": "https://www.nuget.org/packages/WindowsAzure.Storage",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "NuGet package deprecation",
           "url": "https://learn.microsoft.com/nuget/nuget-org/deprecate-packages",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "dotnet-2"
       }
     }
