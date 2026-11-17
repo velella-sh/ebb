@@ -1,0 +1,44 @@
+{
+  "importer": "rust-1",
+  "ecosystem": "rust",
+  "observedAt": "2026-11-17",
+  "rules": [
+    {
+      "id": "rust.toolchain.end-of-support-1.99-and-older",
+      "ecosystem": "rust",
+      "purl": "pkg:generic/rust",
+      "vers": "vers:semver/<1.100.0",
+      "event": "end-of-support",
+      "title": "Rust 1.99 and older are no longer supported",
+      "summary": "The Rust project only provides support and security updates for the most recent stable release, so a release line is unsupported once the next stable release ships. Rust 1.100 was released on 2026-11-12.",
+      "severity": "medium",
+      "replacement": "The latest stable Rust release",
+      "deadline": "2026-11-12",
+      "sources": [
+        {
+          "title": "Rust security policy",
+          "url": "https://www.rust-lang.org/policies/security",
+          "accessedAt": "2026-11-17"
+        },
+        {
+          "title": "Rust release notes (release dates)",
+          "url": "https://github.com/rust-lang/rust/blob/master/RELEASES.md",
+          "accessedAt": "2026-11-17"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "rust-1"
+      }
+    }
+  ],
+  "notes": [
+    "Newest stable release: 1.100.0."
+  ]
+}
