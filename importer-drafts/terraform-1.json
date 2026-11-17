@@ -1,7 +1,7 @@
 {
   "importer": "terraform-1",
   "ecosystem": "terraform",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-17",
   "rules": [
     {
       "id": "terraform.cli.end-of-support-1.0",
@@ -18,23 +18,27 @@
         {
           "title": "hashicorp/terraform release v1.2.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.0.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.0.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -53,23 +57,27 @@
         {
           "title": "hashicorp/terraform release v1.3.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.1.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.1.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -88,23 +96,27 @@
         {
           "title": "hashicorp/terraform release v1.12.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.12.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.10.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.10.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -123,23 +135,27 @@
         {
           "title": "hashicorp/terraform release v1.13.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.13.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.11.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.11.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -158,23 +174,27 @@
         {
           "title": "hashicorp/terraform release v1.14.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.14.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.12.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.12.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -193,23 +213,27 @@
         {
           "title": "hashicorp/terraform release v1.15.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.13.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.13.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -228,23 +252,27 @@
         {
           "title": "hashicorp/terraform release v1.16.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.14.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.14.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -263,23 +291,27 @@
         {
           "title": "hashicorp/terraform release v1.17.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.17.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.15.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -298,23 +330,27 @@
         {
           "title": "hashicorp/terraform release v1.4.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.2.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -333,23 +369,27 @@
         {
           "title": "hashicorp/terraform release v1.5.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.3.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -368,23 +408,27 @@
         {
           "title": "hashicorp/terraform release v1.6.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.4.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -403,23 +447,27 @@
         {
           "title": "hashicorp/terraform release v1.7.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.5.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -438,23 +486,27 @@
         {
           "title": "hashicorp/terraform release v1.8.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.6.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -473,23 +525,27 @@
         {
           "title": "hashicorp/terraform release v1.9.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.7.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -508,23 +564,27 @@
         {
           "title": "hashicorp/terraform release v1.10.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.10.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.8.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     },
@@ -543,23 +603,27 @@
         {
           "title": "hashicorp/terraform release v1.11.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.11.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "hashicorp/terraform release v1.9.0",
           "url": "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "HashiCorp Terraform support policy",
           "url": "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "terraform-1"
       }
     }
