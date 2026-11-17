@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ebb.actions-inventory.v1",
-  "reviewedAt": "2026-11-15",
+  "reviewedAt": "2026-11-17",
   "retiredRuntimes": ["node12", "node16", "node20"],
   "actions": {
     "actions/add-to-project": {
@@ -1910,7 +1910,7 @@
         },
         {
           "major": 7,
-          "version": "7.0.0"
+          "version": "7.1.0"
         }
       ],
       "retiredMajors": [
