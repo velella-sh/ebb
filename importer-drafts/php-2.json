@@ -1,7 +1,7 @@
 {
   "importer": "php-2",
   "ecosystem": "php",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-17",
   "rules": [
     {
       "id": "php.package.doctrine.cache.abandoned",
@@ -16,18 +16,22 @@
         {
           "title": "doctrine/cache on Packagist",
           "url": "https://packagist.org/packages/doctrine/cache",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "doctrine/cache Composer metadata",
           "url": "https://repo.packagist.org/p2/doctrine/cache.json",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-2"
       }
     },
@@ -44,18 +48,22 @@
         {
           "title": "fzaninotto/faker on Packagist",
           "url": "https://packagist.org/packages/fzaninotto/faker",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "fzaninotto/faker Composer metadata",
           "url": "https://repo.packagist.org/p2/fzaninotto/faker.json",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-2"
       }
     },
@@ -73,18 +81,22 @@
         {
           "title": "sensiolabs/security-checker on Packagist",
           "url": "https://packagist.org/packages/sensiolabs/security-checker",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "sensiolabs/security-checker Composer metadata",
           "url": "https://repo.packagist.org/p2/sensiolabs/security-checker.json",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-2"
       }
     },
@@ -102,18 +114,22 @@
         {
           "title": "swiftmailer/swiftmailer on Packagist",
           "url": "https://packagist.org/packages/swiftmailer/swiftmailer",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "swiftmailer/swiftmailer Composer metadata",
           "url": "https://repo.packagist.org/p2/swiftmailer/swiftmailer.json",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-2"
       }
     },
@@ -131,18 +147,22 @@
         {
           "title": "zendframework/zend-stdlib on Packagist",
           "url": "https://packagist.org/packages/zendframework/zend-stdlib",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         },
         {
           "title": "zendframework/zend-stdlib Composer metadata",
           "url": "https://repo.packagist.org/p2/zendframework/zend-stdlib.json",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-17"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-17",
+        "reviewedAt": "2026-11-17",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-2"
       }
     }
