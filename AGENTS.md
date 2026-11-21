@@ -1,6 +1,6 @@
 # Working on Ebb
 
-Ebb is an open dataset of software lifecycle rules plus a small TypeScript reader. Read `CONTRIBUTING.md` and `docs/RULES.md` before changing anything under `registry/`.
+Ebb is an open dataset of software lifecycle rules plus a small TypeScript reader. Start with the relevant rule or module and its tests. Read `CONTRIBUTING.md` and `docs/RULES.md` before changing anything under `registry/`.
 
 ## Repository Layout
 
