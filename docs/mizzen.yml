@@ -11,6 +11,7 @@ repository:
 theme:
   name: "@velella/lateen"
   options:
+    preset: ebb
     logo:
       light: /brand/mark-light.svg
       dark: /brand/mark-dark.svg

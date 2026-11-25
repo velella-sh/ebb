@@ -35,7 +35,7 @@ jobs:
           mkdir "$RUNNER_TEMP/site-tools"
           cd "$RUNNER_TEMP/site-tools"
           npm init -y >/dev/null
-          npm install --no-audit --no-fund --save-exact @velella/mizzen@0.2.0 @velella/lateen@0.2.2
+          npm install --no-audit --no-fund --save-exact @velella/mizzen@0.2.7 @velella/lateen@0.2.5
       - name: Install dependencies
         run: npm ci
       - name: Publish coverage tables into the docs

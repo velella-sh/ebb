@@ -84,5 +84,5 @@ Because real agent responses can vary across runs, every task is evaluated acros
 
 To re-run the benchmark locally:
 :::terminal
-$ npm run eval:agents
+$ npm run eval\:agents
 :::

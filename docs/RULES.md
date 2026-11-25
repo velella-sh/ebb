@@ -69,7 +69,7 @@ A case says what the rule must judge: this purl, at this version, is matched by 
 
 :::terminal
 $ npm ci
-$ npm run lint:rules   # every registry: schema, dates, source URLs, duplicate ids; and every case
+$ npm run lint\:rules   # every registry: schema, dates, source URLs, duplicate ids; and every case
 $ npm run check        # formatting and the whole test suite
 :::
 

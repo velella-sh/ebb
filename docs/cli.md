@@ -29,8 +29,8 @@ ebb check pkg:npm/request@2.88.2
 Ebb produces structured, human-readable terminal output with ANSI colors, source links, replacement guidance, and remaining days for scheduled end-of-life events:
 
 :::terminal
-$ ebb check pkg:npm/request@2.88.2
-✖ pkg:npm/request@2.88.2: deprecated
+$ ebb check pkg\:npm/request@2.88.2
+✖ pkg\:npm/request@2.88.2: deprecated
   Rule: npm.package.request.deprecated
   Event: deprecated (2020-02-11)
   Replacement: Native fetch or a maintained HTTP client
@@ -41,8 +41,8 @@ $ ebb check pkg:npm/request@2.88.2
 For scheduled upcoming events:
 
 :::terminal
-$ ebb check pkg:docker/library/node@22.0.0
-⚠ pkg:docker/library/node@22.0.0: scheduled
+$ ebb check pkg\:docker/library/node@22.0.0
+⚠ pkg\:docker/library/node@22.0.0: scheduled
   Rule: container.node.eol-22-and-older
   Event: scheduled (2027-04-30) [484 days left]
   Replacement: A node image on a later supported release line, such as node:24
@@ -127,7 +127,7 @@ ebb check-all bom.json --json
 Finds suggested replacements or migration recommendations for deprecated packages.
 
 :::terminal
-$ ebb replacement pkg:npm/request@2.88.2
+$ ebb replacement pkg\:npm/request@2.88.2
 Native fetch or a maintained HTTP client
 :::
 

@@ -62,7 +62,7 @@ $ bun run index.ts
 Run the Ebb CLI instantly with `bunx` without installing:
 
 :::terminal
-$ bunx @velella/ebb check pkg:npm/left-pad@1.3.0
+$ bunx @velella/ebb check pkg\:npm/left-pad@1.3.0
 $ bunx @velella/ebb check package.json
 :::
 

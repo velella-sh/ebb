@@ -101,8 +101,8 @@ const res = check("pkg:npm/request", "2.88.2");
 Run directly without installing via `npx`:
 
 :::terminal
-$ npx @velella/ebb check pkg:npm/request@2.88.2
-✖ pkg:npm/request@2.88.2: deprecated
+$ npx @velella/ebb check pkg\:npm/request@2.88.2
+✖ pkg\:npm/request@2.88.2: deprecated
   Rule: npm.package.request.deprecated
   Event: deprecated (2020-02-11)
   Replacement: Native fetch or a maintained HTTP client
