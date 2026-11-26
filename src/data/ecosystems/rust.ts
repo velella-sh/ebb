@@ -62,6 +62,64 @@ export const rules: readonly RegistryV2Rule[] = [
     },
   },
   {
+    id: "rust.toolchain.end-of-support-1.99-and-older",
+    ecosystem: "rust",
+    purl: "pkg:generic/rust",
+    vers: "vers:semver/>=1.99.0|<1.100.0",
+    event: "end-of-support",
+    title: "Rust 1.99 is no longer supported",
+    summary:
+      "The Rust project only provides support and security updates for the most recent stable release, so a release line is unsupported once the next stable release ships. Rust 1.100 was released on 2026-11-12.",
+    severity: "medium",
+    replacement: "The latest stable Rust release",
+    deadline: "2026-11-12",
+    sources: [
+      { title: "Rust security policy", url: "https://www.rust-lang.org/policies/security", accessedAt: "2026-11-26" },
+      {
+        title: "Rust release notes (release dates)",
+        url: "https://github.com/rust-lang/rust/blob/master/RELEASES.md",
+        accessedAt: "2026-11-26",
+      },
+    ],
+    provenance: {
+      observedAt: "2026-11-24",
+      reviewedAt: "2026-11-26",
+      reviewer: "arminazimi",
+      reviewers: ["arminazimi"],
+      method: "imported",
+      importer: "rust-1",
+    },
+    migration: {
+      constraints: [
+        "Keep the toolchain in rust-toolchain(.toml), CI (for example dtolnay/rust-toolchain or rustup), and container images on one supported release.",
+        "Check the project's MSRV (`rust-version`) separately: raising the toolchain does not require raising it.",
+      ],
+      steps: [
+        {
+          id: "update-toolchain-pin",
+          title: "Raise the pinned toolchain",
+          instructions:
+            "Change the reported channel in rust-toolchain(.toml) to the latest stable release, or to `stable`, so the project follows supported releases.",
+          targets: "declaration",
+        },
+        {
+          id: "align-toolchain-surfaces",
+          title: "Align other toolchain surfaces",
+          instructions: "Update CI toolchain setup and Dockerfile `rust:` images so they match the new release.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "rustc --version", purpose: "Confirm the active toolchain is the intended release." },
+        {
+          command: "cargo build --all-targets && cargo test",
+          purpose: "Build and test every target on the new toolchain.",
+        },
+        { command: "cargo clippy --all-targets", purpose: "Review the lints the newer toolchain reports." },
+      ],
+    },
+  },
+  {
     id: "rust.crate.failure.unmaintained",
     ecosystem: "rust",
     purl: "pkg:cargo/failure",

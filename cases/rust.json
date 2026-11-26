@@ -13,11 +13,16 @@
     {
       "purl": "pkg:generic/rust",
       "version": "1.99.0",
-      "rules": []
+      "rules": ["rust.toolchain.end-of-support-1.99-and-older"]
     },
     {
       "purl": "pkg:generic/rust",
       "version": "1.99.1",
+      "rules": ["rust.toolchain.end-of-support-1.99-and-older"]
+    },
+    {
+      "purl": "pkg:generic/rust",
+      "version": "1.100.0",
       "rules": []
     }
   ]

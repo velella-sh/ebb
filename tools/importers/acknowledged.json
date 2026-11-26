@@ -178,7 +178,8 @@
     "terraform-1:terraform.cli.end-of-support-1.12": "43bc1d3f0dac24cf",
     "terraform-1:terraform.cli.end-of-support-1.13": "1e5162cebb074557",
     "terraform-1:terraform.cli.end-of-support-1.14": "0e11267f9da2f2b1",
-    "terraform-1:terraform.cli.end-of-support-1.15": "fa663605d805c7fc"
+    "terraform-1:terraform.cli.end-of-support-1.15": "fa663605d805c7fc",
+    "rust-1:rust.toolchain.end-of-support-1.99-and-older": "d87f7d4f6bc7b751"
   },
   "reasons": {
     "database-1:database.postgresql.end-of-life-11": "The draft drops the reviewed endoflife.date source and lowers the replacement to PostgreSQL 15; the registry replacement (16 or later) is kept. Reviewed 2026-11-10.",
@@ -359,6 +360,7 @@
     "terraform-1:terraform.cli.end-of-support-1.12": "Existing 1.10 to 1.15 rules keep their reviewed sources and wording; the draft drops the endoflife.date source, moves severity to medium and bumps the replacement to 1.16. Reviewed 2026-11-10.",
     "terraform-1:terraform.cli.end-of-support-1.13": "Existing 1.10 to 1.15 rules keep their reviewed sources and wording; the draft drops the endoflife.date source, moves severity to medium and bumps the replacement to 1.16. Reviewed 2026-11-10.",
     "terraform-1:terraform.cli.end-of-support-1.14": "Existing 1.10 to 1.15 rules keep their reviewed sources and wording; the draft drops the endoflife.date source, moves severity to medium and bumps the replacement to 1.16. Reviewed 2026-11-10.",
-    "terraform-1:terraform.cli.end-of-support-1.15": "Existing 1.10 to 1.15 rules keep their reviewed sources and wording; the draft drops the endoflife.date source, moves severity to medium and bumps the replacement to 1.16. Reviewed 2026-11-10."
+    "terraform-1:terraform.cli.end-of-support-1.15": "Existing 1.10 to 1.15 rules keep their reviewed sources and wording; the draft drops the endoflife.date source, moves severity to medium and bumps the replacement to 1.16. Reviewed 2026-11-10.",
+    "rust-1:rust.toolchain.end-of-support-1.99-and-older": "The registry covers Rust 1.99 separately and preserves the earlier support deadline for Rust 1.98 and older."
   }
 }
