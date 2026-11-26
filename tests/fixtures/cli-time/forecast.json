@@ -14,7 +14,7 @@
           "ecosystem": "nodejs",
           "title": "Node.js 20 is end-of-life",
           "severity": "high",
-          "source": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "source": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
           "findings": []
         }
       ]
@@ -28,7 +28,7 @@
           "ecosystem": "nodejs",
           "title": "Node.js 25 is end-of-life",
           "severity": "high",
-          "source": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "source": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
           "findings": []
         }
       ]

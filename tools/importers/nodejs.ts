@@ -7,7 +7,7 @@ export const NODEJS_SCHEDULE_URL = "https://raw.githubusercontent.com/nodejs/Rel
 
 const SOURCE = {
   title: "Node.js Release Working Group schedule",
-  url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+  url: NODEJS_SCHEDULE_URL,
 };
 
 /**

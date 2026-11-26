@@ -18,7 +18,7 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
         accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
@@ -77,7 +77,7 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
         accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
@@ -200,7 +200,7 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
         accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
@@ -260,7 +260,7 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
         accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
@@ -320,7 +320,7 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
         accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
@@ -380,7 +380,7 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
         accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
@@ -4021,7 +4021,7 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
         accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json",

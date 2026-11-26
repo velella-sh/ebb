@@ -3,7 +3,7 @@
   Event: end-of-life (2027-04-30)
   Replacement: Node.js 24 LTS or later
   Sources:
-    - https://github.com/nodejs/Release/blob/main/schedule.json
+    - https://raw.githubusercontent.com/nodejs/Release/main/schedule.json
 
 Data: bundled (0.3.0), 156d old (reviewed 2026-11-26)
 ⚠ Warning: Data is 156d old (exceeds 30d threshold). Run 'ebb update' to refresh.
