@@ -170,7 +170,7 @@
     }
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.7",
+    "@biomejs/biome": "2.6.8",
     "@microsoft/api-extractor": "^7.60.1",
     "@types/node": "^24.0.0",
     "ajv": "^8.20.0",

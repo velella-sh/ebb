@@ -7,6 +7,8 @@ import { join, resolve } from "node:path";
 import { describe, it } from "node:test";
 import { promisify } from "node:util";
 import { extractPurlAndVersion, parseCheckAllInput, runCli } from "../src/cli.js";
+import { getActiveDataSync } from "../src/data-source.js";
+import { addDays } from "../src/upcoming.js";
 import { VERSION } from "../src/version.js";
 
 const execFileAsync = promisify(execFile);
@@ -401,7 +403,8 @@ describe("CLI - runCli commands", () => {
 
   it("exits 1 from data-status when max-age threshold is exceeded", async () => {
     const mock = createMockIo();
-    const code = await runCli(["data-status", "--as-of", "2026-11-18", "--max-age", "0", "--json"], mock.io);
+    const tomorrow = addDays(getActiveDataSync().info.reviewedThrough, 1);
+    const code = await runCli(["data-status", "--as-of", tomorrow, "--max-age", "0", "--json"], mock.io);
     assert.equal(code, 1);
     const parsed = JSON.parse(mock.stdout);
     assert.equal(parsed.stale, true);
@@ -800,7 +803,9 @@ describe("CLI release-log (release-log-1)", () => {
   });
 
   describe("ebb update --if-older-than (cache-9)", () => {
-    it("skips network when cached data is newer than the window, and checks when older (cache-9)", async () => {
+    it("skips network when cached data is newer than the window (cache-9)", async (t) => {
+      const todayIso = `${addDays(getActiveDataSync().info.reviewedThrough, 2)}T00:00:00Z`;
+      t.mock.timers.enable({ apis: ["Date"], now: new Date(todayIso) });
       const tmp = await mkdtemp(join(tmpdir(), "ebb-cli-older-than-"));
       const oldDir = process.env.EBB_DATA_DIR;
       process.env.EBB_DATA_DIR = tmp;
@@ -810,7 +815,6 @@ describe("CLI release-log (release-log-1)", () => {
         verifySignature: () => ({ identity: "ci@example.com", issuer: "https://token.actions.githubusercontent.com" }),
       });
       try {
-        const todayIso = new Date().toISOString().slice(0, 19) + "Z";
         const bundle = await buildDataBundle({
           root: resolve("."),
           createdAt: todayIso,
@@ -845,7 +849,11 @@ describe("CLI release-log (release-log-1)", () => {
       }
     });
 
-    it("checks when cached data is older than the window (cache-9)", async () => {
+    it("checks when cached data is older than the window (cache-9)", async (t) => {
+      const reviewedThrough = getActiveDataSync().info.reviewedThrough;
+      const oldIso = `${addDays(reviewedThrough, 1)}T00:00:00Z`;
+      const newIso = `${addDays(reviewedThrough, 11)}T00:00:00Z`;
+      t.mock.timers.enable({ apis: ["Date"], now: new Date(newIso) });
       const tmp = await mkdtemp(join(tmpdir(), "ebb-cli-older-than-check-"));
       const oldDir = process.env.EBB_DATA_DIR;
       process.env.EBB_DATA_DIR = tmp;
@@ -855,7 +863,6 @@ describe("CLI release-log (release-log-1)", () => {
         verifySignature: () => ({ identity: "ci@example.com", issuer: "https://token.actions.githubusercontent.com" }),
       });
       try {
-        const oldIso = new Date(Date.now() - 10 * 86400000).toISOString().slice(0, 19) + "Z";
         const bundle = await buildDataBundle({
           root: resolve("."),
           createdAt: oldIso,
@@ -870,7 +877,6 @@ describe("CLI release-log (release-log-1)", () => {
         await writeFile(join(versionDir, "bundle.json.sigstore.json"), "{}");
 
         // Write a new bundle file to update --from
-        const newIso = new Date().toISOString().slice(0, 19) + "Z";
         const newBundle = await buildDataBundle({
           root: resolve("."),
           createdAt: newIso,
@@ -884,7 +890,7 @@ describe("CLI release-log (release-log-1)", () => {
         const mockCheck = createMockIo();
         const codeCheck = await runCli(["update", "--from", newBundlePath, "--if-older-than", "1d"], mockCheck.io);
         assert.equal(codeCheck, 0);
-        assert.match(mockCheck.stdout, /Checked and updated data successfully/);
+        assert.match(mockCheck.stdout, /Checked for updates: Data is already up to date/);
       } finally {
         configureActiveData({});
         if (oldDir !== undefined) process.env.EBB_DATA_DIR = oldDir;

@@ -54,7 +54,7 @@ The skill guides the agent through three strict verification steps:
 The skill prompts agents to return compact, actionable verdicts:
 
 :::terminal
-[ebb] pkg:npm/left-pad@1.3.0: deprecated
+[ebb] pkg\:npm/left-pad@1.3.0: deprecated
   Use native String.prototype.padStart() instead
 :::
 

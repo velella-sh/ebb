@@ -16,8 +16,8 @@
       "sources": [
         {
           "title": "Node.js Release Working Group schedule",
-          "url": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
-          "accessedAt": "2026-10-17",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "accessedAt": "2026-11-26",
           "archiveUrl": "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-17",
           "pointer": "/v20/end"
@@ -25,7 +25,7 @@
       ],
       "provenance": {
         "observedAt": "2026-10-17",
-        "reviewedAt": "2026-10-17",
+        "reviewedAt": "2026-11-26",
         "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"
@@ -92,8 +92,8 @@
       "sources": [
         {
           "title": "Node.js Release Working Group schedule",
-          "url": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
-          "accessedAt": "2026-10-17",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "accessedAt": "2026-11-26",
           "archiveUrl": "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-17",
           "pointer": "/v18/end"
@@ -101,7 +101,7 @@
       ],
       "provenance": {
         "observedAt": "2026-10-17",
-        "reviewedAt": "2026-10-17",
+        "reviewedAt": "2026-11-26",
         "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"
@@ -248,8 +248,8 @@
       "sources": [
         {
           "title": "Node.js Release Working Group schedule",
-          "url": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
-          "accessedAt": "2026-10-17",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "accessedAt": "2026-11-26",
           "archiveUrl": "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-17",
           "pointer": "/v19/end"
@@ -257,7 +257,7 @@
       ],
       "provenance": {
         "observedAt": "2026-10-17",
-        "reviewedAt": "2026-10-17",
+        "reviewedAt": "2026-11-26",
         "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"
@@ -325,8 +325,8 @@
       "sources": [
         {
           "title": "Node.js Release Working Group schedule",
-          "url": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
-          "accessedAt": "2026-10-17",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "accessedAt": "2026-11-26",
           "archiveUrl": "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-17",
           "pointer": "/v21/end"
@@ -334,7 +334,7 @@
       ],
       "provenance": {
         "observedAt": "2026-10-17",
-        "reviewedAt": "2026-10-17",
+        "reviewedAt": "2026-11-26",
         "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"
@@ -402,8 +402,8 @@
       "sources": [
         {
           "title": "Node.js Release Working Group schedule",
-          "url": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
-          "accessedAt": "2026-10-17",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "accessedAt": "2026-11-26",
           "archiveUrl": "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-17",
           "pointer": "/v23/end"
@@ -411,7 +411,7 @@
       ],
       "provenance": {
         "observedAt": "2026-10-17",
-        "reviewedAt": "2026-10-17",
+        "reviewedAt": "2026-11-26",
         "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"
@@ -479,8 +479,8 @@
       "sources": [
         {
           "title": "Node.js Release Working Group schedule",
-          "url": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
-          "accessedAt": "2026-10-17",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "accessedAt": "2026-11-26",
           "archiveUrl": "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-17",
           "pointer": "/v25/end"
@@ -488,7 +488,7 @@
       ],
       "provenance": {
         "observedAt": "2026-10-17",
-        "reviewedAt": "2026-10-17",
+        "reviewedAt": "2026-11-26",
         "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"
@@ -5560,8 +5560,8 @@
       "sources": [
         {
           "title": "Node.js Release Working Group schedule",
-          "url": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
-          "accessedAt": "2026-10-24",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
+          "accessedAt": "2026-11-26",
           "archiveUrl": "https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-24",
           "pointer": "/v22/end"
@@ -5569,7 +5569,7 @@
       ],
       "provenance": {
         "observedAt": "2026-10-24",
-        "reviewedAt": "2026-10-24",
+        "reviewedAt": "2026-11-26",
         "reviewer": "arminazimi",
         "reviewers": [
           "arminazimi"

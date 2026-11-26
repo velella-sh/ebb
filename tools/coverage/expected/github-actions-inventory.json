@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ebb.actions-inventory.v1",
-  "reviewedAt": "2026-11-15",
+  "reviewedAt": "2026-11-24",
   "retiredRuntimes": ["node12", "node16", "node20"],
   "actions": {
     "actions/add-to-project": {
@@ -899,7 +899,7 @@
         },
         {
           "major": 3,
-          "version": "3.3.0"
+          "version": "3.4.0"
         }
       ],
       "retiredMajors": [
@@ -1910,7 +1910,7 @@
         },
         {
           "major": 7,
-          "version": "7.0.0"
+          "version": "7.1.0"
         }
       ],
       "retiredMajors": [
@@ -2980,11 +2980,11 @@
         },
         {
           "major": 3,
-          "version": "3.39.3"
+          "version": "3.39.5"
         },
         {
           "major": 4,
-          "version": "4.39.3"
+          "version": "4.39.5"
         }
       ],
       "retiredMajors": [
@@ -3406,11 +3406,11 @@
         },
         {
           "major": 3,
-          "version": "3.39.3"
+          "version": "3.39.5"
         },
         {
           "major": 4,
-          "version": "4.39.3"
+          "version": "4.39.5"
         }
       ],
       "retiredMajors": [
@@ -3832,11 +3832,11 @@
         },
         {
           "major": 3,
-          "version": "3.39.3"
+          "version": "3.39.5"
         },
         {
           "major": 4,
-          "version": "4.39.3"
+          "version": "4.39.5"
         }
       ],
       "retiredMajors": [
@@ -4258,11 +4258,11 @@
         },
         {
           "major": 3,
-          "version": "3.39.3"
+          "version": "3.39.5"
         },
         {
           "major": 4,
-          "version": "4.39.3"
+          "version": "4.39.5"
         }
       ],
       "retiredMajors": [

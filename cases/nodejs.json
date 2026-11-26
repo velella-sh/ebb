@@ -64,6 +64,21 @@
       "purl": "pkg:generic/nodejs",
       "version": "23.11.0",
       "rules": ["nodejs.runtime.eol-23"]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "17.0.0",
+      "rules": ["nodejs.runtime.legacy"]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "19.0.0",
+      "rules": ["nodejs.runtime.eol-19"]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "21.0.0",
+      "rules": ["nodejs.runtime.eol-21"]
     }
   ]
 }

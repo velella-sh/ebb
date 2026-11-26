@@ -4,6 +4,9 @@ description: The open almanac of software end-of-life.
 lang: en
 url: https://velella.sh
 base: /ebb
+network:
+  source: https://velella.sh/lateen/brand/network.json
+  project: ebb
 repository:
   url: https://github.com/velella-sh/ebb
   branch: main
@@ -11,6 +14,11 @@ repository:
 theme:
   name: "@velella/lateen"
   options:
+    preset: ebb
+    network:
+      switcher: false
+      footer: false
+      search: false
     logo:
       light: /brand/mark-light.svg
       dark: /brand/mark-dark.svg

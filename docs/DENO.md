@@ -86,7 +86,7 @@ console.log(result.status); // "deprecated"
 You can run the Ebb CLI directly using `deno run`:
 
 :::terminal
-$ deno run --allow-read --allow-env npm:@velella/ebb check pkg:npm/left-pad@1.3.0
+$ deno run --allow-read --allow-env npm:@velella/ebb check pkg\:npm/left-pad@1.3.0
 :::
 
 ---
