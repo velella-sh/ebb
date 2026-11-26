@@ -1825,6 +1825,12 @@
       "archiveUrl": "https://web.archive.org/web/20261107000000/https://pypi.org/simple/typing/",
       "archivedAt": "2026-11-07"
     },
+    "https://raw.githubusercontent.com/actions/go-dependency-submission/v1/action.yml": {
+      "finalUrl": "https://raw.githubusercontent.com/actions/go-dependency-submission/v1/action.yml",
+      "title": null,
+      "checkedAt": "2026-11-26",
+      "status": "ok"
+    },
     "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json": {
       "finalUrl": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
       "title": null,

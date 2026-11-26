@@ -1748,15 +1748,15 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "End of life for Actions Node16",
         url: "https://github.blog/changelog/2024-09-25-end-of-life-for-actions-node16/",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-26",
       },
       {
         title: "actions/go-dependency-submission v1 action.yml",
-        url: "https://github.com/actions/go-dependency-submission/blob/v1/action.yml",
-        accessedAt: "2026-11-15",
+        url: "https://raw.githubusercontent.com/actions/go-dependency-submission/v1/action.yml",
+        accessedAt: "2026-11-26",
       },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-26", reviewer: "arminazimi", method: "manual" },
     migration: {
       constraints: [
         "v1 sets runs.using to node16 and v2 sets it to node20. The default branch sets runs.using to node24 and adds snapshot-sha, snapshot-ref, detector-name, detector-version, and detector-url. That branch is not tagged as a major.",

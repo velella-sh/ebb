@@ -242,6 +242,16 @@
     },
     {
       "purl": "pkg:github/actions/go-dependency-submission",
+      "version": "1.0.3",
+      "rules": ["github-actions.go-dependency-submission.node16"]
+    },
+    {
+      "purl": "pkg:github/actions/go-dependency-submission",
+      "version": "2.0.3",
+      "rules": ["github-actions.go-dependency-submission.node20"]
+    },
+    {
+      "purl": "pkg:github/actions/go-dependency-submission",
       "version": "2.0.0",
       "rules": ["github-actions.go-dependency-submission.node20"]
     },
