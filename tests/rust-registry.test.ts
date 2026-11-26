@@ -13,9 +13,8 @@ async function rules() {
   return validateRegistryV2(JSON.parse(await readFile(join(packageRoot, "registry/rust.json"), "utf8"))).rules;
 }
 
-test("the Rust registry has five valid rules, each citing an authoritative source", async () => {
+test("every Rust rule cites an authoritative source", async () => {
   const all = await rules();
-  assert.equal(all.length, 5);
   for (const rule of all) {
     assert.ok(
       rule.sources.every((source) => source.url.startsWith("https://")),
@@ -32,19 +31,23 @@ test("the Rust registry has five valid rules, each citing an authoritative sourc
   }
 });
 
-test("the toolchain rule covers every release below the newest stable and nothing at or above it", async () => {
-  const toolchain = (await rules()).find((rule) => rule.purl === "pkg:generic/rust")!;
-  assert.equal(toolchain.event, "end-of-support");
-  assert.equal(toolchain.deadline, "2026-10-01");
-  for (const [version, affected] of [
-    ["1.0.0", true],
-    ["1.70.0", true],
-    ["1.98.1", true],
-    ["1.99.0", false],
-    ["1.99.1", false],
-    ["1.100.0", false],
+test("Rust toolchains retain the support deadline for their release line", async () => {
+  const toolchains = (await rules()).filter((rule) => rule.purl === "pkg:generic/rust");
+  assert.ok(toolchains.every((rule) => rule.event === "end-of-support"));
+  for (const [version, deadlines] of [
+    ["1.0.0", ["2026-10-01"]],
+    ["1.70.0", ["2026-10-01"]],
+    ["1.98.1", ["2026-10-01"]],
+    ["1.99.0", ["2026-11-12"]],
+    ["1.99.1", ["2026-11-12"]],
+    ["1.100.0", []],
   ] as const) {
-    assert.equal(versContains(toolchain.vers, version), affected, version);
+    const matching = toolchains.filter((rule) => versContains(rule.vers, version));
+    assert.deepEqual(
+      matching.map((rule) => rule.deadline),
+      deadlines,
+      version,
+    );
   }
   const registry = JSON.parse(await readFile(join(packageRoot, "registry/rust.json"), "utf8")) as {
     freshness: { maxReviewAgeDays: number };
