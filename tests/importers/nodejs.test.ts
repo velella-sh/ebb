@@ -47,7 +47,7 @@ test("drafts one end-of-life rule per release line whose end date has passed, fr
   assert.deepEqual(withoutAccessDates(eol20.sources), [
     {
       title: "Node.js Release Working Group schedule",
-      url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+      url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
     },
   ]);
   assert.deepEqual(eol20.provenance, {

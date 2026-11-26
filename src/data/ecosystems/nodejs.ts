@@ -18,8 +18,8 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
-        accessedAt: "2026-10-17",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+        accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
@@ -27,7 +27,7 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
+      reviewedAt: "2026-11-26",
       reviewer: "arminazimi",
       reviewers: ["arminazimi"],
       method: "manual",
@@ -77,8 +77,8 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
-        accessedAt: "2026-10-17",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+        accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
@@ -86,7 +86,7 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
+      reviewedAt: "2026-11-26",
       reviewer: "arminazimi",
       reviewers: ["arminazimi"],
       method: "manual",
@@ -200,8 +200,8 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
-        accessedAt: "2026-10-17",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+        accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
@@ -209,7 +209,7 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
+      reviewedAt: "2026-11-26",
       reviewer: "arminazimi",
       reviewers: ["arminazimi"],
       method: "imported",
@@ -260,8 +260,8 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
-        accessedAt: "2026-10-17",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+        accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
@@ -269,7 +269,7 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
+      reviewedAt: "2026-11-26",
       reviewer: "arminazimi",
       reviewers: ["arminazimi"],
       method: "imported",
@@ -320,8 +320,8 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
-        accessedAt: "2026-10-17",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+        accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
@@ -329,7 +329,7 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
+      reviewedAt: "2026-11-26",
       reviewer: "arminazimi",
       reviewers: ["arminazimi"],
       method: "imported",
@@ -380,8 +380,8 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
-        accessedAt: "2026-10-17",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+        accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
@@ -389,7 +389,7 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
+      reviewedAt: "2026-11-26",
       reviewer: "arminazimi",
       reviewers: ["arminazimi"],
       method: "imported",
@@ -4021,8 +4021,8 @@ export const rules: readonly RegistryV2Rule[] = [
     sources: [
       {
         title: "Node.js Release Working Group schedule",
-        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
-        accessedAt: "2026-10-24",
+        url: "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",
+        accessedAt: "2026-11-26",
         archiveUrl:
           "https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-24",
@@ -4030,7 +4030,7 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-24",
-      reviewedAt: "2026-10-24",
+      reviewedAt: "2026-11-26",
       reviewer: "arminazimi",
       reviewers: ["arminazimi"],
       method: "manual",

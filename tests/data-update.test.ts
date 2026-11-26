@@ -21,6 +21,7 @@ import {
   updateData,
   writeAtomically,
 } from "../src/data-update.js";
+import { addDays } from "../src/upcoming.js";
 import { VERSION } from "../src/version.js";
 
 const SIGNER = { identity: "ci@example.com", issuer: "https://token.actions.githubusercontent.com" };
@@ -1167,11 +1168,13 @@ test("writeAtomically: interrupted write leaves previous data intact and cleans 
   assert.equal(await readFile(targetFile, "utf8"), "updated content\n");
 });
 
+const bundledReviewedThrough = resolveActiveDataSync({ cacheDirectory: "" }).info.reviewedThrough;
+
 test("cache-4: two concurrent updates run and end with a valid cache", async () => {
   const cache = await mkdtemp(join(workspace, "concurrent-update-"));
   const bundle = await buildDataBundle({
     root: fixtureRepo,
-    createdAt: "2026-11-20T00:00:00Z",
+    createdAt: `${addDays(bundledReviewedThrough, 1)}T00:00:00Z`,
     minimumEbbVersion: "0.2.0",
     ecosystem: "npm",
   });
@@ -1227,7 +1230,7 @@ test("cache-4: treats a lock older than 10 minutes as stale and cleans it up", a
 
   const bundle = await buildDataBundle({
     root: fixtureRepo,
-    createdAt: "2026-11-20T00:00:00Z",
+    createdAt: `${addDays(bundledReviewedThrough, 1)}T00:00:00Z`,
     minimumEbbVersion: "0.2.0",
     ecosystem: "npm",
   });
@@ -1259,7 +1262,7 @@ test("cache-7: handles read-only cache directory with error code cache-read-only
   const cache = await mkdtemp(join(workspace, "readonly-cache-"));
   const bundle = await buildDataBundle({
     root: fixtureRepo,
-    createdAt: "2026-11-20T00:00:00Z",
+    createdAt: `${addDays(bundledReviewedThrough, 1)}T00:00:00Z`,
     minimumEbbVersion: "0.2.0",
     ecosystem: "npm",
   });
@@ -1284,16 +1287,15 @@ test("cache-7: handles read-only cache directory with error code cache-read-only
     assert.equal(active.info.version, version);
 
     // 2. Updating throws DataUpdateError with code "cache-read-only"
-    const newVersion = "2026.11.25";
     const newBundle = await buildDataBundle({
       root: fixtureRepo,
-      createdAt: "2026-11-25T00:00:00Z",
+      createdAt: `${addDays(bundledReviewedThrough, 2)}T00:00:00Z`,
       minimumEbbVersion: "0.2.0",
       ecosystem: "npm",
     });
     const serialized = serializeDataBundle(newBundle);
     const baseUrl = "https://example-ro.com";
-    const releases = releasesFor(newVersion, baseUrl);
+    const releases = releasesFor(newBundle.manifest.version, baseUrl);
 
     const fetchHandler = (url: string | URL | Request) => {
       const urlStr = typeof url === "string" ? url : url instanceof URL ? url.toString() : url.url;
@@ -1326,7 +1328,7 @@ test("cache-8: uses conditional requests with ETag, 304 avoids bundle download",
   const cache = await mkdtemp(join(workspace, "etag-cache-"));
   const bundle = await buildDataBundle({
     root: fixtureRepo,
-    createdAt: "2026-11-20T00:00:00Z",
+    createdAt: `${addDays(bundledReviewedThrough, 1)}T00:00:00Z`,
     minimumEbbVersion: "0.2.0",
     ecosystem: "npm",
   });

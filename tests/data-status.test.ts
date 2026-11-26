@@ -5,8 +5,9 @@ import { join, resolve } from "node:path";
 import { describe, it } from "node:test";
 import { runCli } from "../src/cli.js";
 import { buildDataBundle } from "../src/data-bundle.js";
-import { configureActiveData } from "../src/data-source.js";
+import { configureActiveData, getActiveDataSync } from "../src/data-source.js";
 import { dataStatus } from "../src/data-status.js";
+import { addDays } from "../src/upcoming.js";
 
 function createMockIo() {
   let stdoutData = "";
@@ -39,16 +40,15 @@ function createMockIo() {
 
 describe("offline-8: warn when active data is old", () => {
   it("dataStatus includes warning when active data is older than stale limit", () => {
-    // Bundled reviewedThrough is 2026-11-15.
-    // 50 days later: 2027-01-04
-    const statusFresh = dataStatus({ now: "2026-11-20T00:00:00Z" });
+    const reviewedThrough = getActiveDataSync().info.reviewedThrough;
+    const statusFresh = dataStatus({ now: addDays(reviewedThrough, 5) });
     assert.equal(statusFresh.stale, false);
     assert.equal(
       statusFresh.warnings.some((w) => w.includes("freshness threshold")),
       false,
     );
 
-    const statusOld = dataStatus({ now: "2027-01-15T00:00:00Z" });
+    const statusOld = dataStatus({ now: addDays(reviewedThrough, 50) });
     assert.equal(statusOld.stale, true);
     assert.ok(statusOld.warnings.some((w) => w.includes("freshness threshold")));
   });
@@ -69,11 +69,14 @@ describe("offline-8: warn when active data is old", () => {
     }
   });
 
-  it("CLI prints warning on stderr once when data is old, keeping stdout and exit code unchanged", async () => {
+  it("CLI prints warning on stderr once when data is old, keeping stdout and exit code unchanged", async (t) => {
     const prevAge = process.env.EBB_DATA_MAX_AGE_DAYS;
     try {
       // Set 0 days max age to force stale status
       process.env.EBB_DATA_MAX_AGE_DAYS = "0";
+
+      const tomorrow = addDays(getActiveDataSync().info.reviewedThrough, 1);
+      t.mock.timers.enable({ apis: ["Date"], now: new Date(tomorrow) });
 
       // 1. Passing check with old data
       const mock1 = createMockIo();
@@ -134,6 +137,7 @@ describe("offline-8: warn when active data is old", () => {
     });
 
     it("reports cache origin, cachePath, and rollback info when cache is active", async () => {
+      const createdAt = `${addDays(getActiveDataSync().info.reviewedThrough, 1)}T00:00:00Z`;
       const tmp = await mkdtemp(join(tmpdir(), "ebb-status-cache-test-"));
       const oldDir = process.env.EBB_DATA_DIR;
       process.env.EBB_DATA_DIR = tmp;
@@ -143,7 +147,7 @@ describe("offline-8: warn when active data is old", () => {
       try {
         const bundle = await buildDataBundle({
           root: resolve("."),
-          createdAt: "2026-11-20T00:00:00Z",
+          createdAt,
           minimumEbbVersion: "0.2.0",
           ecosystem: "npm",
         });
