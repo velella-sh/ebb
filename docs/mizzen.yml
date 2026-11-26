@@ -5,7 +5,7 @@ lang: en
 url: https://velella.sh
 base: /ebb
 network:
-  source: https://velella.sh/lateen/brand/network.json
+  source: https://velella.sh/network.json
   project: ebb
 repository:
   url: https://github.com/velella-sh/ebb
