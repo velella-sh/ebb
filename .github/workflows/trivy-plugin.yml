@@ -1,0 +1,50 @@
+name: Trivy Plugin Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-verify-plugin:
+    name: Build & Verify Trivy Plugin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build plugin archive and checksum
+        run: |
+          set -e
+          tar -czf ebb-trivy-plugin.tar.gz -C integrations/trivy plugin.yaml ebb.sh
+          sha256sum ebb-trivy-plugin.tar.gz > ebb-trivy-plugin.tar.gz.sha256
+          echo "Built ebb-trivy-plugin.tar.gz with checksum:"
+          cat ebb-trivy-plugin.tar.gz.sha256
+
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.60.0
+
+      - name: Install plugin from archive and run dry-run verification
+        run: |
+          set -e
+          trivy plugin install ./ebb-trivy-plugin.tar.gz
+          trivy plugin list
+          npm ci
+          npm run build
+          EBB_BIN="node $GITHUB_WORKSPACE/dist/src/bin.js" trivy ebb --help || true
+
+      - name: Upload plugin assets to release
+        if: github.event_name == 'release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" ebb-trivy-plugin.tar.gz ebb-trivy-plugin.tar.gz.sha256 --clobber

@@ -39,6 +39,8 @@ main:
         url: /offline/
       - title: Pre-commit hook
         url: /pre-commit/
+      - title: Scanners (Trivy & Grype)
+        url: /scanners/
   - title: Runtimes
     children:
       - title: Browser

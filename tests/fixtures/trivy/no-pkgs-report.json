@@ -1,0 +1,26 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "alpine:3.14",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.14.0"
+    }
+  },
+  "Results": [
+    {
+      "Target": "alpine:3.14 (alpine 3.14.0)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2021-3826",
+          "PkgID": "musl@1.2.2-r3",
+          "PkgName": "musl",
+          "InstalledVersion": "1.2.2-r3"
+        }
+      ]
+    }
+  ]
+}

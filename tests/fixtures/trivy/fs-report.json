@@ -1,0 +1,38 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "sample-repo",
+  "ArtifactType": "filesystem",
+  "Results": [
+    {
+      "Target": "package-lock.json",
+      "Class": "lang-pkgs",
+      "Type": "npm",
+      "Packages": [
+        {
+          "ID": "request@2.88.2",
+          "Name": "request",
+          "Identifier": {
+            "PURL": "pkg:npm/request@2.88.2"
+          },
+          "Version": "2.88.2"
+        },
+        {
+          "ID": "node-sass@9.0.0",
+          "Name": "node-sass",
+          "Identifier": {
+            "PURL": "pkg:npm/node-sass@9.0.0"
+          },
+          "Version": "9.0.0"
+        },
+        {
+          "ID": "express@4.21.0",
+          "Name": "express",
+          "Identifier": {
+            "PURL": "pkg:npm/express@4.21.0"
+          },
+          "Version": "4.21.0"
+        }
+      ]
+    }
+  ]
+}
