@@ -3,7 +3,7 @@
   "name": "io.github.velella-sh/ebb",
   "title": "Ebb Lifecycle & Deprecation",
   "description": "Check package end-of-life, deprecations, replacements, and upcoming deadlines offline.",
-  "version": "0.3.0",
+  "version": "0.2.1",
   "websiteUrl": "https://velella.sh/ebb",
   "repository": {
     "url": "https://github.com/velella-sh/ebb",
@@ -14,7 +14,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@velella/ebb",
-      "version": "0.3.0",
+      "version": "0.2.1",
       "runtimeHint": "npx",
       "packageArguments": [
         {
