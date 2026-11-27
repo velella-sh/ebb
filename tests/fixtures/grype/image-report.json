@@ -1,0 +1,49 @@
+{
+  "matches": [
+    {
+      "vulnerability": {
+        "id": "CVE-2022-28391",
+        "severity": "High"
+      },
+      "artifact": {
+        "id": "c1f729e248b1dca5",
+        "name": "busybox",
+        "version": "1.33.1-r6",
+        "type": "apk",
+        "locations": [
+          { "path": "/bin/busybox" }
+        ],
+        "purl": "pkg:apk/alpine/busybox@1.33.1-r6?arch=x86_64&distro=alpine-3.14.0"
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2020-28928",
+        "severity": "Medium"
+      },
+      "artifact": {
+        "id": "d2f831a457c2e0b6",
+        "name": "musl",
+        "version": "1.2.2-r3",
+        "type": "apk",
+        "locations": [
+          { "path": "/lib/ld-musl-x86_64.so.1" }
+        ],
+        "purl": "pkg:apk/alpine/musl@1.2.2-r3?arch=x86_64&distro=alpine-3.14.0"
+      }
+    }
+  ],
+  "source": {
+    "type": "image",
+    "target": "alpine:3.14"
+  },
+  "distro": {
+    "name": "alpine",
+    "version": "3.14.0",
+    "idLike": ["alpine"]
+  },
+  "descriptor": {
+    "name": "grype",
+    "version": "0.87.0"
+  }
+}

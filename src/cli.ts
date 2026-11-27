@@ -49,6 +49,13 @@ import {
   formatVersionsText,
   isColorSupported,
 } from "./cli/format/index.js";
+import {
+  formatBridgeMarkdown,
+  mergeBridgeReport,
+  readGrypeReport,
+  readTrivyReport,
+  type ScannerBridgeInput,
+} from "./bridge/index.js";
 import { DEFAULT_FORECAST_MONTHS } from "./forecast.js";
 import { EbbError } from "./errors.js";
 import { formatPurl, parsePurl, PurlError } from "./purl.js";
@@ -77,6 +84,7 @@ Usage:
   ebb cache <path|info|clear> [options]      Inspect or clear the lifecycle data cache
   ebb data-status [options]                  Show active lifecycle data freshness and origin
   ebb release-log [options]                  List signed data releases known to the local log
+  ebb bridge <trivy|grype> <report|-> [options] Pair scanner report with lifecycle findings
   ebb mcp                                    Start the Model Context Protocol stdio server
   ebb mcp --print-config <agent>             Print MCP config snippet for an agent
   ebb mcp --self-test                        Verify MCP data load with one known check
@@ -137,6 +145,8 @@ Examples:
   ebb diff
   ebb diff 2026.10.01 2026.10.16
   ebb diff --format markdown
+  ebb bridge trivy report.json
+  grype alpine:3.14 -o json | ebb bridge grype -
 `;
 
 export interface CliIo {
@@ -791,6 +801,81 @@ export async function runCli(
       }
 
       return shouldFail(worstStatus, failOn) ? 1 : 0;
+    }
+
+    if (first === "bridge") {
+      const scanner = positionals[1]?.toLowerCase();
+      if (!scanner || (scanner !== "trivy" && scanner !== "grype")) {
+        io.stderr.write(
+          "Error: Expected scanner name: trivy or grype. Usage: ebb bridge <trivy|grype> <report|-> [--format json|markdown] [--fail-on <level>]\n",
+        );
+        return 2;
+      }
+
+      const reportArg = positionals[2];
+      let content = "";
+      if (reportArg === "-" || (!reportArg && !process.stdin.isTTY)) {
+        if (!io.stdin) {
+          io.stderr.write("Error: No stdin stream available.\n");
+          return 2;
+        }
+        content = await readStream(io.stdin);
+      } else if (reportArg) {
+        try {
+          content = readFileSync(resolve(process.cwd(), reportArg), "utf8");
+        } catch (err) {
+          io.stderr.write(`Error reading file "${reportArg}": ${err instanceof Error ? err.message : String(err)}\n`);
+          return 2;
+        }
+      } else {
+        io.stderr.write("Error: Missing report input file or piped data. Usage: ebb bridge <trivy|grype> <report|->\n");
+        return 2;
+      }
+
+      let parsedInput: ScannerBridgeInput;
+      try {
+        if (scanner === "trivy") {
+          parsedInput = readTrivyReport(content);
+        } else {
+          parsedInput = readGrypeReport(content);
+        }
+      } catch (err) {
+        io.stderr.write(`Error: ${err instanceof Error ? err.message : String(err)}\n`);
+        return 2;
+      }
+
+      const asOf = values["as-of"] as string | undefined;
+      const combined = mergeBridgeReport(parsedInput, { asOf });
+
+      if (format === "json") {
+        io.stdout.write(`${JSON.stringify(combined, null, 2)}\n`);
+      } else {
+        io.stdout.write(formatBridgeMarkdown(combined));
+      }
+
+      if (values["fail-on"]) {
+        const failThreshold = String(values["fail-on"]);
+        let worstStatus = "ok";
+        for (const item of combined.lifecycle) {
+          const itemStatus = item.status;
+          if (
+            itemStatus === "removed" ||
+            itemStatus === "end-of-life" ||
+            itemStatus === "unsupported" ||
+            itemStatus === "deprecated" ||
+            itemStatus === "scheduled"
+          ) {
+            const currentWorstRank = SEVERITY_LEVELS[worstStatus] ?? 0;
+            const itemRank = SEVERITY_LEVELS[itemStatus] ?? 0;
+            if (itemRank > currentWorstRank) {
+              worstStatus = itemStatus;
+            }
+          }
+        }
+        return shouldFail(worstStatus, failThreshold) ? 1 : 0;
+      }
+
+      return 0;
     }
 
     if (first === "replacement" || first === "replace") {
