@@ -1,0 +1,28 @@
+name: New Product
+description: Request a new product for the lifecycle registry
+title: "data: add [product-name]"
+labels: ["new-product"]
+body:
+  - type: input
+    id: product
+    attributes:
+      label: Product Name
+      description: The name of the product to add to the registry.
+    validations:
+      required: true
+
+  - type: textarea
+    id: purl
+    attributes:
+      label: Package URL (purl)
+      description: Provide the product's purl or explain why it does not have one.
+    validations:
+      required: true
+
+  - type: input
+    id: evidence_url
+    attributes:
+      label: Authoritative Evidence URL
+      description: Provide an official vendor URL that states a lifecycle date or policy. Third-party aggregators are not accepted as the sole source.
+    validations:
+      required: true
