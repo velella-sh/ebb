@@ -44,6 +44,14 @@ export const rules: readonly RegistryV2Rule[] = [
       },
     ],
     provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    replacements: [
+      {
+        purl: "pkg:github/actions/add-to-project",
+        vers: "vers:semver/>=2.0.0",
+        name: "actions/add-to-project",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.add-to-project.node20",
@@ -85,6 +93,14 @@ export const rules: readonly RegistryV2Rule[] = [
       },
     ],
     provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    replacements: [
+      {
+        purl: "pkg:github/actions/add-to-project",
+        vers: "vers:semver/>=2.0.0",
+        name: "actions/add-to-project",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.publish-action.node12",
@@ -271,6 +287,9 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/checkout", supportedFromMajor: 5 },
+    replacements: [
+      { purl: "pkg:github/actions/checkout", vers: "vers:semver/>=5.0.0", name: "actions/checkout", kind: "upgrade" },
+    ],
   },
   {
     id: "github-actions.setup-node.node20",
@@ -329,6 +348,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/setup-node", supportedFromMajor: 5 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/setup-node",
+        vers: "vers:semver/>=5.0.0",
+        name: "actions/setup-node",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.cache.node20",
@@ -391,6 +418,9 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/cache", supportedFromMajor: 5 },
+    replacements: [
+      { purl: "pkg:github/actions/cache", vers: "vers:semver/>=5.0.0", name: "actions/cache", kind: "upgrade" },
+    ],
   },
   {
     id: "github-actions.cache.service-v1-v2",
@@ -435,6 +465,9 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/cache", supportedFromMajor: 3 },
+    replacements: [
+      { purl: "pkg:github/actions/cache", vers: "vers:semver/>=5.0.0", name: "actions/cache", kind: "upgrade" },
+    ],
   },
   {
     id: "github-actions.upload-artifact.v1-v2",
@@ -481,6 +514,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/upload-artifact", supportedFromMajor: 3 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/upload-artifact",
+        vers: "vers:semver/>=6.0.0",
+        name: "actions/upload-artifact",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.upload-artifact.retired",
@@ -539,6 +580,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/upload-artifact", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/upload-artifact",
+        vers: "vers:semver/>=6.0.0",
+        name: "actions/upload-artifact",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.upload-artifact.node20",
@@ -584,6 +633,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/upload-artifact", supportedFromMajor: 6 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/upload-artifact",
+        vers: "vers:semver/>=6.0.0",
+        name: "actions/upload-artifact",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.download-artifact.v1-v2",
@@ -630,6 +687,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/download-artifact", supportedFromMajor: 3 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/download-artifact",
+        vers: "vers:semver/>=7.0.0",
+        name: "actions/download-artifact",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.download-artifact.retired",
@@ -688,6 +753,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/download-artifact", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/download-artifact",
+        vers: "vers:semver/>=7.0.0",
+        name: "actions/download-artifact",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.download-artifact.node20",
@@ -733,6 +806,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/download-artifact", supportedFromMajor: 7 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/download-artifact",
+        vers: "vers:semver/>=7.0.0",
+        name: "actions/download-artifact",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.setup-python.node20",
@@ -791,6 +872,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/setup-python", supportedFromMajor: 6 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/setup-python",
+        vers: "vers:semver/>=6.0.0",
+        name: "actions/setup-python",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.setup-go.node20",
@@ -850,6 +939,9 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/setup-go", supportedFromMajor: 6 },
+    replacements: [
+      { purl: "pkg:github/actions/setup-go", vers: "vers:semver/>=6.2.0", name: "actions/setup-go", kind: "upgrade" },
+    ],
   },
   {
     id: "github-actions.setup-java.node20",
@@ -908,6 +1000,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/setup-java", supportedFromMajor: 5 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/setup-java",
+        vers: "vers:semver/>=5.0.0",
+        name: "actions/setup-java",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.setup-dotnet.node20",
@@ -968,6 +1068,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/setup-dotnet", supportedFromMajor: 5 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/setup-dotnet",
+        vers: "vers:semver/>=5.0.0",
+        name: "actions/setup-dotnet",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.github-script.node20",
@@ -1028,6 +1136,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/github-script", supportedFromMajor: 8 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/github-script",
+        vers: "vers:semver/>=8.0.0",
+        name: "actions/github-script",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.labeler.node20",
@@ -1087,6 +1203,9 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/labeler", supportedFromMajor: 6 },
+    replacements: [
+      { purl: "pkg:github/actions/labeler", vers: "vers:semver/>=6.0.0", name: "actions/labeler", kind: "upgrade" },
+    ],
   },
   {
     id: "github-actions.stale.node20",
@@ -1146,6 +1265,9 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/stale", supportedFromMajor: 10 },
+    replacements: [
+      { purl: "pkg:github/actions/stale", vers: "vers:semver/>=10.0.0", name: "actions/stale", kind: "upgrade" },
+    ],
   },
   {
     id: "github-actions.configure-pages.node20",
@@ -1209,6 +1331,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/configure-pages", supportedFromMajor: 6 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/configure-pages",
+        vers: "vers:semver/>=6.0.0",
+        name: "actions/configure-pages",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.deploy-pages.node20",
@@ -1274,6 +1404,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/deploy-pages", supportedFromMajor: 5 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/deploy-pages",
+        vers: "vers:semver/>=5.0.0",
+        name: "actions/deploy-pages",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.create-github-app-token.node20",
@@ -1334,6 +1472,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/create-github-app-token", supportedFromMajor: 3 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/create-github-app-token",
+        vers: "vers:semver/>=3.0.0",
+        name: "actions/create-github-app-token",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.first-interaction.node20",
@@ -1394,6 +1540,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/first-interaction", supportedFromMajor: 3 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/first-interaction",
+        vers: "vers:semver/>=3.0.0",
+        name: "actions/first-interaction",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.ai-inference.node20",
@@ -1448,6 +1602,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/ai-inference", supportedFromMajor: 2 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/ai-inference",
+        vers: "vers:semver/>=2.0.0",
+        name: "actions/ai-inference",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.attest.node20",
@@ -1501,6 +1663,9 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/attest", supportedFromMajor: 3 },
+    replacements: [
+      { purl: "pkg:github/actions/attest", vers: "vers:semver/>=3.0.0", name: "actions/attest", kind: "upgrade" },
+    ],
   },
   {
     id: "github-actions.delete-package-versions.node12",
@@ -1678,6 +1843,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/dependency-review-action", supportedFromMajor: 5 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/dependency-review-action",
+        vers: "vers:semver/>=5.0.0",
+        name: "actions/dependency-review-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.dependency-review-action.node20",
@@ -1732,6 +1905,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "actions/dependency-review-action", supportedFromMajor: 5 },
+    replacements: [
+      {
+        purl: "pkg:github/actions/dependency-review-action",
+        vers: "vers:semver/>=5.0.0",
+        name: "actions/dependency-review-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.go-dependency-submission.node16",
@@ -1877,6 +2058,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "github/codeql-action", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/github/codeql-action",
+        vers: "vers:semver/>=4.0.0",
+        name: "github/codeql-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.codeql-action.node16",
@@ -1934,6 +2123,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "github/codeql-action", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/github/codeql-action",
+        vers: "vers:semver/>=4.0.0",
+        name: "github/codeql-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.codeql-action.node20",
@@ -2011,6 +2208,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "github/codeql-action", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/github/codeql-action",
+        vers: "vers:semver/>=4.0.0",
+        name: "github/codeql-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.setup-buildx-action.node20",
@@ -2071,6 +2276,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "docker/setup-buildx-action", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/docker/setup-buildx-action",
+        vers: "vers:semver/>=4.0.0",
+        name: "docker/setup-buildx-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.build-push-action.node20",
@@ -2131,6 +2344,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "docker/build-push-action", supportedFromMajor: 7 },
+    replacements: [
+      {
+        purl: "pkg:github/docker/build-push-action",
+        vers: "vers:semver/>=7.0.0",
+        name: "docker/build-push-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.login-action.node20",
@@ -2191,6 +2412,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "docker/login-action", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/docker/login-action",
+        vers: "vers:semver/>=4.0.0",
+        name: "docker/login-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.setup-qemu-action.node20",
@@ -2251,6 +2480,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "docker/setup-qemu-action", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/docker/setup-qemu-action",
+        vers: "vers:semver/>=4.0.0",
+        name: "docker/setup-qemu-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.metadata-action.node20",
@@ -2311,6 +2548,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "docker/metadata-action", supportedFromMajor: 6 },
+    replacements: [
+      {
+        purl: "pkg:github/docker/metadata-action",
+        vers: "vers:semver/>=6.0.0",
+        name: "docker/metadata-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.action-gh-release.node20",
@@ -2371,6 +2616,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "softprops/action-gh-release", supportedFromMajor: 3 },
+    replacements: [
+      {
+        purl: "pkg:github/softprops/action-gh-release",
+        vers: "vers:semver/>=3.0.0",
+        name: "softprops/action-gh-release",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.setup-terraform.node20",
@@ -2431,6 +2684,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "hashicorp/setup-terraform", supportedFromMajor: 4 },
+    replacements: [
+      {
+        purl: "pkg:github/hashicorp/setup-terraform",
+        vers: "vers:semver/>=4.0.0",
+        name: "hashicorp/setup-terraform",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.setup-uv.node20",
@@ -2491,6 +2752,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "astral-sh/setup-uv", supportedFromMajor: 7 },
+    replacements: [
+      {
+        purl: "pkg:github/astral-sh/setup-uv",
+        vers: "vers:semver/>=7.0.0",
+        name: "astral-sh/setup-uv",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.bake-action.node20",
@@ -2551,6 +2820,14 @@ export const rules: readonly RegistryV2Rule[] = [
       verification: [{ command: "git diff --check", purpose: "Validate the edited workflow diff." }],
     },
     "x-github-actions": { action: "docker/bake-action", supportedFromMajor: 7 },
+    replacements: [
+      {
+        purl: "pkg:github/docker/bake-action",
+        vers: "vers:semver/>=7.0.0",
+        name: "docker/bake-action",
+        kind: "upgrade",
+      },
+    ],
   },
   {
     id: "github-actions.workflow-command.set-output",

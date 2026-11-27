@@ -56,7 +56,7 @@ test("every field in result.v1.schema.json has a docs section with a valid JSON 
     {
       parent: "## Field reference: `Result`",
       fields: Object.keys(schema.properties),
-      experimental: new Set(["asOf"]),
+      experimental: new Set(["asOf", "extendedSupportUntil"]),
       hasTag: true,
     },
     {

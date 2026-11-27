@@ -13,14 +13,14 @@ async function rules() {
   return validateRegistryV2(JSON.parse(await readFile(join(packageRoot, "registry/container.json"), "utf8"))).rules;
 }
 
-test("container registry has twenty-six image rules, two Dockerfile rules, and seven host OS rules with vendor sources", async () => {
+test("container registry has thirty-four image rules, two Dockerfile rules, and twelve host OS rules with vendor sources", async () => {
   const all = await rules();
   const images = all.filter((rule) => rule.purl.startsWith("pkg:docker/library/"));
   const dockerfile = all.filter((rule) => rule.purl === "pkg:generic/dockerfile");
   const hosts = all.filter((rule) => rule.purl.startsWith("pkg:generic/") && rule.purl !== "pkg:generic/dockerfile");
-  assert.equal(images.length, 26);
+  assert.equal(images.length, 34);
   assert.equal(dockerfile.length, 2);
-  assert.equal(hosts.length, 7);
+  assert.equal(hosts.length, 12);
   assert.equal(all.length, images.length + dockerfile.length + hosts.length);
   for (const rule of all) {
     assert.ok(rule.sources.every((source) => source.url.startsWith("https://")));

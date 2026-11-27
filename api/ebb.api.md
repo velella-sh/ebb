@@ -342,6 +342,7 @@ export function replacementsFor(purl: string, version: string): ReplacementItem[
 // @public
 export interface Result {
     asOf?: string;
+    extendedSupportUntil?: string;
     matches: ResultMatch[];
     // Warning: (ae-forgotten-export) The symbol "RESULT_SCHEMA_VERSION" needs to be exported by the entry point index.d.ts
     schemaVersion: typeof RESULT_SCHEMA_VERSION;

@@ -70,6 +70,7 @@ function mapLifecycleToCheckEvent(event: LifecycleEvent): CheckEvent {
       return "removed";
     case "end-of-active-support":
     case "scheduled-end-of-life":
+    case "end-of-extended-support":
       return "scheduled";
   }
 }
@@ -117,7 +118,7 @@ export function asOf(date: string, options?: AsOfOptions): AsOfClient {
     for (const rule of visible) {
       if (!versContains(getCompiledVers(rule), normalised)) continue;
 
-      const isScheduled = rule.event === "scheduled-end-of-life";
+      const isScheduled = rule.event === "scheduled-end-of-life" || rule.event === "end-of-extended-support";
       const deadlineReached = isScheduled && rule.deadline !== undefined && rule.deadline <= date;
 
       const event: CheckEvent = deadlineReached ? "end-of-life" : mapLifecycleToCheckEvent(rule.event);
@@ -142,12 +143,25 @@ export function asOf(date: string, options?: AsOfOptions): AsOfClient {
     }
 
     const ordered = orderMatches(matches);
+    const extRule = visible.find(
+      (rule) => rule.event === "end-of-extended-support" && versContains(getCompiledVers(rule), normalised),
+    );
+    const extendedSupportUntil = extRule?.deadline;
+    let status = statusFromMatches(ordered);
+    if (extendedSupportUntil) {
+      if (date >= extendedSupportUntil) {
+        status = "end-of-life";
+      } else if (status === "end-of-life") {
+        status = "unsupported";
+      }
+    }
     return {
       schemaVersion: RESULT_SCHEMA_VERSION,
-      status: statusFromMatches(ordered),
+      status,
       matches: ordered,
       version,
       asOf: date,
+      ...(extendedSupportUntil !== undefined ? { extendedSupportUntil } : {}),
     };
   }
 

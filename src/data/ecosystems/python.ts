@@ -64,6 +64,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-python": { kind: "runtime", maximumVersion: "3.9" },
+    replacements: [
+      { purl: "pkg:generic/python", vers: "vers:pypi/>=3.12|<3.13", name: "Python 3.12", kind: "upgrade" },
+    ],
   },
   {
     id: "python.package.nose.maintenance-only",
@@ -129,6 +132,10 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "config-key", language: "ini", key: "test_suite", valueIncludes: "nose.collector" },
     ],
     "x-python": { kind: "package", package: "nose" },
+    replacements: [
+      { purl: "pkg:pypi/pytest", name: "pytest", kind: "alternative" },
+      { purl: "pkg:pypi/nose2", name: "nose2", kind: "alternative" },
+    ],
   },
   {
     id: "python.package.django-nose.maintenance-only",
@@ -194,6 +201,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "config-key", language: "python", key: "TEST_RUNNER", valueIncludes: "django_nose" },
     ],
     "x-python": { kind: "package", package: "django-nose" },
+    replacements: [{ purl: "pkg:pypi/pytest-django", name: "pytest-django", kind: "alternative" }],
   },
   {
     id: "python.package.pycrypto.obsolete",
@@ -265,6 +273,10 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "Crypto" }],
     "x-python": { kind: "package", package: "pycrypto" },
+    replacements: [
+      { purl: "pkg:pypi/pycryptodome", name: "pycryptodome", kind: "alternative" },
+      { purl: "pkg:pypi/cryptography", name: "cryptography", kind: "alternative" },
+    ],
   },
   {
     id: "python.package.sklearn.deprecated",
@@ -320,6 +332,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "sklearn" }],
     "x-python": { kind: "package", package: "sklearn" },
+    replacements: [{ purl: "pkg:pypi/scikit-learn", name: "scikit-learn", kind: "successor" }],
   },
   {
     id: "python.package.distribute.deprecated",
@@ -374,6 +387,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-python": { kind: "package", package: "distribute" },
+    replacements: [{ purl: "pkg:pypi/setuptools", name: "setuptools", kind: "successor" }],
   },
   {
     id: "python.package.pep8.deprecated",
@@ -430,6 +444,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "pep8" }],
     "x-python": { kind: "package", package: "pep8" },
+    replacements: [{ purl: "pkg:pypi/pycodestyle", name: "pycodestyle", kind: "successor" }],
   },
   {
     id: "python.package.pyinj.archived",
@@ -496,6 +511,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "pyinj" }],
     "x-python": { kind: "package", package: "pyinj" },
+    replacements: [{ purl: "pkg:pypi/injx", name: "injx", kind: "successor" }],
   },
   {
     id: "python.package.pytest-runner.deprecated",
@@ -600,6 +616,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "ipaddr" }],
     "x-python": { kind: "package", package: "ipaddr" },
+    replacements: [{ purl: "pkg:pypi/ipaddress", name: "ipaddress", kind: "successor" }],
   },
   {
     id: "python.package.django-celery.deprecated",
@@ -705,6 +722,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "datacommons" }],
     "x-python": { kind: "package", package: "datacommons" },
+    replacements: [{ purl: "pkg:pypi/datacommons-client", name: "datacommons-client", kind: "successor" }],
   },
   {
     id: "python.package.vsdeband.deprecated",
@@ -758,6 +776,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "vsdeband" }],
     "x-python": { kind: "package", package: "vsdeband" },
+    replacements: [{ purl: "pkg:pypi/vsjetpack", name: "vsjetpack", kind: "successor" }],
   },
   {
     id: "python.package.multimodal-timesfm.deprecated",
@@ -808,6 +827,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "multimodal_timesfm" }],
     "x-python": { kind: "package", package: "multimodal-timesfm" },
+    replacements: [{ purl: "pkg:pypi/tsfmx", name: "tsfmx", kind: "successor" }],
   },
   {
     id: "python.package.saroku.deprecated",
@@ -849,6 +869,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "saroku" }],
     "x-python": { kind: "package", package: "saroku" },
+    replacements: [{ purl: "pkg:pypi/trikesh", name: "trikesh", kind: "successor" }],
   },
   {
     id: "python.package.seofleet-cli.deprecated",
@@ -893,6 +914,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-python": { kind: "package", package: "seofleet-cli" },
+    replacements: [{ purl: "pkg:pypi/llmscout-cli", name: "llmscout-cli", kind: "successor" }],
   },
   {
     id: "python.package.superlinked-server.deprecated",
@@ -1029,6 +1051,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "imagej" }],
     "x-python": { kind: "package", package: "imagej" },
+    replacements: [{ purl: "pkg:pypi/pyimagej", name: "pyimagej", kind: "successor" }],
   },
   {
     id: "python.package.poetry-version-plugin.deprecated",
@@ -1122,6 +1145,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "shield" }],
     "x-python": { kind: "package", package: "api-shield" },
+    replacements: [{ purl: "pkg:pypi/waygate", name: "waygate", kind: "successor" }],
   },
   {
     id: "python.package.asyncio-requests.deprecated",
@@ -1167,6 +1191,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "asyncio_requests" }],
     "x-python": { kind: "package", package: "asyncio-requests" },
+    replacements: [{ purl: "pkg:pypi/asyncio-gateway", name: "asyncio-gateway", kind: "successor" }],
   },
   {
     id: "python.package.opennms-api-wrapper.deprecated",
@@ -1212,6 +1237,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "opennms_api_wrapper" }],
     "x-python": { kind: "package", package: "opennms-api-wrapper" },
+    replacements: [{ purl: "pkg:pypi/python-opennms", name: "python-opennms", kind: "successor" }],
   },
   {
     id: "python.package.apisec-code-bolt.deprecated",
@@ -1258,6 +1284,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-python": { kind: "package", package: "apisec-code-bolt" },
+    replacements: [{ purl: "pkg:pypi/apisec-surface", name: "apisec-surface", kind: "successor" }],
   },
   {
     id: "python.package.ghops.eol",
@@ -1307,6 +1334,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "ghops" }],
     "x-python": { kind: "package", package: "ghops" },
+    replacements: [{ purl: "pkg:pypi/repoindex", name: "repoindex", kind: "successor" }],
   },
   {
     id: "python.package.mondobrain.eol",
@@ -1354,6 +1382,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "mondobrain" }],
     "x-python": { kind: "package", package: "mondobrain" },
+    replacements: [{ purl: "pkg:pypi/datawhys", name: "datawhys", kind: "successor" }],
   },
   {
     id: "python.package.vsscale.deprecated",
@@ -1403,6 +1432,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "vsscale" }],
     "x-python": { kind: "package", package: "vsscale" },
+    replacements: [{ purl: "pkg:pypi/vsjetpack", name: "vsjetpack", kind: "successor" }],
   },
   {
     id: "python.package.batchnotebook.deprecated",
@@ -1599,6 +1629,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "cmip_ref" }],
     "x-python": { kind: "package", package: "cmip-ref" },
+    replacements: [{ purl: "pkg:pypi/climate-ref", name: "climate-ref", kind: "successor" }],
   },
   {
     id: "python.package.headroom-cli.eol",
@@ -1647,6 +1678,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-python": { kind: "package", package: "headroom-cli" },
+    replacements: [{ purl: "pkg:pypi/quotagauge", name: "quotagauge", kind: "successor" }],
   },
   {
     id: "python.package.agentops-toolkit.eol",
@@ -1694,6 +1726,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "agentops" }],
     "x-python": { kind: "package", package: "agentops-toolkit" },
+    replacements: [{ purl: "pkg:pypi/agentops-accelerator", name: "agentops-accelerator", kind: "successor" }],
   },
   {
     id: "python.package.aiohttp-valera-validator.eol",
@@ -1744,6 +1777,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "aiohttp_valera_validator" }],
     "x-python": { kind: "package", package: "aiohttp-valera-validator" },
+    replacements: [{ purl: "pkg:pypi/aiohttp-d42-validator", name: "aiohttp-d42-validator", kind: "successor" }],
   },
   {
     id: "python.runtime.eol-3.10-and-older",
@@ -1770,6 +1804,7 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-10-17",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://peps.python.org/api/release-cycle.json",
         archivedAt: "2026-10-17",
+        pointer: "/3.10/end_of_life",
       },
       {
         title: "PEP 619 — Python 3.10 release schedule",
@@ -1813,6 +1848,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-python": { kind: "runtime", maximumVersion: "3.10" },
+    replacements: [
+      { purl: "pkg:generic/python", vers: "vers:pypi/>=3.12|<3.13", name: "Python 3.12", kind: "upgrade" },
+    ],
   },
   {
     id: "python.runtime.eol-3.11",
@@ -2078,6 +2116,59 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-python": { kind: "runtime", maximumVersion: "3.15", scheduled: true, endOfLifeMonth: "2031-10" },
+  },
+  {
+    id: "python.runtime.eol-3.16",
+    ecosystem: "python",
+    purl: "pkg:generic/python",
+    vers: "vers:pypi/>=3.16|<3.17",
+    event: "scheduled-end-of-life",
+    title: "Python 3.16 reaches end-of-life in October 2032",
+    summary:
+      "The Python release cycle schedules Python 3.16 end of life as 2032-10 (month precision; no day-of-month is published). Security fixes from the Python core team stop after that month.",
+    severity: "low",
+    replacement: "A supported Python release",
+    deadline: "2032-10-31",
+    sources: [
+      { title: "Status of Python versions", url: "https://devguide.python.org/versions/", accessedAt: "2026-11-27" },
+      {
+        title: "Python release cycle (machine-readable)",
+        url: "https://peps.python.org/api/release-cycle.json",
+        accessedAt: "2026-11-27",
+      },
+      {
+        title: "PEP 826 — Python 3.16 release schedule",
+        url: "https://peps.python.org/pep-0826/",
+        accessedAt: "2026-11-27",
+      },
+    ],
+    provenance: { observedAt: "2026-11-27", reviewedAt: "2026-11-27", reviewer: "arminazimi", method: "manual" },
+    migration: {
+      constraints: [
+        "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
+        "Confirm binary wheels and framework dependencies support the selected Python release.",
+      ],
+      steps: [
+        {
+          id: "update-python-declaration",
+          title: "Update the Python requirement",
+          instructions: "Raise the reported requires-python range or pinned runtime to a supported Python release.",
+          targets: "declaration",
+        },
+        {
+          id: "align-python-runtimes",
+          title: "Align runtime surfaces",
+          instructions: "Update matching version files, CI matrices, container images, and deployment configuration.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "python --version", purpose: "Confirm the active Python runtime is supported." },
+        { command: "python -m pytest", purpose: "Run the Python test suite on the target runtime." },
+        { command: "python -m pip check", purpose: "Check installed dependency compatibility." },
+      ],
+    },
+    "x-python": { kind: "runtime", maximumVersion: "3.16", scheduled: true, endOfLifeMonth: "2032-10" },
   },
   {
     id: "python.package.argparse.archived",
@@ -2509,6 +2600,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.4.eol",
@@ -2580,6 +2672,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.5.eol",
@@ -2651,6 +2744,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.6.eol",
@@ -2722,6 +2816,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.7.eol",
@@ -2793,6 +2888,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.8.eol",
@@ -2871,6 +2967,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.9.eol",
@@ -2949,6 +3046,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.10.eol",
@@ -3028,6 +3126,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.11.eol",
@@ -3107,6 +3206,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-2.0.eol",
@@ -3185,6 +3285,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-2.1.eol",
@@ -3263,6 +3364,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-2.2.eol",
@@ -3341,6 +3443,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-3.0.eol",
@@ -3419,6 +3522,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-3.1.eol",
@@ -3497,6 +3601,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-3.2.eol",
@@ -3575,6 +3680,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-4.0.eol",
@@ -3653,6 +3759,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-4.1.eol",
@@ -3731,6 +3838,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-4.2.eol",
@@ -3809,6 +3917,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-5.0.eol",
@@ -3887,6 +3996,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-5.1.eol",
@@ -3965,6 +4075,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.symbol.datetime.utcnow",

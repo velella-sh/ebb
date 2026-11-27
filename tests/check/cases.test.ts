@@ -18,6 +18,7 @@ const checkStatusFromLookup: Record<LifecycleEvent | "supported", CheckStatus> =
   removed: "removed",
   "scheduled-end-of-life": "scheduled",
   "end-of-active-support": "scheduled",
+  "end-of-extended-support": "scheduled",
 };
 
 function sortedIds(ids: readonly string[]): string[] {

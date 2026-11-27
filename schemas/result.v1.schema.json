@@ -14,7 +14,11 @@
       "items": { "$ref": "#/$defs/match" }
     },
     "version": { "$ref": "#/$defs/nonEmpty" },
-    "asOf": { "$ref": "#/$defs/date" }
+    "asOf": { "$ref": "#/$defs/date" },
+    "extendedSupportUntil": {
+      "description": "Final date of vendor-backed extended or commercial support (YYYY-MM-DD).",
+      "$ref": "#/$defs/date"
+    }
   },
   "allOf": [
     {

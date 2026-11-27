@@ -124,7 +124,7 @@ Output:
 | `rulesFor(purl, options?)` | `@velella/ebb/rules-for` | Returns `Rule[]` sorted oldest-first by range start, then by `rule.id`, optionally filtered by `options.event`. |
 | `replacementFor(purl, version)` | `@velella/ebb/replacement` | Returns the normalised replacement PURL or guidance string for the highest-precedence match, or `null`. |
 | `Rule` | `@velella/ebb/rules-for` | Alias of `RegistryV2Rule`. |
-| `RuleEvent` | `@velella/ebb/rules-for` | Allowed `{ event }` values: `"deprecated"`, `"end-of-support"`, `"end-of-life"`, `"removed"`, `"scheduled-end-of-life"`, `"end-of-active-support"`. |
+| `RuleEvent` | `@velella/ebb/rules-for` | Allowed `{ event }` values: `"deprecated"`, `"end-of-support"`, `"end-of-life"`, `"removed"`, `"scheduled-end-of-life"`, `"end-of-active-support"`, `"end-of-extended-support"`. |
 | `RulesForOptions` | `@velella/ebb/rules-for` | `{ event?: RuleEvent }` |
 | `RulesForError` | `@velella/ebb/rules-for` | Thrown when `options.event` is not a valid lifecycle event. |
 

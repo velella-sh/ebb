@@ -143,7 +143,10 @@ function hintFor(message: string): string {
     [/^vers is invalid/, "Write a canonical VERS range such as vers:npm/>=2.0.0|<3.0.0."],
     [/^vers scheme/, "Use a version scheme that fits the purl type named in the message."],
     [/^severity must be one of/, "Use info, low, medium, high, or critical."],
-    [/^event must be one of/, "Use deprecated, end-of-support, end-of-life, removed, or scheduled-end-of-life."],
+    [
+      /^event must be one of/,
+      "Use deprecated, end-of-support, end-of-life, removed, scheduled-end-of-life, end-of-active-support, or end-of-extended-support.",
+    ],
     [/^a scheduled-end-of-life rule/, "Give the announced date as deadline and set severity to low (decision 0010)."],
     [
       /^requires has unknown runtime/,

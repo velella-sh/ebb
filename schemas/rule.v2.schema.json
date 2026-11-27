@@ -29,7 +29,10 @@
       "type": "string",
       "pattern": "^vers:[a-z][a-z0-9.+-]*/\\S+$"
     },
-    "event": { "enum": ["deprecated", "end-of-support", "end-of-life", "removed", "scheduled-end-of-life", "end-of-active-support"] },
+    "event": {
+      "description": "Lifecycle event type. end-of-extended-support: paid or extended support that outlives normal support.",
+      "enum": ["deprecated", "end-of-support", "end-of-life", "removed", "scheduled-end-of-life", "end-of-active-support", "end-of-extended-support"]
+    },
     "title": { "$ref": "#/$defs/nonEmpty" },
     "summary": { "$ref": "#/$defs/nonEmpty" },
     "severity": { "enum": ["info", "low", "medium", "high", "critical"] },

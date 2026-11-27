@@ -65,6 +65,7 @@ const checkEventByLifecycle: Record<LifecycleEvent, CheckMatch["event"]> = {
   removed: "removed",
   "scheduled-end-of-life": "scheduled",
   "end-of-active-support": "scheduled",
+  "end-of-extended-support": "scheduled",
 };
 
 const statusPrecedence = lifecycleEventPrecedence.map((event) => checkEventByLifecycle[event]);

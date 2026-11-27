@@ -106,6 +106,11 @@ export interface Result {
    * @experimental
    */
   asOf?: string;
+  /**
+   * Final date of vendor-backed extended or commercial support (YYYY-MM-DD), when a matching rule provides one.
+   * @experimental
+   */
+  extendedSupportUntil?: string;
 }
 
 const MS_PER_DAY = 86_400_000;

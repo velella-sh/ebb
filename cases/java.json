@@ -33,12 +33,12 @@
     {
       "purl": "pkg:maven/org.springframework.boot/spring-boot",
       "version": "2.7.18",
-      "rules": ["java.maven.spring-boot.legacy-2x.end-of-support"]
+      "rules": ["java.maven.spring-boot.extended-support-2.7", "java.maven.spring-boot.legacy-2x.end-of-support"]
     },
     {
       "purl": "pkg:maven/org.springframework.boot/spring-boot",
       "version": "3.3.0",
-      "rules": ["java.maven.spring-boot.legacy-3x.end-of-support"]
+      "rules": ["java.maven.spring-boot.extended-support-3.3", "java.maven.spring-boot.legacy-3x.end-of-support"]
     },
     {
       "purl": "pkg:generic/java",

@@ -65,7 +65,12 @@ export function forecastUpcomingEol(options: UpcomingEolOptions = {}) {
     });
 
   const expired = evaluated.filter((item) => {
-    if (item.status === "end-of-life" || item.status === "deprecated" || item.status === "removed") {
+    if (
+      item.status === "end-of-life" ||
+      item.status === "deprecated" ||
+      item.status === "removed" ||
+      item.status === "unsupported"
+    ) {
       return item.daysLeft === null || item.daysLeft <= 0;
     }
     return false;

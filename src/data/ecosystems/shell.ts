@@ -416,6 +416,9 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
     deadline: "2026-11-10",
+    confidence: "likely",
+    confidenceNote:
+      "PowerShell 7.6 is built on .NET 10; modules with compiled binaries for older .NET runtimes require separate compatibility testing.",
     sources: [
       {
         title: "PowerShell support lifecycle",
@@ -498,6 +501,9 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
     deadline: "2026-11-10",
+    confidence: "likely",
+    confidenceNote:
+      "PowerShell 7.6 is built on .NET 10; modules with compiled binaries for older .NET runtimes require separate compatibility testing.",
     sources: [
       {
         title: "PowerShell support lifecycle",

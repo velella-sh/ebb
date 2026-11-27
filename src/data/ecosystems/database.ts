@@ -4464,6 +4464,9 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "Redis 5.0 reached end of life on 2022-04-27 and no longer receives fixes from the vendor.",
     severity: "high",
     deadline: "2022-04-27",
+    confidence: "tentative",
+    confidenceNote:
+      "The Redis documentation reviewed does not publish a supported upgrade path for jumping from 5.0 to a distant release; rehearsal on copied data is required.",
     sources: [
       {
         title: "Redis support policy (vendor)",
@@ -4562,6 +4565,9 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "Redis 6.0 reached end of life on 2022-05-31 and no longer receives fixes from the vendor.",
     severity: "high",
     deadline: "2022-05-31",
+    confidence: "tentative",
+    confidenceNote:
+      "The Redis documentation reviewed does not publish a supported upgrade path for jumping from 6.0 to a distant release; rehearsal on copied data is required.",
     sources: [
       {
         title: "Redis support policy (vendor)",
