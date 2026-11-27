@@ -2802,6 +2802,81 @@
       }
     },
     {
+      "id": "python.runtime.eol-3.16",
+      "ecosystem": "python",
+      "purl": "pkg:generic/python",
+      "vers": "vers:pypi/>=3.16|<3.17",
+      "event": "scheduled-end-of-life",
+      "title": "Python 3.16 reaches end-of-life in October 2032",
+      "summary": "The Python release cycle schedules Python 3.16 end of life as 2032-10 (month precision; no day-of-month is published). Security fixes from the Python core team stop after that month.",
+      "severity": "low",
+      "replacement": "A supported Python release",
+      "deadline": "2032-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/",
+          "accessedAt": "2026-11-27"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json",
+          "accessedAt": "2026-11-27"
+        },
+        {
+          "title": "PEP 826 — Python 3.16 release schedule",
+          "url": "https://peps.python.org/pep-0826/",
+          "accessedAt": "2026-11-27"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-27",
+        "reviewedAt": "2026-11-27",
+        "reviewer": "arminazimi",
+        "method": "manual"
+      },
+      "migration": {
+        "constraints": [
+          "Keep project metadata, local version files, CI matrices, containers, and deployment runtimes on a mutually supported Python version.",
+          "Confirm binary wheels and framework dependencies support the selected Python release."
+        ],
+        "steps": [
+          {
+            "id": "update-python-declaration",
+            "title": "Update the Python requirement",
+            "instructions": "Raise the reported requires-python range or pinned runtime to a supported Python release.",
+            "targets": "declaration"
+          },
+          {
+            "id": "align-python-runtimes",
+            "title": "Align runtime surfaces",
+            "instructions": "Update matching version files, CI matrices, container images, and deployment configuration.",
+            "targets": "all"
+          }
+        ],
+        "verification": [
+          {
+            "command": "python --version",
+            "purpose": "Confirm the active Python runtime is supported."
+          },
+          {
+            "command": "python -m pytest",
+            "purpose": "Run the Python test suite on the target runtime."
+          },
+          {
+            "command": "python -m pip check",
+            "purpose": "Check installed dependency compatibility."
+          }
+        ]
+      },
+      "x-python": {
+        "kind": "runtime",
+        "maximumVersion": "3.16",
+        "scheduled": true,
+        "endOfLifeMonth": "2032-10"
+      }
+    },
+    {
       "id": "python.package.argparse.archived",
       "ecosystem": "python",
       "purl": "pkg:pypi/argparse",

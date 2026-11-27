@@ -18,13 +18,13 @@ test("an unknown package is ok with an empty match list", () => {
 });
 
 test("a known package with a safe version is ok with an empty match list", () => {
-  // Node.js 24 has no bundled rule yet, so every version stays unmatched.
-  const result = check("pkg:generic/nodejs", "27.0.0", AS_OF);
+  // Node.js 28 has no bundled rule yet, so every version stays unmatched.
+  const result = check("pkg:generic/nodejs", "28.0.0", AS_OF);
   assert.deepEqual(result, {
     schemaVersion: RESULT_SCHEMA_VERSION,
     status: "ok",
     matches: [],
-    version: "27.0.0",
+    version: "28.0.0",
     asOf: AS_OF,
   });
 });

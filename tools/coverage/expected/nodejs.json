@@ -3,12 +3,12 @@
   "purl": "pkg:generic/nodejs",
   "registry": "nodejs.json",
   "scheduleUrl": "https://github.com/nodejs/Release/blob/main/schedule.json",
-  "reviewedAt": "2026-11-15",
+  "reviewedAt": "2026-11-27",
   "sources": [
     {
       "title": "Node.js Release Working Group schedule",
       "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
-      "accessedAt": "2026-11-15"
+      "accessedAt": "2026-11-27"
     }
   ],
   "lines": [
@@ -201,6 +201,18 @@
       "status": "supported",
       "requiresScheduled": true,
       "lineVers": "vers:semver/>=26.0.0|<27.0.0"
+    },
+    {
+      "id": "27",
+      "sampleVersion": "27.0.0",
+      "firstReleased": "2027-04-22",
+      "end": {
+        "date": "2030-04-30",
+        "precision": "day"
+      },
+      "status": "supported",
+      "requiresScheduled": true,
+      "lineVers": "vers:semver/>=27.0.0|<28.0.0"
     }
   ]
 }

@@ -48,6 +48,11 @@
     {
       "purl": "pkg:generic/nodejs",
       "version": "27.0.0",
+      "rules": ["nodejs.runtime.eol-27"]
+    },
+    {
+      "purl": "pkg:generic/nodejs",
+      "version": "28.0.0",
       "rules": []
     },
     {

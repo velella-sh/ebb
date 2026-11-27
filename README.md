@@ -53,7 +53,7 @@ node.matches[0]?.date; // "2025-04-30"
 import { check } from "@velella/ebb";
 
 check("pkg:npm/left-pad", "1.3.0");
-check("pkg:generic/nodejs", "27.0.0");
+check("pkg:generic/nodejs", "28.0.0");
 check("node", "18.20.4");
 check("pkg:generic/nodejs", "22.11.0", "2026-04-01");
 ```

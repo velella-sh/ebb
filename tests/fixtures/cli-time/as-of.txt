@@ -5,5 +5,5 @@
   Sources:
     - https://raw.githubusercontent.com/nodejs/Release/main/schedule.json
 
-Data: bundled (0.2.1), 156d old (reviewed 2026-11-26)
-⚠ Warning: Data is 156d old (exceeds 30d threshold). Run 'ebb update' to refresh.
+Data: bundled (0.2.1), 155d old (reviewed 2026-11-27)
+⚠ Warning: Data is 155d old (exceeds 30d threshold). Run 'ebb update' to refresh.
