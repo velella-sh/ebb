@@ -1,6 +1,6 @@
 /**
  * The lifecycle data types: severities, evidence sources, usage matchers, migration guidance and data info.
- * Offing re-exports these from its own `domain.ts`.
+ * Consumers can re-export these from their own modules.
  */
 
 /** How much attention a finding or rule deserves, from informational to critical. */

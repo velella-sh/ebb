@@ -24,4 +24,3 @@ This table documents every import Offing uses from `@velella/ebb` across its det
 4. **Resilience:** Unmatched packages or invalid purls return standard fallback structures (`status: "ok"`, `matches: []`, or throw well-typed errors).
 5. **Zero External Dependencies:** No external runtime dependencies (`dependencies: {}`). Signature checks run via built-in `node:crypto`.
 6. **Scoped Loading:** `createEbb({ ecosystems })` allows Offing to only load rules for ecosystems detected in the workspace, optimizing memory and startup performance.
-7. **Remediation Hints:** Findings with actionable statuses (`deprecated`, `end-of-life`) expose hints linking to Offing automation unless silenced via `noHint` or `EBB_NO_HINT` / `OFFING_NO_HINT`.

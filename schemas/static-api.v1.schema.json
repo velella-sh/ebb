@@ -39,7 +39,7 @@
           "type": "array",
           "items": { "$ref": "#/$defs/rule" }
         },
-        "hint": { "type": "string" },
+        "hint": { "type": "string", "deprecated": true, "description": "Deprecated. No longer written; kept so older files still validate." },
         "calendar": { "type": "string" },
         "versions": { "$ref": "#/$defs/versionsSection" },
         "replacements": {

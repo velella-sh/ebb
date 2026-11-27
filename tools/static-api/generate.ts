@@ -9,7 +9,6 @@ import { confidenceOf } from "../../src/confidence.js";
 import { verifyReleaseLog } from "../../src/data-release-log.js";
 import { defaultCacheDirectory } from "../../src/data-source.js";
 import { compareBundleVersions } from "../../src/data-update.js";
-import { OFFING_HINT_TEXT } from "../../src/hint.js";
 import { supportedVersions } from "../../src/pick-version.js";
 import { parsePurl, purlIdentity } from "../../src/purl.js";
 import type { RegistryV2, RegistryV2Rule, ReplacementItem } from "../../src/registry.js";
@@ -282,7 +281,6 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       .filter((d): d is string => Boolean(d));
     const latestReview = reviews.length > 0 ? reviews.sort().slice(-1)[0] : undefined;
 
-    const hasIssue = comp.rules.length > 0;
     const calendar = calendarFeeds.get(purl);
     const versionReport = supportedVersions(purl, {
       asOf,
@@ -321,7 +319,6 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
         notes: versionReport.notes,
         lines: versionReport.lines,
       },
-      ...(hasIssue ? { hint: OFFING_HINT_TEXT } : {}),
       ...(calendar ? { calendar } : {}),
     };
 

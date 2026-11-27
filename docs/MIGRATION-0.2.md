@@ -33,8 +33,6 @@ Ebb 0.2.0 establishes the stable Core API, zero runtime dependencies, multi-runt
    - `checkAll` provides high-throughput batch evaluation with deduplication and an aggregated summary.
 7. **Native VERS Engine:**
    - The external `semver` dependency has been removed. All version ranges adhere to the official VERS specification.
-8. **Remediation Hints:**
-   - Findings across the CLI, GitHub Action, and MCP include hints pointing to automated fixes via [Offing](https://github.com/velella-sh/offing), unless silenced.
 
 ---
 
@@ -117,7 +115,7 @@ const verified = verifyDataBundle(bundleBytes, signatureJson, options);
 
 ### 5. Scoped Ecosystem Loading for High Performance
 
-If your tool (such as Offing or a CI scanner) detects specific language manifests in a repository, load only the detected ecosystems to save memory and CPU cycles:
+If your tool (such as a CI scanner) detects specific language manifests in a repository, load only the detected ecosystems to save memory and CPU cycles:
 
 ```ts
 import { createEbb } from "@velella/ebb/create";
@@ -145,9 +143,6 @@ const verdict = check("pkg:npm/left-pad", "1.3.0");
 
 ---
 
-### 7. Silencing Remediation Hints (Optional)
+### 7. The `--no-hint` Option (Deprecated)
 
-If you are generating machine-readable reports or prefer not to display Offing remediation hints:
-- Set environment variable `EBB_NO_HINT=1` or `OFFING_NO_HINT=1`.
-- Pass `--no-hint` in CLI commands (`npx @velella/ebb check --no-hint ...`).
-- Pass `noHint: true` to the CLI formatters.
+Findings no longer carry a remediation hint line. `--no-hint` in the CLI, `no-hint` in the GitHub Action and `noHint` in the formatters are still accepted and do nothing.

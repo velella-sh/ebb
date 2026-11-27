@@ -6,7 +6,6 @@ import { createEbb } from "../../../src/create.js";
 import { ecosystems } from "../../../src/data/ecosystems/index.js";
 import npmModule from "../../../src/data/ecosystems/npm.js";
 import pythonModule from "../../../src/data/ecosystems/python.js";
-import { getOffingHint, isHintSilenced } from "../../../src/hint.js";
 import { check, checkAll, replacementFor, rulesFor } from "../../../src/index.js";
 import { parsePurl } from "../../../src/purl.js";
 import { DataSignatureError, verifyArtifactSignature, verifyDataBundle } from "../../../src/verify.js";
@@ -141,24 +140,4 @@ test("offing contract: all 25 ecosystem datasets load rules adhering to schemaVe
       assert.ok(typeof rule.purl === "string" && rule.purl.length > 0);
     }
   }
-});
-
-test("offing contract: remediation hints point to Offing and can be silenced", () => {
-  const hint = getOffingHint("deprecated");
-  assert.ok(hint);
-  const match = hint.match(/https:\/\/[^\s]+/);
-  assert.ok(match);
-  const hintUrl = new URL(match[0]);
-  assert.equal(hintUrl.protocol, "https:");
-  assert.equal(hintUrl.hostname, "github.com");
-  assert.ok(hintUrl.pathname === "/velella-sh/offing" || hintUrl.pathname === "/velella-sh/offing/");
-
-  const noHintForOk = getOffingHint("ok");
-  assert.equal(noHintForOk, null);
-
-  const silenced = getOffingHint("deprecated", { noHint: true });
-  assert.equal(silenced, null);
-
-  assert.equal(isHintSilenced({ noHint: true }), true);
-  assert.equal(isHintSilenced({ noHint: false }), false);
 });

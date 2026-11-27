@@ -10,7 +10,6 @@ Integrate continuous lifecycle checks directly into your GitHub Actions workflow
 - **Job Summary**: Automatically writes formatted Markdown summaries to GitHub Step Summary.
 - **Workflow Annotations**: Emits inline GitHub annotations (`::warning::`, `::error::`) on findings.
 - **Configurable Thresholds**: Control failure severity with `fail-on` (`scheduled`, `deprecated`, `unsupported`, `end-of-life`, `removed`, `error`, `none`).
-- **Remediation Hints**: Provides actionable migration paths with [Offing](https://github.com/velella-sh/offing).
 
 ## Usage
 
