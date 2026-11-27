@@ -1,0 +1,89 @@
+{
+  "artifacts": [
+    {
+      "id": "c1f729e248b1dca5",
+      "name": "busybox",
+      "version": "1.33.1-r6",
+      "type": "apk",
+      "locations": [
+        {
+          "path": "/bin/busybox",
+          "layerID": "sha256:8d3ac3489996423f53d6087c81180006263b79f206d3fdec9e66f0e27ceb8759"
+        }
+      ],
+      "licenses": ["GPL-2.0-only"],
+      "purl": "pkg:apk/alpine/busybox@1.33.1-r6?arch=x86_64&distro=alpine-3.14.0"
+    },
+    {
+      "id": "d2f831a457c2e0b6",
+      "name": "musl",
+      "version": "1.2.2-r3",
+      "type": "apk",
+      "locations": [
+        {
+          "path": "/lib/ld-musl-x86_64.so.1",
+          "layerID": "sha256:8d3ac3489996423f53d6087c81180006263b79f206d3fdec9e66f0e27ceb8759"
+        }
+      ],
+      "licenses": ["MIT"],
+      "purl": "pkg:apk/alpine/musl@1.2.2-r3?arch=x86_64&distro=alpine-3.14.0"
+    },
+    {
+      "id": "e3a942b568d3f1c7",
+      "name": "alpine-baselayout",
+      "version": "3.2.0-r16",
+      "type": "apk",
+      "locations": [
+        {
+          "path": "/etc/alpine-release",
+          "layerID": "sha256:8d3ac3489996423f53d6087c81180006263b79f206d3fdec9e66f0e27ceb8759"
+        }
+      ],
+      "licenses": ["GPL-2.0-only"],
+      "purl": "pkg:apk/alpine/alpine-baselayout@3.2.0-r16?arch=x86_64&distro=alpine-3.14.0"
+    },
+    {
+      "id": "f4b053c679e4a2d8",
+      "name": "ssl_client",
+      "version": "1.33.1-r6",
+      "type": "apk",
+      "locations": [
+        {
+          "path": "/bin/ssl_client",
+          "layerID": "sha256:8d3ac3489996423f53d6087c81180006263b79f206d3fdec9e66f0e27ceb8759"
+        }
+      ],
+      "licenses": ["GPL-2.0-only"],
+      "purl": "pkg:apk/alpine/ssl_client@1.33.1-r6?arch=x86_64&distro=alpine-3.14.0"
+    },
+    {
+      "id": "a5c164d780e5b3e9",
+      "name": "local-scratch-binary",
+      "version": "0.1.0",
+      "type": "binary",
+      "locations": [
+        {
+          "path": "/app/run.sh"
+        }
+      ],
+      "licenses": []
+    }
+  ],
+  "source": {
+    "type": "image",
+    "target": "alpine:3.14"
+  },
+  "distro": {
+    "name": "alpine",
+    "version": "3.14.0",
+    "idLike": ["alpine"]
+  },
+  "descriptor": {
+    "name": "syft",
+    "version": "1.10.0"
+  },
+  "schema": {
+    "version": "1.6.0",
+    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-1.6.0.json"
+  }
+}

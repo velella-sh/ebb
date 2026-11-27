@@ -35,6 +35,8 @@ npm install @velella/ebb
 - **Command Line (CLI)**: Inspect packages, query upcoming deadlines, find replacements, or audit CycloneDX SBOMs from the terminal. See [CLI Documentation](docs/cli.md).
 - **AI Coding Agents (MCP & Skills)**: Equip Claude Code, Cursor, Codex, and Gemini with proactive check-before-install guardrails. See [MCP Server](docs/mcp.md) and [Agent Skills](docs/skills.md).
 
+Coming from xeol? See the [one-minute migration guide](docs/from-xeol.md).
+
 ## Library Usage
 
 ```ts

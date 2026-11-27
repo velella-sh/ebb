@@ -1,0 +1,31 @@
+name: "Container EOL Scan (Xeol Migration)"
+description: "Scan container images for End-of-Life components using Syft and Ebb"
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Step 1: Generate SBOM with Syft
+      - name: Generate SBOM with Syft
+        uses: anchore/sbom-action@v0
+        with:
+          image: "alpine:3.14"
+          output-file: "sbom.syft.json"
+          format: "syft-json"
+
+      # Step 2: Evaluate lifecycle with Ebb in place of xeol-action
+      - name: Evaluate EOL status with Ebb
+        run: |
+          npx --yes @velella/ebb check-all sbom.syft.json --format xeol-json --fail-on end-of-life

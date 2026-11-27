@@ -47,8 +47,10 @@ import {
   formatUpcomingText,
   formatVersionsMarkdown,
   formatVersionsText,
+  formatXeolJson,
   isColorSupported,
 } from "./cli/format/index.js";
+import { isSyftDocument, readSyftDocument, type SyftCheckItem, type SyftDocument, mapLookahead } from "./xeol/index.js";
 import {
   formatBridgeMarkdown,
   mergeBridgeReport,
@@ -90,7 +92,7 @@ Usage:
   ebb mcp --self-test                        Verify MCP data load with one known check
 
 Options:
-  --format <text|markdown|json|ical|openmetrics> Output format (default: text)
+  --format <text|markdown|json|xeol-json|ical|openmetrics> Output format (default: text)
   --json                        Shortcut for --format json
   --as-of <YYYY-MM-DD>          Reference date for time-travel lifecycle evaluation (UTC)
   --within <span|days>          Time window: 30d, 2w, 3m, 1y, or days (default: 90d)
@@ -102,6 +104,8 @@ Options:
   --ecosystem <name>            Filter by ecosystem (e.g. npm, python)
   --purl <purl>                 Filter by package URL
   --fail-on <threshold>         Fail threshold: scheduled, deprecated, unsupported, end-of-life, removed, error (default: deprecated)
+  --fail-on-eol-found           Xeol-compatible failure flag (alias for --fail-on end-of-life)
+  --lookahead <span|days>       Xeol-compatible lookahead window (none, 1d, 1w, 1m, 1y)
   --min-confidence <level>      Filter by minimum confidence: tentative, likely, confirmed
   --event <name>                Filter rules by event (rules command only)
   --signature <file>            Explicit signature file path (default: <file>.sigstore.json)
@@ -459,6 +463,8 @@ export async function runCli(
         event: { type: "string" },
         signature: { type: "string" },
         "fail-on": { type: "string" },
+        "fail-on-eol-found": { type: "boolean", default: false },
+        lookahead: { type: "string" },
         "min-confidence": { type: "string" },
         check: { type: "boolean", default: false },
         rollback: { type: "boolean", default: false },
@@ -550,15 +556,17 @@ export async function runCli(
   }
 
   // Determine output format
-  let format: "text" | "markdown" | "json" | "ical" | "openmetrics" = "text";
+  let format: "text" | "markdown" | "json" | "ical" | "openmetrics" | "xeol-json" = "text";
   if (values.json) {
     format = "json";
   } else if (values.format) {
     const f = String(values.format).toLowerCase();
-    if (f === "json" || f === "markdown" || f === "text" || f === "ical" || f === "openmetrics") {
+    if (f === "json" || f === "markdown" || f === "text" || f === "ical" || f === "openmetrics" || f === "xeol-json") {
       format = f;
     } else {
-      io.stderr.write(`Error: Invalid format "${values.format}". Expected: text, markdown, json, ical, openmetrics.\n`);
+      io.stderr.write(
+        `Error: Invalid format "${values.format}". Expected: text, markdown, json, ical, openmetrics, xeol-json.\n`,
+      );
       return 2;
     }
   }
@@ -692,6 +700,29 @@ export async function runCli(
     if (first === "check-all") {
       const fileArgs = positionals.slice(1);
       const items: CheckAllItem[] = [];
+      const syftItems: SyftCheckItem[] = [];
+      let syftDoc: SyftDocument | undefined;
+
+      const processCheckAllContent = (content: string) => {
+        const trimmed = content.trim();
+        if (trimmed.startsWith("{")) {
+          try {
+            const parsed = JSON.parse(trimmed) as unknown;
+            if (isSyftDocument(parsed)) {
+              const res = readSyftDocument(parsed);
+              syftDoc = res.document;
+              for (const it of res.items) {
+                syftItems.push(it);
+                items.push({ purl: it.purl, version: it.version });
+              }
+              return;
+            }
+          } catch {
+            // Ignore parse failure and fall back
+          }
+        }
+        items.push(...parseCheckAllInput(content));
+      };
 
       if (fileArgs.length === 1 && fileArgs[0] === "-") {
         if (!io.stdin) {
@@ -699,12 +730,12 @@ export async function runCli(
           return 2;
         }
         const content = await readStream(io.stdin);
-        items.push(...parseCheckAllInput(content));
+        processCheckAllContent(content);
       } else if (fileArgs.length > 0) {
         for (const fileArg of fileArgs) {
           try {
             const content = readFileSync(resolve(process.cwd(), fileArg), "utf8");
-            items.push(...parseCheckAllInput(content));
+            processCheckAllContent(content);
           } catch (err) {
             io.stderr.write(`Error reading file "${fileArg}": ${err instanceof Error ? err.message : String(err)}\n`);
             return 2;
@@ -722,10 +753,26 @@ export async function runCli(
           return 2;
         }
         const content = await readStream(io.stdin);
-        items.push(...parseCheckAllInput(content));
+        processCheckAllContent(content);
       }
       if (items.length === 0) {
-        if (format === "json") {
+        if (format === "xeol-json") {
+          io.stdout.write(
+            formatXeolJson(
+              [],
+              {
+                results: [],
+                summary: {
+                  total: 0,
+                  byStatus: { ok: 0, deprecated: 0, unsupported: 0, "end-of-life": 0, removed: 0, scheduled: 0 },
+                  byEvent: { deprecated: 0, unsupported: 0, "end-of-life": 0, removed: 0, scheduled: 0 },
+                  errors: 0,
+                },
+              },
+              syftDoc,
+            ),
+          );
+        } else if (format === "json") {
           io.stdout.write(
             JSON.stringify(
               {
@@ -767,14 +814,42 @@ export async function runCli(
         return 0;
       }
 
-      const asOf = values["as-of"] as string | undefined;
+      let asOf = values["as-of"] as string | undefined;
+      if (values.lookahead) {
+        try {
+          const mapped = mapLookahead(values.lookahead as string, asOf);
+          if (mapped.asOf) {
+            asOf = mapped.asOf;
+          }
+        } catch (err) {
+          io.stderr.write(`Error: ${err instanceof Error ? err.message : String(err)}\n`);
+          return 2;
+        }
+      }
       const effectiveAsOf = asOf ?? (format === "openmetrics" ? new Date().toISOString().slice(0, 10) : undefined);
       const rawOutcome = effectiveAsOf ? checkAllWith(items, (p, v) => check(p, v, effectiveAsOf)) : checkAll(items);
       const outcome = filterCheckAllByMinConfidence(rawOutcome, minConfidence);
       const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
       const status = dataStatus({ now: asOf, maxAgeDays: maxAgeArg });
 
-      if (format === "json") {
+      const effectiveSyftItems: SyftCheckItem[] =
+        syftItems.length > 0
+          ? syftItems
+          : items.map((it, idx) => ({
+              id: String(idx),
+              purl: it.purl,
+              version: it.version,
+              artifact: {
+                name: it.purl,
+                version: it.version,
+                type: "unknown",
+                purl: it.purl,
+              },
+            }));
+
+      if (format === "xeol-json") {
+        io.stdout.write(formatXeolJson(effectiveSyftItems, outcome, syftDoc));
+      } else if (format === "json") {
         io.stdout.write(`${JSON.stringify(outcome, null, 2)}\n`);
       } else if (format === "markdown") {
         io.stdout.write(formatCheckAllMarkdown(items, outcome, { noHint, dataStatus: status, asOf }));
@@ -800,7 +875,12 @@ export async function runCli(
         worstStatus = "scheduled";
       }
 
-      return shouldFail(worstStatus, failOn) ? 1 : 0;
+      let activeFailOn = failOn;
+      if (values["fail-on-eol-found"]) {
+        activeFailOn = "end-of-life";
+      }
+
+      return shouldFail(worstStatus, activeFailOn) ? 1 : 0;
     }
 
     if (first === "bridge") {

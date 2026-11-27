@@ -43,6 +43,8 @@ main:
         url: /scanners/
       - title: Extended support
         url: /extended-support/
+      - title: Migrating from xeol
+        url: /from-xeol/
       - title: Renovate feed
         url: /renovate/
   - title: Runtimes
