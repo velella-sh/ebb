@@ -7,7 +7,7 @@ describe("MCP separate no rule known from supported", () => {
   const server = new McpServer();
 
   it("answers differently for a known supported version and an unknown package", async () => {
-    // 1. Known supported version: Node 27.0.0 (Node has rules, 27.0.0 is healthy/supported)
+    // 1. Known supported version: Node 28.0.0 (Node has rules, 28.0.0 is healthy/supported)
     const supportedResp = await server.handleMessage({
       jsonrpc: "2.0",
       id: 1,
@@ -16,7 +16,7 @@ describe("MCP separate no rule known from supported", () => {
         name: "check",
         arguments: {
           purl: "node",
-          version: "27.0.0",
+          version: "28.0.0",
         },
       },
     });

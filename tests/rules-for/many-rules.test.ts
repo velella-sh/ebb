@@ -74,7 +74,7 @@ test("rulesFor returns full count, oldest-first order, and event filters for Nod
   assertMonotonicOldestFirst(actual, purl);
   assert.equal(actual[0]?.id, "nodejs.runtime.legacy");
   assert.equal(actual[1]?.id, "nodejs.symbol.fs.lchmod");
-  assert.equal(actual[actual.length - 1]?.id, "nodejs.runtime.eol-26");
+  assert.equal(actual[actual.length - 1]?.id, "nodejs.runtime.eol-27");
 
   // Equal range starts (>=25.0.0) are broken stably by rule id.
   const v25Rules = actual.filter((rule) => rule.vers === "vers:semver/>=25.0.0").map((rule) => rule.id);
@@ -118,7 +118,7 @@ test("rulesFor returns full count, oldest-first order, and event filters for Pyt
   assert.equal(actual[0]?.id, "python.runtime.eol-3.10-and-older");
   assert.equal(actual[1]?.id, "python.runtime.eol-3.9-and-older");
   assert.equal(actual[2]?.id, "python.symbol.ast.constant-nodes");
-  assert.equal(actual[actual.length - 1]?.id, "python.runtime.eol-3.15");
+  assert.equal(actual[actual.length - 1]?.id, "python.runtime.eol-3.16");
 
   // Equal range starts (>=3.12) are broken stably by rule id.
   const v312Rules = actual.filter((rule) => rule.vers === "vers:pypi/>=3.12").map((rule) => rule.id);

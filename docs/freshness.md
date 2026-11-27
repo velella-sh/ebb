@@ -134,7 +134,7 @@ Each cited source tracked by Ebb is evaluated against the following report statu
 <!-- ebb-source-status-counts:start -->
 | Status | Count | Description |
 |---|---|---|
-| `ok` | 353 | Reachable and verified unchanged |
+| `ok` | 354 | Reachable and verified unchanged |
 | `archived-only` | 0 | Unreachable primary, verified via archive snapshot |
 | `changed` | 0 | Title or URL redirected |
 | `date-changed` | 0 | Structured pointer value differs from rule date |
