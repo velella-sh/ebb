@@ -1,0 +1,50 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "alpine:3.14",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.14.0"
+    },
+    "ImageConfig": {
+      "architecture": "amd64",
+      "os": "linux"
+    }
+  },
+  "Results": [
+    {
+      "Target": "alpine:3.14 (alpine 3.14.0)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Packages": [
+        {
+          "ID": "musl@1.2.2-r3",
+          "Name": "musl",
+          "Identifier": {
+            "PURL": "pkg:apk/alpine/musl@1.2.2-r3?arch=x86_64&distro=alpine-3.14.0",
+            "UID": "musl-uid-1"
+          },
+          "Version": "1.2.2-r3"
+        },
+        {
+          "ID": "busybox@1.33.1-r6",
+          "Name": "busybox",
+          "Identifier": {
+            "PURL": "pkg:apk/alpine/busybox@1.33.1-r6?arch=x86_64&distro=alpine-3.14.0",
+            "UID": "busybox-uid-1"
+          },
+          "Version": "1.33.1-r6"
+        },
+        {
+          "ID": "ssl_client@1.33.1-r6",
+          "Name": "ssl_client",
+          "Identifier": {
+            "PURL": "pkg:apk/alpine/ssl_client@1.33.1-r6?arch=x86_64&distro=alpine-3.14.0"
+          },
+          "Version": "1.33.1-r6"
+        }
+      ]
+    }
+  ]
+}

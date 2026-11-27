@@ -1,0 +1,25 @@
+name: "Trivy Lifecycle Bridge Workflow"
+description: "Run Aqua Security Trivy vulnerability scans and bridge output with Ebb lifecycle intelligence"
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  trivy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.60.0
+
+      - name: Run Trivy and evaluate lifecycle milestones
+        run: |
+          trivy image alpine:3.14 --format json --list-all-pkgs | npx --yes @velella/ebb@0.2.1 bridge trivy - >> $GITHUB_STEP_SUMMARY

@@ -125,6 +125,24 @@ cat dependencies.txt | ebb check-all
 ebb check-all bom.json --json
 ```
 
+### `ebb bridge <trivy|grype> <report|->`
+
+Pairs scanner reports with Ebb lifecycle findings, preserving all original scanner findings and correlating packages with end-of-life runtimes and deprecations.
+
+```bash
+# Pair a Trivy JSON report
+ebb bridge trivy report.json
+
+# Stream Grype output directly through the bridge
+grype alpine:3.14 -o json | ebb bridge grype -
+
+# Format as JSON
+ebb bridge trivy report.json --format json
+
+# Fail pipeline if any findings reach threshold (default: deprecated)
+ebb bridge trivy report.json --fail-on end-of-life
+```
+
 ### `ebb replacement <purl> [version]`
 
 Finds suggested replacements or migration recommendations for deprecated packages.

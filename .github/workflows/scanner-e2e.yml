@@ -1,0 +1,84 @@
+name: Scanner E2E
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  scanner-e2e:
+    name: Scanner Bridge E2E (Trivy & Grype)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies & build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install pinned Trivy v0.60.0 with checksums
+        run: |
+          set -e
+          TRIVY_VERSION="0.60.0"
+          curl -sSL -O "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz"
+          curl -sSL -O "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_checksums.txt"
+          sha256sum --check --ignore-missing "trivy_${TRIVY_VERSION}_checksums.txt"
+          sudo tar -C /usr/local/bin -xzf "trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" trivy
+          trivy --version
+
+      - name: Install pinned Grype v0.87.0 with checksums
+        run: |
+          set -e
+          GRYPE_VERSION="0.87.0"
+          curl -sSL -O "https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.tar.gz"
+          curl -sSL -O "https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_checksums.txt"
+          sha256sum --check --ignore-missing "grype_${GRYPE_VERSION}_checksums.txt"
+          sudo tar -C /usr/local/bin -xzf "grype_${GRYPE_VERSION}_linux_amd64.tar.gz" grype
+          grype version
+
+      - name: Scan pinned EOL container image and feed to Trivy bridge
+        run: |
+          set -e
+          IMAGE="alpine:3.14@sha256:0f533a10fb63f237073289a2444c538cb8db323cc984f4bf2e8e97a44f5155f9"
+          echo "Scanning image $IMAGE with Trivy..."
+          trivy image "$IMAGE" --format json --list-all-pkgs > trivy-report.json
+          node dist/src/bin.js bridge trivy trivy-report.json > trivy-bridge.txt
+          cat trivy-bridge.txt
+          if ! grep -q "end-of-life" trivy-bridge.txt; then
+            echo "Expected lifecycle finding for end-of-life Alpine runtime, but none was found!"
+            exit 1
+          fi
+
+      - name: Scan pinned EOL container image and feed to Grype bridge
+        run: |
+          set -e
+          IMAGE="alpine:3.14@sha256:0f533a10fb63f237073289a2444c538cb8db323cc984f4bf2e8e97a44f5155f9"
+          echo "Scanning image $IMAGE with Grype..."
+          grype "$IMAGE" -o json > grype-report.json
+          node dist/src/bin.js bridge grype grype-report.json > grype-bridge.txt
+          cat grype-bridge.txt
+          if ! grep -q "end-of-life" grype-bridge.txt; then
+            echo "Expected lifecycle finding for end-of-life Alpine runtime, but none was found!"
+            exit 1
+          fi
+
+      - name: Run Trivy plugin from working tree
+        run: |
+          set -e
+          IMAGE="alpine:3.14@sha256:0f533a10fb63f237073289a2444c538cb8db323cc984f4bf2e8e97a44f5155f9"
+          EBB_BIN="node $GITHUB_WORKSPACE/dist/src/bin.js" ./integrations/trivy/ebb.sh image "$IMAGE" > plugin-out.txt
+          cat plugin-out.txt
+          if ! grep -q "end-of-life" plugin-out.txt; then
+            echo "Plugin execution did not report expected end-of-life finding!"
+            exit 1
+          fi

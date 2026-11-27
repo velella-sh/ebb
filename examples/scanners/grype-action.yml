@@ -1,0 +1,25 @@
+name: "Grype Lifecycle Bridge Workflow"
+description: "Run Anchore Grype vulnerability scans and bridge output with Ebb lifecycle intelligence"
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  grype-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Grype
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin v0.87.0
+
+      - name: Run Grype and evaluate lifecycle milestones
+        run: |
+          grype alpine:3.14 -o json | npx --yes @velella/ebb@0.2.1 bridge grype - >> $GITHUB_STEP_SUMMARY
