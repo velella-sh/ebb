@@ -130,7 +130,6 @@ Output:
       "note": "Human-friendly HTTP request library for Node.js"
     }
   ],
-  "hint": "Offing can fix this: https://github.com/velella-sh/offing",
   "versions": {
     "asOf": "2026-11-12",
     "complete": true,

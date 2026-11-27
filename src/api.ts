@@ -78,7 +78,7 @@ export interface ApiComponentDocument {
   namespace?: string | undefined;
   ecosystems: string[];
   rules: Rule[];
-  /** @deprecated Offing hint line has been removed */
+  /** @deprecated No longer set. */
   hint?: string | undefined;
   /** Feed URL for this component, present when it has a deadline that has not passed. */
   calendar?: string | undefined;

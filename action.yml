@@ -23,7 +23,7 @@ inputs:
     required: false
     default: 'deprecated'
   no-hint:
-    description: 'Disable the Offing remediation hint (true/false)'
+    description: 'Deprecated (no-op).'
     required: false
     default: 'false'
 

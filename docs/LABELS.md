@@ -40,4 +40,4 @@ Ebb uses structured labels to categorize and route work efficiently for human ma
 - `area:agent`: Agent tools, Model Context Protocol (MCP) server, and skills.
 - `area:release`: Packaging, size budgets, CI workflows, and publishing.
 - `area:docs`: Documentation, guides, and specifications (`docs/`).
-- `area:integration`: External integrations and consumer contracts (e.g. Offing).
+- `area:integration`: External integrations and consumer contracts.

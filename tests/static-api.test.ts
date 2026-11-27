@@ -80,7 +80,7 @@ test("static API generation produces valid files matching JSON schema and size b
     assert.equal(requestDoc.version, VERSION);
     assert.equal(requestDoc.generatedAt, "2026-11-12T00:00:00.000Z");
     assert.equal(requestDoc.$schema, "https://velella.sh/ebb/api/v1/schemas/static-api.v1.schema.json");
-    assert.ok(requestDoc.hint?.includes("velella-sh/offing"));
+    assert.equal(requestDoc.hint, undefined);
     assert.ok(requestDoc.rules.length > 0);
     assert.equal(requestDoc.rules[0].confidence, "confirmed");
     assert.equal(requestDoc.rules[0].url, "https://velella.sh/ebb/api/v1/rules/npm.package.request.deprecated.json");
@@ -371,7 +371,7 @@ test("fetchComponent and fetchRule query static API correctly with mock fetch", 
           deadline: "2020-02-11",
         },
       ],
-      hint: "Offing can fix this: https://github.com/velella-sh/offing",
+      hint: "legacy hint from an older file",
     }),
   };
 
@@ -396,7 +396,7 @@ test("fetchComponent and fetchRule query static API correctly with mock fetch", 
   assert.ok(comp);
   assert.equal(comp?.name, "request");
   assert.equal(comp?.rules.length, 1);
-  assert.equal(comp?.hint, "Offing can fix this: https://github.com/velella-sh/offing");
+  assert.equal(comp?.hint, "legacy hint from an older file");
 
   // Test fetchRule with matching version
   const rules = await fetchRule("pkg:npm/request@2.88.2", { fetch: mockFetch });

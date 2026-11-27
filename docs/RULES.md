@@ -345,7 +345,7 @@ This example adds a rule for `fs.exists`, which Node.js documents as deprecated 
 3. **Pick the shape.** `fs.exists(path, callback)` is called, so `shape` is `call`. Use `construct` for `new Buffer(size)`, `reference` when merely passing the function around is the problem, and `option` for a deprecated property of an options object.
 4. **Write one entry per language.** Node.js code is JavaScript or TypeScript, so write two `symbol` entries that differ only in `language`. Add an `import` entry for the module too if you want the regex scanner to point at the file.
 5. **Write the rule.** Copy the complete rule above, then set `purl`, `vers`, `title`, `summary`, `replacement`, `sources`, and `provenance` from the notice. `summary` states what the source says; the advice goes in `replacement`.
-6. **Add cases.** A symbol rule is judged by the call it finds in source code, which is the consumer's job (Offing's usage analysis has its own fixtures for that). In this repository, make sure the rule's `purl` and `vers` say which runtime versions carry the deprecation, and that `npm run lint:rules` passes.
+6. **Add cases.** A symbol rule is judged by the call it finds in source code, which is the consumer's job (consumers keep their own fixtures for that). In this repository, make sure the rule's `purl` and `vers` say which runtime versions carry the deprecation, and that `npm run lint:rules` passes.
 7. **Open the pull request** with `Closes #<issue>` and link the deprecation notice.
 
 ### Provenance

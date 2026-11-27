@@ -108,7 +108,6 @@ $ npx @velella/ebb check pkg\:npm/request@2.88.2
   Replacement: Native fetch or a maintained HTTP client
   Sources:
     - https://www.npmjs.com/package/request
-  Offing can fix this: https://github.com/velella-sh/offing
 :::
 
 ### Common CLI Tasks
