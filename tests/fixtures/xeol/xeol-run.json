@@ -1,0 +1,155 @@
+{
+  "_recorded": {
+    "tool": "xeol",
+    "version": "v0.10.8",
+    "date": "2025-03-05",
+    "exitCode": 1,
+    "input": "test-fixtures/sbom-syft-centos8.json"
+  },
+  "matches": [
+    {
+      "Cycle": {
+        "ProductName": "MongoDB Server",
+        "ProductPermalink": "",
+        "ReleaseCycle": "2.8",
+        "Eol": "true",
+        "LatestRelease": "",
+        "LatestReleaseDate": "2016-07-31",
+        "ReleaseDate": "2016-07-31"
+      },
+      "Package": {
+        "ID": "pkg-2",
+        "Name": "package-2",
+        "Version": "2.2.2",
+        "Locations": {},
+        "Language": "",
+        "Licenses": null,
+        "Type": "deb",
+        "CPEs": null,
+        "PURL": "pkg:deb/debian/package-2@2.2.2",
+        "Upstreams": null,
+        "MetadataType": "",
+        "Metadata": null
+      },
+      "artifact": {
+        "name": "package-2",
+        "version": "2.2.2",
+        "type": "deb",
+        "locations": [
+          {
+            "path": "/foo/bar/somefile-2.txt"
+          }
+        ],
+        "language": "",
+        "licenses": [
+          "MIT",
+          "Apache-2.0"
+        ],
+        "cpes": [],
+        "purl": "pkg:deb/debian/package-2@2.2.2",
+        "upstreams": []
+      }
+    },
+    {
+      "Cycle": {
+        "ProductName": "MongoDB Server",
+        "ProductPermalink": "",
+        "ReleaseCycle": "3.2",
+        "Eol": "2018-07-31",
+        "LatestRelease": "",
+        "LatestReleaseDate": "2018-07-31",
+        "ReleaseDate": "2018-07-31"
+      },
+      "Package": {
+        "ID": "pkg-1",
+        "Name": "package-1",
+        "Version": "1.1.1",
+        "Locations": {},
+        "Language": "",
+        "Licenses": null,
+        "Type": "rpm",
+        "CPEs": null,
+        "PURL": "pkg:rpm/fedora/package-1@1.1.1",
+        "Upstreams": null,
+        "MetadataType": "RpmMetadata",
+        "Metadata": null
+      },
+      "artifact": {
+        "name": "package-1",
+        "version": "1.1.1",
+        "type": "rpm",
+        "locations": [
+          {
+            "path": "/foo/bar/somefile-1.txt"
+          }
+        ],
+        "language": "",
+        "licenses": [],
+        "cpes": [],
+        "purl": "pkg:rpm/fedora/package-1@1.1.1",
+        "upstreams": [
+          {
+            "name": "nothing",
+            "version": "3.2"
+          }
+        ],
+        "metadataType": "RpmMetadata",
+        "metadata": {
+          "epoch": 2,
+          "modularityLabel": ""
+        }
+      }
+    },
+    {
+      "Cycle": {
+        "ProductName": "Ubuntu",
+        "ProductPermalink": "",
+        "ReleaseCycle": "16.04",
+        "Eol": "2021-04-02",
+        "LatestRelease": "",
+        "LatestReleaseDate": "2016-07-31",
+        "ReleaseDate": "2016-07-31"
+      },
+      "Package": {
+        "ID": "pkg-3",
+        "Name": "ubuntu",
+        "Version": "16.04",
+        "Locations": {},
+        "Language": "",
+        "Licenses": null,
+        "Type": "os",
+        "CPEs": null,
+        "PURL": "pkg:generic/ubuntu@16.04",
+        "Upstreams": null,
+        "MetadataType": "",
+        "Metadata": null
+      },
+      "artifact": {
+        "name": "ubuntu",
+        "version": "16.04",
+        "type": "os",
+        "locations": [],
+        "language": "",
+        "licenses": [],
+        "cpes": [],
+        "purl": "pkg:generic/ubuntu@16.04",
+        "upstreams": []
+      }
+    }
+  ],
+  "source": {
+    "type": "directory",
+    "target": "/some/path"
+  },
+  "distro": {
+    "name": "centos",
+    "version": "8.0",
+    "idLike": [
+      "centos"
+    ]
+  },
+  "descriptor": {
+    "name": "xeol",
+    "version": "0.10.8"
+  }
+}

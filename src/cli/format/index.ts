@@ -4,3 +4,4 @@ export * from "./markdown.js";
 export * from "./sources.js";
 export * from "./versions.js";
 export * from "./openmetrics.js";
+export * from "./xeol.js";

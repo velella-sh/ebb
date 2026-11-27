@@ -99,10 +99,12 @@ ebb as-of 2027-05-01 node 22.11.0 --json
 Evaluates multiple dependencies in batch mode. Supports one or more JSON lists, CycloneDX SBOM files, SPDX JSON SBOMs, Syft JSON documents, or newline-delimited PURLs from files or standard input (`stdin`).
 
 Options:
-- `--format <text|markdown|json|openmetrics>`: Output format (default: `text`). Use `openmetrics` for Prometheus textfile collector export.
+- `--format <text|markdown|json|xeol-json|openmetrics>`: Output format (default: `text`). Use `xeol-json` for xeol-compatible output or `openmetrics` for Prometheus textfile collector export.
 - `--json`: Shortcut for `--format json`.
 - `--as-of <YYYY-MM-DD>`: Reference date for time-travel lifecycle evaluation (UTC).
 - `--fail-on <threshold>`: Severity threshold (default: `deprecated`).
+- `--fail-on-eol-found`: Xeol-compatible failure flag setting exit code `1` when any package has reached end-of-life (alias for `--fail-on end-of-life`).
+- `--lookahead <span|days>`: Xeol-compatible lookahead duration window (`none`, `1d`, `1w`, `1m`, `1y`).
 
 Examples:
 ```bash
@@ -111,6 +113,9 @@ ebb check-all bom.json
 
 # Check several files at once
 ebb check-all bom.json sbom.spdx.json
+
+# Output xeol-compatible JSON from a Syft document
+ebb check-all sbom.syft.json --format xeol-json
 
 # Time-travel batch evaluation
 ebb check-all bom.json --as-of 2026-04-01
@@ -426,7 +431,7 @@ ebb mcp --self-test
 
 ## Formatting & Output Options
 
-- `--format <text|markdown|json|ical|openmetrics>`: Choose output format. Defaults to `text`.
+- `--format <text|markdown|json|xeol-json|ical|openmetrics>`: Choose output format. Defaults to `text`.
 - `--json`: Shortcut for `--format json`.
 - `--fail-on <threshold>`: Minimum severity that exits with code `1`. Supported values:
   - `scheduled`: Fails on scheduled, deprecated, unsupported, end-of-life, removed, or error.
@@ -435,6 +440,8 @@ ebb mcp --self-test
   - `end-of-life`: Fails on end-of-life, removed, or error.
   - `error`: Fails only on parse/lookup errors.
   - `none`: Always exits with code 0 on findings.
+- `--fail-on-eol-found`: Xeol-compatible failure flag (alias for `--fail-on end-of-life`).
+- `--lookahead <span|days>`: Xeol-compatible lookahead window.
 - `--no-color` / `NO_COLOR`: Disables ANSI colors, conforming to the [NO_COLOR specification](https://no-color.org/).
 - `--color`: Forces colored output.
 - `--no-hint`: Deprecated (no-op).

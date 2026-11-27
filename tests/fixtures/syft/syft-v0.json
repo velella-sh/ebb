@@ -1,0 +1,59 @@
+{
+  "artifacts": [
+    {
+      "id": "art-v0-1",
+      "name": "alpine-baselayout",
+      "version": "3.2.0-r6",
+      "type": "apk",
+      "locations": [
+        {
+          "path": "/lib/apk/db/installed"
+        }
+      ],
+      "licenses": ["GPL-2.0-only"],
+      "purl": "pkg:apk/alpine/alpine-baselayout@3.2.0-r6?arch=x86_64"
+    },
+    {
+      "id": "art-v0-2",
+      "name": "busybox",
+      "version": "1.33.1-r6",
+      "type": "apk",
+      "locations": [
+        {
+          "path": "/bin/busybox"
+        }
+      ],
+      "licenses": ["GPL-2.0-only"],
+      "purl": "pkg:apk/alpine/busybox@1.33.1-r6?arch=x86_64"
+    },
+    {
+      "id": "art-v0-3",
+      "name": "unpurl-package",
+      "version": "1.0.0",
+      "type": "binary",
+      "locations": [
+        {
+          "path": "/usr/local/bin/custom"
+        }
+      ],
+      "licenses": []
+    }
+  ],
+  "source": {
+    "type": "image",
+    "target": "alpine:3.13.4"
+  },
+  "distro": {
+    "name": "alpine",
+    "version": "3.13.4",
+    "idLike": ["alpine"]
+  },
+  "descriptor": {
+    "name": "syft",
+    "version": "0.23.0"
+  },
+  "schema": {
+    "version": "1.1.0",
+    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-1.1.0.json"
+  }
+}
