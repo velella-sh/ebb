@@ -15,6 +15,7 @@ import type { RegistryV2, RegistryV2Rule, ReplacementItem } from "../../src/regi
 import { sourcesOf } from "../../src/sources-of.js";
 import { writeCalendars } from "./calendar.js";
 import { generateOpenApi } from "./openapi.js";
+import { writeRenovateFeeds } from "./renovate.js";
 
 export const API_SCHEMA_VERSION = "ebb.api.v1" as const;
 
@@ -47,6 +48,7 @@ export interface GenerateStaticApiResult {
   searchRawBytes: number;
   searchGzipBytes: number;
   metaRawBytes?: number;
+  renovateFeedCount?: number;
 }
 
 export function sha256Hex(data: string | Buffer): string {
@@ -234,6 +236,14 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     createdAt,
   });
 
+  const renovateResult = await writeRenovateFeeds({
+    outDir,
+    rules: allRules,
+    baseUrl,
+    createdAt,
+  });
+  const renovateFeeds = renovateResult.feeds;
+
   const schemaUrl = `${baseUrl}/schemas/static-api.v1.schema.json`;
 
   // 1. Generate Component JSON files
@@ -251,6 +261,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       rules: number;
       earliestDeadline?: string | undefined;
       latestReview?: string | undefined;
+      renovate?: string | undefined;
       sha256: string;
       etag: string;
       bytes: number;
@@ -282,6 +293,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     const latestReview = reviews.length > 0 ? reviews.sort().slice(-1)[0] : undefined;
 
     const calendar = calendarFeeds.get(purl);
+    const renovateFeed = renovateFeeds.get(purl);
     const versionReport = supportedVersions(purl, {
       asOf,
       rules: comp.rules,
@@ -320,6 +332,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
         lines: versionReport.lines,
       },
       ...(calendar ? { calendar } : {}),
+      ...(renovateFeed ? { renovate: renovateFeed.url } : {}),
     };
 
     const compJson = JSON.stringify(sortKeys(compDoc), null, 2);
@@ -350,6 +363,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       rules: comp.rules.length,
       ...(earliestDeadline ? { earliestDeadline } : {}),
       ...(latestReview ? { latestReview } : {}),
+      ...(renovateFeed ? { renovate: renovateFeed.path } : {}),
       sha256: compHash,
       etag: `"${compHash.slice(0, 16)}"`,
       bytes: compBytes,
@@ -819,5 +833,6 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     searchRawBytes: Buffer.byteLength(searchJson, "utf8"),
     searchGzipBytes: searchGzip.length,
     metaRawBytes: Buffer.byteLength(metaJson, "utf8"),
+    renovateFeedCount: renovateFeeds.size,
   };
 }

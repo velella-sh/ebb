@@ -1,0 +1,83 @@
+name: Renovate E2E
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  renovate-e2e:
+    name: Renovate Preset and Feed E2E
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies & build static API
+        run: |
+          npm ci
+          npm run build
+          npm run build:static-api
+
+      - name: Validate preset configuration
+        run: |
+          npx --package=renovate@42.99.0 renovate-config-validator --strict renovate/eol.json
+
+      - name: Test Renovate execution with active feed
+        run: |
+          set -e
+          FIXTURE_DIR=$(mktemp -d)
+          cp -r tests/renovate/fixture-repo/* "$FIXTURE_DIR/"
+          # Point node.json at built generic/nodejs feed
+          cp dist/site/api/v1/renovate/generic/nodejs.json "$FIXTURE_DIR/node.json"
+          cd "$FIXTURE_DIR"
+          git init -b main
+          git config user.name "Renovate E2E Tester"
+          git config user.email "test@velella.sh"
+          git add .
+          git commit -m "chore: test fixture setup"
+
+          echo "Running Renovate 42.99.0 on fixture repository..."
+          OUTPUT=$(LOG_LEVEL=debug npx --package=renovate@42.99.0 renovate --platform=local --dry-run=lookup 2>&1)
+          echo "$OUTPUT"
+
+          # Verify that Node.js 18 end-of-life was observed and upgrade branch planned
+          if echo "$OUTPUT" | grep -q "renovate/node-"; then
+            echo "Renovate correctly observed deprecated Node.js 18 and planned upgrade."
+          else
+            echo "Error: Expected upgrade branch planning for deprecated Node.js 18, but none found!"
+            exit 1
+          fi
+
+      - name: Verify job fails when feed is emptied
+        run: |
+          set -e
+          FIXTURE_DIR=$(mktemp -d)
+          cp -r tests/renovate/fixture-repo/* "$FIXTURE_DIR/"
+          # Empty releases in feed file
+          echo '{"releases":[]}' > "$FIXTURE_DIR/node.json"
+          cd "$FIXTURE_DIR"
+          git init -b main
+          git config user.name "Renovate E2E Tester"
+          git config user.email "test@velella.sh"
+          git add .
+          git commit -m "chore: test fixture with empty feed"
+
+          echo "Running Renovate on fixture repository with empty feed..."
+          OUTPUT=$(LOG_LEVEL=debug npx --package=renovate@42.99.0 renovate --platform=local --dry-run=lookup 2>&1)
+          echo "$OUTPUT"
+
+          if echo "$OUTPUT" | grep -q "0 flattened updates found"; then
+            echo "Observed 0 updates with empty feed as expected."
+          else
+            echo "Error: Expected 0 updates when feed is empty!"
+            exit 1
+          fi

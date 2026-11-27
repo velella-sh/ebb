@@ -129,6 +129,12 @@ export const ENDPOINTS: EndpointSpec[] = [
     example: "/calendar/generic/nodejs.ics",
     responseType: "text/calendar",
   },
+  {
+    path: "/renovate/{type}/{name}.json",
+    summary: "Renovate custom datasource feed",
+    description: "Release lines and deprecation flags formatted for Renovate custom datasources",
+    example: "/renovate/generic/nodejs.json",
+  },
 ];
 
 export interface GenerateOpenApiOptions {

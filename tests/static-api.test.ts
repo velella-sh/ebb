@@ -657,6 +657,11 @@ test("runSmokeTest validates target endpoints cleanly and detects broken URLs", 
       count: 0,
       upcoming: [],
     },
+    "https://velella.sh/ebb/api/v1/renovate/generic/nodejs.json": {
+      releases: [{ version: "18.x", isDeprecated: true }],
+      homepage: "https://nodejs.org",
+      sourceUrl: "https://github.com/nodejs/node",
+    },
   };
 
   const smokeMockFetch: typeof fetch = async (input) => {

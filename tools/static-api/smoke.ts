@@ -60,6 +60,27 @@ export async function runSmokeTest(options: SmokeTestOptions): Promise<void> {
       throw new Error(`Smoke test failed: schema validation failed for ${url}:\n${errorDetails}`);
     }
   }
+
+  // Smoke test Renovate custom datasource feed
+  const renovateUrl = `${cleanBase}/renovate/generic/nodejs.json`;
+  let renovateRes: Response;
+  try {
+    renovateRes = await fetchFn(renovateUrl);
+  } catch (err) {
+    throw new Error(`Smoke test failed: network error requesting ${renovateUrl}: ${(err as Error).message}`);
+  }
+  if (!renovateRes.ok) {
+    throw new Error(`Smoke test failed: ${renovateUrl} returned HTTP ${renovateRes.status} ${renovateRes.statusText}`);
+  }
+  let renovateBody: { releases?: Array<{ version?: string; isDeprecated?: boolean }> };
+  try {
+    renovateBody = (await renovateRes.json()) as { releases?: Array<{ version?: string; isDeprecated?: boolean }> };
+  } catch (err) {
+    throw new Error(`Smoke test failed: ${renovateUrl} returned invalid JSON: ${(err as Error).message}`);
+  }
+  if (!Array.isArray(renovateBody.releases) || renovateBody.releases.length === 0) {
+    throw new Error(`Smoke test failed: ${renovateUrl} missing releases array`);
+  }
 }
 
 export async function main(argv: string[]): Promise<void> {
@@ -67,7 +88,7 @@ export async function main(argv: string[]): Promise<void> {
   process.stderr.write(`Starting smoke test against ${baseUrl}...\n`);
   try {
     await runSmokeTest({ baseUrl });
-    process.stderr.write(`Smoke test passed: all 4 endpoints fetched and validated cleanly.\n`);
+    process.stderr.write(`Smoke test passed: all 5 endpoints fetched and validated cleanly.\n`);
   } catch (err) {
     process.stderr.write(`${(err as Error).message}\n`);
     process.exit(1);
