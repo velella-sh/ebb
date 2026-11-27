@@ -1,0 +1,3 @@
+# PURL list for ebb-purls hook
+pkg:npm/express@4.21.0
+pkg:generic/nodejs@22.12.0

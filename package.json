@@ -154,8 +154,7 @@
     "archive:sources": "npm run build --silent && node dist/tools/archive-sources.js",
     "refresh:cli-time-golden": "npm run build --silent && node dist/tools/refresh-cli-time-golden.js",
     "size": "npm run build --silent && node dist/tools/size.js",
-    "build:data-bundle": "npm run build --silent && node dist/tools/build-data-bundle.js",
-    "prepack": "npm run build --silent && npm run build:llms"
+    "build:data-bundle": "npm run build --silent && node dist/tools/build-data-bundle.js"
   },
   "engines": {
     "node": ">=22"

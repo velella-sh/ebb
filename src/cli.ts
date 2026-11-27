@@ -60,7 +60,7 @@ const HELP_TEXT = `ebb - The open almanac of software end-of-life
 Usage:
   ebb check <purl> [version] [options]       Check lifecycle status of a package
   ebb as-of <date> <purl> [version]          Evaluate lifecycle status as of a specific date
-  ebb check-all [file] [options]             Batch check packages (file, stdin, CycloneDX)
+  ebb check-all [file...] [options]          Batch check packages (file, stdin, SBOM)
   ebb replacement <purl> [version] [options] Show suggested replacement for a package
   ebb versions <purl> [options]              List release lines and recommend one
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
@@ -116,6 +116,7 @@ Examples:
   ebb check pkg:npm/request@2.88.2
   ebb check node 16.0.0 --format markdown
   ebb check-all bom.json --json
+  ebb check-all bom.json sbom.spdx.json
   cat purls.txt | ebb check-all --fail-on scheduled
   ebb replacement pkg:npm/request 2.88.2
   ebb versions node --as-of 2026-11-15
@@ -218,6 +219,99 @@ export function parseCheckAllInput(content: string): CheckAllItem[] {
               const { purl, version } = extractPurlAndVersion(purlStr, verStr);
               return { purl, version: version ?? "" };
             });
+        }
+        if (Array.isArray(obj.artifacts)) {
+          return obj.artifacts
+            .filter(
+              (a): a is Record<string, unknown> => typeof a === "object" && a !== null && typeof a.purl === "string",
+            )
+            .map((a) => {
+              const purlStr = a.purl as string;
+              const verStr = typeof a.version === "string" ? a.version : undefined;
+              const { purl, version } = extractPurlAndVersion(purlStr, verStr);
+              return { purl, version: version ?? "" };
+            });
+        }
+        if (Array.isArray(obj.packages)) {
+          const items: CheckAllItem[] = [];
+          for (const pkg of obj.packages) {
+            if (typeof pkg !== "object" || pkg === null) continue;
+            const pkgObj = pkg as Record<string, unknown>;
+            const verStr =
+              typeof pkgObj.versionInfo === "string"
+                ? pkgObj.versionInfo
+                : typeof pkgObj.version === "string"
+                  ? pkgObj.version
+                  : undefined;
+            let purlStr: string | undefined = typeof pkgObj.purl === "string" ? pkgObj.purl : undefined;
+            const externalRefs = (
+              Array.isArray(pkgObj.externalRefs)
+                ? pkgObj.externalRefs
+                : Array.isArray(pkgObj.externalRef)
+                  ? pkgObj.externalRef
+                  : []
+            ) as Array<Record<string, unknown>>;
+            for (const ref of externalRefs) {
+              if (typeof ref !== "object" || ref === null) continue;
+              const refType = String(ref.referenceType || ref.externalRefType || "");
+              const locator =
+                typeof ref.referenceLocator === "string"
+                  ? ref.referenceLocator
+                  : typeof ref.locator === "string"
+                    ? ref.locator
+                    : "";
+              if (refType.toLowerCase() === "purl" || locator.startsWith("pkg:")) {
+                purlStr = locator;
+                break;
+              }
+            }
+            if (purlStr) {
+              const { purl, version } = extractPurlAndVersion(purlStr, verStr);
+              items.push({ purl, version: version ?? "" });
+            }
+          }
+          if (items.length > 0) return items;
+        }
+        if (Array.isArray(obj["@graph"])) {
+          const items: CheckAllItem[] = [];
+          for (const elem of obj["@graph"]) {
+            if (typeof elem !== "object" || elem === null) continue;
+            const elemObj = elem as Record<string, unknown>;
+            const elemType = String(elemObj["@type"] || elemObj.type || "");
+            if (!elemType.includes("Package")) continue;
+            const verStr =
+              typeof elemObj.packageVersion === "string"
+                ? elemObj.packageVersion
+                : typeof elemObj.version === "string"
+                  ? elemObj.version
+                  : undefined;
+            let purlStr: string | undefined;
+            const externalRefs = (
+              Array.isArray(elemObj.externalRef)
+                ? elemObj.externalRef
+                : Array.isArray(elemObj.externalRefs)
+                  ? elemObj.externalRefs
+                  : []
+            ) as Array<Record<string, unknown>>;
+            for (const ref of externalRefs) {
+              if (typeof ref !== "object" || ref === null) continue;
+              const locator =
+                typeof ref.locator === "string"
+                  ? ref.locator
+                  : typeof ref.referenceLocator === "string"
+                    ? ref.referenceLocator
+                    : "";
+              if (locator.startsWith("pkg:")) {
+                purlStr = locator;
+                break;
+              }
+            }
+            if (purlStr) {
+              const { purl, version } = extractPurlAndVersion(purlStr, verStr);
+              items.push({ purl, version: version ?? "" });
+            }
+          }
+          if (items.length > 0) return items;
         }
       }
     } catch {
@@ -584,20 +678,30 @@ export async function runCli(
     }
 
     if (first === "check-all") {
-      const fileArg = positionals[1];
-      let content = "";
+      const fileArgs = positionals.slice(1);
+      const items: CheckAllItem[] = [];
 
-      if (fileArg && fileArg !== "-") {
-        try {
-          content = readFileSync(resolve(process.cwd(), fileArg), "utf8");
-        } catch (err) {
-          io.stderr.write(`Error reading file "${fileArg}": ${err instanceof Error ? err.message : String(err)}\n`);
+      if (fileArgs.length === 1 && fileArgs[0] === "-") {
+        if (!io.stdin) {
+          io.stderr.write("Error: No stdin stream available.\n");
           return 2;
         }
+        const content = await readStream(io.stdin);
+        items.push(...parseCheckAllInput(content));
+      } else if (fileArgs.length > 0) {
+        for (const fileArg of fileArgs) {
+          try {
+            const content = readFileSync(resolve(process.cwd(), fileArg), "utf8");
+            items.push(...parseCheckAllInput(content));
+          } catch (err) {
+            io.stderr.write(`Error reading file "${fileArg}": ${err instanceof Error ? err.message : String(err)}\n`);
+            return 2;
+          }
+        }
       } else {
-        if (process.stdin.isTTY && !fileArg) {
+        if (process.stdin.isTTY) {
           io.stderr.write(
-            "Error: Missing input file or piped data. Usage: ebb check-all <file> or cat <file> | ebb check-all\n",
+            "Error: Missing input file or piped data. Usage: ebb check-all <file...> or cat <file> | ebb check-all\n",
           );
           return 2;
         }
@@ -605,10 +709,9 @@ export async function runCli(
           io.stderr.write("Error: No stdin stream available.\n");
           return 2;
         }
-        content = await readStream(io.stdin);
+        const content = await readStream(io.stdin);
+        items.push(...parseCheckAllInput(content));
       }
-
-      const items = parseCheckAllInput(content);
       if (items.length === 0) {
         if (format === "json") {
           io.stdout.write(

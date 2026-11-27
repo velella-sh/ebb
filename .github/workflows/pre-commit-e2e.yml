@@ -1,0 +1,76 @@
+name: Pre-commit E2E
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pre-commit-e2e:
+    name: Pre-commit Hook E2E
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies & pinned pre-commit
+        run: |
+          npm ci
+          npm run build
+          pip install pre-commit==3.8.0
+
+      - name: Test pre-commit hook in clean repository
+        run: |
+          set -e
+          CLEAN_REPO=$(mktemp -d)
+          echo "Setting up clean consuming repo at $CLEAN_REPO"
+          cd "$CLEAN_REPO"
+
+          git init
+          git config user.name "Ebb E2E Test"
+          git config user.email "test@velella.sh"
+
+          CURRENT_COMMIT=$(git -C "$GITHUB_WORKSPACE" rev-parse HEAD)
+          cat <<EOF > .pre-commit-config.yaml
+repos:
+  - repo: $GITHUB_WORKSPACE
+    rev: $CURRENT_COMMIT
+    hooks:
+      - id: ebb-sbom
+      - id: ebb-purls
+EOF
+
+          # Verify failing commit
+          cp "$GITHUB_WORKSPACE/examples/pre-commit/sbom-fail.json" ./sbom.json
+          git add .pre-commit-config.yaml sbom.json
+          echo "Running pre-commit on failing SBOM (expecting exit code 1)..."
+          if pre-commit run --all-files; then
+            echo "Expected pre-commit to fail on sbom-fail.json, but it passed!"
+            exit 1
+          else
+            echo "Pre-commit correctly failed on end-of-life finding."
+          fi
+
+          # Verify passing commit
+          cp "$GITHUB_WORKSPACE/examples/pre-commit/sbom-pass.json" ./sbom.json
+          cp "$GITHUB_WORKSPACE/examples/pre-commit/.ebb-purls" ./.ebb-purls
+          git add sbom.json .ebb-purls
+          echo "Running pre-commit on passing SBOM..."
+          pre-commit run --all-files
+          git commit -m "chore: add dependencies verified by ebb pre-commit"
+          echo "Passing commit succeeded."

@@ -35,6 +35,8 @@ main:
         url: /calendar/
       - title: Offline operation
         url: /offline/
+      - title: Pre-commit hook
+        url: /pre-commit/
   - title: Runtimes
     children:
       - title: Browser

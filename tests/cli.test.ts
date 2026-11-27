@@ -97,6 +97,64 @@ describe("CLI - unit parsing", () => {
     assert.equal(items[1]?.version, "28.0.0");
   });
 
+  it("parses check-all Syft JSON input", () => {
+    const raw = JSON.stringify({
+      artifacts: [
+        { name: "request", version: "2.88.2", purl: "pkg:npm/request@2.88.2" },
+        { name: "nodejs", version: "28.0.0", purl: "pkg:generic/nodejs@28.0.0" },
+      ],
+    });
+    const items = parseCheckAllInput(raw);
+    assert.equal(items.length, 2);
+    assert.equal(items[0]?.purl, "pkg:npm/request");
+    assert.equal(items[0]?.version, "2.88.2");
+    assert.equal(items[1]?.purl, "pkg:generic/nodejs");
+    assert.equal(items[1]?.version, "28.0.0");
+  });
+
+  it("parses check-all SPDX 2.x JSON input", () => {
+    const raw = JSON.stringify({
+      spdxVersion: "SPDX-2.3",
+      packages: [
+        {
+          name: "request",
+          versionInfo: "2.88.2",
+          externalRefs: [
+            {
+              referenceCategory: "PACKAGE-MANAGER",
+              referenceType: "purl",
+              referenceLocator: "pkg:npm/request@2.88.2",
+            },
+          ],
+        },
+      ],
+    });
+    const items = parseCheckAllInput(raw);
+    assert.equal(items.length, 1);
+    assert.equal(items[0]?.purl, "pkg:npm/request");
+    assert.equal(items[0]?.version, "2.88.2");
+  });
+
+  it("parses check-all SPDX 3 JSON-LD input", () => {
+    const raw = JSON.stringify({
+      "@graph": [
+        {
+          "@type": "software_Package",
+          packageVersion: "2.88.2",
+          externalRef: [
+            {
+              locator: "pkg:npm/request@2.88.2",
+            },
+          ],
+        },
+      ],
+    });
+    const items = parseCheckAllInput(raw);
+    assert.equal(items.length, 1);
+    assert.equal(items[0]?.purl, "pkg:npm/request");
+    assert.equal(items[0]?.version, "2.88.2");
+  });
+
   it("parses check-all newline-separated input", () => {
     const raw = "# comment\npkg:npm/request@2.88.2\n\npkg:generic/nodejs@28.0.0\n";
     const items = parseCheckAllInput(raw);
@@ -231,6 +289,16 @@ describe("CLI - runCli commands", () => {
     assert.equal(parsed.summary.total, 2);
     assert.equal(parsed.summary.byStatus.deprecated, 1);
     assert.equal(parsed.summary.byStatus.ok, 1);
+  });
+
+  it("runs check-all over multiple files", async () => {
+    const file1 = resolve(process.cwd(), "examples/cyclonedx/bom.json");
+    const mock = createMockIo();
+    const code = await runCli(["check-all", file1, file1, "--json"], mock.io);
+    assert.equal(code, 1);
+    const parsed = JSON.parse(mock.stdout);
+    assert.equal(parsed.results.length, 8); // 4 components * 2 files
+    assert.equal(parsed.summary.total, 8);
   });
 
   it("runs replacement command", async () => {
