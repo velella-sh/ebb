@@ -51,6 +51,7 @@ export interface LockEntry {
     | "date-changed"
     | "archived-only";
   archiveUrl?: string;
+  firstFailedAt?: string | undefined;
 }
 
 export interface SourceLock {
@@ -592,6 +593,55 @@ export function renderSummary(report: SourceReport): string {
 
 const TITLE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 
+export function normalizeGitHubBlobUrl(url: string): { owner: string; repo: string; ref: string; path: string } | null {
+  const match = url.match(/^https?:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/);
+  if (!match) return null;
+  return { owner: match[1]!, repo: match[2]!, ref: match[3]!, path: match[4]! };
+}
+
+export async function fetchGitHubFileViaApi(
+  url: string,
+  token?: string | undefined,
+  fetchFn: typeof fetch = fetch,
+): Promise<SourceObservation | null> {
+  const parsed = normalizeGitHubBlobUrl(url);
+  if (!parsed) return null;
+  const { owner, repo, ref, path } = parsed;
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${ref}`;
+  const headers: Record<string, string> = {
+    "user-agent": "ebb-source-check (+https://github.com/velella-sh/ebb)",
+    accept: "application/vnd.github.v3+json",
+  };
+  const tok = token || process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  if (tok) headers.authorization = `Bearer ${tok}`;
+
+  try {
+    const res = await fetchFn(apiUrl, { headers });
+    if (res.status === 404) {
+      return { status: 404, finalUrl: url, title: null, error: "File not found via GitHub API" };
+    }
+    if (res.status === 403 || res.status === 429) {
+      return { status: res.status, finalUrl: url, title: null, error: `GitHub API rate limited (${res.status})` };
+    }
+    if (!res.ok) {
+      return { status: res.status, finalUrl: url, title: null, error: `GitHub API error ${res.status}` };
+    }
+    const data = (await res.json()) as { content?: string; encoding?: string; name?: string };
+    let content = "";
+    if (data.encoding === "base64" && data.content) {
+      content = Buffer.from(data.content.replace(/\s+/g, ""), "base64").toString("utf8");
+    }
+    return {
+      status: 200,
+      finalUrl: url,
+      title: `${owner}/${repo}: ${data.name ?? path}`,
+      contentSnippet: content,
+    };
+  } catch (err) {
+    return { status: null, finalUrl: url, title: null, error: (err as Error).message };
+  }
+}
+
 /** Fetches one page, retrying on 429/5xx with backoff, and reads the start of the body. */
 export async function fetchObservation(
   url: string,
@@ -599,7 +649,13 @@ export async function fetchObservation(
   maxRetries = 2,
   sleepFn: (ms: number) => Promise<void> = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   includeSnippet = false,
+  token?: string | undefined,
+  fetchFn: typeof fetch = fetch,
 ): Promise<SourceObservation> {
+  if (normalizeGitHubBlobUrl(url)) {
+    const ghObs = await fetchGitHubFileViaApi(url, token, fetchFn);
+    if (ghObs) return ghObs;
+  }
   let last: SourceObservation = { status: null, finalUrl: null, title: null, error: "not attempted" };
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     try {
@@ -766,7 +822,13 @@ export const defaultGitHubRunner: IssueRunner = {
 export async function openDeadSourceIssues(
   report: SourceReport,
   runner: IssueRunner = defaultGitHubRunner,
-  options: { maxOpen?: number | undefined; repo?: string | undefined; dryRun?: boolean | undefined } = {},
+  options: {
+    maxOpen?: number | undefined;
+    repo?: string | undefined;
+    dryRun?: boolean | undefined;
+    lock?: SourceLock | undefined;
+    now?: Date | undefined;
+  } = {},
 ): Promise<{ opened: DeadSourceIssue[]; updated: DeadSourceIssue[]; closed: number[]; skipped: string[] }> {
   const maxOpen = options.maxOpen ?? 10;
   const existing = await runner.listExisting(options.repo);
@@ -808,6 +870,8 @@ export async function openDeadSourceIssues(
     }
   }
 
+  const nowTime = options.now ?? new Date();
+
   // Open or update issues for current unreachable sources
   for (const entry of report.unreachable) {
     const hash = createHash("sha256").update(entry.url).digest("hex").slice(0, 16);
@@ -824,6 +888,24 @@ export async function openDeadSourceIssues(
         skipped.push(entry.url);
       }
       continue;
+    }
+
+    // Sub-issue 3: Do not open issue on single failure. Wait for second failure >= 24h later.
+    if (options.lock) {
+      const lockEntry = options.lock.sources[entry.url];
+      if (!lockEntry || !lockEntry.firstFailedAt) {
+        if (lockEntry) {
+          lockEntry.firstFailedAt = nowTime.toISOString();
+        }
+        skipped.push(entry.url);
+        continue;
+      }
+      const firstFailed = new Date(lockEntry.firstFailedAt);
+      const hoursSinceFirstFail = (nowTime.getTime() - firstFailed.getTime()) / (1000 * 60 * 60);
+      if (hoursSinceFirstFail < 24) {
+        skipped.push(entry.url);
+        continue;
+      }
     }
 
     if (openCount >= maxOpen) {
@@ -1003,6 +1085,8 @@ export async function main(argv: string[]): Promise<number> {
       maxOpen,
       ...(repo !== undefined ? { repo } : {}),
       dryRun,
+      lock,
+      now,
     });
     process.stdout.write(
       `Opened ${opened.length}, updated ${updated.length}, closed ${closed.length} dead source issues (${skipped.length} skipped)\n`,
