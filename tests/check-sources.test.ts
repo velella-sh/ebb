@@ -23,8 +23,9 @@ import {
   renderDeadSourceIssue,
   renderSummary,
   updatedLock,
+  fetchGitHubFileViaApi,
 } from "../tools/check-sources.js";
-import type { IssueRunner, SourceLock, SourceObservation } from "../tools/check-sources.js";
+import type { IssueRunner, SourceLock, SourceObservation, SourceReport } from "../tools/check-sources.js";
 import type { RegistryV2, RegistryV2Rule } from "../src/registry.js";
 
 const NOW = new Date("2026-10-15T12:00:00Z");
@@ -745,4 +746,80 @@ test("per-host concurrency limiter limits concurrent requests to two per host", 
   await Promise.all(urls.map(runRequest));
 
   assert.ok(peakHost1 <= 2, `Peak host concurrency was ${peakHost1}, expected <= 2`);
+});
+
+test("openDeadSourceIssues does not open issue on single failure", async () => {
+  const url = "https://example.com/single-fail";
+  const now = new Date("2026-11-27T10:00:00Z");
+  const report: SourceReport = {
+    schemaVersion: "ebb.source-check.v1",
+    checkedAt: now.toISOString(),
+    registries: 1,
+    rules: 1,
+    sources: 1,
+    ok: 0,
+    stale: [],
+    duePromotion: [],
+    unreachable: [{ url, reason: "HTTP 500", ruleIds: ["test.rule"] }],
+    changed: [],
+    blocked: [],
+    unrecorded: [],
+  };
+
+  const lock: SourceLock = {
+    schemaVersion: "ebb.source-lock.v1",
+    sources: {
+      [url]: {
+        finalUrl: url,
+        title: "Test",
+        checkedAt: "2026-11-20",
+        status: "ok",
+      },
+    },
+  };
+
+  let opened = 0;
+  const mockRunner: IssueRunner = {
+    async listExisting() {
+      return [];
+    },
+    async createIssue() {
+      opened++;
+      return 1;
+    },
+  };
+
+  const res1 = await openDeadSourceIssues(report, mockRunner, { lock, now, dryRun: true });
+  assert.equal(res1.opened.length, 0);
+  assert.equal(res1.skipped.length, 1);
+  assert.ok(lock.sources[url]!.firstFailedAt);
+
+  // Second failure less than 24 hours later (e.g. 12 hours later) -> still no issue
+  const twelveHoursLater = new Date("2026-11-27T22:00:00Z");
+  const res2 = await openDeadSourceIssues(report, mockRunner, { lock, now: twelveHoursLater, dryRun: true });
+  assert.equal(res2.opened.length, 0);
+  assert.equal(res2.skipped.length, 1);
+
+  // Third failure 25 hours later -> opens issue!
+  const twentyFiveHoursLater = new Date("2026-11-28T11:00:00Z");
+  const res3 = await openDeadSourceIssues(report, mockRunner, { lock, now: twentyFiveHoursLater, dryRun: true });
+  assert.equal(res3.opened.length, 1);
+});
+
+test("fetchObservation handles GitHub blob URLs via API", async () => {
+  const githubBlobUrl = "https://github.com/actions/checkout/blob/v4/action.yml";
+  const mockFetch: typeof fetch = async (input: RequestInfo | URL) => {
+    const urlStr = String(input);
+    if (urlStr.includes("api.github.com/repos/actions/checkout/contents/action.yml")) {
+      const content = Buffer.from("name: Checkout\ndescription: Action for git checkout\n").toString("base64");
+      return new Response(JSON.stringify({ encoding: "base64", content }), { status: 200 });
+    }
+    return new Response("Not found", { status: 404 });
+  };
+
+  const obs = await fetchGitHubFileViaApi(githubBlobUrl, undefined, mockFetch);
+  assert.ok(obs);
+  assert.equal(obs.status, 200);
+  assert.equal(obs.title, "actions/checkout: action.yml");
+  assert.match(obs.contentSnippet ?? "", /name: Checkout/);
 });

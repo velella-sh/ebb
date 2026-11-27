@@ -57,6 +57,8 @@ main:
         url: /result-model/
       - title: Rules and replacements
         url: /rules-for/
+      - title: Repairing broken evidence
+        url: /source-heal/
       - title: Evidence sources
         url: /sources/
       - title: Confidence levels
