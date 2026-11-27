@@ -84,7 +84,7 @@ describe("Examples Suite (Epic 18)", () => {
       assert.ok(stdout.includes("96 days remaining"));
       assert.ok(stdout.includes("Node.js Runtime (node@20.0.0)"));
       assert.ok(stdout.includes("119 days remaining"));
-      assert.ok(stdout.includes("Ubuntu Base Image (pkg:docker/library/ubuntu@20.04) -> END-OF-LIFE"));
+      assert.ok(stdout.includes("Ubuntu Base Image (pkg:docker/library/ubuntu@20.04) -> UNSUPPORTED"));
     });
   });
 

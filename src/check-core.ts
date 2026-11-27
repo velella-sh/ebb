@@ -172,6 +172,7 @@ const checkEventByLifecycle: Record<LifecycleEvent, CheckEvent> = {
   removed: "removed",
   "scheduled-end-of-life": "scheduled",
   "end-of-active-support": "scheduled",
+  "end-of-extended-support": "scheduled",
 };
 
 /** Most serious event first — shared by `status` and match ordering. */
@@ -271,10 +272,28 @@ export function check(purlOrName: string, version: string, asOf?: string): Check
   if (asOf !== undefined) daysUntil(null, asOf);
   const candidates = resolveCandidateRules(purlOrName);
   const normalised = requireVersionInput(version);
-  const matches = orderMatches(
-    candidates.filter((rule) => ruleMatchesVersion(rule, normalised)).map((rule) => toCheckMatch(rule, asOf)),
-  );
-  return asOf === undefined
-    ? { schemaVersion: RESULT_SCHEMA_VERSION, status: statusFromMatches(matches), matches, version }
-    : { schemaVersion: RESULT_SCHEMA_VERSION, status: statusFromMatches(matches), matches, version, asOf };
+  const matchingRules = candidates.filter((rule) => ruleMatchesVersion(rule, normalised));
+  const extRule = matchingRules.find((rule) => rule.event === "end-of-extended-support");
+  const extendedSupportUntil = extRule?.deadline;
+  const matches = orderMatches(matchingRules.map((rule) => toCheckMatch(rule, asOf)));
+  let status = statusFromMatches(matches);
+  if (extendedSupportUntil) {
+    if (asOf !== undefined) {
+      if (asOf >= extendedSupportUntil) {
+        status = "end-of-life";
+      } else if (status === "end-of-life") {
+        status = "unsupported";
+      }
+    } else if (status === "end-of-life") {
+      status = "unsupported";
+    }
+  }
+  return {
+    schemaVersion: RESULT_SCHEMA_VERSION,
+    status,
+    matches,
+    version,
+    ...(asOf !== undefined ? { asOf } : {}),
+    ...(extendedSupportUntil !== undefined ? { extendedSupportUntil } : {}),
+  };
 }

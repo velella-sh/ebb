@@ -43,6 +43,14 @@ export function formatCheckText(
   const icon = result.status === "scheduled" ? c.yellow("⚠") : c.red("✖");
   lines.push(`${icon} ${purl}@${version}: ${result.status}`);
 
+  if (result.extendedSupportUntil) {
+    const extMatch = result.matches.find(
+      (m) => m.date === result.extendedSupportUntil || m.ruleId.includes("extended-support"),
+    );
+    const sourceTitle = extMatch?.sources?.[0]?.title;
+    lines.push(`  Extended support until ${result.extendedSupportUntil}${sourceTitle ? ` (${sourceTitle})` : ""}`);
+  }
+
   for (const match of result.matches) {
     lines.push(`  Rule: ${match.ruleId}`);
     if (match.confidence) {
@@ -106,6 +114,16 @@ export function formatCheckAllText(
         const icon = checkRes.status === "scheduled" ? c.yellow("⚠") : c.red("✖");
         const ruleIds = checkRes.matches.map((m: CheckMatch) => m.ruleId).join(", ");
         lines.push(`${icon} ${label}: ${checkRes.status}${ruleIds ? ` (${ruleIds})` : ""}`);
+
+        if (checkRes.extendedSupportUntil) {
+          const extMatch = checkRes.matches.find(
+            (m: CheckMatch) => m.date === checkRes.extendedSupportUntil || m.ruleId.includes("extended-support"),
+          );
+          const sourceTitle = extMatch?.sources?.[0]?.title;
+          lines.push(
+            `    Extended support until ${checkRes.extendedSupportUntil}${sourceTitle ? ` (${sourceTitle})` : ""}`,
+          );
+        }
 
         const matchWithConfidence = checkRes.matches.find((m: CheckMatch) => m.confidence);
         if (matchWithConfidence?.confidence) {

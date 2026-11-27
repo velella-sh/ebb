@@ -23,6 +23,7 @@ export const rules: readonly RegistryV2Rule[] = [
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
+        pointer: "/v20/end",
       },
     ],
     provenance: {
@@ -62,6 +63,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 20 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=22.0.0|<23.0.0", name: "Node.js 22 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.eol-18",
@@ -82,6 +86,7 @@ export const rules: readonly RegistryV2Rule[] = [
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
+        pointer: "/v18/end",
       },
     ],
     provenance: {
@@ -121,6 +126,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 18 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=22.0.0|<23.0.0", name: "Node.js 22 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.legacy",
@@ -185,6 +193,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { maximumMajor: 17 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=22.0.0|<23.0.0", name: "Node.js 22 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.eol-19",
@@ -205,6 +216,7 @@ export const rules: readonly RegistryV2Rule[] = [
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
+        pointer: "/v19/end",
       },
     ],
     provenance: {
@@ -245,6 +257,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 19 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=22.0.0|<23.0.0", name: "Node.js 22 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.eol-21",
@@ -265,6 +280,7 @@ export const rules: readonly RegistryV2Rule[] = [
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
+        pointer: "/v21/end",
       },
     ],
     provenance: {
@@ -305,6 +321,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 21 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=22.0.0|<23.0.0", name: "Node.js 22 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.eol-23",
@@ -325,6 +344,7 @@ export const rules: readonly RegistryV2Rule[] = [
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
+        pointer: "/v23/end",
       },
     ],
     provenance: {
@@ -365,6 +385,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 23 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=22.0.0|<23.0.0", name: "Node.js 22 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.eol-25",
@@ -385,6 +408,7 @@ export const rules: readonly RegistryV2Rule[] = [
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-17",
+        pointer: "/v25/end",
       },
     ],
     provenance: {
@@ -425,6 +449,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 25 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=22.0.0|<23.0.0", name: "Node.js 22 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.eol-24",
@@ -476,6 +503,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 24 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=24.0.0|<25.0.0", name: "Node.js 24 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.runtime.eol-26",
@@ -527,6 +557,63 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 26 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=24.0.0|<25.0.0", name: "Node.js 24 LTS", kind: "upgrade" },
+    ],
+  },
+  {
+    id: "nodejs.runtime.eol-27",
+    ecosystem: "nodejs",
+    purl: "pkg:generic/nodejs",
+    vers: "vers:semver/>=27.0.0|<28.0.0",
+    event: "scheduled-end-of-life",
+    title: "Node.js 27 reaches end-of-life on 2030-04-30",
+    summary:
+      "Node.js 27 is scheduled to stop receiving security and bug fixes on 2030-04-30, according to the Node.js Release Working Group schedule.",
+    severity: "low",
+    replacement: "Node.js 26 LTS or later",
+    deadline: "2030-04-30",
+    sources: [
+      {
+        title: "Node.js Release Working Group schedule",
+        url: "https://github.com/nodejs/Release/blob/main/schedule.json",
+        accessedAt: "2026-11-27",
+      },
+    ],
+    provenance: { observedAt: "2026-11-27", reviewedAt: "2026-11-27", reviewer: "arminazimi", method: "manual" },
+    migration: {
+      constraints: [
+        "Keep package metadata, local version files, CI matrices, and deployment runtimes on a mutually compatible Node.js release.",
+        "Confirm native modules and production dependencies support the target Node.js major.",
+      ],
+      steps: [
+        {
+          id: "update-runtime-declaration",
+          title: "Update the Node.js declaration",
+          instructions: "Raise the reported engines or pinned runtime declaration to Node.js 26 LTS or later.",
+          targets: "declaration",
+        },
+        {
+          id: "align-runtime-surfaces",
+          title: "Align runtime surfaces",
+          instructions:
+            "Update matching local version files, CI matrices, container images, and deployment configuration.",
+          targets: "all",
+        },
+      ],
+      verification: [
+        { command: "node --version", purpose: "Confirm the active Node.js runtime is supported." },
+        {
+          command: "npm run test --if-present",
+          purpose: "Run the repository test suite on the target runtime when defined.",
+        },
+        { command: "npm run build --if-present", purpose: "Verify the project builds on the target runtime." },
+      ],
+    },
+    "x-nodejs": { major: 27 },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=26.0.0|<27.0.0", name: "Node.js 26 LTS", kind: "upgrade" },
+    ],
   },
   {
     id: "nodejs.symbol.fs.exists",
@@ -4026,6 +4113,7 @@ export const rules: readonly RegistryV2Rule[] = [
         archiveUrl:
           "https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json",
         archivedAt: "2026-10-24",
+        pointer: "/v22/end",
       },
     ],
     provenance: {
@@ -4065,6 +4153,9 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-nodejs": { major: 22, scheduled: true },
+    replacements: [
+      { purl: "pkg:generic/nodejs", vers: "vers:semver/>=24.0.0|<25.0.0", name: "Node.js 24 LTS", kind: "upgrade" },
+    ],
   },
 ] as const;
 

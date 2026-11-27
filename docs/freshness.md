@@ -141,7 +141,7 @@ Each cited source tracked by Ebb is evaluated against the following report statu
 | `date-missing` | 0 | Stated deadline not found in source text |
 | `unreachable` | 0 | HTTP error or connection timeout |
 | `blocked` | 0 | Anti-bot challenge or unverified response |
-| `unrecorded` | 176 | Cited in a rule but not yet locked |
+| `unrecorded` | 178 | Cited in a rule but not yet locked |
 | `stale` | 0 | Past human review freshness window |
 <!-- ebb-source-status-counts:end -->
 

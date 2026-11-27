@@ -41,6 +41,8 @@ main:
         url: /pre-commit/
       - title: Scanners (Trivy & Grype)
         url: /scanners/
+      - title: Extended support
+        url: /extended-support/
       - title: Renovate feed
         url: /renovate/
   - title: Runtimes

@@ -27,6 +27,7 @@ const eventByLifecycle: Record<LifecycleEvent, ResultEvent> = {
   removed: "removed",
   "scheduled-end-of-life": "scheduled",
   "end-of-active-support": "scheduled",
+  "end-of-extended-support": "scheduled",
 };
 
 interface ActiveRuleMeta {
@@ -126,9 +127,27 @@ export function fromLookupProduct(old: LookupResult, asOf?: string): Result {
   entries.sort((left, right) => left.meta.order - right.meta.order || left.index - right.index);
 
   const matches = orderMatches(entries.map(({ finding, meta }) => toResultMatch(finding, meta, asOf)));
-  const status = statusFromOrderedMatches(matches);
+  const extFinding = old.findings.find((f) => f.event === "end-of-extended-support");
+  const extendedSupportUntil = extFinding?.deadline;
+  let status = statusFromOrderedMatches(matches);
+  if (extendedSupportUntil) {
+    if (asOf !== undefined) {
+      if (asOf >= extendedSupportUntil) {
+        status = "end-of-life";
+      } else if (status === "end-of-life") {
+        status = "unsupported";
+      }
+    } else if (status === "end-of-life") {
+      status = "unsupported";
+    }
+  }
 
-  return asOf === undefined
-    ? { schemaVersion: RESULT_SCHEMA_VERSION, status, matches, version }
-    : { schemaVersion: RESULT_SCHEMA_VERSION, status, matches, version, asOf };
+  return {
+    schemaVersion: RESULT_SCHEMA_VERSION,
+    status,
+    matches,
+    version,
+    ...(asOf !== undefined ? { asOf } : {}),
+    ...(extendedSupportUntil !== undefined ? { extendedSupportUntil } : {}),
+  };
 }

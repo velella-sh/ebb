@@ -86,7 +86,7 @@ Live counts of registered rules across the three confidence levels are compiled 
 <!-- ebb-confidence-counts:start -->
 | Level | Count | Description |
 |---|---|---|
-| `confirmed` | 663 | Published directly by upstream with a stated date and reviewed by a maintainer |
+| `confirmed` | 688 | Published directly by upstream with a stated date and reviewed by a maintainer |
 | `likely` | 168 | Sourced from official schedules/importers or inferred from release cadences |
-| `tentative` | 2 | Inferred, incomplete source, or non-binding; verified note required |
+| `tentative` | 6 | Inferred, incomplete source, or non-binding; verified note required |
 <!-- ebb-confidence-counts:end -->

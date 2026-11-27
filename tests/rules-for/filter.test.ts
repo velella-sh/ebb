@@ -110,6 +110,7 @@ test("rulesFor filters every lifecycle event on a single component cleanly", asy
     removed: 1,
     "scheduled-end-of-life": 1,
     "end-of-active-support": 0,
+    "end-of-extended-support": 0,
   };
   for (const event of lifecycleEvents) {
     const filtered = rulesFor(purl, { event });

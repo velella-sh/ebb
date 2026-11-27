@@ -26,6 +26,7 @@ export const lifecycleEvents = [
   "removed",
   "scheduled-end-of-life",
   "end-of-active-support",
+  "end-of-extended-support",
 ] as const;
 export type LifecycleEvent = (typeof lifecycleEvents)[number];
 
@@ -40,6 +41,7 @@ export const lifecycleEventPrecedence: readonly LifecycleEvent[] = [
   "deprecated",
   "scheduled-end-of-life",
   "end-of-active-support",
+  "end-of-extended-support",
 ];
 
 export const provenanceMethods = ["manual", "imported", "upstream"] as const;

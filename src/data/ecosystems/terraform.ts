@@ -1952,6 +1952,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.1",
@@ -2065,6 +2068,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.2",
@@ -2178,6 +2184,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.3",
@@ -2291,6 +2300,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.4",
@@ -2404,6 +2416,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.5",
@@ -2517,6 +2532,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.6",
@@ -2630,6 +2648,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.7",
@@ -2743,6 +2764,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.8",
@@ -2856,6 +2880,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
   {
     id: "terraform.cli.end-of-support-1.9",
@@ -2969,6 +2996,9 @@ export const rules: readonly RegistryV2Rule[] = [
         },
       ],
     },
+    confidence: "likely",
+    confidenceNote:
+      "HashiCorp v1.x compatibility promises allow upgrading across v1.x releases but state formats in later releases may prevent downgrade, requiring state backups.",
   },
 ] as const;
 

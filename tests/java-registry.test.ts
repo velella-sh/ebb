@@ -87,7 +87,7 @@ test("relocation rules name Maven coordinates and cite the artifact's own POM", 
 const SPRING_BOOT_PURL = "pkg:maven/org.springframework.boot/spring-boot";
 
 test("Spring Boot registry covers retired 1.x, 2.x, and 3.x lines with migration guidance", async () => {
-  const boot = (await allRules()).filter((rule) => rule.id.startsWith("java.maven.spring-boot."));
+  const boot = (await allRules()).filter((rule) => rule.id.startsWith("java.maven.spring-boot.legacy-"));
   assert.equal(boot.length, 3);
   assert.deepEqual(
     boot.map((rule) => rule.vers),

@@ -14,6 +14,16 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "The package is fully deprecated and no new changes are expected.",
     severity: "high",
     replacement: "Native fetch or a maintained HTTP client",
+    replacements: [
+      { purl: "pkg:npm/undici", name: "undici", kind: "alternative", note: "Modern HTTP/1.1 client for Node.js" },
+      { purl: "pkg:npm/axios", name: "axios", kind: "alternative", note: "Promise-based HTTP client" },
+      {
+        purl: "pkg:npm/got",
+        name: "got",
+        kind: "alternative",
+        note: "Human-friendly HTTP request library for Node.js",
+      },
+    ],
     deadline: "2020-02-11",
     sources: [
       {
@@ -145,6 +155,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "call", language: "typescript", module: "node-sass", targets: ["render", "renderSync"] },
     ],
     "x-npm": { package: "node-sass" },
+    replacements: [{ purl: "pkg:npm/sass", name: "sass", kind: "successor" }],
   },
   {
     id: "npm.package.left-pad.deprecated",
@@ -264,6 +275,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@hapi/joi" },
     ],
     "x-npm": { package: "@hapi/joi" },
+    replacements: [{ purl: "pkg:npm/joi", name: "joi", kind: "successor" }],
   },
   {
     id: "npm.package.babel-preset-es2015.deprecated",
@@ -331,6 +343,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "babel-preset-es2015" },
     ],
     "x-npm": { package: "babel-preset-es2015" },
+    replacements: [{ purl: "pkg:npm/%40babel/preset-env", name: "@babel/preset-env", kind: "successor" }],
   },
   {
     id: "npm.package.boom.deprecated",
@@ -391,6 +404,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "boom" },
     ],
     "x-npm": { package: "boom" },
+    replacements: [{ purl: "pkg:npm/%40hapi/boom", name: "@hapi/boom", kind: "successor" }],
   },
   {
     id: "npm.package.cryptiles.deprecated",
@@ -457,6 +471,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "cryptiles" },
     ],
     "x-npm": { package: "cryptiles" },
+    replacements: [{ purl: "pkg:npm/%40hapi/cryptiles", name: "@hapi/cryptiles", kind: "successor" }],
   },
   {
     id: "npm.package.gulp-util.deprecated",
@@ -641,6 +656,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "inflight" },
     ],
     "x-npm": { package: "inflight" },
+    replacements: [{ purl: "pkg:npm/lru-cache", name: "lru-cache", kind: "successor" }],
   },
   {
     id: "npm.package.istanbul.deprecated",
@@ -703,6 +719,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "istanbul" },
     ],
     "x-npm": { package: "istanbul" },
+    replacements: [{ purl: "pkg:npm/nyc", name: "nyc", kind: "successor" }],
   },
   {
     id: "npm.package.jade.deprecated",
@@ -765,6 +782,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "jade" },
     ],
     "x-npm": { package: "jade" },
+    replacements: [{ purl: "pkg:npm/pug", name: "pug", kind: "successor" }],
   },
   {
     id: "npm.package.karma-phantomjs-launcher.deprecated",
@@ -831,6 +849,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "karma-phantomjs-launcher" },
     ],
     "x-npm": { package: "karma-phantomjs-launcher" },
+    replacements: [{ purl: "pkg:npm/karma-chrome-launcher", name: "karma-chrome-launcher", kind: "alternative" }],
   },
   {
     id: "npm.package.natives.deprecated",
@@ -896,6 +915,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "natives" },
     ],
     "x-npm": { package: "natives" },
+    replacements: [{ purl: "pkg:npm/graceful-fs", vers: "vers:npm/^4.0.0", name: "graceful-fs", kind: "successor" }],
   },
   {
     id: "npm.package.node-pre-gyp.deprecated",
@@ -964,6 +984,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "node-pre-gyp" },
     ],
     "x-npm": { package: "node-pre-gyp" },
+    replacements: [{ purl: "pkg:npm/%40mapbox/node-pre-gyp", name: "@mapbox/node-pre-gyp", kind: "successor" }],
   },
   {
     id: "npm.package.node-sass.deprecated",
@@ -1037,6 +1058,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "call", language: "typescript", module: "node-sass", targets: ["render", "renderSync"] },
     ],
     "x-npm": { package: "node-sass" },
+    replacements: [{ purl: "pkg:npm/sass", name: "sass", kind: "successor" }],
   },
   {
     id: "npm.package.nomnom.deprecated",
@@ -1165,6 +1187,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "popper.js" },
     ],
     "x-npm": { package: "popper.js" },
+    replacements: [{ purl: "pkg:npm/%40popperjs/core", name: "@popperjs/core", kind: "successor" }],
   },
   {
     id: "npm.package.protractor.deprecated",
@@ -1507,6 +1530,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "rollup-plugin-babel" },
     ],
     "x-npm": { package: "rollup-plugin-babel" },
+    replacements: [{ purl: "pkg:npm/%40rollup/plugin-babel", name: "@rollup/plugin-babel", kind: "successor" }],
   },
   {
     id: "npm.package.sntp.deprecated",
@@ -1573,6 +1597,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "sntp" },
     ],
     "x-npm": { package: "sntp" },
+    replacements: [{ purl: "pkg:npm/%40hapi/sntp", name: "@hapi/sntp", kind: "successor" }],
   },
   {
     id: "npm.package.stable.deprecated",
@@ -1861,6 +1886,9 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "sourcemap-codec" },
     ],
     "x-npm": { package: "sourcemap-codec" },
+    replacements: [
+      { purl: "pkg:npm/%40jridgewell/sourcemap-codec", name: "@jridgewell/sourcemap-codec", kind: "successor" },
+    ],
   },
   {
     id: "npm.package.humanwhocodes-config-array.deprecated",
@@ -1920,6 +1948,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@humanwhocodes/config-array" },
     ],
     "x-npm": { package: "@humanwhocodes/config-array" },
+    replacements: [{ purl: "pkg:npm/%40eslint/config-array", name: "@eslint/config-array", kind: "successor" }],
   },
   {
     id: "npm.package.humanwhocodes-object-schema.deprecated",
@@ -1979,6 +2008,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@humanwhocodes/object-schema" },
     ],
     "x-npm": { package: "@humanwhocodes/object-schema" },
+    replacements: [{ purl: "pkg:npm/%40eslint/object-schema", name: "@eslint/object-schema", kind: "successor" }],
   },
   {
     id: "npm.package.q.deprecated",
@@ -2459,6 +2489,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "read-package-json" },
     ],
     "x-npm": { package: "read-package-json" },
+    replacements: [{ purl: "pkg:npm/%40npmcli/package-json", name: "@npmcli/package-json", kind: "successor" }],
   },
   {
     id: "npm.package.npmcli-move-file.deprecated",
@@ -2519,6 +2550,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@npmcli/move-file" },
     ],
     "x-npm": { package: "@npmcli/move-file" },
+    replacements: [{ purl: "pkg:npm/%40npmcli/fs", name: "@npmcli/fs", kind: "successor" }],
   },
   {
     id: "npm.package.figgy-pudding.eol",
@@ -2698,6 +2730,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "source-map-url" },
     ],
     "x-npm": { package: "source-map-url" },
+    replacements: [{ purl: "pkg:npm/convert-source-map", name: "convert-source-map", kind: "successor" }],
   },
   {
     id: "npm.package.resolve-url.deprecated",
@@ -2829,6 +2862,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "config-key", language: "yaml", key: "parser", valueIncludes: "babel-eslint" },
     ],
     "x-npm": { package: "babel-eslint" },
+    replacements: [{ purl: "pkg:npm/%40babel/eslint-parser", name: "@babel/eslint-parser", kind: "successor" }],
   },
   {
     id: "npm.package.tslint.deprecated",
@@ -2896,6 +2930,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "tslint" },
     ],
     "x-npm": { package: "tslint" },
+    replacements: [{ purl: "pkg:npm/typescript-eslint", name: "typescript-eslint", kind: "successor" }],
   },
   {
     id: "npm.package.uglify-es.deprecated",
@@ -2957,6 +2992,10 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "uglify-es" },
     ],
     "x-npm": { package: "uglify-es" },
+    replacements: [
+      { purl: "pkg:npm/terser", name: "terser", kind: "alternative" },
+      { purl: "pkg:npm/uglify-js", vers: "vers:npm/>=3.13.0", name: "uglify-js", kind: "alternative" },
+    ],
   },
   {
     id: "npm.package.crypto-js.deprecated",
@@ -3099,6 +3138,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "config-key", language: "json", key: "extends", valueIncludes: "nuxt" },
     ],
     "x-npm": { package: "eslint-plugin-nuxt" },
+    replacements: [{ purl: "pkg:npm/%40nuxt/eslint-plugin", name: "@nuxt/eslint-plugin", kind: "successor" }],
   },
   {
     id: "npm.package.i18next-parser.deprecated",
@@ -3165,6 +3205,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "config-key", language: "json", key: "i18next", valueIncludes: "i18next-parser" },
     ],
     "x-npm": { package: "i18next-parser" },
+    replacements: [{ purl: "pkg:npm/i18next-cli", name: "i18next-cli", kind: "successor" }],
   },
   {
     id: "npm.package.koa-router.deprecated",
@@ -3229,6 +3270,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "call", language: "typescript", module: "koa-router", targets: ["default"] },
     ],
     "x-npm": { package: "koa-router" },
+    replacements: [{ purl: "pkg:npm/%40koa/router", name: "@koa/router", kind: "successor" }],
   },
   {
     id: "npm.package.nuxt.types.deprecated",
@@ -3507,6 +3549,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "rollup-plugin-terser" },
     ],
     "x-npm": { package: "rollup-plugin-terser" },
+    replacements: [{ purl: "pkg:npm/%40rollup/plugin-terser", name: "@rollup/plugin-terser", kind: "successor" }],
   },
   {
     id: "npm.package.socket.io-redis.deprecated",
@@ -3574,6 +3617,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "call", language: "typescript", module: "socket.io-redis", targets: ["default"] },
     ],
     "x-npm": { package: "socket.io-redis" },
+    replacements: [{ purl: "pkg:npm/%40socket.io/redis-adapter", name: "@socket.io/redis-adapter", kind: "successor" }],
   },
   {
     id: "npm.package.types.diff.deprecated",
@@ -3636,6 +3680,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/diff" },
+    replacements: [{ purl: "pkg:npm/diff", name: "diff", kind: "successor" }],
   },
   {
     id: "npm.package.types.dotenv.deprecated",
@@ -3699,6 +3744,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/dotenv" },
+    replacements: [{ purl: "pkg:npm/dotenv", name: "dotenv", kind: "successor" }],
   },
   {
     id: "npm.package.types.emoji-regex.deprecated",
@@ -3762,6 +3808,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/emoji-regex" },
+    replacements: [{ purl: "pkg:npm/emoji-regex", name: "emoji-regex", kind: "successor" }],
   },
   {
     id: "npm.package.types.form-data.deprecated",
@@ -3825,6 +3872,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/form-data" },
+    replacements: [{ purl: "pkg:npm/form-data", name: "form-data", kind: "successor" }],
   },
   {
     id: "npm.package.types.glob.deprecated",
@@ -3887,6 +3935,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/glob" },
+    replacements: [{ purl: "pkg:npm/glob", name: "glob", kind: "successor" }],
   },
   {
     id: "npm.package.types.koa-helmet.deprecated",
@@ -3950,6 +3999,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/koa-helmet" },
+    replacements: [{ purl: "pkg:npm/koa-helmet", name: "koa-helmet", kind: "successor" }],
   },
   {
     id: "npm.package.types.koa-useragent.deprecated",
@@ -4016,6 +4066,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/koa-useragent" },
+    replacements: [{ purl: "pkg:npm/koa-useragent", name: "koa-useragent", kind: "successor" }],
   },
   {
     id: "npm.package.types.pako.deprecated",
@@ -4078,6 +4129,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/pako" },
+    replacements: [{ purl: "pkg:npm/pako", name: "pako", kind: "successor" }],
   },
   {
     id: "npm.package.types.react-virtualized-auto-sizer.deprecated",
@@ -4146,6 +4198,9 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/react-virtualized-auto-sizer" },
+    replacements: [
+      { purl: "pkg:npm/react-virtualized-auto-sizer", name: "react-virtualized-auto-sizer", kind: "successor" },
+    ],
   },
   {
     id: "npm.package.types.react-window.deprecated",
@@ -4212,6 +4267,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/react-window" },
+    replacements: [{ purl: "pkg:npm/react-window", name: "react-window", kind: "successor" }],
   },
   {
     id: "npm.package.types.refractor.deprecated",
@@ -4275,6 +4331,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/refractor" },
+    replacements: [{ purl: "pkg:npm/refractor", name: "refractor", kind: "successor" }],
   },
   {
     id: "npm.package.types.sanitize-filename.deprecated",
@@ -4341,6 +4398,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/sanitize-filename" },
+    replacements: [{ purl: "pkg:npm/sanitize-filename", name: "sanitize-filename", kind: "successor" }],
   },
   {
     id: "npm.package.types.sequelize.deprecated",
@@ -4404,6 +4462,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/sequelize" },
+    replacements: [{ purl: "pkg:npm/sequelize", name: "sequelize", kind: "successor" }],
   },
   {
     id: "npm.package.types.socket.io-client.deprecated",
@@ -4470,6 +4529,7 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [],
     "x-npm": { package: "@types/socket.io-client" },
+    replacements: [{ purl: "pkg:npm/socket.io-client", name: "socket.io-client", kind: "successor" }],
   },
   {
     id: "npm.package.vue2-script-setup-transform.deprecated",
@@ -4536,6 +4596,9 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "vue2-script-setup-transform" },
     ],
     "x-npm": { package: "vue2-script-setup-transform" },
+    replacements: [
+      { purl: "pkg:npm/unplugin-vue2-script-setup", name: "unplugin-vue2-script-setup", kind: "successor" },
+    ],
   },
   {
     id: "npm.package.next.12.support-end",
@@ -4642,6 +4705,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.next.13.support-end",
@@ -4740,6 +4804,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.next.14.support-end",
@@ -4830,6 +4895,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.next.15.support-end",
@@ -4911,6 +4977,7 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.react-native.0.77-to-0.84.end-of-support",
@@ -5015,6 +5082,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "react-native" },
     ],
     "x-npm": { package: "react-native" },
+    replacements: [{ purl: "pkg:npm/react-native", vers: "vers:npm/^0.87.0", name: "react-native", kind: "upgrade" }],
   },
   {
     id: "npm.package.vue.eol-2",
@@ -5122,6 +5190,7 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "vue" },
     ],
     "x-npm": { package: "vue" },
+    replacements: [{ purl: "pkg:npm/vue", vers: "vers:npm/^3.0.0", name: "vue", kind: "upgrade" }],
   },
   {
     id: "npm.package.angular.core.v22.scheduled-end-of-life",
@@ -5257,6 +5326,9 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
   },
   {
     id: "npm.package.angular.core.v20.scheduled-end-of-life",
@@ -5332,6 +5404,9 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
   },
   {
     id: "npm.package.angular.core.v19.end-of-support",
@@ -5406,6 +5481,9 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
   },
   {
     id: "npm.package.angular.core.v18-and-older.end-of-support",
@@ -5473,6 +5551,9 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
   },
 ] as const;
 

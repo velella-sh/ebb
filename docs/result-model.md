@@ -20,6 +20,7 @@ Stability tags on `Result` and `ResultMatch` match the JSDoc annotations in `src
 | `matches` | `ResultMatch[]` | `@stable` | Every matching rule, ordered by event seriousness then earliest date. Empty when `status` is `"ok"`. |
 | `version` | `string` | `@stable` | The version argument exactly as passed to `check` (not normalised). |
 | `asOf` | `string` (optional) | `@experimental` | The day `daysLeft` is measured from (`YYYY-MM-DD`), when supplied. Omitted for the two-argument call. |
+| `extendedSupportUntil` | `string` (optional) | `@experimental` | Date (`YYYY-MM-DD`) when extended or commercial support ends, when the component has extended support. |
 
 ### `ResultMatch` (`CheckMatch`)
 
@@ -166,6 +167,18 @@ Example:
 
 ```json
 "2026-04-01"
+```
+
+### `extendedSupportUntil`
+
+- **Stability:** `@experimental`
+- **Type:** `YYYY-MM-DD` `string` (optional)
+- **Meaning:** Calendar date when paid, commercial, or extended security maintenance (ESM / ELS / ELTS) ends. Present when the component matches a rule with `event: "end-of-extended-support"`, and omitted otherwise. While standard support has lapsed but extended support remains active, `status` is reported as `"unsupported"`; once `extendedSupportUntil` has passed, `status` advances to `"end-of-life"`.
+
+Example:
+
+```json
+"2029-06-30"
 ```
 
 ## Field reference: `ResultMatch`
@@ -385,6 +398,8 @@ Example:
 | `"end-of-life"` | `"end-of-life"` |
 | `"removed"` | `"removed"` |
 | `"scheduled-end-of-life"` | `"scheduled"` |
+| `"end-of-active-support"` | `"scheduled"` |
+| `"end-of-extended-support"` | `"scheduled"` |
 
 ## Legacy: `lookupProduct` → `LookupResult`
 
