@@ -41,6 +41,7 @@ Base URL: `https://velella.sh/ebb/api/v1`
 | `/calendar/all.ics` | Deadlines from the last 30 days and the next 24 months | `/calendar/all.ics` |
 | `/calendar/<ecosystem>.ics` | That window for one ecosystem | `/calendar/npm.ics` |
 | `/calendar/<type>/<name>.ics` | One component, only when a deadline is still ahead | `/calendar/generic/nodejs.ics` |
+| `/renovate/<type>/<name>.json` | Release lines and deprecation flags formatted for Renovate custom datasources | `/renovate/generic/nodejs.json` |
 
 ---
 

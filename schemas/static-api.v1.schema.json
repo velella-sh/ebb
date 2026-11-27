@@ -41,6 +41,7 @@
         },
         "hint": { "type": "string", "deprecated": true, "description": "Deprecated. No longer written; kept so older files still validate." },
         "calendar": { "type": "string" },
+        "renovate": { "type": "string" },
         "versions": { "$ref": "#/$defs/versionsSection" },
         "replacements": {
           "type": "array",
@@ -188,6 +189,7 @@
         "rules": { "type": "integer", "minimum": 0 },
         "earliestDeadline": { "type": "string" },
         "latestReview": { "type": "string" },
+        "renovate": { "type": "string" },
         "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
         "etag": { "type": "string" },
         "bytes": { "type": "integer", "minimum": 0 }

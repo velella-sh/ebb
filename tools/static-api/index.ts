@@ -30,7 +30,8 @@ export async function main(argv: string[]): Promise<void> {
       `  Rules:      ${result.ruleCount}\n` +
       `  all.json:   ${result.allRawBytes} bytes (${(result.allGzipBytes / 1024).toFixed(1)} KB gzipped)\n` +
       `  index.json: ${result.indexRawBytes} bytes (${(result.indexGzipBytes / 1024).toFixed(1)} KB gzipped)\n` +
-      `  search:     ${result.searchRawBytes} bytes (${(result.searchGzipBytes / 1024).toFixed(1)} KB gzipped)\n`,
+      `  search:     ${result.searchRawBytes} bytes (${(result.searchGzipBytes / 1024).toFixed(1)} KB gzipped)\n` +
+      `  Renovate:   ${result.renovateFeedCount ?? 0} feeds\n`,
   );
 }
 

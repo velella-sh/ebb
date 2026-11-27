@@ -1,0 +1,92 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Ebb software lifecycle and deprecation data for Renovate",
+  "customDatasources": {
+    "ebb": {
+      "defaultRegistryUrlTemplate": "https://velella.sh/ebb/api/v1/renovate/{{packageName}}.json",
+      "format": "json"
+    }
+  },
+  "packageRules": [
+    {
+      "description": "Node.js runtime via Ebb",
+      "matchDatasources": ["node-version", "nodenv", "nvm"],
+      "matchPackageNames": ["node", "nodejs"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/nodejs",
+      "versioning": "loose"
+    },
+    {
+      "description": "Python runtime via Ebb",
+      "matchDatasources": ["python-version", "pyenv"],
+      "matchPackageNames": ["python"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/python",
+      "versioning": "loose"
+    },
+    {
+      "description": "Go runtime via Ebb",
+      "matchDatasources": ["golang-version"],
+      "matchPackageNames": ["go", "golang"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/golang",
+      "versioning": "loose"
+    },
+    {
+      "description": "Node.js base container images via Ebb",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["node", "library/node"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/nodejs",
+      "versioning": "loose"
+    },
+    {
+      "description": "Python base container images via Ebb",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["python", "library/python"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/python",
+      "versioning": "loose"
+    },
+    {
+      "description": "Go base container images via Ebb",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["golang", "library/golang"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/golang",
+      "versioning": "loose"
+    },
+    {
+      "description": "PostgreSQL base container images via Ebb",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["postgres", "library/postgres"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/postgresql",
+      "versioning": "loose"
+    },
+    {
+      "description": "Redis base container images via Ebb",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["redis", "library/redis"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "generic/redis",
+      "versioning": "loose"
+    },
+    {
+      "description": "Ruby base container images via Ebb",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ruby", "library/ruby"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "docker/library/ruby",
+      "versioning": "loose"
+    },
+    {
+      "description": "Alpine Linux base container images via Ebb",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["alpine", "library/alpine"],
+      "overrideDatasource": "custom.ebb",
+      "overridePackageName": "docker/library/alpine",
+      "versioning": "loose"
+    }
+  ]
+}
