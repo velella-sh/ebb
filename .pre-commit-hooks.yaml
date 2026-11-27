@@ -1,0 +1,19 @@
+- id: ebb-sbom
+  name: ebb sbom
+  description: Check committed SBOM files for software end-of-life and lifecycle issues
+  entry: ebb check-all
+  language: node
+  files: (?i)(^|/)(.*sbom.*\.json|bom\.json|.*cyclonedx.*\.json|.*spdx.*\.json|.*syft.*\.json)$
+  types: [json]
+  args: [--fail-on, end-of-life]
+  additional_dependencies: ['@velella/ebb@0.2.1']
+
+- id: ebb-purls
+  name: ebb purls
+  description: Check purl list file for software end-of-life and lifecycle issues
+  entry: ebb check-all
+  language: node
+  files: (?i)(^|/)\.ebb-purls$
+  types: [text]
+  args: [--fail-on, end-of-life]
+  additional_dependencies: ['@velella/ebb@0.2.1']

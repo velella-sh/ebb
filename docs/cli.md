@@ -94,9 +94,9 @@ ebb as-of 2026-04-01 pkg:npm/request@2.88.2
 ebb as-of 2027-05-01 node 22.11.0 --json
 ```
 
-### `ebb check-all [file]`
+### `ebb check-all [file...]`
 
-Evaluates multiple dependencies in batch mode. Supports JSON lists, CycloneDX SBOM files, or newline-delimited PURLs from files or standard input (`stdin`).
+Evaluates multiple dependencies in batch mode. Supports one or more JSON lists, CycloneDX SBOM files, SPDX JSON SBOMs, Syft JSON documents, or newline-delimited PURLs from files or standard input (`stdin`).
 
 Options:
 - `--format <text|markdown|json>`: Output format (default: `text`).
@@ -106,8 +106,11 @@ Options:
 
 Examples:
 ```bash
-# From a CycloneDX SBOM or JSON list
+# From a CycloneDX or SPDX SBOM or JSON list
 ebb check-all bom.json
+
+# Check several files at once
+ebb check-all bom.json sbom.spdx.json
 
 # Time-travel batch evaluation
 ebb check-all bom.json --as-of 2026-04-01
