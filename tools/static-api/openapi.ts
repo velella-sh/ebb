@@ -149,7 +149,7 @@ export async function generateOpenApi(options?: GenerateOpenApiOptions): Promise
       const pkg = JSON.parse(await readFile(join(root, "package.json"), "utf8")) as { version: string };
       version = pkg.version;
     } catch {
-      version = "0.3.0";
+      version = "0.2.1";
     }
   }
 
