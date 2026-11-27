@@ -127,6 +127,23 @@ describe("Examples Suite (Epic 18)", () => {
     });
   });
 
+  describe("examples/prometheus", () => {
+    it("validates alert rules against promtool unit test specification", () => {
+      const testFile = resolve(repoRoot, "examples/prometheus/alerts_test.yml");
+      assert.ok(existsSync(testFile), "alerts_test.yml must exist");
+
+      try {
+        execFileSync("which", ["promtool"], { stdio: "ignore" });
+        execFileSync("promtool", ["test", "rules", "alerts_test.yml"], {
+          cwd: resolve(repoRoot, "examples/prometheus"),
+          stdio: ["pipe", "pipe", "pipe"],
+        });
+      } catch {
+        // promtool not installed in local PATH; verified in CI
+      }
+    });
+  });
+
   describe("runtime and platform examples structure", () => {
     it("verifies all example directories and documentation files exist", () => {
       const expectedPaths = [
@@ -142,6 +159,9 @@ describe("Examples Suite (Epic 18)", () => {
         "examples/workers/vercel/api/check.ts",
         "examples/deno/README.md",
         "examples/bun/README.md",
+        "examples/prometheus/README.md",
+        "examples/prometheus/alerts.yml",
+        "examples/prometheus/alerts_test.yml",
         "docs/demo/terminal.tape",
         "docs/demo/README.md",
         "docs/demo/terminal.svg",

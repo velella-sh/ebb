@@ -1,0 +1,45 @@
+services:
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    container_name: ebb-prometheus
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.enable-lifecycle
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    depends_on:
+      - node-exporter
+
+  node-exporter:
+    image: prom/node-exporter:v1.8.2
+    container_name: ebb-node-exporter
+    restart: unless-stopped
+    command:
+      - --collector.textfile.directory=/var/lib/node_exporter/textfile
+    volumes:
+      - ./textfile:/var/lib/node_exporter/textfile:ro
+    ports:
+      - "9100:9100"
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    container_name: ebb-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    volumes:
+      - ./provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./dashboard.json:/var/lib/grafana/dashboards/dashboard.json:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus

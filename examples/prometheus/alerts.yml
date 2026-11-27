@@ -1,0 +1,11 @@
+groups:
+  - name: ebb_lifecycle
+    rules:
+      - alert: ComponentDeadlineApproaching
+        expr: ebb_component_days_left < 90
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Component {{ $labels.purl }} deadline approaching"
+          description: "Component {{ $labels.purl }}@{{ $labels.version }} has {{ $value }} days remaining until {{ $labels.event }}."

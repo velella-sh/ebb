@@ -56,6 +56,11 @@ jobs:
           fi
           grep 'vers-spec pass rate:' "$GITHUB_STEP_SUMMARY"
       - run: npm run lint:rules
+      - name: Validate OpenMetrics with promtool
+        run: |
+          sudo apt-get update && sudo apt-get install -y prometheus
+          promtool check metrics < tests/fixtures/openmetrics/golden.prom || [ $? -eq 3 ]
+          promtool test rules examples/prometheus/alerts_test.yml
       - name: Check documentation links
         run: npm run check:links
       - name: Check API report

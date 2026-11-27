@@ -27,6 +27,7 @@ import { checkAllWith, type CheckAllItem, type CheckAllResult } from "./check-al
 import {
   createColors,
   formatCheckAllMarkdown,
+  formatCheckAllOpenMetrics,
   formatCheckAllText,
   formatCheckMarkdown,
   formatCheckText,
@@ -42,6 +43,7 @@ import {
   formatSourcesText,
   formatStaleMarkdown,
   formatUpcomingMarkdown,
+  formatUpcomingOpenMetrics,
   formatUpcomingText,
   formatVersionsMarkdown,
   formatVersionsText,
@@ -80,7 +82,7 @@ Usage:
   ebb mcp --self-test                        Verify MCP data load with one known check
 
 Options:
-  --format <text|markdown|json|ical> Output format (default: text)
+  --format <text|markdown|json|ical|openmetrics> Output format (default: text)
   --json                        Shortcut for --format json
   --as-of <YYYY-MM-DD>          Reference date for time-travel lifecycle evaluation (UTC)
   --within <span|days>          Time window: 30d, 2w, 3m, 1y, or days (default: 90d)
@@ -444,15 +446,15 @@ export async function runCli(
   }
 
   // Determine output format
-  let format: "text" | "markdown" | "json" | "ical" = "text";
+  let format: "text" | "markdown" | "json" | "ical" | "openmetrics" = "text";
   if (values.json) {
     format = "json";
   } else if (values.format) {
     const f = String(values.format).toLowerCase();
-    if (f === "json" || f === "markdown" || f === "text" || f === "ical") {
+    if (f === "json" || f === "markdown" || f === "text" || f === "ical" || f === "openmetrics") {
       format = f;
     } else {
-      io.stderr.write(`Error: Invalid format "${values.format}". Expected: text, markdown, json, ical.\n`);
+      io.stderr.write(`Error: Invalid format "${values.format}". Expected: text, markdown, json, ical, openmetrics.\n`);
       return 2;
     }
   }
@@ -628,6 +630,24 @@ export async function runCli(
           );
         } else if (format === "markdown") {
           io.stdout.write("No components found to check.\n");
+        } else if (format === "openmetrics") {
+          const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
+          const status = dataStatus({ now: values["as-of"] as string | undefined, maxAgeDays: maxAgeArg });
+          io.stdout.write(
+            formatCheckAllOpenMetrics(
+              [],
+              {
+                results: [],
+                summary: {
+                  total: 0,
+                  byStatus: { ok: 0, deprecated: 0, unsupported: 0, "end-of-life": 0, removed: 0, scheduled: 0 },
+                  byEvent: { deprecated: 0, unsupported: 0, "end-of-life": 0, removed: 0, scheduled: 0 },
+                  errors: 0,
+                },
+              },
+              { dataStatus: status, asOf: values["as-of"] as string | undefined },
+            ),
+          );
         } else {
           io.stdout.write("No components found to check.\n");
         }
@@ -635,7 +655,8 @@ export async function runCli(
       }
 
       const asOf = values["as-of"] as string | undefined;
-      const rawOutcome = asOf ? checkAllWith(items, (p, v) => check(p, v, asOf)) : checkAll(items);
+      const effectiveAsOf = asOf ?? (format === "openmetrics" ? new Date().toISOString().slice(0, 10) : undefined);
+      const rawOutcome = effectiveAsOf ? checkAllWith(items, (p, v) => check(p, v, effectiveAsOf)) : checkAll(items);
       const outcome = filterCheckAllByMinConfidence(rawOutcome, minConfidence);
       const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
       const status = dataStatus({ now: asOf, maxAgeDays: maxAgeArg });
@@ -644,6 +665,8 @@ export async function runCli(
         io.stdout.write(`${JSON.stringify(outcome, null, 2)}\n`);
       } else if (format === "markdown") {
         io.stdout.write(formatCheckAllMarkdown(items, outcome, { noHint, dataStatus: status, asOf }));
+      } else if (format === "openmetrics") {
+        io.stdout.write(formatCheckAllOpenMetrics(items, outcome, { dataStatus: status, asOf: effectiveAsOf }));
       } else {
         io.stdout.write(formatCheckAllText(items, outcome, { colors, noHint, dataStatus: status, asOf }));
       }
@@ -795,6 +818,10 @@ export async function runCli(
         io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
       } else if (format === "markdown") {
         io.stdout.write(formatUpcomingMarkdown(result));
+      } else if (format === "openmetrics") {
+        const maxAgeArg = values["max-age"] ? Number.parseInt(values["max-age"] as string, 10) : undefined;
+        const status = dataStatus({ now: result.asOf, maxAgeDays: maxAgeArg });
+        io.stdout.write(formatUpcomingOpenMetrics(result, { dataStatus: status, asOf: result.asOf }));
       } else {
         io.stdout.write(formatUpcomingText(result, { colors }));
       }

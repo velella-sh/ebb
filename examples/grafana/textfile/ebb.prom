@@ -1,0 +1,16 @@
+# HELP ebb_component_days_left Days remaining until component lifecycle event deadline.
+# TYPE ebb_component_days_left gauge
+ebb_component_days_left{event="end-of-life",purl="pkg:generic/nodejs",status="end-of-life",version="20.0.0"} 119
+ebb_component_days_left{event="end-of-life",purl="pkg:pypi/django",status="end-of-life",version="4.2"} 96
+# HELP ebb_component_status Lifecycle verdict of the software component (1 for active status).
+# TYPE ebb_component_status gauge
+ebb_component_status{event="deprecated",purl="pkg:npm/left-pad",status="deprecated",version="1.3.0"} 1
+ebb_component_status{event="deprecated",purl="pkg:npm/request",status="deprecated",version="2.88.2"} 1
+ebb_component_status{event="end-of-life",purl="pkg:generic/nodejs",status="end-of-life",version="20.0.0"} 1
+ebb_component_status{event="end-of-life",purl="pkg:npm/node-sass",status="end-of-life",version="9.0.0"} 1
+ebb_component_status{event="end-of-life",purl="pkg:pypi/django",status="end-of-life",version="4.2"} 1
+ebb_component_status{event="none",purl="pkg:npm/express",status="ok",version="4.21.0"} 1
+# HELP ebb_data_age_seconds Age of the active lifecycle data in seconds.
+# TYPE ebb_data_age_seconds gauge
+ebb_data_age_seconds 864000
+# EOF
