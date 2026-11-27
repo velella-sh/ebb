@@ -1,0 +1,66 @@
+[
+  {
+    "purl": "pkg:generic/dotnet",
+    "id": "dotnet",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "purl": "pkg:generic/golang",
+    "id": "go",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "purl": "pkg:generic/kubernetes",
+    "id": "kubernetes",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "purl": "pkg:generic/nodejs",
+    "id": "nodejs",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "purl": "pkg:generic/php",
+    "id": "php",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "purl": "pkg:generic/postgresql",
+    "id": "postgresql",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "purl": "pkg:generic/python",
+    "id": "python",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "purl": "pkg:generic/ruby",
+    "id": "ruby",
+    "source": {
+      "url": "https://endoflife.date/api/v1/products/",
+      "date": "2026-11-27"
+    }
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.2.1",
+  "generated_at": "2026-11-27T09:23:11+00:00",
+  "last_modified": "2026-11-16T22:35:06+00:00",
+  "result": {
+    "name": "python",
+    "aliases": [],
+    "label": "Python",
+    "category": "lang",
+    "tags": [
+      "lang"
+    ],
+    "versionCommand": "python --version\n\n# or alternatively\npython3 --version",
+    "identifiers": [
+      {
+        "type": "purl",
+        "id": "pkg:generic/python"
+      }
+    ],
+    "labels": {
+      "eoas": "Active Support",
+      "discontinued": null,
+      "eol": "Security Support",
+      "eoes": null
+    },
+    "links": {
+      "icon": "https://cdn.jsdelivr.net/npm/simple-icons/icons/python.svg",
+      "html": "https://endoflife.date/python",
+      "releasePolicy": "https://devguide.python.org/versions/"
+    },
+    "releases": [
+      {
+        "name": "3.15",
+        "codename": null,
+        "label": "3.15",
+        "releaseDate": "2026-10-09",
+        "isLts": false,
+        "ltsFrom": null,
+        "isEoas": false,
+        "eoasFrom": "2028-10-09",
+        "isEol": false,
+        "eolFrom": "2031-10-31",
+        "isMaintained": true,
+        "latest": {
+          "name": "3.15.2",
+          "date": "2026-10-25",
+          "link": "https://www.python.org/downloads/release/python-3152/"
+        },
+        "custom": {
+          "pep": "PEP-0790"
+        }
+      }
+    ]
+  }
+}

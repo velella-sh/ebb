@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { Ajv2020 } from "ajv/dist/2020.js";
+import { eolDateBaseUrl } from "./eoldate.js";
 
 export interface SmokeTestOptions {
   baseUrl: string;
   root?: string;
   fetch?: typeof fetch;
+  eolCompatSha256?: string;
 }
 
 export async function runSmokeTest(options: SmokeTestOptions): Promise<void> {
@@ -81,14 +84,41 @@ export async function runSmokeTest(options: SmokeTestOptions): Promise<void> {
   if (!Array.isArray(renovateBody.releases) || renovateBody.releases.length === 0) {
     throw new Error(`Smoke test failed: ${renovateUrl} missing releases array`);
   }
+
+  if (options.eolCompatSha256 !== undefined) {
+    await verifyCompatibilityDeployment(fetchFn, eolDateBaseUrl(cleanBase), options.eolCompatSha256);
+  }
+}
+
+async function verifyCompatibilityDeployment(
+  fetchFn: typeof fetch,
+  baseUrl: string,
+  expectedHash: string,
+): Promise<void> {
+  if (!/^[a-f0-9]{64}$/.test(expectedHash)) {
+    throw new Error("Smoke test failed: missing or invalid built compatibility response digest");
+  }
+  for (const productPath of ["products/nodejs.json", "products/nodejs"]) {
+    const url = new URL(productPath, baseUrl);
+    const response = await fetchFn(url, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Smoke test failed: ${url} returned HTTP ${response.status}`);
+    const body = Buffer.from(await response.arrayBuffer());
+    if (createHash("sha256").update(body).digest("hex") !== expectedHash) {
+      throw new Error(`Smoke test failed: ${url} does not match the built compatibility response`);
+    }
+  }
+  const unknown = new URL("products/ebb-unknown-compat-product.json", baseUrl);
+  const response = await fetchFn(unknown, { cache: "no-store" });
+  if (response.status !== 404) throw new Error(`Smoke test failed: ${unknown} did not return HTTP 404`);
 }
 
 export async function main(argv: string[]): Promise<void> {
   const baseUrl = argv[0] ?? "https://velella.sh/ebb/api/v1";
   process.stderr.write(`Starting smoke test against ${baseUrl}...\n`);
   try {
-    await runSmokeTest({ baseUrl });
-    process.stderr.write(`Smoke test passed: all 5 endpoints fetched and validated cleanly.\n`);
+    const eolCompatSha256 = argv[1];
+    await runSmokeTest({ baseUrl, ...(eolCompatSha256 === undefined ? {} : { eolCompatSha256 }) });
+    process.stderr.write("Smoke test passed: all requested endpoints validated.\n");
   } catch (err) {
     process.stderr.write(`${(err as Error).message}\n`);
     process.exit(1);

@@ -14,6 +14,7 @@ import { parsePurl, purlIdentity } from "../../src/purl.js";
 import type { RegistryV2, RegistryV2Rule, ReplacementItem } from "../../src/registry.js";
 import { sourcesOf } from "../../src/sources-of.js";
 import { writeCalendars } from "./calendar.js";
+import { readEolDateIds, writeEolDateApi } from "./eoldate.js";
 import { generateOpenApi } from "./openapi.js";
 import { writeRenovateFeeds } from "./renovate.js";
 
@@ -24,6 +25,8 @@ export interface GenerateStaticApiOptions {
   root?: string | undefined;
   /** Output directory where static JSON files will be written. */
   outDir: string;
+  /** Output for the separate endoflife.date compatibility API. */
+  eolCompatOutDir?: string | undefined;
   /** Public base URL for the API. Defaults to "https://velella.sh/ebb/api/v1". */
   baseUrl?: string | undefined;
   /** Deterministic creation timestamp. Defaults to latest date from the data. */
@@ -243,6 +246,16 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     createdAt,
   });
   const renovateFeeds = renovateResult.feeds;
+
+  if (options.eolCompatOutDir) {
+    await writeEolDateApi({
+      outDir: resolve(options.eolCompatOutDir),
+      baseUrl,
+      rules: allRules,
+      ids: await readEolDateIds(root),
+      createdAt,
+    });
+  }
 
   const schemaUrl = `${baseUrl}/schemas/static-api.v1.schema.json`;
 

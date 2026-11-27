@@ -12,13 +12,16 @@ function getArg(argv: string[], name: string): string | undefined {
 
 export async function main(argv: string[]): Promise<void> {
   const root = resolve(getArg(argv, "--root") ?? process.cwd());
-  const outDir = resolve(getArg(argv, "--out") ?? "dist/site/api/v1");
+  const outArg = getArg(argv, "--out");
+  const outDir = resolve(outArg ?? "dist/site/api/v1");
+  const eolCompatOutDir = getArg(argv, "--eol-compat-out") ?? (outArg ? undefined : "dist/site/api/eol-compat/v1");
   const baseUrl = getArg(argv, "--base-url");
   const createdAt = getArg(argv, "--created-at");
 
   const result = await generateStaticApi({
     root,
     outDir,
+    ...(eolCompatOutDir ? { eolCompatOutDir } : {}),
     ...(baseUrl ? { baseUrl } : {}),
     ...(createdAt ? { createdAt } : {}),
   });

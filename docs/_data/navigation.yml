@@ -31,6 +31,8 @@ main:
         url: /coverage/
       - title: Static JSON API
         url: /static-api/
+      - title: endoflife.date compatibility
+        url: /endoflife-compat/
       - title: Calendar
         url: /calendar/
       - title: Monitoring
