@@ -33,6 +33,8 @@ main:
         url: /static-api/
       - title: Calendar
         url: /calendar/
+      - title: Monitoring
+        url: /monitoring/
       - title: Offline operation
         url: /offline/
       - title: Pre-commit hook

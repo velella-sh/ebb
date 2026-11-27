@@ -589,6 +589,40 @@ describe("CLI upcoming --format ical (cli-time-7)", () => {
   });
 });
 
+describe("CLI --format openmetrics (epic #668)", () => {
+  it("outputs valid OpenMetrics for check-all command", async () => {
+    const input = JSON.stringify(["pkg:generic/nodejs@20.0.0", "pkg:npm/express@4.21.0"]);
+    const mock = createMockIo(input);
+    const code = await runCli(["check-all", "-", "--as-of", "2026-01-01", "--format", "openmetrics"], mock.io);
+    assert.equal(code, 1); // nodejs 20.0.0 is end-of-life as of 2026-01-01
+    assert.ok(mock.stdout.includes("ebb_component_days_left{"));
+    assert.ok(mock.stdout.includes('purl="pkg:generic/nodejs"'));
+    assert.ok(mock.stdout.includes("ebb_component_status{"));
+    assert.ok(mock.stdout.includes('purl="pkg:npm/express"'));
+    assert.ok(mock.stdout.includes("ebb_data_age_seconds"));
+    assert.ok(mock.stdout.endsWith("# EOF\n"));
+  });
+
+  it("outputs valid OpenMetrics for upcoming command", async () => {
+    const mock = createMockIo();
+    const code = await runCli(
+      ["upcoming", "--as-of", "2026-04-01", "--within", "90d", "--format", "openmetrics"],
+      mock.io,
+    );
+    assert.equal(code, 0);
+    assert.ok(mock.stdout.includes("ebb_component_status{"));
+    assert.ok(mock.stdout.includes("ebb_data_age_seconds"));
+    assert.ok(mock.stdout.endsWith("# EOF\n"));
+  });
+
+  it("reports openmetrics as a supported format on invalid format argument", async () => {
+    const mock = createMockIo();
+    const code = await runCli(["check", "pkg:npm/express", "4.21.0", "--format", "invalid"], mock.io);
+    assert.equal(code, 2);
+    assert.ok(mock.stderr.includes("openmetrics"));
+  });
+});
+
 describe("CLI upcoming exit codes with --fail-within (cli-time-8)", () => {
   it("exits 0 when no events fall within --fail-within", async () => {
     const mock = createMockIo();

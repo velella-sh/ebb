@@ -1,0 +1,25 @@
+rule_files:
+  - alerts.yml
+
+evaluation_interval: 1m
+
+tests:
+  - interval: 1m
+    input_series:
+      - series: 'ebb_component_days_left{event="end-of-life",purl="pkg:npm/left-pad",status="scheduled",version="1.3.0"}'
+        values: '45+0x10'
+      - series: 'ebb_component_days_left{event="end-of-life",purl="pkg:npm/express",status="scheduled",version="4.21.0"}'
+        values: '120+0x10'
+    alert_rule_test:
+      - eval_time: 5m
+        alertname: ComponentDeadlineApproaching
+        exp_alerts:
+          - exp_labels:
+              severity: warning
+              event: end-of-life
+              purl: pkg:npm/left-pad
+              status: scheduled
+              version: 1.3.0
+            exp_annotations:
+              summary: "Component pkg:npm/left-pad deadline approaching"
+              description: "Component pkg:npm/left-pad@1.3.0 has 45 days remaining until end-of-life."

@@ -99,7 +99,7 @@ ebb as-of 2027-05-01 node 22.11.0 --json
 Evaluates multiple dependencies in batch mode. Supports one or more JSON lists, CycloneDX SBOM files, SPDX JSON SBOMs, Syft JSON documents, or newline-delimited PURLs from files or standard input (`stdin`).
 
 Options:
-- `--format <text|markdown|json>`: Output format (default: `text`).
+- `--format <text|markdown|json|openmetrics>`: Output format (default: `text`). Use `openmetrics` for Prometheus textfile collector export.
 - `--json`: Shortcut for `--format json`.
 - `--as-of <YYYY-MM-DD>`: Reference date for time-travel lifecycle evaluation (UTC).
 - `--fail-on <threshold>`: Severity threshold (default: `deprecated`).
@@ -164,7 +164,7 @@ Options:
 - `--within <span|days>`: Time window: `30d`, `2w`, `3m`, `1y`, or number of days (default: `90d`).
 - `--fail-within <span|days>`: Exit with code `1` when any matching event deadline falls inside this window.
 - `--countdown`: Show days left and a progress bar for each event, falling back to plain text off-terminal.
-- `--format <text|markdown|json|ical>`: Choose output format (default: `text`). Use `ical` to generate an RFC 5545 calendar.
+- `--format <text|markdown|json|ical|openmetrics>`: Choose output format (default: `text`). Use `ical` to generate an RFC 5545 calendar, or `openmetrics` for Prometheus metrics.
 - `--ecosystem <name>`: Filter by ecosystem (e.g. `npm`, `python`).
 - `--purl <purl>`: Filter by package URL.
 - `--as-of <YYYY-MM-DD>`: Reference date for calculation (UTC).
@@ -408,7 +408,7 @@ ebb mcp --self-test
 
 ## Formatting & Output Options
 
-- `--format <text|markdown|json|ical>`: Choose output format. Defaults to `text`.
+- `--format <text|markdown|json|ical|openmetrics>`: Choose output format. Defaults to `text`.
 - `--json`: Shortcut for `--format json`.
 - `--fail-on <threshold>`: Minimum severity that exits with code `1`. Supported values:
   - `scheduled`: Fails on scheduled, deprecated, unsupported, end-of-life, removed, or error.

@@ -1,0 +1,100 @@
+name: Monitoring E2E
+
+# End-to-end integration test verifying that Ebb OpenMetrics output is collected by
+# node_exporter, ingested by Prometheus, and rendered by Grafana in a real containerized stack.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: monitoring-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  monitoring-e2e:
+    name: Prometheus & Grafana E2E
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: $/.github/actions/setup
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Build and pack CLI
+        run: |
+          npm run build
+          npm pack --silent
+
+      - name: Validate Prometheus alerts with promtool
+        run: |
+          sudo apt-get update && sudo apt-get install -y prometheus
+          promtool test rules examples/prometheus/alerts_test.yml
+          promtool check metrics < tests/fixtures/openmetrics/golden.prom || [ $? -eq 3 ]
+
+      - name: Start monitoring stack with docker compose
+        run: |
+          docker compose -f examples/grafana/docker-compose.yml up -d
+
+      - name: Wait for Prometheus and Grafana health
+        run: |
+          for i in $(seq 1 30); do
+            prom_ready=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:9090/-/ready || true)
+            graf_health=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/api/health || true)
+            if [ "$prom_ready" = "200" ] && [ "$graf_health" = "200" ]; then
+              echo "Services ready after $i attempts"
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Verify Grafana dashboard provisioning via API
+        run: |
+          dashboards=$(curl -sf http://localhost:3000/api/search?type=dash-db)
+          echo "Dashboards: $dashboards"
+          if ! echo "$dashboards" | grep -q "ebb-lifecycle"; then
+            echo "::error::Ebb lifecycle dashboard was not provisioned in Grafana"
+            exit 1
+          fi
+
+      - name: Verify Prometheus metrics ingestion
+        run: |
+          for i in $(seq 1 15); do
+            result=$(curl -sf "http://localhost:9090/api/v1/query?query=ebb_component_days_left" || true)
+            if echo "$result" | grep -q '"result":\[' && ! echo "$result" | grep -q '"result":\[\]'; then
+              echo "Metrics successfully ingested: $result"
+              break
+            fi
+            sleep 1
+          done
+          final_result=$(curl -sf "http://localhost:9090/api/v1/query?query=ebb_component_days_left")
+          if echo "$final_result" | grep -q '"result":\[\]'; then
+            echo "::error::ebb_component_days_left metric is unexpectedly empty"
+            exit 1
+          fi
+
+      - name: Verify failure when textfile is empty (acceptance criteria)
+        run: |
+          # Empty the textfile and restart node-exporter
+          > examples/grafana/textfile/ebb.prom
+          docker compose -f examples/grafana/docker-compose.yml restart node-exporter
+          sleep 6
+          empty_result=$(curl -sf "http://localhost:9090/api/v1/query?query=ebb_component_days_left")
+          echo "Query on empty textfile: $empty_result"
+          if ! echo "$empty_result" | grep -q '"result":\[\]'; then
+            echo "::error::Expected empty series when textfile is empty"
+            exit 1
+          fi
+
+      - name: Tear down docker compose
+        if: always()
+        run: |
+          docker compose -f examples/grafana/docker-compose.yml down
