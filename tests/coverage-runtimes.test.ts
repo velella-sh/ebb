@@ -374,7 +374,7 @@ test("exact 26.0.0 and wrong-scheduled fixtures leave coverage incomplete (CLI e
   }
 });
 
-test("check() and upcoming() preserve month precision for Python 3.11–3.15", async () => {
+test("check() and upcoming() preserve month precision for Python 3.11–3.16", async () => {
   const { check, upcoming } = await import("../src/index.js");
   for (const [version, month] of [
     ["3.11.10", "2027-10"],
@@ -382,6 +382,7 @@ test("check() and upcoming() preserve month precision for Python 3.11–3.15", a
     ["3.13.0", "2029-10"],
     ["3.14.0", "2030-10"],
     ["3.15.0", "2031-10"],
+    ["3.16.0", "2032-10"],
   ] as const) {
     const result = check("pkg:generic/python", version);
     const match = result.matches.find(
@@ -392,12 +393,26 @@ test("check() and upcoming() preserve month precision for Python 3.11–3.15", a
     assert.ok(match.date?.startsWith(month), `date ${match.date} should start with ${month}`);
   }
 
-  const upcomingResult = upcoming({ within: "2000d", ecosystem: "python", asOf: "2026-11-15" });
-  for (const month of ["2027-10", "2028-10", "2029-10", "2030-10", "2031-10"] as const) {
+  const upcomingResult = upcoming({ within: "2500d", ecosystem: "python", asOf: "2026-11-15" });
+  for (const month of ["2027-10", "2028-10", "2029-10", "2030-10", "2031-10", "2032-10"] as const) {
     const item = upcomingResult.items.find(
       (i) => i.deadline.startsWith(month) && i.ruleId.startsWith("python.runtime.eol-3."),
     );
     assert.ok(item, `upcoming missing Python month ${month}`);
     assert.equal(item.datePrecision, "month");
   }
+});
+
+test("check() and upcoming() cover scheduled Node.js 27", async () => {
+  const { check, upcoming } = await import("../src/index.js");
+  const result = check("pkg:generic/nodejs", "27.0.0");
+  const match = result.matches.find((m) => m.ruleId === "nodejs.runtime.eol-27");
+  assert.ok(match, "expected scheduled match for Node.js 27");
+  assert.equal(match.event, "scheduled");
+  assert.equal(match.date, "2030-04-30");
+
+  const upcomingResult = upcoming({ within: "1500d", ecosystem: "nodejs", asOf: "2026-11-27" });
+  const item = upcomingResult.items.find((i) => i.ruleId === "nodejs.runtime.eol-27");
+  assert.ok(item, "upcoming missing Node.js 27 deadline");
+  assert.equal(item.deadline, "2030-04-30");
 });
