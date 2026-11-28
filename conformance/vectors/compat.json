@@ -1,0 +1,179 @@
+{
+  "format": "https://velella.sh/ebb/formats/compat.v1/",
+  "tables": [
+    {
+      "schemaVersion": "ebb.compat.v1",
+      "rows": [
+        {
+          "subject": "pkg:maven/org.example/build-tool",
+          "subjectVers": "vers:maven/>=1.0.0|<3.0.0",
+          "requires": [
+            {
+              "purl": "pkg:generic/java",
+              "vers": "vers:intdot/>=17|<21"
+            },
+            {
+              "purl": "pkg:generic/gradle",
+              "vers": "vers:semver/>=8.7.0"
+            }
+          ],
+          "kind": "documented",
+          "source": {
+            "url": "https://example.com/docs/build-tool",
+            "title": "Fixture compatibility evidence",
+            "accessedAt": "2026-11-28"
+          }
+        },
+        {
+          "subject": "pkg:maven/org.example/build-tool",
+          "subjectVers": "vers:maven/>=2.0.0|<3.0.0",
+          "requires": [
+            {
+              "purl": "pkg:generic/java",
+              "vers": "vers:intdot/>=21|<26"
+            }
+          ],
+          "kind": "documented",
+          "source": {
+            "url": "https://example.com/docs/build-tool/v2",
+            "title": "Fixture compatibility evidence",
+            "accessedAt": "2026-11-28"
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "ebb.compat.v1",
+      "rows": [
+        {
+          "subject": "pkg:maven/org.example/build-tool",
+          "subjectVers": "vers:maven/1.5.0",
+          "requires": [
+            {
+              "purl": "pkg:generic/java",
+              "vers": "vers:intdot/>=11"
+            }
+          ],
+          "kind": "declared",
+          "source": {
+            "url": "https://example.com/registry/build-tool",
+            "title": "Fixture compatibility evidence",
+            "accessedAt": "2026-11-28"
+          }
+        },
+        {
+          "subject": "pkg:npm/example-tool",
+          "subjectVers": "vers:npm/1.0.0|1.0.1",
+          "requires": [
+            {
+              "purl": "pkg:generic/nodejs",
+              "vers": "vers:semver/>=20.0.0"
+            }
+          ],
+          "kind": "declared",
+          "source": {
+            "url": "https://example.com/registry/example-tool",
+            "title": "Fixture compatibility evidence",
+            "accessedAt": "2026-11-28"
+          }
+        }
+      ]
+    }
+  ],
+  "supports": [
+    {
+      "section": "#query-results",
+      "subject": "pkg:maven/org.example/build-tool",
+      "version": "1.0.0",
+      "runtime": "pkg:generic/java",
+      "runtimeVersion": "17",
+      "status": "supported",
+      "kind": "documented"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:maven/org.example/build-tool",
+      "version": "1.5.0",
+      "runtime": "pkg:generic/java",
+      "runtimeVersion": "11",
+      "status": "not-supported",
+      "kind": "documented"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:maven/org.example/build-tool",
+      "version": "2.1.0",
+      "runtime": "pkg:generic/java",
+      "runtimeVersion": "21",
+      "status": "supported",
+      "kind": "documented"
+    },
+    {
+      "section": "#table-and-rows",
+      "subject": "pkg:maven/org.example/build-tool",
+      "version": "1.0.0",
+      "runtime": "pkg:generic/gradle",
+      "runtimeVersion": "8.6.0",
+      "status": "not-supported",
+      "kind": "documented"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:maven/org.example/build-tool",
+      "version": "3.0.0",
+      "runtime": "pkg:generic/java",
+      "runtimeVersion": "17",
+      "status": "unknown"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:maven/org.example/build-tool",
+      "version": "1.0.0",
+      "runtime": "pkg:generic/python",
+      "runtimeVersion": "3.12",
+      "status": "unknown"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:npm/example-tool",
+      "version": "1.0.0",
+      "runtime": "pkg:generic/nodejs",
+      "runtimeVersion": "22.0.0",
+      "status": "supported",
+      "kind": "declared"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:npm/example-tool",
+      "version": "1.0.2",
+      "runtime": "pkg:generic/nodejs",
+      "runtimeVersion": "22.0.0",
+      "status": "unknown"
+    }
+  ],
+  "firstSupporting": [
+    {
+      "section": "#query-results",
+      "subject": "pkg:maven/org.example/build-tool",
+      "version": "2.0.0",
+      "runtime": "pkg:generic/java",
+      "runtimeVersion": "21",
+      "status": "supported"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:maven/org.example/build-tool",
+      "runtime": "pkg:generic/java",
+      "runtimeVersion": "11",
+      "status": "unknown"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:npm/example-tool",
+      "version": "1.0.0",
+      "runtime": "pkg:generic/nodejs",
+      "runtimeVersion": "22.0.0",
+      "status": "supported"
+    }
+  ]
+}

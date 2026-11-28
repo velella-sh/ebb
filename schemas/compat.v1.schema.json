@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://velella.sh/ebb/api/v1/schemas/compat.v1.schema.json",
+  "title": "Ebb compatibility table v1",
+  "type": "object",
+  "required": ["schemaVersion", "rows"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "ebb.compat.v1" },
+    "rows": { "type": "array", "items": { "$ref": "#/$defs/row" }, "uniqueItems": true }
+  },
+  "$defs": {
+    "purl": { "type": "string", "pattern": "^pkg:[a-z][a-z0-9.+-]*/[^@#\\s]+$" },
+    "vers": { "type": "string", "pattern": "^vers:[a-z][a-z0-9.+-]*/[^\\s]+$" },
+    "requirement": {
+      "type": "object",
+      "required": ["purl", "vers"],
+      "additionalProperties": false,
+      "properties": {
+        "purl": { "$ref": "#/$defs/purl" },
+        "vers": { "$ref": "#/$defs/vers" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["url", "title", "accessedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "url": { "type": "string", "pattern": "^https://[^\\s]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "accessedAt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+      }
+    },
+    "row": {
+      "type": "object",
+      "required": ["subject", "subjectVers", "requires", "kind", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "subject": { "$ref": "#/$defs/purl" },
+        "subjectVers": { "$ref": "#/$defs/vers" },
+        "requires": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/requirement" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "kind": { "enum": ["documented", "declared"] },
+        "source": { "$ref": "#/$defs/source" },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

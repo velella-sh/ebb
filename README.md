@@ -94,7 +94,7 @@ npx @velella/ebb as-of 2027-05-01 node 22.11.0
 - **Evidence, not opinion:** Every rule cites an authoritative vendor announcement or registry flag with reviewer provenance. See [Trust & Verification](docs/trust.md).
 - **Standard identifiers:** [Package URLs (PURL)](https://github.com/package-url/purl-spec) and [VERS](https://github.com/package-url/vers-spec) ranges throughout, passing official test suites. See [VERS Guide](docs/vers.md).
 - **Broad dataset:** 830 reviewed rules across 26 registry files. See [Writing a Rule](docs/RULES.md) and [Data Freshness](docs/freshness.md).
-- **Zero runtime dependencies:** Pure ESM with a 556,000-byte packed size cap. See [package size](docs/SIZE.md) and [benchmark measurements](docs/benchmarks.md).
+- **Zero runtime dependencies:** Pure ESM with a 615,000-byte packed size cap. See [package size](docs/SIZE.md) and [benchmark measurements](docs/benchmarks.md).
 - **Offline by default:** Complete rules ship in the package; queries run without network round-trips. See [Offline Guide](docs/offline.md).
 - **Cryptographic signing:** Updated data bundles are signed with Sigstore Cosign and verified offline. See [Data Bundles](docs/DATA.md) and [verify a published snapshot](docs/verify.md).
 

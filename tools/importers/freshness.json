@@ -26,6 +26,7 @@
     "python-release-cycle": 60,
     "ruby-1": 60,
     "runner-images": 60,
+    "runtime-support": 30,
     "rust-1": 60,
     "rust-2": 90,
     "serverless-1": 180,

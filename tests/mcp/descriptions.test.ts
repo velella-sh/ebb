@@ -16,6 +16,8 @@ const EXPECTED_SNAPSHOT: Record<string, string> = {
     'Call before choosing a runtime or a major version. Returns known release lines, the recommended line, and whether coverage is complete. Example: {"purl":"node","as_of":"2026-11-15"}.',
   replacement_for:
     'Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives. Example: {"purl":"pkg:npm/request","version":"2.88.2"}.',
+  runtime_support:
+    'Call to find the first known framework version compatible with a runtime, or to check a specific release. Example: {"purl":"pkg:pypi/django","runtimePurl":"pkg:generic/python","runtimeVersion":"3.13"}.',
   sources_of:
     'Call to inspect authoritative sources, archive snapshot URLs, health status, and review provenance for a lifecycle rule. Example: {"ruleId":"npm.package.request.deprecated"}.',
   upcoming:

@@ -142,6 +142,7 @@ The server provides these tools over JSON-RPC 2.0:
 | `check_install` | Call before running an install command. Parses package manager commands (npm, pnpm, yarn, bun, pip, cargo, go) and checks every package against lifecycle rules. |
 | `diff` | Call to compare two lifecycle data versions, dates, files, or active data and inspect added, changed, or removed rules. |
 | `pick_version` | Call before choosing a runtime or a major version. Returns known release lines, the recommended line, and whether coverage is complete. |
+| `runtime_support` | Check a framework release against a runtime or find the first release with compatible evidence. |
 | `replacement_for` | Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives. |
 | `sources_of` | Call to inspect authoritative sources, archive snapshot URLs, health status, and review provenance for a lifecycle rule. |
 | `upcoming` | Call before planning upgrades to list scheduled deprecation and end-of-life deadlines within a time window. |
@@ -314,6 +315,10 @@ Call before choosing a runtime or a major version. Returns known release lines, 
     "reason": "recommended active line"
   }
   ```
+
+### `runtime_support`
+
+Pass `purl`, `runtimePurl`, and `runtimeVersion`. Supply `version` to check a specific release, or omit it for the first compatible one. The response includes the matching row and source when evidence exists. See [framework runtime compatibility](/runtime-support/) for examples.
 
 ### `replacement_for`
 Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives.

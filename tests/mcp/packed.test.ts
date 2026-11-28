@@ -138,6 +138,25 @@ describe("MCP packed tarball stdio", () => {
       assert.ok(payload.matches[0]?.sources.some(({ url }) => url === source));
       assert.deepEqual(checkResp.result.structuredContent, payload);
 
+      session.write({
+        jsonrpc: "2.0",
+        id: 3,
+        method: "tools/call",
+        params: {
+          name: "runtime_support",
+          arguments: { purl: "pkg:pypi/django", runtimePurl: "pkg:generic/python", runtimeVersion: "3.13" },
+        },
+      });
+      const compat = (await session.waitForResponse(3)) as {
+        result: {
+          structuredContent: { status: string; version: string; row: { kind: string; source: { url: string } } };
+        };
+      };
+      assert.equal(compat.result.structuredContent.status, "supported");
+      assert.equal(compat.result.structuredContent.version, "5.1.3");
+      assert.equal(compat.result.structuredContent.row.kind, "documented");
+      assert.match(compat.result.structuredContent.row.source.url, /^https:\/\/docs\.djangoproject\.com\//u);
+
       await session.finish();
       assert.ok(session.allResponses.length >= 2);
       assert.equal(session.stderr, "", `unexpected stderr: ${session.stderr}`);

@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { gzipSync } from "node:zlib";
 
@@ -221,6 +221,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     "rule.v2.schema.json",
     "registry.v2.schema.json",
     "result.v1.schema.json",
+    "compat.v1.schema.json",
   ];
   for (const schemaFile of schemaFilesToCopy) {
     try {
@@ -228,6 +229,20 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       await writeFile(join(schemasDir, schemaFile), content, "utf8");
     } catch {
       // Ignore if missing in tests
+    }
+  }
+
+  const tablesDir = join(root, "registry", "tables");
+  if (existsSync(tablesDir)) {
+    const tables = (await readdir(tablesDir, { withFileTypes: true })).filter(
+      (entry) => entry.isFile() && entry.name.endsWith(".compat.json"),
+    );
+    if (tables.length) {
+      const compatDir = join(outDir, "compat");
+      await mkdir(compatDir, { recursive: true });
+      for (const { name } of tables) {
+        await copyFile(join(tablesDir, name), join(compatDir, name.replace(/\.compat\.json$/, ".json")));
+      }
     }
   }
 

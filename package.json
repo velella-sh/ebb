@@ -100,6 +100,11 @@
       "default": "./dist/src/create.js"
     },
     "./registry/*": "./registry/*",
+    "./compat": {
+      "types": "./dist/src/compat.d.ts",
+      "import": "./dist/src/compat.js",
+      "default": "./dist/src/compat.js"
+    },
     "./mcp": {
       "types": "./dist/src/mcp/index.d.ts",
       "import": "./dist/src/mcp/index.js",
@@ -164,7 +169,7 @@
     "node": ">=22"
   },
   "ebb": {
-    "sizeBudget": 556000,
+    "sizeBudget": 615000,
     "siteDataBudget": 8388608,
     "staticApiBudgets": {
       "indexGzip": 51200,

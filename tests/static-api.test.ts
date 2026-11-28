@@ -64,6 +64,20 @@ test("static API generation produces valid files matching JSON schema and size b
       `search-index.json gzip size (${result.searchGzipBytes}) exceeded 25KB budget`,
     );
 
+    const tablesDir = "registry/tables";
+    const compatTables = (await readdir(tablesDir)).filter((name) => name.endsWith(".compat.json"));
+    assert.ok(compatTables.length >= 2);
+    for (const name of compatTables) {
+      assert.deepEqual(
+        await readFile(join(tempDir, "compat", name.replace(/\.compat\.json$/, ".json"))),
+        await readFile(join(tablesDir, name)),
+      );
+    }
+    assert.deepEqual(
+      await readFile(join(tempDir, "schemas", "compat.v1.schema.json")),
+      await readFile("schemas/compat.v1.schema.json"),
+    );
+
     // Verify Ajv schema validation
     const ajv = new Ajv2020({ allErrors: true });
     const schema = JSON.parse(await readFile("schemas/static-api.v1.schema.json", "utf8")) as object;
