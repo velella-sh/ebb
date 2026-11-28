@@ -135,7 +135,10 @@
     "!**/*.map",
     "!dist/*.txt",
     "!registry/github-actions-shas.json",
-    "!schemas/vendor/cyclonedx-*"
+    "!schemas/vendor/cyclonedx-*",
+    "!registry/tables/codenames.json",
+    "!schemas/codenames.v1.schema.json",
+    "!schemas/image-variants.v1.schema.json"
   ],
   "scripts": {
     "build": "tsc -b tsconfig.json && node dist/tools/annotate-jsr-types.js && node dist/tools/site-data/pack-routes.js",

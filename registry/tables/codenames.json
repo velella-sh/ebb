@@ -1,0 +1,410 @@
+{
+  "schemaVersion": "ebb.codenames.v1",
+  "rows": [
+    {
+      "family": "debian",
+      "codename": "jessie",
+      "version": "8",
+      "source": {
+        "url": "https://www.debian.org/releases/index.en.html",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "debian",
+      "codename": "stretch",
+      "version": "9",
+      "source": {
+        "url": "https://www.debian.org/releases/index.en.html",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "debian",
+      "codename": "buster",
+      "version": "10",
+      "source": {
+        "url": "https://www.debian.org/releases/index.en.html",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "debian",
+      "codename": "bullseye",
+      "version": "11",
+      "source": {
+        "url": "https://www.debian.org/releases/index.en.html",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "debian",
+      "codename": "bookworm",
+      "version": "12",
+      "source": {
+        "url": "https://www.debian.org/releases/index.en.html",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "debian",
+      "codename": "trixie",
+      "version": "13",
+      "source": {
+        "url": "https://www.debian.org/releases/index.en.html",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "debian",
+      "codename": "forky",
+      "version": "14",
+      "source": {
+        "url": "https://www.debian.org/releases/index.en.html",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "trusty",
+      "version": "14.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "utopic",
+      "version": "14.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "vivid",
+      "version": "15.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "wily",
+      "version": "15.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "xenial",
+      "version": "16.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "yakkety",
+      "version": "16.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "zesty",
+      "version": "17.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "artful",
+      "version": "17.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "bionic",
+      "version": "18.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "cosmic",
+      "version": "18.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "disco",
+      "version": "19.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "eoan",
+      "version": "19.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "focal",
+      "version": "20.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "groovy",
+      "version": "20.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "hirsute",
+      "version": "21.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "impish",
+      "version": "21.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "jammy",
+      "version": "22.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "kinetic",
+      "version": "22.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "lunar",
+      "version": "23.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "mantic",
+      "version": "23.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "noble",
+      "version": "24.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "oracular",
+      "version": "24.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "plucky",
+      "version": "25.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "questing",
+      "version": "25.10",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "resolute",
+      "version": "26.04",
+      "source": {
+        "url": "https://changelogs.ubuntu.com/meta-release",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "ubuntu",
+      "codename": "stonking",
+      "version": "26.10",
+      "source": {
+        "url": "https://releases.ubuntu.com/26.10/",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "argon",
+      "version": "4",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "boron",
+      "version": "6",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "carbon",
+      "version": "8",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "dubnium",
+      "version": "10",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "erbium",
+      "version": "12",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "fermium",
+      "version": "14",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "gallium",
+      "version": "16",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "hydrogen",
+      "version": "18",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "iron",
+      "version": "20",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "jod",
+      "version": "22",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "krypton",
+      "version": "24",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    },
+    {
+      "family": "nodejs-lts",
+      "codename": "lithium",
+      "version": "26",
+      "source": {
+        "url": "https://github.com/nodejs/Release/blob/6065a837c0c151577f449c666fec019069ffba77/schedule.json",
+        "accessedAt": "2026-11-28"
+      }
+    }
+  ]
+}
