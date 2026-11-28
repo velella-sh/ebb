@@ -26,26 +26,26 @@ For each ended line with an observed end, replay at its first release. Hide the 
 <!-- backtest:begin -->
 | Product | Method | Scored lines | Median absolute error (days) | Range hit rate |
 | --- | --- | ---: | ---: | ---: |
-| pkg:generic/bun | policy | 0 | — | — |
-| pkg:generic/bun | cadence | 0 | — | — |
-| pkg:generic/deno | policy | 0 | — | — |
-| pkg:generic/deno | cadence | 0 | — | — |
-| pkg:generic/dotnet | policy | 0 | — | — |
-| pkg:generic/dotnet | cadence | 7 | 153 | 71.4% |
-| pkg:generic/golang | policy | 6 | 5.5 | 100.0% |
-| pkg:generic/golang | cadence | 2 | 4 | 0.0% |
-| pkg:generic/java | policy | 8 | 0 | 100.0% |
-| pkg:generic/java | cadence | 4 | 0 | 100.0% |
-| pkg:generic/nodejs | policy | 0 | — | — |
-| pkg:generic/nodejs | cadence | 7 | 1 | 71.4% |
-| pkg:generic/php | policy | 0 | — | — |
-| pkg:generic/php | cadence | 0 | — | — |
-| pkg:generic/python | policy | 0 | — | — |
-| pkg:generic/python | cadence | 0 | — | — |
-| pkg:generic/ruby | policy | 0 | — | — |
-| pkg:generic/ruby | cadence | 0 | — | — |
-| pkg:generic/rust | policy | 6 | 0 | 100.0% |
-| pkg:generic/rust | cadence | 3 | 0 | 100.0% |
+| `pkg:generic/bun` | policy | 0 | — | — |
+| `pkg:generic/bun` | cadence | 0 | — | — |
+| `pkg:generic/deno` | policy | 0 | — | — |
+| `pkg:generic/deno` | cadence | 0 | — | — |
+| `pkg:generic/dotnet` | policy | 0 | — | — |
+| `pkg:generic/dotnet` | cadence | 7 | 153 | 71.4% |
+| `pkg:generic/golang` | policy | 6 | 5.5 | 100.0% |
+| `pkg:generic/golang` | cadence | 2 | 4 | 0.0% |
+| `pkg:generic/java` | policy | 8 | 0 | 100.0% |
+| `pkg:generic/java` | cadence | 4 | 0 | 100.0% |
+| `pkg:generic/nodejs` | policy | 0 | — | — |
+| `pkg:generic/nodejs` | cadence | 7 | 1 | 71.4% |
+| `pkg:generic/php` | policy | 0 | — | — |
+| `pkg:generic/php` | cadence | 0 | — | — |
+| `pkg:generic/python` | policy | 0 | — | — |
+| `pkg:generic/python` | cadence | 0 | — | — |
+| `pkg:generic/ruby` | policy | 0 | — | — |
+| `pkg:generic/ruby` | cadence | 0 | — | — |
+| `pkg:generic/rust` | policy | 6 | 0 | 100.0% |
+| `pkg:generic/rust` | cadence | 3 | 0 | 100.0% |
 <!-- backtest:end -->
 
 High confidence requires at least eight scored lines and a 90% range hit rate. Medium requires at least four and a 75% hit rate. Otherwise the confidence is low. These labels describe historical coverage. The table is a retrospective reconstruction from official histories, whose past public availability can differ from the event calendar. In particular, Ruby has enough ended lines to estimate today and too few completed before the historical release cutoffs to score this snapshot.

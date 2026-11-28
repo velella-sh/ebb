@@ -80,7 +80,7 @@ export function formatBacktest(rows: readonly BacktestRow[]): string {
     "| --- | --- | ---: | ---: | ---: |",
     ...rows.map(
       ({ purl, method, lines, medianAbsoluteErrorDays, rangeHitRate }) =>
-        `| ${purl} | ${method} | ${lines} | ${medianAbsoluteErrorDays ?? "—"} | ${rangeHitRate === null ? "—" : (rangeHitRate * 100).toFixed(1) + "%"} |`,
+        `| \`${purl}\` | ${method} | ${lines} | ${medianAbsoluteErrorDays ?? "—"} | ${rangeHitRate === null ? "—" : (rangeHitRate * 100).toFixed(1) + "%"} |`,
     ),
   ].join("\n");
 }
