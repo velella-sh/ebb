@@ -39,6 +39,10 @@ main:
         url: /products/
       - title: Runtime coverage
         url: /coverage/
+      - title: Data coverage report
+        url: /coverage-report/
+      - title: Coverage gaps
+        url: /gaps/
       - title: Static JSON API
         url: /static-api/
       - title: endoflife.date compatibility
