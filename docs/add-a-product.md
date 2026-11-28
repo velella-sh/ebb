@@ -53,6 +53,18 @@ Confirm only after reviewing the two versions. Reuse an affected version already
 
 Review `git diff` and run `npm run lint:rules` and `npm run check`. For an actual new rule, use the file list the tool printed to stage and commit only the rule, cases and generated module. Push the branch and run `gh pr create`. In the PR body, link the source and describe how it supports the range, event and date.
 
+If maintainer review is pending, use `gh pr create --draft` and record the check results in the description. The maintainer verifies the evidence and the completed checks before merging the rule.
+
 The evidence comment reports schema and lint results, matching cases, source reachability, whether the claimed date appeared in the source, and any archive request. A matching date is a pointer for review. The maintainer still verifies what the vendor actually says.
 
 On a product request, triage reports whether the cited page was reachable and whether it found a possible date or lifecycle policy. A comment asking for more details means the reporter can edit the issue to supply the missing link, range or event. The workflow labels dated candidates `good first rule` for review. Triage does not write registry rules.
+
+## Timed fresh-clone draft
+
+On 28 November 2026, a fresh clone reached an [open draft pull request](https://github.com/velella-sh/ebb/pull/1094) in **41.7 seconds**. The run started at 08:53:57.049 UTC before cloning and ended at 08:54:38.728 UTC when GitHub CLI returned the PR link. It used Node.js 24.22.3, the normal local npm cache, and scripted answers to the interactive tool. The fresh checkout had no installed dependencies.
+
+The run read the [official npm registry metadata for ESLint](https://registry.npmjs.org/eslint) after cloning. It enumerated 51 published stable ESLint 9 versions flagged as deprecated, used released versions `9.39.5` and `10.16.0` as the match and non-match, and left the deadline absent.
+
+The measured steps included `npm ci`, `npm run new-rule`, review of the generated rule and cases, `git diff --check`, `npm run lint:rules`, `npm run check`, `npm run api:check`, `npm run size`, commit, push, and `gh pr create --draft`. Schema, lint, cases, API and size checks passed. The full suite reported four failures. Its reviewer guard rejected the pending-review marker, and three CLI golden tests expected the previous newest review date, 27 November. The draft records the actual 28 November observation. Merge readiness requires an independent maintainer review and green checks.
+
+The hosted evidence check confirmed schema, lint and all 206 behavior cases. The hosted runner reported the npm URL unreachable during its check. [Evidence check on the draft](https://github.com/velella-sh/ebb/pull/1094#issuecomment-7236905178)
