@@ -243,6 +243,19 @@ test("static API generation produces valid files matching JSON schema and size b
     assert.ok(openApiDoc.paths["/rules/{rule-id}.json"]);
     assert.ok(openApiDoc.paths["/{type}/{name}.json"]);
 
+    const { imageVariants, codenames } = JSON.parse(await readFile(join(tempDir, "index.json"), "utf8"));
+    for (const [file, descriptor] of [
+      ["image-variants", imageVariants],
+      ["codenames", codenames],
+    ]) {
+      const path = `${file}.json`;
+      const published = await readFile(join(tempDir, path));
+      assert.deepEqual(published, await readFile(join("registry/tables", path)));
+      assert.deepEqual(descriptor, { path, sha256: sha256Hex(published) });
+      assert.ok(openApiDoc.paths[`/${path}`]);
+      assert.ok((await readFile(join(tempDir, `schemas/${file}.v1.schema.json`))).length > 0);
+    }
+
     // Validate 404.json (Sub-issue 6 / #481)
     const notFoundRaw = await readFile(join(tempDir, "404.json"), "utf8");
     const notFoundDoc = JSON.parse(notFoundRaw);

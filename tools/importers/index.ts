@@ -33,10 +33,11 @@ import { swiftAppStoreImporter } from "./swift-1.js";
 import { terraformCliImporter } from "./terraform-1.js";
 import { terraformProviderGuidesImporter } from "./terraform-2.js";
 import { runtimeSupportImporter } from "./runtime-support.js";
-import type { CompatibilityImporter, Importer } from "./types.js";
+import { imageVariantsImporter } from "./image-variants.js";
+import type { RegisteredImporter } from "./types.js";
 
 /** Every importer the command line can run. Each importer adds itself here when it lands. */
-export const importers: readonly (Importer | CompatibilityImporter)[] = [
+export const importers: readonly RegisteredImporter[] = [
   androidTargetSdkImporter,
   ciImagesImporter,
   containerOfficialImagesImporter,
@@ -50,6 +51,7 @@ export const importers: readonly (Importer | CompatibilityImporter)[] = [
   githubActionsRuntimeImporter,
   goModuleDeprecationImporter,
   goReleasePolicyImporter,
+  imageVariantsImporter,
   javaJdkSupportImporter,
   mavenRelocationImporter,
   kubernetesDeprecationGuideImporter,

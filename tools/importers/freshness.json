@@ -13,6 +13,7 @@
     "github-actions-runtime": 60,
     "go-1": 60,
     "go-2": 90,
+    "image-variants": 7,
     "java-1": 60,
     "java-2": 90,
     "kubernetes-1": 60,

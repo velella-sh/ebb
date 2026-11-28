@@ -89,6 +89,20 @@ export const ENDPOINTS: EndpointSpec[] = [
     schemaRef: "./schemas/prediction.v1.schema.json#/$defs/table",
   },
   {
+    path: "/image-variants.json",
+    summary: "Official image base distribution variants",
+    description: "Exact official image tags and evidenced digest references mapped to their base distribution",
+    example: "/image-variants.json",
+    schemaRef: "./schemas/image-variants.v1.schema.json",
+  },
+  {
+    path: "/codenames.json",
+    summary: "Release codenames",
+    description: "Upstream Debian, Ubuntu and Node.js LTS codenames mapped to release lines",
+    example: "/codenames.json",
+    schemaRef: "./schemas/codenames.v1.schema.json",
+  },
+  {
     path: "/recent.json",
     summary: "Recently updated rules",
     description: "Most recently reviewed and updated rules, sorted by date",

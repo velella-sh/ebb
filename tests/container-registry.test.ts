@@ -13,14 +13,14 @@ async function rules() {
   return validateRegistryV2(JSON.parse(await readFile(join(packageRoot, "registry/container.json"), "utf8"))).rules;
 }
 
-test("container registry has thirty-four image rules, two Dockerfile rules, and twelve host OS rules with vendor sources", async () => {
+test("container registry has thirty-five image rules, two Dockerfile rules, and thirteen host OS rules with vendor sources", async () => {
   const all = await rules();
   const images = all.filter((rule) => rule.purl.startsWith("pkg:docker/library/"));
   const dockerfile = all.filter((rule) => rule.purl === "pkg:generic/dockerfile");
   const hosts = all.filter((rule) => rule.purl.startsWith("pkg:generic/") && rule.purl !== "pkg:generic/dockerfile");
-  assert.equal(images.length, 34);
+  assert.equal(images.length, 35);
   assert.equal(dockerfile.length, 2);
-  assert.equal(hosts.length, 12);
+  assert.equal(hosts.length, 13);
   assert.equal(all.length, images.length + dockerfile.length + hosts.length);
   for (const rule of all) {
     assert.ok(rule.sources.every((source) => source.url.startsWith("https://")));
@@ -71,7 +71,7 @@ test("release lines fall on the right side of each range", async () => {
   }
 });
 
-test("a scheduled image line is a low-severity rule for exactly that line", async () => {
+test("scheduled image and host lines have low-severity rules for exactly the sourced ranges", async () => {
   const scheduled = (await rules()).filter((rule) => rule.event === "scheduled-end-of-life");
   assert.deepEqual(
     scheduled.map((rule) => [rule.id, rule.vers, rule.severity, rule.deadline]),
@@ -82,6 +82,8 @@ test("a scheduled image line is a low-severity rule for exactly that line", asyn
       ["container.ruby.eol-3.3-and-older", "vers:semver/>=3.3.0|<3.4.0", "low", "2027-03-31"],
       ["container.redis.eol-6.2-and-older", "vers:semver/>=6.2.0|<6.3.0", "low", "2027-04-01"],
       ["container.ubuntu.eol-22.04", "vers:semver/>=22.0.0|<22.10.0", "low", "2027-06-01"],
+      ["container.debian.eol-12", "vers:semver/>=12.0.0|<13.0.0", "low", "2028-06-30"],
+      ["container.host-debian.eol-12", "vers:semver/>=12.0.0|<13.0.0", "low", "2028-06-30"],
     ],
   );
   for (const [rule, version, affected] of [

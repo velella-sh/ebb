@@ -47,6 +47,8 @@ main:
         url: /coverage-report/
       - title: Coverage gaps
         url: /gaps/
+      - title: Official image base distributions
+        url: /image-variants/
       - title: Static JSON API
         url: /static-api/
       - title: endoflife.date compatibility
@@ -99,6 +101,8 @@ main:
         url: /spec/1.0/
       - title: Compatibility table format
         url: /formats/compat.v1/
+      - title: Image variant and codename formats
+        url: /formats/image-variants-v1/
       - title: Schema evolution
         url: /schema-evolution/
       - title: Rules and replacements

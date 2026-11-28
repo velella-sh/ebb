@@ -20,6 +20,9 @@ import type {
   DraftRegistry,
   Importer,
   ImporterContext,
+  ImageVariantsImporter,
+  ImageVariantsImporterOutput,
+  RegisteredImporter,
 } from "./types.js";
 
 export { ImporterError };
@@ -125,13 +128,17 @@ export function execute(
   options?: ExecuteOptions,
 ): Promise<CompatibilityImporterOutput>;
 export function execute(
-  importer: Importer | CompatibilityImporter,
+  importer: ImageVariantsImporter,
   options?: ExecuteOptions,
-): Promise<DraftRegistry | CompatibilityImporterOutput>;
+): Promise<ImageVariantsImporterOutput>;
+export function execute(
+  importer: RegisteredImporter,
+  options?: ExecuteOptions,
+): Promise<DraftRegistry | CompatibilityImporterOutput | ImageVariantsImporterOutput>;
 export async function execute(
-  importer: Importer | CompatibilityImporter,
+  importer: RegisteredImporter,
   options: ExecuteOptions = {},
-): Promise<DraftRegistry | CompatibilityImporterOutput> {
+): Promise<DraftRegistry | CompatibilityImporterOutput | ImageVariantsImporterOutput> {
   const run = (context: ImporterContext) =>
     "format" in importer ? importer.import(context) : runImporter(importer, context);
   if (options.record && options.replay) throw new ImporterError("Use either --record or --replay, not both.");
@@ -164,7 +171,7 @@ export async function execute(
   return run(liveContext(now));
 }
 
-async function registeredImporters(): Promise<readonly (Importer | CompatibilityImporter)[]> {
+async function registeredImporters(): Promise<readonly RegisteredImporter[]> {
   return (await import("./index.js")).importers;
 }
 

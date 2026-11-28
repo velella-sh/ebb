@@ -225,6 +225,8 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     "result.v1.schema.json",
     "prediction.v1.schema.json",
     "compat.v1.schema.json",
+    "image-variants.v1.schema.json",
+    "codenames.v1.schema.json",
   ];
   for (const schemaFile of schemaFilesToCopy) {
     try {
@@ -248,6 +250,17 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       }
     }
   }
+
+  const imageTableEntries = await Promise.all(
+    (["image-variants", "codenames"] as const).map(async (name) => {
+      const path = `${name}.json`;
+      const source = join(tablesDir, path);
+      if (!existsSync(source)) return [];
+      const bytes = await readFile(source);
+      await writeFile(join(outDir, path), bytes);
+      return [[name === "image-variants" ? "imageVariants" : name, { path, sha256: sha256Hex(bytes) }]] as const;
+    }),
+  );
 
   const calendarFeeds = await writeCalendars({
     outDir,
@@ -566,6 +579,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     },
     components: indexComponents,
     ...(predictionIndex ? { predictions: predictionIndex } : {}),
+    ...Object.fromEntries(imageTableEntries.flat()),
   };
   const indexJson = JSON.stringify(sortKeys(indexDoc), null, 2);
   const indexGzip = gzipSync(Buffer.from(indexJson, "utf8"));

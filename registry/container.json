@@ -1788,6 +1788,35 @@
       }
     },
     {
+      "id": "container.debian.eol-12",
+      "ecosystem": "container",
+      "purl": "pkg:docker/library/debian",
+      "vers": "vers:semver/>=12.0.0|<13.0.0",
+      "event": "scheduled-end-of-life",
+      "title": "Debian 12 image long-term support ends on June 30, 2028",
+      "summary": "The Debian 12 Official Image uses the Bookworm release line. The Debian project schedules the end of Bookworm long-term support for June 30, 2028.",
+      "severity": "low",
+      "deadline": "2028-06-30",
+      "sources": [
+        {
+          "title": "Debian Bookworm release information",
+          "url": "https://www.debian.org/releases/bookworm/",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "Docker Official Images Debian library definition",
+          "url": "https://github.com/docker-library/official-images/blob/c788a3606c4d0231711ae26d9e6de137e60d1002/library/debian",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
+        "method": "manual"
+      }
+    },
+    {
       "id": "container.debian.eol-11-and-older",
       "ecosystem": "container",
       "purl": "pkg:docker/library/debian",
@@ -2202,6 +2231,30 @@
             "purpose": "Check that package upgrades resolve on the target release."
           }
         ]
+      }
+    },
+    {
+      "id": "container.host-debian.eol-12",
+      "ecosystem": "container",
+      "purl": "pkg:generic/debian",
+      "vers": "vers:semver/>=12.0.0|<13.0.0",
+      "event": "scheduled-end-of-life",
+      "title": "Debian 12 long-term support ends on June 30, 2028",
+      "summary": "The Debian project schedules the end of Bookworm long-term support for June 30, 2028. During LTS, Debian covers only i386, amd64, armhf, arm64 and ppc64el.",
+      "severity": "low",
+      "deadline": "2028-06-30",
+      "sources": [
+        {
+          "title": "Debian Bookworm release information",
+          "url": "https://www.debian.org/releases/bookworm/",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
+        "method": "manual"
       }
     },
     {
