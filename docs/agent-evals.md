@@ -1,6 +1,6 @@
 ---
 title: "Agent Evaluations"
-description: "Empirical benchmark evaluating AI coding agent accuracy with and without Ebb lifecycle checks."
+description: "Evaluation tasks, scoring methodology and simulated fixtures for lifecycle checks in coding agents."
 layout: doc
 permalink: /agent-evals/
 ---
@@ -13,18 +13,15 @@ The evaluation benchmarks unassisted agents against agents equipped with Ebb lif
 
 ---
 
-## Headline Results
+## Evaluation status
 
-- **Evaluation Date**: `2026-11-16`
-- **Benchmark Tasks**: 100 realistic prompts across 5 ecosystems
-- **Repetitions per Mode**: 3 repetitions per task and mode (reporting mean and range)
-- **Baseline Deprecation Rate (Unassisted)**: **38%** (range: 38% - 38%) [Simulated]
-- **With Ebb Deprecation Rate (MCP / Skill)**: **0%** (range: 0% - 0%) [Simulated]
-- **Deprecation Rate Reduction**: **-38 percentage points** [Simulated; live runs pending]
+The recorded results use simulated fixtures. A live comparison has yet to be published. The evaluation suite includes 100 prompts across five ecosystems and stores three simulated repetitions per configuration.
 
 ---
 
-## Benchmark Matrix
+## Simulated benchmark matrix
+
+The rows below show how the scoring pipeline handles fixed fixtures. They provide no measurement of live model accuracy.
 
 | Agent | Mode | Runner | Model | Version | Reps | Deprecated / EOL (Mean) | Deprecation Rate (Mean) | Range |
 |:---|:---|:---:|:---|:---:|:---:|:---:|:---:|:---:|

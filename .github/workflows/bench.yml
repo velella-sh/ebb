@@ -27,6 +27,8 @@ jobs:
           node-version: "22"
           cache: npm
       - name: Run benchmarks
+        env:
+          EBB_BENCH_RUNNER: ubuntu-latest
         run: npm run bench
       - name: Fetch previous main baseline
         if: github.event_name == 'pull_request'

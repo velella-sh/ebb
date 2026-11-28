@@ -21,6 +21,10 @@ main:
         url: /importers/
       - title: Trust and verification
         url: /trust/
+      - title: Verify a data release
+        url: /verify/
+      - title: Scorecard
+        url: /scorecard/
       - title: Comparing sources
         url: /compare/
       - title: Data bundles and trust
@@ -101,6 +105,8 @@ main:
         url: /errors/
       - title: Bundle size & limits
         url: /size/
+      - title: Benchmarks
+        url: /benchmarks/
       - title: Lifecycle labels
         url: /labels/
   - title: Decisions
