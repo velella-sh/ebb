@@ -39,6 +39,22 @@
             "title": "Fixture compatibility evidence",
             "accessedAt": "2026-11-28"
           }
+        },
+        {
+          "subject": "pkg:npm/example-tool",
+          "subjectVers": "vers:npm/2.0.0",
+          "requires": [
+            {
+              "purl": "pkg:generic/nodejs",
+              "vers": "vers:semver/>=20.0.0"
+            }
+          ],
+          "kind": "documented",
+          "source": {
+            "url": "https://example.com/docs/example-tool",
+            "title": "Example tool documentation",
+            "accessedAt": "2026-11-28"
+          }
         }
       ]
     },
@@ -149,6 +165,15 @@
       "runtime": "pkg:generic/nodejs",
       "runtimeVersion": "22.0.0",
       "status": "unknown"
+    },
+    {
+      "section": "#query-results",
+      "subject": "pkg:npm/example-tool",
+      "version": "2.0.0",
+      "runtime": "pkg:generic/nodejs",
+      "runtimeVersion": "22.0.0",
+      "status": "supported",
+      "kind": "documented"
     }
   ],
   "firstSupporting": [

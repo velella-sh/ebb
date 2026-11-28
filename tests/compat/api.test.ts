@@ -18,8 +18,8 @@ test("offline queries retain both rows and prefer documented runtime ranges", ()
   assert.deepEqual(supports(django, "999", python, "3.13"), { status: "unknown" });
   assert.deepEqual(supports(django, "5.1.3", node, "22"), { status: "unknown" });
   const first = firstSupporting(django, python, "3.13");
-  assert.ok(first.status === "supported" && first.row.kind === "documented");
-  assert.equal(first.version, "5.1.3");
+  assert.ok(first.status === "supported" && first.row.kind === "declared");
+  assert.equal(first.version, "2.0a1");
 });
 
 test("declared evidence answers when no documented row applies", () => {

@@ -102,7 +102,7 @@ const pkg = await import("@velella/ebb/package.json", { with: { type: "json" } }
 assert.equal(pkg.default.name, "@velella/ebb");
 
 const compat = await import("@velella/ebb/compat");
-assert.equal(compat.firstSupporting("pkg:pypi/django", "pkg:generic/python", "3.13").version, "5.1.3");
+assert.equal(compat.firstSupporting("pkg:pypi/django", "pkg:generic/python", "3.13").version, "2.0a1");
 assert.equal(compat.supports("pkg:npm/next", "12.0.0", "pkg:generic/nodejs", "16.20.0").row.kind, "declared");
 
 const mcp = await import("@velella/ebb/mcp");

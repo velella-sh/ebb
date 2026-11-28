@@ -187,9 +187,9 @@ describe("MCP packed tarball stdio", () => {
         };
       };
       assert.equal(compat.result.structuredContent.status, "supported");
-      assert.equal(compat.result.structuredContent.version, "5.1.3");
-      assert.equal(compat.result.structuredContent.row.kind, "documented");
-      assert.match(compat.result.structuredContent.row.source.url, /^https:\/\/docs\.djangoproject\.com\//u);
+      assert.equal(compat.result.structuredContent.version, "2.0a1");
+      assert.equal(compat.result.structuredContent.row.kind, "declared");
+      assert.match(compat.result.structuredContent.row.source.url, /^https:\/\/pypi\.org\//u);
 
       await session.finish();
       assert.ok(session.allResponses.length >= 2);

@@ -30,7 +30,7 @@ Use the VERS scheme for each PURL type. A generic PURL can choose a supported sc
 
 When rows overlap for a subject version and requirement PURL, prefer documented rows. Within one evidence kind, a row allowing the given version is enough for `supported`. Return a covering row and its evidence for either determinate answer. A requirements listing preserves rows from both kinds.
 
-For a first-supporting query, use exact subject versions and inclusive lower bounds as candidates. Evaluate each candidate with the same overlap rules. Return the lowest documented candidate that qualifies, or the lowest declared candidate when no documented candidate qualifies. An open lower bound alone offers no candidate.
+For a first-supporting query, use exact subject versions and inclusive lower bounds as candidates. Evaluate each candidate with the same overlap rules. Return the lowest candidate that qualifies across both evidence kinds. An open lower bound alone offers no candidate. The result row distinguishes a compatibility statement from a registry declaration.
 
 ## Examples
 

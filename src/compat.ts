@@ -64,11 +64,6 @@ function canUse(row: CompatibilityRow, runtime: string, version: string): boolea
   return true;
 }
 
-function preferred(rows: readonly CompiledRow[]): readonly CompiledRow[] {
-  const documented = rows.filter(({ row }) => row.kind === "documented");
-  return documented.length ? documented : rows;
-}
-
 /** Creates an offline compatibility reader. Table order breaks ties at the same evidence level. */
 export function createCompatibilityReader(tables: readonly CompatibilityTable[]): CompatibilityReader {
   const bySubject = new Map<string, CompiledRow[]>();
@@ -93,12 +88,13 @@ export function createCompatibilityReader(tables: readonly CompatibilityTable[])
   function supports(purl: string, version: string, runtimePurl: string, runtimeVersion: string): SupportResult {
     const runtime = purlIdentity(runtimePurl);
     const candidates = (bySubject.get(purlIdentity(purl)) ?? []).filter(
-      ({ row, subject, requirements }) =>
-        canUse(row, runtime, runtimeVersion) &&
-        requirements.some(({ purl }) => purl === runtime) &&
-        matches(subject, version),
+      ({ row, requirements }) =>
+        canUse(row, runtime, runtimeVersion) && requirements.some(({ purl }) => purl === runtime),
     );
-    const authoritative = preferred(candidates);
+    const documented = candidates.filter(({ row, subject }) => row.kind === "documented" && matches(subject, version));
+    const authoritative = documented.length
+      ? documented
+      : candidates.filter(({ row, subject }) => row.kind === "declared" && matches(subject, version));
     const matching = authoritative.find(({ requirements }) =>
       requirements.filter(({ purl }) => purl === runtime).every(({ range }) => matches(range, runtimeVersion)),
     );
@@ -120,20 +116,16 @@ export function createCompatibilityReader(tables: readonly CompatibilityTable[])
     const scheme = entries[0]?.subject.scheme;
     if (!scheme) return { status: "unknown" };
     const compare = versionScheme(scheme);
-    for (const kind of ["documented", "declared"] as const) {
-      const candidates = new Set(
-        entries
-          .filter(({ row }) => row.kind === kind)
-          .flatMap(({ subject }) =>
-            subject.constraints
-              .filter(({ comparator }) => comparator === "=" || comparator === ">=")
-              .map(({ version }) => version),
-          ),
-      );
-      for (const version of [...candidates].sort((left, right) => compare.compare(left, right))) {
-        const answer = supports(purl, version, runtime, runtimeVersion);
-        if (answer.status === "supported") return { status: answer.status, row: answer.row, version };
-      }
+    const candidates = new Set(
+      entries.flatMap(({ subject }) =>
+        subject.constraints
+          .filter(({ comparator }) => comparator === "=" || comparator === ">=")
+          .map(({ version }) => version),
+      ),
+    );
+    for (const version of [...candidates].sort((left, right) => compare.compare(left, right))) {
+      const answer = supports(purl, version, runtime, runtimeVersion);
+      if (answer.status === "supported") return { status: answer.status, row: answer.row, version };
     }
     return { status: "unknown" };
   }

@@ -26,16 +26,16 @@ The rows cover specific releases or evidenced lines. Electron's embedded runtime
 
 ## Examples
 
-`firstSupporting(purl, runtimePurl, runtimeVersion)` returns the lowest eligible documented release, falling back to declarations when needed. The object includes the source and evidence kind in `row`. To verify a particular framework release, call `supports(purl, version, runtimePurl, runtimeVersion)`.
+`firstSupporting(purl, runtimePurl, runtimeVersion)` returns the lowest eligible version across both evidence kinds. A historical release or prerelease can be first when its registry declaration accepts the runtime. The object includes the source and evidence kind in `row`. To verify a particular framework release, call `supports(purl, version, runtimePurl, runtimeVersion)`.
 
 ```js
 import assert from "node:assert/strict";
 import { firstSupporting, supports } from "@velella/ebb/compat";
 
 const examples = [
-  ["pkg:npm/%40angular/core", "pkg:generic/nodejs", "24.15.0", "20.0.0"],
+  ["pkg:npm/%40angular/core", "pkg:generic/nodejs", "24.15.0", "12.0.2", "declared"],
   ["pkg:npm/electron", "pkg:generic/electron-nodejs", "24.22.3", "43.8.13"],
-  ["pkg:pypi/django", "pkg:generic/python", "3.13", "5.1.3"],
+  ["pkg:pypi/django", "pkg:generic/python", "3.13", "2.0a1", "declared"],
   ["pkg:maven/org.springframework.boot/spring-boot", "pkg:generic/java", "27", "4.0.10"],
   ["pkg:maven/org.jetbrains.kotlin/kotlin-compiler", "pkg:generic/kotlin-jvm-target", "25", "2.3.0"],
   ["pkg:gem/rails", "pkg:generic/ruby", "3.1.0", "7.0"],
@@ -43,15 +43,20 @@ const examples = [
   ["pkg:nuget/microsoft.aspnetcore.app.ref", "pkg:generic/dotnet", "10.0.0", "10.0.0"],
 ];
 
-for (const [purl, runtime, version, expected] of examples) {
+for (const [purl, runtime, version, expected, kind = "documented"] of examples) {
   const result = firstSupporting(purl, runtime, version);
   assert.equal(result.status, "supported");
   assert.equal(result.version, expected);
-  assert.equal(result.row.kind, "documented");
+  assert.equal(result.row.kind, kind);
 }
 
-assert.equal(supports("pkg:pypi/django", "5.1.2", "pkg:generic/python", "3.13").status, "not-supported");
+const django = "pkg:pypi/django";
+const python = "pkg:generic/python";
+assert.equal(supports(django, "5.1.2", python, "3.13").status, "not-supported");
+assert.equal(supports(django, "5.1.3", python, "3.13").row.kind, "documented");
 ```
+
+Django’s PyPI declaration for 2.0a1 allows Python 3.13 on paper. For the Django 5.1 line, the official Python 3.13 support boundary is 5.1.3. [Django installation FAQ](https://docs.djangoproject.com/en/6.1/faq/install/#what-python-version-can-i-use-with-django)
 
 ## Refresh declared metadata
 
