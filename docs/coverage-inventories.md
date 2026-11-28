@@ -1,6 +1,6 @@
 ---
-title: Database, OS and package coverage inventories
-description: Dated lifecycle evidence and proposed first review batches for databases, operating systems and PyPI, Maven and NuGet packages.
+title: Lifecycle coverage inventories
+description: Dated lifecycle evidence, review batches and support-policy gaps for selected components.
 layout: doc
 permalink: /coverage-inventories/
 ---
@@ -110,3 +110,40 @@ The NuGet Gallery package pages supply the approximate total download counts sho
 ### First NuGet batch
 
 In [#1033](https://github.com/velella-sh/ebb/issues/1033), review one proposed rule, `dotnet.package.microsoft-aspnet-mvc.end-of-support-4`, for `pkg:nuget/Microsoft.AspNet.Mvc` and `vers:nuget/>=4.0.0|<5.0.0`. The policy gives day-precision end of support on **2019-07-01**. Use Gallery versions [4.0.20710](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/4.0.20710) and [5.3.0](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/5.3.0) as the matching and nonmatching examples. EF Core's dated boundaries can follow after the affected EF Core package scope is verified.
+
+## npm packages
+
+Evidence checked on **2026-11-28 UTC** against [checkout 5c9103a](https://github.com/velella-sh/ebb/tree/5c9103af1fd488cb5b8796c998dc8f3e0acf8bbf/registry) and the same signed 2026.11.11 snapshot. Both contain 83 rules across 74 npm PURLs. The table samples frequently downloaded general-purpose dependencies and two already-covered legacy packages. Rank is within these twelve packages. The [npm downloads API](https://github.com/npm/registry/blob/main/docs/download-counts.md) supplied counts for **2026-11-16 through 2026-11-22 UTC**, inclusive. Each package's npm registry metadata was checked for [per-version deprecation flags](https://github.com/npm/registry/blob/main/docs/responses/package-metadata.md), including prereleases. A flag count describes the registry read on that day. Specific lifecycle claims require the associated notice and its scope.
+
+| Sample rank | Canonical package identity | Downloads in window | Rules, checkout / signed | Flagged / published versions | Evidence and next review |
+| ---: | --- | ---: | ---: | ---: | --- |
+| 1 | `pkg:npm/debug` | 977,218,258 | 0 / 0 | 17 / 77 | Several release-specific flags and two ranges share a regression notice. Audit each notice separately. [npm metadata](https://registry.npmjs.org/debug) |
+| 2 | `pkg:npm/tslib` | 682,964,001 | 0 / 0 | 1 / 47 | The `1.12.0` flag identifies a compatibility regression and recommends replacements by TypeScript line. The notice gives no deprecation date. [Flagged 1.12.0](https://registry.npmjs.org/tslib/1.12.0) · [Unflagged 1.13.0](https://registry.npmjs.org/tslib/1.13.0) |
+| 3 | `pkg:npm/node-fetch` | 300,609,978 | 0 / 0 | 9 / 96 | Flags cover individual regressions and prereleases. The move to ESM in 3.x is a separate compatibility change. [npm metadata](https://registry.npmjs.org/node-fetch) · [Maintainer upgrade guide](https://github.com/node-fetch/node-fetch/blob/main/docs/v3-UPGRADE-GUIDE.md) |
+| 4 | `pkg:npm/chokidar` | 292,666,295 | 0 / 0 | 44 / 110 | The notice discusses Chokidar 2 and Node 14 compatibility, and flags releases outside 2.x. Check exact flagged versions before proposing a range. [npm metadata](https://registry.npmjs.org/chokidar) |
+| 5 | `pkg:npm/react` | 275,732,766 | 0 / 0 | 2 / 3,025 | The two notices describe an early package rename and a broken individual React release. The evidence supports neither a shared version range nor a retired React major. [Early rename](https://registry.npmjs.org/react/0.7.1) · [Flagged 16.6.2](https://registry.npmjs.org/react/16.6.2) |
+| 6 | `pkg:npm/%40babel/core` | 270,859,571 | 0 / 0 | 0 / 240 | No version carries a flag in the checked metadata. Individual Babel proposal plugins have separate package identities. [npm metadata](https://registry.npmjs.org/@babel%2Fcore) |
+| 7 | `pkg:npm/lodash` | 211,573,812 | 0 / 0 | 1 / 117 | The registry flags `4.18.0` as a bad release and gives no deprecation date. Keep the scope to that exact release. [Flagged 4.18.0](https://registry.npmjs.org/lodash/4.18.0) · [Unflagged 4.18.1](https://registry.npmjs.org/lodash/4.18.1) |
+| 8 | `pkg:npm/mkdirp` | 173,138,881 | 0 / 0 | 25 / 42 | The legacy support notice also points to a different API in `1.x`. Verify prerelease boundaries before modeling the flagged line. [npm metadata](https://registry.npmjs.org/mkdirp) |
+| 9 | `pkg:npm/axios` | 150,124,651 | 0 / 0 | 52 / 148 | There are several release-level notices. The count alone gives no major-line retirement date. [npm metadata](https://registry.npmjs.org/axios) · [Maintainer support and security policy](https://github.com/axios/axios/blob/v1.x/SECURITY.md) |
+| 10 | `pkg:npm/inflight` | 131,262,549 | 1 / 1 | 7 / 7 | The existing rule covers the package. All published versions carry the unsupported notice. [npm metadata](https://registry.npmjs.org/inflight) |
+| 11 | `pkg:npm/core-js` | 101,193,377 | 0 / 0 | 234 / 290 | The notice names releases before `3.23.3` as unmaintained. Verify the npm comparator against the complete flagged set before translating that statement into a rule. [Flagged 3.23.2](https://registry.npmjs.org/core-js/3.23.2) · [Unflagged 3.23.3](https://registry.npmjs.org/core-js/3.23.3) |
+| 12 | `pkg:npm/request` | 13,613,888 | 2 / 2 | 126 / 126 | The npm and OSV rows both record deprecation. All published versions carry a deprecation flag. [npm metadata](https://registry.npmjs.org/request) · [Maintainer notice](https://github.com/request/request/issues/3142) |
+
+To reproduce the sample ranking, query the fixed window with [the unscoped package list](https://api.npmjs.org/downloads/point/2026-11-16:2026-11-22/axios,chokidar,core-js,debug,inflight,lodash,mkdirp,node-fetch,react,request,tslib) and [the scoped package](https://api.npmjs.org/downloads/point/2026-11-16:2026-11-22/%40babel%2Fcore), then sort their rows by download count descending and package name ascending. Each `Rules` cell counts the exact PURL in the two stated datasets.
+
+### First npm batch
+
+The [first rule batch](https://github.com/velella-sh/ebb/pull/1072) contains seven proposed rules for `uuid` and five `@types` packages, with package-version metadata and released matching and nonmatching cases. The notices give no deprecation date. The proposed rows await maintainer review. They are outside this table's existing-rule counts. Two later candidates from this sample are `tslib` `1.12.0` and `lodash` `4.18.0`, each scoped to exactly one flagged release. The example versions above establish the boundary for independent review.
+
+## OpenSSH and curl upstream support
+
+The following findings were checked on **2026-11-28 UTC** for the [requested infrastructure coverage review](https://github.com/velella-sh/ebb/issues/751).
+
+### OpenSSH
+
+OpenSSH's release notes describe fixes in named releases. The security page documents individual fixes and affected versions, and the problem-reporting guide directs readers to check for patches and newer versions. The portable release guide says Portable OpenSSH and OpenBSD base releases have independent schedules and asks users of vendor-modified versions to consult their vendor. The checked upstream documents provide no general commitment about which historical OpenSSH release lines receive fixes and no dated upstream support-end calendar. Keep individual fix releases, Portable OpenSSH and downstream distribution maintenance distinct. There is no lifecycle row to propose from these sources. [Release notes](https://www.openssh.org/releasenotes.html) · [Security](https://www.openssh.org/security.html) · [Problem reports](https://www.openssh.org/report.html) · [Portable releases](https://www.openssh.org/portable.html)
+
+### curl
+
+The project's bug-reporting guide explains that it lacks capacity to maintain multiple public branches and asks reporters to try a newer version. The public release table dates releases. The checked upstream documents provide no dated support-end schedule for public curl or libcurl versions. Rock-solid curl is a distinct commercial offering with separately numbered releases, maintained branches and a five-year support term from the first Rock-solid release on each branch. Distribution backports have their own support scope. Record the public upstream finding without a lifecycle row. [Bugs in old versions](https://curl.se/docs/bugs.html#bugs-in-old-versions) · [Public release table](https://curl.se/docs/releases.html) · [Version numbering](https://curl.se/docs/versions.html) · [Commercial branch terms](https://rock-solid.curl.dev/details.html)
