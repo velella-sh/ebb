@@ -32,11 +32,6 @@ export const rules: readonly RegistryV2Rule[] = [
         url: "https://github.com/rust-lang/rust/blob/master/RELEASES.md",
         accessedAt: "2026-11-28",
       },
-      {
-        title: "Rust 1.100.1 release notes",
-        url: "https://doc.rust-lang.org/stable/releases.html#version-11001-2026-11-27",
-        accessedAt: "2026-11-28",
-      },
     ],
     provenance: {
       observedAt: "2026-11-15",
@@ -101,11 +96,6 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Rust release notes (release dates)",
         url: "https://github.com/rust-lang/rust/blob/master/RELEASES.md",
-        accessedAt: "2026-11-28",
-      },
-      {
-        title: "Rust 1.100.1 release notes",
-        url: "https://doc.rust-lang.org/stable/releases.html#version-11001-2026-11-27",
         accessedAt: "2026-11-28",
       },
     ],
