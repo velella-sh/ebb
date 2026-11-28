@@ -4,6 +4,11 @@ description: The open almanac of software end-of-life.
 lang: en
 url: https://velella.sh
 base: /ebb
+outputs:
+  sitemap: true
+social:
+  template: lifecycle
+  fonts: [_templates/social/manrope-regular.ttf]
 network:
   source: https://velella.sh/network.json
   project: ebb
@@ -20,6 +25,14 @@ collections:
     schema: _data/site-page.schema.json
     evidence: claims
     markdown: [timeline]
+    seo:
+      jsonLd:
+        "@type": Dataset
+        "@id": "https://velella.sh/ebb/products/{slug}/#lifecycle-data"
+        name: "{title}"
+        description: "{summary}"
+        identifier: "{purl}"
+        version: "{dataVersion}"
     references:
       releaseLines: release-lines
   release-lines:
@@ -38,6 +51,15 @@ collections:
     id: id
     schema: _data/site-page.schema.json
     evidence: claims
+    seo:
+      lastmod: reviewedAt
+      jsonLd:
+        "@type": Dataset
+        "@id": "https://velella.sh/ebb/rules/{slug}/#rule-data"
+        name: "{title}"
+        description: "{summary}"
+        identifier: "{id}"
+        version: "{dataVersion}"
     references:
       product: products
   deadline-months:

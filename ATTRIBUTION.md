@@ -28,3 +28,7 @@ The rules are compiled from:
 - Advisory identifiers from [OSV](https://osv.dev/) in `registry/osv.json`. Ebb stores identifiers only, not advisory text.
 
 The facts those sources state remain subject to their own terms. CC BY 4.0 covers Ebb's selection, arrangement, normalization, and original text, not the upstream material it describes. Product and project names are trademarks of their owners, and this dataset implies no affiliation with or endorsement by them.
+
+## Site share cards
+
+The cards use Manrope Regular from [The Manrope Project](https://github.com/googlefonts/manrope/tree/468c0dbe38efa331b80bfe9448256abe27be44c3) under the [SIL Open Font License 1.1](docs/_templates/social/OFL-Manrope.txt).
