@@ -41,9 +41,46 @@ export function formatAnnotation(status, label, details) {
   return `::${cmd} title=${title}::${label}: ${status} - ${details}`;
 }
 
+function writeSummary(summaryFile, text) {
+  if (summaryFile && existsSync(dirname(summaryFile))) {
+    try {
+      appendFileSync(summaryFile, `${text}\n`, "utf8");
+    } catch {
+      // The result is still available in the job log.
+    }
+  }
+}
+
+function runSbom(cliPath, file, output, env, io) {
+  const result = spawnSync(process.execPath, [cliPath, "sbom", "enrich", "--out", output, "--", file], {
+    encoding: "utf8",
+    env,
+    maxBuffer: 16 * 1024 * 1024,
+  });
+  if (result.status !== 0 || result.error) {
+    io.stderr.write(`SBOM enrichment failed: ${JSON.stringify(result.error?.message || result.stderr?.trim() || "no result")}\n`);
+    return 2;
+  }
+
+  const summary = JSON.parse(result.stdout);
+  const text = [
+    "### Ebb SBOM enrichment",
+    "",
+    `- Components checked: ${summary.checked}`,
+    `- Components enriched: ${summary.enriched}`,
+    `- Components not identified: ${summary.notIdentified.length}`,
+    "",
+  ].join("\n");
+  writeSummary(env.GITHUB_STEP_SUMMARY, text);
+  io.stdout.write(text);
+  return 0;
+}
+
 export function runAction(env = process.env, io = { stdout: process.stdout, stderr: process.stderr }) {
   const purlsInput = (env.INPUT_PURLS || "").trim();
   const fileInput = (env.INPUT_FILE || "").trim();
+  const sbom = (env.INPUT_SBOM || "").trim();
+  const sbomOutput = (env.INPUT_SBOM_OUTPUT || "").trim();
   const asOf = (env.INPUT_AS_OF || "").trim();
   const failOn = (env.INPUT_FAIL_ON || "deprecated").trim().toLowerCase();
   const noHint = env.INPUT_NO_HINT === "true" || env.INPUT_NO_HINT === "1";
@@ -53,6 +90,18 @@ export function runAction(env = process.env, io = { stdout: process.stdout, stde
   let cliPath = resolve(rootDir, "dist/src/cli.js");
   if (!existsSync(cliPath)) {
     cliPath = resolve(rootDir, "src/cli.ts");
+  }
+
+  if (sbom) {
+    if (purlsInput || fileInput) {
+      io.stderr.write("Error: Use 'sbom' separately from 'purls' or 'file'.\n");
+      return 2;
+    }
+    return runSbom(cliPath, sbom, sbomOutput || "ebb-enriched-sbom.json", env, io);
+  }
+  if (sbomOutput) {
+    io.stderr.write("Error: 'sbom-output' requires 'sbom'.\n");
+    return 2;
   }
 
   // Determine input content
@@ -103,14 +152,7 @@ export function runAction(env = process.env, io = { stdout: process.stdout, stde
 
   const markdownSummary = mdProc.stdout || "";
 
-  // Write to GITHUB_STEP_SUMMARY if available
-  if (summaryFile && existsSync(dirname(summaryFile))) {
-    try {
-      appendFileSync(summaryFile, `${markdownSummary}\n`, "utf8");
-    } catch {
-      // Ignore summary write errors if path not writable
-    }
-  }
+  writeSummary(summaryFile, markdownSummary);
 
   // 3. Print human text or markdown to action log
   io.stdout.write(markdownSummary);

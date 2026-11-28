@@ -129,7 +129,8 @@
     "!registry/sources.lock.json",
     "!**/*.map",
     "!dist/*.txt",
-    "!registry/github-actions-shas.json"
+    "!registry/github-actions-shas.json",
+    "!schemas/vendor/cyclonedx-*"
   ],
   "scripts": {
     "build": "tsc -b tsconfig.json && node dist/tools/annotate-jsr-types.js",

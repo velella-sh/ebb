@@ -53,3 +53,15 @@ for (const match of result.results.filter(r => r.status !== "ok")) {
   console.log(`Component status: ${match.status}`);
 }
 ```
+
+
+### Write an enriched SBOM
+
+From the repository root after `npm run build`:
+
+```sh
+node --experimental-strip-types examples/cyclonedx/check-sbom.ts examples/cyclonedx/bom.json /tmp/ebb-enriched-bom.json
+```
+
+Or use the installed CLI: `ebb sbom enrich examples/cyclonedx/bom.json --out /tmp/ebb-enriched-bom.json`.
+The JSON keeps the original components and adds lifecycle fields and rule links.
