@@ -1,7 +1,7 @@
 {
   "importer": "python-release-cycle",
   "ecosystem": "python",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "python.runtime.eol-3.10-and-older",
@@ -18,23 +18,27 @@
         {
           "title": "Status of Python versions",
           "url": "https://devguide.python.org/versions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Python release cycle (machine-readable)",
           "url": "https://peps.python.org/api/release-cycle.json",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PEP 619 — Python 3.10 release schedule",
           "url": "https://peps.python.org/pep-0619/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "python-release-cycle"
       },
       "migration": {
@@ -91,23 +95,27 @@
         {
           "title": "Status of Python versions",
           "url": "https://devguide.python.org/versions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Python release cycle (machine-readable)",
           "url": "https://peps.python.org/api/release-cycle.json",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PEP 664 — Python 3.11 release schedule",
           "url": "https://peps.python.org/pep-0664/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "python-release-cycle"
       },
       "migration": {
