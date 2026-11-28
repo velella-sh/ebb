@@ -7,6 +7,7 @@ import type { StaleResult } from "../../stale.js";
 import type { UpcomingResult } from "../../upcoming.js";
 import type { DataStatus } from "../../data-status.js";
 import type { ReplacementItem } from "../../domain.js";
+import { canonicalRuleUrl } from "../../site-routes.js";
 
 export interface MarkdownFormatOptions {
   noHint?: boolean | undefined;
@@ -68,7 +69,9 @@ export function formatCheckMarkdown(
     const confStr = match.confidence ?? "-";
     const daysStr = match.daysLeft !== null && match.daysLeft !== undefined ? `${match.daysLeft} days` : "-";
     const repStr = match.replacement ? `\`${match.replacement}\`` : "-";
-    const ruleStr = `\`${match.ruleId}\``;
+    const canonicalUrl = canonicalRuleUrl(match.ruleId);
+    const ruleId = `\`${match.ruleId}\``;
+    const ruleStr = canonicalUrl ? `[${ruleId}](${canonicalUrl})` : ruleId;
     lines.push(`| ${statusStr} | ${eventStr} | ${confStr} | ${daysStr} | ${repStr} | ${ruleStr} |`);
   }
 

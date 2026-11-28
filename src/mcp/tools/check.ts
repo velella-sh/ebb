@@ -1,5 +1,6 @@
 import { asOf, check } from "../../index.js";
 import { formatCheckResult } from "../format.js";
+import { canonicalRuleUrl } from "../../site-routes.js";
 import type { McpTool, McpToolResult } from "../types.js";
 import { isIsoDate } from "../../registry.js";
 import { resolveCandidateRules } from "../../check-core.js";
@@ -79,7 +80,10 @@ export const checkTool: McpTool = {
         purl: { type: "string" },
         asOf: { type: "string" },
         dataVersion: { type: "string" },
-        matches: { type: "array" },
+        matches: {
+          type: "array",
+          items: { type: "object", properties: { canonicalUrl: { type: "string", format: "uri" } } },
+        },
         provenance: { type: "object" },
         message: { type: "string" },
         ecosystem: { type: "string" },
@@ -135,7 +139,14 @@ export const checkTool: McpTool = {
 
     try {
       const rawResult = asOfArg ? asOf(asOfArg).check(purl, version) : check(purl, version);
-      const result = formatCheckResult(rawResult);
+      const formatted = formatCheckResult(rawResult);
+      const result = {
+        ...formatted,
+        matches: formatted.matches.map((match) => {
+          const canonicalUrl = canonicalRuleUrl(match.ruleId);
+          return canonicalUrl ? { ...match, canonicalUrl } : match;
+        }),
+      };
 
       let isUnknown = false;
       let ecoInfo = { ecosystem: "unknown", count: 0 };
@@ -186,7 +197,7 @@ export const checkTool: McpTool = {
             text: JSON.stringify(result, null, 2),
           },
         ],
-        structuredContent: result as unknown as Record<string, unknown>,
+        structuredContent: result,
         isError: false,
       };
     } catch (err) {

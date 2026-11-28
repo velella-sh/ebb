@@ -30,6 +30,14 @@ Append `index.json` to the published record URL. Product, release-line and rule 
 
 Read `record.id` for the stable identity, `record.fields.dataVersion` for the signed data version, and `record.fields` for lifecycle fields such as status, dates, and precision. `record.evidence` carries the source links by field. The top-level `url` is the published page path.
 
+## Canonical record URLs
+
+Product, release-line and rule pages use `/ebb/products/{slug}/`, `/ebb/release-lines/{slug}/`, and `/ebb/rules/{slug}/` respectively. `tools/site-data/slugs.lock.json` assigns slugs to stable record IDs. If a slug changes, add its previous slug to the lock's `redirects` map. The site sends each known previous slug directly to the current canonical page. A rule ID can also be used at `/ebb/rules/{id}/` to reach its canonical slug. The [versioned rule JSON](static-api.md) remains at `/ebb/api/v1/rules/{id}.json`.
+
+Use **Report a problem with this data** on a record page to open a correction with the record ID, page and signed data version filled in. The rule page links to its authoritative sources under **Evidence**.
+
+When updating the pinned signed site release, run the signed site-data command with `--rule-routes-out src/public-rule-routes.ts` to refresh the offline CLI and MCP link catalogue. The signed site test compares the catalogue with every published rule route.
+
 ## Stability Contract
 
 Site Data v1 adheres to a strict backward compatibility promise:

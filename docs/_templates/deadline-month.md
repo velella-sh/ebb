@@ -1,6 +1,7 @@
 ---
 title: "{title} lifecycle deadlines"
 description: "{summary}"
+version: "{dataVersion}"
 layout: record
 agent:
   edit: false

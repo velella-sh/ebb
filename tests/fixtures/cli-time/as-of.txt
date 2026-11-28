@@ -1,5 +1,6 @@
 ✖ node@22.11.0: end-of-life
   Rule: nodejs.runtime.eol-22
+  Lifecycle evidence: https://velella.sh/ebb/rules/nodejs-runtime-eol-22/
   Event: end-of-life (2027-04-30)
   Replacement: Node.js 24 LTS or later
   Sources:

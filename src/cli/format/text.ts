@@ -6,6 +6,7 @@ import type { RecentResult } from "../../recent.js";
 import type { UpcomingResult } from "../../upcoming.js";
 import type { DataStatus } from "../../data-status.js";
 import type { ReplacementItem } from "../../domain.js";
+import { canonicalRuleUrl } from "../../site-routes.js";
 import { createColors, type Colors } from "./color.js";
 
 export interface TextFormatOptions {
@@ -53,6 +54,8 @@ export function formatCheckText(
 
   for (const match of result.matches) {
     lines.push(`  Rule: ${match.ruleId}`);
+    const canonicalUrl = canonicalRuleUrl(match.ruleId);
+    if (canonicalUrl) lines.push(`  Lifecycle evidence: ${canonicalUrl}`);
     if (match.confidence) {
       lines.push(`  Confidence: ${match.confidence}`);
     }

@@ -1,6 +1,7 @@
 ---
 title: "{title}"
 description: "{summary}"
+version: "{dataVersion}"
 layout: record
 agent:
   edit: false
