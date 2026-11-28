@@ -1,0 +1,46 @@
+{
+  "runtime": "odoo-enterprise",
+  "purl": "pkg:generic/odoo-enterprise",
+  "registry": "infrastructure.json",
+  "scheduleUrl": "https://www.odoo.com/documentation/18.0/administration/supported_versions.html",
+  "reviewedAt": "2026-11-28",
+  "sources": [
+    {
+      "title": "Odoo standard and extended support",
+      "url": "https://www.odoo.com/documentation/18.0/administration/supported_versions.html",
+      "accessedAt": "2026-11-28"
+    }
+  ],
+  "lines": [
+    {
+      "id": "15.0",
+      "sampleVersion": "15.0",
+      "lineVers": "vers:semver/>=15.0.0|<16.0.0-0",
+      "status": "ended",
+      "end": {
+        "date": "2024-10",
+        "precision": "month"
+      }
+    },
+    {
+      "id": "16.0",
+      "sampleVersion": "16.0",
+      "lineVers": "vers:semver/>=16.0.0|<17.0.0-0",
+      "status": "ended",
+      "end": {
+        "date": "2025-09",
+        "precision": "month"
+      }
+    },
+    {
+      "id": "17.0",
+      "sampleVersion": "17.0",
+      "lineVers": "vers:semver/>=17.0.0|<18.0.0-0",
+      "status": "ended",
+      "end": {
+        "date": "2026-09",
+        "precision": "month"
+      }
+    }
+  ]
+}
