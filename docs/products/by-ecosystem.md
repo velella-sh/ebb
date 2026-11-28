@@ -19,3 +19,5 @@ list:
     permalink: /products/by-ecosystem/{value|slug}/
     title: "Products in {value}"
 ---
+
+::link-card{href="/products/" title="All products"}

@@ -20,3 +20,5 @@ list:
 ---
 
 Product statuses come from the signed Ebb data release.
+
+::link-card{href="/products/" title="All products"}
