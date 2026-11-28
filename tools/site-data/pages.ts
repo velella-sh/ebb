@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import type { RegistryV2Rule } from "../../src/registry.js";
+import { comparisonPages, supportRules } from "./comparisons.js";
 import type { ComponentRecord } from "./components.js";
 import type { ReleaseLineRecord } from "./lines.js";
 import type { RuleRecord } from "./rules.js";
@@ -99,6 +100,27 @@ export async function writeSitePages(options: {
     if (!component) throw new Error(`Missing product for release line ${line.id}.`);
     const rule = line.ruleId ? recordsById.get(line.ruleId) : undefined;
     if (line.ruleId && !rule) throw new Error(`Missing rule ${line.ruleId} from release line ${line.id}.`);
+    const rawRule = rulesById.get(line.ruleId);
+    const date = displayedDate(line.endDate, rawRule);
+    const eligible = component.rules.flatMap((id) => {
+      const record = rulesById.get(id);
+      return record === undefined ? [] : [record];
+    });
+    const { standard, extended } = supportRules(line.vers, eligible);
+    const supportDate = (records: readonly RegistryV2Rule[]) =>
+      [...new Set(records.flatMap((record) => displayedDate(record.deadline, record).deadline ?? []))]
+        .sort()
+        .join(", ") || "No published date";
+    const supportClaims = (records: readonly RegistryV2Rule[]) =>
+      records.flatMap((record) => {
+        const source = recordsById.get(record.id);
+        return source === undefined
+          ? []
+          : [ruleLink(source), ...sourcesOf(source).map((claim) => ({ ...claim, id: `${record.id}-${claim.id}` }))];
+      });
+    const replacement =
+      rawRule?.replacement ??
+      rawRule?.replacements?.map(({ name, purl, vers }) => [name, purl, vers].filter(Boolean).join(" ")).join("; ");
     return {
       id: line.id,
       slug: line.slug,
@@ -110,13 +132,26 @@ export async function writeSitePages(options: {
       purl: component.purl,
       product: component.id,
       dataVersion: version,
-      ...displayedDate(line.endDate, rulesById.get(line.ruleId)),
+      ...date,
+      event: rawRule?.event ?? "No published event",
+      lifecycleDate: date.deadline ?? "No published date",
+      standardSupport: supportDate(standard),
+      extendedSupport: supportDate(extended),
+      replacement: replacement || "No published replacement",
       ruleId: line.ruleId || null,
-      claims: { deadline: sourcesOf(rule), ruleId: rule ? [ruleLink(rule), ...sourcesOf(rule)] : [] },
+      claims: {
+        deadline: sourcesOf(rule),
+        ruleId: rule ? [ruleLink(rule), ...sourcesOf(rule)] : [],
+        lifecycleDate: sourcesOf(rule),
+        standardSupport: supportClaims(standard),
+        extendedSupport: supportClaims(extended),
+        replacement: replacement && rule ? [ruleLink(rule), ...sourcesOf(rule)] : [],
+      },
     };
   });
 
   const linesBySlug = new Map(releaseLines.map((line) => [line.slug, line]));
+  const comparisons: ReturnType<typeof comparisonPages> = [];
   const products = components.map((component) => {
     const componentRules = component.rules.map((id) => {
       const rule = recordsById.get(id);
@@ -137,6 +172,10 @@ export async function writeSitePages(options: {
       return first === second ? (a.slug < b.slug ? -1 : 1) : first < second ? -1 : 1;
     });
 
+    const choices = comparisonPages(component, productLines, version);
+    comparisons.push(...choices);
+    const comparisonUrl = choices.length ? `/ebb/release-comparisons/${component.slug}/` : undefined;
+
     return {
       id: component.id,
       title: component.title,
@@ -150,9 +189,11 @@ export async function writeSitePages(options: {
       ruleCount: componentRules.length,
       releaseLines: productLines.map((line) => line.id),
       timeline: timelineLines.length > 0 ? releaseTimeline(timelineLines) : undefined,
+      comparisonUrl,
       claims: {
         deadline: sourcesOf(first),
         ruleCount: componentRules.map(ruleLink),
+        comparisonUrl: comparisonUrl ? [{ id: component.id, title: "Compare release lines", url: comparisonUrl }] : [],
         timeline: timelineLines.flatMap((line) => {
           const reference = {
             id: `line-${line.slug}`,
@@ -211,6 +252,7 @@ export async function writeSitePages(options: {
     writeFile(join(out, "products.json"), `${JSON.stringify(uniqueLabels(products), null, 2)}\n`),
     writeFile(join(out, "release-lines.json"), `${JSON.stringify(uniqueLabels(releaseLines), null, 2)}\n`),
     writeFile(join(out, "rules.json"), `${JSON.stringify(uniqueLabels(rulePages), null, 2)}\n`),
+    writeFile(join(out, "comparisons.json"), `${JSON.stringify(uniqueLabels(comparisons), null, 2)}\n`),
     writeFile(join(out, "deadline-months.json"), `${JSON.stringify(months, null, 2)}\n`),
   ]);
 }

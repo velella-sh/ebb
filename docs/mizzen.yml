@@ -48,7 +48,19 @@ collections:
     schema: _data/deadline-month.schema.json
     markdown: [agenda]
     evidence: claims
+  release-comparisons:
+    source: _data/site-records/comparisons.json
+    template: _templates/release-comparison.md
+    permalink: /release-comparisons/{productSlug}/{slug}/
+    id: id
+    schema: _data/release-comparison.schema.json
+    markdown: [comparison]
+    references:
+      product: products
 theme:
+  overrides:
+    components:
+      compare: _components/compare.ts
   name: "@velella/lateen"
   options:
     preset: ebb

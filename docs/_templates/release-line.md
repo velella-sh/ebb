@@ -18,6 +18,12 @@ record:
       label: Signed data version
     - field: precision
       label: Date precision
+    - field: standardSupport
+      label: Standard support ends
+    - field: extendedSupport
+      label: Extended support ends
+    - field: replacement
+      label: Replacement
 ---
 
 :::if{field=deadline}

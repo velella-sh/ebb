@@ -113,3 +113,12 @@ export function buildLineText(inputs: LineTextInputs): { title: string; summary:
 
   return { title, summary };
 }
+
+/** Quotes a JSON array for a Markdown directive's double-quoted attribute. */
+export function directiveData(items: readonly unknown[]): string {
+  return JSON.stringify(items)
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
