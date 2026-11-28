@@ -137,6 +137,20 @@ export const ENDPOINTS: EndpointSpec[] = [
     responseType: "text/calendar",
   },
   {
+    path: "/cards/{type}/{name}.svg",
+    summary: "Lifecycle timeline card",
+    description: "An embeddable SVG for a component with dated release-line evidence",
+    example: "/cards/generic/nodejs.svg",
+    responseType: "image/svg+xml",
+  },
+  {
+    path: "/cards/{type}/{namespace}/{name}.svg",
+    summary: "Namespaced lifecycle timeline card",
+    description: "An embeddable SVG for a namespaced component with dated release-line evidence",
+    example: "/cards/composer/laravel/framework.svg",
+    responseType: "image/svg+xml",
+  },
+  {
     path: "/compat/{name}.json",
     summary: "Compatibility evidence table",
     description: "Version-range evidence for framework, runtime, or build tool compatibility",
@@ -198,7 +212,7 @@ export async function generateOpenApi(options?: GenerateOpenApiOptions): Promise
     const responseContent: Record<string, unknown> = {};
     const mediaType = ep.responseType ?? "application/json";
     responseContent[mediaType] = {
-      schema: ep.schemaRef ? { $ref: ep.schemaRef } : { type: "object" },
+      schema: ep.schemaRef ? { $ref: ep.schemaRef } : { type: mediaType === "image/svg+xml" ? "string" : "object" },
     };
 
     paths[ep.path] = {

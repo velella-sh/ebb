@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { Ajv2020 } from "ajv/dist/2020.js";
+import type { CardIndexEntry } from "./cards.js";
 import { eolDateBaseUrl } from "./eoldate.js";
 
 export interface SmokeTestOptions {
@@ -33,6 +34,7 @@ export async function runSmokeTest(options: SmokeTestOptions): Promise<void> {
   }
   const targetUrls = [
     `${cleanBase}/meta.json`,
+    `${cleanBase}/index.json`,
     `${cleanBase}/npm/request.json`,
     `${cleanBase}/rules/npm.package.request.deprecated.json`,
     `${cleanBase}/upcoming.json`,
@@ -41,7 +43,7 @@ export async function runSmokeTest(options: SmokeTestOptions): Promise<void> {
   for (const url of targetUrls) {
     let res: Response;
     try {
-      res = await fetchFn(url);
+      res = await fetchFn(url, { cache: "no-store" });
     } catch (err) {
       throw new Error(`Smoke test failed: network error requesting ${url}: ${(err as Error).message}`);
     }
@@ -61,6 +63,23 @@ export async function runSmokeTest(options: SmokeTestOptions): Promise<void> {
     if (!isValid) {
       const errorDetails = JSON.stringify(validate.errors, null, 2);
       throw new Error(`Smoke test failed: schema validation failed for ${url}:\n${errorDetails}`);
+    }
+    if (url === `${cleanBase}/index.json`) {
+      const { components } = body as { components?: Record<string, { card?: CardIndexEntry }> };
+      for (const purl of ["pkg:generic/nodejs", "pkg:generic/ubuntu"]) {
+        const card = components?.[purl]?.card;
+        if (!card) throw new Error(`Smoke test failed: missing card for ${purl} in ${url}`);
+        const cardUrl = `${cleanBase}/${card.path}`;
+        const response = await fetchFn(cardUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Smoke test failed: ${cardUrl} returned HTTP ${response.status}`);
+        if (response.headers.get("content-type")?.split(";")[0] !== "image/svg+xml") {
+          throw new Error(`Smoke test failed: ${cardUrl} did not return SVG`);
+        }
+        const bytes = Buffer.from(await response.arrayBuffer());
+        if (bytes.length !== card.bytes || createHash("sha256").update(bytes).digest("hex") !== card.sha256) {
+          throw new Error(`Smoke test failed: ${cardUrl} does not match the indexed card`);
+        }
+      }
     }
   }
 

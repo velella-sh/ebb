@@ -678,8 +678,44 @@ test("runSmokeTest validates target endpoints cleanly and detects broken URLs", 
     },
   };
 
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg"/>';
+  const components = Object.fromEntries(
+    ["nodejs", "ubuntu"].map((name) => {
+      const purl = `pkg:generic/${name}`;
+      return [
+        purl,
+        {
+          purl,
+          type: "generic",
+          name,
+          path: `generic/${name}.json`,
+          url: `https://velella.sh/ebb/api/v1/generic/${name}.json`,
+          ecosystems: [],
+          events: [],
+          rules: 0,
+          sha256: "0".repeat(64),
+          etag: "test",
+          bytes: 0,
+          card: { path: `cards/generic/${name}.svg`, sha256: sha256Hex(svg), bytes: Buffer.byteLength(svg) },
+        },
+      ];
+    }),
+  );
+  validDocs["https://velella.sh/ebb/api/v1/index.json"] = {
+    schemaVersion: "ebb.api.v1",
+    version: "0.3.0",
+    generatedAt: "2026-11-12T00:00:00.000Z",
+    rulesCount: 0,
+    componentsCount: 2,
+    ecosystemsCount: 0,
+    components,
+  };
+
   const smokeMockFetch: typeof fetch = async (input) => {
     const url = String(input);
+    if (/\/cards\/generic\/(nodejs|ubuntu)\.svg$/u.test(url)) {
+      return new Response(svg, { headers: { "Content-Type": "image/svg+xml" } });
+    }
     if (validDocs[url]) {
       return {
         status: 200,
@@ -699,6 +735,18 @@ test("runSmokeTest validates target endpoints cleanly and detects broken URLs", 
     baseUrl: "https://velella.sh/ebb/api/v1",
     fetch: smokeMockFetch,
   });
+
+  await assert.rejects(
+    () =>
+      runSmokeTest({
+        baseUrl: "https://velella.sh/ebb/api/v1",
+        fetch: (input) =>
+          String(input).endsWith("/cards/generic/ubuntu.svg")
+            ? Promise.resolve(new Response(svg + " ", { headers: { "Content-Type": "image/svg+xml" } }))
+            : smokeMockFetch(input),
+      }),
+    /ubuntu.svg does not match the indexed card/u,
+  );
 
   // Smoke test fails when a URL is broken and names the URL
   const brokenFetch: typeof fetch = async (input) => {

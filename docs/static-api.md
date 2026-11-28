@@ -42,6 +42,8 @@ Base URL: `https://velella.sh/ebb/api/v1`
 | `/calendar/all.ics` | Deadlines from the last 30 days and the next 24 months | `/calendar/all.ics` |
 | `/calendar/<ecosystem>.ics` | That window for one ecosystem | `/calendar/npm.ics` |
 | `/calendar/<type>/<name>.ics` | One component, only when a deadline is still ahead | `/calendar/generic/nodejs.ics` |
+| `/cards/<type>/<name>.svg` | [Release lifecycle card](cards.md) for a component with dated evidence | `/cards/generic/nodejs.svg` |
+| `/cards/<type>/<namespace>/<name>.svg` | Lifecycle card for a namespaced component | `/cards/composer/laravel/framework.svg` |
 | `/compat/<name>.json` | Version-range evidence for framework, runtime, or build tool compatibility | `/compat/runtime-support.json` |
 | `/renovate/<type>/<name>.json` | Release lines and deprecation flags formatted for Renovate custom datasources | `/renovate/generic/nodejs.json` |
 
