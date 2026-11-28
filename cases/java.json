@@ -69,6 +69,11 @@
       "purl": "pkg:generic/java",
       "version": "25.0.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/java",
+      "version": "18.0.0",
+      "rules": ["java.jdk.end-of-support-18-20"]
     }
   ]
 }

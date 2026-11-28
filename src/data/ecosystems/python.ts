@@ -524,20 +524,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "The maintainer warns that pytest-runner depends on deprecated Setuptools features and can bypass pip security mechanisms.",
     severity: "high",
     replacement: "tox, nox, or direct pytest invocation",
+    replacements: [
+      {
+        purl: "pkg:pypi/tox",
+        name: "tox",
+        kind: "alternative",
+        note: "The project recommends tox as a tool to bootstrap and run tests.",
+      },
+    ],
     sources: [
       {
         title: "pytest-runner deprecation notice",
         url: "https://pypi.org/project/pytest-runner/",
-        accessedAt: "2026-10-16",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/pytest-runner/",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-10-16",
-      reviewedAt: "2026-10-16",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -628,20 +636,33 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "The project states that django-celery is no longer required because Celery supports Django directly.",
     severity: "high",
     replacement: "Celery's built-in Django integration",
+    replacements: [
+      {
+        purl: "pkg:pypi/celery",
+        name: "celery",
+        kind: "successor",
+        note: "Use the Django integration built into Celery and follow its Django setup guide.",
+      },
+    ],
     sources: [
       {
         title: "django-celery retirement notice",
         url: "https://pypi.org/project/django-celery/",
-        accessedAt: "2026-10-16",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/django-celery/",
         archivedAt: "2026-10-16",
+      },
+      {
+        title: "Celery Django integration",
+        url: "https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-16",
-      reviewedAt: "2026-10-16",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -927,20 +948,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The maintainer identifies superlinked-server as a legacy package deprecated for new projects and directs users to SIE Server and sie-sdk.",
     severity: "medium",
     replacement: "SIE Server and sie-sdk",
+    replacements: [
+      {
+        purl: "pkg:pypi/sie-sdk",
+        name: "sie-sdk",
+        kind: "successor",
+        note: "The maintainer recommends SIE for new work. Run a SIE server and follow its SDK migration guidance.",
+      },
+    ],
+    requires: { python: "3.12" },
     sources: [
       {
         title: "superlinked-server deprecation notice",
         url: "https://pypi.org/project/superlinked-server/",
-        accessedAt: "2026-10-16",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/superlinked-server/",
         archivedAt: "2026-10-16",
       },
+      { title: "SIE SDK package metadata", url: "https://pypi.org/project/sie-sdk/", accessedAt: "2026-11-28" },
     ],
     provenance: {
       observedAt: "2026-10-16",
-      reviewedAt: "2026-10-16",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1064,20 +1095,34 @@ export const rules: readonly RegistryV2Rule[] = [
       "The maintainer states that poetry-version-plugin is deprecated and recommends migrating to other project and versioning tools.",
     severity: "medium",
     replacement: "uv, PDM, Hatch, or poetry-dynamic-versioning",
+    replacements: [
+      {
+        purl: "pkg:pypi/hatch",
+        name: "hatch",
+        kind: "alternative",
+        note: "The maintainer lists Hatch as an alternative with built-in versioning.",
+      },
+      {
+        purl: "pkg:pypi/pdm",
+        name: "pdm",
+        kind: "alternative",
+        note: "The maintainer lists PDM as an alternative with built-in versioning.",
+      },
+    ],
     sources: [
       {
         title: "poetry-version-plugin deprecation notice",
         url: "https://pypi.org/project/poetry-version-plugin/",
-        accessedAt: "2026-10-16",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/poetry-version-plugin/",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-10-16",
-      reviewedAt: "2026-10-16",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1444,20 +1489,28 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "The maintainer says not to use BatchNotebook, marks it deprecated, and recommends runipy.",
     severity: "medium",
     replacement: "runipy",
+    replacements: [
+      {
+        purl: "pkg:pypi/runipy",
+        name: "runipy",
+        kind: "alternative",
+        note: "The BatchNotebook maintainer directs users to runipy. Verify runtime and notebook compatibility before switching.",
+      },
+    ],
     sources: [
       {
         title: "BatchNotebook deprecation notice",
         url: "https://pypi.org/project/BatchNotebook/",
-        accessedAt: "2026-10-16",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/BatchNotebook/",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-10-16",
-      reviewedAt: "2026-10-16",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1542,20 +1595,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "Superlinked marks its legacy Python framework deprecated for new projects and directs new development to SIE and sie-sdk.",
     severity: "medium",
     replacement: "SIE and sie-sdk",
+    replacements: [
+      {
+        purl: "pkg:pypi/sie-sdk",
+        name: "sie-sdk",
+        kind: "successor",
+        note: "The maintainer recommends SIE for new work. Run a SIE server and follow its SDK migration guidance.",
+      },
+    ],
+    requires: { python: "3.12" },
     sources: [
       {
         title: "superlinked legacy framework notice",
         url: "https://pypi.org/project/superlinked/",
-        accessedAt: "2026-10-16",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://pypi.org/project/superlinked/",
         archivedAt: "2026-10-16",
       },
+      { title: "SIE SDK package metadata", url: "https://pypi.org/project/sie-sdk/", accessedAt: "2026-11-28" },
     ],
     provenance: {
       observedAt: "2026-10-16",
-      reviewedAt: "2026-10-16",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

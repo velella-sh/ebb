@@ -15,12 +15,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs14.x under Deprecated runtimes with deprecation date 2023-12-04. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs22.x or nodejs24.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2023-12-04",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-21",
@@ -28,9 +42,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -73,12 +87,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs12.x under Deprecated runtimes with deprecation date 2023-03-31. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2023-03-31",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-29",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261029000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-29",
@@ -86,9 +114,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-29",
-      reviewedAt: "2026-10-29",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -131,12 +159,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.8 under Deprecated runtimes with deprecation date 2024-10-14. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "python3.13 or python3.12",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.12",
+        name: "python3.12",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2024-10-14",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-21",
@@ -144,9 +186,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -189,12 +231,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.7 under Deprecated runtimes with deprecation date 2023-12-04. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "python3.14 or python3.13",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2023-12-04",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-29",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261029000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-29",
@@ -202,9 +258,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-29",
-      reviewedAt: "2026-10-29",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -247,12 +303,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists ruby2.7 under Deprecated runtimes with deprecation date 2023-12-07. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "ruby3.4 or ruby3.3",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby3.4",
+        name: "ruby3.4",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby3.3",
+        name: "ruby3.3",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2023-12-07",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-21",
@@ -260,9 +330,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -363,12 +433,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs24.x as supported with a projected deprecation date of 2028-04-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "nodejs26.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs26.x",
+        name: "nodejs26.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2028-04-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -376,9 +454,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -422,12 +500,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs22.x as supported with a projected deprecation date of 2027-04-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "nodejs24.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2027-04-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -435,9 +521,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -481,12 +567,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.14 as supported with a projected deprecation date of 2029-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "python3.15",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.15",
+        name: "python3.15",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2029-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -494,9 +588,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -540,12 +634,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.13 as supported with a projected deprecation date of 2029-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "python3.14",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2029-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -553,9 +655,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -599,12 +701,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.12 as supported with a projected deprecation date of 2028-10-31. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "python3.14 or python3.13",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2028-10-31",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -612,9 +728,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -658,12 +774,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.11 as supported with a projected deprecation date of 2027-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "python3.14 or python3.13",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2027-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -671,9 +801,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -717,12 +847,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.10 under Deprecated runtimes with deprecation date 2026-10-31. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "python3.14 or python3.13",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2026-10-31",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-11-07",
@@ -730,9 +874,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -833,12 +977,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java21 as supported with a projected deprecation date of 2029-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "java25",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2029-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -846,9 +998,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -892,12 +1044,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java17.al2023 as supported with a projected deprecation date of 2029-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "java25 or java21",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2029-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -905,9 +1071,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -951,12 +1117,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java11.al2023 as supported with a projected deprecation date of 2029-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "java25 or java21",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2029-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -964,9 +1144,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1010,12 +1190,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java8.al2023 as supported with a projected deprecation date of 2029-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "java25 or java21",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2029-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1023,9 +1217,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1069,12 +1263,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java17 as supported with a projected deprecation date of 2027-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "java25 or java21",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2027-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1082,9 +1290,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1128,12 +1336,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java11 as supported with a projected deprecation date of 2027-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "java25 or java21",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2027-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1141,9 +1363,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1187,12 +1409,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java8.al2 as supported with a projected deprecation date of 2027-06-30. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "java25 or java21",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2027-06-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1200,9 +1436,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1304,12 +1540,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnet9 as supported with a projected deprecation date of 2026-11-10. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2026-11-10",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1317,9 +1561,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1363,12 +1607,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnet8 as supported with a projected deprecation date of 2026-11-10. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2026-11-10",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1376,9 +1628,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1480,12 +1732,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists ruby3.4 as supported with a projected deprecation date of 2028-03-31. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "ruby4.0",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby4.0",
+        name: "ruby4.0",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2028-03-31",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1493,9 +1753,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1539,12 +1799,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists ruby3.3 as supported with a projected deprecation date of 2027-03-31. After that date AWS no longer applies security or other updates to that managed runtime.",
     severity: "low",
     replacement: "ruby4.0 or ruby3.4",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby4.0",
+        name: "ruby4.0",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby3.4",
+        name: "ruby3.4",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2027-03-31",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1552,9 +1826,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1656,12 +1930,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists provided.al2 under Deprecated runtimes with deprecation date 2026-07-31. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "provided.al2023",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/provided.al2023",
+        name: "provided.al2023",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2026-07-31",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1669,9 +1951,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1714,12 +1996,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs20.x under Deprecated runtimes with deprecation date 2026-04-30. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2026-04-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1727,9 +2023,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1772,12 +2068,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists ruby3.2 under Deprecated runtimes with deprecation date 2026-03-31. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "ruby4.0 or ruby3.4",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby4.0",
+        name: "ruby4.0",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby3.4",
+        name: "ruby3.4",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2026-03-31",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1785,9 +2095,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1830,12 +2140,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.9 under Deprecated runtimes with deprecation date 2025-12-15. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "python3.14 or python3.13",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2025-12-15",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1843,9 +2167,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1888,12 +2212,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs18.x under Deprecated runtimes with deprecation date 2025-09-01. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2025-09-01",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1901,9 +2239,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1946,12 +2284,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnet6 under Deprecated runtimes with deprecation date 2024-12-20. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2024-12-20",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -1959,9 +2305,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2004,12 +2350,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs16.x under Deprecated runtimes with deprecation date 2024-06-12. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2024-06-12",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2017,9 +2377,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2062,12 +2422,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnet7 under Deprecated runtimes with deprecation date 2024-05-14. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2024-05-14",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2075,9 +2443,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2120,12 +2488,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists java8 under Deprecated runtimes with deprecation date 2024-01-08. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "java25 or java21",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java25",
+        name: "java25",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2024-01-08",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2133,9 +2515,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2178,12 +2560,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists go1.x under Deprecated runtimes with deprecation date 2024-01-08. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "provided.al2023",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/provided.al2023",
+        name: "provided.al2023",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2024-01-08",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2191,9 +2581,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2236,12 +2626,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists provided under Deprecated runtimes with deprecation date 2024-01-08. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "provided.al2023",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/provided.al2023",
+        name: "provided.al2023",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2024-01-08",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2249,9 +2647,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2294,12 +2692,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python3.6 under Deprecated runtimes with deprecation date 2022-07-18. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "python3.14 or python3.13",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2022-07-18",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2307,9 +2719,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2352,12 +2764,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnet5.0 under Deprecated runtimes with deprecation date 2022-05-10. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2022-05-10",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2365,9 +2785,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2410,12 +2830,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnetcore2.1 under Deprecated runtimes with deprecation date 2022-01-05. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2022-01-05",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2423,9 +2851,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2468,12 +2896,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs10.x under Deprecated runtimes with deprecation date 2021-07-30. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2021-07-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2481,9 +2923,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2526,12 +2968,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists ruby2.5 under Deprecated runtimes with deprecation date 2021-07-30. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "ruby4.0 or ruby3.4",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby4.0",
+        name: "ruby4.0",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/ruby3.4",
+        name: "ruby3.4",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2021-07-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2539,9 +2995,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2584,12 +3040,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists python2.7 under Deprecated runtimes with deprecation date 2021-07-15. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "python3.14 or python3.13",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.14",
+        name: "python3.14",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/python3.13",
+        name: "python3.13",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2021-07-15",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2597,9 +3067,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2642,12 +3112,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs8.10 under Deprecated runtimes with deprecation date 2020-03-06. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2020-03-06",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2655,9 +3139,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2700,12 +3184,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs4.3 under Deprecated runtimes with deprecation date 2020-03-05. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2020-03-05",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2713,9 +3211,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2758,12 +3256,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs4.3-edge under Deprecated runtimes with deprecation date 2020-03-05. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2020-03-05",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2771,9 +3283,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2816,12 +3328,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs6.10 under Deprecated runtimes with deprecation date 2019-08-12. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2019-08-12",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2829,9 +3355,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2874,12 +3400,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnetcore1.0 under Deprecated runtimes with deprecation date 2019-06-27. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2019-06-27",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2887,9 +3421,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2932,12 +3466,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists dotnetcore2.0 under Deprecated runtimes with deprecation date 2019-05-30. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2019-05-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -2945,9 +3487,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2990,12 +3532,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The AWS Lambda runtimes table lists nodejs under Deprecated runtimes with deprecation date 2016-08-30. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
     replacement: "nodejs24.x or nodejs22.x",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs24.x",
+        name: "nodejs24.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+      {
+        purl: "pkg:generic/aws-lambda-runtime/nodejs22.x",
+        name: "nodejs22.x",
+        kind: "successor",
+        note: "AWS lists this identifier as a supported Lambda runtime. Validate the function and dependencies before changing runtimes.",
+      },
+    ],
     deadline: "2016-08-30",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-30",
@@ -3003,9 +3559,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

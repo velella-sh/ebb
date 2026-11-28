@@ -284,22 +284,37 @@
       "summary": "The PostgreSQL project no longer releases fixes for these major versions.",
       "severity": "high",
       "replacement": "A postgres image on a supported major version (the upgrade needs a dump/restore or pg_upgrade)",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/postgres",
+          "name": "postgres:15",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=15.0.0|<16.0.0",
+          "note": "Use an official PostgreSQL 15 image. Run pg_upgrade or dump and restore before restarting the service on the new major."
+        }
+      ],
       "deadline": "2025-11-13",
       "sources": [
         {
           "title": "PostgreSQL versioning policy",
           "url": "https://www.postgresql.org/support/versioning/",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://www.postgresql.org/support/versioning/",
           "archivedAt": "2026-10-16"
+        },
+        {
+          "title": "Docker Official Image tags for PostgreSQL",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/postgres",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-16",
-        "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -344,22 +359,37 @@
       "summary": "The PostgreSQL 14 release line is scheduled to stop receiving fixes from the vendor on 2026-11-12.",
       "severity": "low",
       "replacement": "A postgres image on a later supported major version (the upgrade needs a dump/restore or pg_upgrade)",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/postgres",
+          "name": "postgres:15",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=15.0.0|<16.0.0",
+          "note": "Use an official PostgreSQL 15 image. Run pg_upgrade or dump and restore before restarting the service on the new major."
+        }
+      ],
       "deadline": "2026-11-12",
       "sources": [
         {
           "title": "PostgreSQL release policy (vendor)",
           "url": "https://www.postgresql.org/support/versioning/",
-          "accessedAt": "2026-10-24",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261024000000/https://www.postgresql.org/support/versioning/",
           "archivedAt": "2026-10-24"
+        },
+        {
+          "title": "Docker Official Image tags for PostgreSQL",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/postgres",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-24",
-        "reviewedAt": "2026-10-24",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"

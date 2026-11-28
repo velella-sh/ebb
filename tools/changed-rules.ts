@@ -234,6 +234,8 @@ export async function runChangedRules(options: ChangedRulesOptions): Promise<Cha
   const rules = [...changed].sort((left, right) => left.localeCompare(right));
   const lint = await lintRuleFiles(files.map((path) => join(root, path)));
   lint.issues.push(...revisions);
+  if (base !== undefined)
+    lint.warnings = lint.warnings.filter(({ ruleId }) => ruleId !== undefined && changed.has(ruleId));
   const cases = await checkCases(root, base === undefined || casesChanged ? undefined : changed);
   const passed = lint.issues.length === 0 && cases.failures.length === 0;
   const result: ChangedRulesResult = { base: base ?? ALL, files, rules, lint, cases, passed };
@@ -268,6 +270,16 @@ export function renderChangedRulesSummary(result: ChangedRulesResult): string {
   lines.push(result.passed ? "Everything passed." : "Some checks failed.", "");
   if (result.lint.issues.length > 0) {
     lines.push("#### Lint problems", "", "```text", renderRuleLintText(result.lint), "```", "");
+  }
+  if (result.lint.warnings.length > 0) {
+    lines.push(
+      "#### Lint warnings",
+      "",
+      "```text",
+      ...result.lint.warnings.map(({ file, line, message, hint }) => `${file}:${line}: ${message}\n  hint: ${hint}`),
+      "```",
+      "",
+    );
   }
   if (result.cases.failures.length > 0) {
     lines.push("#### Case problems", "", "```text", ...result.cases.failures.map(renderCaseFailure), "```", "");

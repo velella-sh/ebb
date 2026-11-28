@@ -15,21 +15,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Go release policy supports a major release until two newer major releases exist. Go 1.25 support ended when Go 1.27 was released.",
     severity: "high",
     replacement: "Go 1.26 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/golang",
+        name: "Go 1.26",
+        kind: "upgrade",
+        vers: "vers:golang/>=1.26.0|<1.27.0",
+        note: "Use the latest 1.26 patch. This line leaves support when Go 1.28 ships, under Go’s two-release policy.",
+      },
+    ],
     deadline: "2026-08-19",
     sources: [
       {
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-11-15",
-      reviewedAt: "2026-11-15",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -71,21 +80,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Go release policy supports a major release until two newer major releases exist. Go 1.24 support ended when Go 1.26 was released.",
     severity: "high",
     replacement: "Go 1.26 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/golang",
+        name: "Go 1.26",
+        kind: "upgrade",
+        vers: "vers:golang/>=1.26.0|<1.27.0",
+        note: "Use the latest 1.26 patch. This line leaves support when Go 1.28 ships, under Go’s two-release policy.",
+      },
+    ],
     deadline: "2026-02-10",
     sources: [
       {
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-11-15",
-      reviewedAt: "2026-11-15",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -127,21 +145,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Go release policy supports a major release until two newer major releases exist. Go 1.23 support ended when Go 1.25 was released.",
     severity: "high",
     replacement: "Go 1.26 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/golang",
+        name: "Go 1.26",
+        kind: "upgrade",
+        vers: "vers:golang/>=1.26.0|<1.27.0",
+        note: "Use the latest 1.26 patch. This line leaves support when Go 1.28 ships, under Go’s two-release policy.",
+      },
+    ],
     deadline: "2025-08-12",
     sources: [
       {
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-11-15",
-      reviewedAt: "2026-11-15",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -183,21 +210,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Go release policy supports a major release until two newer major releases exist. Go 1.22 support ended when Go 1.24 was released.",
     severity: "high",
     replacement: "Go 1.26 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/golang",
+        name: "Go 1.26",
+        kind: "upgrade",
+        vers: "vers:golang/>=1.26.0|<1.27.0",
+        note: "Use the latest 1.26 patch. This line leaves support when Go 1.28 ships, under Go’s two-release policy.",
+      },
+    ],
     deadline: "2025-02-11",
     sources: [
       {
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-11-15",
-      reviewedAt: "2026-11-15",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -239,21 +275,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Go release policy supports a major release until two newer major releases exist. Go 1.21 support ended when Go 1.23 was released.",
     severity: "high",
     replacement: "Go 1.26 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/golang",
+        name: "Go 1.26",
+        kind: "upgrade",
+        vers: "vers:golang/>=1.26.0|<1.27.0",
+        note: "Use the latest 1.26 patch. This line leaves support when Go 1.28 ships, under Go’s two-release policy.",
+      },
+    ],
     deadline: "2024-08-13",
     sources: [
       {
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261016000000/https://go.dev/doc/devel/release",
         archivedAt: "2026-10-16",
       },
     ],
     provenance: {
       observedAt: "2026-11-15",
-      reviewedAt: "2026-11-15",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -295,21 +340,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Go release policy supports a major release until two newer major releases exist. Go 1.20 support ended when Go 1.22 was released, and every older release lost support before that.",
     severity: "high",
     replacement: "Go 1.26 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/golang",
+        name: "Go 1.26",
+        kind: "upgrade",
+        vers: "vers:golang/>=1.26.0|<1.27.0",
+        note: "Use the latest 1.26 patch. This line leaves support when Go 1.28 ships, under Go’s two-release policy.",
+      },
+    ],
     deadline: "2024-02-06",
     sources: [
       {
         title: "Go release history and support policy",
         url: "https://go.dev/doc/devel/release",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://go.dev/doc/devel/release",
         archivedAt: "2026-10-17",
       },
     ],
     provenance: {
       observedAt: "2026-11-15",
-      reviewedAt: "2026-11-15",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

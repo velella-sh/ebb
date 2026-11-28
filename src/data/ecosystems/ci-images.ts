@@ -15,12 +15,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The macOS 13 Ventura hosted image was retired on 2025-12-04. The Microsoft-hosted agents page states that date, and the Azure DevOps blog lists the same full retiral date.",
     severity: "high",
     replacement: "macos-14, macos-15, or macos-latest",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-pipelines/macos-image",
+        name: "macos-15",
+        kind: "upgrade",
+        vers: "vers:intdot/15",
+        note: "Set the Azure Pipelines vmImage label and validate the pipeline on the new image.",
+      },
+    ],
     deadline: "2025-12-04",
     sources: [
       {
         title: "Microsoft-hosted agents for Azure Pipelines",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
         archivedAt: "2026-11-07",
@@ -28,7 +37,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Upcoming Updates for Azure Pipelines Agents Images",
         url: "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
         archivedAt: "2026-11-07",
@@ -36,9 +45,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -82,12 +91,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The macOS 14 Sonoma hosted image deprecation started on 2026-07-06 and its scheduled removal moved to 2026-11-23 (from 2026-11-02), per Microsoft's hosted image deprecation schedule. Brownouts run through 2026-11-20.",
     severity: "low",
     replacement: "macos-latest or macos-15",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-pipelines/macos-image",
+        name: "macos-15",
+        kind: "upgrade",
+        vers: "vers:intdot/15",
+        note: "Set the Azure Pipelines vmImage label and validate the pipeline on the new image.",
+      },
+    ],
     deadline: "2026-11-23",
     sources: [
       {
         title: "Microsoft-hosted image deprecation schedule",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
         archivedAt: "2026-11-07",
@@ -95,9 +113,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -141,12 +159,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Ubuntu 20.04 hosted image was fully removed on 2025-04-30, per the Azure DevOps blog deprecation plan. The Microsoft-hosted agents page lists that image as retired.",
     severity: "high",
     replacement: "ubuntu-22.04, ubuntu-24.04, or ubuntu-latest",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-pipelines/ubuntu-image",
+        name: "ubuntu-24.04",
+        kind: "upgrade",
+        vers: "vers:intdot/24.04",
+        note: "Set the Azure Pipelines vmImage label and validate the pipeline on the new image.",
+      },
+    ],
     deadline: "2025-04-30",
     sources: [
       {
         title: "Upcoming Updates for Azure Pipelines Agents Images",
         url: "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
         archivedAt: "2026-10-21",
@@ -154,7 +181,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Microsoft-hosted agents for Azure Pipelines",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
         archivedAt: "2026-10-21",
@@ -162,9 +189,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -208,12 +235,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Ubuntu 22.04 hosted image deprecation starts on 2026-09-17 and its scheduled removal is 2027-04-17, per Microsoft's hosted image deprecation schedule.",
     severity: "low",
     replacement: "ubuntu-latest, ubuntu-24.04, or ubuntu-26.04",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-pipelines/ubuntu-image",
+        name: "ubuntu-24.04",
+        kind: "upgrade",
+        vers: "vers:intdot/24.04",
+        note: "Set the Azure Pipelines vmImage label and validate the pipeline on the new image.",
+      },
+    ],
     deadline: "2027-04-17",
     sources: [
       {
         title: "Microsoft-hosted image deprecation schedule",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
-        accessedAt: "2026-10-18",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261018000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule",
         archivedAt: "2026-10-18",
@@ -221,9 +257,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-18",
-      reviewedAt: "2026-10-18",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -267,12 +303,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Windows Server 2019 hosted image was retired on 2025-12-31. The Azure DevOps blog sets that full removal date, and the Microsoft-hosted agents page records the same retirement.",
     severity: "high",
     replacement: "windows-2022, windows-2025, or windows-latest",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-pipelines/windows-image",
+        name: "windows-2025",
+        kind: "upgrade",
+        vers: "vers:intdot/2025",
+        note: "Set the Azure Pipelines vmImage label and validate the pipeline on the new image.",
+      },
+    ],
     deadline: "2025-12-31",
     sources: [
       {
         title: "Upcoming Updates for Azure Pipelines Agents Images",
         url: "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/",
         archivedAt: "2026-10-21",
@@ -280,7 +325,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Microsoft-hosted agents for Azure Pipelines",
         url: "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://learn.microsoft.com/azure/devops/pipelines/agents/hosted",
         archivedAt: "2026-10-21",
@@ -288,9 +333,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

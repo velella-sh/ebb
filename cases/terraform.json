@@ -1,0 +1,59 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.33.0",
+      "rules": ["kubernetes.amazon-eks.1-33", "terraform.eks.end-of-support-1.33"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.34.0",
+      "rules": ["kubernetes.amazon-eks.1-34"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.32.0",
+      "rules": ["kubernetes.amazon-eks.1-32", "terraform.eks.end-of-support-1.32"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.31.0",
+      "rules": ["kubernetes.amazon-eks.1-31", "terraform.eks.end-of-support-1.31"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.33.0",
+      "rules": ["terraform.gke.end-of-support-1.33"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.34.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.32.0",
+      "rules": ["terraform.gke.end-of-support-1.32"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.33.0",
+      "rules": ["terraform.aks.end-of-support-1.33"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.34.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.32.0",
+      "rules": ["terraform.aks.end-of-support-1.32"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.31.0",
+      "rules": ["terraform.aks.end-of-support-1.31"]
+    }
+  ]
+}

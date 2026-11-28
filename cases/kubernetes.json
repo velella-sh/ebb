@@ -24,6 +24,461 @@
       "purl": "pkg:generic/kubernetes/batch/CronJob",
       "version": "1.0.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/Ingress",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/autoscaling/HorizontalPodAutoscaler",
+      "version": "2.0.0-beta.2",
+      "rules": ["kubernetes.autoscaling.horizontalpodautoscaler.v2beta2.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/autoscaling/HorizontalPodAutoscaler",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/admissionregistration.k8s.io/MutatingWebhookConfiguration",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.admissionregistration-k8s-io.mutatingwebhookconfiguration.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/admissionregistration.k8s.io/MutatingWebhookConfiguration",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/admissionregistration.k8s.io/ValidatingWebhookConfiguration",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.admissionregistration-k8s-io.validatingwebhookconfiguration.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/admissionregistration.k8s.io/ValidatingWebhookConfiguration",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apiextensions.k8s.io/CustomResourceDefinition",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.apiextensions-k8s-io.customresourcedefinition.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apiextensions.k8s.io/CustomResourceDefinition",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apiregistration.k8s.io/APIService",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.apiregistration-k8s-io.apiservice.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apiregistration.k8s.io/APIService",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/DaemonSet",
+      "version": "1.0.0-beta.2",
+      "rules": ["kubernetes.apps.daemonset.v1beta2.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/DaemonSet",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/Deployment",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.apps.deployment.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/Deployment",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/Deployment",
+      "version": "1.0.0-beta.2",
+      "rules": ["kubernetes.apps.deployment.v1beta2.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/ReplicaSet",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.apps.replicaset.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/ReplicaSet",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/ReplicaSet",
+      "version": "1.0.0-beta.2",
+      "rules": ["kubernetes.apps.replicaset.v1beta2.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/StatefulSet",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.apps.statefulset.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/StatefulSet",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/apps/StatefulSet",
+      "version": "1.0.0-beta.2",
+      "rules": ["kubernetes.apps.statefulset.v1beta2.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authentication.k8s.io/TokenReview",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.authentication-k8s-io.tokenreview.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authentication.k8s.io/TokenReview",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/LocalSubjectAccessReview",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.authorization-k8s-io.localsubjectaccessreview.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/LocalSubjectAccessReview",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/SelfSubjectAccessReview",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.authorization-k8s-io.selfsubjectaccessreview.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/SelfSubjectAccessReview",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/SelfSubjectRulesReview",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.authorization-k8s-io.selfsubjectrulesreview.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/SelfSubjectRulesReview",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/SubjectAccessReview",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.authorization-k8s-io.subjectaccessreview.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/authorization.k8s.io/SubjectAccessReview",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/autoscaling/HorizontalPodAutoscaler",
+      "version": "2.0.0-beta.1",
+      "rules": ["kubernetes.autoscaling.horizontalpodautoscaler.v2beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/certificates.k8s.io/CertificateSigningRequest",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.certificates-k8s-io.certificatesigningrequest.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/certificates.k8s.io/CertificateSigningRequest",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/coordination.k8s.io/Lease",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.coordination-k8s-io.lease.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/coordination.k8s.io/Lease",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/discovery.k8s.io/EndpointSlice",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.discovery-k8s-io.endpointslice.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/discovery.k8s.io/EndpointSlice",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/events.k8s.io/Event",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.events-k8s-io.event.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/events.k8s.io/Event",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/DaemonSet",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.extensions.daemonset.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/DaemonSet",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/Deployment",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.extensions.deployment.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/Deployment",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/NetworkPolicy",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.extensions.networkpolicy.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/NetworkPolicy",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/ReplicaSet",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.extensions.replicaset.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/extensions/ReplicaSet",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/FlowSchema",
+      "version": "1.0.0-beta.2",
+      "rules": ["kubernetes.flowcontrol-apiserver-k8s-io.flowschema.v1beta2.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/FlowSchema",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/FlowSchema",
+      "version": "1.0.0-beta.3",
+      "rules": ["kubernetes.flowcontrol-apiserver-k8s-io.flowschema.v1beta3.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/PriorityLevelConfiguration",
+      "version": "1.0.0-beta.2",
+      "rules": ["kubernetes.flowcontrol-apiserver-k8s-io.prioritylevelconfiguration.v1beta2.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/PriorityLevelConfiguration",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/PriorityLevelConfiguration",
+      "version": "1.0.0-beta.3",
+      "rules": ["kubernetes.flowcontrol-apiserver-k8s-io.prioritylevelconfiguration.v1beta3.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/networking.k8s.io/IngressClass",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.networking-k8s-io.ingressclass.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/networking.k8s.io/IngressClass",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/node.k8s.io/RuntimeClass",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.node-k8s-io.runtimeclass.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/node.k8s.io/RuntimeClass",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/policy/PodDisruptionBudget",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.policy.poddisruptionbudget.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/policy/PodDisruptionBudget",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/ClusterRole",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.rbac-authorization-k8s-io.clusterrole.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/ClusterRole",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/ClusterRoleBinding",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.rbac-authorization-k8s-io.clusterrolebinding.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/ClusterRoleBinding",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/Role",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.rbac-authorization-k8s-io.role.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/Role",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/RoleBinding",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.rbac-authorization-k8s-io.rolebinding.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/rbac.authorization.k8s.io/RoleBinding",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/scheduling.k8s.io/PriorityClass",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.scheduling-k8s-io.priorityclass.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/scheduling.k8s.io/PriorityClass",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/CSIDriver",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.storage-k8s-io.csidriver.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/CSIDriver",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/CSINode",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.storage-k8s-io.csinode.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/CSINode",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/CSIStorageCapacity",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.storage-k8s-io.csistoragecapacity.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/CSIStorageCapacity",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/StorageClass",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.storage-k8s-io.storageclass.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/StorageClass",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/VolumeAttachment",
+      "version": "1.0.0-beta.1",
+      "rules": ["kubernetes.storage-k8s-io.volumeattachment.v1beta1.removed"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes/storage.k8s.io/VolumeAttachment",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/kubernetes",
+      "version": "1.33.0",
+      "rules": ["kubernetes.release.end-of-life-1.33"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes",
+      "version": "1.34.0",
+      "rules": ["kubernetes.release.end-of-life-1.34"]
+    },
+    {
+      "purl": "pkg:generic/kubernetes",
+      "version": "1.36.0",
+      "rules": ["kubernetes.release.end-of-life-1.36"]
+    },
+    {
+      "purl": "pkg:generic/google-gke",
+      "version": "1.33.0",
+      "rules": ["kubernetes.google-gke.1.33"]
+    },
+    {
+      "purl": "pkg:generic/google-gke",
+      "version": "1.34.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.34.0",
+      "rules": ["kubernetes.azure-aks.1-34"]
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.35.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.34.0",
+      "rules": ["kubernetes.amazon-eks.1-34"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.35.0",
+      "rules": ["kubernetes.amazon-eks.1-35"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.36.0",
+      "rules": ["kubernetes.amazon-eks.1-36"]
     }
   ]
 }

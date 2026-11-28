@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/powershell",
+      "version": "7.3.0",
+      "rules": ["shell.powershell.end-of-life-7.3"]
+    },
+    {
+      "purl": "pkg:generic/powershell",
+      "version": "7.4.0",
+      "rules": ["shell.powershell.end-of-life-7.4"]
+    },
+    {
+      "purl": "pkg:generic/powershell",
+      "version": "7.2.0",
+      "rules": ["shell.powershell.end-of-life-7.2"]
+    },
+    {
+      "purl": "pkg:generic/powershell",
+      "version": "7.1.0",
+      "rules": ["shell.powershell.end-of-life-7.1"]
+    },
+    {
+      "purl": "pkg:generic/powershell",
+      "version": "7.0.0",
+      "rules": ["shell.powershell.end-of-life-7.0"]
+    },
+    {
+      "purl": "pkg:generic/powershell",
+      "version": "6.0.0",
+      "rules": ["shell.powershell.end-of-life-6"]
+    },
+    {
+      "purl": "pkg:generic/powershell",
+      "version": "7.5.0",
+      "rules": ["shell.powershell.end-of-life-7.5"]
+    }
+  ]
+}

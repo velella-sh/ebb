@@ -3,66 +3,20 @@ import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
-import { parsePurl, purlIdentity } from "../src/purl.js";
 import type { RegistryV2Rule } from "../src/registry.js";
+import { classifySuccessor, type SuccessorKind, successorKinds } from "../src/successor-text.js";
 
-export const successorKinds = [
-  "installable-package",
-  "same-component-line",
-  "api-version",
-  "product",
-  "no-target",
-  "needs-review",
-] as const;
-type Kind = (typeof successorKinds)[number];
+export { successorKinds };
+
 export const compareText = (a: string, b: string): number => (a < b ? -1 : Number(a > b));
 
-function classify(rule: RegistryV2Rule, replacement: string): Kind {
-  if (
-    /^(?:none|n\/a|no (?:supported |direct )?(?:replacement|successor|alternative|major|version)\b)/iu.test(replacement)
-  )
-    return "no-target";
-  if (/\b(?:apiVersion\s*[:=]|(?:[a-z][\w.-]*\.[a-z][\w.-]*)\/v\d+(?:[a-z]+\d+)?)\b/iu.test(replacement))
-    return "api-version";
-  const target = replacement.match(/\bpkg:[^\s`'",<>]+/u)?.[0];
-  if (target) {
-    try {
-      const parsed = parsePurl(target);
-      if (parsed.version && purlIdentity(parsed) === purlIdentity(rule.purl)) return "same-component-line";
-      return parsed.type === "generic" ? "product" : "installable-package";
-    } catch {
-      return "needs-review";
-    }
-  }
-  if (
-    /^(?:npm|pnpm|yarn|bun|pip3?|cargo|go|dotnet)\s+(?:install|add|get)\s+\S/iu.test(replacement) ||
-    /^@[a-z\d._-]+\/[a-z\d._-]+(?:@[\w.*-]+)?$/iu.test(replacement)
-  )
-    return "installable-package";
-
-  const component = parsePurl(rule.purl).name.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
-  if (
-    new RegExp(`^(?:upgrade to |use )?${component}(?:[ .-]+|(?=\\d))(?:v|version )?\\d+(?:\\b|\\.x)`, "iu").test(
-      replacement,
-    )
-  )
-    return "same-component-line";
-  if (
-    /^(?:migrate|switch|move) to (?:the )?[A-Z][\w.-]+(?: [A-Za-z][\w.-]+){0,4}(?: service| product| platform)\.?$/iu.test(
-      replacement,
-    )
-  )
-    return "product";
-  return "needs-review";
-}
-
 export function auditSuccessors(rules: readonly RegistryV2Rule[]) {
-  const counts = Object.fromEntries(successorKinds.map((kind) => [kind, 0])) as Record<Kind, number>;
+  const counts = Object.fromEntries(successorKinds.map((kind) => [kind, 0])) as Record<SuccessorKind, number>;
   const rows = [];
   for (const rule of [...rules].sort((a, b) => compareText(a.ecosystem, b.ecosystem) || compareText(a.id, b.id))) {
     const replacement = rule.replacement?.trim();
     if (!replacement || rule.replacements?.length) continue;
-    const classification = classify(rule, replacement);
+    const classification = classifySuccessor(rule.purl, replacement);
     counts[classification]++;
     rows.push({ ecosystem: rule.ecosystem, ruleId: rule.id, purl: rule.purl, replacement, classification });
   }

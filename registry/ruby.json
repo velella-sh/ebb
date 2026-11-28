@@ -15,20 +15,34 @@
       "summary": "The Ruby maintenance branches page lists Ruby 3.3 EOL as 2027-03-31 (expected). The branch is in security maintenance until then and will stop receiving fixes afterward.",
       "severity": "low",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2027-03-31",
-      "x-ruby": { "estimated": true },
+      "x-ruby": {
+        "estimated": true
+      },
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-11-15"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-15",
-        "reviewedAt": "2026-11-15",
-        "reviewer": "unreviewed",
-        "method": "manual"
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
+        "method": "manual",
+        "reviewers": [
+          "codex-agent"
+        ]
       },
       "migration": {
         "constraints": [
@@ -75,22 +89,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 3.2 as eol: normal maintenance ended on 2025-04-01 and the branch reached end-of-life on 2026-04-01.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2026-04-01",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-18",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-18"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-18",
-        "reviewedAt": "2026-10-18",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -139,22 +163,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 3.1 as eol: normal maintenance ended on 2024-04-01 and the branch reached end-of-life on 2025-03-26.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2025-03-26",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-18",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-18"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-18",
-        "reviewedAt": "2026-10-18",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -203,22 +237,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 3.0 as eol: normal maintenance ended on 2023-04-01 and the branch reached end-of-life on 2024-04-23.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2024-04-23",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-18",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-18"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-18",
-        "reviewedAt": "2026-10-18",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -267,22 +311,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.7 as eol: normal maintenance ended on 2022-04-01 and the branch reached end-of-life on 2023-03-31.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2023-03-31",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-18",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261018000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-18"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-18",
-        "reviewedAt": "2026-10-18",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -331,22 +385,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.6 as eol: normal maintenance ended on 2021-04-01 and the branch reached end-of-life on 2022-04-12.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2022-04-12",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -395,22 +459,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.5 as eol: normal maintenance ended on 2020-04-01 and the branch reached end-of-life on 2021-04-05.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2021-04-05",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -459,22 +533,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.4 as eol: normal maintenance ended on 2019-04-01 and the branch reached end-of-life on 2020-03-31.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2020-03-31",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -523,22 +607,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.3 as eol: normal maintenance ended on 2018-03-28 and the branch reached end-of-life on 2019-03-31.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2019-03-31",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -587,22 +681,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.2 as eol: normal maintenance ended on 2017-03-28 and the branch reached end-of-life on 2018-03-31.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2018-03-31",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -651,22 +755,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.1 as eol: normal maintenance ended on 2016-03-31 and the branch reached end-of-life on 2017-03-31.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2017-03-31",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -715,22 +829,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 2.0.0 as eol: normal maintenance ended on 2016-02-24 and the branch reached end-of-life on 2016-02-24.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2016-02-24",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -779,22 +903,32 @@
       "summary": "The Ruby maintenance branches page marks Ruby 1.9.3 as eol: normal maintenance ended on 2014-02-24 and the branch reached end-of-life on 2015-02-23.",
       "severity": "high",
       "replacement": "Ruby 3.4 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ruby",
+          "name": "Ruby 3.4",
+          "kind": "upgrade",
+          "vers": "vers:gem/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is the oldest line in normal maintenance. Ruby 3.3 is in legacy maintenance and the Ebb registry records its normal-support cutoff."
+        }
+      ],
       "deadline": "2015-02-23",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },

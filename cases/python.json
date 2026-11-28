@@ -318,6 +318,36 @@
       "purl": "pkg:generic/python",
       "version": "3.10.99",
       "rules": ["python.runtime.eol-3.10-and-older"]
+    },
+    {
+      "purl": "pkg:pypi/superlinked",
+      "version": "1.0.0",
+      "rules": ["python.package.superlinked.deprecated"]
+    },
+    {
+      "purl": "pkg:pypi/superlinked-server",
+      "version": "1.0.0",
+      "rules": ["python.package.superlinked-server.deprecated"]
+    },
+    {
+      "purl": "pkg:pypi/pytest-runner",
+      "version": "1.0.0",
+      "rules": ["python.package.pytest-runner.deprecated"]
+    },
+    {
+      "purl": "pkg:pypi/django-celery",
+      "version": "1.0.0",
+      "rules": ["python.package.django-celery.deprecated"]
+    },
+    {
+      "purl": "pkg:pypi/poetry-version-plugin",
+      "version": "1.0.0",
+      "rules": ["python.package.poetry-version-plugin.deprecated"]
+    },
+    {
+      "purl": "pkg:pypi/batchnotebook",
+      "version": "1.0.0",
+      "rules": ["python.package.batchnotebook.deprecated"]
     }
   ]
 }

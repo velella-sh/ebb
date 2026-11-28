@@ -15,21 +15,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PostgreSQL Global Development Group lists 10 as unsupported: its final release was on 2022-11-10, so it receives no further bug or security fixes.",
     severity: "high",
     replacement: "PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/postgresql",
+        name: "PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "The PostgreSQL versioning policy lists major 15 as supported through 2027-11-11. Follow the major-upgrade procedure.",
+      },
+    ],
     deadline: "2022-11-10",
     sources: [
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-29",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261029000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-29",
       },
     ],
     provenance: {
       observedAt: "2026-10-29",
-      reviewedAt: "2026-10-29",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -360,21 +369,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PostgreSQL Global Development Group lists 14 as supported until its final release on November 12, 2026, after which it receives no further bug or security fixes. A database image tag or managed engine_version on this line will then run unsupported software.",
     severity: "low",
     replacement: "PostgreSQL 16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/postgresql",
+        name: "PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "The PostgreSQL versioning policy lists major 15 as supported through 2027-11-11. Follow the major-upgrade procedure.",
+      },
+    ],
     deadline: "2026-11-12",
     sources: [
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-24",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261024000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-24",
       },
     ],
     provenance: {
       observedAt: "2026-10-24",
-      reviewedAt: "2026-10-24",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

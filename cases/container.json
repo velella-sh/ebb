@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:docker/library/postgres",
+      "version": "1.0.0",
+      "rules": ["container.postgres.eol-13-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/postgres",
+      "version": "14.0.0",
+      "rules": ["container.postgres.eol-14-and-older"]
+    }
+  ]
+}

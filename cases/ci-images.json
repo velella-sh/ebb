@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/azure-pipelines/macos-image",
+      "version": "13",
+      "rules": ["ci-images.azure-pipelines.macos-13"]
+    },
+    {
+      "purl": "pkg:generic/azure-pipelines/macos-image",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-pipelines/macos-image",
+      "version": "14",
+      "rules": ["ci-images.azure-pipelines.macos-14"]
+    },
+    {
+      "purl": "pkg:generic/azure-pipelines/ubuntu-image",
+      "version": "20.04",
+      "rules": ["ci-images.azure-pipelines.ubuntu-20.04"]
+    },
+    {
+      "purl": "pkg:generic/azure-pipelines/ubuntu-image",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-pipelines/ubuntu-image",
+      "version": "22.04",
+      "rules": ["ci-images.azure-pipelines.ubuntu-22.04"]
+    },
+    {
+      "purl": "pkg:generic/azure-pipelines/windows-image",
+      "version": "2019",
+      "rules": ["ci-images.azure-pipelines.windows-2019"]
+    },
+    {
+      "purl": "pkg:generic/azure-pipelines/windows-image",
+      "version": "1.0.0",
+      "rules": []
+    }
+  ]
+}

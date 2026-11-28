@@ -15,11 +15,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Oracle Java SE Support Roadmap lists Java 9 and 10 as non-LTS releases whose Premier Support ended between March 2018 and September 2018. It says a previous non-LTS release is superseded once a new feature release is made available.",
     severity: "high",
     replacement: "Java 25 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/java",
+        name: "Java 25 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=25.0.0|<26.0.0",
+        note: "Oracle lists this as an LTS line, with Premier Support through September 2030. Follow the lifecycle and terms of your JDK distribution.",
+      },
+    ],
     sources: [
       {
         title: "Oracle Java SE Support Roadmap",
         url: "https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
         archivedAt: "2026-10-17",
@@ -27,9 +36,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -77,11 +86,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Oracle Java SE Support Roadmap lists Java 12 to 16 as non-LTS releases whose Premier Support ended between September 2019 and September 2021. It says a previous non-LTS release is superseded once a new feature release is made available. The Eclipse Temurin support page lists Java 16 as EOSL, with end of availability in September 2021.",
     severity: "high",
     replacement: "Java 25 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/java",
+        name: "Java 25 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=25.0.0|<26.0.0",
+        note: "Oracle lists this as an LTS line, with Premier Support through September 2030. Follow the lifecycle and terms of your JDK distribution.",
+      },
+    ],
     sources: [
       {
         title: "Oracle Java SE Support Roadmap",
         url: "https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
         archivedAt: "2026-10-17",
@@ -89,16 +107,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Eclipse Temurin support",
         url: "https://adoptium.net/support/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://adoptium.net/support/",
         archivedAt: "2026-10-17",
       },
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -146,11 +164,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Oracle Java SE Support Roadmap lists Java 18 to 20 as non-LTS releases whose Premier Support ended between September 2022 and September 2023. It says a previous non-LTS release is superseded once a new feature release is made available. The Eclipse Temurin support page lists Java 18, 19, and 20 as EOSL, with end of availability in September 2022, March 2023, and September 2023.",
     severity: "high",
     replacement: "Java 25 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/java",
+        name: "Java 25 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=25.0.0|<26.0.0",
+        note: "Oracle lists this as an LTS line, with Premier Support through September 2030. Follow the lifecycle and terms of your JDK distribution.",
+      },
+    ],
     sources: [
       {
         title: "Oracle Java SE Support Roadmap",
         url: "https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
         archivedAt: "2026-10-17",
@@ -158,16 +185,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Eclipse Temurin support",
         url: "https://adoptium.net/support/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://adoptium.net/support/",
         archivedAt: "2026-10-17",
       },
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -215,11 +242,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Oracle Java SE Support Roadmap lists Java 22 to 24 as non-LTS releases whose Premier Support ended between September 2024 and September 2025. It says a previous non-LTS release is superseded once a new feature release is made available. The Eclipse Temurin support page lists Java 22, 23, and 24 as EOSL, with end of availability in September 2024, March 2025, and September 2025.",
     severity: "high",
     replacement: "Java 25 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/java",
+        name: "Java 25 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=25.0.0|<26.0.0",
+        note: "Oracle lists this as an LTS line, with Premier Support through September 2030. Follow the lifecycle and terms of your JDK distribution.",
+      },
+    ],
     sources: [
       {
         title: "Oracle Java SE Support Roadmap",
         url: "https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
         archivedAt: "2026-10-17",
@@ -227,16 +263,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Eclipse Temurin support",
         url: "https://adoptium.net/support/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://adoptium.net/support/",
         archivedAt: "2026-10-17",
       },
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

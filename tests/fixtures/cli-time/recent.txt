@@ -50,7 +50,7 @@ Recent deadlines within 90d (as of 2026-04-01, since 2026-01-01): 21 events
     Replacement: Kubernetes 1.34 or later
 - 2026-02-11 (49d ago) [high] pkg:generic/dart
     Rule: dart.sdk.end-of-support-3.10 (end-of-support) - Dart 3.10 no longer receives security updates
-    Replacement: Dart 3.13 or later
+    Replacement: Dart 3.14 or later
 - 2026-02-10 (50d ago) [high] pkg:generic/golang
     Rule: go.runtime.end-of-support-1.24 (end-of-support) - Go 1.24 is no longer supported
     Replacement: Go 1.26 or later

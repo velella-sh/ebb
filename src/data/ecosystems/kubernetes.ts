@@ -15,12 +15,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the extensions/v1beta1 API version of Ingress is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "networking.k8s.io/v1 Ingress, available since v1.19",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/networking.k8s.io/Ingress",
+        name: "networking.k8s.io/v1 Ingress",
+        kind: "successor",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.19. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -28,7 +37,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -36,9 +45,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -97,12 +106,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the networking.k8s.io/v1beta1 API version of Ingress is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "networking.k8s.io/v1 Ingress, available since v1.19",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/networking.k8s.io/Ingress",
+        name: "networking.k8s.io/v1 Ingress",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.19. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -110,7 +128,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -118,9 +136,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -179,12 +197,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the batch/v1beta1 API version of CronJob is no longer served as of v1.25, which was released on 2022-08-23.",
     severity: "high",
     replacement: "batch/v1 CronJob, available since v1.21",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/batch/CronJob",
+        name: "batch/v1 CronJob",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.21. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2022-08-23",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -192,7 +219,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         archivedAt: "2026-10-17",
@@ -200,9 +227,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -325,12 +352,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the autoscaling/v2beta2 API version of HorizontalPodAutoscaler is no longer served as of v1.26, which was released on 2022-12-09.",
     severity: "high",
     replacement: "autoscaling/v2 HorizontalPodAutoscaler, available since v1.23",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/autoscaling/HorizontalPodAutoscaler",
+        name: "autoscaling/v2 HorizontalPodAutoscaler",
+        kind: "upgrade",
+        vers: "vers:semver/2.0.0",
+        note: "Served starting in Kubernetes 1.23. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2022-12-09",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -338,7 +374,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.26: Electrifying (release announcement, 2022-12-09)",
         url: "https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/",
         archivedAt: "2026-10-17",
@@ -346,9 +382,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -399,12 +435,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the admissionregistration.k8s.io/v1beta1 API version of MutatingWebhookConfiguration is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "admissionregistration.k8s.io/v1 MutatingWebhookConfiguration, available since v1.16",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/admissionregistration.k8s.io/MutatingWebhookConfiguration",
+        name: "admissionregistration.k8s.io/v1 MutatingWebhookConfiguration",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.16. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -412,7 +457,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -420,9 +465,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -480,12 +525,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the admissionregistration.k8s.io/v1beta1 API version of ValidatingWebhookConfiguration is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration, available since v1.16",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/admissionregistration.k8s.io/ValidatingWebhookConfiguration",
+        name: "admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.16. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -493,7 +547,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -501,9 +555,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -561,12 +615,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apiextensions.k8s.io/v1beta1 API version of CustomResourceDefinition is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "apiextensions.k8s.io/v1 CustomResourceDefinition, available since v1.16",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apiextensions.k8s.io/CustomResourceDefinition",
+        name: "apiextensions.k8s.io/v1 CustomResourceDefinition",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.16. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -574,7 +637,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -582,9 +645,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -642,12 +705,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apiregistration.k8s.io/v1beta1 API version of APIService is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "apiregistration.k8s.io/v1 APIService, available since v1.10",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apiregistration.k8s.io/APIService",
+        name: "apiregistration.k8s.io/v1 APIService",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.10. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -655,7 +727,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -663,9 +735,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -723,12 +795,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apps/v1beta2 API version of DaemonSet is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 DaemonSet, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/DaemonSet",
+        name: "apps/v1 DaemonSet",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -737,7 +818,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -745,9 +826,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -805,12 +886,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apps/v1beta1 API version of Deployment is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 Deployment, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/Deployment",
+        name: "apps/v1 Deployment",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -819,7 +909,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -827,9 +917,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -887,12 +977,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apps/v1beta2 API version of Deployment is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 Deployment, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/Deployment",
+        name: "apps/v1 Deployment",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -901,7 +1000,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -909,9 +1008,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -969,12 +1068,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apps/v1beta1 API version of ReplicaSet is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 ReplicaSet, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/ReplicaSet",
+        name: "apps/v1 ReplicaSet",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -983,7 +1091,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -991,9 +1099,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1051,12 +1159,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apps/v1beta2 API version of ReplicaSet is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 ReplicaSet, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/ReplicaSet",
+        name: "apps/v1 ReplicaSet",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1065,7 +1182,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -1073,9 +1190,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1133,12 +1250,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apps/v1beta1 API version of StatefulSet is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 StatefulSet, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/StatefulSet",
+        name: "apps/v1 StatefulSet",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1147,7 +1273,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -1155,9 +1281,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1215,12 +1341,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the apps/v1beta2 API version of StatefulSet is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 StatefulSet, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/StatefulSet",
+        name: "apps/v1 StatefulSet",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1229,7 +1364,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -1237,9 +1372,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1297,12 +1432,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the authentication.k8s.io/v1beta1 API version of TokenReview is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "authentication.k8s.io/v1 TokenReview, available since v1.6",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/authentication.k8s.io/TokenReview",
+        name: "authentication.k8s.io/v1 TokenReview",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.6. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1310,7 +1454,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -1318,9 +1462,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1378,12 +1522,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the authorization.k8s.io/v1beta1 API version of LocalSubjectAccessReview is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "authorization.k8s.io/v1 LocalSubjectAccessReview, available since v1.6",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/authorization.k8s.io/LocalSubjectAccessReview",
+        name: "authorization.k8s.io/v1 LocalSubjectAccessReview",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.6. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1391,7 +1544,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -1399,9 +1552,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1459,12 +1612,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the authorization.k8s.io/v1beta1 API version of SelfSubjectAccessReview is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "authorization.k8s.io/v1 SelfSubjectAccessReview, available since v1.6",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/authorization.k8s.io/SelfSubjectAccessReview",
+        name: "authorization.k8s.io/v1 SelfSubjectAccessReview",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.6. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1472,7 +1634,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -1480,9 +1642,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1540,12 +1702,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the authorization.k8s.io/v1beta1 API version of SelfSubjectRulesReview is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "authorization.k8s.io/v1 SelfSubjectRulesReview, available since v1.6",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/authorization.k8s.io/SelfSubjectRulesReview",
+        name: "authorization.k8s.io/v1 SelfSubjectRulesReview",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.6. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1553,7 +1724,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -1561,9 +1732,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1621,12 +1792,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the authorization.k8s.io/v1beta1 API version of SubjectAccessReview is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "authorization.k8s.io/v1 SubjectAccessReview, available since v1.6",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/authorization.k8s.io/SubjectAccessReview",
+        name: "authorization.k8s.io/v1 SubjectAccessReview",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.6. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1634,7 +1814,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -1642,9 +1822,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1702,12 +1882,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the autoscaling/v2beta1 API version of HorizontalPodAutoscaler is no longer served as of v1.25, which was released on 2022-08-23.",
     severity: "high",
     replacement: "autoscaling/v2 HorizontalPodAutoscaler, available since v1.23",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/autoscaling/HorizontalPodAutoscaler",
+        name: "autoscaling/v2 HorizontalPodAutoscaler",
+        kind: "upgrade",
+        vers: "vers:semver/2.0.0",
+        note: "Served starting in Kubernetes 1.23. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2022-08-23",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1715,7 +1904,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         archivedAt: "2026-10-17",
@@ -1723,9 +1912,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1783,12 +1972,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the certificates.k8s.io/v1beta1 API version of CertificateSigningRequest is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "certificates.k8s.io/v1 CertificateSigningRequest, available since v1.19",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/certificates.k8s.io/CertificateSigningRequest",
+        name: "certificates.k8s.io/v1 CertificateSigningRequest",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.19. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1796,7 +1994,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -1804,9 +2002,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1864,12 +2062,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the coordination.k8s.io/v1beta1 API version of Lease is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "coordination.k8s.io/v1 Lease, available since v1.14",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/coordination.k8s.io/Lease",
+        name: "coordination.k8s.io/v1 Lease",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.14. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1877,7 +2084,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -1885,9 +2092,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1945,12 +2152,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the discovery.k8s.io/v1beta1 API version of EndpointSlice is no longer served as of v1.25, which was released on 2022-08-23.",
     severity: "high",
     replacement: "discovery.k8s.io/v1 EndpointSlice, available since v1.21",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/discovery.k8s.io/EndpointSlice",
+        name: "discovery.k8s.io/v1 EndpointSlice",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.21. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2022-08-23",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -1958,7 +2174,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         archivedAt: "2026-10-17",
@@ -1966,9 +2182,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2026,12 +2242,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the events.k8s.io/v1beta1 API version of Event is no longer served as of v1.25, which was released on 2022-08-23.",
     severity: "high",
     replacement: "events.k8s.io/v1 Event, available since v1.19",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/events.k8s.io/Event",
+        name: "events.k8s.io/v1 Event",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.19. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2022-08-23",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2039,7 +2264,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         archivedAt: "2026-10-17",
@@ -2047,9 +2272,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2107,12 +2332,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the extensions/v1beta1 API version of DaemonSet is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 DaemonSet, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/DaemonSet",
+        name: "apps/v1 DaemonSet",
+        kind: "successor",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2121,7 +2355,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -2129,9 +2363,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2189,12 +2423,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the extensions/v1beta1 API version of Deployment is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 Deployment, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/Deployment",
+        name: "apps/v1 Deployment",
+        kind: "successor",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2203,7 +2446,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -2211,9 +2454,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2271,12 +2514,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the extensions/v1beta1 API version of NetworkPolicy is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "networking.k8s.io/v1 NetworkPolicy, available since v1.8",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/networking.k8s.io/NetworkPolicy",
+        name: "networking.k8s.io/v1 NetworkPolicy",
+        kind: "successor",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.8. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2285,7 +2537,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -2293,9 +2545,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2435,12 +2687,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the extensions/v1beta1 API version of ReplicaSet is no longer served as of v1.16, which was released on 2019-09-18.",
     severity: "high",
     replacement: "apps/v1 ReplicaSet, available since v1.9",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/apps/ReplicaSet",
+        name: "apps/v1 ReplicaSet",
+        kind: "successor",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.9. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2019-09-18",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2449,7 +2710,7 @@ export const rules: readonly RegistryV2Rule[] = [
         title:
           "Kubernetes 1.16: Custom Resources, Overhauled Metrics, and Volume Extensions (release announcement, 2019-09-18)",
         url: "https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/",
         archivedAt: "2026-10-20",
@@ -2457,9 +2718,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2598,12 +2859,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the flowcontrol.apiserver.k8s.io/v1beta2 API version of FlowSchema is no longer served as of v1.29, which was released on 2023-12-13.",
     severity: "high",
     replacement: "flowcontrol.apiserver.k8s.io/v1 FlowSchema, available since v1.29",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/FlowSchema",
+        name: "flowcontrol.apiserver.k8s.io/v1 FlowSchema",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.29. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2023-12-13",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2611,7 +2881,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.29: Mandala (release announcement, 2023-12-13)",
         url: "https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
         archivedAt: "2026-10-20",
@@ -2619,9 +2889,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2679,12 +2949,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the flowcontrol.apiserver.k8s.io/v1beta3 API version of FlowSchema is no longer served as of v1.32, which was released on 2024-12-11.",
     severity: "high",
     replacement: "flowcontrol.apiserver.k8s.io/v1 FlowSchema, available since v1.29",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/FlowSchema",
+        name: "flowcontrol.apiserver.k8s.io/v1 FlowSchema",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.29. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2024-12-11",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2692,7 +2971,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.32: Penelope (release announcement, 2024-12-11)",
         url: "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
         archivedAt: "2026-10-20",
@@ -2700,9 +2979,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2841,12 +3120,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the flowcontrol.apiserver.k8s.io/v1beta2 API version of PriorityLevelConfiguration is no longer served as of v1.29, which was released on 2023-12-13.",
     severity: "high",
     replacement: "flowcontrol.apiserver.k8s.io/v1 PriorityLevelConfiguration, available since v1.29",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/PriorityLevelConfiguration",
+        name: "flowcontrol.apiserver.k8s.io/v1 PriorityLevelConfiguration",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.29. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2023-12-13",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2854,7 +3142,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.29: Mandala (release announcement, 2023-12-13)",
         url: "https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/",
         archivedAt: "2026-10-20",
@@ -2862,9 +3150,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2922,12 +3210,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the flowcontrol.apiserver.k8s.io/v1beta3 API version of PriorityLevelConfiguration is no longer served as of v1.32, which was released on 2024-12-11.",
     severity: "high",
     replacement: "flowcontrol.apiserver.k8s.io/v1 PriorityLevelConfiguration, available since v1.29",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/flowcontrol.apiserver.k8s.io/PriorityLevelConfiguration",
+        name: "flowcontrol.apiserver.k8s.io/v1 PriorityLevelConfiguration",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.29. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2024-12-11",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -2935,7 +3232,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.32: Penelope (release announcement, 2024-12-11)",
         url: "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/",
         archivedAt: "2026-10-20",
@@ -2943,9 +3240,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3003,12 +3300,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the networking.k8s.io/v1beta1 API version of IngressClass is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "networking.k8s.io/v1 IngressClass, available since v1.19",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/networking.k8s.io/IngressClass",
+        name: "networking.k8s.io/v1 IngressClass",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.19. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3016,7 +3322,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3024,9 +3330,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3084,12 +3390,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the node.k8s.io/v1beta1 API version of RuntimeClass is no longer served as of v1.25, which was released on 2022-08-23.",
     severity: "high",
     replacement: "node.k8s.io/v1 RuntimeClass, available since v1.20",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/node.k8s.io/RuntimeClass",
+        name: "node.k8s.io/v1 RuntimeClass",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.20. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2022-08-23",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3097,7 +3412,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         archivedAt: "2026-10-17",
@@ -3105,9 +3420,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3165,12 +3480,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the policy/v1beta1 API version of PodDisruptionBudget is no longer served as of v1.25, which was released on 2022-08-23.",
     severity: "high",
     replacement: "policy/v1 PodDisruptionBudget, available since v1.21",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/policy/PodDisruptionBudget",
+        name: "policy/v1 PodDisruptionBudget",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.21. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2022-08-23",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3178,7 +3502,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.25: Combiner (release announcement, 2022-08-23)",
         url: "https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/",
         archivedAt: "2026-10-17",
@@ -3186,9 +3510,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3246,12 +3570,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the rbac.authorization.k8s.io/v1beta1 API version of ClusterRole is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "rbac.authorization.k8s.io/v1 ClusterRole, available since v1.8",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/rbac.authorization.k8s.io/ClusterRole",
+        name: "rbac.authorization.k8s.io/v1 ClusterRole",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.8. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3259,7 +3592,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3267,9 +3600,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3327,12 +3660,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the rbac.authorization.k8s.io/v1beta1 API version of ClusterRoleBinding is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "rbac.authorization.k8s.io/v1 ClusterRoleBinding, available since v1.8",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/rbac.authorization.k8s.io/ClusterRoleBinding",
+        name: "rbac.authorization.k8s.io/v1 ClusterRoleBinding",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.8. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3340,7 +3682,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3348,9 +3690,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3408,12 +3750,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the rbac.authorization.k8s.io/v1beta1 API version of Role is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "rbac.authorization.k8s.io/v1 Role, available since v1.8",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/rbac.authorization.k8s.io/Role",
+        name: "rbac.authorization.k8s.io/v1 Role",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.8. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3421,7 +3772,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3429,9 +3780,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3489,12 +3840,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the rbac.authorization.k8s.io/v1beta1 API version of RoleBinding is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "rbac.authorization.k8s.io/v1 RoleBinding, available since v1.8",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/rbac.authorization.k8s.io/RoleBinding",
+        name: "rbac.authorization.k8s.io/v1 RoleBinding",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.8. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3502,7 +3862,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3510,9 +3870,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3570,12 +3930,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the scheduling.k8s.io/v1beta1 API version of PriorityClass is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "scheduling.k8s.io/v1 PriorityClass, available since v1.14",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/scheduling.k8s.io/PriorityClass",
+        name: "scheduling.k8s.io/v1 PriorityClass",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.14. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3583,7 +3952,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3591,9 +3960,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3651,12 +4020,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the storage.k8s.io/v1beta1 API version of CSIDriver is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "storage.k8s.io/v1 CSIDriver",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/storage.k8s.io/CSIDriver",
+        name: "storage.k8s.io/v1 CSIDriver",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3664,7 +4042,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3672,9 +4050,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3731,12 +4109,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the storage.k8s.io/v1beta1 API version of CSINode is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "storage.k8s.io/v1 CSINode",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/storage.k8s.io/CSINode",
+        name: "storage.k8s.io/v1 CSINode",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3744,7 +4131,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3752,9 +4139,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3811,12 +4198,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the storage.k8s.io/v1beta1 API version of CSIStorageCapacity is no longer served as of v1.27, which was released on 2023-04-11.",
     severity: "high",
     replacement: "storage.k8s.io/v1 CSIStorageCapacity, available since v1.24",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/storage.k8s.io/CSIStorageCapacity",
+        name: "storage.k8s.io/v1 CSIStorageCapacity",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Served starting in Kubernetes 1.24. Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2023-04-11",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3824,7 +4220,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes v1.27: Chill Vibes (release announcement, 2023-04-11)",
         url: "https://kubernetes.io/blog/2023/04/11/kubernetes-v1-27-release/",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://kubernetes.io/blog/2023/04/11/kubernetes-v1-27-release/",
         archivedAt: "2026-10-20",
@@ -3832,9 +4228,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3892,12 +4288,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the storage.k8s.io/v1beta1 API version of StorageClass is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "storage.k8s.io/v1 StorageClass",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/storage.k8s.io/StorageClass",
+        name: "storage.k8s.io/v1 StorageClass",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3905,7 +4310,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3913,9 +4318,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3972,12 +4377,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes Deprecated API Migration Guide states that the storage.k8s.io/v1beta1 API version of VolumeAttachment is no longer served as of v1.22, which was released on 2021-08-04.",
     severity: "high",
     replacement: "storage.k8s.io/v1 VolumeAttachment",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes/storage.k8s.io/VolumeAttachment",
+        name: "storage.k8s.io/v1 VolumeAttachment",
+        kind: "upgrade",
+        vers: "vers:semver/1.0.0",
+        note: "Review the migration guide for field and behavior changes.",
+      },
+    ],
     deadline: "2021-08-04",
     sources: [
       {
         title: "Kubernetes Deprecated API Migration Guide",
         url: "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
         archivedAt: "2026-10-17",
@@ -3985,7 +4399,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Kubernetes 1.22: Reaching New Peaks (release announcement, 2021-08-04)",
         url: "https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/",
         archivedAt: "2026-10-17",
@@ -3993,9 +4407,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4192,21 +4606,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Kubernetes release history lists Kubernetes 1.36 as supported until its end-of-life date of 2027-06-28; after that the release no longer receives security updates or bug fixes.",
     severity: "low",
     replacement: "Kubernetes 1.37 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes",
+        name: "Kubernetes 1.37",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.37.0|<1.38.0",
+        note: "Check supported upgrade steps and APIs before moving to this Kubernetes release.",
+      },
+    ],
     deadline: "2027-06-28",
     sources: [
       {
         title: "Kubernetes release history",
         url: "https://kubernetes.io/releases/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
         archivedAt: "2026-10-17",
       },
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-11-01",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "kubernetes-2",
     },
@@ -4380,22 +4803,31 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Kubernetes release history lists Kubernetes 1.33 as end-of-life on 2026-06-28; the release no longer receives security updates or bug fixes.",
     severity: "high",
-    replacement: "Kubernetes 1.34 or later",
+    replacement: "Kubernetes 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/kubernetes",
+        name: "Kubernetes 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check supported upgrade steps and APIs before moving to this Kubernetes release.",
+      },
+    ],
     deadline: "2026-06-28",
     sources: [
       {
         title: "Kubernetes release history",
         url: "https://kubernetes.io/releases/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
         archivedAt: "2026-10-17",
       },
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-11-01",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "kubernetes-2",
     },
@@ -4757,19 +5189,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "The GKE release schedule lists GKE 1.33 with end of standard support on 2026-08-12 and end of extended support on 2027-06-12. A cluster outside the Extended channel no longer receives patches for this minor version.",
     severity: "medium",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-gke",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check supported upgrade steps and APIs before moving to this Kubernetes release.",
+      },
+    ],
     deadline: "2026-08-12",
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-30",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-30",
@@ -4777,9 +5218,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5106,11 +5547,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS supports a generally available Kubernetes version for 12 months. The supported-versions page gives AKS 1.34 an end of life of 2026-11-30, with long-term support, which must be enabled for the cluster, ending on 2027-11-30.",
     severity: "low",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-aks",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check supported upgrade steps and APIs before moving to this Kubernetes release.",
+      },
+    ],
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-11-03",
@@ -5118,9 +5568,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5602,12 +6052,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Amazon EKS release calendar gives 1.36 end of standard support on 2027-08-02 and end of extended support on 2028-08-02. A cluster past end of standard support is billed at the extended-support rate for every hour it stays on 1.36.",
     severity: "low",
     replacement: "Amazon EKS 1.37 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.37",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.37.0|<1.38.0",
+        note: "Check supported upgrade steps and APIs before moving to this Kubernetes release.",
+      },
+    ],
     deadline: "2027-08-02",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-11-03",
@@ -5615,9 +6074,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5677,12 +6136,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Amazon EKS release calendar gives 1.35 end of standard support on 2027-03-27 and end of extended support on 2028-03-27. A cluster past end of standard support is billed at the extended-support rate for every hour it stays on 1.35.",
     severity: "low",
     replacement: "Amazon EKS 1.36 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.36",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.36.0|<1.37.0",
+        note: "Check supported upgrade steps and APIs before moving to this Kubernetes release.",
+      },
+    ],
     deadline: "2027-03-27",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-11-03",
@@ -5690,9 +6158,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5752,12 +6220,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Amazon EKS release calendar gives 1.34 end of standard support on 2026-12-02 and end of extended support on 2027-12-02. A cluster past end of standard support is billed at the extended-support rate for every hour it stays on 1.34.",
     severity: "low",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check supported upgrade steps and APIs before moving to this Kubernetes release.",
+      },
+    ],
     deadline: "2026-12-02",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-11-03",
@@ -5765,9 +6242,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

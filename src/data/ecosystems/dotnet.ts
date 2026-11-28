@@ -131,12 +131,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET 9 (Standard Term Support) reached the end of its support on 2026-11-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 9.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2026-11-10",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-10",
@@ -144,7 +153,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-11-10",
@@ -152,9 +161,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-10",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -206,12 +215,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET 8 (Long Term Support) reached the end of its support on 2026-11-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 8.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2026-11-10",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-10",
@@ -219,7 +237,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-11-10",
@@ -227,9 +245,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-10",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -281,12 +299,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET 7 (Standard Term Support) reached the end of its support on 2024-05-14. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 7.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2024-05-14",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-17",
@@ -294,7 +321,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-17",
@@ -302,9 +329,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -355,12 +382,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET 6 (Long Term Support) reached the end of its support on 2024-11-12. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 6.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2024-11-12",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-17",
@@ -368,7 +404,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-17",
@@ -376,9 +412,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -429,12 +465,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET 5 (Standard Term Support) reached the end of its support on 2022-05-10. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 5.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2022-05-10",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-17",
@@ -442,7 +487,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-17",
@@ -450,9 +495,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -503,12 +548,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET Core 3.1 (Long Term Support) reached the end of its support on 2022-12-13. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 3.1.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2022-12-13",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-17",
@@ -516,7 +570,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-17",
@@ -524,9 +578,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -577,12 +631,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET Core 3.0 (Standard Term Support) reached the end of its support on 2020-03-03. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 3.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2020-03-03",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-19",
@@ -590,7 +653,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-19",
@@ -598,9 +661,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "dotnet-1",
     },
@@ -652,12 +715,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET Core 2.2 (Standard Term Support) reached the end of its support on 2019-12-23. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 2.2.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2019-12-23",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-19",
@@ -665,7 +737,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-19",
@@ -673,9 +745,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "dotnet-1",
     },
@@ -727,12 +799,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET Core 2.1 (Long Term Support) reached the end of its support on 2021-08-21. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 2.1.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2021-08-21",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-19",
@@ -740,7 +821,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-19",
@@ -748,9 +829,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "dotnet-1",
     },
@@ -802,12 +883,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET Core 2.0 (Standard Term Support) reached the end of its support on 2018-10-01. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 2.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2018-10-01",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-19",
@@ -815,7 +905,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-19",
@@ -823,9 +913,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "dotnet-1",
     },
@@ -877,12 +967,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET Core 1.1 (Long Term Support) reached the end of its support on 2019-06-27. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 1.1.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2019-06-27",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-19",
@@ -890,7 +989,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-19",
@@ -898,9 +997,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "dotnet-1",
     },
@@ -952,12 +1051,21 @@ export const rules: readonly RegistryV2Rule[] = [
       ".NET Core 1.0 (Long Term Support) reached the end of its support on 2019-06-27. Microsoft no longer ships security or quality fixes for it. The same line applies to the SDK that carries it, so a global.json pinning an SDK 1.0.x is reported too.",
     severity: "high",
     replacement: ".NET 10 (LTS), or the newest supported .NET release",
+    replacements: [
+      {
+        purl: "pkg:generic/dotnet",
+        name: ".NET 10 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Use the latest .NET 10 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2019-06-27",
     sources: [
       {
         title: ".NET and .NET Core official support policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-10-19",
@@ -965,7 +1073,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET releases index (channel, support phase, end-of-life date)",
         url: "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         archivedAt: "2026-10-19",
@@ -973,9 +1081,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "dotnet-1",
     },

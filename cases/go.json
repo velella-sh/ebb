@@ -19,6 +19,26 @@
       "purl": "pkg:generic/golang",
       "version": "1.27.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.24.0",
+      "rules": ["go.runtime.end-of-support-1.24"]
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.23.0",
+      "rules": ["go.runtime.end-of-support-1.23"]
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.22.0",
+      "rules": ["go.runtime.end-of-support-1.22"]
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "version": "1.21.0",
+      "rules": ["go.runtime.end-of-support-1.21"]
     }
   ]
 }

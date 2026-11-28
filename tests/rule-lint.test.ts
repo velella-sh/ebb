@@ -241,7 +241,7 @@ test("a replacement that points at something already end-of-life fails lint", as
 
 test("a rule with text replacement but no structured replacement produces a warning without failing lint", async () => {
   const rule = validRule();
-  rule.replacement = "Use native fetch or alternative";
+  rule.replacement = "npm install maintained-package";
   delete rule.replacements;
 
   const text = registry([rule]);
@@ -252,4 +252,18 @@ test("a rule with text replacement but no structured replacement produces a warn
   assert.equal(result.warnings.length, 1);
   assert.match(result.warnings[0]!.message, /has a text replacement but no structured replacements/);
   assert.match(result.warnings[0]!.hint, /structured replacements list/);
+});
+
+test("successor warnings omit explicit gaps, API guidance and removed rules", async () => {
+  const noTarget = validRule("npm.package.no-target.deprecated");
+  noTarget.replacement = "No successor named by the vendor";
+  const prose = validRule("npm.package.prose.deprecated");
+  prose.replacement = "Use native fetch or alternative";
+  const removed = validRule("npm.package.only.removed");
+  removed.event = "removed";
+  removed.replacement = "npm install maintained-package";
+  const directory = await registryDirectory({ "npm.json": registry([noTarget, prose, removed]) });
+  const result = await lintRuleFiles([join(directory, "npm.json")]);
+  assert.deepEqual(result.issues, []);
+  assert.deepEqual(result.warnings, []);
 });

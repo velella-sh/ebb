@@ -1,0 +1,19 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "10.0.0",
+      "rules": ["database.postgresql.end-of-life-10"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "11.0.0",
+      "rules": ["database.postgresql.end-of-life-11"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "14.0.0",
+      "rules": ["database.postgresql.end-of-life-14"]
+    }
+  ]
+}

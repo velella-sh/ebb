@@ -14,29 +14,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.12 stopped being that release when Dart 3.13 shipped on 2026-08-12.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2026-08-12",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
         archivedAt: "2026-10-21",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
         archivedAt: "2026-10-21",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -85,29 +94,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.11 stopped being that release when Dart 3.12 shipped on 2026-05-18.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2026-05-18",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
         archivedAt: "2026-10-21",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
         archivedAt: "2026-10-21",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -156,29 +174,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.10 stopped being that release when Dart 3.11 shipped on 2026-02-11.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2026-02-11",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
         archivedAt: "2026-10-21",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
         archivedAt: "2026-10-21",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -227,29 +254,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.9 stopped being that release when Dart 3.10 shipped on 2025-11-12.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2025-11-12",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
         archivedAt: "2026-10-21",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
         archivedAt: "2026-10-21",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -298,29 +334,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.8 stopped being that release when Dart 3.9 shipped on 2025-08-13.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2025-08-13",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/security",
         archivedAt: "2026-10-21",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://dart.dev/changelog",
         archivedAt: "2026-10-21",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -369,29 +414,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.7 stopped being that release when Dart 3.8 shipped on 2025-05-14.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2025-05-14",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -440,29 +494,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.6 stopped being that release when Dart 3.7 shipped on 2025-02-12.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2025-02-12",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -511,29 +574,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.5 stopped being that release when Dart 3.6 shipped on 2024-12-11.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2024-12-11",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -582,29 +654,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.4 stopped being that release when Dart 3.5 shipped on 2024-08-07.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2024-08-07",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -653,29 +734,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.3 stopped being that release when Dart 3.4 shipped on 2024-05-14.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2024-05-14",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -724,29 +814,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.2 stopped being that release when Dart 3.3 shipped on 2024-02-15.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2024-02-15",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -795,29 +894,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.1 stopped being that release when Dart 3.2 shipped on 2023-12-06.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2023-12-06",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -866,29 +974,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 3.0 stopped being that release when Dart 3.1 shipped on 2023-08-16.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2023-08-16",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -937,29 +1054,38 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Dart security policy commits security updates only for the most recent stable SDK release. Dart 2.x and every older release stopped being that release when Dart 3.0 shipped on 2023-05-10.",
     severity: "high",
-    replacement: "Dart 3.13 or later",
+    replacement: "Dart 3.14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/dart",
+        name: "Dart 3.14",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.14.0|<3.15.0",
+        note: "Dart publishes security updates for its latest stable release. Dart 3.14 was released on 2026-11-11.",
+      },
+    ],
     deadline: "2023-05-10",
     sources: [
       {
         title: "Dart security policy",
         url: "https://dart.dev/security",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/security",
         archivedAt: "2026-11-07",
       },
       {
         title: "Dart changelog",
         url: "https://dart.dev/changelog",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://dart.dev/changelog",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

@@ -538,12 +538,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Amazon EKS 1.33 reached the end of standard support on 2026-07-29 and is in extended support until 2027-07-29. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
     severity: "medium",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-07-29",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-10-26",
@@ -551,9 +560,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -613,12 +622,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Amazon EKS 1.32 reached the end of standard support on 2026-03-23 and is in extended support until 2027-03-23. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
     severity: "medium",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-03-23",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-10-26",
@@ -626,9 +644,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -688,12 +706,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Amazon EKS 1.31 reached the end of standard support on 2025-11-26 and is in extended support until 2026-11-26. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
     severity: "medium",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2025-11-26",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-10-26",
@@ -701,9 +728,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -837,19 +864,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "GKE 1.33 reached the end of standard support on 2026-08-12 and is in extended support until 2027-06-12. GKE provides up to 24 months of support per minor version: about 14 months of standard support and the rest as extended support in the Extended channel.",
     severity: "medium",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-kubernetes-engine",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-08-12",
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-26",
@@ -857,9 +893,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -919,19 +955,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "GKE 1.32 reached the end of standard support on 2026-04-27 and is in extended support until 2027-02-11. GKE provides up to 24 months of support per minor version: about 14 months of standard support and the rest as extended support in the Extended channel.",
     severity: "medium",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-kubernetes-engine",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-04-27",
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-26",
@@ -939,9 +984,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1246,12 +1291,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.33 reached the end of its 12-month support window on 2026-07-31. Long-term support, which must be enabled for a cluster, ends on 2027-07-31.",
     severity: "medium",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-07-31",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1259,9 +1313,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1321,12 +1375,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.32 reached the end of its 12-month support window on 2026-03-31. Long-term support, which must be enabled for a cluster, ends on 2027-03-31.",
     severity: "medium",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-03-31",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1334,9 +1397,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1396,12 +1459,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.31 reached the end of its 12-month support window on 2025-11-01. Long-term support, which must be enabled for a cluster, ends on 2026-11-30.",
     severity: "medium",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2025-11-01",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1409,9 +1481,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

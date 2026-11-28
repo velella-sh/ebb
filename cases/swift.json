@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/xcode",
+      "version": "1.0.0",
+      "rules": ["swift.xcode.app-store-below-15"]
+    },
+    {
+      "purl": "pkg:generic/xcode",
+      "version": "15.0.0",
+      "rules": ["swift.xcode.app-store-15-through-25"]
+    }
+  ]
+}

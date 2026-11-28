@@ -15,12 +15,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Microsoft's PowerShell support lifecycle lists 7.3 (built on .NET 7.0) as retired: support ended on 2024-05-08, so it receives no further updates, including security updates. A script or manifest that requires 7.3 targets an unsupported release.",
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/powershell",
+        name: "PowerShell 7.6 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.6.0|<7.7.0",
+        note: "Use the latest 7.6 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2024-05-08",
     sources: [
       {
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         archivedAt: "2026-10-22",
@@ -28,9 +37,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -95,12 +104,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Microsoft's PowerShell support lifecycle lists 7.2 LTS (built on .NET 6.0) as retired: support ended on 2024-11-08, so it receives no further updates, including security updates. A script or manifest that requires 7.2 targets an unsupported release.",
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/powershell",
+        name: "PowerShell 7.6 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.6.0|<7.7.0",
+        note: "Use the latest 7.6 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2024-11-08",
     sources: [
       {
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         archivedAt: "2026-10-22",
@@ -108,9 +126,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -175,12 +193,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Microsoft's PowerShell support lifecycle lists 7.1 (built on .NET 5.0) as retired: support ended on 2022-05-08, so it receives no further updates, including security updates. A script or manifest that requires 7.1 targets an unsupported release.",
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/powershell",
+        name: "PowerShell 7.6 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.6.0|<7.7.0",
+        note: "Use the latest 7.6 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2022-05-08",
     sources: [
       {
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         archivedAt: "2026-10-22",
@@ -188,9 +215,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -255,12 +282,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Microsoft's PowerShell support lifecycle lists 7.0 LTS (built on .NET Core 3.1) as retired: support ended on 2022-12-03, so it receives no further updates, including security updates. A script or manifest that requires 7.0 targets an unsupported release.",
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/powershell",
+        name: "PowerShell 7.6 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.6.0|<7.7.0",
+        note: "Use the latest 7.6 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2022-12-03",
     sources: [
       {
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         archivedAt: "2026-10-22",
@@ -268,9 +304,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -335,12 +371,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Microsoft's PowerShell support lifecycle lists every PowerShell 6 release (6.0, 6.1, and 6.2) as retired; the last, 6.2, reached end of support on 2020-09-04. A script or manifest that requires a 6.x version targets an unsupported release.",
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/powershell",
+        name: "PowerShell 7.6 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.6.0|<7.7.0",
+        note: "Use the latest 7.6 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2020-09-04",
     sources: [
       {
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261022000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         archivedAt: "2026-10-22",
@@ -348,9 +393,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -415,6 +460,15 @@ export const rules: readonly RegistryV2Rule[] = [
       "Microsoft's PowerShell support lifecycle lists 7.4 as retired: support ended on 2026-11-10, so it receives no further updates, including security updates.",
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/powershell",
+        name: "PowerShell 7.6 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.6.0|<7.7.0",
+        note: "Use the latest 7.6 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2026-11-10",
     confidence: "likely",
     confidenceNote:
@@ -423,7 +477,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         archivedAt: "2026-11-10",
@@ -431,9 +485,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "shell-1",
     },
@@ -500,6 +554,15 @@ export const rules: readonly RegistryV2Rule[] = [
       "Microsoft's PowerShell support lifecycle lists 7.5 as retired: support ended on 2026-11-10, so it receives no further updates, including security updates.",
     severity: "high",
     replacement: "PowerShell 7.6 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/powershell",
+        name: "PowerShell 7.6 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.6.0|<7.7.0",
+        note: "Use the latest 7.6 servicing patch. Microsoft lists support through 2028-11-14.",
+      },
+    ],
     deadline: "2026-11-10",
     confidence: "likely",
     confidenceNote:
@@ -508,7 +571,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "PowerShell support lifecycle",
         url: "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
         archivedAt: "2026-11-10",
@@ -516,9 +579,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "shell-1",
     },
