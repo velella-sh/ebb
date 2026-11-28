@@ -94,6 +94,7 @@ test("the bundle lists every registry and the SHA map, and matches the published
       "registry/github-actions-shas.json",
       "registry/github-actions.json",
       "registry/go.json",
+      "registry/infrastructure.json",
       "registry/java.json",
       "registry/kubernetes.json",
       "registry/nodejs.json",

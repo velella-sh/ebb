@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdir, mkdtemp, readdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, relative, resolve } from "node:path";
 import { test } from "node:test";
@@ -55,6 +55,7 @@ test("every exported entry point installs and loads cleanly from a packed tarbal
     assert.ok(subpaths.length >= 40, `expected >= 40 dist/src subpaths in tarball, found ${subpaths.length}`);
 
     const verifyScript = join(appDir, "verify.mjs");
+    const infrastructureCases = JSON.parse(await readFile(join(repoRoot, "cases/infrastructure.json"), "utf8")).cases;
     await writeFile(
       verifyScript,
       `
@@ -83,6 +84,11 @@ assert.equal(root.replacementFor("pkg:npm/node-sass", "9.0.0"), "pkg:npm/sass");
 assert.equal(root.checkAll([{ purl: "pkg:npm/left-pad", version: "1.3.0" }]).summary.byStatus.deprecated, 1);
 
 const browser = await import("@velella/ebb/browser");
+for (const { purl, version, rules } of ${JSON.stringify(infrastructureCases)}) {
+  for (const api of [root, browser]) {
+    assert.deepEqual(api.check(purl, version).matches.map(({ ruleId }) => ruleId).sort(), rules.toSorted());
+  }
+}
 const browserCalendar = browser.toICal({ ecosystem: "nodejs", asOf: "2026-11-12", within: "1y" });
 assert.ok(browserCalendar.includes("UID:nodejs.runtime.eol-22@velella.sh"));
 assert.equal(typeof browser.supportedVersions, "function");
