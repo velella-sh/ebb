@@ -9,6 +9,8 @@ main:
         url: /migration-0.2/
   - title: Guides
     children:
+      - title: Add a product
+        url: /add-a-product/
       - title: Writing a rule
         url: /rules/
       - title: Command line (CLI)

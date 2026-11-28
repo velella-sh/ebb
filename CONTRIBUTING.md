@@ -1,6 +1,8 @@
 # Contributing to Ebb
 
-Thank you for helping keep the almanac accurate. Most contributions are one of these:
+Start with [Add a product in five minutes](https://velella.sh/ebb/add-a-product/) and run `npm run new-rule` to draft a rule and its cases. The [full rule format](docs/RULES.md) explains the evidence requirements.
+
+Most contributions are one of these:
 
 - **A new rule**, meaning a deprecation, end of support, end of life, or removal that an authoritative source announces. Follow [docs/RULES.md](docs/RULES.md).
 - **A correction** to an existing rule: a wrong version range, a moved source, a date that changed. Update the rule, its `sources[].accessedAt`, and its `provenance.reviewedAt`.
