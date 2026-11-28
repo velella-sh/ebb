@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/velella-sh/ebb/schemas/codenames.v1.schema.json",
+  "title": "Ebb release codenames v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "rows"],
+  "properties": {
+    "schemaVersion": { "const": "ebb.codenames.v1" },
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["family", "codename", "version", "source"],
+        "properties": {
+          "family": { "enum": ["debian", "ubuntu", "nodejs-lts"] },
+          "codename": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "version": { "type": "string", "pattern": "^[1-9][0-9]*(\\.[0-9]{2})?$" },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["url", "accessedAt"],
+            "properties": {
+              "url": { "type": "string", "pattern": "^https://[^\\s]+$" },
+              "accessedAt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+            }
+          }
+        },
+        "if": { "properties": { "family": { "const": "ubuntu" } } },
+        "then": { "properties": { "version": { "type": "string", "pattern": "^[1-9][0-9]*\\.[0-9]{2}$" } } },
+        "else": { "properties": { "version": { "type": "string", "pattern": "^[1-9][0-9]*$" } } }
+      }
+    }
+  }
+}
