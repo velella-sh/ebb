@@ -1,0 +1,24 @@
+{
+  "title": "Ebb",
+  "description": "Ebb is a TypeScript reader and command-line interface for evidence-backed software lifecycle data. The software is licensed under MIT. The separately released lifecycle dataset is licensed under Creative Commons Attribution 4.0 International (CC-BY-4.0).",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Velella"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/velella-sh/ebb/releases/tag/data-v2026.11.11",
+      "relation": "isSupplementedBy",
+      "resource_type": "dataset"
+    },
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/velella-sh/ebb/blob/main/LICENSE-DATA",
+      "relation": "isDocumentedBy"
+    }
+  ]
+}

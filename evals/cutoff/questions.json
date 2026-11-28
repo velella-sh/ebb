@@ -1,0 +1,4112 @@
+{
+  "schemaVersion": "ebb.cutoff.questions.v1",
+  "asOf": "2026-11-11",
+  "dataVersion": "2026.11.11",
+  "sha256": "09f3f558e6708b6f7ec8fd4df0494601d4c1c99eb50526f7db20591a3852f3a4",
+  "questions": [
+    {
+      "id": "android-001",
+      "ecosystem": "android",
+      "prompt": "Would you use this Billing release for a new app submitted to Google Play?",
+      "candidates": [
+        {
+          "display": "Google Play Billing 5.0.0",
+          "purl": "pkg:maven/com.android.billingclient/billing",
+          "version": "5.0.0",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "android.play-billing.version-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "android-002",
+      "ecosystem": "android",
+      "prompt": "Would you use this Billing release for a new app submitted to Google Play?",
+      "candidates": [
+        {
+          "display": "Google Play Billing 6.0.0",
+          "purl": "pkg:maven/com.android.billingclient/billing",
+          "version": "6.0.0",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "android.play-billing.version-6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "android-003",
+      "ecosystem": "android",
+      "prompt": "Would you use this Billing release for a new app submitted to Google Play?",
+      "candidates": [
+        {
+          "display": "Google Play Billing 7.0.0",
+          "purl": "pkg:maven/com.android.billingclient/billing",
+          "version": "7.0.0",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "android.play-billing.version-7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "android-004",
+      "ecosystem": "android",
+      "prompt": "Would you use this Billing release for a new app submitted to Google Play?",
+      "candidates": [
+        {
+          "display": "Google Play Billing 8.0.0",
+          "purl": "pkg:maven/com.android.billingclient/billing",
+          "version": "8.0.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "android.play-billing.version-8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "android-005",
+      "ecosystem": "android",
+      "prompt": "Would you use this Billing release for a new app submitted to Google Play?",
+      "candidates": [
+        {
+          "display": "Google Play Billing 9.0.0",
+          "purl": "pkg:maven/com.android.billingclient/billing",
+          "version": "9.0.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "android.play-billing.version-9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "android-006",
+      "ecosystem": "android",
+      "prompt": "Would you target this SDK when submitting a new app to Google Play?",
+      "candidates": [
+        {
+          "display": "Android target SDK 33",
+          "purl": "pkg:generic/android/targetSdk",
+          "version": "33",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "android.target-sdk.existing.default-below-35"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "android-007",
+      "ecosystem": "android",
+      "prompt": "Would you target this SDK when submitting a new app to Google Play?",
+      "candidates": [
+        {
+          "display": "Android target SDK 34",
+          "purl": "pkg:generic/android/targetSdk",
+          "version": "34",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "android.target-sdk.existing.default-below-35"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ci-images-001",
+      "ecosystem": "ci-images",
+      "prompt": "Would you select this image for a new hosted Azure Pipelines job?",
+      "candidates": [
+        {
+          "display": "Azure Pipelines macOS image 13",
+          "purl": "pkg:generic/azure-pipelines/macos-image",
+          "version": "13",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ci-images.azure-pipelines.macos-13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ci-images-002",
+      "ecosystem": "ci-images",
+      "prompt": "Is this an image you would keep when setting up a new build?",
+      "candidates": [
+        {
+          "display": "Azure Pipelines macOS image 14",
+          "purl": "pkg:generic/azure-pipelines/macos-image",
+          "version": "14",
+          "outcome": "fine",
+          "ruleIds": [
+            "ci-images.azure-pipelines.macos-14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ci-images-003",
+      "ecosystem": "ci-images",
+      "prompt": "Would you select this image for a new hosted Azure Pipelines job?",
+      "candidates": [
+        {
+          "display": "Azure Pipelines Ubuntu image 20.04",
+          "purl": "pkg:generic/azure-pipelines/ubuntu-image",
+          "version": "20.04",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ci-images.azure-pipelines.ubuntu-20.04"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ci-images-004",
+      "ecosystem": "ci-images",
+      "prompt": "Is this an image you would keep when setting up a new build?",
+      "candidates": [
+        {
+          "display": "Azure Pipelines Ubuntu image 22.04",
+          "purl": "pkg:generic/azure-pipelines/ubuntu-image",
+          "version": "22.04",
+          "outcome": "fine",
+          "ruleIds": [
+            "ci-images.azure-pipelines.ubuntu-22.04"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ci-images-005",
+      "ecosystem": "ci-images",
+      "prompt": "Would you select this image for a new hosted Azure Pipelines job?",
+      "candidates": [
+        {
+          "display": "Azure Pipelines Windows image 2019",
+          "purl": "pkg:generic/azure-pipelines/windows-image",
+          "version": "2019",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ci-images.azure-pipelines.windows-2019"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-001",
+      "ecosystem": "container",
+      "prompt": "Which Node base image would you put in a new Dockerfile?",
+      "candidates": [
+        {
+          "display": "node:20.18.0",
+          "purl": "pkg:docker/library/node",
+          "version": "20.18.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.node.eol-21-and-older"
+          ]
+        },
+        {
+          "display": "node:22.11.0",
+          "purl": "pkg:docker/library/node",
+          "version": "22.11.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.node.eol-22-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-002",
+      "ecosystem": "container",
+      "prompt": "Which Python tag would you start a production image from?",
+      "candidates": [
+        {
+          "display": "python:3.11.9",
+          "purl": "pkg:docker/library/python",
+          "version": "3.11.9",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.python.eol-3.11-and-older"
+          ]
+        },
+        {
+          "display": "python:3.10.14",
+          "purl": "pkg:docker/library/python",
+          "version": "3.10.14",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.python.eol-3.10-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-003",
+      "ecosystem": "container",
+      "prompt": "Would you keep this Docker tag in a new service?",
+      "candidates": [
+        {
+          "display": "node:18.20.4",
+          "purl": "pkg:docker/library/node",
+          "version": "18.20.4",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.node.eol-21-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-004",
+      "ecosystem": "container",
+      "prompt": "Would you pin this image in a new Dockerfile?",
+      "candidates": [
+        {
+          "display": "node:20.18.0",
+          "purl": "pkg:docker/library/node",
+          "version": "20.18.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.node.eol-21-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-005",
+      "ecosystem": "container",
+      "prompt": "Would you start a production container from this base image?",
+      "candidates": [
+        {
+          "display": "node:22.11.0",
+          "purl": "pkg:docker/library/node",
+          "version": "22.11.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.node.eol-22-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-006",
+      "ecosystem": "container",
+      "prompt": "Would you keep this Docker tag in a new service?",
+      "candidates": [
+        {
+          "display": "python:3.9.21",
+          "purl": "pkg:docker/library/python",
+          "version": "3.9.21",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.python.eol-3.10-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-007",
+      "ecosystem": "container",
+      "prompt": "Would you pin this image in a new Dockerfile?",
+      "candidates": [
+        {
+          "display": "python:3.10.14",
+          "purl": "pkg:docker/library/python",
+          "version": "3.10.14",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.python.eol-3.10-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-008",
+      "ecosystem": "container",
+      "prompt": "Would you start a production container from this base image?",
+      "candidates": [
+        {
+          "display": "python:3.11.9",
+          "purl": "pkg:docker/library/python",
+          "version": "3.11.9",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.python.eol-3.11-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-009",
+      "ecosystem": "container",
+      "prompt": "Would you keep this Docker tag in a new service?",
+      "candidates": [
+        {
+          "display": "postgres:12.22",
+          "purl": "pkg:docker/library/postgres",
+          "version": "12.22",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.postgres.eol-13-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-010",
+      "ecosystem": "container",
+      "prompt": "Would you pin this image in a new Dockerfile?",
+      "candidates": [
+        {
+          "display": "postgres:13.23",
+          "purl": "pkg:docker/library/postgres",
+          "version": "13.23",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.postgres.eol-13-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-011",
+      "ecosystem": "container",
+      "prompt": "Would you start a production container from this base image?",
+      "candidates": [
+        {
+          "display": "postgres:14.19",
+          "purl": "pkg:docker/library/postgres",
+          "version": "14.19",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.postgres.eol-14-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-012",
+      "ecosystem": "container",
+      "prompt": "Would you keep this Docker tag in a new service?",
+      "candidates": [
+        {
+          "display": "mysql:8.0.44",
+          "purl": "pkg:docker/library/mysql",
+          "version": "8.0.44",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.mysql.eol-8.0-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-013",
+      "ecosystem": "container",
+      "prompt": "Would you pin this image in a new Dockerfile?",
+      "candidates": [
+        {
+          "display": "ruby:3.1.6",
+          "purl": "pkg:docker/library/ruby",
+          "version": "3.1.6",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.ruby.eol-3.2-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-014",
+      "ecosystem": "container",
+      "prompt": "Would you start a production container from this base image?",
+      "candidates": [
+        {
+          "display": "ruby:3.2.6",
+          "purl": "pkg:docker/library/ruby",
+          "version": "3.2.6",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.ruby.eol-3.2-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-015",
+      "ecosystem": "container",
+      "prompt": "Would you keep this Docker tag in a new service?",
+      "candidates": [
+        {
+          "display": "ruby:3.3.7",
+          "purl": "pkg:docker/library/ruby",
+          "version": "3.3.7",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.ruby.eol-3.3-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-016",
+      "ecosystem": "container",
+      "prompt": "Would you pin this image in a new Dockerfile?",
+      "candidates": [
+        {
+          "display": "redis:6.0.20",
+          "purl": "pkg:docker/library/redis",
+          "version": "6.0.20",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.redis.eol-6.0-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-017",
+      "ecosystem": "container",
+      "prompt": "Would you start a production container from this base image?",
+      "candidates": [
+        {
+          "display": "redis:6.2.14",
+          "purl": "pkg:docker/library/redis",
+          "version": "6.2.14",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.redis.eol-6.2-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-018",
+      "ecosystem": "container",
+      "prompt": "Would you keep this Docker tag in a new service?",
+      "candidates": [
+        {
+          "display": "ubuntu:20.04",
+          "purl": "pkg:docker/library/ubuntu",
+          "version": "20.04",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.ubuntu.eol-20.04-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-019",
+      "ecosystem": "container",
+      "prompt": "Would you pin this image in a new Dockerfile?",
+      "candidates": [
+        {
+          "display": "ubuntu:22.04",
+          "purl": "pkg:docker/library/ubuntu",
+          "version": "22.04",
+          "outcome": "fine",
+          "ruleIds": [
+            "container.ubuntu.eol-22.04"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-020",
+      "ecosystem": "container",
+      "prompt": "Would you start a production container from this base image?",
+      "candidates": [
+        {
+          "display": "debian:11.0",
+          "purl": "pkg:docker/library/debian",
+          "version": "11.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.debian.eol-11-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "container-021",
+      "ecosystem": "container",
+      "prompt": "Would you keep this Docker tag in a new service?",
+      "candidates": [
+        {
+          "display": "alpine:3.20.0",
+          "purl": "pkg:docker/library/alpine",
+          "version": "3.20.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "container.alpine.eol-3.20-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dart-001",
+      "ecosystem": "dart",
+      "prompt": "Would you use this Dart SDK for a new app?",
+      "candidates": [
+        {
+          "display": "Dart 3.7.0",
+          "purl": "pkg:generic/dart",
+          "version": "3.7.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dart.sdk.end-of-support-3.7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dart-002",
+      "ecosystem": "dart",
+      "prompt": "Would you pin this Dart release in a production build?",
+      "candidates": [
+        {
+          "display": "Dart 3.8.0",
+          "purl": "pkg:generic/dart",
+          "version": "3.8.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dart.sdk.end-of-support-3.8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dart-003",
+      "ecosystem": "dart",
+      "prompt": "Would you use this Dart SDK for a new app?",
+      "candidates": [
+        {
+          "display": "Dart 3.9.0",
+          "purl": "pkg:generic/dart",
+          "version": "3.9.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dart.sdk.end-of-support-3.9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-001",
+      "ecosystem": "database",
+      "prompt": "Which of these PostgreSQL versions is still within its announced support window?",
+      "candidates": [
+        {
+          "display": "PostgreSQL 13.0",
+          "purl": "pkg:generic/postgresql",
+          "version": "13.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.postgresql.end-of-life-13"
+          ]
+        },
+        {
+          "display": "PostgreSQL 14.0",
+          "purl": "pkg:generic/postgresql",
+          "version": "14.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "database.postgresql.end-of-life-14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-002",
+      "ecosystem": "database",
+      "prompt": "Which Amazon RDS for PostgreSQL major would you choose based on standard support?",
+      "candidates": [
+        {
+          "display": "Amazon RDS PostgreSQL 14",
+          "purl": "pkg:generic/aws-rds/postgres",
+          "version": "14",
+          "outcome": "fine",
+          "ruleIds": [
+            "database.aws-rds-postgres.scheduled-end-of-support-14"
+          ]
+        },
+        {
+          "display": "Amazon RDS PostgreSQL 13",
+          "purl": "pkg:generic/aws-rds/postgres",
+          "version": "13",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-rds-postgres.end-of-support-13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-003",
+      "ecosystem": "database",
+      "prompt": "Would you rely on this engine line for consistent upstream fixes?",
+      "candidates": [
+        {
+          "display": "PostgreSQL 10.0",
+          "purl": "pkg:generic/postgresql",
+          "version": "10.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.postgresql.end-of-life-10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-004",
+      "ecosystem": "database",
+      "prompt": "Would you use this version for a new database deployment?",
+      "candidates": [
+        {
+          "display": "PostgreSQL 11.0",
+          "purl": "pkg:generic/postgresql",
+          "version": "11.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.postgresql.end-of-life-11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-005",
+      "ecosystem": "database",
+      "prompt": "Would you pin this database version for a new service?",
+      "candidates": [
+        {
+          "display": "PostgreSQL 12.0",
+          "purl": "pkg:generic/postgresql",
+          "version": "12.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.postgresql.end-of-life-12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-006",
+      "ecosystem": "database",
+      "prompt": "Would you rely on this engine line for consistent upstream fixes?",
+      "candidates": [
+        {
+          "display": "PostgreSQL 13.0",
+          "purl": "pkg:generic/postgresql",
+          "version": "13.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.postgresql.end-of-life-13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-007",
+      "ecosystem": "database",
+      "prompt": "Would you use this version for a new database deployment?",
+      "candidates": [
+        {
+          "display": "PostgreSQL 14.0",
+          "purl": "pkg:generic/postgresql",
+          "version": "14.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "database.postgresql.end-of-life-14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-008",
+      "ecosystem": "database",
+      "prompt": "Would you pin this database version for a new service?",
+      "candidates": [
+        {
+          "display": "MySQL 5.7.44",
+          "purl": "pkg:generic/mysql",
+          "version": "5.7.44",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.mysql.end-of-life-5.7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-009",
+      "ecosystem": "database",
+      "prompt": "Would you rely on this engine line for consistent upstream fixes?",
+      "candidates": [
+        {
+          "display": "MySQL 8.0.44",
+          "purl": "pkg:generic/mysql",
+          "version": "8.0.44",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.mysql.end-of-life-8.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-010",
+      "ecosystem": "database",
+      "prompt": "Would you use this version for a new database deployment?",
+      "candidates": [
+        {
+          "display": "Redis OSS 5.0.14",
+          "purl": "pkg:generic/redis",
+          "version": "5.0.14",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.redis.end-of-life-5.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-011",
+      "ecosystem": "database",
+      "prompt": "Would you pin this database version for a new service?",
+      "candidates": [
+        {
+          "display": "Redis OSS 6.0.20",
+          "purl": "pkg:generic/redis",
+          "version": "6.0.20",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.redis.end-of-life-6.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-012",
+      "ecosystem": "database",
+      "prompt": "Would you rely on this engine line for consistent upstream fixes?",
+      "candidates": [
+        {
+          "display": "Redis OSS 7.0.15",
+          "purl": "pkg:generic/redis",
+          "version": "7.0.15",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.redis.end-of-life-7.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-013",
+      "ecosystem": "database",
+      "prompt": "Would you use this version for a new database deployment?",
+      "candidates": [
+        {
+          "display": "Amazon RDS for PostgreSQL 11",
+          "purl": "pkg:generic/aws-rds/postgres",
+          "version": "11",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-rds-postgres.end-of-support-11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-014",
+      "ecosystem": "database",
+      "prompt": "Would you pin this database version for a new service?",
+      "candidates": [
+        {
+          "display": "Amazon RDS for PostgreSQL 12",
+          "purl": "pkg:generic/aws-rds/postgres",
+          "version": "12",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-rds-postgres.end-of-support-12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-015",
+      "ecosystem": "database",
+      "prompt": "Would you rely on this engine line for consistent upstream fixes?",
+      "candidates": [
+        {
+          "display": "Amazon RDS for PostgreSQL 13",
+          "purl": "pkg:generic/aws-rds/postgres",
+          "version": "13",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-rds-postgres.end-of-support-13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-016",
+      "ecosystem": "database",
+      "prompt": "Would you use this version for a new database deployment?",
+      "candidates": [
+        {
+          "display": "Amazon RDS for PostgreSQL 14",
+          "purl": "pkg:generic/aws-rds/postgres",
+          "version": "14",
+          "outcome": "fine",
+          "ruleIds": [
+            "database.aws-rds-postgres.scheduled-end-of-support-14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-017",
+      "ecosystem": "database",
+      "prompt": "Would you pin this database version for a new service?",
+      "candidates": [
+        {
+          "display": "Amazon Aurora PostgreSQL 11",
+          "purl": "pkg:generic/aws-aurora/postgresql",
+          "version": "11",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-aurora-postgresql.end-of-support-11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-018",
+      "ecosystem": "database",
+      "prompt": "Would you rely on this engine line for consistent upstream fixes?",
+      "candidates": [
+        {
+          "display": "Amazon Aurora PostgreSQL 12",
+          "purl": "pkg:generic/aws-aurora/postgresql",
+          "version": "12",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-aurora-postgresql.end-of-support-12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-019",
+      "ecosystem": "database",
+      "prompt": "Would you use this version for a new database deployment?",
+      "candidates": [
+        {
+          "display": "Amazon Aurora PostgreSQL 13",
+          "purl": "pkg:generic/aws-aurora/postgresql",
+          "version": "13",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-aurora-postgresql.end-of-support-13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-020",
+      "ecosystem": "database",
+      "prompt": "Would you pin this database version for a new service?",
+      "candidates": [
+        {
+          "display": "Amazon Aurora PostgreSQL 14",
+          "purl": "pkg:generic/aws-aurora/postgresql",
+          "version": "14",
+          "outcome": "fine",
+          "ruleIds": [
+            "database.aws-aurora-postgresql.scheduled-end-of-support-14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database-021",
+      "ecosystem": "database",
+      "prompt": "Would you rely on this engine line for consistent upstream fixes?",
+      "candidates": [
+        {
+          "display": "Amazon ElastiCache Redis OSS 5",
+          "purl": "pkg:generic/aws-elasticache/redis",
+          "version": "5",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "database.aws-elasticache-redis.end-of-support-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deno-001",
+      "ecosystem": "deno",
+      "prompt": "Would you use this runtime version for a fresh deployment?",
+      "candidates": [
+        {
+          "display": "Deno 0.42.0",
+          "purl": "pkg:generic/deno",
+          "version": "0.42.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "deno.runtime.eol-0.x"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deno-002",
+      "ecosystem": "deno",
+      "prompt": "Is this version suitable as the baseline for a new Deno or Bun service?",
+      "candidates": [
+        {
+          "display": "Deno 1.46.3",
+          "purl": "pkg:generic/deno",
+          "version": "1.46.3",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "deno.runtime.eol-1.x"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deno-003",
+      "ecosystem": "deno",
+      "prompt": "Would you use this runtime version for a fresh deployment?",
+      "candidates": [
+        {
+          "display": "Bun 1.0.0",
+          "purl": "pkg:generic/bun",
+          "version": "1.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "deno.bun.runtime.eol-1.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotnet-001",
+      "ecosystem": "dotnet",
+      "prompt": "Would you target this .NET runtime for a new service?",
+      "candidates": [
+        {
+          "display": "Microsoft .NET 3.1.32",
+          "purl": "pkg:generic/dotnet",
+          "version": "3.1.32",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dotnet.runtime.end-of-support-3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotnet-002",
+      "ecosystem": "dotnet",
+      "prompt": "Would you pin this .NET version in a production build?",
+      "candidates": [
+        {
+          "display": "Microsoft .NET 5.0.17",
+          "purl": "pkg:generic/dotnet",
+          "version": "5.0.17",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dotnet.runtime.end-of-support-5.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotnet-003",
+      "ecosystem": "dotnet",
+      "prompt": "Would you target this .NET runtime for a new service?",
+      "candidates": [
+        {
+          "display": "Microsoft .NET 6.0.36",
+          "purl": "pkg:generic/dotnet",
+          "version": "6.0.36",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dotnet.runtime.end-of-support-6.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotnet-004",
+      "ecosystem": "dotnet",
+      "prompt": "Would you pin this .NET version in a production build?",
+      "candidates": [
+        {
+          "display": "Microsoft .NET 7.0.20",
+          "purl": "pkg:generic/dotnet",
+          "version": "7.0.20",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dotnet.runtime.end-of-support-7.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotnet-005",
+      "ecosystem": "dotnet",
+      "prompt": "Would you target this .NET runtime for a new service?",
+      "candidates": [
+        {
+          "display": "Microsoft .NET 8.0.34",
+          "purl": "pkg:generic/dotnet",
+          "version": "8.0.34",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dotnet.runtime.end-of-support-8.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dotnet-006",
+      "ecosystem": "dotnet",
+      "prompt": "Would you pin this .NET version in a production build?",
+      "candidates": [
+        {
+          "display": "Microsoft .NET 9.0.23",
+          "purl": "pkg:generic/dotnet",
+          "version": "9.0.23",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "dotnet.runtime.end-of-support-9.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elixir-001",
+      "ecosystem": "elixir",
+      "prompt": "Would you deploy a new BEAM service on this release?",
+      "candidates": [
+        {
+          "display": "Elixir 1.14.0",
+          "purl": "pkg:generic/elixir",
+          "version": "1.14.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "elixir.runtime.eol-1.14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elixir-002",
+      "ecosystem": "elixir",
+      "prompt": "Would you choose this Elixir or Erlang release for a new service?",
+      "candidates": [
+        {
+          "display": "Elixir 1.15.0",
+          "purl": "pkg:generic/elixir",
+          "version": "1.15.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "elixir.runtime.eol-1.15"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elixir-003",
+      "ecosystem": "elixir",
+      "prompt": "Would you deploy a new BEAM service on this release?",
+      "candidates": [
+        {
+          "display": "Erlang/OTP 25.0",
+          "purl": "pkg:generic/erlang",
+          "version": "25.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "elixir.erlang.eol-25"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elixir-004",
+      "ecosystem": "elixir",
+      "prompt": "Would you choose this Elixir or Erlang release for a new service?",
+      "candidates": [
+        {
+          "display": "Erlang/OTP 26.0",
+          "purl": "pkg:generic/erlang",
+          "version": "26.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "elixir.erlang.eol-26"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-001",
+      "ecosystem": "github-actions",
+      "prompt": "Which of these checkout versions would you pin for a new GitHub-hosted Actions job?",
+      "candidates": [
+        {
+          "display": "actions/checkout@v3.0.0",
+          "purl": "pkg:github/actions/checkout",
+          "version": "3.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.checkout.node20"
+          ]
+        },
+        {
+          "display": "actions/checkout@v4.0.0",
+          "purl": "pkg:github/actions/checkout",
+          "version": "4.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.checkout.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-002",
+      "ecosystem": "github-actions",
+      "prompt": "Would you use this action version on GitHub-hosted runners?",
+      "candidates": [
+        {
+          "display": "actions/checkout@v3.0.0",
+          "purl": "pkg:github/actions/checkout",
+          "version": "3.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.checkout.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-003",
+      "ecosystem": "github-actions",
+      "prompt": "Would this pin belong in a new CI workflow?",
+      "candidates": [
+        {
+          "display": "actions/setup-node@v4.0.0",
+          "purl": "pkg:github/actions/setup-node",
+          "version": "4.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.setup-node.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-004",
+      "ecosystem": "github-actions",
+      "prompt": "Would you pin this release in a new GitHub-hosted Actions workflow?",
+      "candidates": [
+        {
+          "display": "actions/cache@v4.0.0",
+          "purl": "pkg:github/actions/cache",
+          "version": "4.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.cache.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-005",
+      "ecosystem": "github-actions",
+      "prompt": "Would you use this action version on GitHub-hosted runners?",
+      "candidates": [
+        {
+          "display": "actions/upload-artifact@v3.0.0",
+          "purl": "pkg:github/actions/upload-artifact",
+          "version": "3.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.upload-artifact.retired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-006",
+      "ecosystem": "github-actions",
+      "prompt": "Would this pin belong in a new CI workflow?",
+      "candidates": [
+        {
+          "display": "actions/download-artifact@v3.0.0",
+          "purl": "pkg:github/actions/download-artifact",
+          "version": "3.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.download-artifact.retired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-007",
+      "ecosystem": "github-actions",
+      "prompt": "Would you pin this release in a new GitHub-hosted Actions workflow?",
+      "candidates": [
+        {
+          "display": "actions/setup-python@v5.0.0",
+          "purl": "pkg:github/actions/setup-python",
+          "version": "5.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.setup-python.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-008",
+      "ecosystem": "github-actions",
+      "prompt": "Would you use this action version on GitHub-hosted runners?",
+      "candidates": [
+        {
+          "display": "actions/setup-go@v5.0.0",
+          "purl": "pkg:github/actions/setup-go",
+          "version": "5.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.setup-go.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-009",
+      "ecosystem": "github-actions",
+      "prompt": "Would this pin belong in a new CI workflow?",
+      "candidates": [
+        {
+          "display": "actions/setup-java@v4.0.0",
+          "purl": "pkg:github/actions/setup-java",
+          "version": "4.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.setup-java.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-010",
+      "ecosystem": "github-actions",
+      "prompt": "Would you pin this release in a new GitHub-hosted Actions workflow?",
+      "candidates": [
+        {
+          "display": "actions/setup-dotnet@v3.0.0",
+          "purl": "pkg:github/actions/setup-dotnet",
+          "version": "3.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.setup-dotnet.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-011",
+      "ecosystem": "github-actions",
+      "prompt": "Would you use this action version on GitHub-hosted runners?",
+      "candidates": [
+        {
+          "display": "actions/github-script@v7.0.0",
+          "purl": "pkg:github/actions/github-script",
+          "version": "7.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.github-script.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-012",
+      "ecosystem": "github-actions",
+      "prompt": "Would this pin belong in a new CI workflow?",
+      "candidates": [
+        {
+          "display": "actions/labeler@v5.0.0",
+          "purl": "pkg:github/actions/labeler",
+          "version": "5.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.labeler.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-013",
+      "ecosystem": "github-actions",
+      "prompt": "Would you pin this release in a new GitHub-hosted Actions workflow?",
+      "candidates": [
+        {
+          "display": "actions/stale@v8.0.0",
+          "purl": "pkg:github/actions/stale",
+          "version": "8.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.stale.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-014",
+      "ecosystem": "github-actions",
+      "prompt": "Would you use this action version on GitHub-hosted runners?",
+      "candidates": [
+        {
+          "display": "actions/deploy-pages@v2.0.0",
+          "purl": "pkg:github/actions/deploy-pages",
+          "version": "2.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.deploy-pages.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-015",
+      "ecosystem": "github-actions",
+      "prompt": "Would this pin belong in a new CI workflow?",
+      "candidates": [
+        {
+          "display": "actions/create-github-app-token@v1.0.0",
+          "purl": "pkg:github/actions/create-github-app-token",
+          "version": "1.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.create-github-app-token.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-actions-016",
+      "ecosystem": "github-actions",
+      "prompt": "Would you pin this release in a new GitHub-hosted Actions workflow?",
+      "candidates": [
+        {
+          "display": "actions/configure-pages@v4.0.0",
+          "purl": "pkg:github/actions/configure-pages",
+          "version": "4.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "github-actions.configure-pages.node20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-001",
+      "ecosystem": "go",
+      "prompt": "Would you set this Go version for a new module?",
+      "candidates": [
+        {
+          "display": "Go 1.20.14",
+          "purl": "pkg:generic/golang",
+          "version": "1.20.14",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "go.runtime.end-of-support-1.20-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-002",
+      "ecosystem": "go",
+      "prompt": "Would you use this Go toolchain in a new production build?",
+      "candidates": [
+        {
+          "display": "Go 1.21.13",
+          "purl": "pkg:generic/golang",
+          "version": "1.21.13",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "go.runtime.end-of-support-1.21"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-003",
+      "ecosystem": "go",
+      "prompt": "Would you set this Go version for a new module?",
+      "candidates": [
+        {
+          "display": "Go 1.22.12",
+          "purl": "pkg:generic/golang",
+          "version": "1.22.12",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "go.runtime.end-of-support-1.22"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-004",
+      "ecosystem": "go",
+      "prompt": "Would you use this Go toolchain in a new production build?",
+      "candidates": [
+        {
+          "display": "Go 1.23.12",
+          "purl": "pkg:generic/golang",
+          "version": "1.23.12",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "go.runtime.end-of-support-1.23"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-005",
+      "ecosystem": "go",
+      "prompt": "Would you set this Go version for a new module?",
+      "candidates": [
+        {
+          "display": "Go 1.24.12",
+          "purl": "pkg:generic/golang",
+          "version": "1.24.12",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "go.runtime.end-of-support-1.24"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-006",
+      "ecosystem": "go",
+      "prompt": "Would you use this Go toolchain in a new production build?",
+      "candidates": [
+        {
+          "display": "Go 1.25.0",
+          "purl": "pkg:generic/golang",
+          "version": "1.25.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "go.runtime.end-of-support-1.25"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-001",
+      "ecosystem": "java",
+      "prompt": "Would you select this runtime for a new Java service?",
+      "candidates": [
+        {
+          "display": "Eclipse Temurin Java 9.0.4",
+          "purl": "pkg:generic/java",
+          "version": "9.0.4",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "java.jdk.end-of-support-9-10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-002",
+      "ecosystem": "java",
+      "prompt": "Would you pin this Java release in a new build?",
+      "candidates": [
+        {
+          "display": "Eclipse Temurin Java 10.0.2",
+          "purl": "pkg:generic/java",
+          "version": "10.0.2",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "java.jdk.end-of-support-9-10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-003",
+      "ecosystem": "java",
+      "prompt": "Would you select this runtime for a new Java service?",
+      "candidates": [
+        {
+          "display": "Eclipse Temurin Java 12.0.2",
+          "purl": "pkg:generic/java",
+          "version": "12.0.2",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "java.jdk.end-of-support-12-16"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-004",
+      "ecosystem": "java",
+      "prompt": "Would you pin this Java release in a new build?",
+      "candidates": [
+        {
+          "display": "Eclipse Temurin Java 16.0.2",
+          "purl": "pkg:generic/java",
+          "version": "16.0.2",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "java.jdk.end-of-support-12-16"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-005",
+      "ecosystem": "java",
+      "prompt": "Would you select this runtime for a new Java service?",
+      "candidates": [
+        {
+          "display": "Eclipse Temurin Java 18.0.2",
+          "purl": "pkg:generic/java",
+          "version": "18.0.2",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "java.jdk.end-of-support-18-20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-006",
+      "ecosystem": "java",
+      "prompt": "Would you pin this Java release in a new build?",
+      "candidates": [
+        {
+          "display": "Eclipse Temurin Java 23.0.2",
+          "purl": "pkg:generic/java",
+          "version": "23.0.2",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "java.jdk.end-of-support-22-24"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-001",
+      "ecosystem": "kubernetes",
+      "prompt": "Which Kubernetes release would you set up for an upstream-patched cluster?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.34.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.34.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.34"
+          ]
+        },
+        {
+          "display": "Upstream Kubernetes 1.35.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.35.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.35"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-002",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you choose this version for a cluster you intend to patch upstream?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.28.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.28.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.1.28-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-003",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you start a new upstream Kubernetes cluster on this release?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.29.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.29.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.29"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-004",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you choose this version for a cluster you intend to patch upstream?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.30.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.30.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.30"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-005",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you start a new upstream Kubernetes cluster on this release?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.31.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.31.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.31"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-006",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you choose this version for a cluster you intend to patch upstream?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.32.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.32.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.32"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-007",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you start a new upstream Kubernetes cluster on this release?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.33.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.33.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.33"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-008",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you choose this version for a cluster you intend to patch upstream?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.34.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.34.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.34"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-009",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you start a new upstream Kubernetes cluster on this release?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.35.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.35.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.35"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-010",
+      "ecosystem": "kubernetes",
+      "prompt": "Would you choose this version for a cluster you intend to patch upstream?",
+      "candidates": [
+        {
+          "display": "Upstream Kubernetes 1.36.0",
+          "purl": "pkg:generic/kubernetes",
+          "version": "1.36.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "kubernetes.release.end-of-life-1.36"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-001",
+      "ecosystem": "nodejs",
+      "prompt": "Would you use this Node.js release for a new service?",
+      "candidates": [
+        {
+          "display": "Node.js 12.22.12",
+          "purl": "pkg:generic/nodejs",
+          "version": "12.22.12",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "nodejs.runtime.legacy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-002",
+      "ecosystem": "nodejs",
+      "prompt": "Would you pin this Node.js version in a production Dockerfile?",
+      "candidates": [
+        {
+          "display": "Node.js 16.20.2",
+          "purl": "pkg:generic/nodejs",
+          "version": "16.20.2",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "nodejs.runtime.legacy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-003",
+      "ecosystem": "nodejs",
+      "prompt": "Would you use this Node.js release for a new service?",
+      "candidates": [
+        {
+          "display": "Node.js 18.20.4",
+          "purl": "pkg:generic/nodejs",
+          "version": "18.20.4",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "nodejs.runtime.eol-18"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-004",
+      "ecosystem": "nodejs",
+      "prompt": "Would you pin this Node.js version in a production Dockerfile?",
+      "candidates": [
+        {
+          "display": "Node.js 19.9.0",
+          "purl": "pkg:generic/nodejs",
+          "version": "19.9.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "nodejs.runtime.eol-19"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-005",
+      "ecosystem": "nodejs",
+      "prompt": "Would you use this Node.js release for a new service?",
+      "candidates": [
+        {
+          "display": "Node.js 20.18.0",
+          "purl": "pkg:generic/nodejs",
+          "version": "20.18.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "nodejs.runtime.eol-20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-006",
+      "ecosystem": "nodejs",
+      "prompt": "Would you pin this Node.js version in a production Dockerfile?",
+      "candidates": [
+        {
+          "display": "Node.js 21.7.3",
+          "purl": "pkg:generic/nodejs",
+          "version": "21.7.3",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "nodejs.runtime.eol-21"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-007",
+      "ecosystem": "nodejs",
+      "prompt": "Would you use this Node.js release for a new service?",
+      "candidates": [
+        {
+          "display": "Node.js 22.11.0",
+          "purl": "pkg:generic/nodejs",
+          "version": "22.11.0",
+          "outcome": "fine",
+          "ruleIds": [
+            "nodejs.runtime.eol-22"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-008",
+      "ecosystem": "nodejs",
+      "prompt": "Would you pin this Node.js version in a production Dockerfile?",
+      "candidates": [
+        {
+          "display": "Node.js 23.11.0",
+          "purl": "pkg:generic/nodejs",
+          "version": "23.11.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "nodejs.runtime.eol-23"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-001",
+      "ecosystem": "npm",
+      "prompt": "Would you pin either version of request in a new HTTP client?",
+      "candidates": [
+        {
+          "display": "request 2.88.2",
+          "purl": "pkg:npm/request",
+          "version": "2.88.2",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "npm.package.request.deprecated"
+          ]
+        },
+        {
+          "display": "request 2.88.0",
+          "purl": "pkg:npm/request",
+          "version": "2.88.0",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "npm.package.request.deprecated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-002",
+      "ecosystem": "npm",
+      "prompt": "Should a new Node.js service pin this HTTP client?",
+      "candidates": [
+        {
+          "display": "request 2.88.2",
+          "purl": "pkg:npm/request",
+          "version": "2.88.2",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "npm.package.request.deprecated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-003",
+      "ecosystem": "npm",
+      "prompt": "Would you add this version as a direct dependency in a new Node.js application?",
+      "candidates": [
+        {
+          "display": "node-sass 9.0.0",
+          "purl": "pkg:npm/node-sass",
+          "version": "9.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "npm.package.node-sass.deprecated",
+            "npm.package.node-sass.eol"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-004",
+      "ecosystem": "npm",
+      "prompt": "Would you pin this npm package version in a new project?",
+      "candidates": [
+        {
+          "display": "Next.js 12.0.0",
+          "purl": "pkg:npm/next",
+          "version": "12.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "npm.package.next.12.support-end"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-005",
+      "ecosystem": "npm",
+      "prompt": "Would you add this version as a direct dependency in a new Node.js application?",
+      "candidates": [
+        {
+          "display": "Next.js 13.0.0",
+          "purl": "pkg:npm/next",
+          "version": "13.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "npm.package.next.13.support-end"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-006",
+      "ecosystem": "npm",
+      "prompt": "Would you pin this npm package version in a new project?",
+      "candidates": [
+        {
+          "display": "Next.js 14.0.0",
+          "purl": "pkg:npm/next",
+          "version": "14.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "npm.package.next.14.support-end"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-007",
+      "ecosystem": "npm",
+      "prompt": "Would you add this version as a direct dependency in a new Node.js application?",
+      "candidates": [
+        {
+          "display": "Next.js 15.0.0",
+          "purl": "pkg:npm/next",
+          "version": "15.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "npm.package.next.15.support-end"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-001",
+      "ecosystem": "php",
+      "prompt": "Would you configure this PHP version for a new site?",
+      "candidates": [
+        {
+          "display": "PHP 7.2.34",
+          "purl": "pkg:generic/php",
+          "version": "7.2.34",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "php.runtime.eol-7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-002",
+      "ecosystem": "php",
+      "prompt": "Would you use this PHP runtime to host a new application?",
+      "candidates": [
+        {
+          "display": "PHP 7.3.33",
+          "purl": "pkg:generic/php",
+          "version": "7.3.33",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "php.runtime.eol-7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-003",
+      "ecosystem": "php",
+      "prompt": "Would you configure this PHP version for a new site?",
+      "candidates": [
+        {
+          "display": "PHP 7.4.33",
+          "purl": "pkg:generic/php",
+          "version": "7.4.33",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "php.runtime.eol-7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-004",
+      "ecosystem": "php",
+      "prompt": "Would you use this PHP runtime to host a new application?",
+      "candidates": [
+        {
+          "display": "PHP 8.0.30",
+          "purl": "pkg:generic/php",
+          "version": "8.0.30",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "php.runtime.eol-8.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "php-005",
+      "ecosystem": "php",
+      "prompt": "Would you configure this PHP version for a new site?",
+      "candidates": [
+        {
+          "display": "PHP 8.1.31",
+          "purl": "pkg:generic/php",
+          "version": "8.1.31",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "php.runtime.eol-8.1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python-001",
+      "ecosystem": "python",
+      "prompt": "Would you use this version for a new Python project?",
+      "candidates": [
+        {
+          "display": "CPython 2.7.18",
+          "purl": "pkg:generic/python",
+          "version": "2.7.18",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "python.runtime.eol-3.10-and-older",
+            "python.runtime.eol-3.9-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python-002",
+      "ecosystem": "python",
+      "prompt": "Would you pin this Python version on a new service?",
+      "candidates": [
+        {
+          "display": "CPython 3.7.17",
+          "purl": "pkg:generic/python",
+          "version": "3.7.17",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "python.runtime.eol-3.10-and-older",
+            "python.runtime.eol-3.9-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python-003",
+      "ecosystem": "python",
+      "prompt": "Would you use this version for a new Python project?",
+      "candidates": [
+        {
+          "display": "CPython 3.8.20",
+          "purl": "pkg:generic/python",
+          "version": "3.8.20",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "python.runtime.eol-3.10-and-older",
+            "python.runtime.eol-3.9-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python-004",
+      "ecosystem": "python",
+      "prompt": "Would you pin this Python version on a new service?",
+      "candidates": [
+        {
+          "display": "CPython 3.9.21",
+          "purl": "pkg:generic/python",
+          "version": "3.9.21",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "python.runtime.eol-3.10-and-older",
+            "python.runtime.eol-3.9-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python-005",
+      "ecosystem": "python",
+      "prompt": "Would you use this version for a new Python project?",
+      "candidates": [
+        {
+          "display": "nose 1.3.7",
+          "purl": "pkg:pypi/nose",
+          "version": "1.3.7",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "python.package.nose.maintenance-only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python-006",
+      "ecosystem": "python",
+      "prompt": "Would you pin this Python version on a new service?",
+      "candidates": [
+        {
+          "display": "distribute 0.7.3",
+          "purl": "pkg:pypi/distribute",
+          "version": "0.7.3",
+          "outcome": "deprecated",
+          "ruleIds": [
+            "python.package.distribute.deprecated"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruby-001",
+      "ecosystem": "ruby",
+      "prompt": "Would you use this Ruby version for a new app?",
+      "candidates": [
+        {
+          "display": "Ruby 2.5.9",
+          "purl": "pkg:generic/ruby",
+          "version": "2.5.9",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ruby.runtime.eol-2.5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruby-002",
+      "ecosystem": "ruby",
+      "prompt": "Would you set this version as the initial Ruby runtime?",
+      "candidates": [
+        {
+          "display": "Ruby 2.6.10",
+          "purl": "pkg:generic/ruby",
+          "version": "2.6.10",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ruby.runtime.eol-2.6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruby-003",
+      "ecosystem": "ruby",
+      "prompt": "Would you use this Ruby version for a new app?",
+      "candidates": [
+        {
+          "display": "Ruby 2.7.8",
+          "purl": "pkg:generic/ruby",
+          "version": "2.7.8",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ruby.runtime.eol-2.7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruby-004",
+      "ecosystem": "ruby",
+      "prompt": "Would you set this version as the initial Ruby runtime?",
+      "candidates": [
+        {
+          "display": "Ruby 3.0.7",
+          "purl": "pkg:generic/ruby",
+          "version": "3.0.7",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ruby.runtime.eol-3.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruby-005",
+      "ecosystem": "ruby",
+      "prompt": "Would you use this Ruby version for a new app?",
+      "candidates": [
+        {
+          "display": "Ruby 3.1.6",
+          "purl": "pkg:generic/ruby",
+          "version": "3.1.6",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ruby.runtime.eol-3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruby-006",
+      "ecosystem": "ruby",
+      "prompt": "Would you set this version as the initial Ruby runtime?",
+      "candidates": [
+        {
+          "display": "Ruby 3.2.6",
+          "purl": "pkg:generic/ruby",
+          "version": "3.2.6",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "ruby.runtime.eol-3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rust-001",
+      "ecosystem": "rust",
+      "prompt": "Would you pin this Rust toolchain for a new project?",
+      "candidates": [
+        {
+          "display": "Rust 1.98.0",
+          "purl": "pkg:generic/rust",
+          "version": "1.98.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "rust.toolchain.end-of-support-1.98-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rust-002",
+      "ecosystem": "rust",
+      "prompt": "Would you pin this Rust toolchain for a new project?",
+      "candidates": [
+        {
+          "display": "Rust 1.98.1",
+          "purl": "pkg:generic/rust",
+          "version": "1.98.1",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "rust.toolchain.end-of-support-1.98-and-older"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shell-001",
+      "ecosystem": "shell",
+      "prompt": "Would you use this PowerShell version in a new deployment pipeline?",
+      "candidates": [
+        {
+          "display": "PowerShell 7.0.0",
+          "purl": "pkg:generic/powershell",
+          "version": "7.0.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "shell.powershell.end-of-life-7.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shell-002",
+      "ecosystem": "shell",
+      "prompt": "Would you pin this release in a new automation job?",
+      "candidates": [
+        {
+          "display": "PowerShell 7.1.0",
+          "purl": "pkg:generic/powershell",
+          "version": "7.1.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "shell.powershell.end-of-life-7.1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shell-003",
+      "ecosystem": "shell",
+      "prompt": "Would you use this PowerShell version in a new deployment pipeline?",
+      "candidates": [
+        {
+          "display": "PowerShell 7.2.0",
+          "purl": "pkg:generic/powershell",
+          "version": "7.2.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "shell.powershell.end-of-life-7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shell-004",
+      "ecosystem": "shell",
+      "prompt": "Would you pin this release in a new automation job?",
+      "candidates": [
+        {
+          "display": "PowerShell 7.3.0",
+          "purl": "pkg:generic/powershell",
+          "version": "7.3.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "shell.powershell.end-of-life-7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shell-005",
+      "ecosystem": "shell",
+      "prompt": "Would you use this PowerShell version in a new deployment pipeline?",
+      "candidates": [
+        {
+          "display": "PowerShell 7.4.0",
+          "purl": "pkg:generic/powershell",
+          "version": "7.4.0",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "shell.powershell.end-of-life-7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swift-001",
+      "ecosystem": "swift",
+      "prompt": "Would you use this Xcode version to submit a new iOS app to the App Store?",
+      "candidates": [
+        {
+          "display": "Xcode 14.3.1",
+          "purl": "pkg:generic/xcode",
+          "version": "14.3.1",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "swift.xcode.app-store-below-15"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swift-002",
+      "ecosystem": "swift",
+      "prompt": "Would you use this Xcode version to submit a new iOS app to the App Store?",
+      "candidates": [
+        {
+          "display": "Xcode 15.4",
+          "purl": "pkg:generic/xcode",
+          "version": "15.4",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "swift.xcode.app-store-15-through-25"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swift-003",
+      "ecosystem": "swift",
+      "prompt": "Would this meet the App Store baseline for a new iOS app?",
+      "candidates": [
+        {
+          "display": "iOS 12.5.7",
+          "purl": "pkg:generic/ios",
+          "version": "12.5.7",
+          "outcome": "end-of-life",
+          "ruleIds": [
+            "swift.app-store.ios-below-13"
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence": {
+    "android.play-billing.version-5": {
+      "event": "deprecated",
+      "date": "2024-08-31",
+      "sources": [
+        {
+          "title": "Google Play Billing Library version deprecation — support timeline",
+          "url": "https://developer.android.com/google/play/billing/deprecation-faq"
+        }
+      ]
+    },
+    "android.play-billing.version-6": {
+      "event": "deprecated",
+      "date": "2025-08-31",
+      "sources": [
+        {
+          "title": "Google Play Billing Library version deprecation — support timeline",
+          "url": "https://developer.android.com/google/play/billing/deprecation-faq"
+        }
+      ]
+    },
+    "android.play-billing.version-7": {
+      "event": "deprecated",
+      "date": "2026-08-31",
+      "sources": [
+        {
+          "title": "Google Play Billing Library version deprecation — support timeline",
+          "url": "https://developer.android.com/google/play/billing/deprecation-faq"
+        }
+      ]
+    },
+    "android.play-billing.version-8": {
+      "event": "scheduled",
+      "date": "2027-08-31",
+      "sources": [
+        {
+          "title": "Google Play Billing Library version deprecation — support timeline",
+          "url": "https://developer.android.com/google/play/billing/deprecation-faq"
+        }
+      ]
+    },
+    "android.play-billing.version-9": {
+      "event": "scheduled",
+      "date": "2028-08-31",
+      "sources": [
+        {
+          "title": "Google Play Billing Library version deprecation — support timeline",
+          "url": "https://developer.android.com/google/play/billing/deprecation-faq"
+        }
+      ]
+    },
+    "android.target-sdk.existing.default-below-35": {
+      "event": "unsupported",
+      "date": "2026-08-31",
+      "sources": [
+        {
+          "title": "Meet Google Play's target API level requirement",
+          "url": "https://developer.android.com/google/play/requirements/target-sdk"
+        }
+      ]
+    },
+    "ci-images.azure-pipelines.macos-13": {
+      "event": "removed",
+      "date": "2025-12-04",
+      "sources": [
+        {
+          "title": "Microsoft-hosted agents for Azure Pipelines",
+          "url": "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted"
+        },
+        {
+          "title": "Upcoming Updates for Azure Pipelines Agents Images",
+          "url": "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/"
+        }
+      ]
+    },
+    "ci-images.azure-pipelines.macos-14": {
+      "event": "scheduled",
+      "date": "2026-11-23",
+      "sources": [
+        {
+          "title": "Microsoft-hosted image deprecation schedule",
+          "url": "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule"
+        }
+      ]
+    },
+    "ci-images.azure-pipelines.ubuntu-20.04": {
+      "event": "removed",
+      "date": "2025-04-30",
+      "sources": [
+        {
+          "title": "Upcoming Updates for Azure Pipelines Agents Images",
+          "url": "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/"
+        },
+        {
+          "title": "Microsoft-hosted agents for Azure Pipelines",
+          "url": "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted"
+        }
+      ]
+    },
+    "ci-images.azure-pipelines.ubuntu-22.04": {
+      "event": "scheduled",
+      "date": "2027-04-17",
+      "sources": [
+        {
+          "title": "Microsoft-hosted image deprecation schedule",
+          "url": "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted-deprecation-schedule"
+        }
+      ]
+    },
+    "ci-images.azure-pipelines.windows-2019": {
+      "event": "removed",
+      "date": "2025-12-31",
+      "sources": [
+        {
+          "title": "Upcoming Updates for Azure Pipelines Agents Images",
+          "url": "https://devblogs.microsoft.com/devops/upcoming-updates-for-azure-pipelines-agents-images/"
+        },
+        {
+          "title": "Microsoft-hosted agents for Azure Pipelines",
+          "url": "https://learn.microsoft.com/azure/devops/pipelines/agents/hosted"
+        }
+      ]
+    },
+    "container.alpine.eol-3.20-and-older": {
+      "event": "end-of-life",
+      "date": "2026-04-01",
+      "sources": [
+        {
+          "title": "Alpine Linux releases",
+          "url": "https://alpinelinux.org/releases/"
+        }
+      ]
+    },
+    "container.debian.eol-11-and-older": {
+      "event": "end-of-life",
+      "date": "2026-08-31",
+      "sources": [
+        {
+          "title": "Debian LTS",
+          "url": "https://wiki.debian.org/LTS"
+        },
+        {
+          "title": "Debian Releases",
+          "url": "https://www.debian.org/releases/"
+        }
+      ]
+    },
+    "container.mysql.eol-8.0-and-older": {
+      "event": "end-of-life",
+      "date": "2026-04-21",
+      "sources": [
+        {
+          "title": "MySQL end-of-life notice",
+          "url": "https://www.mysql.com/support/eol-notice.html"
+        }
+      ]
+    },
+    "container.node.eol-21-and-older": {
+      "event": "end-of-life",
+      "date": "2026-04-30",
+      "sources": [
+        {
+          "title": "Node.js end-of-life releases",
+          "url": "https://nodejs.org/en/about/eol"
+        },
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "container.node.eol-22-and-older": {
+      "event": "scheduled",
+      "date": "2027-04-30",
+      "sources": [
+        {
+          "title": "Node.js end-of-life releases",
+          "url": "https://nodejs.org/en/about/eol"
+        },
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "container.postgres.eol-13-and-older": {
+      "event": "end-of-life",
+      "date": "2025-11-13",
+      "sources": [
+        {
+          "title": "PostgreSQL versioning policy",
+          "url": "https://www.postgresql.org/support/versioning/"
+        }
+      ]
+    },
+    "container.postgres.eol-14-and-older": {
+      "event": "scheduled",
+      "date": "2026-11-12",
+      "sources": [
+        {
+          "title": "PostgreSQL release policy (vendor)",
+          "url": "https://www.postgresql.org/support/versioning/"
+        }
+      ]
+    },
+    "container.python.eol-3.10-and-older": {
+      "event": "end-of-life",
+      "date": "2026-10-01",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json"
+        }
+      ]
+    },
+    "container.python.eol-3.11-and-older": {
+      "event": "scheduled",
+      "date": "2027-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json"
+        }
+      ]
+    },
+    "container.redis.eol-6.0-and-older": {
+      "event": "end-of-life",
+      "date": "2022-05-31",
+      "sources": [
+        {
+          "title": "Redis release policy (vendor)",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/"
+        }
+      ]
+    },
+    "container.redis.eol-6.2-and-older": {
+      "event": "scheduled",
+      "date": "2027-04-01",
+      "sources": [
+        {
+          "title": "Redis release policy (vendor)",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/"
+        }
+      ]
+    },
+    "container.ruby.eol-3.2-and-older": {
+      "event": "end-of-life",
+      "date": "2026-04-01",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "container.ruby.eol-3.3-and-older": {
+      "event": "scheduled",
+      "date": "2027-03-31",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "container.ubuntu.eol-20.04-and-older": {
+      "event": "end-of-life",
+      "date": "2025-05-31",
+      "sources": [
+        {
+          "title": "Ubuntu release cycle",
+          "url": "https://ubuntu.com/about/release-cycle"
+        }
+      ]
+    },
+    "container.ubuntu.eol-22.04": {
+      "event": "scheduled",
+      "date": "2027-06-01",
+      "sources": [
+        {
+          "title": "Ubuntu release cycle",
+          "url": "https://ubuntu.com/about/release-cycle"
+        }
+      ]
+    },
+    "dart.sdk.end-of-support-3.7": {
+      "event": "unsupported",
+      "date": "2025-05-14",
+      "sources": [
+        {
+          "title": "Dart security policy",
+          "url": "https://dart.dev/security"
+        },
+        {
+          "title": "Dart changelog",
+          "url": "https://dart.dev/changelog"
+        }
+      ]
+    },
+    "dart.sdk.end-of-support-3.8": {
+      "event": "unsupported",
+      "date": "2025-08-13",
+      "sources": [
+        {
+          "title": "Dart security policy",
+          "url": "https://dart.dev/security"
+        },
+        {
+          "title": "Dart changelog",
+          "url": "https://dart.dev/changelog"
+        }
+      ]
+    },
+    "dart.sdk.end-of-support-3.9": {
+      "event": "unsupported",
+      "date": "2025-11-12",
+      "sources": [
+        {
+          "title": "Dart security policy",
+          "url": "https://dart.dev/security"
+        },
+        {
+          "title": "Dart changelog",
+          "url": "https://dart.dev/changelog"
+        }
+      ]
+    },
+    "database.aws-aurora-postgresql.end-of-support-11": {
+      "event": "unsupported",
+      "date": "2024-02-29",
+      "sources": [
+        {
+          "title": "Release calendars for Aurora PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support with Amazon Aurora",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-aurora-postgresql.end-of-support-12": {
+      "event": "unsupported",
+      "date": "2025-02-28",
+      "sources": [
+        {
+          "title": "Release calendars for Aurora PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support with Amazon Aurora",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-aurora-postgresql.end-of-support-13": {
+      "event": "unsupported",
+      "date": "2026-02-28",
+      "sources": [
+        {
+          "title": "Release calendars for Aurora PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support with Amazon Aurora",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-aurora-postgresql.scheduled-end-of-support-14": {
+      "event": "scheduled",
+      "date": "2027-02-28",
+      "sources": [
+        {
+          "title": "Release calendars for Aurora PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support with Amazon Aurora",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-elasticache-redis.end-of-support-5": {
+      "event": "unsupported",
+      "date": "2026-01-31",
+      "sources": [
+        {
+          "title": "Engine versions and upgrading in ElastiCache",
+          "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html"
+        },
+        {
+          "title": "ElastiCache Extended Support",
+          "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-rds-postgres.end-of-support-11": {
+      "event": "unsupported",
+      "date": "2024-02-29",
+      "sources": [
+        {
+          "title": "Release calendars for Amazon RDS for PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-rds-postgres.end-of-support-12": {
+      "event": "unsupported",
+      "date": "2025-02-28",
+      "sources": [
+        {
+          "title": "Release calendars for Amazon RDS for PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-rds-postgres.end-of-support-13": {
+      "event": "unsupported",
+      "date": "2026-02-28",
+      "sources": [
+        {
+          "title": "Release calendars for Amazon RDS for PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.aws-rds-postgres.scheduled-end-of-support-14": {
+      "event": "scheduled",
+      "date": "2027-02-28",
+      "sources": [
+        {
+          "title": "Release calendars for Amazon RDS for PostgreSQL",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html"
+        },
+        {
+          "title": "Using Amazon RDS Extended Support",
+          "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html"
+        }
+      ]
+    },
+    "database.mysql.end-of-life-5.7": {
+      "event": "end-of-life",
+      "date": "2023-10-31",
+      "sources": [
+        {
+          "title": "MySQL supported platforms and lifecycle",
+          "url": "https://www.mysql.com/support/supportedplatforms/database.html"
+        },
+        {
+          "title": "endoflife.date: MySQL",
+          "url": "https://endoflife.date/mysql"
+        }
+      ]
+    },
+    "database.mysql.end-of-life-8.0": {
+      "event": "end-of-life",
+      "date": "2026-04-30",
+      "sources": [
+        {
+          "title": "MySQL supported platforms and lifecycle",
+          "url": "https://www.mysql.com/support/supportedplatforms/database.html"
+        },
+        {
+          "title": "endoflife.date: MySQL",
+          "url": "https://endoflife.date/mysql"
+        }
+      ]
+    },
+    "database.postgresql.end-of-life-10": {
+      "event": "end-of-life",
+      "date": "2022-11-10",
+      "sources": [
+        {
+          "title": "PostgreSQL versioning policy",
+          "url": "https://www.postgresql.org/support/versioning/"
+        }
+      ]
+    },
+    "database.postgresql.end-of-life-11": {
+      "event": "end-of-life",
+      "date": "2023-11-09",
+      "sources": [
+        {
+          "title": "PostgreSQL versioning policy",
+          "url": "https://www.postgresql.org/support/versioning/"
+        },
+        {
+          "title": "endoflife.date: PostgreSQL",
+          "url": "https://endoflife.date/postgresql"
+        }
+      ]
+    },
+    "database.postgresql.end-of-life-12": {
+      "event": "end-of-life",
+      "date": "2024-11-21",
+      "sources": [
+        {
+          "title": "PostgreSQL versioning policy",
+          "url": "https://www.postgresql.org/support/versioning/"
+        },
+        {
+          "title": "endoflife.date: PostgreSQL",
+          "url": "https://endoflife.date/postgresql"
+        }
+      ]
+    },
+    "database.postgresql.end-of-life-13": {
+      "event": "end-of-life",
+      "date": "2025-11-13",
+      "sources": [
+        {
+          "title": "PostgreSQL versioning policy",
+          "url": "https://www.postgresql.org/support/versioning/"
+        },
+        {
+          "title": "endoflife.date: PostgreSQL",
+          "url": "https://endoflife.date/postgresql"
+        }
+      ]
+    },
+    "database.postgresql.end-of-life-14": {
+      "event": "scheduled",
+      "date": "2026-11-12",
+      "sources": [
+        {
+          "title": "PostgreSQL versioning policy",
+          "url": "https://www.postgresql.org/support/versioning/"
+        }
+      ]
+    },
+    "database.redis.end-of-life-5.0": {
+      "event": "end-of-life",
+      "date": "2022-04-27",
+      "sources": [
+        {
+          "title": "Redis support policy (vendor)",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/"
+        },
+        {
+          "title": "endoflife.date (index; the vendor page above is the evidence)",
+          "url": "https://endoflife.date/redis"
+        }
+      ]
+    },
+    "database.redis.end-of-life-6.0": {
+      "event": "end-of-life",
+      "date": "2022-05-31",
+      "sources": [
+        {
+          "title": "Redis support policy (vendor)",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/"
+        },
+        {
+          "title": "endoflife.date (index; the vendor page above is the evidence)",
+          "url": "https://endoflife.date/redis"
+        }
+      ]
+    },
+    "database.redis.end-of-life-7.0": {
+      "event": "end-of-life",
+      "date": "2024-07-29",
+      "sources": [
+        {
+          "title": "Redis Open Source version management",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/"
+        },
+        {
+          "title": "endoflife.date: Redis",
+          "url": "https://endoflife.date/redis"
+        }
+      ]
+    },
+    "deno.bun.runtime.eol-1.0": {
+      "event": "end-of-life",
+      "date": "2024-04-01",
+      "sources": [
+        {
+          "title": "Bun 1.1.0 Release",
+          "url": "https://github.com/oven-sh/bun/releases/tag/bun-v1.1.0"
+        }
+      ]
+    },
+    "deno.runtime.eol-0.x": {
+      "event": "end-of-life",
+      "date": "2020-05-13",
+      "sources": [
+        {
+          "title": "Deno 1.0.0 Release",
+          "url": "https://github.com/denoland/deno/releases/tag/v1.0.0"
+        }
+      ]
+    },
+    "deno.runtime.eol-1.x": {
+      "event": "end-of-life",
+      "date": "2024-10-09",
+      "sources": [
+        {
+          "title": "Deno 2.0.0 Release",
+          "url": "https://github.com/denoland/deno/releases/tag/v2.0.0"
+        }
+      ]
+    },
+    "dotnet.runtime.end-of-support-3.1": {
+      "event": "unsupported",
+      "date": "2022-12-13",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
+        }
+      ]
+    },
+    "dotnet.runtime.end-of-support-5.0": {
+      "event": "unsupported",
+      "date": "2022-05-10",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
+        }
+      ]
+    },
+    "dotnet.runtime.end-of-support-6.0": {
+      "event": "unsupported",
+      "date": "2024-11-12",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
+        }
+      ]
+    },
+    "dotnet.runtime.end-of-support-7.0": {
+      "event": "unsupported",
+      "date": "2024-05-14",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
+        }
+      ]
+    },
+    "dotnet.runtime.end-of-support-8.0": {
+      "event": "unsupported",
+      "date": "2026-11-10",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
+        }
+      ]
+    },
+    "dotnet.runtime.end-of-support-9.0": {
+      "event": "unsupported",
+      "date": "2026-11-10",
+      "sources": [
+        {
+          "title": ".NET and .NET Core official support policy",
+          "url": "https://dotnet.microsoft.com/platform/support/policy/dotnet-core"
+        },
+        {
+          "title": ".NET releases index (channel, support phase, end-of-life date)",
+          "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
+        }
+      ]
+    },
+    "elixir.erlang.eol-25": {
+      "event": "end-of-life",
+      "date": "2025-05-21",
+      "sources": [
+        {
+          "title": "Erlang/OTP security policy",
+          "url": "https://github.com/erlang/otp/security/policy"
+        },
+        {
+          "title": "OTP 28.0 release",
+          "url": "https://github.com/erlang/otp/releases/tag/OTP-28.0"
+        }
+      ]
+    },
+    "elixir.erlang.eol-26": {
+      "event": "end-of-life",
+      "date": "2026-05-13",
+      "sources": [
+        {
+          "title": "Erlang/OTP security policy",
+          "url": "https://github.com/erlang/otp/security/policy"
+        },
+        {
+          "title": "OTP 29.0 release",
+          "url": "https://github.com/erlang/otp/releases/tag/OTP-29.0"
+        }
+      ]
+    },
+    "elixir.runtime.eol-1.14": {
+      "event": "end-of-life",
+      "date": "2025-10-16",
+      "sources": [
+        {
+          "title": "Elixir security policy",
+          "url": "https://github.com/elixir-lang/elixir/security/policy"
+        },
+        {
+          "title": "Elixir v1.19.0 release",
+          "url": "https://github.com/elixir-lang/elixir/releases/tag/v1.19.0"
+        }
+      ]
+    },
+    "elixir.runtime.eol-1.15": {
+      "event": "end-of-life",
+      "date": "2026-06-03",
+      "sources": [
+        {
+          "title": "Elixir security policy",
+          "url": "https://github.com/elixir-lang/elixir/security/policy"
+        },
+        {
+          "title": "Elixir v1.20.0 release",
+          "url": "https://github.com/elixir-lang/elixir/releases/tag/v1.20.0"
+        }
+      ]
+    },
+    "github-actions.cache.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/cache runtime and service guidance",
+          "url": "https://github.com/actions/cache#whats-new"
+        }
+      ]
+    },
+    "github-actions.checkout.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/checkout runtime guidance",
+          "url": "https://github.com/actions/checkout#checkout-v5"
+        }
+      ]
+    },
+    "github-actions.configure-pages.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/configure-pages v6.0.0 release notes",
+          "url": "https://github.com/actions/configure-pages/releases/tag/v6.0.0"
+        }
+      ]
+    },
+    "github-actions.create-github-app-token.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/create-github-app-token v3.0.0 release notes",
+          "url": "https://github.com/actions/create-github-app-token/releases/tag/v3.0.0"
+        }
+      ]
+    },
+    "github-actions.deploy-pages.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/deploy-pages v5.0.0 release notes",
+          "url": "https://github.com/actions/deploy-pages/releases/tag/v5.0.0"
+        }
+      ]
+    },
+    "github-actions.download-artifact.retired": {
+      "event": "removed",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "Deprecation notice for artifact actions v3",
+          "url": "https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/"
+        }
+      ]
+    },
+    "github-actions.github-script.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/github-script v8 release notes",
+          "url": "https://github.com/actions/github-script/releases/tag/v8"
+        }
+      ]
+    },
+    "github-actions.labeler.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/labeler v6.0.0 release notes",
+          "url": "https://github.com/actions/labeler/releases/tag/v6.0.0"
+        }
+      ]
+    },
+    "github-actions.setup-dotnet.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/setup-dotnet v5.0.0 release notes",
+          "url": "https://github.com/actions/setup-dotnet/releases/tag/v5.0.0"
+        }
+      ]
+    },
+    "github-actions.setup-go.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/setup-go v6.2.0 release notes (action.yml moves to node24)",
+          "url": "https://github.com/actions/setup-go/releases/tag/v6.2.0"
+        }
+      ]
+    },
+    "github-actions.setup-java.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/setup-java v5.0.0 release notes",
+          "url": "https://github.com/actions/setup-java/releases/tag/v5.0.0"
+        }
+      ]
+    },
+    "github-actions.setup-node.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/setup-node v5 runtime guidance",
+          "url": "https://github.com/actions/setup-node#breaking-changes-in-v5"
+        }
+      ]
+    },
+    "github-actions.setup-python.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/setup-python v6.0.0 release notes",
+          "url": "https://github.com/actions/setup-python/releases/tag/v6.0.0"
+        }
+      ]
+    },
+    "github-actions.stale.node20": {
+      "event": "unsupported",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "actions/stale v10.0.0 release notes",
+          "url": "https://github.com/actions/stale/releases/tag/v10.0.0"
+        }
+      ]
+    },
+    "github-actions.upload-artifact.retired": {
+      "event": "removed",
+      "date": "2026-09-23",
+      "sources": [
+        {
+          "title": "Node 20 is no longer available in GitHub Actions",
+          "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/"
+        },
+        {
+          "title": "Deprecation notice for artifact actions v3",
+          "url": "https://github.blog/changelog/2024-04-16-deprecation-notice-v3-of-the-artifact-actions/"
+        }
+      ]
+    },
+    "go.runtime.end-of-support-1.20-and-older": {
+      "event": "unsupported",
+      "date": "2024-02-06",
+      "sources": [
+        {
+          "title": "Go release history and support policy",
+          "url": "https://go.dev/doc/devel/release"
+        }
+      ]
+    },
+    "go.runtime.end-of-support-1.21": {
+      "event": "unsupported",
+      "date": "2024-08-13",
+      "sources": [
+        {
+          "title": "Go release history and support policy",
+          "url": "https://go.dev/doc/devel/release"
+        }
+      ]
+    },
+    "go.runtime.end-of-support-1.22": {
+      "event": "unsupported",
+      "date": "2025-02-11",
+      "sources": [
+        {
+          "title": "Go release history and support policy",
+          "url": "https://go.dev/doc/devel/release"
+        }
+      ]
+    },
+    "go.runtime.end-of-support-1.23": {
+      "event": "unsupported",
+      "date": "2025-08-12",
+      "sources": [
+        {
+          "title": "Go release history and support policy",
+          "url": "https://go.dev/doc/devel/release"
+        }
+      ]
+    },
+    "go.runtime.end-of-support-1.24": {
+      "event": "unsupported",
+      "date": "2026-02-10",
+      "sources": [
+        {
+          "title": "Go release history and support policy",
+          "url": "https://go.dev/doc/devel/release"
+        }
+      ]
+    },
+    "go.runtime.end-of-support-1.25": {
+      "event": "unsupported",
+      "date": "2026-08-19",
+      "sources": [
+        {
+          "title": "Go release history and support policy",
+          "url": "https://go.dev/doc/devel/release"
+        }
+      ]
+    },
+    "java.jdk.end-of-support-12-16": {
+      "event": "unsupported",
+      "date": null,
+      "sources": [
+        {
+          "title": "Oracle Java SE Support Roadmap",
+          "url": "https://www.oracle.com/java/technologies/java-se-support-roadmap.html"
+        },
+        {
+          "title": "Eclipse Temurin support",
+          "url": "https://adoptium.net/support/"
+        }
+      ]
+    },
+    "java.jdk.end-of-support-18-20": {
+      "event": "unsupported",
+      "date": null,
+      "sources": [
+        {
+          "title": "Oracle Java SE Support Roadmap",
+          "url": "https://www.oracle.com/java/technologies/java-se-support-roadmap.html"
+        },
+        {
+          "title": "Eclipse Temurin support",
+          "url": "https://adoptium.net/support/"
+        }
+      ]
+    },
+    "java.jdk.end-of-support-22-24": {
+      "event": "unsupported",
+      "date": null,
+      "sources": [
+        {
+          "title": "Oracle Java SE Support Roadmap",
+          "url": "https://www.oracle.com/java/technologies/java-se-support-roadmap.html"
+        },
+        {
+          "title": "Eclipse Temurin support",
+          "url": "https://adoptium.net/support/"
+        }
+      ]
+    },
+    "java.jdk.end-of-support-9-10": {
+      "event": "unsupported",
+      "date": null,
+      "sources": [
+        {
+          "title": "Oracle Java SE Support Roadmap",
+          "url": "https://www.oracle.com/java/technologies/java-se-support-roadmap.html"
+        }
+      ]
+    },
+    "kubernetes.release.1.28-and-older": {
+      "event": "end-of-life",
+      "date": null,
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.29": {
+      "event": "end-of-life",
+      "date": "2025-02-28",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.30": {
+      "event": "end-of-life",
+      "date": "2025-07-15",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.31": {
+      "event": "end-of-life",
+      "date": "2025-11-11",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.32": {
+      "event": "end-of-life",
+      "date": "2026-02-28",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.33": {
+      "event": "end-of-life",
+      "date": "2026-06-28",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.34": {
+      "event": "end-of-life",
+      "date": "2026-10-27",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.35": {
+      "event": "scheduled",
+      "date": "2027-02-28",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "kubernetes.release.end-of-life-1.36": {
+      "event": "scheduled",
+      "date": "2027-06-28",
+      "sources": [
+        {
+          "title": "Kubernetes release history",
+          "url": "https://kubernetes.io/releases/"
+        }
+      ]
+    },
+    "nodejs.runtime.eol-18": {
+      "event": "end-of-life",
+      "date": "2025-04-30",
+      "sources": [
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "nodejs.runtime.eol-19": {
+      "event": "end-of-life",
+      "date": "2023-06-01",
+      "sources": [
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "nodejs.runtime.eol-20": {
+      "event": "end-of-life",
+      "date": "2026-04-30",
+      "sources": [
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "nodejs.runtime.eol-21": {
+      "event": "end-of-life",
+      "date": "2024-06-01",
+      "sources": [
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "nodejs.runtime.eol-22": {
+      "event": "scheduled",
+      "date": "2027-04-30",
+      "sources": [
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "nodejs.runtime.eol-23": {
+      "event": "end-of-life",
+      "date": "2025-06-01",
+      "sources": [
+        {
+          "title": "Node.js Release Working Group schedule",
+          "url": "https://github.com/nodejs/Release/blob/main/schedule.json"
+        }
+      ]
+    },
+    "nodejs.runtime.legacy": {
+      "event": "end-of-life",
+      "date": null,
+      "sources": [
+        {
+          "title": "Node.js end-of-life releases",
+          "url": "https://nodejs.org/en/about/eol"
+        }
+      ]
+    },
+    "npm.package.next.12.support-end": {
+      "event": "unsupported",
+      "date": "2023-10-26",
+      "sources": [
+        {
+          "title": "Next.js support policy",
+          "url": "https://nextjs.org/support-policy"
+        },
+        {
+          "title": "Next.js upgrade guide: version 13",
+          "url": "https://nextjs.org/docs/pages/building-your-application/upgrading/version-13"
+        },
+        {
+          "title": "Next.js upgrade guide: version 14",
+          "url": "https://nextjs.org/docs/app/building-your-application/upgrading/version-14"
+        },
+        {
+          "title": "Next.js upgrade guide: version 15",
+          "url": "https://nextjs.org/docs/app/guides/upgrading/version-15"
+        },
+        {
+          "title": "Next.js upgrade guide: version 16",
+          "url": "https://nextjs.org/docs/app/guides/upgrading/version-16"
+        }
+      ]
+    },
+    "npm.package.next.13.support-end": {
+      "event": "unsupported",
+      "date": "2024-10-26",
+      "sources": [
+        {
+          "title": "Next.js support policy",
+          "url": "https://nextjs.org/support-policy"
+        },
+        {
+          "title": "Next.js upgrade guide: version 14",
+          "url": "https://nextjs.org/docs/app/building-your-application/upgrading/version-14"
+        },
+        {
+          "title": "Next.js upgrade guide: version 15",
+          "url": "https://nextjs.org/docs/app/guides/upgrading/version-15"
+        },
+        {
+          "title": "Next.js upgrade guide: version 16",
+          "url": "https://nextjs.org/docs/app/guides/upgrading/version-16"
+        }
+      ]
+    },
+    "npm.package.next.14.support-end": {
+      "event": "unsupported",
+      "date": "2025-10-26",
+      "sources": [
+        {
+          "title": "Next.js support policy",
+          "url": "https://nextjs.org/support-policy"
+        },
+        {
+          "title": "Next.js upgrade guide: version 15",
+          "url": "https://nextjs.org/docs/app/guides/upgrading/version-15"
+        },
+        {
+          "title": "Next.js upgrade guide: version 16",
+          "url": "https://nextjs.org/docs/app/guides/upgrading/version-16"
+        }
+      ]
+    },
+    "npm.package.next.15.support-end": {
+      "event": "unsupported",
+      "date": "2026-10-21",
+      "sources": [
+        {
+          "title": "Next.js support policy",
+          "url": "https://nextjs.org/support-policy"
+        },
+        {
+          "title": "Next.js upgrade guide: version 16",
+          "url": "https://nextjs.org/docs/app/guides/upgrading/version-16"
+        }
+      ]
+    },
+    "npm.package.node-sass.deprecated": {
+      "event": "deprecated",
+      "date": null,
+      "sources": [
+        {
+          "title": "node-sass package deprecation notice",
+          "url": "https://www.npmjs.com/package/node-sass"
+        },
+        {
+          "title": "node-sass registry metadata",
+          "url": "https://registry.npmjs.org/node-sass"
+        }
+      ]
+    },
+    "npm.package.node-sass.eol": {
+      "event": "end-of-life",
+      "date": "2024-07-24",
+      "sources": [
+        {
+          "title": "Node Sass is end-of-life",
+          "url": "https://sass-lang.com/blog/node-sass-is-end-of-life/"
+        }
+      ]
+    },
+    "npm.package.request.deprecated": {
+      "event": "deprecated",
+      "date": "2020-02-11",
+      "sources": [
+        {
+          "title": "request package deprecation notice",
+          "url": "https://www.npmjs.com/package/request"
+        }
+      ]
+    },
+    "php.runtime.eol-7.2": {
+      "event": "end-of-life",
+      "date": "2020-11-30",
+      "sources": [
+        {
+          "title": "PHP release branches",
+          "url": "https://www.php.net/releases/branches.php"
+        },
+        {
+          "title": "PHP supported versions",
+          "url": "https://www.php.net/supported-versions.php"
+        }
+      ]
+    },
+    "php.runtime.eol-7.3": {
+      "event": "end-of-life",
+      "date": "2021-12-06",
+      "sources": [
+        {
+          "title": "PHP release branches",
+          "url": "https://www.php.net/releases/branches.php"
+        },
+        {
+          "title": "PHP supported versions",
+          "url": "https://www.php.net/supported-versions.php"
+        }
+      ]
+    },
+    "php.runtime.eol-7.4": {
+      "event": "end-of-life",
+      "date": "2022-11-28",
+      "sources": [
+        {
+          "title": "PHP unsupported branches",
+          "url": "https://www.php.net/eol.php"
+        },
+        {
+          "title": "PHP supported versions",
+          "url": "https://www.php.net/supported-versions.php"
+        }
+      ]
+    },
+    "php.runtime.eol-8.0": {
+      "event": "end-of-life",
+      "date": "2023-11-26",
+      "sources": [
+        {
+          "title": "PHP unsupported branches",
+          "url": "https://www.php.net/eol.php"
+        },
+        {
+          "title": "PHP supported versions",
+          "url": "https://www.php.net/supported-versions.php"
+        }
+      ]
+    },
+    "php.runtime.eol-8.1": {
+      "event": "end-of-life",
+      "date": "2025-12-31",
+      "sources": [
+        {
+          "title": "PHP unsupported branches",
+          "url": "https://www.php.net/eol.php"
+        },
+        {
+          "title": "PHP supported versions",
+          "url": "https://www.php.net/supported-versions.php"
+        }
+      ]
+    },
+    "python.package.distribute.deprecated": {
+      "event": "deprecated",
+      "date": null,
+      "sources": [
+        {
+          "title": "Distribute deprecation notice",
+          "url": "https://pypi.org/project/distribute/"
+        }
+      ]
+    },
+    "python.package.nose.maintenance-only": {
+      "event": "deprecated",
+      "date": null,
+      "sources": [
+        {
+          "title": "nose note to users",
+          "url": "https://nose.readthedocs.io/en/latest/"
+        }
+      ]
+    },
+    "python.runtime.eol-3.10-and-older": {
+      "event": "end-of-life",
+      "date": "2026-10-01",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/"
+        },
+        {
+          "title": "Python release cycle (machine-readable)",
+          "url": "https://peps.python.org/api/release-cycle.json"
+        },
+        {
+          "title": "PEP 619 — Python 3.10 release schedule",
+          "url": "https://peps.python.org/pep-0619/"
+        }
+      ]
+    },
+    "python.runtime.eol-3.9-and-older": {
+      "event": "end-of-life",
+      "date": "2025-10-31",
+      "sources": [
+        {
+          "title": "Status of Python versions",
+          "url": "https://devguide.python.org/versions/"
+        },
+        {
+          "title": "PEP 596 — Python 3.9 release schedule",
+          "url": "https://peps.python.org/pep-0596/"
+        }
+      ]
+    },
+    "ruby.runtime.eol-2.5": {
+      "event": "end-of-life",
+      "date": "2021-04-05",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "ruby.runtime.eol-2.6": {
+      "event": "end-of-life",
+      "date": "2022-04-12",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "ruby.runtime.eol-2.7": {
+      "event": "end-of-life",
+      "date": "2023-03-31",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "ruby.runtime.eol-3.0": {
+      "event": "end-of-life",
+      "date": "2024-04-23",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "ruby.runtime.eol-3.1": {
+      "event": "end-of-life",
+      "date": "2025-03-26",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "ruby.runtime.eol-3.2": {
+      "event": "end-of-life",
+      "date": "2026-04-01",
+      "sources": [
+        {
+          "title": "Ruby maintenance branches",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/"
+        }
+      ]
+    },
+    "rust.toolchain.end-of-support-1.98-and-older": {
+      "event": "unsupported",
+      "date": "2026-10-01",
+      "sources": [
+        {
+          "title": "Rust security policy",
+          "url": "https://www.rust-lang.org/policies/security"
+        },
+        {
+          "title": "Rust release notes (release dates)",
+          "url": "https://github.com/rust-lang/rust/blob/master/RELEASES.md"
+        }
+      ]
+    },
+    "shell.powershell.end-of-life-7.0": {
+      "event": "end-of-life",
+      "date": "2022-12-03",
+      "sources": [
+        {
+          "title": "PowerShell support lifecycle",
+          "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle"
+        }
+      ]
+    },
+    "shell.powershell.end-of-life-7.1": {
+      "event": "end-of-life",
+      "date": "2022-05-08",
+      "sources": [
+        {
+          "title": "PowerShell support lifecycle",
+          "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle"
+        }
+      ]
+    },
+    "shell.powershell.end-of-life-7.2": {
+      "event": "end-of-life",
+      "date": "2024-11-08",
+      "sources": [
+        {
+          "title": "PowerShell support lifecycle",
+          "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle"
+        }
+      ]
+    },
+    "shell.powershell.end-of-life-7.3": {
+      "event": "end-of-life",
+      "date": "2024-05-08",
+      "sources": [
+        {
+          "title": "PowerShell support lifecycle",
+          "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle"
+        }
+      ]
+    },
+    "shell.powershell.end-of-life-7.4": {
+      "event": "end-of-life",
+      "date": "2026-11-10",
+      "sources": [
+        {
+          "title": "PowerShell support lifecycle",
+          "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle"
+        }
+      ]
+    },
+    "swift.app-store.ios-below-13": {
+      "event": "unsupported",
+      "date": "2026-09-09",
+      "sources": [
+        {
+          "title": "iOS and iPadOS minimum system requirements — App Store upcoming requirements",
+          "url": "https://developer.apple.com/news/upcoming-requirements/?id=0992026a"
+        }
+      ]
+    },
+    "swift.xcode.app-store-15-through-25": {
+      "event": "unsupported",
+      "date": "2026-04-28",
+      "sources": [
+        {
+          "title": "SDK minimum requirements — App Store upcoming requirements (Xcode 26)",
+          "url": "https://developer.apple.com/news/upcoming-requirements/?id=04282026a"
+        }
+      ]
+    },
+    "swift.xcode.app-store-below-15": {
+      "event": "unsupported",
+      "date": "2024-04-29",
+      "sources": [
+        {
+          "title": "Xcode 15 — App Store upcoming requirements",
+          "url": "https://developer.apple.com/news/upcoming-requirements/?id=04292024a"
+        }
+      ]
+    }
+  }
+}

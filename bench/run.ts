@@ -13,6 +13,9 @@ export interface BenchmarkSuiteResult {
   nodeVersion: string;
   platform: string;
   arch: string;
+  runner: string;
+  commit: string | null;
+  command: string;
   results: Record<string, BenchmarkStats>;
 }
 
@@ -49,6 +52,9 @@ export function runAllBenchmarks(outputPath = "bench-results.json"): BenchmarkSu
     nodeVersion: process.version,
     platform: process.platform,
     arch: process.arch,
+    runner: process.env.EBB_BENCH_RUNNER ?? "local",
+    commit: process.env.GITHUB_SHA ?? null,
+    command: "npm run bench",
     results,
   };
 

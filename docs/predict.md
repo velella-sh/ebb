@@ -34,6 +34,14 @@ For each ended line with an observed end, replay at its first release. Hide the 
 | `pkg:generic/dotnet` | cadence | 7 | 153 | 71.4% |
 | `pkg:generic/golang` | policy | 6 | 5.5 | 100.0% |
 | `pkg:generic/golang` | cadence | 2 | 4 | 0.0% |
+| `pkg:generic/helm` | policy | 0 | — | — |
+| `pkg:generic/helm` | cadence | 0 | — | — |
+| `pkg:generic/linux-cip` | policy | 0 | — | — |
+| `pkg:generic/linux-cip` | cadence | 0 | — | — |
+| `pkg:generic/odoo-enterprise` | policy | 0 | — | — |
+| `pkg:generic/odoo-enterprise` | cadence | 0 | — | — |
+| `pkg:generic/linux` | policy | 0 | — | — |
+| `pkg:generic/linux` | cadence | 0 | — | — |
 | `pkg:generic/java` | policy | 8 | 0 | 100.0% |
 | `pkg:generic/java` | cadence | 4 | 0 | 100.0% |
 | `pkg:generic/nodejs` | policy | 0 | — | — |

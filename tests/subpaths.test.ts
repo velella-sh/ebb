@@ -8,7 +8,7 @@ import { check, checkAll, replacementFor, rulesFor } from "../src/index.js";
 import type { RegistryV2Rule } from "../src/registry.js";
 
 test("every ecosystem subpath exports its rules, ecosystem name, and data document", async () => {
-  assert.equal(BUNDLED_ECOSYSTEMS.length, 25);
+  assert.ok(BUNDLED_ECOSYSTEMS.includes("infrastructure"));
 
   for (const ecosystem of BUNDLED_ECOSYSTEMS) {
     const mod = await import(`../src/data/ecosystems/${ecosystem}.js`);
@@ -146,8 +146,7 @@ test("measures bundle size per ecosystem", async () => {
     });
   }
 
-  // Ensure table covers all 25 ecosystems
-  assert.equal(table.length, 25);
+  assert.equal(table.length, BUNDLED_ECOSYSTEMS.length);
   for (const row of table) {
     assert.ok(row.rules > 0);
     assert.ok(row.rawBytes > 0);

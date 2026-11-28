@@ -1,10 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
-import { test } from "node:test";
+import { spawnSync } from "node:child_process";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { delimiter, dirname, join, resolve } from "node:path";
+import { test, type TestContext } from "node:test";
 import { parse } from "yaml";
 
 import { DATA_SIGNER } from "../src/data-bundle.js";
+import { appendReleaseLog } from "../src/data-release-log.js";
 
 interface Step {
   name?: string;
@@ -50,9 +53,10 @@ test("it releases on data tags and weekly schedule, and a manual run is a dry ru
   assert.match(publish.if ?? "", /github\.event_name == 'schedule'/, "scheduled runs publish");
 });
 
-test("permissions are read-only except in the release job, which needs contents, OIDC, issues, and PRs", () => {
+test("the release job can read source artifacts and has the existing publishing permissions", () => {
   assert.deepEqual(workflow.permissions, { contents: "read" });
   assert.deepEqual(job.permissions, {
+    actions: "read",
     contents: "write",
     "id-token": "write",
     issues: "write",
@@ -179,4 +183,163 @@ test("data-release-8: prepares a patch pull request with fresh data after releas
   assert.match(commands, /npm version patch --no-git-tag-version/);
   assert.match(commands, /gh pr create/);
   assert.match(commands, /--body-file out\/release-notes\.md/);
+});
+
+async function stepDirectory(t: TestContext): Promise<string> {
+  const dir = await mkdtemp(join(tmpdir(), "ebb-release-step-"));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  return dir;
+}
+
+function runStep(dir: string, commands: string, env: Record<string, string> = {}) {
+  const useBuiltTools = 'node() { local entry="$1"; shift; command node "$TEST_ROOT/$entry" "$@"; }\n';
+  return spawnSync("bash", ["-e", "-c", useBuiltTools + commands], {
+    cwd: dir,
+    encoding: "utf8",
+    env: {
+      PATH: dirname(process.execPath) + delimiter + (process.env.PATH ?? ""),
+      TEST_ROOT: resolve("."),
+      TMPDIR: dir,
+      GITHUB_OUTPUT: join(dir, "output.txt"),
+      GITHUB_STEP_SUMMARY: join(dir, "summary.txt"),
+      ...env,
+    },
+  });
+}
+
+const versionStep = job.steps.find(({ name }) => name === "Work out the version")!.run!;
+const sourceStep = job.steps.find(({ name }) => name === "Quality gate - source report date-changed")!.run!;
+
+function logEntry(version: string): Parameters<typeof appendReleaseLog>[1] {
+  return {
+    version,
+    contentDigest: "sha256:" + "a".repeat(64),
+    bundleSha256: "sha256:" + "b".repeat(64),
+    createdAt: version.split(".").slice(0, 3).join("-") + "T07:00:00Z",
+  };
+}
+
+test("run 45668959310's first release that day produces valid GitHub outputs", {
+  skip: process.platform === "win32",
+}, async (t) => {
+  const cwd = await stepDirectory(t);
+  await writeFile(join(cwd, "previous-log.jsonl"), appendReleaseLog("", logEntry("2026.11.11")));
+  const result = runStep(cwd, `git() { printf '%s\\n' '2026-11-21T07:03:01Z'; }\n${versionStep}`, {
+    GITHUB_EVENT_NAME: "schedule",
+    GITHUB_REF_TYPE: "branch",
+  });
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(result.stderr, "");
+  assert.equal(
+    await readFile(join(cwd, "output.txt"), "utf8"),
+    "created_at=2026-11-21T07:03:01Z\nrevision=\ntag=data-v2026.11.21\n",
+  );
+});
+
+test("same-day scheduled and manual releases use the highest verified revision; dry runs and explicit tags keep their version path", {
+  skip: process.platform === "win32",
+}, async (t) => {
+  const cwd = await stepDirectory(t);
+  const log = ["2026.11.11", "2026.11.21", "2026.11.21.2", "2026.11.21.10"].reduce(
+    (text, version) => appendReleaseLog(text, logEntry(version)),
+    "",
+  );
+  const script = `git() { printf '%s\\n' '2026-11-21T07:03:01Z'; }\n${versionStep}`;
+  const logPath = join(cwd, "previous-log.jsonl");
+  await writeFile(logPath, log);
+  for (const [env, suffix] of [
+    [{ GITHUB_EVENT_NAME: "schedule", GITHUB_REF_TYPE: "branch" }, "revision=11\ntag=data-v2026.11.21.11\n"],
+    [
+      { GITHUB_EVENT_NAME: "workflow_dispatch", GITHUB_REF_TYPE: "branch", DRY_RUN: "false" },
+      "revision=11\ntag=data-v2026.11.21.11\n",
+    ],
+    [
+      { GITHUB_EVENT_NAME: "workflow_dispatch", GITHUB_REF_TYPE: "branch", DRY_RUN: "true" },
+      "revision=\ntag=data-dry-run\n",
+    ],
+    [
+      { GITHUB_EVENT_NAME: "push", GITHUB_REF_TYPE: "tag", GITHUB_REF_NAME: "data-v2026.11.21.12" },
+      "revision=12\ntag=data-v2026.11.21.12\n",
+    ],
+  ] as const) {
+    await writeFile(join(cwd, "output.txt"), "");
+    const result = runStep(cwd, script, env);
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(await readFile(join(cwd, "output.txt"), "utf8"), "created_at=2026-11-21T07:03:01Z\n" + suffix);
+  }
+  await writeFile(logPath, log.trimEnd());
+  await writeFile(join(cwd, "output.txt"), "");
+  const broken = runStep(cwd, script, { GITHUB_EVENT_NAME: "schedule", GITHUB_REF_TYPE: "branch" });
+  assert.equal(broken.status, 1);
+  assert.match(broken.stderr, /log must end with a newline/u);
+  assert.equal(await readFile(join(cwd, "output.txt"), "utf8"), "");
+});
+
+test("the source gate selects one completed main run and rejects missing, invalid, and blocking reports", {
+  skip: process.platform === "win32",
+}, async (t) => {
+  const cwd = await stepDirectory(t);
+  const report = {
+    schemaVersion: "ebb.source-check.v1",
+    checkedAt: "2026-11-23T15:59:03.531Z",
+    registries: 25,
+    rules: 830,
+    sources: 528,
+    ok: 500,
+    stale: [],
+    duePromotion: [],
+    unreachable: [],
+    changed: [],
+    blocked: [],
+    unrecorded: [],
+  };
+  const script = `gh() {
+    if [ "$*" = 'run list --workflow sources.yml --branch main --status completed --limit 1 --json databaseId --jq .[0].databaseId // empty' ]; then
+      if [ "$SCENARIO" = 'no-runs' ]; then return; fi
+      echo 45211235089
+    elif [ "$1 $2 $3 $4 $5 $6" = 'run download 45211235089 --name source-report --dir' ]; then
+      if [ "$SCENARIO" = 'no-artifact' ]; then return 1; fi
+      cp source-report.json "$7/source-report.json"
+    else
+      printf 'Unexpected GitHub CLI command: %s\\n' "$*" >&2
+      return 1
+    fi
+  }
+  ${sourceStep}`;
+  const fixture = join(cwd, "source-report.json");
+  await writeFile(fixture, JSON.stringify({ ...report, "date-changed": [] }));
+  const clear = runStep(cwd, script);
+  assert.equal(clear.status, 0, clear.stderr);
+  assert.match(clear.stdout, /45211235089 reported no date-changed findings/u);
+
+  for (const [scenario, content, expected] of [
+    ["no-runs", JSON.stringify(report), /No completed source freshness run/u],
+    ["no-artifact", JSON.stringify(report), /no downloadable source-report artifact/u],
+    ["bad-json", "{}", /has no valid source report/u],
+    ["malformed-json", "{", /has no valid source report/u],
+    ["missing-check", JSON.stringify(report), /has no valid source report/u],
+    ["invalid-results", JSON.stringify({ ...report, "date-changed": "0" }), /has no valid source report/u],
+    [
+      "positive-findings",
+      JSON.stringify({
+        ...report,
+        "date-changed": [
+          {
+            url: "https://example.com/evidence",
+            ruleIds: ["fixture.rule"],
+            expected: "2027-01-01",
+            actual: "2027-02-01",
+          },
+        ],
+      }),
+      /reported 1 date-changed findings/u,
+    ],
+  ] as const) {
+    await writeFile(fixture, content);
+    await writeFile(join(cwd, "summary.txt"), "");
+    const result = runStep(cwd, script, { SCENARIO: scenario });
+    assert.equal(result.status, 1, result.stderr);
+    assert.match(result.stderr, expected);
+    assert.match(await readFile(join(cwd, "summary.txt"), "utf8"), expected);
+  }
 });

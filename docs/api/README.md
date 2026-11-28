@@ -73,7 +73,7 @@ const result = check("pkg:npm/left-pad", "1.3.0");
 ## Data Loading Model
 
 Ebb utilizes on-demand lazy loading:
-- Importing `@velella/ebb` performs **zero** disk I/O, keeping import times under 20ms.
+- The root module loads ecosystem data on first use. See the [Node.js measurements](https://velella.sh/ebb/benchmarks/).
 - Checking a package (e.g. `check("pkg:npm/left-pad", "1.3.0")`) loads and indexes only the relevant ecosystem data (`npm.json` and `osv.json`). Other ecosystems remain unloaded.
 - Concurrent calls to load the same ecosystem share a single in-flight asynchronous promise.
 - Servers can call `await preload()` at startup to pre-warm the in-memory cache.

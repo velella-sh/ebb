@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="coverage-title coverage-desc">
+  <title id="coverage-title">Ebb data coverage · Week of 2026-11-23</title>
+  <desc id="coverage-desc">782 rules, 416 components, 733 recorded gaps. Signed data 2026.11.11 as of 2026-11-28 UTC.</desc>
+  <rect width="1200" height="630" fill="#F7F2E8"/>
+  <g transform="translate(1012 49) scale(1.1)" aria-hidden="true"><path d="M26 34H70A6 6 0 0 1 76 40V40A6 6 0 0 1 70 46H26A6 6 0 0 1 20 40V40A6 6 0 0 1 26 34ZM38 54H82A6 6 0 0 1 88 60V60A6 6 0 0 1 82 66H38A6 6 0 0 1 32 60V60A6 6 0 0 1 38 54ZM50 74H94A6 6 0 0 1 100 80V80A6 6 0 0 1 94 86H50A6 6 0 0 1 44 80V80A6 6 0 0 1 50 74Z" fill="#3F6E66"/></g>
+  <g font-family="system-ui, sans-serif">
+    <text x="72" y="120" fill="#3F6E66" font-size="34">Week of 2026-11-23</text>
+    <text x="72" y="226" fill="#26221E" font-size="72" font-weight="700">Ebb data coverage</text>
+    <path d="M72 293h1056" stroke="#CBCEC1" stroke-width="2"/>
+    <text x="72" y="444" fill="#3F6E66" font-size="102" font-weight="700">782</text>
+    <text x="72" y="510" fill="#26221E" font-size="34">Rules</text>
+    <text x="452" y="444" fill="#3F6E66" font-size="102" font-weight="700">416</text>
+    <text x="452" y="510" fill="#26221E" font-size="34">Components</text>
+    <text x="832" y="444" fill="#3F6E66" font-size="102" font-weight="700">733</text>
+    <text x="832" y="510" fill="#26221E" font-size="34">Gaps</text>
+    <text x="72" y="580" fill="#555D54" font-size="26">Signed data 2026.11.11 · 2026-11-28 UTC</text>
+  </g>
+</svg>

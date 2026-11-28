@@ -11,11 +11,6 @@ Ebb is fully supported in serverless Edge runtimes, including **Cloudflare Worke
 
 ---
 
-> [!NOTE]
-> Ebb's complete 25-ecosystem bundle is ~135 KB compressed, using only ~13% of Cloudflare Workers' 1 MB free-tier compressed bundle limit.
-
----
-
 ## Why Ebb Works at the Edge
 
 Edge runtimes execute code in V8 isolates without access to standard Node.js APIs like `node:fs` or `node:child_process`.
@@ -23,7 +18,6 @@ Edge runtimes execute code in V8 isolates without access to standard Node.js API
 Ebb is architected for edge runtimes:
 - **Zero Node Dependencies:** Core evaluation (`check`, `checkAll`, `replacementFor`, `rulesFor`) has zero platform dependencies.
 - **Dedicated Export Conditions:** `package.json` maps `"workerd"`, `"worker"`, and `"edge-light"` conditions to `./dist/src/browser.js`.
-- **Under the Cloudflare Free Plan Limit:** Full in-memory bundle is ~135 KB compressed, well below Cloudflare Workers' 1 MB compressed limit for free accounts.
 
 ---
 
@@ -65,16 +59,10 @@ export default async function handler(request: Request): Promise<Response> {
 
 ---
 
-## Size Budget & Constraints
+## Deployment size
 
-| Runtime Constraint | Limit | Ebb Full Bundle | Margin |
-| :--- | :--- | :--- | :--- |
-| Cloudflare Workers Free Tier (Compressed) | 1,000 KB | **~135 KB** | ~86% free |
-| Cloudflare Workers Free Tier (Uncompressed) | 3,000 KB | **~1,525 KB** | ~49% free |
-| Vercel Edge Function Size | 1,000 KB | **~135 KB** | ~86% free |
-
----
+Check the compiled function size against your platform limits. The [benchmark page](https://velella.sh/ebb/benchmarks/) links the separate npm package budget.
 
 ## Continuous Testing in CI
 
-Edge compatibility is tested in CI under Cloudflare's native `workerd` runtime using Miniflare (`tests/edge/edge.test.ts`). Every release and PR verifies that Ebb initializes, evaluates lifecycle rules, and stays strictly within the bundle size limit.
+Edge compatibility is tested in CI under Cloudflare's native `workerd` runtime using Miniflare (`tests/edge/edge.test.ts`). These tests verify initialization and lifecycle evaluation.

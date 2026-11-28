@@ -1,0 +1,111 @@
+name: Tide report preview
+
+on:
+  schedule:
+    - cron: "17 7 * * 1"
+  workflow_dispatch:
+    inputs:
+      month:
+        description: Report period (YYYY-MM, defaults to the current UTC month)
+        type: string
+  pull_request:
+    paths:
+      - ".github/workflows/tide-report.yml"
+      - "tools/tide-report.ts"
+      - "tests/tide-report.test.ts"
+      - "docs/tide-report.md"
+
+permissions: {}
+
+jobs:
+  period:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.period.outputs.enabled }}
+      month: ${{ steps.period.outputs.month }}
+    steps:
+      - name: Choose the UTC report period
+        id: period
+        env:
+          REQUESTED_MONTH: ${{ inputs.month }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%d)" -gt 7 ]; then
+            echo 'enabled=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          month="${REQUESTED_MONTH:-$(date -u +%Y-%m)}"
+          if [[ ! "$month" =~ ^[0-9]{4}-(0[1-9]|1[0-2])$ ]]; then
+            echo "Expected a report period in YYYY-MM format." >&2
+            exit 1
+          fi
+          printf 'enabled=true\nmonth=%s\n' "$month" >> "$GITHUB_OUTPUT"
+
+  preview:
+    name: Build the Tide preview from signed data
+    needs: period
+    if: needs.period.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build the generator
+        run: npm run build --silent
+      - name: Install the pinned site tools
+        run: |
+          site_tools="$RUNNER_TEMP/tide-tools"
+          mkdir "$site_tools"
+          printf 'TIDE_SITE_TOOLS=%s/node_modules\n' "$site_tools" >> "$GITHUB_ENV"
+          cd "$site_tools"
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund --save-exact @velella/mizzen@0.2.7 @velella/lateen@0.2.5 @velella/ebb@0.2.0
+      - name: Use the site’s signed data pin
+        env:
+          REQUESTED_MONTH: ${{ needs.period.outputs.month }}
+        run: |
+          node --input-type=module <<'JS' >> "$GITHUB_ENV"
+          import { readFileSync } from "node:fs";
+          import { parse } from "yaml";
+          import { addMonths } from "./dist/src/upcoming.js";
+          const { SITE_DATA_VERSION, SITE_DATA_SHA256 } = parse(readFileSync(".github/workflows/deploy-site.yml", "utf8")).jobs.build.env;
+          if (!/^\d{4}\.\d{2}\.\d{2}(?:\.\d+)?$/.test(SITE_DATA_VERSION) || !/^[a-f0-9]{64}$/.test(SITE_DATA_SHA256)) {
+            throw new Error("Invalid signed site data pin.");
+          }
+          const month = process.env.GITHUB_EVENT_NAME === "pull_request"
+            ? addMonths(SITE_DATA_VERSION.slice(0, 7).replace(".", "-") + "-01", 1).slice(0, 7)
+            : process.env.REQUESTED_MONTH;
+          console.log(`SITE_DATA_VERSION=${SITE_DATA_VERSION}\nSITE_DATA_SHA256=${SITE_DATA_SHA256}\nTIDE_MONTH=${month}`);
+          JS
+      - name: Generate the preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_dir="$RUNNER_TEMP/tide-release"
+          bundle="ebb-data-$SITE_DATA_VERSION.json"
+          gh release download "data-v$SITE_DATA_VERSION" --repo "$GITHUB_REPOSITORY" --dir "$release_dir" \
+            --pattern "$bundle" --pattern "$bundle.sigstore.json" \
+            --pattern release-log.jsonl --pattern release-log.jsonl.sigstore.json
+          mkdir -p tide-preview
+          node dist/tools/tide-report.js --month "$TIDE_MONTH" --data-version "$SITE_DATA_VERSION" --sha256 "$SITE_DATA_SHA256" \
+            --bundle "$release_dir/$bundle" --signature "$release_dir/$bundle.sigstore.json" \
+            --historical-verifier "$TIDE_SITE_TOOLS/@velella/ebb" \
+            --site-tools "$TIDE_SITE_TOOLS" --card tide-preview/tide-card.png > tide-preview/tide-report.md
+          cat tide-preview/tide-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Test the preview and shared renderer
+        env:
+          EBB_SITE_TOOLS: ${{ env.TIDE_SITE_TOOLS }}
+        run: node --test dist/tests/tide-report.test.js
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: tide-report-${{ env.TIDE_MONTH }}
+          path: tide-preview/
+          overwrite: true
+          if-no-files-found: error

@@ -14,6 +14,7 @@ import { data as dotnet } from "./ecosystems/dotnet.js";
 import { data as elixir } from "./ecosystems/elixir.js";
 import { data as githubActions } from "./ecosystems/github-actions.js";
 import { data as go } from "./ecosystems/go.js";
+import { data as infrastructure } from "./ecosystems/infrastructure.js";
 import { data as java } from "./ecosystems/java.js";
 import { data as kubernetes } from "./ecosystems/kubernetes.js";
 import { data as nodejs } from "./ecosystems/nodejs.js";
@@ -41,6 +42,7 @@ export const BUNDLED_DATA: Record<string, unknown> = {
   elixir,
   "github-actions": githubActions,
   go,
+  infrastructure,
   java,
   kubernetes,
   nodejs,

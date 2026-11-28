@@ -63,9 +63,9 @@ Evaluation logic and criteria are implemented in [`src/confidence.ts`](https://g
 
 ## 5. Cryptographically Signed Data Releases
 
-Ebb publishes updated lifecycle data bundles independently of package releases. Every bundle is cryptographically signed using Sigstore Cosign:
+Ebb publishes updated lifecycle data bundles independently of package releases. Every bundle is cryptographically signed using Sigstore Cosign. Follow the [verification guide](https://velella.sh/ebb/verify/) on a published data release or consult the [Scorecard result and plan](https://velella.sh/ebb/scorecard/).
 
-- **Keyless signing**: Signed in GitHub Actions using OpenID Connect identity tokens in [`.github/workflows/release-data.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/release-data.yml).
+- **Keyless signing**: Signed in GitHub Actions using OpenID Connect identity tokens in [`.github/workflows/data-release.yml`](https://github.com/velella-sh/ebb/blob/main/.github/workflows/data-release.yml).
 - **Offline bundle verification**: Verification executes completely offline using the bundled Sigstore trusted root in [`data/`](https://github.com/velella-sh/ebb/blob/main/data/).
 - **Verification engine**: Implemented in [`src/verify.ts`](https://github.com/velella-sh/ebb/blob/main/src/verify.ts) and [`src/data-signature.ts`](https://github.com/velella-sh/ebb/blob/main/src/data-signature.ts).
 - **Automated test**: Tested in [`tests/verify.test.ts`](https://github.com/velella-sh/ebb/blob/main/tests/verify.test.ts) and [`tests/data-bundle.test.ts`](https://github.com/velella-sh/ebb/blob/main/tests/data-bundle.test.ts).

@@ -62,4 +62,4 @@ The skill prompts agents to return compact, actionable verdicts:
 
 ## Benchmark Evaluations
 
-To inspect empirical benchmark results measuring agent accuracy with and without the Ebb skill, see [Agent Evaluations](agent-evals.md).
+[Agent Evaluations](https://velella.sh/ebb/agent-evals/) documents the simulated skill scoring fixtures and how to reproduce them.

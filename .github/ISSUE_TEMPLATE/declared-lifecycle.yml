@@ -1,0 +1,36 @@
+name: Declared lifecycle
+description: Suggest a project with a maintainer-published lifecycle declaration
+title: "data: consider a lifecycle declaration for "
+body:
+  - type: markdown
+    attributes:
+      value: An Ebb maintainer reviews this submission before changing the candidate list.
+  - type: dropdown
+    id: ecosystem
+    attributes:
+      label: Package registry
+      options:
+        - npm
+        - PyPI
+    validations:
+      required: true
+  - type: input
+    id: package
+    attributes:
+      label: Package name
+      description: Use the name listed in the selected registry.
+    validations:
+      required: true
+  - type: input
+    id: repository
+    attributes:
+      label: Public project repository
+    validations:
+      required: true
+  - type: input
+    id: declaration
+    attributes:
+      label: Declaration path
+      description: Provide a path within the repository or the manifest field, such as package.json#lifecycle.
+    validations:
+      required: true

@@ -1,6 +1,7 @@
 // Checks and extends the hash-chained log of data releases (docs/DATA.md, "Release log").
 //
 //   node dist/tools/data-release-log.js check <log.jsonl> [--previous <older-log.jsonl>]
+//   node dist/tools/data-release-log.js next-revision <log.jsonl> <YYYY.MM.DD>
 //   node dist/tools/data-release-log.js append <log.jsonl> --bundle <bundle.json> --out <new-log.jsonl>
 //
 // `check` exits 1 when an entry was changed, removed, or reordered, or (with --previous) when the log is not an
@@ -39,10 +40,35 @@ function readManifest(bundleText: string): { version: string; createdAt: string;
   return { version, createdAt, contentDigest };
 }
 
+/** Use the next revision after the greatest published version for this UTC release day. */
+function nextRevision(log: string, day: string): number {
+  let latest = -1;
+  for (const { version } of verifyReleaseLog(log)) {
+    const [year, month, date, suffix, ...extra] = version.split(".");
+    if ([year, month, date].join(".") !== day) continue;
+    const revision = suffix === undefined ? 0 : Number(suffix);
+    if (extra.length || (suffix !== undefined && (!/^[1-9]\d*$/u.test(suffix) || !Number.isSafeInteger(revision)))) {
+      throw new Error(`Invalid release-log version ${version} for ${day}.`);
+    }
+    latest = Math.max(latest, revision);
+  }
+  if (!Number.isSafeInteger(latest + 1)) throw new Error(`No safe release revision is available for ${day}.`);
+  return latest + 1;
+}
+
 export async function main(argv: string[]): Promise<void> {
   const [command, logPath] = argv;
-  if (!logPath || (command !== "check" && command !== "append"))
-    throw new Error("Usage: data-release-log.js check|append <log.jsonl> [options]");
+  if (!logPath || (command !== "check" && command !== "append" && command !== "next-revision"))
+    throw new Error("Usage: data-release-log.js check|append|next-revision <log.jsonl> [options]");
+
+  if (command === "next-revision") {
+    const day = argv[2];
+    if (!day || !/^\d{4}\.\d{2}\.\d{2}$/u.test(day))
+      throw new Error("next-revision needs a UTC day in YYYY.MM.DD format.");
+    const text = await readFile(resolve(logPath), "utf8");
+    process.stdout.write(`${nextRevision(text, day)}\n`);
+    return;
+  }
 
   if (command === "check") {
     const text = await readFile(resolve(logPath), "utf8");

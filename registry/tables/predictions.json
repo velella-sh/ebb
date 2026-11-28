@@ -1,7 +1,7 @@
 {
   "schemaVersion": "ebb.prediction.v1",
   "dataVersion": "2026.11.28",
-  "inputSha256": "4954f16f21138fed4133232fdae5a3b52554f94fd6ccc40ee15cf0d7539db34c",
+  "inputSha256": "a40b7956f3c818e282377f35a98a5f3b2a97cf92d266fe61ffa3d8c3778366b5",
   "predictions": [
     {
       "purl": "pkg:generic/golang",
