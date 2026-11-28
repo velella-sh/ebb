@@ -75,6 +75,8 @@ main:
     children:
       - title: Result model
         url: /result-model/
+      - title: Lifecycle Format working draft
+        url: /spec/1.0/
       - title: Rules and replacements
         url: /rules-for/
       - title: Repairing broken evidence
