@@ -1,7 +1,7 @@
 {
   "importer": "endoflife-date",
   "ecosystem": "container",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "container.amazonlinux.eol-2018.03-and-older",
@@ -18,18 +18,22 @@
         {
           "title": "Amazon Linux release policy (vendor)",
           "url": "https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/amazon-linux",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -48,18 +52,22 @@
         {
           "title": "Caddy release policy (vendor)",
           "url": "https://github.com/caddyserver/caddy/security",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/caddy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -78,18 +86,22 @@
         {
           "title": "ClickHouse release policy (vendor)",
           "url": "https://clickhouse.com/docs/resources/support-center/knowledge-base/setup-installation/production#how-to-choose-between-clickhouse-releases",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/clickhouse",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -108,18 +120,22 @@
         {
           "title": "ClickHouse release policy (vendor)",
           "url": "https://clickhouse.com/docs/resources/support-center/knowledge-base/setup-installation/production#how-to-choose-between-clickhouse-releases",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/clickhouse",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -138,18 +154,22 @@
         {
           "title": "ClickHouse release policy (vendor)",
           "url": "https://clickhouse.com/docs/resources/support-center/knowledge-base/setup-installation/production#how-to-choose-between-clickhouse-releases",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/clickhouse",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -168,18 +188,22 @@
         {
           "title": "Hashicorp Consul release policy (vendor)",
           "url": "https://developer.hashicorp.com/consul/docs/enterprise/support",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/consul",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -198,18 +222,22 @@
         {
           "title": "Hashicorp Consul release policy (vendor)",
           "url": "https://developer.hashicorp.com/consul/docs/enterprise/support",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/consul",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -228,18 +256,22 @@
         {
           "title": "Couchbase Server release policy (vendor)",
           "url": "https://www.couchbase.com/support-policy/enterprise-software/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/couchbase-server",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -258,18 +290,22 @@
         {
           "title": "Couchbase Server release policy (vendor)",
           "url": "https://www.couchbase.com/support-policy/enterprise-software/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/couchbase-server",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -288,18 +324,22 @@
         {
           "title": "Apache CouchDB release policy (vendor)",
           "url": "https://docs.couchdb.org/en/stable/cve/index.html",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/apache-couchdb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -318,18 +358,22 @@
         {
           "title": "Drupal release policy (vendor)",
           "url": "https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/drupal",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -339,27 +383,31 @@
       "purl": "pkg:docker/library/drupal",
       "vers": "vers:semver/>=10.6.0|<10.7.0",
       "event": "scheduled-end-of-life",
-      "title": "Drupal image release line 10.6 reaches end-of-life on 2026-12-16",
-      "summary": "The Drupal 10.6 release line is scheduled to stop receiving fixes from the vendor on 2026-12-16.",
+      "title": "Drupal image release line 10.6 reaches end-of-life on 2026-12-09",
+      "summary": "The Drupal 10.6 release line is scheduled to stop receiving fixes from the vendor on 2026-12-09.",
       "severity": "low",
       "replacement": "A drupal image on a later supported release line",
-      "deadline": "2026-12-16",
+      "deadline": "2026-12-09",
       "sources": [
         {
           "title": "Drupal release policy (vendor)",
           "url": "https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/drupal",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -369,27 +417,31 @@
       "purl": "pkg:docker/library/drupal",
       "vers": "vers:semver/>=11.3.0|<11.4.0",
       "event": "scheduled-end-of-life",
-      "title": "Drupal image release line 11.3 reaches end-of-life on 2026-12-16",
-      "summary": "The Drupal 11.3 release line is scheduled to stop receiving fixes from the vendor on 2026-12-16.",
+      "title": "Drupal image release line 11.3 reaches end-of-life on 2026-12-09",
+      "summary": "The Drupal 11.3 release line is scheduled to stop receiving fixes from the vendor on 2026-12-09.",
       "severity": "low",
       "replacement": "A drupal image on a later supported release line",
-      "deadline": "2026-12-16",
+      "deadline": "2026-12-09",
       "sources": [
         {
           "title": "Drupal release policy (vendor)",
           "url": "https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/drupal",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -399,27 +451,31 @@
       "purl": "pkg:docker/library/drupal",
       "vers": "vers:semver/>=11.4.0|<11.5.0",
       "event": "scheduled-end-of-life",
-      "title": "Drupal image release line 11.4 reaches end-of-life on 2027-07-07",
-      "summary": "The Drupal 11.4 release line is scheduled to stop receiving fixes from the vendor on 2027-07-07.",
+      "title": "Drupal image release line 11.4 reaches end-of-life on 2027-04-21",
+      "summary": "The Drupal 11.4 release line is scheduled to stop receiving fixes from the vendor on 2027-04-21.",
       "severity": "low",
       "replacement": "A drupal image on a later supported release line",
-      "deadline": "2027-07-07",
+      "deadline": "2027-04-21",
       "sources": [
         {
           "title": "Drupal release policy (vendor)",
           "url": "https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/drupal",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -438,18 +494,22 @@
         {
           "title": "Go release policy (vendor)",
           "url": "https://go.dev/doc/devel/release#policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/go",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -468,18 +528,22 @@
         {
           "title": "MariaDB release policy (vendor)",
           "url": "https://mariadb.org/about/#maintenance-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mariadb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -498,18 +562,56 @@
         {
           "title": "MariaDB release policy (vendor)",
           "url": "https://mariadb.org/about/#maintenance-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mariadb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "endoflife-date"
+      }
+    },
+    {
+      "id": "container.mariadb.eol-13.1-and-older",
+      "ecosystem": "container",
+      "purl": "pkg:docker/library/mariadb",
+      "vers": "vers:semver/>=13.1.0|<13.2.0",
+      "event": "scheduled-end-of-life",
+      "title": "MariaDB image release line 13.1 reaches end-of-life on 2027-03-31",
+      "summary": "The MariaDB 13.1 release line is scheduled to stop receiving fixes from the vendor on 2027-03-31.",
+      "severity": "low",
+      "replacement": "A mariadb image on a later supported release line",
+      "deadline": "2027-03-31",
+      "sources": [
+        {
+          "title": "MariaDB release policy (vendor)",
+          "url": "https://mariadb.org/about/#maintenance-policy",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "endoflife.date (index; the vendor page above is the evidence)",
+          "url": "https://endoflife.date/mariadb",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -528,18 +630,56 @@
         {
           "title": "Matomo release policy (vendor)",
           "url": "https://matomo.org/faq/new-to-piwik/faq_18925/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/matomo",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "endoflife-date"
+      }
+    },
+    {
+      "id": "container.matomo.eol-5-and-older",
+      "ecosystem": "container",
+      "purl": "pkg:docker/library/matomo",
+      "vers": "vers:semver/>=5.0.0|<6.0.0",
+      "event": "scheduled-end-of-life",
+      "title": "Matomo image release line 5 reaches end-of-life on 2027-11-23",
+      "summary": "The Matomo 5 release line is scheduled to stop receiving fixes from the vendor on 2027-11-23.",
+      "severity": "low",
+      "replacement": "A matomo image on a later supported release line",
+      "deadline": "2027-11-23",
+      "sources": [
+        {
+          "title": "Matomo release policy (vendor)",
+          "url": "https://matomo.org/faq/new-to-piwik/faq_18925/",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "endoflife.date (index; the vendor page above is the evidence)",
+          "url": "https://endoflife.date/matomo",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -558,18 +698,22 @@
         {
           "title": "MySQL release policy (vendor)",
           "url": "https://www.oracle.com/us/support/library/lifetime-support-technology-069183.pdf",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mysql",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -588,18 +732,22 @@
         {
           "title": "Oracle Linux release policy (vendor)",
           "url": "https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/oracle-linux",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -618,18 +766,22 @@
         {
           "title": "phpMyAdmin release policy (vendor)",
           "url": "https://www.phpmyadmin.net/downloads/#versions",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/phpmyadmin",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -648,18 +800,22 @@
         {
           "title": "Python release policy (vendor)",
           "url": "https://devguide.python.org/versions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/python",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -678,18 +834,22 @@
         {
           "title": "Python release policy (vendor)",
           "url": "https://devguide.python.org/versions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/python",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -708,18 +868,22 @@
         {
           "title": "Redis release policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -738,18 +902,22 @@
         {
           "title": "Redis release policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -768,18 +936,56 @@
         {
           "title": "Redis release policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "endoflife-date"
+      }
+    },
+    {
+      "id": "container.redis.eol-8.8-and-older",
+      "ecosystem": "container",
+      "purl": "pkg:docker/library/redis",
+      "vers": "vers:semver/>=8.8.0|<8.9.0",
+      "event": "scheduled-end-of-life",
+      "title": "Redis image release line 8.8 reaches end-of-life on 2027-01-29",
+      "summary": "The Redis 8.8 release line is scheduled to stop receiving fixes from the vendor on 2027-01-29.",
+      "severity": "low",
+      "replacement": "A redis image on a later supported release line",
+      "deadline": "2027-01-29",
+      "sources": [
+        {
+          "title": "Redis release policy (vendor)",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "endoflife.date (index; the vendor page above is the evidence)",
+          "url": "https://endoflife.date/redis",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -798,18 +1004,22 @@
         {
           "title": "Ruby release policy (vendor)",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/ruby",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -828,48 +1038,56 @@
         {
           "title": "Ruby release policy (vendor)",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/ruby",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
     {
-      "id": "container.traefik.eol-3.6-and-older",
+      "id": "container.traefik.eol-3.7-and-older",
       "ecosystem": "container",
       "purl": "pkg:docker/library/traefik",
-      "vers": "vers:semver/<3.7.0",
+      "vers": "vers:semver/<3.8.0",
       "event": "end-of-life",
-      "title": "Traefik image release lines 3.6 and older are end-of-life",
+      "title": "Traefik image release lines 3.7 and older are end-of-life",
       "summary": "These Traefik release lines no longer receive fixes from the vendor.",
       "severity": "high",
       "replacement": "A traefik image on a supported release line",
-      "deadline": "2026-09-07",
+      "deadline": "2026-11-23",
       "sources": [
         {
           "title": "Traefik release policy (vendor)",
           "url": "https://doc.traefik.io/traefik/deprecation/releases",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/traefik",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -888,18 +1106,22 @@
         {
           "title": "WordPress release policy (vendor)",
           "url": "https://codex.wordpress.org/Supported_Versions",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/wordpress",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     },
@@ -918,18 +1140,22 @@
         {
           "title": "Apache ZooKeeper release policy (vendor)",
           "url": "https://zookeeper.apache.org/releases/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/zookeeper",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "endoflife-date"
       }
     }
@@ -940,6 +1166,6 @@
     "Skipped nodejs: no release line below 1 has ended.",
     "Skipped postgresql: no release line below 6.0 has ended.",
     "Skipped vinyl-cache: no release line below 6.0 has ended.",
-    "Drafted 31 of 24 candidate products; only the vendor release-policy link counts as evidence."
+    "Drafted 34 of 24 candidate products; only the vendor release-policy link counts as evidence."
   ]
 }
