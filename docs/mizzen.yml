@@ -6,6 +6,7 @@ url: https://velella.sh
 base: /ebb
 outputs:
   sitemap: true
+  page-json: true
 social:
   template: lifecycle
   fonts: [_templates/social/manrope-regular.ttf]
@@ -16,7 +17,19 @@ repository:
   url: https://github.com/velella-sh/ebb
   branch: main
   dir: docs
+feeds:
+  data-releases:
+    collection: data-releases
+    title: Ebb lifecycle data releases
+    date: createdAt
+    formats: [rss, atom]
 collections:
+  data-releases:
+    source: _data/site-records/data-releases.json
+    template: _templates/data-release.md
+    permalink: /data-releases/{id}/
+    id: id
+    schema: _data/data-release.schema.json
   products:
     source: _data/site-records/products.json
     template: _templates/product.md

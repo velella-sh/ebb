@@ -6,6 +6,7 @@ import { pathToFileURL } from "node:url";
 import { generateSiteData } from "./generate.js";
 import { writeSitePages } from "./pages.js";
 import { readSiteRelease } from "./release.js";
+import { readSiteReleaseLog } from "./releases.js";
 import { validateSiteDataDir } from "./validate.js";
 
 function getArg(argv: string[], name: string): string | undefined {
@@ -32,10 +33,12 @@ export async function main(argv: string[]): Promise<void> {
   if (bundlePath && (!signaturePath || !sha256 || !dataVersion)) {
     throw new Error("Signed site data requires --signature, --sha256 and --data-version.");
   }
-  const rules =
+  const releaseInput =
     bundlePath && signaturePath && sha256 && dataVersion
-      ? await readSiteRelease({ bundlePath, signaturePath, version: dataVersion, sha256, historicalVerifier })
+      ? { bundlePath, signaturePath, version: dataVersion, sha256, historicalVerifier }
       : undefined;
+  const rules = releaseInput ? await readSiteRelease(releaseInput) : undefined;
+  const releaseLog = mizzenOut && releaseInput ? await readSiteReleaseLog(releaseInput) : undefined;
 
   const result = await generateSiteData({
     root,
@@ -61,8 +64,8 @@ export async function main(argv: string[]): Promise<void> {
     const valResult = await validateSiteDataDir(outDir, { root });
     process.stderr.write(`✅ Site data validated against schema (${valResult.checkedFiles} files checked).\n`);
   }
-  if (mizzenOut && rules) {
-    await writeSitePages({ from: outDir, out: mizzenOut, version: result.dataVersion, rules, asOf });
+  if (mizzenOut && rules && releaseLog) {
+    await writeSitePages({ from: outDir, out: mizzenOut, version: result.dataVersion, rules, asOf, releaseLog });
   }
 }
 

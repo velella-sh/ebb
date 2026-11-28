@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "title", "summary", "createdAt", "dataVersion", "bundleSha256", "contentDigest", "releaseUrl"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}(\\.[0-9]+)?$" },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "dataVersion": { "type": "string", "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}(\\.[0-9]+)?$" },
+    "bundleSha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "contentDigest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "releaseUrl": { "type": "string", "format": "uri" },
+    "ruleCount": { "type": "integer", "minimum": 0 },
+    "ecosystemCount": { "type": "integer", "minimum": 0 }
+  }
+}

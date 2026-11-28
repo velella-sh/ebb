@@ -1,10 +1,12 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
+import type { ReleaseLogEntry } from "../../src/data-release-log.js";
 import type { RegistryV2Rule } from "../../src/registry.js";
 import { comparisonPages, supportRules } from "./comparisons.js";
 import type { ComponentRecord } from "./components.js";
 import type { ReleaseLineRecord } from "./lines.js";
+import { siteReleaseRecords } from "./releases.js";
 import type { RuleRecord } from "./rules.js";
 import { deadlineMonths, releaseTimeline } from "./timeline.js";
 import { compileSiteDataSchema } from "./validate.js";
@@ -66,6 +68,7 @@ export async function writeSitePages(options: {
   version: string;
   rules: readonly RegistryV2Rule[];
   asOf?: string | undefined;
+  releaseLog?: readonly ReleaseLogEntry[] | undefined;
 }): Promise<void> {
   const { from, out, version, rules, asOf = version.split(".").slice(0, 3).join("-") } = options;
   const validate = await compileSiteDataSchema();
@@ -247,12 +250,14 @@ export async function writeSitePages(options: {
     rules,
     ruleSlugs: new Map(rulePages.map(({ id, slug }) => [id, slug])),
   });
+  const releases = siteReleaseRecords(options.releaseLog ?? [], version, rules);
   await mkdir(out, { recursive: true });
   await Promise.all([
     writeFile(join(out, "products.json"), `${JSON.stringify(uniqueLabels(products), null, 2)}\n`),
     writeFile(join(out, "release-lines.json"), `${JSON.stringify(uniqueLabels(releaseLines), null, 2)}\n`),
     writeFile(join(out, "rules.json"), `${JSON.stringify(uniqueLabels(rulePages), null, 2)}\n`),
     writeFile(join(out, "comparisons.json"), `${JSON.stringify(uniqueLabels(comparisons), null, 2)}\n`),
+    writeFile(join(out, "data-releases.json"), `${JSON.stringify(releases, null, 2)}\n`),
     writeFile(join(out, "deadline-months.json"), `${JSON.stringify(months, null, 2)}\n`),
   ]);
 }
