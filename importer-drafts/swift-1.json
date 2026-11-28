@@ -1,7 +1,7 @@
 {
   "importer": "swift-1",
   "ecosystem": "swift",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "swift.xcode.app-store-14-1-through-14",
@@ -18,13 +18,17 @@
         {
           "title": "Xcode 15 — App Store upcoming requirements (Xcode 15)",
           "url": "https://developer.apple.com/news/upcoming-requirements/?id=04292024a",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "swift-1"
       }
     },
@@ -43,13 +47,17 @@
         {
           "title": "SDK minimum requirements — App Store upcoming requirements (Xcode 26)",
           "url": "https://developer.apple.com/news/upcoming-requirements/?id=04282026a",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "swift-1"
       }
     },
@@ -68,13 +76,17 @@
         {
           "title": "Xcode 14.1 — App Store upcoming requirements (Xcode 14.1)",
           "url": "https://developer.apple.com/news/upcoming-requirements/?id=04252023a",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "swift-1"
       }
     }
