@@ -22,6 +22,16 @@ record:
 :field[deadline] (:field[precision] precision). :evidence[deadline]
 :::
 
+:::if{field=timeline}
+## Release timeline
+
+:field[timeline]
+
+The timeline uses **Ongoing** when an endpoint has no published date. Check the status column for the release line's support status.
+
+:evidence[timeline]
+:::
+
 ## Lifecycle rules
 
 :evidence[ruleCount]

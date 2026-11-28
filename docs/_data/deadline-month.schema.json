@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "title", "summary", "dataVersion", "start", "end", "count", "agenda", "claims"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "dataVersion": { "type": "string", "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}(\\.[0-9]+)?$" },
+    "start": { "type": "string", "format": "date" },
+    "end": { "type": "string", "format": "date" },
+    "count": { "type": "integer", "minimum": 0 },
+    "agenda": { "type": "string", "minLength": 1 },
+    "claims": { "type": "object" }
+  }
+}

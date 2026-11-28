@@ -7,6 +7,8 @@ permalink: /upcoming/
 
 # Upcoming lifecycle deadlines
 
+::link-card{href="/deadlines/" title="Browse published deadlines by month"}
+
 `upcoming(options?)` queries Ebb's active lifecycle data to find upcoming software deprecation and end-of-life deadlines within a configurable time window (defaulting to 90 days).
 
 ```ts

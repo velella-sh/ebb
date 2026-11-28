@@ -24,6 +24,7 @@ export async function main(argv: string[]): Promise<void> {
   const sha256 = getArg(argv, "--sha256");
   const historicalVerifier = getArg(argv, "--historical-verifier");
   const mizzenOut = getArg(argv, "--mizzen-out");
+  const asOf = getArg(argv, "--as-of");
   const shouldValidate = argv.includes("--validate") || bundlePath !== undefined;
   if (!bundlePath && (signaturePath || sha256 || historicalVerifier || mizzenOut)) {
     throw new Error("Signed release options require --bundle.");
@@ -61,7 +62,7 @@ export async function main(argv: string[]): Promise<void> {
     process.stderr.write(`✅ Site data validated against schema (${valResult.checkedFiles} files checked).\n`);
   }
   if (mizzenOut && rules) {
-    await writeSitePages({ from: outDir, out: mizzenOut, version: result.dataVersion, rules });
+    await writeSitePages({ from: outDir, out: mizzenOut, version: result.dataVersion, rules, asOf });
   }
 }
 

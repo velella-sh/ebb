@@ -5,6 +5,7 @@ import type { RegistryV2Rule } from "../../src/registry.js";
 import type { ComponentRecord } from "./components.js";
 import type { ReleaseLineRecord } from "./lines.js";
 import type { RuleRecord } from "./rules.js";
+import { deadlineMonths, releaseTimeline } from "./timeline.js";
 import { compileSiteDataSchema } from "./validate.js";
 
 type SiteRecord = ComponentRecord | ReleaseLineRecord | RuleRecord;
@@ -63,8 +64,9 @@ export async function writeSitePages(options: {
   out: string;
   version: string;
   rules: readonly RegistryV2Rule[];
+  asOf?: string | undefined;
 }): Promise<void> {
-  const { from, out, version, rules } = options;
+  const { from, out, version, rules, asOf = version.split(".").slice(0, 3).join("-") } = options;
   const validate = await compileSiteDataSchema();
 
   async function readCollection<T extends SiteRecord>(name: string): Promise<T[]> {
@@ -91,37 +93,6 @@ export async function writeSitePages(options: {
   const recordsById = new Map(ruleRecords.map((rule) => [rule.id, rule]));
   const rulesById = new Map(rules.map((rule) => [rule.id, rule]));
   const componentsBySlug = new Map(components.map((component) => [component.slug, component]));
-  const linesBySlug = new Map(lines.map((line) => [line.slug, line]));
-
-  const products = components.map((component) => {
-    const componentRules = component.rules.map((id) => {
-      const rule = recordsById.get(id);
-      if (!rule) throw new Error(`Missing rule ${id} from product ${component.id}.`);
-      return rule;
-    });
-    const date = component.dates.earliestDeadline;
-    const first = date ? componentRules.find((rule) => rule.dates.deadline === date) : undefined;
-    const releaseLines = component.links.lines.map((slug) => {
-      const line = linesBySlug.get(slug);
-      if (!line) throw new Error(`Missing release line ${slug} from product ${component.id}.`);
-      return line.id;
-    });
-
-    return {
-      id: component.id,
-      title: component.title,
-      summary: component.summary,
-      slug: component.slug,
-      ecosystem: component.ecosystem,
-      status: component.status,
-      purl: component.purl,
-      dataVersion: version,
-      ...displayedDate(date, first ? rulesById.get(first.id) : undefined),
-      ruleCount: componentRules.length,
-      releaseLines,
-      claims: { deadline: sourcesOf(first), ruleCount: componentRules.map(ruleLink) },
-    };
-  });
 
   const releaseLines = lines.map((line) => {
     const component = componentsBySlug.get(line.links.component);
@@ -142,6 +113,58 @@ export async function writeSitePages(options: {
       ...displayedDate(line.endDate, rulesById.get(line.ruleId)),
       ruleId: line.ruleId || null,
       claims: { deadline: sourcesOf(rule), ruleId: rule ? [ruleLink(rule), ...sourcesOf(rule)] : [] },
+    };
+  });
+
+  const linesBySlug = new Map(releaseLines.map((line) => [line.slug, line]));
+  const products = components.map((component) => {
+    const componentRules = component.rules.map((id) => {
+      const rule = recordsById.get(id);
+      if (!rule) throw new Error(`Missing rule ${id} from product ${component.id}.`);
+      return rule;
+    });
+    const date = component.dates.earliestDeadline;
+    const first = date ? componentRules.find((rule) => rule.dates.deadline === date) : undefined;
+    const productLines = component.links.lines.map((slug) => {
+      const line = linesBySlug.get(slug);
+      if (!line) throw new Error(`Missing release line ${slug} from product ${component.id}.`);
+      return line;
+    });
+
+    const timelineLines = [...productLines].sort((a, b) => {
+      const first = a.deadline ?? "9999-12-31";
+      const second = b.deadline ?? "9999-12-31";
+      return first === second ? (a.slug < b.slug ? -1 : 1) : first < second ? -1 : 1;
+    });
+
+    return {
+      id: component.id,
+      title: component.title,
+      summary: component.summary,
+      slug: component.slug,
+      ecosystem: component.ecosystem,
+      status: component.status,
+      purl: component.purl,
+      dataVersion: version,
+      ...displayedDate(date, first ? rulesById.get(first.id) : undefined),
+      ruleCount: componentRules.length,
+      releaseLines: productLines.map((line) => line.id),
+      timeline: timelineLines.length > 0 ? releaseTimeline(timelineLines) : undefined,
+      claims: {
+        deadline: sourcesOf(first),
+        ruleCount: componentRules.map(ruleLink),
+        timeline: timelineLines.flatMap((line) => {
+          const reference = {
+            id: `line-${line.slug}`,
+            title: `${line.line} release line`,
+            url: `/ebb/release-lines/${line.slug}/`,
+          };
+          const rule = line.ruleId ? recordsById.get(line.ruleId) : undefined;
+          return rule
+            ? [reference, { ...ruleLink(rule), id: `rule-${line.slug}`, title: `${line.line} lifecycle rule` }]
+            : [reference];
+        }),
+      },
     };
   });
 
@@ -177,10 +200,17 @@ export async function writeSitePages(options: {
     };
   });
 
+  const months = deadlineMonths({
+    asOf,
+    version,
+    rules,
+    ruleSlugs: new Map(rulePages.map(({ id, slug }) => [id, slug])),
+  });
   await mkdir(out, { recursive: true });
   await Promise.all([
     writeFile(join(out, "products.json"), `${JSON.stringify(uniqueLabels(products), null, 2)}\n`),
     writeFile(join(out, "release-lines.json"), `${JSON.stringify(uniqueLabels(releaseLines), null, 2)}\n`),
     writeFile(join(out, "rules.json"), `${JSON.stringify(uniqueLabels(rulePages), null, 2)}\n`),
+    writeFile(join(out, "deadline-months.json"), `${JSON.stringify(months, null, 2)}\n`),
   ]);
 }

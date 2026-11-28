@@ -14,6 +14,7 @@
     "claims": { "type": "object" },
     "ecosystem": { "type": "string" },
     "ruleCount": { "type": "integer", "minimum": 1 },
+    "timeline": { "type": "string" },
     "releaseLines": { "type": "array", "items": { "type": "string" } },
     "product": { "type": "string" },
     "line": { "type": "string" },
