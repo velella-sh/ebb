@@ -23,6 +23,7 @@ test("includes each text-only rule, classifies explicit suggestions, and preserv
   const report = auditSuccessors(rules);
   assert.equal(report.rules, 8);
   assert.equal(report.textOnly, 6);
+  assert.deepEqual(Object.values(report.ecosystems), [{ rules: 8, textOnly: 6 }]);
   assert.deepEqual(
     report.rows.map(({ classification }) => classification),
     [...successorKinds],

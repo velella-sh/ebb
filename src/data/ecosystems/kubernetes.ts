@@ -4803,7 +4803,7 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The Kubernetes release history lists Kubernetes 1.33 as end-of-life on 2026-06-28; the release no longer receives security updates or bug fixes.",
     severity: "high",
-    replacement: "Kubernetes 1.35 or later",
+    replacement: "Kubernetes 1.34 or later",
     replacements: [
       {
         purl: "pkg:generic/kubernetes",
