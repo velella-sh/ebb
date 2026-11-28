@@ -219,7 +219,9 @@ describe("MCP packed tarball stdio", () => {
             assert.ok(replacementFor(purl, version));
             assert.ok(replacementsFor(purl, version).some((item) => item.purl === target && item.kind === kind));
           }
-          assert.equal(rulesFor("pkg:pypi/superlinked")[0]?.requires?.python, "3.12");`,
+          assert.equal(rulesFor("pkg:pypi/superlinked")[0]?.requires?.python, "3.12");
+          assert.equal(rulesFor("pkg:npm/next").find((rule) => rule.id === "npm.package.next.15.support-end")?.requires?.node, "20.9.0");
+          assert.equal(rulesFor("pkg:pypi/django").find((rule) => rule.id === "python.package.django-5.1.eol")?.requires?.python, "3.10");`,
         ],
         { cwd: appDir },
       );

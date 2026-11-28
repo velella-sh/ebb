@@ -96,6 +96,16 @@
       "rules": []
     },
     {
+      "purl": "pkg:npm/eslint",
+      "version": "9.39.5",
+      "rules": ["npm.package.eslint-9.deprecated"]
+    },
+    {
+      "purl": "pkg:npm/eslint",
+      "version": "10.16.0",
+      "rules": []
+    },
+    {
       "purl": "pkg:npm/react-beautiful-dnd",
       "version": "1.0.0",
       "rules": ["npm.package.react-beautiful-dnd.deprecated"]
@@ -114,6 +124,51 @@
       "purl": "pkg:npm/%40nuxt/typescript-build",
       "version": "1.0.0",
       "rules": ["npm.package.nuxt.typescript-build.deprecated"]
+    },
+    {
+      "purl": "pkg:npm/next",
+      "version": "12.0.0",
+      "rules": ["npm.package.next.12.support-end"]
+    },
+    {
+      "purl": "pkg:npm/next",
+      "version": "13.0.0",
+      "rules": ["npm.package.next.13.support-end"]
+    },
+    {
+      "purl": "pkg:npm/next",
+      "version": "14.0.0",
+      "rules": ["npm.package.next.14.support-end"]
+    },
+    {
+      "purl": "pkg:npm/next",
+      "version": "15.0.0",
+      "rules": ["npm.package.next.15.support-end"]
+    },
+    {
+      "purl": "pkg:npm/%40angular/core",
+      "version": "21.0.0-0",
+      "rules": ["npm.package.angular.core.v21.scheduled-end-of-life"]
+    },
+    {
+      "purl": "pkg:npm/%40angular/core",
+      "version": "22.0.0-0",
+      "rules": ["npm.package.angular.core.v22.scheduled-end-of-life"]
+    },
+    {
+      "purl": "pkg:npm/%40angular/core",
+      "version": "20.0.0-0",
+      "rules": ["npm.package.angular.core.v20.scheduled-end-of-life"]
+    },
+    {
+      "purl": "pkg:npm/%40angular/core",
+      "version": "19.0.0-0",
+      "rules": ["npm.package.angular.core.v19.end-of-support"]
+    },
+    {
+      "purl": "pkg:npm/%40angular/core",
+      "version": "1.0.0",
+      "rules": ["npm.package.angular.core.v18-and-older.end-of-support"]
     }
   ]
 }

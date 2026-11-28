@@ -2604,12 +2604,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.3 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was February 26, 2013.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2013-02-26",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -2617,17 +2619,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2663,7 +2670,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.4.eol",
@@ -2676,12 +2682,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.4 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was October 1, 2015.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2015-10-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -2689,17 +2697,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2735,7 +2748,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.5.eol",
@@ -2748,12 +2760,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.5 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was September 2, 2014.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2014-09-02",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -2761,17 +2775,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2807,7 +2826,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.6.eol",
@@ -2820,12 +2838,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.6 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 1, 2015.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2015-04-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -2833,17 +2853,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2879,7 +2904,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.7.eol",
@@ -2892,12 +2916,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.7 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was December 1, 2015.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2015-12-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -2905,17 +2931,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -2951,7 +2982,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.8.eol",
@@ -2964,12 +2994,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.8 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 1, 2018.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2018-04-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -2977,24 +3009,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 1.8 release notes (1.8.19)",
         url: "https://docs.djangoproject.com/en/1.8/releases/1.8.19/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.8/releases/1.8.19/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3030,7 +3067,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.9.eol",
@@ -3043,12 +3079,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.9 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 4, 2017.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2017-04-04",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3056,24 +3094,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 1.9 release notes (1.9.13)",
         url: "https://docs.djangoproject.com/en/1.9/releases/1.9.13/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.9/releases/1.9.13/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3109,7 +3152,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.10.eol",
@@ -3122,12 +3164,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.10 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was December 2, 2017.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2017-12-02",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3135,7 +3179,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 1.10 release notes (1.10.8)",
         url: "https://docs.djangoproject.com/en/1.10/releases/1.10.8/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.10/releases/1.10.8/",
         archivedAt: "2026-10-21",
@@ -3143,17 +3187,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3189,7 +3238,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-1.11.eol",
@@ -3202,12 +3250,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 1.11 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 1, 2020.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2020-04-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3215,7 +3265,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 1.11 release notes (1.11.29)",
         url: "https://docs.djangoproject.com/en/1.11/releases/1.11.29/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/1.11/releases/1.11.29/",
         archivedAt: "2026-10-21",
@@ -3223,17 +3273,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3269,7 +3324,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-2.0.eol",
@@ -3282,12 +3336,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 2.0 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 1, 2019.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2019-04-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3295,24 +3351,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 2.0 release notes (2.0.13)",
         url: "https://docs.djangoproject.com/en/2.0/releases/2.0.13/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/2.0/releases/2.0.13/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3348,7 +3409,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-2.1.eol",
@@ -3361,12 +3421,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 2.1 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was December 2, 2019.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2019-12-02",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3374,24 +3436,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 2.1 release notes (2.1.15)",
         url: "https://docs.djangoproject.com/en/2.1/releases/2.1.15/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/2.1/releases/2.1.15/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3427,7 +3494,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-2.2.eol",
@@ -3440,12 +3506,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 2.2 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 11, 2022.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2022-04-11",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3453,24 +3521,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 2.2 release notes (2.2.28)",
         url: "https://docs.djangoproject.com/en/2.2/releases/2.2.28/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/2.2/releases/2.2.28/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3506,7 +3579,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-3.0.eol",
@@ -3519,12 +3591,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 3.0 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 6, 2021.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2021-04-06",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3532,24 +3606,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 3.0 release notes (3.0.14)",
         url: "https://docs.djangoproject.com/en/3.0/releases/3.0.14/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/3.0/releases/3.0.14/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3585,7 +3664,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-3.1.eol",
@@ -3598,12 +3676,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 3.1 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was December 7, 2021.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2021-12-07",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3611,24 +3691,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 3.1 release notes (3.1.14)",
         url: "https://docs.djangoproject.com/en/3.1/releases/3.1.14/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/3.1/releases/3.1.14/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3664,7 +3749,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-3.2.eol",
@@ -3677,12 +3761,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 3.2 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 1, 2024.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2024-04-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3690,24 +3776,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 3.2 release notes (3.2.25)",
         url: "https://docs.djangoproject.com/en/3.2/releases/3.2.25/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/3.2/releases/3.2.25/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3743,7 +3834,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-4.0.eol",
@@ -3756,12 +3846,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 4.0 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 1, 2023.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2023-04-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3769,24 +3861,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 4.0 release notes (4.0.10)",
         url: "https://docs.djangoproject.com/en/4.0/releases/4.0.10/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/4.0/releases/4.0.10/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3822,7 +3919,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-4.1.eol",
@@ -3835,12 +3931,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 4.1 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was December 1, 2023.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2023-12-01",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3848,24 +3946,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 4.1 release notes (4.1.13)",
         url: "https://docs.djangoproject.com/en/4.1/releases/4.1.13/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/4.1/releases/4.1.13/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3901,7 +4004,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-4.2.eol",
@@ -3914,12 +4016,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 4.2 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 7, 2026.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2026-04-07",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -3927,24 +4031,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 4.2 release notes (4.2.30)",
         url: "https://docs.djangoproject.com/en/4.2/releases/4.2.30/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/4.2/releases/4.2.30/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3980,7 +4089,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-5.0.eol",
@@ -3993,12 +4101,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 5.0 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was April 2, 2025.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2025-04-02",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -4006,24 +4116,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 5.0 release notes (5.0.14)",
         url: "https://docs.djangoproject.com/en/5.0/releases/5.0.14/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.0/releases/5.0.14/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4059,7 +4174,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.package.django-5.1.eol",
@@ -4072,12 +4186,14 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Django project lists the 5.1 release series as unsupported: it no longer receives security updates or bug fixes, and its end of extended support was December 3, 2025.",
     severity: "high",
     replacement: "Django 5.2 LTS or a newer supported release",
+    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
+    requires: { python: "3.10" },
     deadline: "2025-12-03",
     sources: [
       {
         title: "Django supported versions",
         url: "https://www.djangoproject.com/download/#supported-versions",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://www.djangoproject.com/download/#supported-versions",
         archivedAt: "2026-10-21",
@@ -4085,24 +4201,29 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Django 5.1 release notes (5.1.15)",
         url: "https://docs.djangoproject.com/en/5.1/releases/5.1.15/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.1/releases/5.1.15/",
         archivedAt: "2026-10-21",
       },
       {
         title: "Django upgrade guide",
         url: "https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.djangoproject.com/en/5.2/howto/upgrade-version/",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "Django 5.2 supported Python versions",
+        url: "https://docs.djangoproject.com/en/5.2/releases/5.2/",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4138,7 +4259,6 @@ export const rules: readonly RegistryV2Rule[] = [
     },
     usage: [{ kind: "import", language: "python", module: "django" }],
     "x-python": { kind: "package", package: "django" },
-    replacements: [{ purl: "pkg:pypi/django", vers: "vers:pypi/>=5.2|<5.3", name: "Django 5.2 LTS", kind: "upgrade" }],
   },
   {
     id: "python.symbol.datetime.utcnow",
