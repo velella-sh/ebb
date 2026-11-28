@@ -1,7 +1,7 @@
 {
   "importer": "github-actions-runtime",
   "ecosystem": "github-actions",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "github-actions.cache.node20",
@@ -18,18 +18,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/cache v5 action.yml",
           "url": "https://github.com/actions/cache/blob/v5/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -52,18 +56,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/checkout v5 action.yml",
           "url": "https://github.com/actions/checkout/blob/v5/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -86,18 +94,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/download-artifact v7 action.yml",
           "url": "https://github.com/actions/download-artifact/blob/v7/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -120,18 +132,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/github-script v8 action.yml",
           "url": "https://github.com/actions/github-script/blob/v8/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -154,18 +170,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/labeler v6 action.yml",
           "url": "https://github.com/actions/labeler/blob/v6/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -188,18 +208,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/setup-go v6 action.yml",
           "url": "https://github.com/actions/setup-go/blob/v6/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -222,18 +246,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/setup-java v5 action.yml",
           "url": "https://github.com/actions/setup-java/blob/v5/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -256,18 +284,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/setup-node v5 action.yml",
           "url": "https://github.com/actions/setup-node/blob/v5/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -290,18 +322,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/setup-python v6 action.yml",
           "url": "https://github.com/actions/setup-python/blob/v6/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -324,18 +360,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/stale v10 action.yml",
           "url": "https://github.com/actions/stale/blob/v10/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
@@ -358,18 +398,22 @@
         {
           "title": "Node 20 is no longer available in GitHub Actions",
           "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "actions/upload-artifact v6 action.yml",
           "url": "https://github.com/actions/upload-artifact/blob/v6/action.yml",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "github-actions-runtime"
       },
       "x-github-actions": {
