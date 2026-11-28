@@ -29,6 +29,8 @@ main:
         url: /freshness/
       - title: Data changelog
         url: /data-changelog/
+      - title: Tide report
+        url: /tide-report/
       - title: Products and release lines
         url: /products/
       - title: Runtime coverage
