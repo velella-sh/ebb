@@ -98,9 +98,7 @@
     {
       "purl": "pkg:npm/eslint",
       "version": "9.39.5",
-      "rules": [
-        "npm.package.eslint-9.deprecated"
-      ]
+      "rules": ["npm.package.eslint-9.deprecated"]
     },
     {
       "purl": "pkg:npm/eslint",
