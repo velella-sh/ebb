@@ -16,6 +16,86 @@
       "rules": []
     },
     {
+      "purl": "pkg:npm/uuid",
+      "version": "10.0.0",
+      "rules": ["npm.package.uuid.deprecated-through-10"]
+    },
+    {
+      "purl": "pkg:npm/uuid",
+      "version": "11.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:npm/%40types/jest",
+      "version": "26.0.5",
+      "rules": ["npm.package.types-jest.deprecated-26-0-5"]
+    },
+    {
+      "purl": "pkg:npm/%40types/jest",
+      "version": "26.0.6",
+      "rules": []
+    },
+    {
+      "purl": "pkg:npm/%40types/uuid",
+      "version": "3.3.27",
+      "rules": ["npm.package.types-uuid.deprecated-uuidjs-typings"]
+    },
+    {
+      "purl": "pkg:npm/%40types/uuid",
+      "version": "3.4.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:npm/%40types/uuid",
+      "version": "11.0.0",
+      "rules": ["npm.package.types-uuid.deprecated-stub"]
+    },
+    {
+      "purl": "pkg:npm/%40types/uuid",
+      "version": "10.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:npm/%40types/minimatch",
+      "version": "6.0.0",
+      "rules": ["npm.package.types-minimatch.deprecated-stub"]
+    },
+    {
+      "purl": "pkg:npm/%40types/minimatch",
+      "version": "5.1.2",
+      "rules": []
+    },
+    {
+      "purl": "pkg:npm/%40types/dompurify",
+      "version": "3.2.0",
+      "rules": ["npm.package.types-dompurify.deprecated-stub"]
+    },
+    {
+      "purl": "pkg:npm/%40types/dompurify",
+      "version": "3.0.5",
+      "rules": []
+    },
+    {
+      "purl": "pkg:npm/%40types/bcryptjs",
+      "version": "3.0.0",
+      "rules": ["npm.package.types-bcryptjs.deprecated-stub"]
+    },
+    {
+      "purl": "pkg:npm/%40types/bcryptjs",
+      "version": "2.4.6",
+      "rules": []
+    },
+    {
+      "purl": "pkg:npm/%40types/uuid",
+      "version": "3.3.28",
+      "rules": ["npm.package.types-uuid.deprecated-uuidjs-typings"]
+    },
+    {
+      "purl": "pkg:npm/uuid",
+      "version": "11.0.0-0",
+      "rules": []
+    },
+    {
       "purl": "pkg:npm/react-beautiful-dnd",
       "version": "1.0.0",
       "rules": ["npm.package.react-beautiful-dnd.deprecated"]
