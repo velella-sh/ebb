@@ -1,6 +1,6 @@
 ---
 title: "Runtime release-line coverage"
-description: "Which language runtimes and official GitHub Actions Ebb tracks end-to-end, what complete means, and the sources each list uses."
+description: "Which runtimes, official GitHub Actions, and npm package releases Ebb tracks, and the sources each list uses."
 layout: doc
 permalink: /coverage/
 ---
@@ -162,3 +162,40 @@ node dist/tools/coverage/actions.js
 ```
 
 The checker reads only the scope file, the inventory, and `registry/github-actions.json`. It does not fetch the network. Exit code `0` means complete, `1` means at least one in-scope action still has a gap (the docs table is still written with `--write-docs`), and `2` means a checker or write error. The weekly importers workflow refreshes the inventory snapshot (network, in that workflow only), including actions that have a coverage limit. The inventory job is the only step that opens a coverage-gap issue. When the refreshed file differs from the default branch, that job copies only that file onto a branch cut from the default branch, checks that the pull request diff is exactly that file, and then pushes. It does not edit `registry/`.
+
+## npm packages
+
+This first review for [#1007](https://github.com/velella-sh/ebb/issues/1007) covers high-download candidates among older dependencies, Babel proposal plugins, and TypeScript declarations. It includes the 26 shortlisted packages with at least seven million downloads from 2026-11-20 through 2026-11-26, ranked by the [npm downloads endpoint](https://github.com/npm/registry/blob/main/docs/download-counts.md). On 2026-11-28, Ebb checked the [npm registry's per-version deprecation flags](https://github.com/npm/registry/blob/main/docs/responses/package-metadata.md) at the sources below. Download counts determine review order. Each lifecycle claim uses the flag and notice for the affected versions.
+
+Seven rules cover six packages in this batch. Each rule has released matching and nonmatching versions in `cases/npm.json`. The notices for these releases give no deprecation day, so the rules leave the deadline unset.
+
+| Package and registry evidence | Canonical PURL | Downloads | Coverage result |
+| --- | --- | ---: | --- |
+| [glob](https://registry.npmjs.org/glob) | `pkg:npm/glob` | 528,585,876 | Deferred. Reconcile the distinct notices and releases without a flag before forming ranges. |
+| [uuid](https://registry.npmjs.org/uuid) | `pkg:npm/uuid` | 382,637,497 | Added through 10.0.0. The notice says 10 and earlier are unsupported. 11.0.0 and its prerelease have no flag. |
+| [rimraf](https://registry.npmjs.org/rimraf) | `pkg:npm/rimraf` | 204,726,104 | Deferred. Separate the maintenance notice for older majors from release-specific replacement notices. |
+| [jsdom](https://registry.npmjs.org/jsdom) | `pkg:npm/jsdom` | 158,130,827 | No version carries a deprecation flag in the inspected metadata. |
+| [node-domexception](https://registry.npmjs.org/node-domexception) | `pkg:npm/node-domexception` | 108,138,872 | Deferred. All 4 published versions are flagged, so the shortlist review found no released comparison version. |
+| [whatwg-encoding](https://registry.npmjs.org/whatwg-encoding) | `pkg:npm/whatwg-encoding` | 95,501,545 | Deferred. All 10 published versions are flagged, so the shortlist review found no released comparison version. |
+| [@types/qs](https://registry.npmjs.org/@types%2Fqs) | `pkg:npm/%40types/qs` | 83,151,432 | No version carries a deprecation flag in the inspected metadata. |
+| [@types/jest](https://registry.npmjs.org/@types%2Fjest) | `pkg:npm/%40types/jest` | 54,873,118 | Added 26.0.5, the release with the mock typing regression. 26.0.6 has no flag. |
+| [@babel/plugin-proposal-private-property-in-object](https://registry.npmjs.org/@babel%2Fplugin-proposal-private-property-in-object) | `pkg:npm/%40babel/plugin-proposal-private-property-in-object` | 49,748,446 | Deferred. The unflagged 7.21.0-placeholder-for-preset-env.2 needs an explicit exception when defining the range. |
+| [@types/uuid](https://registry.npmjs.org/@types%2Fuuid) | `pkg:npm/%40types/uuid` | 45,552,525 | Added 3.3.27 and 3.3.28 for the uuid.js declarations, and 11.0.0 for the uuid declaration stub. 3.4.0 and 10.0.0 have no flag. |
+| [asn1js](https://registry.npmjs.org/asn1js) | `pkg:npm/asn1js` | 38,944,887 | No version carries a deprecation flag in the inspected metadata. |
+| [@types/fs-extra](https://registry.npmjs.org/@types%2Ffs-extra) | `pkg:npm/%40types/fs-extra` | 26,319,301 | No version carries a deprecation flag in the inspected metadata. |
+| [@types/minimatch](https://registry.npmjs.org/@types%2Fminimatch) | `pkg:npm/%40types/minimatch` | 22,776,568 | Added the 6.0.0 stub. 5.1.2 has no flag. |
+| [querystring](https://registry.npmjs.org/querystring) | `pkg:npm/querystring` | 17,334,305 | Already covered by an npm registry rule. |
+| [@babel/plugin-proposal-class-properties](https://registry.npmjs.org/@babel%2Fplugin-proposal-class-properties) | `pkg:npm/%40babel/plugin-proposal-class-properties` | 16,299,944 | Deferred. All 65 published versions are flagged, so the shortlist review found no released comparison version. |
+| [har-validator](https://registry.npmjs.org/har-validator) | `pkg:npm/har-validator` | 13,416,570 | Already covered by an npm registry rule. |
+| [source-map-resolve](https://registry.npmjs.org/source-map-resolve) | `pkg:npm/source-map-resolve` | 12,703,649 | Deferred. All 14 published versions are flagged, so the shortlist review found no released comparison version. |
+| [@babel/plugin-proposal-object-rest-spread](https://registry.npmjs.org/@babel%2Fplugin-proposal-object-rest-spread) | `pkg:npm/%40babel/plugin-proposal-object-rest-spread` | 12,614,919 | Deferred. All 86 published versions are flagged, so the shortlist review found no released comparison version. |
+| [@babel/plugin-proposal-optional-chaining](https://registry.npmjs.org/@babel%2Fplugin-proposal-optional-chaining) | `pkg:npm/%40babel/plugin-proposal-optional-chaining` | 11,319,813 | Deferred. All 70 published versions are flagged, so the shortlist review found no released comparison version. |
+| [@babel/plugin-proposal-nullish-coalescing-operator](https://registry.npmjs.org/@babel%2Fplugin-proposal-nullish-coalescing-operator) | `pkg:npm/%40babel/plugin-proposal-nullish-coalescing-operator` | 10,896,262 | Deferred. All 59 published versions are flagged, so the shortlist review found no released comparison version. |
+| [resolve-url](https://registry.npmjs.org/resolve-url) | `pkg:npm/resolve-url` | 10,281,458 | Already covered by an npm registry rule. |
+| [urix](https://registry.npmjs.org/urix) | `pkg:npm/urix` | 10,199,842 | Deferred. All 1 published versions are flagged, so the shortlist review found no released comparison version. |
+| [@npmcli/move-file](https://registry.npmjs.org/@npmcli%2Fmove-file) | `pkg:npm/%40npmcli/move-file` | 9,179,182 | Already covered by an npm registry rule. |
+| [@babel/plugin-proposal-numeric-separator](https://registry.npmjs.org/@babel%2Fplugin-proposal-numeric-separator) | `pkg:npm/%40babel/plugin-proposal-numeric-separator` | 8,616,169 | Deferred. All 56 published versions are flagged, so the shortlist review found no released comparison version. |
+| [@types/dompurify](https://registry.npmjs.org/@types%2Fdompurify) | `pkg:npm/%40types/dompurify` | 8,346,208 | Added the 3.2.0 stub. 3.0.5 has no flag. |
+| [@types/bcryptjs](https://registry.npmjs.org/@types%2Fbcryptjs) | `pkg:npm/%40types/bcryptjs` | 7,943,601 | Added the 3.0.0 stub. 2.4.6 has no flag. |
+
+A candidate check installs the built npm tarball and validates representative matches through `check()` and the generated static API. The [0.2.4 release verification](https://github.com/velella-sh/ebb/issues/1023) tracks the same checks against the published package and deployed API.
