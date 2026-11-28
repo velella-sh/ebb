@@ -250,6 +250,17 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     }
   }
 
+  const imageTableEntries = await Promise.all(
+    (["image-variants", "codenames"] as const).map(async (name) => {
+      const path = `${name}.json`;
+      const source = join(tablesDir, path);
+      if (!existsSync(source)) return [];
+      const bytes = await readFile(source);
+      await writeFile(join(outDir, path), bytes);
+      return [[name === "image-variants" ? "imageVariants" : name, { path, sha256: sha256Hex(bytes) }]] as const;
+    }),
+  );
+
   const calendarFeeds = await writeCalendars({
     outDir,
     rules: allRules,
@@ -521,17 +532,6 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     predictionIndex = { path: "predictions.json", sha256: sha256Hex(bytes), dataVersion };
     await writeFile(join(outDir, predictionIndex.path), bytes);
   }
-
-  const imageTableEntries = await Promise.all(
-    (["image-variants", "codenames"] as const).map(async (name) => {
-      const path = `${name}.json`;
-      const source = join(root, "registry/tables", path);
-      if (!existsSync(source)) return [];
-      const bytes = await readFile(source);
-      await writeFile(join(outDir, path), bytes);
-      return [[name === "image-variants" ? "imageVariants" : name, { path, sha256: sha256Hex(bytes) }]] as const;
-    }),
-  );
 
   const indexDoc = {
     $schema: schemaUrl,
