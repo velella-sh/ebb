@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -8,6 +8,7 @@ import { pathToFileURL } from "node:url";
 
 import type { RegistryV2Rule } from "../src/registry.js";
 import { upcoming } from "../src/upcoming.js";
+import type { comparisonPages } from "../tools/site-data/comparisons.js";
 import type { ComponentRecord } from "../tools/site-data/components.js";
 import { generateSiteData } from "../tools/site-data/generate.js";
 import { writeSitePages } from "../tools/site-data/pages.js";
@@ -102,13 +103,81 @@ test("deadline months preserve leap boundaries, month precision and empty months
   assert.ok(march.agenda.includes("/ebb/rules/next/"));
 });
 
-test("published timeline renders overlapping windows, partial dates and an unknown end", {
+test("comparison support dates require signed evidence covering the whole release line", async (t) => {
+  const dir = await mkdtemp(join(tmpdir(), "ebb-comparison-support-"));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  const standard: RegistryV2Rule = {
+    id: "fixture.runtime.standard",
+    ecosystem: "nodejs",
+    purl: "pkg:generic/nodejs",
+    vers: "vers:semver/>=20.0.0|<21.0.0",
+    event: "end-of-support",
+    deadline: "2026-04-30",
+    title: "Standard support ends",
+    summary: "Fixture standard support",
+    severity: "low",
+    replacement: "Node.js 22 or later",
+    sources: [{ title: "Standard support fixture", url: "https://example.com/standard", accessedAt: "2026-11-01" }],
+    provenance: { observedAt: "2026-11-01", reviewedAt: "2026-11-01", reviewer: "fixture", method: "manual" },
+  };
+  const rules: RegistryV2Rule[] = [
+    standard,
+    {
+      ...standard,
+      id: "fixture.runtime.extended",
+      event: "end-of-extended-support",
+      deadline: "2027-06-30",
+      sources: [{ title: "Extended support fixture", url: "https://example.com/extended", accessedAt: "2026-11-01" }],
+      "x-fixture": { endOfLifeMonth: "2027-06" },
+    },
+    {
+      ...standard,
+      id: "fixture.runtime.extended-partial",
+      event: "end-of-extended-support",
+      vers: "vers:semver/>=20.1.0|<21.0.0",
+      deadline: "2028-06-30",
+    },
+  ];
+  const from = join(dir, "source");
+  const out = join(dir, "pages");
+  const version = "2026.11.11";
+  await generateSiteData({ outDir: from, dataVersion: version, rules });
+  await writeSitePages({ from, out, version, rules });
+  const lines = JSON.parse(await readFile(join(out, "release-lines.json"), "utf8"));
+  const line = lines.find(({ line }: { line: string }) => line === "20.x");
+  assert.equal(line.standardSupport, "2026-04-30");
+  assert.equal(line.extendedSupport, "2027-06");
+  assert.equal(line.replacement, standard.replacement);
+  assert.ok(line.claims.extendedSupport.some(({ url }: { url: string }) => url === "https://example.com/extended"));
+  assert.ok(!line.claims.extendedSupport.some(({ id }: { id: string }) => id.includes("extended-partial")));
+});
+
+test("published components render timeline endpoints and an invalid comparison selection", {
   skip: !siteTools,
 }, async (t) => {
   assert.ok(siteTools);
   const dir = await mkdtemp(join(tmpdir(), "ebb-timeline-fixture-"));
   t.after(() => rm(dir, { recursive: true, force: true }));
-  await writeFile(join(dir, "mizzen.yml"), "title: Release timeline fixture\nbase: /ebb\nlang: en\n");
+  await mkdir(join(dir, "_data"));
+  await mkdir(join(dir, "_templates"));
+  await writeFile(
+    join(dir, "mizzen.yml"),
+    `title: Site fixture
+base: /ebb
+lang: en
+collections:
+  lines:
+    source: _data/lines.json
+    template: _templates/line.md
+    permalink: /release-lines/{id}/
+`,
+  );
+  await writeFile(join(dir, "_data", "lines.json"), '[{"id":"valid","title":"Known release","status":"ending"}]');
+  await writeFile(join(dir, "_templates", "line.md"), '---\ntitle: "{title}"\nlayout: record\n---\n');
+  await writeFile(
+    join(dir, "invalid.md"),
+    `---\ntitle: Invalid comparison fixture\n---\n\n::compare{from="lines" ids="valid,invalid" fields='[{"field":"status"}]'}\n`,
+  );
   const rows = [
     { label: "4.x", start: "2026-09-01", end: "2026-11-30", status: "ended" },
     { label: "5.x", start: "2026-10-01", end: "2027-01", status: "ending" },
@@ -132,6 +201,9 @@ test("published timeline renders overlapping windows, partial dates and an unkno
   );
   assert.match(html, /data-field="label">5\.x<\/td>.*?datetime="2026-10-01".*?datetime="2027-01"[^>]*>January 2027/su);
   assert.match(html, /data-field="label">6\.x<\/td>.*?data-field="end"><span class="timeline-ongoing">Ongoing/su);
+  const invalid = await readFile(join(out, "invalid", "index.html"), "utf8");
+  assert.ok(invalid.includes('role="note">No record with id &quot;invalid&quot;.'));
+  assert.ok(invalid.includes('href="/ebb/release-lines/valid/"'));
 });
 
 test("signed site data verifies the pinned bundle, builds deterministic records and rejects bad inputs", {
@@ -156,7 +228,13 @@ test("signed site data verifies the pinned bundle, builds deterministic records 
   const first = join(dir, "first");
   const second = join(dir, "second");
   for (const out of [first, second]) await writeSitePages({ from, out, version, rules, asOf });
-  for (const name of ["products.json", "release-lines.json", "rules.json", "deadline-months.json"]) {
+  for (const name of [
+    "products.json",
+    "release-lines.json",
+    "rules.json",
+    "deadline-months.json",
+    "comparisons.json",
+  ]) {
     assert.deepEqual(await readFile(join(first, name)), await readFile(join(second, name)));
   }
   await assert.rejects(writeSitePages({ from, out: second, version: "2027.01.01", rules }), /Invalid site collection/);
@@ -250,6 +328,45 @@ test("signed site data verifies the pinned bundle, builds deterministic records 
     }
   }
   assert.ok(!check(line.purl, "22.0.0").matches.some(({ ruleId }: { ruleId: string }) => ruleId === line.ruleId));
+
+  const comparisons = JSON.parse(await readFile(join(first, "comparisons.json"), "utf8")) as ReturnType<
+    typeof comparisonPages
+  >;
+  assert.equal(new Set(comparisons.map(({ id }) => id)).size, comparisons.length);
+  const lineCounts = new Map<string, number>();
+  for (const { product } of sortedReleaseLines) lineCounts.set(product, (lineCounts.get(product) ?? 0) + 1);
+  assert.equal(
+    comparisons.length,
+    [...lineCounts.values()].reduce((count, total) => count + (total * (total - 1)) / 2, 0),
+  );
+  for (const pair of comparisons) {
+    assert.equal(pair.lines.length, 2);
+    for (const id of pair.lines) {
+      const line = sortedReleaseLines.find((record: { id: string }) => record.id === id);
+      assert.equal(line.product, pair.product);
+    }
+  }
+
+  if (htmlDir) {
+    const root = join(htmlDir, "release-comparisons");
+    const index = await readFile(join(root, "index.html"), "utf8");
+    assert.ok(index.includes('href="/ebb/release-comparisons/nodejs-nodejs/"'));
+    const nodeIndex = await readFile(join(root, "nodejs-nodejs", "index.html"), "utf8");
+    assert.ok(nodeIndex.includes('href="/ebb/release-comparisons/nodejs-nodejs/20-x-vs-22-x/"'));
+    const node = await readFile(join(root, "nodejs-nodejs", "20-x-vs-22-x", "index.html"), "utf8");
+    assert.ok(node.includes('data-compare-column="0"><a href="/ebb/release-lines/nodejs-nodejs-line-20-x/"'));
+    assert.ok(node.includes('data-compare-column="1"><a href="/ebb/release-lines/nodejs-nodejs-line-22-x/"'));
+    assert.ok(node.includes('class="compare-evidence"'));
+    assert.ok(node.includes('href="https://github.com/nodejs/Release/blob/main/schedule.json"'));
+    assert.ok(node.includes("2026-04-30") && node.includes("2027-04-30"));
+    assert.ok(node.includes("Node.js 24 LTS or later"));
+    assert.ok(node.includes(version));
+    assert.ok(!node.includes("islands/components/compare/client.js"));
+    const rds = await readFile(join(root, "database-aws-rds-postgres", "10-x-vs-11-x", "index.html"), "utf8");
+    assert.ok(rds.includes("No published date") && rds.includes("2024-02-29"));
+    const dotnet = await readFile(join(root, "dotnet-dotnet", "8-0-vs-9-0", "index.html"), "utf8");
+    assert.ok(dotnet.includes('class="compare-summary">6 same · 0 different · 0 missing'));
+  }
 
   const months = JSON.parse(await readFile(join(first, "deadline-months.json"), "utf8")) as ReturnType<
     typeof deadlineMonths

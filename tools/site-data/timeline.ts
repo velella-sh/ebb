@@ -1,13 +1,6 @@
 import { isIsoDate, type RegistryV2Rule } from "../../src/registry.js";
 import { addDays, addMonths, upcoming } from "../../src/upcoming.js";
-
-function directiveData(items: readonly unknown[]): string {
-  return JSON.stringify(items)
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
-}
+import { directiveData } from "./text.js";
 
 export function releaseTimeline(lines: readonly { line: string; deadline: string | null; status: string }[]): string {
   // The signed registry records lifecycle deadlines. Release start dates are unknown.

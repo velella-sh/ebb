@@ -39,6 +39,7 @@ jobs:
           node-version: "24"
       - name: Install the site tools
         run: |
+          echo "EBB_SITE_TOOLS=$RUNNER_TEMP/site-tools/node_modules" >> "$GITHUB_ENV"
           mkdir "$RUNNER_TEMP/site-tools"
           cd "$RUNNER_TEMP/site-tools"
           npm init -y >/dev/null
@@ -89,7 +90,6 @@ jobs:
           EBB_SITE_BUNDLE="$bundle" EBB_SITE_SIGNATURE="$bundle.sigstore.json" \
             EBB_SITE_RELEASED_EBB="$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
             EBB_SITE_VERSION="$SITE_DATA_VERSION" EBB_SITE_SHA256="$SITE_DATA_SHA256" EBB_SITE_AS_OF="$SITE_AS_OF" \
-            EBB_SITE_TOOLS="$RUNNER_TEMP/site-tools/node_modules" \
             EBB_SITE_BUILT_HTML="$RUNNER_TEMP/site" node --test dist/tests/site-data-signed.test.js
       - name: Build static API
         run: |

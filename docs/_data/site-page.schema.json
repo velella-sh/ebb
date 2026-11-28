@@ -14,6 +14,11 @@
     "claims": { "type": "object" },
     "ecosystem": { "type": "string" },
     "ruleCount": { "type": "integer", "minimum": 1 },
+    "comparisonUrl": { "type": "string" },
+    "lifecycleDate": { "type": "string" },
+    "standardSupport": { "type": "string" },
+    "extendedSupport": { "type": "string" },
+    "replacement": { "type": "string" },
     "timeline": { "type": "string" },
     "releaseLines": { "type": "array", "items": { "type": "string" } },
     "product": { "type": "string" },
@@ -32,7 +37,7 @@
       "properties": { "status": { "enum": ["active", "deprecated", "end-of-life", "removed", "scheduled"] } }
     },
     {
-      "required": ["product", "line", "vers", "ruleId", "status"],
+      "required": ["product", "line", "vers", "ruleId", "status", "lifecycleDate", "standardSupport", "extendedSupport", "replacement"],
       "properties": { "status": { "enum": ["ended", "ending", "no-known-end"] } }
     },
     {

@@ -32,6 +32,10 @@ The timeline uses **Ongoing** when an endpoint has no published date. Check the 
 :evidence[timeline]
 :::
 
+:::if{field=comparisonUrl}
+:evidence[comparisonUrl]
+:::
+
 ## Lifecycle rules
 
 :evidence[ruleCount]

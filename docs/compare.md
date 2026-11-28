@@ -5,6 +5,8 @@ layout: doc
 permalink: /compare/
 ---
 
+::link-card{href="/release-comparisons/" title="Compare release lines for a product"}
+
 # Comparing Software Lifecycle Sources
 
 *Checked on: 2026-11-16*
