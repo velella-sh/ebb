@@ -116,20 +116,46 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Removal of Node12 from the Actions runner",
         url: "https://github.blog/changelog/2023-07-16-github-actions-removal-of-node12-from-the-actions-runner/",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
       {
         title: "actions/publish-action v0.1.0 action manifest",
         url: "https://github.com/actions/publish-action/blob/v0.1.0/action.yml",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
       {
         title: "actions/publish-action v0.2.0 action manifest",
         url: "https://github.com/actions/publish-action/blob/v0.2.0/action.yml",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
+      },
+      {
+        title: "actions/publish-action v0.4.0 release",
+        url: "https://github.com/actions/publish-action/releases/tag/v0.4.0",
+        accessedAt: "2026-11-28",
+      },
+      {
+        title: "actions/publish-action v0.4.0 runtime manifest",
+        url: "https://github.com/actions/publish-action/blob/v0.4.0/action.yml",
+        accessedAt: "2026-11-28",
       },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
+    replacement: "actions/publish-action v0.4.0",
+    replacements: [
+      {
+        purl: "pkg:github/actions/publish-action",
+        name: "actions/publish-action v0.4.0",
+        kind: "upgrade",
+        vers: "vers:semver/0.4.0",
+        note: "The published v0.4.0 manifest uses the Node.js 24 Actions runtime.",
+      },
+    ],
   },
   {
     id: "github-actions.publish-action.node16",
@@ -146,25 +172,51 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "End of life for Actions Node16",
         url: "https://github.blog/changelog/2024-09-25-end-of-life-for-actions-node16/",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
       {
         title: "actions/publish-action v0.2.0 action manifest",
         url: "https://github.com/actions/publish-action/blob/v0.2.0/action.yml",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
       {
         title: "actions/publish-action v0.2.2 action manifest",
         url: "https://github.com/actions/publish-action/blob/v0.2.2/action.yml",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
       {
         title: "actions/publish-action v0.3.0 action manifest",
         url: "https://github.com/actions/publish-action/blob/v0.3.0/action.yml",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
+      },
+      {
+        title: "actions/publish-action v0.4.0 release",
+        url: "https://github.com/actions/publish-action/releases/tag/v0.4.0",
+        accessedAt: "2026-11-28",
+      },
+      {
+        title: "actions/publish-action v0.4.0 runtime manifest",
+        url: "https://github.com/actions/publish-action/blob/v0.4.0/action.yml",
+        accessedAt: "2026-11-28",
       },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
+    replacement: "actions/publish-action v0.4.0",
+    replacements: [
+      {
+        purl: "pkg:github/actions/publish-action",
+        name: "actions/publish-action v0.4.0",
+        kind: "upgrade",
+        vers: "vers:semver/0.4.0",
+        note: "The published v0.4.0 manifest uses the Node.js 24 Actions runtime.",
+      },
+    ],
   },
   {
     id: "github-actions.publish-action.node20",
@@ -180,20 +232,41 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Node 20 is no longer available in GitHub Actions",
         url: "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
       {
         title: "actions/publish-action v0.3.0 action manifest",
         url: "https://github.com/actions/publish-action/blob/v0.3.0/action.yml",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
       {
         title: "actions/publish-action v0.4.0 action manifest",
         url: "https://github.com/actions/publish-action/blob/v0.4.0/action.yml",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
+      },
+      {
+        title: "actions/publish-action v0.4.0 release",
+        url: "https://github.com/actions/publish-action/releases/tag/v0.4.0",
+        accessedAt: "2026-11-28",
       },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
+    replacement: "actions/publish-action v0.4.0",
+    replacements: [
+      {
+        purl: "pkg:github/actions/publish-action",
+        name: "actions/publish-action v0.4.0",
+        kind: "upgrade",
+        vers: "vers:semver/0.4.0",
+        note: "The published v0.4.0 manifest uses the Node.js 24 Actions runtime.",
+      },
+    ],
   },
   {
     id: "github-actions.publish-immutable-action.node20",

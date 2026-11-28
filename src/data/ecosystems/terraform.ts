@@ -15,12 +15,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.15 (first released 2026-04-29) stopped being one of them when Terraform 1.17 was released on 2026-10-21. The support window is taken from the dates of the hashicorp/terraform GitHub releases for 1.15.0 and 1.17.0.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2026-10-21",
     sources: [
       {
         title: "hashicorp/terraform release v1.17.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.17.0",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://github.com/hashicorp/terraform/releases/tag/v1.17.0",
         archivedAt: "2026-10-30",
@@ -28,7 +37,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.15.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
         archivedAt: "2026-10-30",
@@ -36,17 +45,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-10-30",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -103,19 +117,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.14 (first released 2025-11-19) stopped being one of them when Terraform 1.16 was released on 2026-08-26. endoflife.date records 2026-08-26 as the end-of-life date for the 1.14 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
     severity: "high",
     replacement: "Terraform 1.15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2026-08-26",
     sources: [
       {
         title: "endoflife.date: Terraform",
         url: "https://endoflife.date/terraform",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
         archivedAt: "2026-10-21",
       },
       {
         title: "hashicorp/terraform release v1.16.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
         archivedAt: "2026-10-21",
@@ -123,17 +146,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -190,19 +218,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.13 (first released 2025-08-20) stopped being one of them when Terraform 1.15 was released on 2026-04-29. endoflife.date records 2026-04-29 as the end-of-life date for the 1.13 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
     severity: "high",
     replacement: "Terraform 1.15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2026-04-29",
     sources: [
       {
         title: "endoflife.date: Terraform",
         url: "https://endoflife.date/terraform",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
         archivedAt: "2026-10-21",
       },
       {
         title: "hashicorp/terraform release v1.15.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.15.0",
         archivedAt: "2026-10-21",
@@ -210,17 +247,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -277,19 +319,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.12 (first released 2025-05-14) stopped being one of them when Terraform 1.14 was released on 2025-11-19. endoflife.date records 2025-11-19 as the end-of-life date for the 1.12 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
     severity: "medium",
     replacement: "Terraform 1.15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2025-11-19",
     sources: [
       {
         title: "endoflife.date: Terraform",
         url: "https://endoflife.date/terraform",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
         archivedAt: "2026-10-21",
       },
       {
         title: "hashicorp/terraform release v1.14.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.14.0",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.14.0",
         archivedAt: "2026-10-21",
@@ -297,17 +348,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -364,19 +420,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.11 (first released 2025-02-27) stopped being one of them when Terraform 1.13 was released on 2025-08-20. endoflife.date records 2025-08-20 as the end-of-life date for the 1.11 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
     severity: "medium",
     replacement: "Terraform 1.15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2025-08-20",
     sources: [
       {
         title: "endoflife.date: Terraform",
         url: "https://endoflife.date/terraform",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
         archivedAt: "2026-10-21",
       },
       {
         title: "hashicorp/terraform release v1.13.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.13.0",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.13.0",
         archivedAt: "2026-10-21",
@@ -384,17 +449,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -451,19 +521,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.10 (first released 2024-11-26) stopped being one of them when Terraform 1.12 was released on 2025-05-14. endoflife.date records 2025-05-14 as the end-of-life date for the 1.10 line. The HashiCorp support policy page could not be read when this rule was reviewed, so the support window is taken from the endoflife.date record and the dates of the hashicorp/terraform GitHub releases.",
     severity: "medium",
     replacement: "Terraform 1.15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2025-05-14",
     sources: [
       {
         title: "endoflife.date: Terraform",
         url: "https://endoflife.date/terraform",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://endoflife.date/terraform",
         archivedAt: "2026-10-21",
       },
       {
         title: "hashicorp/terraform release v1.12.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.12.0",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://github.com/hashicorp/terraform/releases/tag/v1.12.0",
         archivedAt: "2026-10-21",
@@ -471,17 +550,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-10-21",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -538,12 +622,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Amazon EKS 1.33 reached the end of standard support on 2026-07-29 and is in extended support until 2027-07-29. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
     severity: "medium",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-07-29",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-10-26",
@@ -551,9 +644,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -613,12 +706,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Amazon EKS 1.32 reached the end of standard support on 2026-03-23 and is in extended support until 2027-03-23. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
     severity: "medium",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-03-23",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-10-26",
@@ -626,9 +728,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -688,12 +790,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Amazon EKS 1.31 reached the end of standard support on 2025-11-26 and is in extended support until 2026-11-26. Amazon EKS gives a minor version 14 months of standard support and then up to 12 months of extended support at an additional cost per cluster hour.",
     severity: "medium",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2025-11-26",
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-10-26",
@@ -701,9 +812,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -763,11 +874,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Amazon EKS lists 1.31 as the oldest minor version still in extended support, so 1.30 and earlier have left extended support. A cluster that reaches the end of extended support is auto-upgraded to the oldest version in extended support.",
     severity: "high",
     replacement: "Amazon EKS 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/amazon-eks",
+        name: "Amazon EKS 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check the provider’s regional availability and intermediate cluster upgrades.",
+      },
+    ],
     sources: [
       {
         title: "Amazon EKS: Understand the Kubernetes version lifecycle",
         url: "https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html",
         archivedAt: "2026-10-26",
@@ -775,9 +895,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -837,19 +957,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "GKE 1.33 reached the end of standard support on 2026-08-12 and is in extended support until 2027-06-12. GKE provides up to 24 months of support per minor version: about 14 months of standard support and the rest as extended support in the Extended channel.",
     severity: "medium",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-kubernetes-engine",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-08-12",
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-26",
@@ -857,9 +986,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -919,19 +1048,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "GKE 1.32 reached the end of standard support on 2026-04-27 and is in extended support until 2027-02-11. GKE provides up to 24 months of support per minor version: about 14 months of standard support and the rest as extended support in the Extended channel.",
     severity: "medium",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-kubernetes-engine",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-04-27",
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-26",
@@ -939,9 +1077,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1001,19 +1139,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "GKE 1.31 reached the end of standard support on 2026-01-16 and the end of extended support on 2026-10-22. GKE no longer provides patches for this minor version.",
     severity: "high",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-kubernetes-engine",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check the provider’s regional availability and intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-10-22",
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-26",
@@ -1021,9 +1168,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1083,19 +1230,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "GKE 1.30 reached the end of standard support on 2025-09-30 and the end of extended support on 2026-07-30. GKE no longer provides patches for this minor version.",
     severity: "high",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-kubernetes-engine",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check the provider’s regional availability and intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-07-30",
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-26",
@@ -1103,9 +1259,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1165,18 +1321,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The GKE release schedule states that GKE 1.29 and earlier have reached end of support and are no longer supported.",
     severity: "high",
     replacement: "GKE 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-kubernetes-engine",
+        name: "GKE 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check the provider’s regional availability and intermediate cluster upgrades.",
+      },
+    ],
     sources: [
       {
         title: "GKE versioning and support",
         url: "https://cloud.google.com/kubernetes-engine/versioning",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/versioning",
         archivedAt: "2026-10-26",
       },
       {
         title: "GKE release schedule",
         url: "https://cloud.google.com/kubernetes-engine/docs/release-schedule",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://cloud.google.com/kubernetes-engine/docs/release-schedule",
         archivedAt: "2026-10-26",
@@ -1184,9 +1349,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1246,12 +1411,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.33 reached the end of its 12-month support window on 2026-07-31. Long-term support, which must be enabled for a cluster, ends on 2027-07-31.",
     severity: "medium",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-07-31",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1259,9 +1433,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1321,12 +1495,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.32 reached the end of its 12-month support window on 2026-03-31. Long-term support, which must be enabled for a cluster, ends on 2027-03-31.",
     severity: "medium",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-03-31",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1334,9 +1517,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1396,12 +1579,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.31 reached the end of its 12-month support window on 2025-11-01. Long-term support, which must be enabled for a cluster, ends on 2026-11-30.",
     severity: "medium",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check this provider’s regional availability and required intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2025-11-01",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1409,9 +1601,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1471,12 +1663,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.30 reached the end of its 12-month support window on 2025-08-22 and the end of long-term support on 2026-07-31. AKS no longer provides patches for this version.",
     severity: "high",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check the provider’s regional availability and intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-07-31",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1484,9 +1685,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1546,12 +1747,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS 1.29 reached the end of its 12-month support window on 2025-03-31 and the end of long-term support on 2026-04-30. AKS no longer provides patches for this version.",
     severity: "high",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check the provider’s regional availability and intermediate cluster upgrades.",
+      },
+    ],
     deadline: "2026-04-30",
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1559,9 +1769,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1621,11 +1831,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "AKS supports a generally available Kubernetes version for 12 months, with opt-in long-term support beyond that. Versions before 1.29 are no longer listed on the AKS supported-versions page and are past both windows.",
     severity: "high",
     replacement: "Azure Kubernetes Service 1.35 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-kubernetes-service",
+        name: "Azure Kubernetes Service 1.35",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.35.0|<1.36.0",
+        note: "Check the provider’s regional availability and intermediate cluster upgrades.",
+      },
+    ],
     sources: [
       {
         title: "Supported Kubernetes versions in Azure Kubernetes Service (AKS)",
         url: "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions",
         archivedAt: "2026-10-26",
@@ -1633,9 +1852,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1851,12 +2070,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.0 (first released 2021-06-08) stopped being one of them when Terraform 1.2 was released on 2022-05-18.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2022-05-18",
     sources: [
       {
         title: "hashicorp/terraform release v1.2.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
         archivedAt: "2026-11-10",
@@ -1864,7 +2092,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.0.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.0.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.0.0",
         archivedAt: "2026-11-10",
@@ -1872,7 +2100,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -1880,7 +2108,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -1888,17 +2116,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -1967,12 +2200,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.1 (first released 2021-12-08) stopped being one of them when Terraform 1.3 was released on 2022-09-21.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2022-09-21",
     sources: [
       {
         title: "hashicorp/terraform release v1.3.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
         archivedAt: "2026-11-10",
@@ -1980,7 +2222,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.1.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.1.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.1.0",
         archivedAt: "2026-11-10",
@@ -1988,7 +2230,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -1996,7 +2238,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2004,17 +2246,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2083,12 +2330,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.2 (first released 2022-05-18) stopped being one of them when Terraform 1.4 was released on 2023-03-08.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2023-03-08",
     sources: [
       {
         title: "hashicorp/terraform release v1.4.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
         archivedAt: "2026-11-10",
@@ -2096,7 +2352,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.2.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.2.0",
         archivedAt: "2026-11-10",
@@ -2104,7 +2360,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2112,7 +2368,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2120,17 +2376,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2199,12 +2460,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.3 (first released 2022-09-21) stopped being one of them when Terraform 1.5 was released on 2023-06-12.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2023-06-12",
     sources: [
       {
         title: "hashicorp/terraform release v1.5.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
         archivedAt: "2026-11-10",
@@ -2212,7 +2482,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.3.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.3.0",
         archivedAt: "2026-11-10",
@@ -2220,7 +2490,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2228,7 +2498,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2236,17 +2506,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2315,12 +2590,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.4 (first released 2023-03-08) stopped being one of them when Terraform 1.6 was released on 2023-10-04.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2023-10-04",
     sources: [
       {
         title: "hashicorp/terraform release v1.6.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
         archivedAt: "2026-11-10",
@@ -2328,7 +2612,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.4.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.4.0",
         archivedAt: "2026-11-10",
@@ -2336,7 +2620,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2344,7 +2628,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2352,17 +2636,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2431,12 +2720,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.5 (first released 2023-06-12) stopped being one of them when Terraform 1.7 was released on 2024-01-17.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2024-01-17",
     sources: [
       {
         title: "hashicorp/terraform release v1.7.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
         archivedAt: "2026-11-10",
@@ -2444,7 +2742,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.5.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
         archivedAt: "2026-11-10",
@@ -2452,7 +2750,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2460,7 +2758,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2468,17 +2766,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2547,12 +2850,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.6 (first released 2023-10-04) stopped being one of them when Terraform 1.8 was released on 2024-04-10.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2024-04-10",
     sources: [
       {
         title: "hashicorp/terraform release v1.8.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
         archivedAt: "2026-11-10",
@@ -2560,7 +2872,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.6.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
         archivedAt: "2026-11-10",
@@ -2568,7 +2880,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2576,7 +2888,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2584,17 +2896,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2663,12 +2980,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.7 (first released 2024-01-17) stopped being one of them when Terraform 1.9 was released on 2024-06-26.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2024-06-26",
     sources: [
       {
         title: "hashicorp/terraform release v1.9.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
         archivedAt: "2026-11-10",
@@ -2676,7 +3002,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.7.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.7.0",
         archivedAt: "2026-11-10",
@@ -2684,7 +3010,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2692,7 +3018,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2700,17 +3026,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2779,12 +3110,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.8 (first released 2024-04-10) stopped being one of them when Terraform 1.10 was released on 2024-11-27.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2024-11-27",
     sources: [
       {
         title: "hashicorp/terraform release v1.10.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.10.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.10.0",
         archivedAt: "2026-11-10",
@@ -2792,7 +3132,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.8.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.8.0",
         archivedAt: "2026-11-10",
@@ -2800,7 +3140,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2808,7 +3148,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2816,17 +3156,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },
@@ -2895,12 +3240,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "HashiCorp supports the two most recent Terraform release lines. Terraform 1.9 (first released 2024-06-26) stopped being one of them when Terraform 1.11 was released on 2025-02-27.",
     severity: "medium",
     replacement: "Terraform 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/terraform",
+        name: "Terraform 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "HashiCorp distributes the 1.17 line as stable. Check the upgrade guides and verify provider and state compatibility.",
+      },
+    ],
     deadline: "2025-02-27",
     sources: [
       {
         title: "hashicorp/terraform release v1.11.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.11.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.11.0",
         archivedAt: "2026-11-10",
@@ -2908,7 +3262,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "hashicorp/terraform release v1.9.0",
         url: "https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://github.com/hashicorp/terraform/releases/tag/v1.9.0",
         archivedAt: "2026-11-10",
@@ -2916,7 +3270,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "HashiCorp Terraform support policy",
         url: "https://support.hashicorp.com/hc/en-us/articles/360021185113",
-        accessedAt: "2026-11-10",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261110000000/https://support.hashicorp.com/hc/en-us/articles/360021185113",
         archivedAt: "2026-11-10",
@@ -2924,7 +3278,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform v1.x compatibility promises",
         url: "https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/v1-compatibility-promises",
         archivedAt: "2026-11-11",
@@ -2932,17 +3286,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Terraform upgrade guides",
         url: "https://developer.hashicorp.com/terraform/language/upgrade-guides",
-        accessedAt: "2026-11-11",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261111000000/https://developer.hashicorp.com/terraform/language/upgrade-guides",
         archivedAt: "2026-11-11",
       },
+      {
+        title: "HashiCorp Terraform current stable downloads",
+        url: "https://developer.hashicorp.com/terraform/install",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-10",
-      reviewedAt: "2026-11-11",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "terraform-1",
     },

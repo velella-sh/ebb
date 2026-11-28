@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/scala",
+      "version": "3.0.0",
+      "rules": ["scala.runtime.eos-3.0-3.2"]
+    },
+    {
+      "purl": "pkg:generic/scala",
+      "version": "3.3.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/sbt",
+      "version": "0.13.0",
+      "rules": ["scala.sbt.eol-0.13"]
+    },
+    {
+      "purl": "pkg:generic/sbt",
+      "version": "1.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/scala",
+      "version": "2.11.0",
+      "rules": ["scala.runtime.eol-2.11"]
+    }
+  ]
+}

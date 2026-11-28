@@ -12,29 +12,44 @@
       "summary": "These Node.js release lines no longer receive security or bug fixes, so images tagged with them are built on an unsupported runtime.",
       "severity": "high",
       "replacement": "A node image on a supported release line, such as node:22",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/node",
+          "name": "node:22",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=22.0.0|<23.0.0",
+          "note": "Review Node.js LTS maintenance and rebuild dependencies for the new release."
+        }
+      ],
       "deadline": "2026-04-30",
       "sources": [
         {
           "title": "Node.js end-of-life releases",
           "url": "https://nodejs.org/en/about/eol",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://nodejs.org/en/about/eol",
           "archivedAt": "2026-10-16"
         },
         {
           "title": "Node.js Release Working Group schedule",
           "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-16"
+        },
+        {
+          "title": "Docker Official Image tags for node",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/node",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-16",
-        "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "container-official-images"
@@ -80,29 +95,44 @@
       "summary": "Node.js 22 is scheduled to stop receiving security and bug fixes on 2027-04-30, so images tagged with it will then be built on an unsupported runtime.",
       "severity": "low",
       "replacement": "A node image on a later supported release line, such as node:24",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/node",
+          "name": "node:24",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=24.0.0|<25.0.0",
+          "note": "Review Node.js LTS maintenance and rebuild dependencies for the new release."
+        }
+      ],
       "deadline": "2027-04-30",
       "sources": [
         {
           "title": "Node.js end-of-life releases",
           "url": "https://nodejs.org/en/about/eol",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://nodejs.org/en/about/eol",
           "archivedAt": "2026-10-16"
         },
         {
           "title": "Node.js Release Working Group schedule",
           "url": "https://github.com/nodejs/Release/blob/main/schedule.json",
-          "accessedAt": "2026-10-24",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261024000000/https://github.com/nodejs/Release/blob/main/schedule.json",
           "archivedAt": "2026-10-24"
+        },
+        {
+          "title": "Docker Official Image tags for node",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/node",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-24",
-        "reviewedAt": "2026-10-24",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "container-official-images"
@@ -148,29 +178,44 @@
       "summary": "These Python release lines no longer receive security or bug fixes from the Python core team.",
       "severity": "high",
       "replacement": "A python image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/python",
+          "name": "python:3.12-trixie",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.12.0|<3.13.0",
+          "note": "Select a Python 3.12 image variant compatible with the deployment and dependencies."
+        }
+      ],
       "deadline": "2026-10-01",
       "sources": [
         {
           "title": "Status of Python versions",
           "url": "https://devguide.python.org/versions/",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://devguide.python.org/versions/",
           "archivedAt": "2026-10-16"
         },
         {
           "title": "Python release cycle (machine-readable)",
           "url": "https://peps.python.org/api/release-cycle.json",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://peps.python.org/api/release-cycle.json",
           "archivedAt": "2026-10-16"
+        },
+        {
+          "title": "Docker Official Image tags for python",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/python",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-16",
-        "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "container-official-images"
@@ -216,29 +261,44 @@
       "summary": "Python 3.11 is scheduled to stop receiving security fixes from the Python core team on 2027-10-31, so images tagged with it will then be built on an unsupported runtime.",
       "severity": "low",
       "replacement": "A python image on a later supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/python",
+          "name": "python:3.12-trixie",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.12.0|<3.13.0",
+          "note": "Select a Python 3.12 image variant compatible with the deployment and dependencies."
+        }
+      ],
       "deadline": "2027-10-31",
       "sources": [
         {
           "title": "Status of Python versions",
           "url": "https://devguide.python.org/versions/",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://devguide.python.org/versions/",
           "archivedAt": "2026-10-16"
         },
         {
           "title": "Python release cycle (machine-readable)",
           "url": "https://peps.python.org/api/release-cycle.json",
-          "accessedAt": "2026-11-03",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261103000000/https://peps.python.org/api/release-cycle.json",
           "archivedAt": "2026-11-03"
+        },
+        {
+          "title": "Docker Official Image tags for python",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/python",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-03",
-        "reviewedAt": "2026-11-03",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "container-official-images"
@@ -284,22 +344,37 @@
       "summary": "The PostgreSQL project no longer releases fixes for these major versions.",
       "severity": "high",
       "replacement": "A postgres image on a supported major version (the upgrade needs a dump/restore or pg_upgrade)",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/postgres",
+          "name": "postgres:15",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=15.0.0|<16.0.0",
+          "note": "Use an official PostgreSQL 15 image. Run pg_upgrade or dump and restore before restarting the service on the new major."
+        }
+      ],
       "deadline": "2025-11-13",
       "sources": [
         {
           "title": "PostgreSQL versioning policy",
           "url": "https://www.postgresql.org/support/versioning/",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://www.postgresql.org/support/versioning/",
           "archivedAt": "2026-10-16"
+        },
+        {
+          "title": "Docker Official Image tags for PostgreSQL",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/postgres",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-16",
-        "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -344,22 +419,37 @@
       "summary": "The PostgreSQL 14 release line is scheduled to stop receiving fixes from the vendor on 2026-11-12.",
       "severity": "low",
       "replacement": "A postgres image on a later supported major version (the upgrade needs a dump/restore or pg_upgrade)",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/postgres",
+          "name": "postgres:15",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=15.0.0|<16.0.0",
+          "note": "Use an official PostgreSQL 15 image. Run pg_upgrade or dump and restore before restarting the service on the new major."
+        }
+      ],
       "deadline": "2026-11-12",
       "sources": [
         {
           "title": "PostgreSQL release policy (vendor)",
           "url": "https://www.postgresql.org/support/versioning/",
-          "accessedAt": "2026-10-24",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261024000000/https://www.postgresql.org/support/versioning/",
           "archivedAt": "2026-10-24"
+        },
+        {
+          "title": "Docker Official Image tags for PostgreSQL",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/postgres",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-24",
-        "reviewedAt": "2026-10-24",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -405,22 +495,37 @@
       "summary": "Oracle lists MySQL 8.0 and 5.7 as covered only by Sustaining Support, which means no new fixes. The mysql.com end-of-life notice refuses automated requests (HTTP 403), so it can only be reviewed by hand.",
       "severity": "high",
       "replacement": "A mysql image on a supported release such as the 8.4 LTS line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/mysql",
+          "name": "mysql:8.4",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=8.4.0|<8.5.0",
+          "note": "Follow the supported MySQL major upgrade procedure and back up data."
+        }
+      ],
       "deadline": "2026-04-21",
       "sources": [
         {
           "title": "MySQL end-of-life notice",
           "url": "https://www.mysql.com/support/eol-notice.html",
-          "accessedAt": "2026-11-07",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/eol-notice.html",
           "archivedAt": "2026-11-07"
+        },
+        {
+          "title": "Docker Official Image tags for mysql",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/mysql",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-07",
-        "reviewedAt": "2026-11-07",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -465,22 +570,37 @@
       "summary": "These Ruby branches no longer receive security or bug fixes.",
       "severity": "high",
       "replacement": "A ruby image on a supported branch",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/ruby",
+          "name": "ruby:3.4",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is in normal maintenance. Test native dependencies with the new image."
+        }
+      ],
       "deadline": "2026-04-01",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-16",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261016000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-16"
+        },
+        {
+          "title": "Docker Official Image tags for ruby",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/ruby",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-16",
-        "reviewedAt": "2026-10-16",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -525,22 +645,37 @@
       "summary": "Ruby 3.3 is in security maintenance and is scheduled to stop receiving fixes from the Ruby core team on 2027-03-31.",
       "severity": "low",
       "replacement": "A ruby image on a later supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/ruby",
+          "name": "ruby:3.4",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.4.0|<3.5.0",
+          "note": "Ruby 3.4 is in normal maintenance. Test native dependencies with the new image."
+        }
+      ],
       "deadline": "2027-03-31",
       "sources": [
         {
           "title": "Ruby maintenance branches",
           "url": "https://www.ruby-lang.org/en/downloads/branches/",
-          "accessedAt": "2026-10-29",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261029000000/https://www.ruby-lang.org/en/downloads/branches/",
           "archivedAt": "2026-10-29"
+        },
+        {
+          "title": "Docker Official Image tags for ruby",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/ruby",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-29",
-        "reviewedAt": "2026-10-29",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -586,22 +721,42 @@
       "summary": "These Caddy release lines no longer receive fixes from the vendor.",
       "severity": "high",
       "replacement": "A caddy image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/caddy",
+          "name": "caddy:2.11.9-alpine",
+          "kind": "upgrade",
+          "vers": "vers:semver/2.11.9",
+          "note": "The Caddy project publishes 2.11.9 as its latest stable release. Test the updated server configuration."
+        }
+      ],
       "deadline": "2020-07-01",
       "sources": [
         {
           "title": "Caddy release policy (vendor)",
           "url": "https://github.com/caddyserver/caddy/security",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://github.com/caddyserver/caddy/security",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Caddy 2.11.9 stable release",
+          "url": "https://github.com/caddyserver/caddy/releases/tag/v2.11.9",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "Docker Official Image tags for caddy",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/caddy",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -647,22 +802,37 @@
       "summary": "These Go release lines no longer receive fixes from the vendor.",
       "severity": "high",
       "replacement": "A golang image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/golang",
+          "name": "golang:1.27-trixie",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=1.27.0|<1.28.0",
+          "note": "Go supports the two most recent release lines. Rebuild with the latest available patch."
+        }
+      ],
       "deadline": "2026-08-19",
       "sources": [
         {
           "title": "Go release policy (vendor)",
           "url": "https://go.dev/doc/devel/release#policy",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://go.dev/doc/devel/release#policy",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for golang",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/golang",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -708,22 +878,37 @@
       "summary": "These MariaDB release lines no longer receive fixes from the vendor.",
       "severity": "high",
       "replacement": "A mariadb image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/mariadb",
+          "name": "mariadb:10.11",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=10.11.0|<10.12.0",
+          "note": "MariaDB lists community maintenance through 2028-02-16. Check the major-version upgrade instructions."
+        }
+      ],
       "deadline": "2026-07-06",
       "sources": [
         {
           "title": "MariaDB release policy (vendor)",
           "url": "https://mariadb.org/about/#maintenance-policy",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://mariadb.org/about/#maintenance-policy",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for mariadb",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/mariadb",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -769,22 +954,37 @@
       "summary": "These Redis release lines no longer receive fixes from the vendor.",
       "severity": "high",
       "replacement": "A redis image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/redis",
+          "name": "redis:7.4",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=7.4.0|<7.5.0",
+          "note": "Redis lists the 7.4 line for extended maintenance. Check deployment and licensing requirements."
+        }
+      ],
       "deadline": "2022-05-31",
       "sources": [
         {
           "title": "Redis release policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for redis",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/redis",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -830,22 +1030,37 @@
       "summary": "The Redis 6.2 release line is scheduled to stop receiving fixes from the vendor on 2027-04-01.",
       "severity": "low",
       "replacement": "A redis image on a later supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/redis",
+          "name": "redis:7.4",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=7.4.0|<7.5.0",
+          "note": "Redis lists the 7.4 line for extended maintenance. Check deployment and licensing requirements."
+        }
+      ],
       "deadline": "2027-04-01",
       "sources": [
         {
           "title": "Redis release policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
           "archivedAt": "2026-10-30"
+        },
+        {
+          "title": "Docker Official Image tags for redis",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/redis",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -891,22 +1106,37 @@
       "summary": "These Apache ZooKeeper release lines no longer receive fixes from the vendor.",
       "severity": "high",
       "replacement": "A zookeeper image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/zookeeper",
+          "name": "zookeeper:3.9.7",
+          "kind": "upgrade",
+          "vers": "vers:semver/3.9.7",
+          "note": "Apache lists 3.9.7 as stable. Check the supported rolling-upgrade path."
+        }
+      ],
       "deadline": "2024-01-19",
       "sources": [
         {
           "title": "Apache ZooKeeper release policy (vendor)",
           "url": "https://zookeeper.apache.org/releases/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://zookeeper.apache.org/releases/",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for zookeeper",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/zookeeper",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -952,22 +1182,37 @@
       "summary": "These Drupal release lines no longer receive security fixes from the vendor: the core release schedule ends security support for 10.5 when 11.4 is released, in the week of 2026-06-29, and lists 10.6 as the only supported minor of Drupal 10.",
       "severity": "high",
       "replacement": "A drupal image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/drupal",
+          "name": "drupal:11.4",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=11.4.0|<11.5.0",
+          "note": "Drupal lists security support for 11.4 through 2027-04-21. Check module, database, and PHP requirements."
+        }
+      ],
       "deadline": "2026-07-01",
       "sources": [
         {
           "title": "Drupal release policy (vendor)",
           "url": "https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.drupal.org/about/core/policies/core-release-cycles/schedule",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for drupal",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/drupal",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1013,22 +1258,37 @@
       "summary": "These Traefik release lines no longer receive security fixes from the vendor: the release policy lists 3.7 as the only supported line, and security support for 3.6 ended on 2026-08-16.",
       "severity": "high",
       "replacement": "A traefik image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/traefik",
+          "name": "traefik:3.8",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.8.0|<3.9.0",
+          "note": "Traefik lists 3.8 for active and security support. Review configuration changes."
+        }
+      ],
       "deadline": "2026-08-16",
       "sources": [
         {
           "title": "Traefik release policy (vendor)",
           "url": "https://doc.traefik.io/traefik/deprecation/releases",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://doc.traefik.io/traefik/deprecation/releases",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for traefik",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/traefik",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1074,21 +1334,36 @@
       "summary": "These ClickHouse release lines are listed as not supported with security updates in the vendor's security policy; 26.3 is the oldest line it still supports.",
       "severity": "high",
       "replacement": "A clickhouse image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/clickhouse",
+          "name": "clickhouse:26.8",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=26.8.0|<26.9.0",
+          "note": "ClickHouse lists 26.8 for security updates. Review compatibility before changing image versions."
+        }
+      ],
       "sources": [
         {
           "title": "ClickHouse security policy: supported versions",
           "url": "https://github.com/ClickHouse/ClickHouse/blob/master/SECURITY.md",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://github.com/ClickHouse/ClickHouse/blob/master/SECURITY.md",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for clickhouse",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/clickhouse",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1134,29 +1409,44 @@
       "summary": "These Couchbase Server release lines are past their end-of-life date in the vendor's lifecycle schedule (7.2 reached end of life in July 2026; 7.6 is supported until March 2027).",
       "severity": "high",
       "replacement": "A couchbase image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/couchbase",
+          "name": "couchbase:enterprise-8.0.3",
+          "kind": "upgrade",
+          "vers": "vers:semver/8.0.3",
+          "note": "Couchbase lists Server 8.0 for maintenance through October 2028. Check the supported platform, edition, and upgrade path."
+        }
+      ],
       "deadline": "2026-07-31",
       "sources": [
         {
           "title": "Couchbase software lifecycle schedules",
           "url": "https://www.couchbase.com/support-policy/EOL/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.couchbase.com/support-policy/EOL/",
           "archivedAt": "2026-10-20"
         },
         {
           "title": "Couchbase enterprise software support policy",
           "url": "https://www.couchbase.com/support-policy/enterprise-software/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.couchbase.com/support-policy/enterprise-software/",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for couchbase",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/couchbase",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1202,21 +1492,41 @@
       "summary": "The CouchDB project publishes CVE fixes only for the current release series and its immediate predecessor, so these older release lines receive no security fixes by policy.",
       "severity": "high",
       "replacement": "A couchdb image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/couchdb",
+          "name": "couchdb:3.5.3",
+          "kind": "upgrade",
+          "vers": "vers:semver/3.5.3",
+          "note": "Apache lists 3.5.3 as its current release. Review release notes and back up data before upgrading."
+        }
+      ],
       "sources": [
         {
           "title": "Apache CouchDB security policy",
           "url": "https://docs.couchdb.org/en/stable/cve/index.html",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://docs.couchdb.org/en/stable/cve/index.html",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Apache CouchDB current downloads",
+          "url": "https://couchdb.apache.org/",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "Docker Official Image tags for couchdb",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/couchdb",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1262,21 +1572,36 @@
       "summary": "These phpMyAdmin release lines are unsupported: the vendor's downloads page supports only the current stable line and the 4.9 LTS line, and says older releases are unsupported.",
       "severity": "high",
       "replacement": "A phpmyadmin image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/phpmyadmin",
+          "name": "phpmyadmin:5.2.3",
+          "kind": "upgrade",
+          "vers": "vers:semver/5.2.3",
+          "note": "phpMyAdmin identifies 5.2.3 as stable. Check PHP and database requirements."
+        }
+      ],
       "sources": [
         {
           "title": "phpMyAdmin downloads and version support policy",
           "url": "https://www.phpmyadmin.net/downloads/",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://www.phpmyadmin.net/downloads/",
           "archivedAt": "2026-10-20"
+        },
+        {
+          "title": "Docker Official Image tags for phpmyadmin",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/phpmyadmin",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1322,22 +1647,37 @@
       "summary": "These Ubuntu releases no longer receive standard security updates from the vendor.",
       "severity": "high",
       "replacement": "An ubuntu image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/ubuntu",
+          "name": "ubuntu:24.04",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=24.4.0|<24.5.0",
+          "note": "Choose an official Ubuntu 24.04 image and rebuild the container."
+        }
+      ],
       "deadline": "2025-05-31",
       "sources": [
         {
           "title": "Ubuntu release cycle",
           "url": "https://ubuntu.com/about/release-cycle",
-          "accessedAt": "2026-10-26",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261026000000/https://ubuntu.com/about/release-cycle",
           "archivedAt": "2026-10-26"
+        },
+        {
+          "title": "Docker Official Image tags for ubuntu",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/ubuntu",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-26",
-        "reviewedAt": "2026-10-26",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -1382,22 +1722,37 @@
       "summary": "Ubuntu 22.04 is scheduled to stop receiving standard security updates on 2027-06-01.",
       "severity": "low",
       "replacement": "An ubuntu image on a later supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/ubuntu",
+          "name": "ubuntu:24.04",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=24.4.0|<24.5.0",
+          "note": "Choose an official Ubuntu 24.04 image and rebuild the container."
+        }
+      ],
       "deadline": "2027-06-01",
       "sources": [
         {
           "title": "Ubuntu release cycle",
           "url": "https://ubuntu.com/about/release-cycle",
-          "accessedAt": "2026-10-26",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261026000000/https://ubuntu.com/about/release-cycle",
           "archivedAt": "2026-10-26"
+        },
+        {
+          "title": "Docker Official Image tags for ubuntu",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/ubuntu",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-26",
-        "reviewedAt": "2026-10-26",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -1442,29 +1797,44 @@
       "summary": "These Debian releases no longer receive LTS security updates from the vendor.",
       "severity": "high",
       "replacement": "A debian image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/debian",
+          "name": "debian:13",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=13.0.0|<14.0.0",
+          "note": "Choose an official Debian 13 image for the required architecture and rebuild the container."
+        }
+      ],
       "deadline": "2026-08-31",
       "sources": [
         {
           "title": "Debian LTS",
           "url": "https://wiki.debian.org/LTS",
-          "accessedAt": "2026-10-26",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261026000000/https://wiki.debian.org/LTS",
           "archivedAt": "2026-10-26"
         },
         {
           "title": "Debian Releases",
           "url": "https://www.debian.org/releases/",
-          "accessedAt": "2026-10-26",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261026000000/https://www.debian.org/releases/",
           "archivedAt": "2026-10-26"
+        },
+        {
+          "title": "Docker Official Image tags for debian",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/debian",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-26",
-        "reviewedAt": "2026-10-26",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -1509,22 +1879,37 @@
       "summary": "These Alpine Linux releases no longer receive security updates from the vendor.",
       "severity": "high",
       "replacement": "An alpine image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/alpine",
+          "name": "alpine:3.22",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.22.0|<3.23.0",
+          "note": "Choose an official Alpine 3.22 image and check maintenance for each package repository."
+        }
+      ],
       "deadline": "2026-04-01",
       "sources": [
         {
           "title": "Alpine Linux releases",
           "url": "https://alpinelinux.org/releases/",
-          "accessedAt": "2026-10-26",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261026000000/https://alpinelinux.org/releases/",
           "archivedAt": "2026-10-26"
+        },
+        {
+          "title": "Docker Official Image tags for alpine",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/alpine",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-26",
-        "reviewedAt": "2026-10-26",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -1569,22 +1954,37 @@
       "summary": "Alpine Linux 3.21 no longer receives security updates; its release branch ended on 2026-11-01.",
       "severity": "high",
       "replacement": "An alpine image on a later supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/alpine",
+          "name": "alpine:3.22",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.22.0|<3.23.0",
+          "note": "Choose an official Alpine 3.22 image and check maintenance for each package repository."
+        }
+      ],
       "deadline": "2026-11-01",
       "sources": [
         {
           "title": "Alpine Linux releases",
           "url": "https://alpinelinux.org/releases/",
-          "accessedAt": "2026-11-07",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261107000000/https://alpinelinux.org/releases/",
           "archivedAt": "2026-11-07"
+        },
+        {
+          "title": "Docker Official Image tags for alpine",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/alpine",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-07",
-        "reviewedAt": "2026-11-07",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -1749,22 +2149,32 @@
       "summary": "Ubuntu 20.04 LTS, the newest release this range covers, stopped receiving standard security updates on 2025-05-31; interim releases in the range ended earlier. Extended Security Maintenance is a separate paid subscription.",
       "severity": "high",
       "replacement": "An Ubuntu release in standard support, such as 24.04 LTS",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ubuntu",
+          "name": "Ubuntu 24.04 LTS",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=24.4.0|<24.5.0",
+          "note": "Canonical lists standard security maintenance for Ubuntu 24.04 through May 2029. Follow the supported release upgrade sequence."
+        }
+      ],
       "deadline": "2025-05-31",
       "sources": [
         {
           "title": "Ubuntu release cycle",
           "url": "https://ubuntu.com/about/release-cycle",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://ubuntu.com/about/release-cycle",
           "archivedAt": "2026-10-30"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1804,29 +2214,44 @@
       "summary": "Debian 11 reached the end of long-term support on 2026-08-31, and older releases ended earlier. These releases no longer receive security updates from the Debian project.",
       "severity": "high",
       "replacement": "Debian 12 or 13",
+      "replacements": [
+        {
+          "purl": "pkg:generic/debian",
+          "name": "Debian 13",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=13.0.0|<14.0.0",
+          "note": "Debian 13 is the stable release, with full support through 2028-08-09 and LTS through 2030-06-30. Follow the intermediate-release requirements."
+        }
+      ],
       "deadline": "2026-08-31",
       "sources": [
         {
           "title": "Debian releases",
           "url": "https://www.debian.org/releases/",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://www.debian.org/releases/",
           "archivedAt": "2026-10-30"
         },
         {
           "title": "Debian Long Term Support",
           "url": "https://wiki.debian.org/LTS",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://wiki.debian.org/LTS",
           "archivedAt": "2026-10-30"
+        },
+        {
+          "title": "Debian 13 lifecycle and release notes",
+          "url": "https://www.debian.org/releases/trixie/",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1866,29 +2291,49 @@
       "summary": "RHEL 7 reached the end of its maintenance support phase on 2024-06-30, and older releases ended earlier. The Extended Life Cycle Support add-on is a separate paid subscription.",
       "severity": "high",
       "replacement": "RHEL 8, 9, or 10",
+      "replacements": [
+        {
+          "purl": "pkg:generic/rhel",
+          "name": "RHEL 8.10",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=8.10.0|<9.0.0",
+          "note": "RHEL 8 is in Maintenance Support. Check the subscription and the supported migration path before upgrading."
+        }
+      ],
       "deadline": "2024-06-30",
       "sources": [
         {
           "title": "Red Hat Enterprise Linux 7 end of maintenance",
           "url": "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/rhel-7-end-of-maintenance",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/rhel-7-end-of-maintenance",
           "archivedAt": "2026-10-30"
         },
         {
           "title": "Red Hat product life cycles",
           "url": "https://access.redhat.com/product-life-cycles",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://access.redhat.com/product-life-cycles",
           "archivedAt": "2026-10-30"
+        },
+        {
+          "title": "Red Hat Enterprise Linux lifecycle",
+          "url": "https://access.redhat.com/support/policy/updates/errata",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "RHEL 8.10 supported upgrade paths",
+          "url": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/8.10_release_notes/overview",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1928,22 +2373,37 @@
       "summary": "CentOS Linux 8 reached end of life on 2021-12-31 and CentOS Linux 7 on 2024-06-30, so neither receives fixes. CentOS Stream 9 and 10 follow a different lifecycle and are not covered by this rule.",
       "severity": "high",
       "replacement": "CentOS Stream 9 or 10, or a distribution with a published lifecycle",
+      "replacements": [
+        {
+          "purl": "pkg:generic/centos-stream",
+          "name": "CentOS Stream 10",
+          "kind": "alternative",
+          "vers": "vers:semver/>=10.0.0|<11.0.0",
+          "note": "CentOS Stream is the replacement distribution developed by the CentOS project. Review workload migration and release policy."
+        }
+      ],
       "deadline": "2024-06-30",
       "sources": [
         {
           "title": "CentOS Linux",
           "url": "https://www.centos.org/centos-linux/",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://www.centos.org/centos-linux/",
           "archivedAt": "2026-10-30"
+        },
+        {
+          "title": "CentOS Stream releases",
+          "url": "https://www.centos.org/centos-stream/",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -1983,29 +2443,39 @@
       "summary": "Amazon Linux 2 reached the end of standard support on 2026-06-30, and Amazon Linux AMI 2018.03 ended support on 2023-12-31. Amazon Linux 2023 is supported until 2029-06-30.",
       "severity": "high",
       "replacement": "Amazon Linux 2023",
+      "replacements": [
+        {
+          "purl": "pkg:generic/amzn",
+          "name": "Amazon Linux 2023",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=2023.0.0|<2024.0.0",
+          "note": "AWS lists standard support through 2027-06-30 and maintenance through 2029-06-30. Review workload migration from AL2."
+        }
+      ],
       "deadline": "2026-06-30",
       "sources": [
         {
           "title": "Amazon Linux 2 release notes",
           "url": "https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html",
           "archivedAt": "2026-10-30"
         },
         {
           "title": "Amazon Linux 2023 release cadence",
           "url": "https://docs.aws.amazon.com/linux/al2023/ug/release-cadence.html",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/linux/al2023/ug/release-cadence.html",
           "archivedAt": "2026-10-30"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -2045,22 +2515,32 @@
       "summary": "Alpine Linux 3.20, the newest release this range covers, stopped receiving security updates on 2026-04-01; older release branches ended earlier. Each branch is supported for about two years.",
       "severity": "high",
       "replacement": "Alpine Linux 3.21 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/alpine",
+          "name": "Alpine Linux 3.22",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=3.22.0|<3.23.0",
+          "note": "The Alpine release schedule lists support for the main repository through 2027-05-01. Check each installed package repository."
+        }
+      ],
       "deadline": "2026-04-01",
       "sources": [
         {
           "title": "Alpine Linux releases",
           "url": "https://alpinelinux.org/releases/",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://alpinelinux.org/releases/",
           "archivedAt": "2026-10-30"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -2100,29 +2580,39 @@
       "summary": "General support ended for SLES 15 SP6 on 2025-12-31, SP5 on 2024-12-31, and SP4 on 2023-12-31, and for SP3 and older earlier. Long Term Service Pack Support is a separate paid add-on; SLES 15 SP7 and SLES 16 remain in general support.",
       "severity": "high",
       "replacement": "SLES 15 SP7 or SLES 16",
+      "replacements": [
+        {
+          "purl": "pkg:generic/sles",
+          "name": "SLES 15 SP7",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=15.7.0|<16.0.0",
+          "note": "SUSE names 15 SP7 as the successor service pack and lists it in general support through July 2031."
+        }
+      ],
       "deadline": "2025-12-31",
       "sources": [
         {
           "title": "SUSE product support lifecycle",
           "url": "https://www.suse.com/lifecycle/",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://www.suse.com/lifecycle/",
           "archivedAt": "2026-10-30"
         },
         {
           "title": "SLES 15 SP6 lifecycle and support",
           "url": "https://documentation.suse.com/sles/15-SP6/html/SLES-all/cha-upgrade-background.html",
-          "accessedAt": "2026-10-30",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261030000000/https://documentation.suse.com/sles/15-SP6/html/SLES-all/cha-upgrade-background.html",
           "archivedAt": "2026-10-30"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-30",
-        "reviewedAt": "2026-10-30",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "imported",
         "importer": "endoflife-date"
@@ -2162,20 +2652,35 @@
       "summary": "Ubuntu 14.04 LTS receives Legacy add-on coverage through May 2029 via Ubuntu Pro.",
       "severity": "high",
       "replacement": "An ubuntu image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/ubuntu",
+          "name": "ubuntu:26.04",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=26.4.0|<26.5.0",
+          "note": "Canonical lists standard security maintenance for Ubuntu 26.04 through May 2031. Rebuild on an official 26.04 image."
+        }
+      ],
       "deadline": "2029-05-31",
       "sources": [
         {
           "title": "Ubuntu release cycle",
           "url": "https://ubuntu.com/about/release-cycle",
-          "accessedAt": "2026-11-27"
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "Docker Official Image tags for Ubuntu",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/ubuntu",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-27",
-        "reviewedAt": "2026-11-27",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       }
@@ -2386,20 +2891,30 @@
       "summary": "RHEL 7 Extended Life Cycle Support (ELS) add-on provides security maintenance through 2029-05-31.",
       "severity": "medium",
       "replacement": "RHEL 8, 9, or 10",
+      "replacements": [
+        {
+          "purl": "pkg:generic/rhel",
+          "name": "RHEL 9",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=9.0.0|<10.0.0",
+          "note": "RHEL 9 remains in regular maintenance beyond the end of RHEL 7 ELS. Check supported minor releases and the migration path."
+        }
+      ],
       "deadline": "2029-05-31",
       "sources": [
         {
           "title": "Red Hat product life cycles",
           "url": "https://access.redhat.com/support/policy/updates/errata",
-          "accessedAt": "2026-11-27"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-27",
-        "reviewedAt": "2026-11-27",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       }
@@ -2416,20 +2931,40 @@
       "confidence": "tentative",
       "confidenceNote": "ELTS is a commercial offering provided by Freexian in coordination with Debian, documented on wiki.debian.org/LTS/Extended rather than an official project release.",
       "replacement": "A debian image on a supported release line",
+      "replacements": [
+        {
+          "purl": "pkg:docker/library/debian",
+          "name": "debian:13",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=13.0.0|<14.0.0",
+          "note": "Debian lists project-supported LTS through 2030-06-30. Rebuild on an official Debian 13 image for your architecture."
+        }
+      ],
       "deadline": "2029-06-30",
       "sources": [
         {
           "title": "Debian Extended LTS",
           "url": "https://wiki.debian.org/LTS/Extended",
-          "accessedAt": "2026-11-27"
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "Debian 13 lifecycle and release notes",
+          "url": "https://www.debian.org/releases/trixie/",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "Docker Official Image tags for Debian",
+          "url": "https://github.com/docker-library/official-images/blob/master/library/debian",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-27",
-        "reviewedAt": "2026-11-27",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       }
@@ -2506,20 +3041,35 @@
       "confidence": "tentative",
       "confidenceNote": "ELTS is a commercial offering provided by Freexian in coordination with Debian, documented on wiki.debian.org/LTS/Extended rather than an official project release.",
       "replacement": "Debian 12 or 13",
+      "replacements": [
+        {
+          "purl": "pkg:generic/debian",
+          "name": "Debian 13",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=13.0.0|<14.0.0",
+          "note": "Debian 13 is the stable release, with full support through 2028-08-09 and LTS through 2030-06-30. Follow the intermediate-release requirements."
+        }
+      ],
       "deadline": "2029-06-30",
       "sources": [
         {
           "title": "Debian Extended LTS",
           "url": "https://wiki.debian.org/LTS/Extended",
-          "accessedAt": "2026-11-27"
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "Debian 13 lifecycle and release notes",
+          "url": "https://www.debian.org/releases/trixie/",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-11-27",
-        "reviewedAt": "2026-11-27",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       }

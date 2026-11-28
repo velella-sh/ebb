@@ -59,6 +59,11 @@
       "purl": "pkg:generic/deno",
       "version": "2.0.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/deno",
+      "version": "0.1.0",
+      "rules": ["deno.runtime.eol-0.x"]
     }
   ]
 }

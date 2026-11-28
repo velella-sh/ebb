@@ -29,6 +29,66 @@
       "purl": "pkg:generic/ruby",
       "version": "3.1.6",
       "rules": ["ruby.runtime.eol-3.1"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "3.0.0",
+      "rules": ["ruby.runtime.eol-3.0"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.7.0",
+      "rules": ["ruby.runtime.eol-2.7"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.6.0",
+      "rules": ["ruby.runtime.eol-2.6"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.5.0",
+      "rules": ["ruby.runtime.eol-2.5"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.4.0",
+      "rules": ["ruby.runtime.eol-2.4"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.3.0",
+      "rules": ["ruby.runtime.eol-2.3"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.2.0",
+      "rules": ["ruby.runtime.eol-2.2"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.1.0",
+      "rules": ["ruby.runtime.eol-2.1"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "2.0.0",
+      "rules": ["ruby.runtime.eol-2.0.0"]
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "version": "1.9.3",
+      "rules": ["ruby.runtime.eol-1.9.3"]
+    },
+    {
+      "purl": "pkg:gem/rails",
+      "version": "7.2.0",
+      "rules": ["ruby.gem.rails-7.2.end-of-life"]
+    },
+    {
+      "purl": "pkg:gem/rails",
+      "version": "8.0.0",
+      "rules": ["ruby.gem.rails-8.0.scheduled-end-of-life"]
     }
   ]
 }

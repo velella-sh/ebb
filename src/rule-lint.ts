@@ -9,6 +9,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join, relative, resolve } from "node:path";
 
 import { registryV2Issues } from "./registry.js";
+import { classifySuccessor } from "./successor-text.js";
 import { required } from "./required.js";
 import { parsePurl, purlIdentity } from "./purl.js";
 import { parseVers } from "./vers/index.js";
@@ -330,9 +331,13 @@ async function lintFile(file: string): Promise<FileResult> {
     parsedRules.push({ rule: candidate, line });
 
     if (
+      (candidate.event === "deprecated" || candidate.event === "end-of-support" || candidate.event === "end-of-life") &&
+      typeof candidate.purl === "string" &&
       typeof candidate.replacement === "string" &&
-      candidate.replacement.trim() !== "" &&
-      (!Array.isArray(candidate.replacements) || candidate.replacements.length === 0)
+      (!Array.isArray(candidate.replacements) || candidate.replacements.length === 0) &&
+      ["installable-package", "same-component-line"].includes(
+        classifySuccessor(candidate.purl, candidate.replacement.trim()),
+      )
     ) {
       warnings.push({
         file: shown,
@@ -348,8 +353,7 @@ async function lintFile(file: string): Promise<FileResult> {
 }
 
 /**
- * Lints the given registry files. Every problem is an error; there are no warnings, so an empty list means the
- * files are safe to commit.
+ * Lints the given registry files. Issues fail validation; warnings suggest improvements.
  * @deprecated Import from `@velella/ebb` instead; subpath imports will be removed in 1.0.
  */
 export async function lintRuleFiles(files: readonly string[]): Promise<RuleLintResult> {

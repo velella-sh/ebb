@@ -15,21 +15,35 @@ export const rules: readonly RegistryV2Rule[] = [
       "Deno 1.x was superseded by Deno 2.0 (released October 2024). Deno 1.x is end-of-life and no longer receives feature updates or bug fixes.",
     severity: "high",
     replacement: "Deno 2.0 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/deno",
+        name: "Deno 2.9 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=2.9.3|<2.10.0",
+        note: "Review the Deno 2 breaking changes and select the LTS channel. Deno 2.9 LTS maintenance ends 2027-01-31.",
+      },
+    ],
     deadline: "2024-10-09",
     sources: [
       {
         title: "Deno 2.0.0 Release",
         url: "https://github.com/denoland/deno/releases/tag/v2.0.0",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/denoland/deno/releases/tag/v2.0.0",
         archivedAt: "2026-10-26",
+      },
+      {
+        title: "Deno release channels and LTS maintenance",
+        url: "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -56,21 +70,35 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "Deno 0.x pre-release versions are obsolete and end-of-life following the release of Deno 1.0.0.",
     severity: "high",
     replacement: "Deno 2.0 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/deno",
+        name: "Deno 2.9 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=2.9.3|<2.10.0",
+        note: "Review the Deno 2 breaking changes and select the LTS channel. Deno 2.9 LTS maintenance ends 2027-01-31.",
+      },
+    ],
     deadline: "2020-05-13",
     sources: [
       {
         title: "Deno 1.0.0 Release",
         url: "https://github.com/denoland/deno/releases/tag/v1.0.0",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/denoland/deno/releases/tag/v1.0.0",
         archivedAt: "2026-10-26",
+      },
+      {
+        title: "Deno release channels and LTS maintenance",
+        url: "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -178,15 +206,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Deno LTS table lists maintenance for the 2.1 LTS line ending on 2025-04-30. That LTS line no longer receives backported security or critical bug fixes.",
     severity: "high",
     replacement: "Deno LTS 2.9 (until 2027-01-31) or current stable",
+    replacements: [
+      {
+        purl: "pkg:generic/deno",
+        name: "Deno 2.9 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=2.9.3|<2.10.0",
+        note: "Run deno upgrade lts to select the LTS channel. The same version number can name a stable build. Maintenance ends on 2027-01-31.",
+      },
+    ],
     deadline: "2025-04-30",
     sources: [
       {
         title: "Deno stability and releases (LTS)",
         url: "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: ["Keep deno.json / deno.jsonc, CI setup, and deployment pins on one Deno release channel."],
       steps: [
@@ -212,15 +255,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Deno LTS table lists maintenance for the 2.2 LTS line ending on 2025-10-31. That LTS line no longer receives backported security or critical bug fixes.",
     severity: "high",
     replacement: "Deno LTS 2.9 (until 2027-01-31) or current stable",
+    replacements: [
+      {
+        purl: "pkg:generic/deno",
+        name: "Deno 2.9 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=2.9.3|<2.10.0",
+        note: "Run deno upgrade lts to select the LTS channel. The same version number can name a stable build. Maintenance ends on 2027-01-31.",
+      },
+    ],
     deadline: "2025-10-31",
     sources: [
       {
         title: "Deno stability and releases (LTS)",
         url: "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: ["Keep deno.json / deno.jsonc, CI setup, and deployment pins on one Deno release channel."],
       steps: [
@@ -246,15 +304,30 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Deno LTS table lists maintenance for the 2.5 LTS line ending on 2026-04-30. That LTS line no longer receives backported security or critical bug fixes.",
     severity: "high",
     replacement: "Deno LTS 2.9 (until 2027-01-31) or current stable",
+    replacements: [
+      {
+        purl: "pkg:generic/deno",
+        name: "Deno 2.9 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=2.9.3|<2.10.0",
+        note: "Run deno upgrade lts to select the LTS channel. The same version number can name a stable build. Maintenance ends on 2027-01-31.",
+      },
+    ],
     deadline: "2026-04-30",
     sources: [
       {
         title: "Deno stability and releases (LTS)",
         url: "https://docs.deno.com/runtime/fundamentals/stability_and_releases/",
-        accessedAt: "2026-11-15",
+        accessedAt: "2026-11-28",
       },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: ["Keep deno.json / deno.jsonc, CI setup, and deployment pins on one Deno release channel."],
       steps: [

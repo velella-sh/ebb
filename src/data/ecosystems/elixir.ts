@@ -15,19 +15,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "Elixir's security policy provides security patches only for the five most recent minor branches. Elixir 1.15 left that window when Elixir 1.20 shipped on 2026-06-03, so the branch no longer receives security patches from the Elixir project.",
     severity: "high",
     replacement: "Elixir 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/elixir",
+        name: "Elixir 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "Elixir 1.17 receives security patches only. Check the project security policy and the supported Erlang/OTP versions.",
+      },
+    ],
     deadline: "2026-06-03",
     sources: [
       {
         title: "Elixir security policy",
         url: "https://github.com/elixir-lang/elixir/security/policy",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/security/policy",
         archivedAt: "2026-10-26",
       },
       {
         title: "Elixir v1.20.0 release",
         url: "https://github.com/elixir-lang/elixir/releases/tag/v1.20.0",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/releases/tag/v1.20.0",
         archivedAt: "2026-10-26",
@@ -35,9 +44,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -79,19 +88,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "Elixir's security policy provides security patches only for the five most recent minor branches. Elixir 1.14 left that window when Elixir 1.19 shipped on 2025-10-16, so the branch no longer receives security patches from the Elixir project.",
     severity: "high",
     replacement: "Elixir 1.16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/elixir",
+        name: "Elixir 1.17",
+        kind: "upgrade",
+        vers: "vers:semver/>=1.17.0|<1.18.0",
+        note: "Elixir 1.17 receives security patches only. Check the project security policy and the supported Erlang/OTP versions.",
+      },
+    ],
     deadline: "2025-10-16",
     sources: [
       {
         title: "Elixir security policy",
         url: "https://github.com/elixir-lang/elixir/security/policy",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/security/policy",
         archivedAt: "2026-10-26",
       },
       {
         title: "Elixir v1.19.0 release",
         url: "https://github.com/elixir-lang/elixir/releases/tag/v1.19.0",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://github.com/elixir-lang/elixir/releases/tag/v1.19.0",
         archivedAt: "2026-10-26",
@@ -99,9 +117,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -143,28 +161,37 @@ export const rules: readonly RegistryV2Rule[] = [
       "Erlang/OTP supports the last three major releases with security updates. OTP 26 left that window when OTP 29 shipped on 2026-05-13, so the release no longer receives security updates from the Erlang/OTP project.",
     severity: "high",
     replacement: "Erlang/OTP 27 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/erlang",
+        name: "Erlang/OTP 27",
+        kind: "upgrade",
+        vers: "vers:semver/>=27.0.0|<28.0.0",
+        note: "OTP 27 is the oldest line within the project’s three-release security patch policy.",
+      },
+    ],
     deadline: "2026-05-13",
     sources: [
       {
         title: "Erlang/OTP security policy",
         url: "https://github.com/erlang/otp/security/policy",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/security/policy",
         archivedAt: "2026-10-26",
       },
       {
         title: "OTP 29.0 release",
         url: "https://github.com/erlang/otp/releases/tag/OTP-29.0",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/releases/tag/OTP-29.0",
         archivedAt: "2026-10-26",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -209,28 +236,37 @@ export const rules: readonly RegistryV2Rule[] = [
       "Erlang/OTP supports the last three major releases with security updates. OTP 25 left that window when OTP 28 shipped on 2025-05-21, so the release no longer receives security updates from the Erlang/OTP project.",
     severity: "high",
     replacement: "Erlang/OTP 27 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/erlang",
+        name: "Erlang/OTP 27",
+        kind: "upgrade",
+        vers: "vers:semver/>=27.0.0|<28.0.0",
+        note: "OTP 27 is the oldest line within the project’s three-release security patch policy.",
+      },
+    ],
     deadline: "2025-05-21",
     sources: [
       {
         title: "Erlang/OTP security policy",
         url: "https://github.com/erlang/otp/security/policy",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/security/policy",
         archivedAt: "2026-10-26",
       },
       {
         title: "OTP 28.0 release",
         url: "https://github.com/erlang/otp/releases/tag/OTP-28.0",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://github.com/erlang/otp/releases/tag/OTP-28.0",
         archivedAt: "2026-10-26",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -275,27 +311,35 @@ export const rules: readonly RegistryV2Rule[] = [
       "Hex marks every published fennec release as retired with reason renamed, and the retirement message says the package was renamed to mongooseice.",
     severity: "high",
     replacement: "mongooseice",
+    replacements: [
+      {
+        purl: "pkg:hex/mongooseice",
+        name: "MongooseICE",
+        kind: "successor",
+        note: "Hex records MongooseICE as the maintainer’s official package rename.",
+      },
+    ],
     sources: [
       {
         title: "fennec on Hex",
         url: "https://hex.pm/packages/fennec",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://hex.pm/packages/fennec",
         archivedAt: "2026-10-26",
       },
       {
         title: "mongooseice on Hex",
         url: "https://hex.pm/packages/mongooseice",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://hex.pm/packages/mongooseice",
         archivedAt: "2026-10-26",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

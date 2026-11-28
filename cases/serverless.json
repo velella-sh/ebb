@@ -1,0 +1,679 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs14.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs14.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs12.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs12.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.8",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.8"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.7",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.7"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/ruby2.7",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.ruby2.7"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs24.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs24.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs22.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs22.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.14",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.14"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.13",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.13"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.12",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.12"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.11",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.11"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.10",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.10"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java21",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java21"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java17.al2023",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java17.al2023"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java11.al2023",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java11.al2023"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java8.al2023",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java8.al2023"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java17",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java17"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java11",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java11"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java8.al2",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java8.al2"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnet9",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnet9"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnet8",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnet8"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/ruby3.4",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.ruby3.4"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/ruby3.3",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.ruby3.3"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/provided.al2",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.provided.al2"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs20.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs20.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/ruby3.2",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.ruby3.2"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.9",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.9"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs18.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs18.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnet6",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnet6"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs16.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs16.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnet7",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnet7"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/java8",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.java8"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/go1.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.go1.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/provided",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.provided"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python3.6",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python3.6"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnet5.0",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnet5.0"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnetcore2.1",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnetcore2.1"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs10.x",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs10.x"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/ruby2.5",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.ruby2.5"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/python2.7",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.python2.7"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs8.10",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs8.10"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs4.3",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs4.3"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs4.3-edge",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs4.3-edge"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs6.10",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs6.10"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnetcore1.0",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnetcore1.0"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnetcore2.0",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnetcore2.0"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/nodejs",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.nodejs"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs14",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs14"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs20",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs20"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs18",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs18"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs16",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs16"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs12",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs12"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs10",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs10"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs8",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs8"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/nodejs6",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.nodejs6"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/python310",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.python310"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/python39",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.python39"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/python38",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.python38"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/python37",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.python37"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go125",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go125"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go124",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go124"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go123",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go123"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go122",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go122"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go121",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go121"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go120",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go120"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go119",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go119"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go118",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go118"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go116",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go116"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go113",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go113"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/go111",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.go111"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/java11",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.java11"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/ruby32",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.ruby32"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/ruby30",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.ruby30"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/ruby27",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.ruby27"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/ruby26",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.ruby26"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/php81",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.php81"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/php74",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.php74"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/dotnet6",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.dotnet6"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-functions-runtime/dotnet3",
+      "version": "1.0.0",
+      "rules": ["serverless.google-cloud-functions.dotnet3"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go123",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go123"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go122",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go122"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go121",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go121"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go120",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go120"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go119",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go119"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go118",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go118"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go116",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go116"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go115",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go115"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go114",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go114"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go113",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go113"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go112",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go112"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/go111",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.go111"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/java11",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.java11"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/java8",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.java8"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/nodejs20",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.nodejs20"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/nodejs18",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.nodejs18"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/nodejs16",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.nodejs16"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/nodejs14",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.nodejs14"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/nodejs12",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.nodejs12"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/nodejs10",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.nodejs10"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/nodejs8",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.nodejs8"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/python310",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.python310"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/python39",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.python39"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/python38",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.python38"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/python37",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.python37"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/python27",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.python27"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/php81",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.php81"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/php74",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.php74"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/php73",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.php73"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/php72",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.php72"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/php55",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.php55"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/ruby32",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.ruby32"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/ruby30",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.ruby30"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/ruby27",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.ruby27"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/ruby26",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.ruby26"]
+    },
+    {
+      "purl": "pkg:generic/google-appengine-runtime/ruby25",
+      "version": "1.0.0",
+      "rules": ["serverless.google-appengine-runtime.ruby25"]
+    },
+    {
+      "purl": "pkg:generic/azure-functions",
+      "version": "1.0.0",
+      "rules": ["serverless.azure-functions.runtime-1-x"]
+    },
+    {
+      "purl": "pkg:generic/azure-functions",
+      "version": "2.0.0",
+      "rules": ["serverless.azure-functions.runtime-2-x-and-3-x"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/java",
+      "version": "1.0.0",
+      "rules": ["serverless.azure-app-service.java-7-and-older"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/java",
+      "version": "8.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/node",
+      "version": "1.0.0",
+      "rules": ["serverless.azure-app-service.node-below-18"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/node",
+      "version": "18.0.0",
+      "rules": ["serverless.azure-app-service.node-18"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/node",
+      "version": "20.0.0",
+      "rules": ["serverless.azure-app-service.node-20"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/node",
+      "version": "22.0.0",
+      "rules": ["serverless.azure-app-service.node-22"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/python",
+      "version": "1.0.0",
+      "rules": ["serverless.azure-app-service.python-below-3-10"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/python",
+      "version": "3.10.0",
+      "rules": ["serverless.azure-app-service.python-3-10"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/dotnet",
+      "version": "1.0.0",
+      "rules": ["serverless.azure-app-service.dotnet-below-6-0"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/dotnet",
+      "version": "6.0.0",
+      "rules": ["serverless.azure-app-service.dotnet-6-0"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/dotnet",
+      "version": "7.0.0",
+      "rules": ["serverless.azure-app-service.dotnet-7-0"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/dotnet",
+      "version": "8.0.0",
+      "rules": ["serverless.azure-app-service.dotnet-8-0"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/dotnet-isolated",
+      "version": "6.0.0",
+      "rules": ["serverless.azure-app-service.dotnet-isolated-6-0"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/dotnet-isolated",
+      "version": "7.0.0",
+      "rules": ["serverless.azure-app-service.dotnet-isolated-7-0"]
+    },
+    {
+      "purl": "pkg:generic/aws-lambda-runtime/dotnetcore3.1",
+      "version": "1.0.0",
+      "rules": ["serverless.aws-lambda.dotnetcore3.1"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/php",
+      "version": "1.0.0",
+      "rules": ["serverless.azure-app-service.php-below-8-0"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/php",
+      "version": "8.0.0",
+      "rules": ["serverless.azure-app-service.php-8-0"]
+    },
+    {
+      "purl": "pkg:generic/azure-app-service/php",
+      "version": "8.1.0",
+      "rules": ["serverless.azure-app-service.php-8-1"]
+    }
+  ]
+}

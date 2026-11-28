@@ -169,6 +169,25 @@ test("a changed rule is linted, its cases are checked, and it is named in the su
   }
 });
 
+test("the rules workflow reports a changed rule's successor warning without failing", async () => {
+  const { root, base } = await repository();
+  try {
+    const file = join(root, "registry", "npm.json");
+    await writeFile(file, registryText().replace("Native fetch", "npm install another-request-client"));
+    await commit(root, "name a successor");
+    const result = await runChangedRules({ base, root });
+    assert.equal(result.passed, true);
+    assert.deepEqual(
+      result.lint.warnings.map(({ ruleId }) => ruleId),
+      [RULE_ID],
+    );
+    assert.match(renderChangedRulesSummary(result), /#### Lint warnings/);
+    assert.match(renderChangedRulesSummary(result), /no structured replacements/);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
 test("a rule change that breaks a case fails and names the case", async () => {
   const { root, base } = await repository();
   try {

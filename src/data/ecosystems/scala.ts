@@ -15,19 +15,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Scala project's development guarantees page states that Scala 2.11 reached end-of-life in 2016. It remains available in some contexts, but it is no longer maintained.",
     severity: "high",
     replacement: "Scala 2.13 or Scala 3",
+    replacements: [
+      {
+        purl: "pkg:generic/scala",
+        name: "Scala 3.3 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.3.0|<3.4.0",
+        note: "The Scala project designates 3.3 as its LTS series. Follow the migration guidance for Scala 2 projects.",
+      },
+    ],
     deadline: "2016-01-01",
     sources: [
       {
         title: "Scala development guarantees — Scala 2.11 status",
         url: "https://scala-lang.org/development/",
-        accessedAt: "2026-10-27",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261027000000/https://scala-lang.org/development/",
         archivedAt: "2026-10-27",
       },
       {
         title: "Scala 2 maintenance plans",
         url: "https://www.scala-lang.org/blog/2024/12/16/scala-2-maintenance.html",
-        accessedAt: "2026-10-27",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261027000000/https://www.scala-lang.org/blog/2024/12/16/scala-2-maintenance.html",
         archivedAt: "2026-10-27",
@@ -35,9 +44,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-27",
-      reviewedAt: "2026-10-27",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -79,27 +88,36 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Scala project's development guarantees page states that a non-LTS Scala 3 minor receives patches only until the next minor ships. Scala 3.0, 3.1, and 3.2 are frozen on their last patches; later fixes landed only in 3.3 LTS and newer lines.",
     severity: "high",
     replacement: "Scala 3.3 LTS or a current Scala Next / LTS line",
+    replacements: [
+      {
+        purl: "pkg:generic/scala",
+        name: "Scala 3.3 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.3.0|<3.4.0",
+        note: "The Scala project designates Scala 3.3.x as the LTS series.",
+      },
+    ],
     sources: [
       {
         title: "Scala development guarantees — Scala 3 LTS",
         url: "https://scala-lang.org/development/",
-        accessedAt: "2026-10-27",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261027000000/https://scala-lang.org/development/",
         archivedAt: "2026-10-27",
       },
       {
         title: "Scala 3.9 LTS released",
         url: "https://scala-lang.org/news/3.9/",
-        accessedAt: "2026-10-27",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261027000000/https://scala-lang.org/news/3.9/",
         archivedAt: "2026-10-27",
       },
     ],
     provenance: {
       observedAt: "2026-10-27",
-      reviewedAt: "2026-10-27",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -141,19 +159,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "The sbt download page lists the 0.13.x series as end of life on 2018-11-30 after five years. The final release in that line is 0.13.18.",
     severity: "high",
     replacement: "sbt 1.x or sbt 2.x",
+    replacements: [
+      {
+        purl: "pkg:generic/sbt",
+        name: "sbt 2.x",
+        kind: "upgrade",
+        vers: "vers:semver/>=2.0.0|<3.0.0",
+        note: "Use a current sbt 2.x release and verify plugin compatibility.",
+      },
+    ],
     deadline: "2018-11-30",
     sources: [
       {
         title: "sbt download — release timeline",
         url: "https://www.scala-sbt.org/download/",
-        accessedAt: "2026-10-27",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261027000000/https://www.scala-sbt.org/download/",
         archivedAt: "2026-10-27",
       },
       {
         title: "Migrating from sbt 0.13.x",
         url: "https://www.scala-sbt.org/1.x/docs/Migrating-from-sbt-013x.html",
-        accessedAt: "2026-10-27",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261027000000/https://www.scala-sbt.org/1.x/docs/Migrating-from-sbt-013x.html",
         archivedAt: "2026-10-27",
@@ -161,9 +188,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-27",
-      reviewedAt: "2026-10-27",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

@@ -15,22 +15,37 @@
       "summary": "Apps uploaded to App Store Connect must be built with Xcode 15 for iOS 17, iPadOS 17, tvOS 17, or watchOS 10 starting April 29, 2024.",
       "severity": "high",
       "replacement": "Xcode 26 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/xcode",
+          "name": "Xcode 26 or later",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=26.0.0",
+          "note": "App Store Connect requires Xcode 26 or later and an SDK meeting the platform requirement."
+        }
+      ],
       "deadline": "2024-04-29",
       "sources": [
         {
           "title": "Xcode 15 — App Store upcoming requirements",
           "url": "https://developer.apple.com/news/upcoming-requirements/?id=04292024a",
-          "accessedAt": "2026-10-19",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261019000000/https://developer.apple.com/news/upcoming-requirements/?id=04292024a",
           "archivedAt": "2026-10-19"
+        },
+        {
+          "title": "App Store Connect SDK minimum as of April 2026",
+          "url": "https://developer.apple.com/news/upcoming-requirements/?id=04282026a",
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-19",
-        "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -79,22 +94,32 @@
       "summary": "Since April 28, 2026. Apps uploaded to App Store Connect must be built with Xcode 26 or later using an SDK for iOS 26, iPadOS 26, tvOS 26, visionOS 26, or watchOS 26.",
       "severity": "high",
       "replacement": "Xcode 26 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/xcode",
+          "name": "Xcode 26 or later",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=26.0.0",
+          "note": "App Store Connect requires Xcode 26 or later and an SDK meeting the platform requirement."
+        }
+      ],
       "deadline": "2026-04-28",
       "sources": [
         {
           "title": "SDK minimum requirements — App Store upcoming requirements (Xcode 26)",
           "url": "https://developer.apple.com/news/upcoming-requirements/?id=04282026a",
-          "accessedAt": "2026-10-19",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261019000000/https://developer.apple.com/news/upcoming-requirements/?id=04282026a",
           "archivedAt": "2026-10-19"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-19",
-        "reviewedAt": "2026-10-19",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },
@@ -142,22 +167,32 @@
       "summary": "Since September 9, 2026, iOS and iPadOS apps uploaded to App Store Connect must target iOS 13 or later.",
       "severity": "high",
       "replacement": "iOS 13 or later",
+      "replacements": [
+        {
+          "purl": "pkg:generic/ios",
+          "name": "iOS 13 or later",
+          "kind": "upgrade",
+          "vers": "vers:semver/>=13.0.0",
+          "note": "For submission to App Store Connect, set the deployment target to iOS 13 or above."
+        }
+      ],
       "deadline": "2026-09-09",
       "sources": [
         {
           "title": "iOS and iPadOS minimum system requirements — App Store upcoming requirements",
           "url": "https://developer.apple.com/news/upcoming-requirements/?id=0992026a",
-          "accessedAt": "2026-10-20",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261020000000/https://developer.apple.com/news/upcoming-requirements/?id=0992026a",
           "archivedAt": "2026-10-20"
         }
       ],
       "provenance": {
         "observedAt": "2026-10-20",
-        "reviewedAt": "2026-10-20",
-        "reviewer": "arminazimi",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "codex-agent",
         "reviewers": [
-          "arminazimi"
+          "arminazimi",
+          "codex-agent"
         ],
         "method": "manual"
       },

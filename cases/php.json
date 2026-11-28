@@ -54,6 +54,36 @@
       "purl": "pkg:generic/php",
       "version": "8.2.99",
       "rules": ["php.runtime.end-of-active-support-8.2", "php.runtime.eol-8.2"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "8.0.0",
+      "rules": ["php.runtime.eol-8.0"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "7.4.0",
+      "rules": ["php.runtime.eol-7.4"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "7.3.0",
+      "rules": ["php.runtime.eol-7.3"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "7.2.0",
+      "rules": ["php.runtime.eol-7.2"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "7.1.0",
+      "rules": ["php.runtime.eol-7.1"]
+    },
+    {
+      "purl": "pkg:generic/php",
+      "version": "7.0.0",
+      "rules": ["php.runtime.eol-7.0"]
     }
   ]
 }

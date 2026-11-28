@@ -177,7 +177,7 @@
     "node": ">=22"
   },
   "ebb": {
-    "sizeBudget": 622000,
+    "sizeBudget": 635000,
     "siteDataBudget": 8388608,
     "staticApiBudgets": {
       "indexGzip": 51200,

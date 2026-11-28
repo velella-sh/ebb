@@ -101,6 +101,8 @@ main:
         url: /schema-evolution/
       - title: Rules and replacements
         url: /rules-for/
+      - title: Structured successors
+        url: /successors/
       - title: Repairing broken evidence
         url: /source-heal/
       - title: Evidence sources

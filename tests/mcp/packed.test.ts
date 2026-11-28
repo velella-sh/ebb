@@ -191,6 +191,57 @@ describe("MCP packed tarball stdio", () => {
       assert.equal(compat.result.structuredContent.row.kind, "declared");
       assert.match(compat.result.structuredContent.row.source.url, /^https:\/\/pypi\.org\//u);
 
+      const successorExamples = [
+        ["pkg:npm/react-beautiful-dnd", "13.1.1", "pkg:npm/%40atlaskit/pragmatic-drag-and-drop", "successor"],
+        ["pkg:pypi/pytest-runner", "6.0.0", "pkg:pypi/tox", "alternative"],
+        ["pkg:generic/golang", "1.25.0", "pkg:generic/golang", "upgrade"],
+        [
+          "pkg:generic/kubernetes/extensions/Ingress",
+          "1.0.0-beta.1",
+          "pkg:generic/kubernetes/networking.k8s.io/Ingress",
+          "successor",
+        ],
+        [
+          "pkg:generic/aws-lambda-runtime/nodejs14.x",
+          "1.0.0",
+          "pkg:generic/aws-lambda-runtime/nodejs22.x",
+          "successor",
+        ],
+      ];
+      execFileSync(
+        process.execPath,
+        [
+          "--input-type=module",
+          "-e",
+          `import assert from "node:assert/strict";
+          import { replacementFor, replacementsFor, rulesFor } from "@velella/ebb";
+          for (const [purl, version, target, kind] of ${JSON.stringify(successorExamples)}) {
+            assert.ok(replacementFor(purl, version));
+            assert.ok(replacementsFor(purl, version).some((item) => item.purl === target && item.kind === kind));
+          }
+          assert.equal(rulesFor("pkg:pypi/superlinked")[0]?.requires?.python, "3.12");
+          assert.equal(rulesFor("pkg:npm/next").find((rule) => rule.id === "npm.package.next.15.support-end")?.requires?.node, "20.9.0");
+          assert.equal(rulesFor("pkg:pypi/django").find((rule) => rule.id === "python.package.django-5.1.eol")?.requires?.python, "3.10");`,
+        ],
+        { cwd: appDir },
+      );
+      for (const [index, [purl, version, target, kind]] of successorExamples.entries()) {
+        const id = index + 5;
+        session.write({
+          jsonrpc: "2.0",
+          id,
+          method: "tools/call",
+          params: { name: "replacement_for", arguments: { purl, version } },
+        });
+        const response = (await session.waitForResponse(id)) as {
+          result: { isError: boolean; structuredContent: { replacements: Array<{ purl: string; kind: string }> } };
+        };
+        assert.equal(response.result.isError, false);
+        assert.ok(
+          response.result.structuredContent.replacements.some((item) => item.purl === target && item.kind === kind),
+        );
+      }
+
       await session.finish();
       assert.ok(session.allResponses.length >= 2);
       assert.equal(session.stderr, "", `unexpected stderr: ${session.stderr}`);

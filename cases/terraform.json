@@ -1,0 +1,243 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.33.0",
+      "rules": ["kubernetes.amazon-eks.1-33", "terraform.eks.end-of-support-1.33"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.34.0",
+      "rules": ["kubernetes.amazon-eks.1-34"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.32.0",
+      "rules": ["kubernetes.amazon-eks.1-32", "terraform.eks.end-of-support-1.32"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.31.0",
+      "rules": ["kubernetes.amazon-eks.1-31", "terraform.eks.end-of-support-1.31"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.33.0",
+      "rules": ["terraform.gke.end-of-support-1.33"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.34.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.32.0",
+      "rules": ["terraform.gke.end-of-support-1.32"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.33.0",
+      "rules": ["terraform.aks.end-of-support-1.33"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.34.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.32.0",
+      "rules": ["terraform.aks.end-of-support-1.32"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.31.0",
+      "rules": ["terraform.aks.end-of-support-1.31"]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.15.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.15",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.16.0",
+      "rules": ["terraform.function.list-map", "terraform.syntax.interpolation-only"]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.14.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.14",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.13.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.13",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.12.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.12",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.11.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.11",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.10.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.10",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.0.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.0",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.1.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.1",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.2.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.2",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.3.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.3",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.4.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.4",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.5.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.5",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.6.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.6",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.7.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.7",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.8.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.8",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/terraform",
+      "version": "1.9.0",
+      "rules": [
+        "terraform.cli.end-of-support-1.9",
+        "terraform.function.list-map",
+        "terraform.syntax.interpolation-only"
+      ]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.31.0",
+      "rules": ["terraform.gke.end-of-life-1.31"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.30.0",
+      "rules": ["terraform.gke.end-of-life-1.30"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.0.0",
+      "rules": ["terraform.gke.end-of-life-1.29-and-older"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.30.0",
+      "rules": ["terraform.aks.end-of-life-1.30"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.29.0",
+      "rules": ["terraform.aks.end-of-life-1.29"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.0.0",
+      "rules": ["terraform.aks.end-of-life-1.28-and-older"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.0.0",
+      "rules": ["kubernetes.amazon-eks.1-30-and-older", "terraform.eks.end-of-life-1.30-and-older"]
+    }
+  ]
+}

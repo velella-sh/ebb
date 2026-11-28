@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/elixir",
+      "version": "1.15.0",
+      "rules": ["elixir.runtime.eol-1.15"]
+    },
+    {
+      "purl": "pkg:generic/elixir",
+      "version": "1.16.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/elixir",
+      "version": "1.14.0",
+      "rules": ["elixir.runtime.eol-1.14"]
+    },
+    {
+      "purl": "pkg:generic/erlang",
+      "version": "26.0.0",
+      "rules": ["elixir.erlang.eol-26"]
+    },
+    {
+      "purl": "pkg:generic/erlang",
+      "version": "27.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/erlang",
+      "version": "25.0.0",
+      "rules": ["elixir.erlang.eol-25"]
+    },
+    {
+      "purl": "pkg:hex/fennec",
+      "version": "1.0.0",
+      "rules": ["elixir.package.fennec.retired"]
+    }
+  ]
+}

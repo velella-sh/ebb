@@ -3282,28 +3282,45 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       'npm marks @nuxt/types as deprecated: "Nuxt 2 has reached EOL and is no longer actively maintained. See https://nuxt.com/blog/nuxt2-eol for more details."',
     severity: "medium",
-    replacement: "Nuxt 3",
+    replacement: "Nuxt 4 with its built-in TypeScript integration",
+    replacements: [
+      {
+        purl: "pkg:npm/nuxt",
+        name: "Nuxt 4",
+        kind: "successor",
+        vers: "vers:npm/>=4.0.0|<5.0.0",
+        note: "Migrate the Nuxt application using the official upgrade guide and remove the Nuxt 2-only TypeScript package.",
+      },
+    ],
+    requires: { node: "22.0.0" },
     sources: [
       {
         title: "@nuxt/types on npm",
         url: "https://www.npmjs.com/package/@nuxt/types",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@nuxt/types",
         archivedAt: "2026-10-19",
       },
       {
         title: "@nuxt/types registry metadata",
         url: "https://registry.npmjs.org/@nuxt%2ftypes/latest",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@nuxt%2ftypes/latest",
         archivedAt: "2026-10-19",
+      },
+      { title: "Nuxt 2 end-of-life announcement", url: "https://nuxt.com/blog/nuxt2-eol", accessedAt: "2026-11-28" },
+      { title: "Nuxt release roadmap", url: "https://nuxt.com/docs/4.x/community/roadmap", accessedAt: "2026-11-28" },
+      {
+        title: "Nuxt 4 installation prerequisites",
+        url: "https://nuxt.com/docs/4.x/getting-started/installation",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "npm-deprecated",
     },
@@ -3348,29 +3365,46 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       'npm marks @nuxt/typescript-build as deprecated: "Nuxt 2 has reached EOL and is no longer actively maintained. See https://nuxt.com/blog/nuxt2-eol for more details."',
     severity: "medium",
-    replacement: "Nuxt 3 (no TypeScript build module needed)",
+    replacement: "Nuxt 4 with its built-in TypeScript integration",
+    replacements: [
+      {
+        purl: "pkg:npm/nuxt",
+        name: "Nuxt 4",
+        kind: "successor",
+        vers: "vers:npm/>=4.0.0|<5.0.0",
+        note: "Migrate the Nuxt application using the official upgrade guide and remove the Nuxt 2-only TypeScript package.",
+      },
+    ],
+    requires: { node: "22.0.0" },
     sources: [
       {
         title: "@nuxt/typescript-build on npm",
         url: "https://www.npmjs.com/package/@nuxt/typescript-build",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/@nuxt/typescript-build",
         archivedAt: "2026-10-19",
       },
       {
         title: "@nuxt/typescript-build registry metadata",
         url: "https://registry.npmjs.org/@nuxt%2ftypescript-build/latest",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/@nuxt%2ftypescript-build/latest",
         archivedAt: "2026-10-19",
       },
+      { title: "Nuxt 2 end-of-life announcement", url: "https://nuxt.com/blog/nuxt2-eol", accessedAt: "2026-11-28" },
+      { title: "Nuxt release roadmap", url: "https://nuxt.com/docs/4.x/community/roadmap", accessedAt: "2026-11-28" },
+      {
+        title: "Nuxt 4 installation prerequisites",
+        url: "https://nuxt.com/docs/4.x/getting-started/installation",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "npm-deprecated",
     },
@@ -3419,25 +3453,39 @@ export const rules: readonly RegistryV2Rule[] = [
       'npm marks react-beautiful-dnd as deprecated: "react-beautiful-dnd is now deprecated. Context and options: https://github.com/atlassian/react-beautiful-dnd/issues/2672"',
     severity: "medium",
     replacement: "Pragmatic drag and drop, dnd-kit, or a maintained fork",
+    replacements: [
+      {
+        purl: "pkg:npm/%40atlaskit/pragmatic-drag-and-drop",
+        name: "Pragmatic drag and drop",
+        kind: "successor",
+        note: "Atlassian recommends reviewing the interaction and accessibility changes before replacing drag-and-drop code.",
+      },
+      {
+        purl: "pkg:npm/%40dnd-kit/core",
+        name: "dnd-kit",
+        kind: "alternative",
+        note: "Atlassian lists dnd-kit as another implementation. Review its setup and interactions.",
+      },
+    ],
     sources: [
       {
         title: "react-beautiful-dnd on npm",
         url: "https://www.npmjs.com/package/react-beautiful-dnd",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261019000000/https://www.npmjs.com/package/react-beautiful-dnd",
         archivedAt: "2026-10-19",
       },
       {
         title: "react-beautiful-dnd version metadata",
         url: "https://registry.npmjs.org/react-beautiful-dnd",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261019000000/https://registry.npmjs.org/react-beautiful-dnd",
         archivedAt: "2026-10-19",
       },
       {
         title: "react-beautiful-dnd deprecation announcement",
         url: "https://github.com/atlassian/react-beautiful-dnd/issues/2672",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://github.com/atlassian/react-beautiful-dnd/issues/2672",
         archivedAt: "2026-10-19",
@@ -3445,9 +3493,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "npm-deprecated",
     },
@@ -4611,19 +4659,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Next.js 12 was released on 2021-10-26 and is listed under Unsupported Versions in the support policy. Its two-year Maintenance LTS window ended on 2023-10-26.",
     severity: "high",
     replacement: "Next.js 16 (Active LTS)",
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
+    requires: { node: "20.9.0" },
     deadline: "2023-10-26",
     sources: [
       {
         title: "Next.js support policy",
         url: "https://nextjs.org/support-policy",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://nextjs.org/support-policy",
         archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 13",
         url: "https://nextjs.org/docs/pages/building-your-application/upgrading/version-13",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/pages/building-your-application/upgrading/version-13",
         archivedAt: "2026-10-21",
@@ -4631,7 +4681,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Next.js upgrade guide: version 14",
         url: "https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
         archivedAt: "2026-10-21",
@@ -4639,7 +4689,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Next.js upgrade guide: version 15",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-15",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-15",
         archivedAt: "2026-10-21",
@@ -4647,7 +4697,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
         archivedAt: "2026-10-21",
@@ -4655,9 +4705,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4705,7 +4755,6 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
-    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.next.13.support-end",
@@ -4718,19 +4767,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Next.js 13 was released on 2022-10-26 and is listed under Unsupported Versions in the support policy. Its two-year Maintenance LTS window ended on 2024-10-26.",
     severity: "high",
     replacement: "Next.js 16 (Active LTS)",
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
+    requires: { node: "20.9.0" },
     deadline: "2024-10-26",
     sources: [
       {
         title: "Next.js support policy",
         url: "https://nextjs.org/support-policy",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://nextjs.org/support-policy",
         archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 14",
         url: "https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/building-your-application/upgrading/version-14",
         archivedAt: "2026-10-21",
@@ -4738,7 +4789,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Next.js upgrade guide: version 15",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-15",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-15",
         archivedAt: "2026-10-21",
@@ -4746,7 +4797,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
         archivedAt: "2026-10-21",
@@ -4754,9 +4805,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4804,7 +4855,6 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
-    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.next.14.support-end",
@@ -4817,19 +4867,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Next.js 14 was released on 2023-10-26 and is listed under Unsupported Versions in the support policy. Its two-year Maintenance LTS window ended on 2025-10-26.",
     severity: "high",
     replacement: "Next.js 16 (Active LTS)",
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
+    requires: { node: "20.9.0" },
     deadline: "2025-10-26",
     sources: [
       {
         title: "Next.js support policy",
         url: "https://nextjs.org/support-policy",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://nextjs.org/support-policy",
         archivedAt: "2026-10-21",
       },
       {
         title: "Next.js upgrade guide: version 15",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-15",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-15",
         archivedAt: "2026-10-21",
@@ -4837,7 +4889,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
         archivedAt: "2026-10-21",
@@ -4845,9 +4897,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4895,7 +4947,6 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
-    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.next.15.support-end",
@@ -4908,19 +4959,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Next.js 15 was released on 2024-10-21. The support policy keeps each major in Maintenance LTS for two years after release, so its window ended on 2026-10-21; the policy page still listed 15.x under Supported Versions on 2026-10-25. Next.js 16 is the Active LTS release.",
     severity: "high",
     replacement: "Next.js 16 (Active LTS)",
+    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
+    requires: { node: "20.9.0" },
     deadline: "2026-10-21",
     sources: [
       {
         title: "Next.js support policy",
         url: "https://nextjs.org/support-policy",
-        accessedAt: "2026-10-25",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261025000000/https://nextjs.org/support-policy",
         archivedAt: "2026-10-25",
       },
       {
         title: "Next.js upgrade guide: version 16",
         url: "https://nextjs.org/docs/app/guides/upgrading/version-16",
-        accessedAt: "2026-10-25",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261025000000/https://nextjs.org/docs/app/guides/upgrading/version-16",
         archivedAt: "2026-10-25",
@@ -4928,9 +4981,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-25",
-      reviewedAt: "2026-10-25",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4977,7 +5030,6 @@ export const rules: readonly RegistryV2Rule[] = [
       ],
     },
     "x-npm": { package: "next" },
-    replacements: [{ purl: "pkg:npm/next", vers: "vers:npm/^16.0.0", name: "next", kind: "upgrade" }],
   },
   {
     id: "npm.package.react-native.0.77-to-0.84.end-of-support",
@@ -5271,27 +5323,36 @@ export const rules: readonly RegistryV2Rule[] = [
       'Angular\'s release schedule lists v21 with "LTS ends 2027-06", a month-precision date. Ebb uses the last day of that month, 2027-06-30, as the deadline. LTS receives only critical fixes and security patches until the end of that month.',
     severity: "low",
     replacement: "@angular/core@22",
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
+    requires: { node: "22.22.3" },
     sources: [
       {
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
-        accessedAt: "2026-10-24",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261024000000/https://angular.dev/reference/releases",
         archivedAt: "2026-10-24",
       },
       {
         title: "Angular Update Guide",
         url: "https://angular.dev/update-guide",
-        accessedAt: "2026-10-24",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261024000000/https://angular.dev/update-guide",
         archivedAt: "2026-10-24",
+      },
+      {
+        title: "Angular supported Node.js versions",
+        url: "https://angular.dev/reference/versions",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-24",
-      reviewedAt: "2026-10-24",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5326,9 +5387,6 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
-    replacements: [
-      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
-    ],
   },
   {
     id: "npm.package.angular.core.v20.scheduled-end-of-life",
@@ -5342,27 +5400,36 @@ export const rules: readonly RegistryV2Rule[] = [
       'Angular\'s release schedule lists v20 as LTS with "LTS ends 2026-11-28". LTS receives only critical fixes and security patches until that date.',
     severity: "low",
     replacement: "@angular/core@22",
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
+    requires: { node: "22.22.3" },
     sources: [
       {
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/reference/releases",
         archivedAt: "2026-10-21",
       },
       {
         title: "Angular Update Guide",
         url: "https://angular.dev/update-guide",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/update-guide",
         archivedAt: "2026-10-21",
+      },
+      {
+        title: "Angular supported Node.js versions",
+        url: "https://angular.dev/reference/versions",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5404,9 +5471,6 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
-    replacements: [
-      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
-    ],
   },
   {
     id: "npm.package.angular.core.v19.end-of-support",
@@ -5419,27 +5483,36 @@ export const rules: readonly RegistryV2Rule[] = [
       "Angular's release schedule states that Angular versions v2 to v19 are no longer supported. v19 receives no fixes, including security fixes.",
     severity: "high",
     replacement: "@angular/core@22",
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
+    requires: { node: "22.22.3" },
     sources: [
       {
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/reference/releases",
         archivedAt: "2026-10-21",
       },
       {
         title: "Angular Update Guide",
         url: "https://angular.dev/update-guide",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/update-guide",
         archivedAt: "2026-10-21",
+      },
+      {
+        title: "Angular supported Node.js versions",
+        url: "https://angular.dev/reference/versions",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5481,9 +5554,6 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
-    replacements: [
-      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
-    ],
   },
   {
     id: "npm.package.angular.core.v18-and-older.end-of-support",
@@ -5496,27 +5566,36 @@ export const rules: readonly RegistryV2Rule[] = [
       "Angular's release schedule states that Angular versions v2 to v19 are no longer supported. Versions before v19 receive no fixes, including security fixes.",
     severity: "high",
     replacement: "@angular/core@22",
+    replacements: [
+      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
+    ],
+    requires: { node: "22.22.3" },
     sources: [
       {
         title: "Angular release and support schedule",
         url: "https://angular.dev/reference/releases",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/reference/releases",
         archivedAt: "2026-10-21",
       },
       {
         title: "Angular Update Guide",
         url: "https://angular.dev/update-guide",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261021000000/https://angular.dev/update-guide",
         archivedAt: "2026-10-21",
+      },
+      {
+        title: "Angular supported Node.js versions",
+        url: "https://angular.dev/reference/versions",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5551,9 +5630,6 @@ export const rules: readonly RegistryV2Rule[] = [
       { kind: "import", language: "typescript", module: "@angular/core" },
     ],
     "x-npm": { package: "@angular/core" },
-    replacements: [
-      { purl: "pkg:npm/%40angular/core", vers: "vers:npm/^22.0.0", name: "@angular/core", kind: "upgrade" },
-    ],
   },
   {
     id: "npm.package.uuid.deprecated-through-10",

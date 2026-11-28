@@ -1,0 +1,189 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "10.0.0",
+      "rules": ["database.postgresql.end-of-life-10"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "11.0.0",
+      "rules": ["database.postgresql.end-of-life-11"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "14.0.0",
+      "rules": ["database.postgresql.end-of-life-14"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/mysql",
+      "version": "5.7",
+      "rules": ["database.aws-rds-mysql.end-of-support-5.7"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/mysql",
+      "version": "5.8",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/aws-rds/mysql",
+      "version": "8.0",
+      "rules": ["database.aws-rds-mysql.end-of-support-8.0"]
+    },
+    {
+      "purl": "pkg:generic/mysql",
+      "version": "5.7.0",
+      "rules": ["database.mysql.end-of-life-5.7"]
+    },
+    {
+      "purl": "pkg:generic/mysql",
+      "version": "5.8.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/mysql",
+      "version": "8.0.0",
+      "rules": ["database.mysql.end-of-life-8.0"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "12.0.0",
+      "rules": ["database.postgresql.end-of-life-12"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "13.0.0",
+      "rules": ["database.postgresql.end-of-life-13"]
+    },
+    {
+      "purl": "pkg:generic/redis",
+      "version": "7.0.0",
+      "rules": ["database.redis.end-of-life-7.0"]
+    },
+    {
+      "purl": "pkg:generic/redis",
+      "version": "7.1.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-database-postgresql",
+      "version": "11.0.0",
+      "rules": ["database.azure-postgresql.standard-support-ended-11-to-13"]
+    },
+    {
+      "purl": "pkg:generic/azure-database-postgresql",
+      "version": "14.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/azure-database-mysql",
+      "version": "5.7.0",
+      "rules": ["database.azure-mysql.standard-support-ended-5.7"]
+    },
+    {
+      "purl": "pkg:generic/azure-database-mysql",
+      "version": "5.8.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/google-cloud-sql-postgresql",
+      "version": "9.6.0",
+      "rules": ["database.google-cloud-sql-postgresql.extended-support-9.6-to-12"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-sql-postgresql",
+      "version": "13.0.0",
+      "rules": ["database.google-cloud-sql-postgresql.extended-support-13"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-sql-mysql",
+      "version": "5.6.0",
+      "rules": ["database.google-cloud-sql-mysql.extended-support-5.6-to-5.7"]
+    },
+    {
+      "purl": "pkg:generic/google-cloud-sql-mysql",
+      "version": "5.8.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/aws-rds/postgres",
+      "version": "9.6",
+      "rules": ["database.aws-rds-postgres.end-of-support-9.6"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/postgres",
+      "version": "9.7",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/aws-rds/postgres",
+      "version": "10",
+      "rules": ["database.aws-rds-postgres.end-of-support-10"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/postgres",
+      "version": "11",
+      "rules": ["database.aws-rds-postgres.end-of-support-11"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/postgres",
+      "version": "12",
+      "rules": ["database.aws-rds-postgres.end-of-support-12"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/postgres",
+      "version": "13",
+      "rules": ["database.aws-rds-postgres.end-of-support-13"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/postgres",
+      "version": "14",
+      "rules": ["database.aws-rds-postgres.scheduled-end-of-support-14"]
+    },
+    {
+      "purl": "pkg:generic/aws-aurora/postgresql",
+      "version": "11",
+      "rules": ["database.aws-aurora-postgresql.end-of-support-11"]
+    },
+    {
+      "purl": "pkg:generic/aws-aurora/postgresql",
+      "version": "12",
+      "rules": ["database.aws-aurora-postgresql.end-of-support-12"]
+    },
+    {
+      "purl": "pkg:generic/aws-aurora/postgresql",
+      "version": "13",
+      "rules": ["database.aws-aurora-postgresql.end-of-support-13"]
+    },
+    {
+      "purl": "pkg:generic/aws-aurora/postgresql",
+      "version": "14",
+      "rules": ["database.aws-aurora-postgresql.scheduled-end-of-support-14"]
+    },
+    {
+      "purl": "pkg:generic/aws-aurora/mysql",
+      "version": "5.6",
+      "rules": ["database.aws-aurora-mysql.end-of-support-5.6"]
+    },
+    {
+      "purl": "pkg:generic/aws-aurora/mysql",
+      "version": "5.7",
+      "rules": ["database.aws-aurora-mysql.end-of-support-5.7"]
+    },
+    {
+      "purl": "pkg:generic/aws-elasticache/redis",
+      "version": "4",
+      "rules": ["database.aws-elasticache-redis.end-of-support-4"]
+    },
+    {
+      "purl": "pkg:generic/aws-elasticache/redis",
+      "version": "5",
+      "rules": ["database.aws-elasticache-redis.end-of-support-5"]
+    },
+    {
+      "purl": "pkg:generic/aws-elasticache/redis",
+      "version": "6",
+      "rules": ["database.aws-elasticache-redis.scheduled-end-of-support-6"]
+    }
+  ]
+}
