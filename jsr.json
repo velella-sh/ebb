@@ -23,6 +23,7 @@
     "include": [
       "dist/src/**/*.js",
       "dist/src/**/*.d.ts",
+      "dist/src/public-rule-routes.json",
       "registry/**/*.json",
       "README.md",
       "LICENSE"

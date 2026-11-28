@@ -82,6 +82,13 @@ export const ENDPOINTS: EndpointSpec[] = [
     schemaRef: "#/components/schemas/upcomingDocument",
   },
   {
+    path: "/predictions.json",
+    summary: "Predicted end-of-life ranges",
+    description: "Planning estimates with method, confidence, and release evidence",
+    example: "/predictions.json",
+    schemaRef: "./schemas/prediction.v1.schema.json#/$defs/table",
+  },
+  {
     path: "/recent.json",
     summary: "Recently updated rules",
     description: "Most recently reviewed and updated rules, sorted by date",

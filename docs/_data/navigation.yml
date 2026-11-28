@@ -17,6 +17,8 @@ main:
         url: /cli/
       - title: Which version to install
         url: /pick-version/
+      - title: End-of-life predictions
+        url: /predict/
       - title: Importers
         url: /importers/
       - title: Trust and verification
@@ -75,6 +77,8 @@ main:
     children:
       - title: Result model
         url: /result-model/
+      - title: Prediction format
+        url: /formats/prediction.v1/
       - title: Rules and replacements
         url: /rules-for/
       - title: Repairing broken evidence
