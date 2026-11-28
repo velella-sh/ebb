@@ -49,7 +49,11 @@ test("every behaviour case in cases/ gets the same answer from check and lookupP
   const files = await readCases(".");
   assert.ok(files.size > 0, "cases/ holds at least one file");
 
-  const eventById = new Map((await registryRules(".")).map((rule) => [rule.id, rule.event]));
+  const rules = await registryRules(".");
+  const eventById = new Map(rules.map((rule) => [rule.id, rule.event]));
+  const extendedSupportById = new Map(
+    rules.filter((rule) => rule.event === "end-of-extended-support").map((rule) => [rule.id, rule.deadline]),
+  );
   const differences: string[] = [];
 
   for (const [file, cases] of files) {
@@ -58,7 +62,13 @@ test("every behaviour case in cases/ gets the same answer from check and lookupP
       const checked = check(item.purl, item.version, AS_OF);
       const checkIds = checked.matches.map((match) => match.ruleId);
       const expectedIds = item.rules;
-      const expectedStatus = expectedStatusFromCaseRules(expectedIds, eventById);
+      const expectedLookupStatus = expectedStatusFromCaseRules(expectedIds, eventById);
+      const extendedSupportUntil = expectedIds
+        .map((id) => extendedSupportById.get(id))
+        .find((date) => date !== undefined);
+      let expectedStatus = expectedLookupStatus;
+      if (extendedSupportUntil && AS_OF >= extendedSupportUntil) expectedStatus = "end-of-life";
+      else if (extendedSupportUntil && expectedStatus === "end-of-life") expectedStatus = "unsupported";
 
       if (sortedIds(checkIds).join("\n") !== sortedIds(expectedIds).join("\n")) {
         differences.push(`${label}: rules check=[${formatIds(checkIds)}] case=[${formatIds(expectedIds)}]`);
@@ -89,8 +99,15 @@ test("every behaviour case in cases/ gets the same answer from check and lookupP
       const lookupStatus = checkStatusFromLookup[lookup.status];
       const lookupIds = lookup.findings.map((finding) => finding.ruleId);
 
-      if (checked.status !== lookupStatus) {
-        differences.push(`${label}: status check=${checked.status} lookup=${lookup.status} (mapped ${lookupStatus})`);
+      if (lookupStatus !== expectedLookupStatus) {
+        differences.push(
+          `${label}: status lookup=${lookup.status} (mapped ${lookupStatus}) case=${expectedLookupStatus}`,
+        );
+      }
+      if (checked.extendedSupportUntil !== extendedSupportUntil) {
+        differences.push(
+          `${label}: extended support check=${checked.extendedSupportUntil} case=${extendedSupportUntil}`,
+        );
       }
       if (sortedIds(checkIds).join("\n") !== sortedIds(lookupIds).join("\n")) {
         differences.push(`${label}: rules check=[${formatIds(checkIds)}] lookup=[${formatIds(lookupIds)}]`);

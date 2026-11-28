@@ -19,6 +19,11 @@
       "purl": "pkg:generic/sbt",
       "version": "1.0.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/scala",
+      "version": "2.11.0",
+      "rules": ["scala.runtime.eol-2.11"]
     }
   ]
 }

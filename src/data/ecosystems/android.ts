@@ -15,12 +15,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Google Play Billing Library version deprecation page states that all versions have a two-year deprecation cycle. Its support timeline table lists version 5 with a new app and update deadline of August 31, 2024 and an extension deadline of November 1, 2024.",
     severity: "high",
     replacement: "Google Play Billing Library 8.x or 9.x",
+    replacements: [
+      {
+        purl: "pkg:maven/com.android.billingclient/billing",
+        name: "Google Play Billing Library 8.x",
+        kind: "upgrade",
+        vers: "vers:maven/>=8.0.0|<9.0.0",
+        note: "Google Play accepts new submissions on this library line through 2027-08-31. Review the library migration guide.",
+      },
+    ],
     deadline: "2024-08-31",
     sources: [
       {
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
         archivedAt: "2026-10-19",
@@ -28,9 +37,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -77,12 +86,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Google Play Billing Library version deprecation page states that all versions have a two-year deprecation cycle. Its support timeline table lists version 6 with a new app and update deadline of August 31, 2025 and an extension deadline of November 1, 2025.",
     severity: "high",
     replacement: "Google Play Billing Library 8.x or 9.x",
+    replacements: [
+      {
+        purl: "pkg:maven/com.android.billingclient/billing",
+        name: "Google Play Billing Library 8.x",
+        kind: "upgrade",
+        vers: "vers:maven/>=8.0.0|<9.0.0",
+        note: "Google Play accepts new submissions on this library line through 2027-08-31. Review the library migration guide.",
+      },
+    ],
     deadline: "2025-08-31",
     sources: [
       {
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
         archivedAt: "2026-10-19",
@@ -90,9 +108,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -139,12 +157,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Google Play Billing Library version deprecation page states that all versions have a two-year deprecation cycle. Its support timeline table lists version 7 with a new app and update deadline of August 31, 2026 and an extension deadline of November 1, 2026.",
     severity: "high",
     replacement: "Google Play Billing Library 8.x or 9.x",
+    replacements: [
+      {
+        purl: "pkg:maven/com.android.billingclient/billing",
+        name: "Google Play Billing Library 8.x",
+        kind: "upgrade",
+        vers: "vers:maven/>=8.0.0|<9.0.0",
+        note: "Google Play accepts new submissions on this library line through 2027-08-31. Review the library migration guide.",
+      },
+    ],
     deadline: "2026-08-31",
     sources: [
       {
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
         archivedAt: "2026-10-19",
@@ -152,9 +179,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -201,12 +228,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Google Play Billing Library version deprecation page states that all versions have a two-year deprecation cycle. Its support timeline table lists version 8 with a new app and update deadline of August 31, 2027 and an extension deadline of November 1, 2027.",
     severity: "low",
     replacement: "Google Play Billing Library 9.x or later",
+    replacements: [
+      {
+        purl: "pkg:maven/com.android.billingclient/billing",
+        name: "Google Play Billing Library 9.x",
+        kind: "upgrade",
+        vers: "vers:maven/>=9.0.0|<10.0.0",
+        note: "Google Play accepts new submissions on this library line through 2028-08-31. Review the library migration guide.",
+      },
+    ],
     deadline: "2027-08-31",
     sources: [
       {
         title: "Google Play Billing Library version deprecation — support timeline",
         url: "https://developer.android.com/google/play/billing/deprecation-faq",
-        accessedAt: "2026-10-19",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261019000000/https://developer.android.com/google/play/billing/deprecation-faq",
         archivedAt: "2026-10-19",
@@ -214,9 +250,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-19",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -326,12 +362,21 @@ export const rules: readonly RegistryV2Rule[] = [
     severity: "high",
     replacement:
       "targetSdk 35 or higher (existing apps (availability to new users on newer OS versions); default (phone and tablet) apps)",
+    replacements: [
+      {
+        purl: "pkg:generic/android/targetSdk",
+        name: "Android API level 35 or later",
+        kind: "upgrade",
+        vers: "vers:intdot/>=35",
+        note: "For existing default phone and tablet app availability, set targetSdk to API level 35 or above. Check separately for new app and update requirements.",
+      },
+    ],
     deadline: "2026-08-31",
     sources: [
       {
         title: "Meet Google Play's target API level requirement",
         url: "https://developer.android.com/google/play/requirements/target-sdk",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://developer.android.com/google/play/requirements/target-sdk",
         archivedAt: "2026-10-30",
@@ -339,9 +384,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-19",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "android-1",
     },

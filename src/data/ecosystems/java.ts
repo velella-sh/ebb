@@ -320,11 +320,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Oracle Java SE Support Roadmap lists Java 26 as a non-LTS release whose Premier Support ended in September 2026. It says a previous non-LTS release is superseded once a new feature release is made available. The Eclipse Temurin support page lists Java 26 as EOSL, with end of availability in September 2026.",
     severity: "high",
     replacement: "Java 25 (LTS) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/java",
+        name: "Java 27",
+        kind: "upgrade",
+        vers: "vers:semver/>=27.0.0|<28.0.0",
+        note: "Java 27 is the next supported line. Oracle lists Premier Support through March 2027. Check your JDK distribution’s schedule.",
+      },
+    ],
     sources: [
       {
         title: "Oracle Java SE Support Roadmap",
         url: "https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261017000000/https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
         archivedAt: "2026-10-17",
@@ -332,16 +341,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Eclipse Temurin support",
         url: "https://adoptium.net/support/",
-        accessedAt: "2026-10-17",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261017000000/https://adoptium.net/support/",
         archivedAt: "2026-10-17",
       },
     ],
     provenance: {
       observedAt: "2026-10-17",
-      reviewedAt: "2026-10-17",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

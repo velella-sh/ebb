@@ -2,13 +2,53 @@
   "cases": [
     {
       "purl": "pkg:docker/library/postgres",
-      "version": "1.0.0",
+      "version": "13.18",
       "rules": ["container.postgres.eol-13-and-older"]
     },
     {
       "purl": "pkg:docker/library/postgres",
       "version": "14.0.0",
       "rules": ["container.postgres.eol-14-and-older"]
+    },
+    {
+      "purl": "pkg:generic/debian",
+      "version": "11.0.0",
+      "rules": ["container.host-debian.eol-11-and-older", "container.host-debian.extended-support-11"]
+    },
+    {
+      "purl": "pkg:generic/debian",
+      "version": "12.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/debian",
+      "version": "10.0.0",
+      "rules": ["container.host-debian.eol-11-and-older", "container.host-debian.extended-support-10"]
+    },
+    {
+      "purl": "pkg:generic/rhel",
+      "version": "6.10.0",
+      "rules": ["container.host-rhel.eol-7-and-older"]
+    },
+    {
+      "purl": "pkg:generic/rhel",
+      "version": "8.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/rhel",
+      "version": "7.0.0",
+      "rules": ["container.host-rhel.eol-7-and-older", "container.host-rhel.extended-support-7"]
+    },
+    {
+      "purl": "pkg:generic/sles",
+      "version": "15.6.0",
+      "rules": ["container.host-sles.eol-15-sp6-and-older"]
+    },
+    {
+      "purl": "pkg:generic/sles",
+      "version": "15.7.0",
+      "rules": []
     }
   ]
 }

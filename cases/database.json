@@ -14,6 +14,56 @@
       "purl": "pkg:generic/postgresql",
       "version": "14.0.0",
       "rules": ["database.postgresql.end-of-life-14"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/mysql",
+      "version": "5.7",
+      "rules": ["database.aws-rds-mysql.end-of-support-5.7"]
+    },
+    {
+      "purl": "pkg:generic/aws-rds/mysql",
+      "version": "5.8",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/aws-rds/mysql",
+      "version": "8.0",
+      "rules": ["database.aws-rds-mysql.end-of-support-8.0"]
+    },
+    {
+      "purl": "pkg:generic/mysql",
+      "version": "5.7.0",
+      "rules": ["database.mysql.end-of-life-5.7"]
+    },
+    {
+      "purl": "pkg:generic/mysql",
+      "version": "5.8.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/mysql",
+      "version": "8.0.0",
+      "rules": ["database.mysql.end-of-life-8.0"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "12.0.0",
+      "rules": ["database.postgresql.end-of-life-12"]
+    },
+    {
+      "purl": "pkg:generic/postgresql",
+      "version": "13.0.0",
+      "rules": ["database.postgresql.end-of-life-13"]
+    },
+    {
+      "purl": "pkg:generic/redis",
+      "version": "7.0.0",
+      "rules": ["database.redis.end-of-life-7.0"]
+    },
+    {
+      "purl": "pkg:generic/redis",
+      "version": "7.1.0",
+      "rules": []
     }
   ]
 }

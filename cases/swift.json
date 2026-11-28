@@ -9,6 +9,16 @@
       "purl": "pkg:generic/xcode",
       "version": "15.0.0",
       "rules": ["swift.xcode.app-store-15-through-25"]
+    },
+    {
+      "purl": "pkg:generic/ios",
+      "version": "1.0.0",
+      "rules": ["swift.app-store.ios-below-13"]
+    },
+    {
+      "purl": "pkg:generic/ios",
+      "version": "13.0.0",
+      "rules": []
     }
   ]
 }

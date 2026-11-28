@@ -15,12 +15,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table lists active support for PHP 8.2 until 2024-12-31. After that date the branch receives security fixes only until 2026-12-31.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.5",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.5.0|<8.6.0",
+        note: "PHP 8.5 is in active support through 2027-12-31 and receives security fixes through 2029-12-31.",
+      },
+    ],
     deadline: "2024-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -66,12 +81,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table schedules the end of security support for PHP 8.2 on 2026-12-31. After that date the branch is end-of-life and receives no further fixes from the PHP project.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.5",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.5.0|<8.6.0",
+        note: "PHP 8.5 is in active support through 2027-12-31 and receives security fixes through 2029-12-31.",
+      },
+    ],
     deadline: "2026-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -117,12 +147,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table lists active support for PHP 8.3 until 2025-12-31. After that date the branch receives security fixes only until 2027-12-31.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.5",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.5.0|<8.6.0",
+        note: "PHP 8.5 is in active support through 2027-12-31 and receives security fixes through 2029-12-31.",
+      },
+    ],
     deadline: "2025-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -168,12 +213,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table schedules the end of security support for PHP 8.3 on 2027-12-31. After that date the branch is end-of-life and receives no further fixes from the PHP project.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.5",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.5.0|<8.6.0",
+        note: "PHP 8.5 is in active support through 2027-12-31 and receives security fixes through 2029-12-31.",
+      },
+    ],
     deadline: "2027-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -219,12 +279,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table schedules the end of active support for PHP 8.4 on 2026-12-31. After that date the branch receives security fixes only until 2028-12-31.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.5",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.5.0|<8.6.0",
+        note: "PHP 8.5 is in active support through 2027-12-31 and receives security fixes through 2029-12-31.",
+      },
+    ],
     deadline: "2026-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -270,12 +345,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table schedules the end of security support for PHP 8.4 on 2028-12-31. After that date the branch is end-of-life and receives no further fixes from the PHP project.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.5",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.5.0|<8.6.0",
+        note: "PHP 8.5 is in active support through 2027-12-31 and receives security fixes through 2029-12-31.",
+      },
+    ],
     deadline: "2028-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -321,12 +411,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table schedules the end of active support for PHP 8.5 on 2027-12-31. After that date the branch receives security fixes only until 2029-12-31.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.6",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.6.0|<8.7.0",
+        note: "PHP 8.6 is in active support through 2028-12-31 and receives security fixes through 2030-12-31.",
+      },
+    ],
     deadline: "2027-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",
@@ -372,12 +477,27 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PHP supported versions table schedules the end of security support for PHP 8.5 on 2029-12-31. After that date the branch is end-of-life and receives no further fixes from the PHP project.",
     severity: "low",
     replacement: "PHP 8.5 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/php",
+        name: "PHP 8.6",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.6.0|<8.7.0",
+        note: "PHP 8.6 is in active support through 2028-12-31 and receives security fixes through 2030-12-31.",
+      },
+    ],
     deadline: "2029-12-31",
     sources: [
-      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-15" },
-      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-15" },
+      { title: "PHP supported versions", url: "https://www.php.net/supported-versions.php", accessedAt: "2026-11-28" },
+      { title: "PHP unsupported branches", url: "https://www.php.net/eol.php", accessedAt: "2026-11-28" },
     ],
-    provenance: { observedAt: "2026-11-15", reviewedAt: "2026-11-15", reviewer: "unreviewed", method: "manual" },
+    provenance: {
+      observedAt: "2026-11-15",
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      method: "manual",
+      reviewers: ["codex-agent"],
+    },
     migration: {
       constraints: [
         "Keep .php-version, .tool-versions, composer.json require.php and config.platform.php, composer.lock platform.php, CI matrices, and container images on one supported PHP release line.",

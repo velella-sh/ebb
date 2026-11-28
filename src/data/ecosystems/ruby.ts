@@ -859,19 +859,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Rails maintenance policy no longer lists Rails 7.2.x as supported. The Rails end-of-support announcement set its security support deadline to 2026-08-09.",
     severity: "high",
     replacement: "Rails 8.1.x",
+    replacements: [
+      {
+        purl: "pkg:gem/rails",
+        name: "Rails 8.1",
+        kind: "upgrade",
+        vers: "vers:gem/>=8.1.0|<8.2.0",
+        note: "Rails 8.1 receives security fixes through 2027-10-10. Review the major-upgrade guide and Ruby minimum.",
+      },
+    ],
     deadline: "2026-08-09",
     sources: [
       {
         title: "Ruby on Rails maintenance policy",
         url: "https://rubyonrails.org/maintenance",
-        accessedAt: "2026-10-23",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261023000000/https://rubyonrails.org/maintenance",
         archivedAt: "2026-10-23",
       },
       {
         title: "Rails releases and end-of-support announcement",
         url: "https://rubyonrails.org/2025/10/29/new-rails-releases-and-end-of-support-announcement",
-        accessedAt: "2026-10-23",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261023000000/https://rubyonrails.org/2025/10/29/new-rails-releases-and-end-of-support-announcement",
         archivedAt: "2026-10-23",
@@ -879,7 +888,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Upgrading Ruby on Rails",
         url: "https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
-        accessedAt: "2026-10-23",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261023000000/https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
         archivedAt: "2026-10-23",
@@ -887,9 +896,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-23",
-      reviewedAt: "2026-10-23",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -942,19 +951,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Rails maintenance policy says Rails 8.0.x receives security fixes until 2026-11-07. Rails 8.1.x is the newer supported release series.",
     severity: "low",
     replacement: "Rails 8.1.x",
+    replacements: [
+      {
+        purl: "pkg:gem/rails",
+        name: "Rails 8.1",
+        kind: "upgrade",
+        vers: "vers:gem/>=8.1.0|<8.2.0",
+        note: "Rails 8.1 receives security fixes through 2027-10-10. Review the major-upgrade guide and Ruby minimum.",
+      },
+    ],
     deadline: "2026-11-07",
     sources: [
       {
         title: "Ruby on Rails maintenance policy",
         url: "https://rubyonrails.org/maintenance",
-        accessedAt: "2026-10-23",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261023000000/https://rubyonrails.org/maintenance",
         archivedAt: "2026-10-23",
       },
       {
         title: "Upgrading Ruby on Rails",
         url: "https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
-        accessedAt: "2026-10-23",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261023000000/https://guides.rubyonrails.org/upgrading_ruby_on_rails.html",
         archivedAt: "2026-10-23",
@@ -962,9 +980,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-23",
-      reviewedAt: "2026-10-23",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

@@ -79,6 +79,16 @@
       "purl": "pkg:generic/ruby",
       "version": "1.9.3",
       "rules": ["ruby.runtime.eol-1.9.3"]
+    },
+    {
+      "purl": "pkg:gem/rails",
+      "version": "7.2.0",
+      "rules": ["ruby.gem.rails-7.2.end-of-life"]
+    },
+    {
+      "purl": "pkg:gem/rails",
+      "version": "8.0.0",
+      "rules": ["ruby.gem.rails-8.0.scheduled-end-of-life"]
     }
   ]
 }

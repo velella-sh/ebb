@@ -160,12 +160,21 @@ export const rules: readonly RegistryV2Rule[] = [
     summary: "Since September 9, 2026, iOS and iPadOS apps uploaded to App Store Connect must target iOS 13 or later.",
     severity: "high",
     replacement: "iOS 13 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/ios",
+        name: "iOS 13 or later",
+        kind: "upgrade",
+        vers: "vers:semver/>=13.0.0",
+        note: "For submission to App Store Connect, set the deployment target to iOS 13 or above.",
+      },
+    ],
     deadline: "2026-09-09",
     sources: [
       {
         title: "iOS and iPadOS minimum system requirements — App Store upcoming requirements",
         url: "https://developer.apple.com/news/upcoming-requirements/?id=0992026a",
-        accessedAt: "2026-10-20",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261020000000/https://developer.apple.com/news/upcoming-requirements/?id=0992026a",
         archivedAt: "2026-10-20",
@@ -173,9 +182,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-20",
-      reviewedAt: "2026-10-20",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

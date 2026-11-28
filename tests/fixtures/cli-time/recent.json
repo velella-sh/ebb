@@ -377,12 +377,12 @@
         {
           "title": "Kubernetes release history",
           "url": "https://kubernetes.io/releases/",
-          "accessedAt": "2026-10-17",
+          "accessedAt": "2026-11-28",
           "archiveUrl": "https://web.archive.org/web/20261017000000/https://kubernetes.io/releases/",
           "archivedAt": "2026-10-17"
         }
       ],
-      "reviewedAt": "2026-11-01"
+      "reviewedAt": "2026-11-28"
     },
     {
       "ruleId": "dart.sdk.end-of-support-3.10",

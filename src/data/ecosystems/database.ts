@@ -105,28 +105,37 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PostgreSQL Global Development Group lists 11 as unsupported: its final release was on November 9, 2023, so it receives no further bug or security fixes. A database image tag or managed engine_version on this line runs unsupported software.",
     severity: "high",
     replacement: "PostgreSQL 16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/postgresql",
+        name: "PostgreSQL 16",
+        kind: "upgrade",
+        vers: "vers:semver/>=16.0.0|<17.0.0",
+        note: "PostgreSQL lists major 16 as supported through 2028-11-09. Follow its major-upgrade procedure.",
+      },
+    ],
     deadline: "2023-11-09",
     sources: [
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261022000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-22",
       },
       {
         title: "endoflife.date: PostgreSQL",
         url: "https://endoflife.date/postgresql",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261022000000/https://endoflife.date/postgresql",
         archivedAt: "2026-10-22",
       },
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -193,28 +202,37 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PostgreSQL Global Development Group lists 12 as unsupported: its final release was on November 21, 2024, so it receives no further bug or security fixes. A database image tag or managed engine_version on this line runs unsupported software.",
     severity: "high",
     replacement: "PostgreSQL 16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/postgresql",
+        name: "PostgreSQL 16",
+        kind: "upgrade",
+        vers: "vers:semver/>=16.0.0|<17.0.0",
+        note: "PostgreSQL lists major 16 as supported through 2028-11-09. Follow its major-upgrade procedure.",
+      },
+    ],
     deadline: "2024-11-21",
     sources: [
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261022000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-22",
       },
       {
         title: "endoflife.date: PostgreSQL",
         url: "https://endoflife.date/postgresql",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261022000000/https://endoflife.date/postgresql",
         archivedAt: "2026-10-22",
       },
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -281,28 +299,37 @@ export const rules: readonly RegistryV2Rule[] = [
       "The PostgreSQL Global Development Group lists 13 as unsupported: its final release was on November 13, 2025, so it receives no further bug or security fixes. A database image tag or managed engine_version on this line runs unsupported software.",
     severity: "high",
     replacement: "PostgreSQL 16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/postgresql",
+        name: "PostgreSQL 16",
+        kind: "upgrade",
+        vers: "vers:semver/>=16.0.0|<17.0.0",
+        note: "PostgreSQL lists major 16 as supported through 2028-11-09. Follow its major-upgrade procedure.",
+      },
+    ],
     deadline: "2025-11-13",
     sources: [
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261022000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-22",
       },
       {
         title: "endoflife.date: PostgreSQL",
         url: "https://endoflife.date/postgresql",
-        accessedAt: "2026-10-22",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261022000000/https://endoflife.date/postgresql",
         archivedAt: "2026-10-22",
       },
     ],
     provenance: {
       observedAt: "2026-10-22",
-      reviewedAt: "2026-10-22",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -459,12 +486,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "MySQL 5.7 reached end of life on 2023-10-31 and no longer receives security or bug fixes from Oracle. The mysql.com lifecycle page could not be read when this rule was reviewed (it refuses automated requests), so the date is taken from the endoflife.date record for MySQL.",
     severity: "high",
     replacement: "MySQL 8.4 LTS or later",
+    replacements: [
+      {
+        purl: "pkg:generic/mysql",
+        name: "MySQL 8.4 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.4.0|<8.5.0",
+        note: "Oracle recommends MySQL 8.4 LTS. Review the supported upgrade path and back up data.",
+      },
+    ],
     deadline: "2023-10-31",
     sources: [
       {
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
         archivedAt: "2026-11-07",
@@ -472,16 +508,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "endoflife.date: MySQL",
         url: "https://endoflife.date/mysql",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
         archivedAt: "2026-11-07",
+      },
+      {
+        title: "MySQL release retirement and upgrade notices",
+        url: "https://www.mysql.com/support/eol-notice.html",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -548,12 +589,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "MySQL 8.0 reached end of life on 2026-04-30 and no longer receives security or bug fixes from Oracle. The mysql.com lifecycle page could not be read when this rule was reviewed (it refuses automated requests), so the date is taken from the endoflife.date record for MySQL.",
     severity: "high",
     replacement: "MySQL 8.4 LTS or later",
+    replacements: [
+      {
+        purl: "pkg:generic/mysql",
+        name: "MySQL 8.4 LTS",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.4.0|<8.5.0",
+        note: "Oracle recommends MySQL 8.4 LTS. Review the supported upgrade path and back up data.",
+      },
+    ],
     deadline: "2026-04-30",
     sources: [
       {
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
         archivedAt: "2026-11-07",
@@ -561,16 +611,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "endoflife.date: MySQL",
         url: "https://endoflife.date/mysql",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
         archivedAt: "2026-11-07",
+      },
+      {
+        title: "MySQL release retirement and upgrade notices",
+        url: "https://www.mysql.com/support/eol-notice.html",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -637,12 +692,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Redis 7.0 reached end of life on 2024-07-29 and no longer receives fixes from the vendor: the Redis Open Source supported-versions table drops it, and 7.0.15 from 2024-01-09 is the last patch for the line.",
     severity: "high",
     replacement: "Redis 7.4 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/redis",
+        name: "Redis 7.4",
+        kind: "upgrade",
+        vers: "vers:semver/>=7.4.0|<7.5.0",
+        note: "The Redis release policy lists 7.4 in extended maintenance through 2029-12-01.",
+      },
+    ],
     deadline: "2024-07-29",
     sources: [
       {
         title: "Redis Open Source version management",
         url: "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-        accessedAt: "2026-10-29",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261029000000/https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
         archivedAt: "2026-10-29",
@@ -650,16 +714,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "endoflife.date: Redis",
         url: "https://endoflife.date/redis",
-        accessedAt: "2026-10-29",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261029000000/https://endoflife.date/redis",
         archivedAt: "2026-10-29",
       },
     ],
     provenance: {
       observedAt: "2026-10-29",
-      reviewedAt: "2026-10-29",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1759,12 +1823,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for RDS for MySQL 5.7 on 2024-02-29. RDS Extended Support may keep it running for a fee through 2029-06-30. Upgrade to MySQL 8.0 or later.",
     severity: "high",
     replacement: "MySQL 8.0 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/mysql",
+        name: "RDS for MySQL 8.4",
+        kind: "upgrade",
+        vers: "vers:intdot/>=8.4|<8.5",
+        note: "Amazon RDS lists MySQL 8.4. Check required intermediate major upgrades and pick a supported engine version in your region.",
+      },
+    ],
     deadline: "2024-02-29",
     sources: [
       {
         title: "MySQL on Amazon RDS versions",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
         archivedAt: "2026-10-30",
@@ -1772,7 +1845,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1780,9 +1853,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -1851,12 +1924,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for RDS for MySQL 8.0 on 2026-07-31. RDS Extended Support may keep it running for a fee through 2029-07-31. Upgrade to MySQL 8.4 or later.",
     severity: "high",
     replacement: "MySQL 8.4 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/mysql",
+        name: "RDS for MySQL 8.4",
+        kind: "upgrade",
+        vers: "vers:intdot/>=8.4|<8.5",
+        note: "Amazon RDS lists MySQL 8.4. Check required intermediate major upgrades and pick a supported engine version in your region.",
+      },
+    ],
     deadline: "2026-07-31",
     sources: [
       {
         title: "MySQL on Amazon RDS versions",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html",
         archivedAt: "2026-10-30",
@@ -1864,7 +1946,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1872,9 +1954,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
