@@ -5,6 +5,6 @@ layout: doc
 permalink: /decisions/successor-data-budget/
 ---
 
-The infrastructure registry brought the packed size to 554,252 bytes with a 556,000-byte ceiling. With the npm coverage and prediction changes, adding structured targets to 259 existing records brings the packed size to 568,505 bytes. This dataset ships as registry JSON and existing generated ecosystem modules for offline readers.
+With the infrastructure, prediction, image metadata, npm coverage, and compatibility changes, the npm tarball measured 619,302 bytes against a 622,000-byte cap. Adding structured targets to 259 existing records brings the combined tarball to about 626,039 bytes. The registry ships as JSON and existing generated ecosystem modules for offline readers.
 
-Set the packed size cap to 569,000 bytes. The change covers the measured data growth and leaves 495 bytes of space. Measure with `npm run size` after a clean build. Ebb still has zero runtime dependencies.
+Set the packed size cap to 628,000 bytes. The change covers the measured data growth and leaves about 2 KB of space. Measure with `npm run size` after a clean build. The runtime dependency count and static API and site limits stay the same.

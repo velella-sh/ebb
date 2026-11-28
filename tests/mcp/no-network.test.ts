@@ -86,6 +86,12 @@ describe("offline-4: MCP server makes no network requests", () => {
     pick_version: { purl: "node", as_of: "2026-11-15" },
     predict_eol: { purl: "pkg:generic/golang", version: "1.26.0" },
     replacement_for: { purl: "pkg:npm/request", version: "2.88.2" },
+    runtime_support: {
+      purl: "pkg:pypi/django",
+      version: "5.1.3",
+      runtimePurl: "pkg:generic/python",
+      runtimeVersion: "3.13",
+    },
     sources_of: { ruleId: "npm.package.request.deprecated" },
     upcoming: { within: "90d" },
   };

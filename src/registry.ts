@@ -151,7 +151,7 @@ const RULE_FIELDS = new Set([
 ]);
 
 /** Version schemes each PURL type may use. Types not listed accept any registered scheme. */
-const SCHEMES_BY_PURL_TYPE: Record<string, readonly string[]> = {
+export const SCHEMES_BY_PURL_TYPE: Record<string, readonly string[]> = {
   npm: ["npm", "semver"],
   pypi: ["pypi"],
   golang: ["golang", "semver"],

@@ -10,18 +10,21 @@
 //
 // The measure uses only committed files. This tool never uses the network to measure; the one network
 // call is the optional issue creation through the GitHub CLI, as in candidate-issues.ts.
+// For compatibility table drafts, the reviewed release records the source access day on each row.
 // Each issue carries a marker (<!-- ebb-source-freshness: <importer> -->). An importer with an
 // open issue is not filed again, so a source that stays stale has one issue, and the number of open
 // freshness issues is capped. Exit code 10 means at least one target was missed.
 
 import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 
+import type { CompatibilityRow } from "../../src/compat.js";
 import type { RegistryV2 } from "../../src/registry.js";
 import { loadRegistries } from "../check-sources.js";
 import { defaultGitHubRunner } from "./candidate-issues.js";
 import type { CandidateIssueRunner, IssueRecord, RenderedCandidateIssue } from "./candidate-issues.js";
+import { readDeclaredRuntimeSupport } from "./runtime-support.js";
 
 export const FRESHNESS_TARGETS_FILE = "tools/importers/freshness.json";
 export const FRESHNESS_MARKER_PREFIX = "<!-- ebb-source-freshness:";
@@ -87,6 +90,7 @@ export function measureFreshness(
   registries: readonly { name: string; registry: RegistryV2 }[],
   targets: FreshnessTargets,
   today: string,
+  runtimeSupportRows: readonly CompatibilityRow[] = [],
 ): FreshnessReport {
   const reference = dayNumber(today, "--today");
   const newest = new Map<string, { count: number; reviewedAt: string }>();
@@ -98,6 +102,15 @@ export function measureFreshness(
       entry.count++;
       if (rule.provenance.reviewedAt > entry.reviewedAt) entry.reviewedAt = rule.provenance.reviewedAt;
       newest.set(importer, entry);
+    }
+  }
+  if ("runtime-support" in targets.maxAgeDays) {
+    for (const row of runtimeSupportRows) {
+      if (row.kind !== "declared") continue;
+      const entry = newest.get("runtime-support") ?? { count: 0, reviewedAt: "" };
+      entry.count++;
+      if (row.source.accessedAt > entry.reviewedAt) entry.reviewedAt = row.source.accessedAt;
+      newest.set("runtime-support", entry);
     }
   }
   const sources = Object.keys(targets.maxAgeDays)
@@ -278,6 +291,7 @@ export async function main(argv: string[], runner?: CandidateIssueRunner): Promi
     await loadRegistries(resolve(registryDir)),
     await loadFreshnessTargets(),
     today ?? new Date().toISOString().slice(0, 10),
+    (await readDeclaredRuntimeSupport(pathToFileURL(resolve(registryDir, "tables") + sep)))?.rows,
   );
   process.stdout.write(renderFreshnessText(report));
   const { opened, selection } = await reportMisses(report, options);

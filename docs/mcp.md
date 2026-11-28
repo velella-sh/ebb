@@ -143,6 +143,7 @@ The server provides these tools over JSON-RPC 2.0:
 | `diff` | Call to compare two lifecycle data versions, dates, files, or active data and inspect added, changed, or removed rules. |
 | `pick_version` | Call before choosing a runtime or a major version. Returns known release lines, the recommended line, and whether coverage is complete. |
 | `predict_eol` | Call when an unannounced end-of-life date needs a planning range. |
+| `runtime_support` | Check a framework release against a runtime or find the first release with compatible evidence. |
 | `replacement_for` | Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives. |
 | `sources_of` | Call to inspect authoritative sources, archive snapshot URLs, health status, and review provenance for a lifecycle rule. |
 | `upcoming` | Call before planning upgrades to list scheduled deprecation and end-of-life deadlines within a time window. |
@@ -319,6 +320,9 @@ Call before choosing a runtime or a major version. Returns known release lines, 
 ### `predict_eol`
 
 Supply a Package URL in `purl` and a release version in `version`. The structured result puts the [prediction](formats/prediction.v1.md) under `prediction`, or returns `null` when a date is already announced or an estimate is unavailable. Show the predicted range and confidence as planning information.
+### `runtime_support`
+
+Pass `purl`, `runtimePurl`, and `runtimeVersion`. Supply `version` to check a specific release, or omit it for the first compatible one. The response includes the matching row and source when evidence exists. See [framework runtime compatibility](/runtime-support/) for examples.
 
 ### `replacement_for`
 Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives.

@@ -172,6 +172,25 @@ describe("MCP packed tarball stdio", () => {
       assert.deepEqual(prediction.result.structuredContent, { prediction: installedPrediction });
       assert.deepEqual(JSON.parse(prediction.result.content[0]!.text), prediction.result.structuredContent);
 
+      session.write({
+        jsonrpc: "2.0",
+        id: 4,
+        method: "tools/call",
+        params: {
+          name: "runtime_support",
+          arguments: { purl: "pkg:pypi/django", runtimePurl: "pkg:generic/python", runtimeVersion: "3.13" },
+        },
+      });
+      const compat = (await session.waitForResponse(4)) as {
+        result: {
+          structuredContent: { status: string; version: string; row: { kind: string; source: { url: string } } };
+        };
+      };
+      assert.equal(compat.result.structuredContent.status, "supported");
+      assert.equal(compat.result.structuredContent.version, "2.0a1");
+      assert.equal(compat.result.structuredContent.row.kind, "declared");
+      assert.match(compat.result.structuredContent.row.source.url, /^https:\/\/pypi\.org\//u);
+
       const successorExamples = [
         ["pkg:npm/react-beautiful-dnd", "13.1.1", "pkg:npm/%40atlaskit/pragmatic-drag-and-drop", "successor"],
         ["pkg:pypi/pytest-runner", "6.0.0", "pkg:pypi/tox", "alternative"],
@@ -205,7 +224,7 @@ describe("MCP packed tarball stdio", () => {
         { cwd: appDir },
       );
       for (const [index, [purl, version, target, kind]] of successorExamples.entries()) {
-        const id = index + 4;
+        const id = index + 5;
         session.write({
           jsonrpc: "2.0",
           id,
