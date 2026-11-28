@@ -1,3 +1,4 @@
+import type { ImageVariantTable } from "../../src/image-variants.js";
 import type { CompatibilityTable } from "../../src/compat.js";
 import type { RegistryV2Rule } from "../../src/registry.js";
 
@@ -67,6 +68,21 @@ export interface CompatibilityImporter {
   readonly description: string;
   import(context: ImporterContext): Promise<CompatibilityImporterOutput>;
 }
+
+export interface ImageVariantsImporterOutput {
+  table: ImageVariantTable;
+  notes: string[];
+}
+
+export interface ImageVariantsImporter {
+  readonly format: "image-variants";
+  readonly id: string;
+  readonly ecosystem: string;
+  readonly description: string;
+  import(context: ImporterContext): Promise<ImageVariantsImporterOutput>;
+}
+
+export type RegisteredImporter = Importer | CompatibilityImporter | ImageVariantsImporter;
 
 /** What a run produces: drafts a maintainer reviews. Importers never write the registry. */
 export interface DraftRegistry {

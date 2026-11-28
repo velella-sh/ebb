@@ -7,7 +7,7 @@ permalink: /size/
 
 # Package Size and Budget
 
-The npm package has no runtime dependencies. CI caps the packed tarball at **635,000 bytes**. See [dated performance measurements](/benchmarks/) for the test environment and commands. [Infrastructure size decision](/decisions/infrastructure-size-budget/) · [Compatibility size decision](/decisions/compatibility-size-budget/)
+The npm package has no runtime dependencies. CI caps the packed tarball at **650,000 bytes**. See [dated performance measurements](/benchmarks/) for the test environment and commands. [Infrastructure size decision](/decisions/infrastructure-size-budget/) · [Compatibility size decision](/decisions/compatibility-size-budget/)
 
 Consumers can import `@velella/ebb/data/<ecosystem>` to use a single ecosystem. Package tarball size and a downstream application’s bundle size are measured separately.
 

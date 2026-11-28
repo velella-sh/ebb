@@ -105,6 +105,10 @@ const compat = await import("@velella/ebb/compat");
 assert.equal(compat.firstSupporting("pkg:pypi/django", "pkg:generic/python", "3.13").version, "2.0a1");
 assert.equal(compat.supports("pkg:npm/next", "12.0.0", "pkg:generic/nodejs", "16.20.0").row.kind, "declared");
 
+const images = await import("@velella/ebb/image-variants");
+assert.equal(images.baseImageOf("pkg:docker/library/node", "22").purl, "pkg:generic/debian");
+assert.equal(images.codename("ubuntu", "noble").version, "24.04");
+
 const mcp = await import("@velella/ebb/mcp");
 assert.equal(typeof mcp.McpServer, "function");
 await assert.rejects(() => import("@velella/ebb/mcp/format"), (err) => err?.code === "ERR_PACKAGE_PATH_NOT_EXPORTED");

@@ -38,6 +38,8 @@ Base URL: `https://velella.sh/ebb/api/v1`
 | `/rules/<rule-id>.json` | Full lifecycle rule with evidence sources and provenance | `/rules/npm.package.request.deprecated.json` |
 | `/releases.json` | History of signed data releases with version, date, digest, and change counts | `/releases.json` |
 | `/meta.json` | Catalog metadata: data version, package version, rule counts, and schema versions | `/meta.json` |
+| `/image-variants.json` | Official image tags and verified digest references mapped to base distributions | `/image-variants.json` |
+| `/codenames.json` | Upstream Debian, Ubuntu and Node.js LTS release codenames | `/codenames.json` |
 | `/openapi.json` | OpenAPI 3.1 specification describing the static API | `/openapi.json` |
 | `/calendar/all.ics` | Deadlines from the last 30 days and the next 24 months | `/calendar/all.ics` |
 | `/calendar/<ecosystem>.ics` | That window for one ecosystem | `/calendar/npm.ics` |

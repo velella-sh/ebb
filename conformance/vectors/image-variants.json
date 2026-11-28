@@ -1,0 +1,21 @@
+{
+  "images": [
+    { "section": "#image-variants", "name": "node", "tag": "22", "expected": ["debian", "12", "bookworm"] },
+    { "section": "#image-variants", "name": "node", "tag": "22-bookworm", "expected": ["debian", "12", "bookworm"] },
+    { "section": "#image-variants", "name": "node", "tag": "latest", "expected": ["debian", "13", "trixie"] },
+    { "section": "#image-variants", "name": "python", "tag": "3.12-slim-bookworm", "expected": ["debian", "12", "bookworm"] },
+    { "section": "#image-variants", "name": "postgres", "tag": "17-alpine3.23", "expected": ["alpine", "3.23", null] },
+    { "section": "#image-variants", "name": "ubuntu", "tag": "noble", "expected": ["ubuntu", "24.04", "noble"] },
+    { "section": "#image-variants", "name": "node", "tag": "22@sha256:7c400d78797d8cbe3f6bb21d2227b86af4cd24b0014cc9f62ff989cc16de988e", "expected": ["debian", "12", "bookworm"] },
+    { "section": "#image-variants", "name": "node", "tag": "22-bookworm@sha256:7c400d78797d8cbe3f6bb21d2227b86af4cd24b0014cc9f62ff989cc16de988e", "expected": null },
+    { "section": "#image-variants", "name": "node", "tag": "fake-bookworm", "expected": null },
+    { "section": "#image-variants", "name": "python", "tag": "latest", "expected": null },
+    { "section": "#image-variants", "name": "unknown", "tag": "latest", "expected": null }
+  ],
+  "codenames": [
+    { "section": "#release-codenames", "family": "debian", "name": "bookworm", "version": "12" },
+    { "section": "#release-codenames", "family": "ubuntu", "name": "noble", "version": "24.04" },
+    { "section": "#release-codenames", "family": "nodejs-lts", "name": "iron", "version": "20" },
+    { "section": "#release-codenames", "family": "debian", "name": "iron", "version": null }
+  ]
+}

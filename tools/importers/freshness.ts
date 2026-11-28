@@ -20,10 +20,12 @@ import { resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 
 import type { CompatibilityRow } from "../../src/compat.js";
+import type { ImageVariantTable } from "../../src/image-variants.js";
 import type { RegistryV2 } from "../../src/registry.js";
 import { loadRegistries } from "../check-sources.js";
 import { defaultGitHubRunner } from "./candidate-issues.js";
 import type { CandidateIssueRunner, IssueRecord, RenderedCandidateIssue } from "./candidate-issues.js";
+import { readImageVariants } from "./image-variants.js";
 import { readDeclaredRuntimeSupport } from "./runtime-support.js";
 
 export const FRESHNESS_TARGETS_FILE = "tools/importers/freshness.json";
@@ -91,6 +93,7 @@ export function measureFreshness(
   targets: FreshnessTargets,
   today: string,
   runtimeSupportRows: readonly CompatibilityRow[] = [],
+  imageVariants?: ImageVariantTable,
 ): FreshnessReport {
   const reference = dayNumber(today, "--today");
   const newest = new Map<string, { count: number; reviewedAt: string }>();
@@ -112,6 +115,9 @@ export function measureFreshness(
       if (row.source.accessedAt > entry.reviewedAt) entry.reviewedAt = row.source.accessedAt;
       newest.set("runtime-support", entry);
     }
+  }
+  if ("image-variants" in targets.maxAgeDays && imageVariants?.snapshot) {
+    newest.set("image-variants", { count: imageVariants.rows.length, reviewedAt: imageVariants.snapshot.accessedAt });
   }
   const sources = Object.keys(targets.maxAgeDays)
     .sort()
@@ -152,6 +158,19 @@ export function extractFreshnessKey(body: string | undefined): string | null {
 }
 
 export function renderFreshnessIssue(source: SourceFreshness, referenceDay: string): RenderedCandidateIssue {
+  if (source.importer === "image-variants") {
+    return {
+      ruleId: source.importer,
+      title: `data: image-variants source missed its ${source.targetDays}-day freshness target`,
+      labels: FRESHNESS_LABELS,
+
+      body: `${formatFreshnessMarker(source.importer)}
+The official image variant snapshot was last checked on ${source.lastReviewedAt ?? "an unknown date"} (reference day ${referenceDay}).
+
+Run the image-variants importer or review its weekly draft. Verify the official library file hashes, then update the published table in \`registry/tables/image-variants.json\` with the reviewed snapshot.
+`,
+    };
+  }
   const body = `${formatFreshnessMarker(source.importer)}
 ## Goal
 Review the \`${source.importer}\` source again so its freshness target is met.
@@ -287,11 +306,13 @@ export async function main(argv: string[], runner?: CandidateIssueRunner): Promi
     else throw new Error(`Unknown argument ${argument}.`);
   }
   if (runner) options.runner = runner;
+  const tableDir = pathToFileURL(resolve(registryDir, "tables") + sep);
   const report = measureFreshness(
     await loadRegistries(resolve(registryDir)),
     await loadFreshnessTargets(),
     today ?? new Date().toISOString().slice(0, 10),
-    (await readDeclaredRuntimeSupport(pathToFileURL(resolve(registryDir, "tables") + sep)))?.rows,
+    (await readDeclaredRuntimeSupport(tableDir))?.rows,
+    await readImageVariants(tableDir),
   );
   process.stdout.write(renderFreshnessText(report));
   const { opened, selection } = await reportMisses(report, options);

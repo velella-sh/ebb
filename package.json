@@ -49,6 +49,11 @@
       "import": "./dist/src/predict.js",
       "default": "./dist/src/predict.js"
     },
+    "./image-variants": {
+      "types": "./dist/src/image-variants.d.ts",
+      "import": "./dist/src/image-variants.js",
+      "default": "./dist/src/image-variants.js"
+    },
     "./verify": {
       "types": "./dist/src/verify.d.ts",
       "import": "./dist/src/verify.js",
@@ -140,10 +145,7 @@
     "!**/*.map",
     "!dist/*.txt",
     "!registry/github-actions-shas.json",
-    "!schemas/vendor/cyclonedx-*",
-    "!registry/tables/codenames.json",
-    "!schemas/codenames.v1.schema.json",
-    "!schemas/image-variants.v1.schema.json"
+    "!schemas/vendor/cyclonedx-*"
   ],
   "scripts": {
     "build": "tsc -b tsconfig.json && node dist/tools/annotate-jsr-types.js && node dist/tools/site-data/pack-routes.js",
@@ -177,7 +179,7 @@
     "node": ">=22"
   },
   "ebb": {
-    "sizeBudget": 635000,
+    "sizeBudget": 650000,
     "siteDataBudget": 8388608,
     "staticApiBudgets": {
       "indexGzip": 51200,
