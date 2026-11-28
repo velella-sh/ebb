@@ -10,11 +10,12 @@ import { verifyReleaseLog } from "../../src/data-release-log.js";
 import { defaultCacheDirectory } from "../../src/data-source.js";
 import { compareBundleVersions } from "../../src/data-update.js";
 import { supportedVersions } from "../../src/pick-version.js";
-import type { PredictionTable } from "../../src/predict.js";
+import type { EolPrediction, PredictionTable } from "../../src/predict.js";
 import { parsePurl, purlIdentity } from "../../src/purl.js";
 import type { RegistryV2, RegistryV2Rule, ReplacementItem } from "../../src/registry.js";
 import { sourcesOf } from "../../src/sources-of.js";
 import { writeCalendars } from "./calendar.js";
+import { type CardIndexEntry, checkTotalCardSize, loadCardEvidence, writeTimelineCard } from "./cards.js";
 import { readEolDateIds, writeEolDateApi } from "./eoldate.js";
 import { generateOpenApi } from "./openapi.js";
 import { writeRenovateFeeds } from "./renovate.js";
@@ -276,6 +277,26 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
 
   const schemaUrl = `${baseUrl}/schemas/static-api.v1.schema.json`;
 
+  const predictionPath = join(root, "registry/tables/predictions.json");
+  const predictionsByPurl = new Map<string, EolPrediction[]>();
+  let predictionIndex: { path: string; sha256: string; dataVersion: string } | undefined;
+  if (existsSync(predictionPath)) {
+    const bytes = await readFile(predictionPath);
+    const { dataVersion, predictions } = JSON.parse(bytes.toString("utf8")) as PredictionTable;
+    if (dataVersion.replace(/\./gu, "-") <= asOf) {
+      for (const prediction of predictions) {
+        const componentPredictions = predictionsByPurl.get(prediction.purl) ?? [];
+        componentPredictions.push(prediction);
+        predictionsByPurl.set(prediction.purl, componentPredictions);
+      }
+    }
+    predictionIndex = { path: "predictions.json", sha256: sha256Hex(bytes), dataVersion };
+    await writeFile(join(outDir, predictionIndex.path), bytes);
+  }
+
+  const cardEvidence = await loadCardEvidence(root);
+  let cardBytes = 0;
+
   // 1. Generate Component JSON files
   const indexComponents: Record<
     string,
@@ -292,6 +313,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       earliestDeadline?: string | undefined;
       latestReview?: string | undefined;
       renovate?: string | undefined;
+      card?: CardIndexEntry | undefined;
       sha256: string;
       etag: string;
       bytes: number;
@@ -328,6 +350,20 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       asOf,
       rules: comp.rules,
     });
+
+    const card = await writeTimelineCard({
+      outDir,
+      purl,
+      name: namespace ? `${namespace}/${name}` : name,
+      componentPath: relPath,
+      componentUrl: `${baseUrl}/${relPath}`,
+      asOf,
+      rules: comp.rules,
+      releaseLines: versionReport.lines,
+      predictions: predictionsByPurl.get(purl) ?? [],
+      evidence: cardEvidence,
+    });
+    cardBytes += card?.bytes ?? 0;
 
     const compReplacements: ReplacementItem[] = [];
     const seenReplacements = new Set<string>();
@@ -394,6 +430,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       ...(earliestDeadline ? { earliestDeadline } : {}),
       ...(latestReview ? { latestReview } : {}),
       ...(renovateFeed ? { renovate: renovateFeed.path } : {}),
+      ...(card ? { card } : {}),
       sha256: compHash,
       etag: `"${compHash.slice(0, 16)}"`,
       bytes: compBytes,
@@ -401,6 +438,8 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
 
     nameSearchItems.push({ name, purl, path: relPath });
   }
+
+  checkTotalCardSize(cardBytes);
 
   // 2. Generate Ecosystem JSON files
   const ecosystemsSummary: Array<{
@@ -510,15 +549,6 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     ? 0
     : Math.max(0, Math.floor((createdDate.getTime() - reviewedTime) / (24 * 60 * 60 * 1000)));
   const stale = ageDays > 30;
-
-  const predictionPath = join(root, "registry/tables/predictions.json");
-  let predictionIndex: { path: string; sha256: string; dataVersion: string } | undefined;
-  if (existsSync(predictionPath)) {
-    const bytes = await readFile(predictionPath);
-    const { dataVersion } = JSON.parse(bytes.toString("utf8")) as PredictionTable;
-    predictionIndex = { path: "predictions.json", sha256: sha256Hex(bytes), dataVersion };
-    await writeFile(join(outDir, predictionIndex.path), bytes);
-  }
 
   const indexDoc = {
     $schema: schemaUrl,

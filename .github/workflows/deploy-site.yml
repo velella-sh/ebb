@@ -6,9 +6,9 @@ name: deploy-site
 on:
   push:
     branches: [main]
-    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "schemas/prediction.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/cards/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "schemas/prediction.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   pull_request:
-    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "schemas/prediction.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml", "evals/cutoff/**", "tests/cutoff/**"]
+    paths: ["docs/**", "registry/**", "tools/cards/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "schemas/prediction.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml", "evals/cutoff/**", "tests/cutoff/**"]
   schedule:
     - cron: "0 3 1 * *"
   workflow_dispatch:
