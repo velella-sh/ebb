@@ -1,7 +1,7 @@
 {
   "importer": "shell-1",
   "ecosystem": "shell",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "shell.powershell.end-of-life-6",
@@ -18,13 +18,17 @@
         {
           "title": "PowerShell support lifecycle",
           "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       }
     },
@@ -43,13 +47,17 @@
         {
           "title": "PowerShell support lifecycle",
           "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       }
     },
@@ -68,13 +76,17 @@
         {
           "title": "PowerShell support lifecycle",
           "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       }
     },
@@ -93,13 +105,17 @@
         {
           "title": "PowerShell support lifecycle",
           "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       }
     },
@@ -118,13 +134,17 @@
         {
           "title": "PowerShell support lifecycle",
           "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       }
     },
@@ -143,13 +163,17 @@
         {
           "title": "PowerShell support lifecycle",
           "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       }
     },
@@ -168,13 +192,17 @@
         {
           "title": "PowerShell support lifecycle",
           "url": "https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "shell-1"
       }
     }
