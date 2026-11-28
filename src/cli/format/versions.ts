@@ -1,7 +1,22 @@
+import type { EolPrediction } from "../../predict.js";
+import type { Colors } from "./color.js";
 import type { SupportedVersionsResult } from "../../pick-version.js";
 
-/** Plain text. The word `recommended` carries the choice; colour is not used. */
-export function formatVersionsText(result: SupportedVersionsResult): string {
+function predictionLabel({ line, predictedEnd, confidence }: EolPrediction): string {
+  const month = new Date(predictedEnd.date + "T00:00:00Z").toLocaleDateString("en", {
+    timeZone: "UTC",
+    month: "short",
+    year: "numeric",
+  });
+  return `${line} predicted ${month} (${predictedEnd.low} to ${predictedEnd.high}, ${confidence} confidence)`;
+}
+
+/** Terminal output with a label for the recommendation and optional dimmed predictions. */
+export function formatVersionsText(
+  result: SupportedVersionsResult,
+  predicted: readonly EolPrediction[] = [],
+  colors?: Colors,
+): string {
   const lines: string[] = [];
   const name = result.purl ?? "unknown";
   lines.push(`${name} as of ${result.asOf}`);
@@ -16,12 +31,19 @@ export function formatVersionsText(result: SupportedVersionsResult): string {
     }
   }
   lines.push(result.reason);
+  for (const prediction of predicted) {
+    const label = predictionLabel(prediction);
+    lines.push(colors?.dim(label) ?? label);
+  }
   for (const note of result.notes) lines.push(note);
   return `${lines.join("\n")}\n`;
 }
 
 /** A Markdown table. The recommended line is labelled in its own column. */
-export function formatVersionsMarkdown(result: SupportedVersionsResult): string {
+export function formatVersionsMarkdown(
+  result: SupportedVersionsResult,
+  predicted: readonly EolPrediction[] = [],
+): string {
   const name = result.purl ?? "unknown";
   const parts: string[] = [`### ${name}`, "", `As of ${result.asOf}. Complete: ${result.complete ? "yes" : "no"}.`, ""];
   if (result.lines.length === 0) {
@@ -36,6 +58,7 @@ export function formatVersionsMarkdown(result: SupportedVersionsResult): string 
   }
   parts.push("");
   parts.push(result.reason);
+  for (const prediction of predicted) parts.push(`- ${predictionLabel(prediction)}`);
   for (const note of result.notes) parts.push(`- ${note}`);
   parts.push("");
   return parts.join("\n");

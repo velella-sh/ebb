@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "ebb.prediction.v1",
+  "dataVersion": "2026.11.28",
+  "inputSha256": "a40b7956f3c818e282377f35a98a5f3b2a97cf92d266fe61ffa3d8c3778366b5",
+  "predictions": [
+    {
+      "purl": "pkg:generic/golang",
+      "line": "1.26",
+      "lineVers": "vers:golang/>=1.26.0|<1.27.0",
+      "method": "policy",
+      "predictedEnd": {
+        "date": "2027-02-15",
+        "low": "2027-01-25",
+        "high": "2027-03-07",
+        "precision": "month"
+      },
+      "evidence": [
+        {
+          "kind": "policy",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "kind": "schedule",
+          "url": "https://github.com/golang/go/blob/master/doc/next/1-intro.md",
+          "accessedAt": "2026-11-28",
+          "line": "1.28",
+          "firstReleased": "2027-02"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.27",
+          "firstReleased": "2026-08-19"
+        }
+      ],
+      "confidence": "medium",
+      "modelVersion": "1.0.0",
+      "dataVersion": "2026.11.28"
+    },
+    {
+      "purl": "pkg:generic/golang",
+      "line": "1.27",
+      "lineVers": "vers:golang/>=1.27.0|<1.28.0",
+      "method": "policy",
+      "predictedEnd": {
+        "date": "2027-08-16",
+        "low": "2027-07-19",
+        "high": "2027-09-20",
+        "precision": "month"
+      },
+      "evidence": [
+        {
+          "kind": "policy",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "kind": "schedule",
+          "url": "https://github.com/golang/go/blob/master/doc/next/1-intro.md",
+          "accessedAt": "2026-11-28",
+          "line": "1.28",
+          "firstReleased": "2027-02"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.21",
+          "firstReleased": "2023-08-08",
+          "end": "2024-08-13"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.22",
+          "firstReleased": "2024-02-06",
+          "end": "2025-02-11"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.23",
+          "firstReleased": "2024-08-13",
+          "end": "2025-08-12"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.24",
+          "firstReleased": "2025-02-11",
+          "end": "2026-02-10"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.25",
+          "firstReleased": "2025-08-12",
+          "end": "2026-08-19"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.26",
+          "firstReleased": "2026-02-10"
+        },
+        {
+          "kind": "history",
+          "url": "https://go.dev/doc/devel/release",
+          "accessedAt": "2026-11-15",
+          "line": "1.27",
+          "firstReleased": "2026-08-19"
+        }
+      ],
+      "confidence": "medium",
+      "modelVersion": "1.0.0",
+      "dataVersion": "2026.11.28"
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "line": "3.4",
+      "lineVers": "vers:gem/>=3.4.0|<3.5.0",
+      "method": "cadence",
+      "predictedEnd": {
+        "date": "2028-04-03",
+        "low": "2028-03-26",
+        "high": "2028-04-23",
+        "precision": "month"
+      },
+      "evidence": [
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "2.5",
+          "firstReleased": "2017-12-25",
+          "end": "2021-04-05"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "2.6",
+          "firstReleased": "2018-12-25",
+          "end": "2022-04-12"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "2.7",
+          "firstReleased": "2019-12-25",
+          "end": "2023-03-31"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "3.0",
+          "firstReleased": "2020-12-25",
+          "end": "2024-04-23"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "3.1",
+          "firstReleased": "2021-12-25",
+          "end": "2025-03-26"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "3.2",
+          "firstReleased": "2022-12-25",
+          "end": "2026-04-01"
+        }
+      ],
+      "confidence": "low",
+      "modelVersion": "1.0.0",
+      "dataVersion": "2026.11.28"
+    },
+    {
+      "purl": "pkg:generic/ruby",
+      "line": "4.0",
+      "lineVers": "vers:gem/>=4.0.0|<4.1.0",
+      "method": "cadence",
+      "predictedEnd": {
+        "date": "2029-04-03",
+        "low": "2029-03-26",
+        "high": "2029-04-23",
+        "precision": "month"
+      },
+      "evidence": [
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "2.5",
+          "firstReleased": "2017-12-25",
+          "end": "2021-04-05"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "2.6",
+          "firstReleased": "2018-12-25",
+          "end": "2022-04-12"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "2.7",
+          "firstReleased": "2019-12-25",
+          "end": "2023-03-31"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "3.0",
+          "firstReleased": "2020-12-25",
+          "end": "2024-04-23"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "3.1",
+          "firstReleased": "2021-12-25",
+          "end": "2025-03-26"
+        },
+        {
+          "kind": "history",
+          "url": "https://www.ruby-lang.org/en/downloads/branches/",
+          "accessedAt": "2026-11-15",
+          "line": "3.2",
+          "firstReleased": "2022-12-25",
+          "end": "2026-04-01"
+        }
+      ],
+      "confidence": "low",
+      "modelVersion": "1.0.0",
+      "dataVersion": "2026.11.28"
+    },
+    {
+      "purl": "pkg:generic/rust",
+      "line": "1.100",
+      "lineVers": "vers:semver/>=1.100.0|<1.101.0",
+      "method": "policy",
+      "predictedEnd": {
+        "date": "2026-12-24",
+        "low": "2026-12-17",
+        "high": "2026-12-31",
+        "precision": "day"
+      },
+      "evidence": [
+        {
+          "kind": "policy",
+          "url": "https://doc.rust-lang.org/book/appendix-07-nightly-rust.html#maintenance-time",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "kind": "schedule",
+          "url": "https://forge.rust-lang.org/",
+          "accessedAt": "2026-11-28",
+          "line": "1.101",
+          "firstReleased": "2026-12-24"
+        }
+      ],
+      "confidence": "medium",
+      "modelVersion": "1.0.0",
+      "dataVersion": "2026.11.28"
+    }
+  ]
+}

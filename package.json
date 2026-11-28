@@ -44,6 +44,11 @@
       "import": "./dist/src/browser.js",
       "default": "./dist/src/browser.js"
     },
+    "./predict": {
+      "types": "./dist/src/predict.d.ts",
+      "import": "./dist/src/predict.js",
+      "default": "./dist/src/predict.js"
+    },
     "./verify": {
       "types": "./dist/src/verify.d.ts",
       "import": "./dist/src/verify.js",
@@ -133,7 +138,7 @@
     "!schemas/vendor/cyclonedx-*"
   ],
   "scripts": {
-    "build": "tsc -b tsconfig.json && node dist/tools/annotate-jsr-types.js",
+    "build": "tsc -b tsconfig.json && node dist/tools/annotate-jsr-types.js && node dist/tools/site-data/pack-routes.js",
     "build:ecosystems": "node dist/tools/build-ecosystem-modules.js",
     "build:llms": "npm run build --silent && node dist/tools/build-llms.js",
     "build:static-api": "npm run build --silent && node dist/tools/static-api/index.js",

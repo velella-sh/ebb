@@ -65,6 +65,7 @@ import { RulesForError, type RuleEvent } from "./rules-for.js";
 import { formatStaleText } from "./stale.js";
 import { VersError } from "./vers.js";
 import { VERSION } from "./version.js";
+import { predictions } from "./predict.js";
 
 const HELP_TEXT = `ebb - The open almanac of software end-of-life
 
@@ -1042,13 +1043,16 @@ export async function runCli(
 
       const asOfArg = typeof values["as-of"] === "string" ? values["as-of"] : undefined;
       const result = supportedVersions(purlArg, asOfArg === undefined ? undefined : { asOf: asOfArg });
+      const predicted = result.purl
+        ? predictions(result.purl).filter(({ dataVersion }) => dataVersion.replaceAll(".", "-") <= result.asOf)
+        : [];
 
       if (format === "json") {
-        io.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+        io.stdout.write(`${JSON.stringify(predicted.length ? { ...result, predicted } : result, null, 2)}\n`);
       } else if (format === "markdown") {
-        io.stdout.write(formatVersionsMarkdown(result));
+        io.stdout.write(formatVersionsMarkdown(result, predicted));
       } else {
-        io.stdout.write(formatVersionsText(result));
+        io.stdout.write(formatVersionsText(result, predicted, colors));
       }
 
       return 0;
