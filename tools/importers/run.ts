@@ -1,4 +1,4 @@
-// Runs a lifecycle importer and prints its draft rules. Importers never write the registry.
+// Prints draft lifecycle rules or a draft compatibility table. Importers never write the registry.
 //
 //   node dist/tools/importers/run.js --list
 //   node dist/tools/importers/run.js <importer-id> [--out drafts.json] [--now YYYY-MM-DD]
@@ -14,7 +14,13 @@ import type { RegistryV2Rule } from "../../src/registry.js";
 import { canonicalRule, isoDate } from "./canonical.js";
 import { readRecording, recordingContext, replayContext, writeRecording } from "./recording.js";
 import { ImporterError, PENDING_REVIEWER } from "./types.js";
-import type { DraftRegistry, Importer, ImporterContext } from "./types.js";
+import type {
+  CompatibilityImporter,
+  CompatibilityImporterOutput,
+  DraftRegistry,
+  Importer,
+  ImporterContext,
+} from "./types.js";
 
 export { ImporterError };
 
@@ -113,7 +119,21 @@ export interface ExecuteOptions {
 }
 
 /** Runs an importer live, while recording, or from a recording. */
-export async function execute(importer: Importer, options: ExecuteOptions = {}): Promise<DraftRegistry> {
+export function execute(importer: Importer, options?: ExecuteOptions): Promise<DraftRegistry>;
+export function execute(
+  importer: CompatibilityImporter,
+  options?: ExecuteOptions,
+): Promise<CompatibilityImporterOutput>;
+export function execute(
+  importer: Importer | CompatibilityImporter,
+  options?: ExecuteOptions,
+): Promise<DraftRegistry | CompatibilityImporterOutput>;
+export async function execute(
+  importer: Importer | CompatibilityImporter,
+  options: ExecuteOptions = {},
+): Promise<DraftRegistry | CompatibilityImporterOutput> {
+  const run = (context: ImporterContext) =>
+    "format" in importer ? importer.import(context) : runImporter(importer, context);
   if (options.record && options.replay) throw new ImporterError("Use either --record or --replay, not both.");
   if (options.now !== undefined && !isIsoDate(options.now))
     throw new ImporterError("--now must be a date (YYYY-MM-DD).");
@@ -124,7 +144,7 @@ export async function execute(importer: Importer, options: ExecuteOptions = {}):
     if (recording.importer !== importer.id)
       throw new ImporterError(`Recording is for "${recording.importer}", not "${importer.id}".`);
     const replay = replayContext(recording, now);
-    const drafts = await runImporter(importer, replay);
+    const drafts = await run(replay);
     const unused = replay.unused();
     if (unused.length > 0) {
       throw new ImporterError(
@@ -136,15 +156,15 @@ export async function execute(importer: Importer, options: ExecuteOptions = {}):
   if (options.record) {
     const recorder = recordingContext(liveContext(now));
     try {
-      return await runImporter(importer, recorder.context);
+      return await run(recorder.context);
     } finally {
       await writeRecording(options.record, recorder.recording(importer.id));
     }
   }
-  return runImporter(importer, liveContext(now));
+  return run(liveContext(now));
 }
 
-async function registeredImporters(): Promise<readonly Importer[]> {
+async function registeredImporters(): Promise<readonly (Importer | CompatibilityImporter)[]> {
   return (await import("./index.js")).importers;
 }
 

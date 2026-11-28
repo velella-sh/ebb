@@ -1,0 +1,1 @@
+The fixture records the `engines` and `requires_python` fields returned by the two public package registry APIs on 2026-11-28. Non-runtime fields were removed to keep the recording small. Every release and distribution entry is present.

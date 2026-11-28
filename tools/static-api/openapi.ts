@@ -137,6 +137,13 @@ export const ENDPOINTS: EndpointSpec[] = [
     responseType: "text/calendar",
   },
   {
+    path: "/compat/{name}.json",
+    summary: "Compatibility evidence table",
+    description: "Version-range evidence for framework, runtime, or build tool compatibility",
+    example: "/compat/runtime-support.json",
+    schemaRef: "./schemas/compat.v1.schema.json",
+  },
+  {
     path: "/renovate/{type}/{name}.json",
     summary: "Renovate custom datasource feed",
     description: "Release lines and deprecation flags formatted for Renovate custom datasources",

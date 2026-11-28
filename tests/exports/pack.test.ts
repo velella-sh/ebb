@@ -101,6 +101,10 @@ await assert.rejects(() => import("@velella/ebb/pick-version"), (err) => err && 
 const pkg = await import("@velella/ebb/package.json", { with: { type: "json" } });
 assert.equal(pkg.default.name, "@velella/ebb");
 
+const compat = await import("@velella/ebb/compat");
+assert.equal(compat.firstSupporting("pkg:pypi/django", "pkg:generic/python", "3.13").version, "2.0a1");
+assert.equal(compat.supports("pkg:npm/next", "12.0.0", "pkg:generic/nodejs", "16.20.0").row.kind, "declared");
+
 const mcp = await import("@velella/ebb/mcp");
 assert.equal(typeof mcp.McpServer, "function");
 await assert.rejects(() => import("@velella/ebb/mcp/format"), (err) => err?.code === "ERR_PACKAGE_PATH_NOT_EXPORTED");

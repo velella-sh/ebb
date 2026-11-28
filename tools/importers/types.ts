@@ -1,3 +1,4 @@
+import type { CompatibilityTable } from "../../src/compat.js";
 import type { RegistryV2Rule } from "../../src/registry.js";
 
 /** Reviewer recorded on every importer draft. The bundled registries may never contain it. */
@@ -51,6 +52,20 @@ export interface Importer {
   readonly sources: readonly { title: string; url: string }[];
   /** Fetches, normalizes, and returns draft rules. It must not write files or read anything but `context`. */
   import(context: ImporterContext): Promise<ImporterOutput>;
+}
+
+/** Compatibility drafts are kept separate from registry.v2 lifecycle rules. */
+export interface CompatibilityImporterOutput {
+  table: CompatibilityTable;
+  notes: string[];
+}
+
+export interface CompatibilityImporter {
+  readonly format: "compatibility";
+  readonly id: string;
+  readonly ecosystem: string;
+  readonly description: string;
+  import(context: ImporterContext): Promise<CompatibilityImporterOutput>;
 }
 
 /** What a run produces: drafts a maintainer reviews. Importers never write the registry. */
