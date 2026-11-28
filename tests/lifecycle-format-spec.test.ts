@@ -116,8 +116,8 @@ test("draft conformance requirement identifiers are unique and have stable fragm
   }
   assert.ok(ids.size >= 25);
   for (const [, page] of chapters) {
-    for (const target of page.matchAll(/\(([a-z-]+\.md)#(elf-[a-z]+-\d+)\)/gu)) {
-      assert.equal(ids.get(target[2]!.toUpperCase()), target[1]);
+    for (const target of page.matchAll(/\(https:\/\/velella\.sh\/ebb\/spec\/1\.0\/([a-z-]+)\/#(elf-[a-z]+-\d+)\)/gu)) {
+      assert.equal(ids.get(target[2]!.toUpperCase()), target[1] + ".md");
     }
   }
 });

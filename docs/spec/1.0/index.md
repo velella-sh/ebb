@@ -37,14 +37,14 @@ Producers and consumers MUST identify the Lifecycle Format version independently
 | Section | Status |
 | --- | --- |
 | Scope, terms and conformance | This page |
-| [Rule object](rule.md) | Current rule v2 contract |
-| [Events](events.md) | Current events and ordering |
-| [Matching](matching.md) | Current semantics and implementation comparisons |
-| [Evidence and provenance](evidence.md) | Current evidence fields |
-| [Distribution and signatures](distribution.md) | Current published formats |
-| [Versioning and extensions](versioning.md) | Draft compatibility policy |
-| [Predictions](predictions.md) | Draft optional profile |
+| [Rule object](https://velella.sh/ebb/spec/1.0/rule/) | Current rule v2 contract |
+| [Events](https://velella.sh/ebb/spec/1.0/events/) | Current events and ordering |
+| [Matching](https://velella.sh/ebb/spec/1.0/matching/) | Current semantics and implementation comparisons |
+| [Evidence and provenance](https://velella.sh/ebb/spec/1.0/evidence/) | Current evidence fields |
+| [Distribution and signatures](https://velella.sh/ebb/spec/1.0/distribution/) | Current published formats |
+| [Versioning and extensions](https://velella.sh/ebb/spec/1.0/versioning/) | Draft compatibility policy |
+| [Predictions](https://velella.sh/ebb/spec/1.0/predictions/) | Draft optional profile |
 | Component data profiles | [Pending work](https://github.com/velella-sh/ebb/issues/886) |
 | Interchange mappings | [Pending work](https://github.com/velella-sh/ebb/issues/895) |
 
-The [changelog](../CHANGELOG.md) records the draft status. [Release candidate publication](https://github.com/velella-sh/ebb/issues/908) is tracked separately.
+The [changelog](https://velella.sh/ebb/spec/changelog/) records the draft status. [Release candidate publication](https://github.com/velella-sh/ebb/issues/908) is tracked separately.

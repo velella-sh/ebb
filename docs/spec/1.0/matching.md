@@ -23,7 +23,7 @@ For package-level evaluation, a consumer MUST exclude a symbol-only rule from th
 
 ### ELF-MATCH-05
 
-A consumer that offers a historical projection MUST interpret `asOf` as a valid UTC calendar day and exclude rules whose `provenance.observedAt` falls after it. It MAY derive an effective historical event from an announced deadline and the requested day. It MUST preserve the event stored in the source rule and keep any [prediction](predictions.md) out of this calculation. A countdown for a fixed snapshot may also use an explicit reference day without creating a historical projection.
+A consumer that offers a historical projection MUST interpret `asOf` as a valid UTC calendar day and exclude rules whose `provenance.observedAt` falls after it. It MAY derive an effective historical event from an announced deadline and the requested day. It MUST preserve the event stored in the source rule and keep any [prediction](https://velella.sh/ebb/spec/1.0/predictions/) out of this calculation. A countdown for a fixed snapshot may also use an explicit reference day without creating a historical projection.
 
 For example, the Ebb historical projection for Node.js 22 retains `scheduled` on 29 April 2027 and returns a projected `end-of-life` on 30 April 2027. Both evaluate the unchanged `scheduled-end-of-life` source rule. A fixed-snapshot evaluation continues to show its stored scheduled event and uses its deadline for the countdown.
 
@@ -52,6 +52,6 @@ The examples use the current repository's rules. Each cites the requirement it e
 | Coverage result | The version-check result uses `ok` for both a known component with no matching rule and an unknown PURL. The candidate index distinguishes the two before comparing versions. |
 | Version parsing | The version checker trims whitespace and removes a leading `v` and build metadata before comparing. A bounded comparison propagates an invalid-version error. The current wildcard containment path matches without invoking a scheme comparator. |
 | Evaluation date | The version checker's optional `asOf` parameter is a countdown reference. The separate historical projection filters evidence by observation day and can present an effective event. Neither edits the stored rule. |
-| Display ordering | The wire-event precedence is described in the [event chapter](events.md#elf-event-03). The legacy result projects scheduled end of life, end of active support and end of extended support onto the same `scheduled` result value, so those results are ordered by deadline. |
+| Display ordering | The wire-event precedence is described in the [event chapter](https://velella.sh/ebb/spec/1.0/events/#elf-event-03). The legacy result projects scheduled end of life, end of active support and end of extended support onto the same `scheduled` result value, so those results are ordered by deadline. |
 
 These differences remain open follow-up work in the [matching chapter issue](https://github.com/velella-sh/ebb/issues/896). The [prediction profile](https://github.com/velella-sh/ebb/issues/885) and [event conformance vectors](https://github.com/velella-sh/ebb/issues/912) are tracked independently.

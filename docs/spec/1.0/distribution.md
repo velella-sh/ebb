@@ -7,11 +7,11 @@ permalink: /spec/1.0/distribution/
 
 ### ELF-DIST-01
 
-A registry MUST declare `schemaVersion: "ebb.registry.v2"`, its `ecosystem`, and a `rules` array. The optional `freshness.maxReviewAgeDays` is a review threshold. Registry rules MUST satisfy the [rule and evidence requirements](rule.md). [Registry v2 schema](https://github.com/velella-sh/ebb/blob/main/schemas/registry.v2.schema.json)
+A registry MUST declare `schemaVersion: "ebb.registry.v2"`, its `ecosystem`, and a `rules` array. The optional `freshness.maxReviewAgeDays` is a review threshold. Registry rules MUST satisfy the [rule and evidence requirements](https://velella.sh/ebb/spec/1.0/rule/). [Registry v2 schema](https://github.com/velella-sh/ebb/blob/main/schemas/registry.v2.schema.json)
 
 ### ELF-DIST-02
 
-A consumer claiming the bundle profile MUST read and validate the declared bundle format. A bundle carries a `manifest` and `files` keyed by path. The manifest records the bundle format, release version, minimum Ebb implementation version, UTC creation time, content digest and per-file entries. Bundle v2 adds a sequence number. It may also carry an ecosystem scope and digest indexes. Each published release uses the tag `data-vYYYY.MM.DD`, with `.N` for a same-day revision. [Bundle v1 schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json) · [Bundle v2 schema](https://github.com/velella-sh/ebb/blob/main/schemas/bundle.v2.schema.json) · [Decision 0006](../../decisions/0006-data-bundle.md)
+A consumer claiming the bundle profile MUST read and validate the declared bundle format. A bundle carries a `manifest` and `files` keyed by path. The manifest records the bundle format, release version, minimum Ebb implementation version, UTC creation time, content digest and per-file entries. Bundle v2 adds a sequence number. It may also carry an ecosystem scope and digest indexes. Each published release uses the tag `data-vYYYY.MM.DD`, with `.N` for a same-day revision. [Bundle v1 schema](https://github.com/velella-sh/ebb/blob/main/schemas/data-bundle.v1.schema.json) · [Bundle v2 schema](https://github.com/velella-sh/ebb/blob/main/schemas/bundle.v2.schema.json) · [Decision 0006](https://velella.sh/ebb/decisions/0006-data-bundle/)
 
 ### ELF-DIST-03
 
@@ -19,7 +19,7 @@ A consumer MUST check the bundle's declared file set, sizes, SHA-256 digests and
 
 ### ELF-DIST-04
 
-A consumer accepting a signed bundle MUST verify the detached Sigstore bundle against the downloaded bytes, a trusted issuer, and the expected publisher identity. Ebb data releases use the issuer `https://token.actions.githubusercontent.com` and the `velella-sh/ebb` data-release workflow on `main` or a data release tag. A failed identity or signature check MUST prevent acceptance. A consumer installing an update MUST enforce its supported format and rollback rules. [Data bundle verification](../../DATA.md#trust-model-and-verification)
+A consumer accepting a signed bundle MUST verify the detached Sigstore bundle against the downloaded bytes, a trusted issuer, and the expected publisher identity. Ebb data releases use the issuer `https://token.actions.githubusercontent.com` and the `velella-sh/ebb` data-release workflow on `main` or a data release tag. A failed identity or signature check MUST prevent acceptance. A consumer installing an update MUST enforce its supported format and rollback rules. [Data bundle verification](https://velella.sh/ebb/data/#trust-model-and-verification)
 
 ## Verify a published Ebb bundle
 
@@ -45,4 +45,4 @@ ebb-data-2026.11.11.json: OK
 Verified OK
 ```
 
-The [static JSON API](../../static-api.md) is an optional way to distribute views of the rules. A format consumer can read the same rule shape from another distribution without implementing the Ebb endpoints.
+The [static JSON API](https://velella.sh/ebb/static-api/) is an optional way to distribute views of the rules. A format consumer can read the same rule shape from another distribution without implementing the Ebb endpoints.

@@ -5,7 +5,7 @@ layout: doc
 permalink: /spec/1.0/predictions/
 ---
 
-This optional profile is a proposal under review. The [implementation candidate](https://github.com/velella-sh/ebb/pull/1082) describes a separate prediction object. The current rule v2 schema has `deadline` for the event date and no prediction field. [Rule object](rule.md)
+This optional profile is a proposal under review. The [implementation candidate](https://github.com/velella-sh/ebb/pull/1082) describes a separate prediction object. The current rule v2 schema has `deadline` for the event date and no prediction field. [Rule object](https://velella.sh/ebb/spec/1.0/rule/)
 
 ### ELF-PREDICT-01
 

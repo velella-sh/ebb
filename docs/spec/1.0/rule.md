@@ -17,15 +17,15 @@ A producer MUST supply every field marked required. Each field MUST have the typ
 | `ecosystem` | Required slug string | Registry ecosystem. A registry entry uses the ecosystem of its containing registry. | `npm` |
 | `purl` | Required string | Canonical, versionless Package URL of the component. | `pkg:npm/left-pad` |
 | `vers` | Required string | Affected VERS range, in a scheme consistent with the PURL. | `vers:npm/*` |
-| `event` | Required string enum | One [lifecycle event](events.md#elf-event-01). | `deprecated` |
+| `event` | Required string enum | One [lifecycle event](https://velella.sh/ebb/spec/1.0/events/#elf-event-01). | `deprecated` |
 | `title` | Required non-empty string | Short label for the event. | `left-pad is deprecated` |
 | `summary` | Required non-empty string | Evidence-backed description of the affected lifecycle behavior. | `The package author recommends the built-in String.prototype.padStart method.` |
 | `severity` | Required string enum | Report priority, one of `info`, `low`, `medium`, `high` and `critical`. | `medium` |
 | `replacement` | Optional non-empty string | Human-readable migration recommendation. | `String.prototype.padStart()` |
 | `replacements` | Optional array of objects | Machine-readable replacement targets. | `[{"purl":"pkg:npm/sass","name":"sass","kind":"successor"}]` from `npm.package.node-sass.eol` |
 | `requires` | Optional non-empty object | Minimum runtime versions for the proposed replacement. Keys are `node` and `python`, with up to three numeric version parts. | `{"node":"18.0.0"}` from `npm.package.request-promise.deprecated` |
-| `deadline` | Calendar date string, required for scheduled end of life and end of active support | Effective date of the [described event](events.md#elf-event-01). | `2027-04-30` from `nodejs.runtime.eol-22` |
-| `confidence` | Optional string enum | Strength of the evidence claim, described in [evidence](evidence.md#elf-evidence-04). | `likely` |
+| `deadline` | Calendar date string, required for scheduled end of life and end of active support | Effective date of the [described event](https://velella.sh/ebb/spec/1.0/events/#elf-event-01). | `2027-04-30` from `nodejs.runtime.eol-22` |
+| `confidence` | Optional string enum | Strength of the evidence claim, described in [evidence](https://velella.sh/ebb/spec/1.0/evidence/#elf-evidence-04). | `likely` |
 | `confidenceNote` | Non-empty string when present, required for tentative claims | Explanation of the confidence level. | `The vendor confirms the line ended but provides no exact day.` |
 | `sources` | Required non-empty array | Evidence supporting the claim. | The source in the complete rule below |
 | `provenance` | Required object | Dates, reviewer and method for the rule. | The provenance object in the complete rule below |
@@ -39,7 +39,7 @@ A producer MUST supply every field marked required. Each field MUST have the typ
 
 ### ELF-RULE-02
 
-The producer MUST preserve a rule's `id` when correcting its evidence, dates or affected range. A rule's `purl` and `vers` MUST describe the component and range together. An event's severity and date MUST satisfy [event constraints](events.md#elf-event-02).
+The producer MUST preserve a rule's `id` when correcting its evidence, dates or affected range. A rule's `purl` and `vers` MUST describe the component and range together. An event's severity and date MUST satisfy [event constraints](https://velella.sh/ebb/spec/1.0/events/#elf-event-02).
 
 ### ELF-RULE-03
 
@@ -57,7 +57,7 @@ A producer MAY use an object-valued `x-<slug>` field for additional ecosystem da
 
 ## Complete rule
 
-This JSON is the registry’s `npm.package.left-pad.deprecated` rule.
+This valid rule example uses the registry’s `npm.package.left-pad.deprecated` record with selected optional fields.
 
 ```json
 {
@@ -116,4 +116,4 @@ This migration object shows the first step and verification entry on `npm.packag
 
 ## Current validation and pending work
 
-Every rule in the checked repository snapshot validates against the standalone schema. The runtime additionally validates actual calendar dates, canonical PURL and VERS semantics, review ordering, scheduled severity and conditional fields. JSON Schema validation alone establishes shape. This chapter describes the current contract. The [successor coverage epic](https://github.com/velella-sh/ebb/issues/657) and [draft prediction profile](predictions.md) track the open scope of the [rule chapter issue](https://github.com/velella-sh/ebb/issues/877).
+Every rule in the checked repository snapshot validates against the standalone schema. The runtime additionally validates actual calendar dates, canonical PURL and VERS semantics, review ordering, scheduled severity and conditional fields. JSON Schema validation alone establishes shape. This chapter describes the current contract. The [successor coverage epic](https://github.com/velella-sh/ebb/issues/657) and [draft prediction profile](https://velella.sh/ebb/spec/1.0/predictions/) track the open scope of the [rule chapter issue](https://github.com/velella-sh/ebb/issues/877).

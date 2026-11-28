@@ -5,7 +5,7 @@ layout: doc
 permalink: /spec/1.0/versioning/
 ---
 
-This chapter proposes the compatibility policy for the specification. The [changelog](../CHANGELOG.md) identifies the unpublished release candidate. The [schema compatibility work](https://github.com/velella-sh/ebb/issues/841) and [release candidate](https://github.com/velella-sh/ebb/issues/908) are tracked separately.
+This chapter proposes the compatibility policy for the specification. The [changelog](https://velella.sh/ebb/spec/changelog/) identifies the unpublished release candidate. The [schema compatibility work](https://github.com/velella-sh/ebb/issues/841) and [release candidate](https://github.com/velella-sh/ebb/issues/908) are tracked separately.
 
 ### ELF-VERSION-01
 

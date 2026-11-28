@@ -32,7 +32,7 @@ A producer MUST record `observedAt`, `reviewedAt`, `reviewer` and `method`. The 
 | `imported` | A tool translated an external source into the rule format. |
 | `upstream` | The component's own maintainers published the source lifecycle data. |
 
-`importer` and `importerVersion` are optional non-empty strings that identify the translator and its version. The complete [rule example](rule.md#complete-rule) shows one maintainer reviewing a manually curated record.
+`importer` and `importerVersion` are optional non-empty strings that identify the translator and its version. The complete [rule example](https://velella.sh/ebb/spec/1.0/rule/#complete-rule) shows one maintainer reviewing a manually curated record.
 
 ### ELF-EVIDENCE-03
 

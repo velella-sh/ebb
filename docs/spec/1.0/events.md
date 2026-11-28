@@ -23,7 +23,7 @@ A producer MUST use one of the seven events below. A supplied `deadline` MUST de
 
 ### ELF-EVENT-02
 
-A producer MUST supply the announced `deadline` for `scheduled-end-of-life` and `end-of-active-support`. A `scheduled-end-of-life` rule MUST carry `severity: "low"`. A reader MUST retain the stored event. Promotion to `end-of-life` is a producer's reviewed data change. A separately requested [historical projection](matching.md#elf-match-05) may derive a result for the specified day while preserving the stored rule. [Decision 0010](../../decisions/0010-scheduled-end-of-life.md)
+A producer MUST supply the announced `deadline` for `scheduled-end-of-life` and `end-of-active-support`. A `scheduled-end-of-life` rule MUST carry `severity: "low"`. A reader MUST retain the stored event. Promotion to `end-of-life` is a producer's reviewed data change. A separately requested [historical projection](https://velella.sh/ebb/spec/1.0/matching/#elf-match-05) may derive a result for the specified day while preserving the stored rule. [Decision 0010](https://velella.sh/ebb/decisions/0010-scheduled-end-of-life/)
 
 ### ELF-EVENT-03
 
