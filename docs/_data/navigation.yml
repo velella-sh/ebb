@@ -79,6 +79,8 @@ main:
     children:
       - title: Agent Skills
         url: /skills/
+      - title: Cutoff evaluation methodology
+        url: /cutoff-report/
       - title: MCP server
         url: /mcp/
   - title: Reference

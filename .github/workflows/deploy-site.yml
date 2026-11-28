@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   pull_request:
-    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml", "evals/cutoff/**", "tests/cutoff/**"]
   schedule:
     - cron: "0 3 1 * *"
   workflow_dispatch:
@@ -113,7 +113,7 @@ jobs:
           EBB_SITE_BUNDLE="$bundle" EBB_SITE_SIGNATURE="$bundle.sigstore.json" \
             EBB_SITE_RELEASED_EBB="$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
             EBB_SITE_VERSION="$SITE_DATA_VERSION" EBB_SITE_SHA256="$SITE_DATA_SHA256" EBB_SITE_AS_OF="$SITE_AS_OF" \
-            EBB_SITE_BUILT_HTML="$RUNNER_TEMP/site" node --test dist/tests/site-data-signed.test.js dist/tests/site-metadata.test.js dist/tests/site-feeds.test.js
+            EBB_SITE_BUILT_HTML="$RUNNER_TEMP/site" node --test dist/tests/site-data-signed.test.js dist/tests/site-metadata.test.js dist/tests/site-feeds.test.js dist/tests/cutoff/questions.test.js
       - name: Build static API
         run: |
           npm run build:static-api -- --out "$RUNNER_TEMP/site/api/v1" --eol-compat-out "$RUNNER_TEMP/site/api/eol-compat/v1"
