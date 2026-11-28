@@ -22,7 +22,7 @@ describe("MCP tool structured output and outputSchema validation", () => {
 
     assert.ok(resp && resp.result);
     const tools = (resp.result as { tools: McpToolDefinition[] }).tools;
-    assert.equal(tools.length, 9);
+    assert.equal(tools.length, 10);
 
     for (const tool of tools) {
       assert.ok(tool.outputSchema, `Tool "${tool.name}" must declare an outputSchema in its tool definition`);
@@ -36,6 +36,7 @@ describe("MCP tool structured output and outputSchema validation", () => {
     { name: "check_install", args: { command: "npm install request@2.88.2" } },
     { name: "diff", args: { from: "bundled", to: "active", format: "json" } },
     { name: "pick_version", args: { purl: "node", as_of: "2026-11-15" } },
+    { name: "predict_eol", args: { purl: "pkg:generic/golang", version: "1.26.0" } },
     { name: "replacement_for", args: { purl: "pkg:npm/request", version: "2.88.2" } },
     {
       name: "runtime_support",

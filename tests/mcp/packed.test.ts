@@ -138,16 +138,50 @@ describe("MCP packed tarball stdio", () => {
       assert.ok(payload.matches[0]?.sources.some(({ url }) => url === source));
       assert.deepEqual(checkResp.result.structuredContent, payload);
 
+      const go = "pkg:generic/golang";
+      const version = "1.26.0";
+      const installedPrediction = JSON.parse(
+        execFileSync(
+          process.execPath,
+          [
+            "--input-type=module",
+            "-e",
+            'import { predictEol } from "@velella/ebb/predict"; console.log(JSON.stringify(predictEol(process.argv[1], process.argv[2])));',
+            go,
+            version,
+          ],
+          { cwd: appDir, encoding: "utf8" },
+        ),
+      );
+      assert.equal(installedPrediction?.line, "1.26");
+      const versions = JSON.parse(
+        execFileSync(binEbb, ["versions", go, "--as-of", "2026-11-28", "--json"], { cwd: appDir, encoding: "utf8" }),
+      );
+      assert.deepEqual(versions.predicted[0], installedPrediction);
+
       session.write({
         jsonrpc: "2.0",
         id: 3,
+        method: "tools/call",
+        params: { name: "predict_eol", arguments: { purl: go, version } },
+      });
+      const prediction = (await session.waitForResponse(3)) as {
+        result: { isError?: boolean; content: Array<{ text: string }>; structuredContent: unknown };
+      };
+      assert.ok(!prediction.result.isError);
+      assert.deepEqual(prediction.result.structuredContent, { prediction: installedPrediction });
+      assert.deepEqual(JSON.parse(prediction.result.content[0]!.text), prediction.result.structuredContent);
+
+      session.write({
+        jsonrpc: "2.0",
+        id: 4,
         method: "tools/call",
         params: {
           name: "runtime_support",
           arguments: { purl: "pkg:pypi/django", runtimePurl: "pkg:generic/python", runtimeVersion: "3.13" },
         },
       });
-      const compat = (await session.waitForResponse(3)) as {
+      const compat = (await session.waitForResponse(4)) as {
         result: {
           structuredContent: { status: string; version: string; row: { kind: string; source: { url: string } } };
         };

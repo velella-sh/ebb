@@ -10,6 +10,7 @@ import { verifyReleaseLog } from "../../src/data-release-log.js";
 import { defaultCacheDirectory } from "../../src/data-source.js";
 import { compareBundleVersions } from "../../src/data-update.js";
 import { supportedVersions } from "../../src/pick-version.js";
+import type { PredictionTable } from "../../src/predict.js";
 import { parsePurl, purlIdentity } from "../../src/purl.js";
 import type { RegistryV2, RegistryV2Rule, ReplacementItem } from "../../src/registry.js";
 import { sourcesOf } from "../../src/sources-of.js";
@@ -221,6 +222,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     "rule.v2.schema.json",
     "registry.v2.schema.json",
     "result.v1.schema.json",
+    "prediction.v1.schema.json",
     "compat.v1.schema.json",
   ];
   for (const schemaFile of schemaFilesToCopy) {
@@ -509,6 +511,15 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
     : Math.max(0, Math.floor((createdDate.getTime() - reviewedTime) / (24 * 60 * 60 * 1000)));
   const stale = ageDays > 30;
 
+  const predictionPath = join(root, "registry/tables/predictions.json");
+  let predictionIndex: { path: string; sha256: string; dataVersion: string } | undefined;
+  if (existsSync(predictionPath)) {
+    const bytes = await readFile(predictionPath);
+    const { dataVersion } = JSON.parse(bytes.toString("utf8")) as PredictionTable;
+    predictionIndex = { path: "predictions.json", sha256: sha256Hex(bytes), dataVersion };
+    await writeFile(join(outDir, predictionIndex.path), bytes);
+  }
+
   const indexDoc = {
     $schema: schemaUrl,
     schemaVersion: API_SCHEMA_VERSION,
@@ -524,6 +535,7 @@ export async function generateStaticApi(options: GenerateStaticApiOptions): Prom
       staleAfterDays: 30,
     },
     components: indexComponents,
+    ...(predictionIndex ? { predictions: predictionIndex } : {}),
   };
   const indexJson = JSON.stringify(sortKeys(indexDoc), null, 2);
   const indexGzip = gzipSync(Buffer.from(indexJson, "utf8"));

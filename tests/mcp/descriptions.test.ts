@@ -14,6 +14,8 @@ const EXPECTED_SNAPSHOT: Record<string, string> = {
   diff: 'Call to compare two lifecycle data versions, dates, files, or active data and inspect added, changed, or removed rules. Example: {"from":"2026.10.01","to":"active"}.',
   pick_version:
     'Call before choosing a runtime or a major version. Returns known release lines, the recommended line, and whether coverage is complete. Example: {"purl":"node","as_of":"2026-11-15"}.',
+  predict_eol:
+    'Call when an unannounced end-of-life date needs a planning estimate. Returns a predicted range, confidence and sources. Example: {"purl":"pkg:generic/golang","version":"1.26.0"}.',
   replacement_for:
     'Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives. Example: {"purl":"pkg:npm/request","version":"2.88.2"}.',
   runtime_support:

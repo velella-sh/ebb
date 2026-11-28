@@ -360,7 +360,10 @@ test("signed site data verifies the pinned bundle, builds deterministic records 
     id: string;
     slug: string;
   }>;
-  assert.equal(await readFile("src/public-rule-routes.ts", "utf8"), publicRuleRoutesSource(publishedRules, version));
+  assert.equal(
+    await readFile("tools/site-data/public-rule-routes.ts", "utf8"),
+    publicRuleRoutesSource(publishedRules, version),
+  );
   for (const { id, slug } of publishedRules) {
     assert.equal(canonicalRuleUrl(id), `https://velella.sh/ebb/rules/${slug}/`);
   }

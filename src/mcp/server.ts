@@ -58,6 +58,7 @@ export class McpServer {
         { runtimeSupportTool },
         { sourcesTool },
         { pickVersionTool },
+        { predictTool },
         { upcomingTool },
       ] = await Promise.all([
         import("./resources/upcoming.js"),
@@ -69,6 +70,7 @@ export class McpServer {
         import("./tools/runtime_support.js"),
         import("./tools/sources.js"),
         import("./tools/pick_version.js"),
+        import("./tools/predict.js"),
         import("./tools/upcoming.js"),
       ]);
       this.registerTool(checkTool);
@@ -79,6 +81,7 @@ export class McpServer {
       this.registerTool(runtimeSupportTool);
       this.registerTool(sourcesTool);
       this.registerTool(pickVersionTool);
+      this.registerTool(predictTool);
       this.registerTool(upcomingTool);
       this.registerResource(upcomingResource);
     })();

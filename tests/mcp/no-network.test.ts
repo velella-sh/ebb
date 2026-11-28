@@ -84,6 +84,7 @@ describe("offline-4: MCP server makes no network requests", () => {
     check_install: { command: "npm install express@4.18.2" },
     diff: {},
     pick_version: { purl: "node", as_of: "2026-11-15" },
+    predict_eol: { purl: "pkg:generic/golang", version: "1.26.0" },
     replacement_for: { purl: "pkg:npm/request", version: "2.88.2" },
     runtime_support: {
       purl: "pkg:pypi/django",
@@ -113,7 +114,7 @@ describe("offline-4: MCP server makes no network requests", () => {
       method: "tools/list",
     });
     const tools = (listResp?.result as { tools: Array<{ name: string }> })?.tools ?? [];
-    assert.ok(tools.length >= 8);
+    assert.ok(tools.length >= 9);
 
     let callId = 10;
     for (const tool of tools) {

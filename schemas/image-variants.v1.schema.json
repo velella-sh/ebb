@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/velella-sh/ebb/schemas/image-variants.v1.schema.json",
+  "title": "Ebb official image variants v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "rows"],
+  "properties": {
+    "schemaVersion": { "const": "ebb.image-variants.v1" },
+    "rows": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["imagePurl", "tag", "sharedTags", "architectures", "baseOs", "source"],
+        "properties": {
+          "imagePurl": { "type": "string", "pattern": "^pkg:docker/library/[a-z0-9]+([._-][a-z0-9]+)*$" },
+          "tag": { "$ref": "#/$defs/tag" },
+          "sharedTags": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/tag" } },
+          "architectures": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+          },
+          "baseOs": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["family", "version", "codename", "purl"],
+            "properties": {
+              "family": { "enum": ["debian", "ubuntu", "alpine"] },
+              "version": { "type": "string", "pattern": "^[1-9][0-9]*(\\.[0-9]+)?$" },
+              "codename": { "type": ["string", "null"], "pattern": "^[a-z][a-z0-9-]*$" },
+              "purl": { "enum": ["pkg:generic/debian", "pkg:generic/ubuntu", "pkg:generic/alpine"] }
+            },
+            "oneOf": [
+              {
+                "properties": {
+                  "family": { "const": "debian" },
+                  "version": { "type": "string", "pattern": "^[1-9][0-9]*$" },
+                  "codename": { "type": "string" },
+                  "purl": { "const": "pkg:generic/debian" }
+                }
+              },
+              {
+                "properties": {
+                  "family": { "const": "ubuntu" },
+                  "version": { "type": "string", "pattern": "^[1-9][0-9]*\\.[0-9]{2}$" },
+                  "codename": { "type": "string" },
+                  "purl": { "const": "pkg:generic/ubuntu" }
+                }
+              },
+              {
+                "properties": {
+                  "family": { "const": "alpine" },
+                  "version": { "type": "string", "pattern": "^[1-9][0-9]*\\.[0-9]+$" },
+                  "codename": { "type": "null" },
+                  "purl": { "const": "pkg:generic/alpine" }
+                }
+              }
+            ]
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["repository", "commit", "path"],
+            "properties": {
+              "repository": { "const": "https://github.com/docker-library/official-images" },
+              "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+              "path": { "type": "string", "pattern": "^library/[a-z0-9]+([._-][a-z0-9]+)*$" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "tag": { "type": "string", "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$" }
+  }
+}
