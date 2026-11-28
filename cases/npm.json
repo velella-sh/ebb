@@ -94,6 +94,16 @@
       "purl": "pkg:npm/uuid",
       "version": "11.0.0-0",
       "rules": []
+    },
+    {
+      "purl": "pkg:npm/eslint",
+      "version": "9.39.5",
+      "rules": ["npm.package.eslint-9.deprecated"]
+    },
+    {
+      "purl": "pkg:npm/eslint",
+      "version": "10.16.0",
+      "rules": []
     }
   ]
 }
