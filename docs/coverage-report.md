@@ -7,7 +7,7 @@ permalink: /coverage-report/
 
 See the [coverage gaps](https://velella.sh/ebb/gaps/) for evidence-backed work and the [coverage card](https://velella.sh/ebb/assets/coverage-card.svg) for the same headline counts.
 
-The [database, OS, PyPI, Maven and NuGet inventories](https://velella.sh/ebb/coverage-inventories/) record primary sources and proposed batches for the next review.
+The [coverage inventories](https://velella.sh/ebb/coverage-inventories/) record primary evidence, support-policy gaps and proposed batches for the next review.
 
 <!-- coverage:begin -->
 
