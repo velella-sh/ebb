@@ -26,7 +26,10 @@
     "apiUrl": { "type": "string", "format": "uri" }
   },
   "oneOf": [
-    { "required": ["ecosystem", "ruleCount", "releaseLines"] },
+    {
+      "required": ["ecosystem", "ruleCount", "releaseLines", "status"],
+      "properties": { "status": { "enum": ["active", "deprecated", "end-of-life", "removed", "scheduled"] } }
+    },
     {
       "required": ["product", "line", "vers", "ruleId", "status"],
       "properties": { "status": { "enum": ["ended", "ending", "no-known-end"] } }

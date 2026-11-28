@@ -45,6 +45,8 @@ theme:
     preset: ebb
     status:
       values:
+        active: { label: Active, tone: positive }
+        scheduled: { label: Scheduled end of life, tone: caution }
         deprecated: { label: Deprecated, tone: caution }
         end-of-support: { label: End of support, tone: negative }
         end-of-life: { label: End of life, tone: negative }

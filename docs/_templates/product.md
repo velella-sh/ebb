@@ -6,6 +6,7 @@ agent:
   edit: false
 record:
   summary: summary
+  status: status
   facts:
     - field: purl
       label: Package URL
