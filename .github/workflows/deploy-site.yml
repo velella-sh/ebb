@@ -21,6 +21,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      eol-compat-sha256: ${{ steps.eol-compat.outputs.sha256 }}
     permissions:
       contents: read
     steps:
@@ -55,12 +57,18 @@ jobs:
           echo "Coverage tables published (runtime $runtime_code, actions $actions_code)"
       - name: Check the site
         run: |
-          $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen doctor docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
-          $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen check docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
+          "$RUNNER_TEMP/site-tools/node_modules/.bin/mizzen" doctor docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
+          "$RUNNER_TEMP/site-tools/node_modules/.bin/mizzen" check docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
       - name: Build the site
-        run: $RUNNER_TEMP/site-tools/node_modules/.bin/mizzen build docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen" --out "$RUNNER_TEMP/site"
+        run: |
+          "$RUNNER_TEMP/site-tools/node_modules/.bin/mizzen" build docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen" --out "$RUNNER_TEMP/site"
       - name: Build static API
-        run: npm run build:static-api -- --out "$RUNNER_TEMP/site/api/v1"
+        run: |
+          npm run build:static-api -- --out "$RUNNER_TEMP/site/api/v1" --eol-compat-out "$RUNNER_TEMP/site/api/eol-compat/v1"
+      - name: Record built compatibility response
+        id: eol-compat
+        run: |
+          sha256sum "$RUNNER_TEMP/site/api/eol-compat/v1/products/nodejs.json" | awk '{print "sha256=" $1}' >> "$GITHUB_OUTPUT"
       - name: Copy LLM documentation to site
         run: |
           cp llms.txt llms-full.txt "$RUNNER_TEMP/site/"
@@ -97,4 +105,7 @@ jobs:
       - name: Build tools
         run: npm run build --silent
       - name: Smoke test deployed static API
-        run: node dist/tools/static-api/smoke.js "${{ steps.deploy.outputs.page_url }}api/v1"
+        env:
+          PAGE_URL: ${{ steps.deploy.outputs.page_url }}
+          EOL_COMPAT_SHA256: ${{ needs.build.outputs.eol-compat-sha256 }}
+        run: node dist/tools/static-api/smoke.js "${PAGE_URL}api/v1" "$EOL_COMPAT_SHA256"
