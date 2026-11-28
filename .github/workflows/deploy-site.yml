@@ -29,7 +29,9 @@ jobs:
     outputs:
       eol-compat-sha256: ${{ steps.eol-compat.outputs.sha256 }}
     permissions:
+      actions: read
       contents: read
+      issues: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -77,6 +79,21 @@ jobs:
             --sha256 "$SITE_DATA_SHA256" --data-version "$SITE_DATA_VERSION" --as-of "$site_as_of" \
             --historical-verifier "$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
             --out "$RUNNER_TEMP/site-records" --mizzen-out docs/_data/site-records
+      - name: Render the signed coverage report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          inputs="$RUNNER_TEMP/coverage-inputs"
+          bash tools/coverage/prepare-inputs.sh "$inputs"
+          release_dir="$RUNNER_TEMP/site-release"
+          bundle="ebb-data-$SITE_DATA_VERSION.json"
+          args=()
+          if [ -f "$inputs/requests.json" ]; then args+=(--requests "$inputs/requests.json"); fi
+          node dist/tools/coverage/report.js --as-of "$SITE_AS_OF" --checkout "$GITHUB_SHA" \
+            --data-version "$SITE_DATA_VERSION" --sha256 "$SITE_DATA_SHA256" \
+            --bundle "$release_dir/$bundle" --signature "$release_dir/$bundle.sigstore.json" \
+            --historical-verifier "$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
+            --prior-history "$inputs/prior" --out "$RUNNER_TEMP/coverage" --write-docs "${args[@]}"
       - name: Check the site
         run: |
           "$RUNNER_TEMP/site-tools/node_modules/.bin/mizzen" doctor docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
