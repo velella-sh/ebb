@@ -40,6 +40,12 @@ type Bundle struct {
 	Version       string
 	ContentDigest string
 	Files         map[string]json.RawMessage
+	registries    []verifiedRegistry
+}
+
+type verifiedRegistry struct {
+	path string
+	hash [sha256.Size]byte
 }
 
 type bundleEntry struct {
@@ -171,6 +177,7 @@ func LoadBundle(r io.Reader, expectedSHA256 string) (*Bundle, error) {
 		return nil, errors.New("Ebb bundle file set differs from manifest")
 	}
 	lines := make([]string, 0, len(manifest.Files))
+	registries := make([]verifiedRegistry, 0, len(manifest.Files))
 	seen := make(map[string]bool, len(manifest.Files))
 	for _, entry := range manifest.Files {
 		file, ok := decodedFiles[entry.Path].(map[string]any)
@@ -192,6 +199,9 @@ func LoadBundle(r io.Reader, expectedSHA256 string) (*Bundle, error) {
 		if err := verifyFileKind(entry, bundle.Files[entry.Path], file); err != nil {
 			return nil, fmt.Errorf("%s: %w", entry.Path, err)
 		}
+		if entry.Kind == "registry" {
+			registries = append(registries, verifiedRegistry{entry.Path, sha256.Sum256(bundle.Files[entry.Path])})
+		}
 		lines = append(lines, entry.Path+" "+entry.SHA256)
 	}
 	slices.Sort(lines)
@@ -203,11 +213,13 @@ func LoadBundle(r io.Reader, expectedSHA256 string) (*Bundle, error) {
 	if "sha256:"+hex.EncodeToString(content[:]) != manifest.ContentDigest {
 		return nil, fmt.Errorf("%w: bundle content address", ErrDigestMismatch)
 	}
+	slices.SortFunc(registries, func(a, b verifiedRegistry) int { return strings.Compare(a.path, b.path) })
 	return &Bundle{
 		SchemaVersion: manifest.SchemaVersion,
 		Version:       manifest.Version,
 		ContentDigest: manifest.ContentDigest,
 		Files:         bundle.Files,
+		registries:    registries,
 	}, nil
 }
 
