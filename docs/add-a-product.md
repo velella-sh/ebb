@@ -44,10 +44,10 @@ The following is a worked rehearsal. The registry already covers Python 3.8, so 
 | Summary | CPython marks Python 3.8 as end-of-life as of October 7, 2024. |
 | Severity | `high` |
 | GitHub handle | Your own, after you read the source |
-| Version inside the range | `3.8.0` |
-| Version outside the range | `3.9.0` |
+| Version inside the range | `3.8.10` |
+| Version outside the range | `3.9.18` |
 
-Confirm only after reviewing the two versions. The tool checks the rule v2 schema, repository lint, and affected cases before writing anything. It writes the registry and case files and regenerates the corresponding bundled module if one exists. Keep the existing precedence of neighboring rules. The [rule reference](/rules/) describes the full format and its evidence requirements.
+Confirm only after reviewing the two versions. Reuse an affected version already listed in the case file so the tool can update its expected matches. If other existing cases also need updates, the tool reports them before it writes anything. The tool checks the rule v2 schema, repository lint, and affected cases before writing anything. It writes the registry and case files and regenerates the corresponding bundled module if one exists. Keep the existing precedence of neighboring rules. The [rule reference](/rules/) describes the full format and its evidence requirements.
 
 ## 3. Open the pull request
 
