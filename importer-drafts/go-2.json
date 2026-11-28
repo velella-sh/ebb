@@ -1,7 +1,7 @@
 {
   "importer": "go-2",
   "ecosystem": "go",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "go.module.cloud.google.com.go.pubsub.deprecated",
@@ -17,18 +17,22 @@
         {
           "title": "cloud.google.com/go/pubsub v1.52.0 go.mod",
           "url": "https://proxy.golang.org/cloud.google.com/go/pubsub/@v/v1.52.0.mod",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Go module deprecation reference",
           "url": "https://go.dev/ref/mod#go-mod-file-module-deprecation",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "go-2"
       }
     },
@@ -46,18 +50,22 @@
         {
           "title": "github.com/cncf/udpa/go v0.0.0-20220112060539-c52dc94e7fbe go.mod",
           "url": "https://proxy.golang.org/github.com/cncf/udpa/go/@v/v0.0.0-20220112060539-c52dc94e7fbe.mod",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Go module deprecation reference",
           "url": "https://go.dev/ref/mod#go-mod-file-module-deprecation",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "go-2"
       }
     },
@@ -74,18 +82,22 @@
         {
           "title": "github.com/discord/lilliput v1.5.1 go.mod",
           "url": "https://proxy.golang.org/github.com/discord/lilliput/@v/v1.5.1.mod",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Go module deprecation reference",
           "url": "https://go.dev/ref/mod#go-mod-file-module-deprecation",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "go-2"
       }
     },
@@ -103,18 +115,22 @@
         {
           "title": "github.com/golang/protobuf v1.5.4 go.mod",
           "url": "https://proxy.golang.org/github.com/golang/protobuf/@v/v1.5.4.mod",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Go module deprecation reference",
           "url": "https://go.dev/ref/mod#go-mod-file-module-deprecation",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "go-2"
       }
     },
@@ -132,18 +148,22 @@
         {
           "title": "github.com/streadway/amqp v1.1.0 go.mod",
           "url": "https://proxy.golang.org/github.com/streadway/amqp/@v/v1.1.0.mod",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Go module deprecation reference",
           "url": "https://go.dev/ref/mod#go-mod-file-module-deprecation",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "go-2"
       }
     },
@@ -160,18 +180,22 @@
         {
           "title": "go.opentelemetry.io/otel/exporters/zipkin v1.47.0 go.mod",
           "url": "https://proxy.golang.org/go.opentelemetry.io/otel/exporters/zipkin/@v/v1.47.0.mod",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "Go module deprecation reference",
           "url": "https://go.dev/ref/mod#go-mod-file-module-deprecation",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "go-2"
       }
     }
