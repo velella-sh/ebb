@@ -30,10 +30,28 @@ collections:
     evidence: claims
     references:
       product: products
+  rules:
+    source: _data/site-records/rules.json
+    template: _templates/rule.md
+    permalink: /rules/{slug}/
+    id: id
+    schema: _data/site-page.schema.json
+    evidence: claims
+    references:
+      product: products
 theme:
   name: "@velella/lateen"
   options:
     preset: ebb
+    status:
+      values:
+        deprecated: { label: Deprecated, tone: caution }
+        end-of-support: { label: End of support, tone: negative }
+        end-of-life: { label: End of life, tone: negative }
+        removed: { label: Removed, tone: negative }
+        scheduled-end-of-life: { label: Scheduled end of life, tone: caution }
+        end-of-active-support: { label: End of active support, tone: caution }
+        end-of-extended-support: { label: End of extended support, tone: negative }
     network:
       switcher: false
       footer: false

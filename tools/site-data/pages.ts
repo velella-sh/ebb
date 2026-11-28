@@ -24,7 +24,7 @@ function sourcesOf(rule: RuleRecord | undefined): Claim[] {
 }
 
 function ruleLink(rule: RuleRecord): Claim {
-  return { id: rule.id, title: rule.id, url: rule.links.apiUrl };
+  return { id: rule.id, title: rule.id, url: `/ebb/rules/${rule.slug}/` };
 }
 
 function monthPrecision(rule: RegistryV2Rule | undefined): string | undefined {
@@ -144,9 +144,42 @@ export async function writeSitePages(options: {
     };
   });
 
+  const rulePages = ruleRecords.map((record) => {
+    const rule = rulesById.get(record.id);
+    const component = componentsBySlug.get(record.links.component);
+    if (!rule || !component) throw new Error(`Missing signed rule or product for ${record.id}.`);
+    const { provenance } = rule;
+    return {
+      id: record.id,
+      slug: record.slug,
+      title: record.title,
+      summary: record.summary,
+      status: rule.event,
+      purl: rule.purl,
+      vers: record.affectedRange,
+      product: component.id,
+      dataVersion: version,
+      ...displayedDate(record.dates.deadline, rule),
+      announced: record.dates.announced,
+      observedAt: provenance.observedAt,
+      reviewedAt: provenance.reviewedAt,
+      reviewers: provenance.reviewers?.length ? provenance.reviewers : [provenance.reviewer],
+      method: provenance.method,
+      importer: provenance.importer,
+      replacement: record.replacement,
+      replacements: rule.replacements?.map(({ name, purl, kind, vers, note }) =>
+        [`${name} (${kind})`, purl, vers, note].filter(Boolean).join(" · "),
+      ),
+      requires: rule.requires && Object.entries(rule.requires).map(([runtime, minimum]) => `${runtime} ≥ ${minimum}`),
+      apiUrl: record.links.apiUrl,
+      claims: { status: sourcesOf(record) },
+    };
+  });
+
   await mkdir(out, { recursive: true });
   await Promise.all([
     writeFile(join(out, "products.json"), `${JSON.stringify(uniqueLabels(products), null, 2)}\n`),
     writeFile(join(out, "release-lines.json"), `${JSON.stringify(uniqueLabels(releaseLines), null, 2)}\n`),
+    writeFile(join(out, "rules.json"), `${JSON.stringify(uniqueLabels(rulePages), null, 2)}\n`),
   ]);
 }

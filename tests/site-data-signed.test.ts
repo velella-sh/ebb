@@ -38,7 +38,7 @@ test("signed site data verifies the pinned bundle, builds deterministic records 
   const first = join(dir, "first");
   const second = join(dir, "second");
   for (const out of [first, second]) await writeSitePages({ from, out, version, rules });
-  for (const name of ["products.json", "release-lines.json"]) {
+  for (const name of ["products.json", "release-lines.json", "rules.json"]) {
     assert.deepEqual(await readFile(join(first, name)), await readFile(join(second, name)));
   }
   await assert.rejects(writeSitePages({ from, out: second, version: "2027.01.01", rules }), /Invalid site collection/);
@@ -53,10 +53,82 @@ test("signed site data verifies the pinned bundle, builds deterministic records 
   assert.equal(line.product, product.id);
   assert.equal(line.dataVersion, version);
   assert.equal(line.precision, "day");
-  const { check } = await import(pathToFileURL(join(historicalVerifier, "dist/src/index.js")).href);
+  const { check, rulesFor } = await import(pathToFileURL(join(historicalVerifier, "dist/src/index.js")).href);
   const match = check(line.purl, "20.11.0").matches.find(({ ruleId }: { ruleId: string }) => ruleId === line.ruleId);
   assert.equal(line.deadline, match.date);
   assert.equal(line.claims.deadline[0].url, match.sources[0].url);
+
+  const rulePages = JSON.parse(await readFile(join(first, "rules.json"), "utf8")) as Array<{
+    id: string;
+    slug: string;
+    dataVersion: string;
+    purl: string;
+    vers: string;
+    status: string;
+    deadline: string | null;
+    precision: string;
+    reviewedAt: string;
+    reviewers: string[];
+    replacement?: string;
+    product: string;
+    claims: { status: { url: string }[] };
+  }>;
+  assert.equal(new Set(rulePages.map((rule) => rule.id)).size, rules.length);
+  assert.equal(new Set(rulePages.map((rule) => rule.slug)).size, rules.length);
+  const fixtures = [
+    { id: line.ruleId, slug: "nodejs-runtime-eol-20", version: "20.11.0", label: "End of life", date: "2026-04-30" },
+    {
+      id: "npm.package.abab.deprecated",
+      slug: "npm-package-abab-deprecated",
+      version: "2.0.6",
+      label: "Deprecated",
+      date: null,
+    },
+  ];
+  for (const fixture of fixtures) {
+    const record = rulePages.find((rule) => rule.id === fixture.id);
+    assert.ok(record);
+    const parent = products.find(({ id }: { id: string }) => id === record.product);
+    assert.ok(parent);
+    const definition = rulesFor(record.purl).find(({ id }: { id: string }) => id === record.id);
+    const matchingRule = check(record.purl, fixture.version).matches.find(
+      ({ ruleId }: { ruleId: string }) => ruleId === record.id,
+    );
+    assert.ok(definition && matchingRule);
+    assert.equal(record.slug, fixture.slug);
+    assert.equal(record.dataVersion, version);
+    assert.equal(record.vers, definition.vers);
+    assert.equal(record.status, matchingRule.event);
+    assert.equal(record.deadline, fixture.date);
+    assert.equal(record.deadline, matchingRule.date);
+    assert.equal(record.precision, fixture.date ? "day" : "No published date");
+    assert.equal(record.reviewedAt, matchingRule.reviewedAt);
+    assert.deepEqual(
+      record.claims.status.map(({ url }) => url),
+      matchingRule.sources.map(({ url }: { url: string }) => url),
+    );
+    assert.equal(record.replacement, matchingRule.replacement ?? undefined);
+
+    if (htmlDir) {
+      const productUrl = `/ebb/products/${parent.slug}/`;
+      const ruleUrl = `/ebb/rules/${fixture.slug}/`;
+      const productHtml = await readFile(join(htmlDir, "products", parent.slug, "index.html"), "utf8");
+      const ruleHtml = await readFile(join(htmlDir, "rules", fixture.slug, "index.html"), "utf8");
+      assert.ok(productHtml.includes(`href="${ruleUrl}"`), `missing link to ${ruleUrl}`);
+      assert.ok(ruleHtml.includes(`href="${productUrl}"`), `missing link to ${productUrl}`);
+      assert.ok(ruleHtml.includes(`class="status-label">${fixture.label}</span>`));
+      assert.ok(ruleHtml.includes(fixture.date ?? "No published date"));
+      assert.ok(ruleHtml.includes(record.id));
+      assert.ok(ruleHtml.includes(record.purl));
+      assert.ok(ruleHtml.replaceAll("&lt;", "<").replaceAll("&gt;", ">").includes(record.vers));
+      assert.ok(ruleHtml.includes(version));
+      assert.ok(ruleHtml.includes(record.reviewedAt));
+      assert.ok(ruleHtml.includes(record.reviewers[0]!));
+      if (record.replacement) assert.ok(ruleHtml.includes(record.replacement));
+      for (const source of record.claims.status) assert.ok(ruleHtml.includes(`href="${source.url}"`));
+    }
+  }
+  assert.ok(!check(line.purl, "22.0.0").matches.some(({ ruleId }: { ruleId: string }) => ruleId === line.ruleId));
 
   if (htmlDir) {
     const productUrl = `/ebb/products/${product.slug}/`;
@@ -65,6 +137,7 @@ test("signed site data verifies the pinned bundle, builds deterministic records 
     const lineHtml = await readFile(join(htmlDir, "release-lines", line.slug, "index.html"), "utf8");
     assert.ok(productHtml.includes(`href="${lineUrl}"`), `missing link to ${lineUrl}`);
     assert.ok(lineHtml.includes(`href="${productUrl}"`), `missing link to ${productUrl}`);
+    assert.ok(lineHtml.includes('href="/ebb/rules/nodejs-runtime-eol-20/"'));
     assert.ok(lineHtml.includes(line.deadline));
     assert.ok(lineHtml.includes(line.claims.deadline[0].url));
     for (const html of [productHtml, lineHtml]) {
