@@ -2,14 +2,15 @@
  * Example: Inspecting a CycloneDX SBOM JSON file with Ebb.
  *
  * Usage:
- *   node --experimental-strip-types examples/cyclonedx/check-sbom.ts [path/to/bom.json]
+ *   node --experimental-strip-types examples/cyclonedx/check-sbom.ts [path/to/bom.json] [path/to/enriched.json]
  */
 
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { checkAll, replacementFor } from "../../dist/src/index.js";
 import { parsePurl } from "../../dist/src/purl.js";
+import { enrichSbom } from "../../dist/src/sbom/index.js";
 
 interface CycloneDxComponent {
   name: string;
@@ -76,6 +77,15 @@ if (process.argv[1] && resolve(process.argv[1]) === resolve(__filename)) {
   console.log(`Evaluating CycloneDX SBOM at: ${targetPath}\n`);
 
   const report = evaluateCycloneDxSbom(targetPath);
+  const output = process.argv[3];
+  if (output) {
+    if (resolve(output) === targetPath) throw new Error("Choose a separate output file.");
+    const input: unknown = JSON.parse(readFileSync(targetPath, "utf8"));
+    const { document } = enrichSbom(input, "cyclonedx");
+    writeFileSync(output, `${JSON.stringify(document, null, 2)}\n`, "utf8");
+    console.log(`Wrote enriched SBOM to ${output}`);
+  }
+
 
   console.log(`Format: ${report.bomFormat} v${report.specVersion}`);
   console.log(`Components evaluated: ${report.totalComponents}`);
@@ -91,6 +101,6 @@ if (process.argv[1] && resolve(process.argv[1]) === resolve(__filename)) {
       if (repl) console.log(`  Replacement: ${repl}`);
     }
   } else {
-    console.log("\n✅ All components in the SBOM are healthy.");
+    console.log("\nNo lifecycle rules matched the identified components.");
   }
 }

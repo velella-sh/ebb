@@ -43,6 +43,8 @@ main:
         url: /offline/
       - title: Pre-commit hook
         url: /pre-commit/
+      - title: SBOM enrichment
+        url: /sbom/
       - title: Scanners (Trivy & Grype)
         url: /scanners/
       - title: Extended support

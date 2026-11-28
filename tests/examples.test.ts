@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { resolve } from "node:path";
 import { before, describe, it } from "node:test";
 
@@ -35,6 +36,16 @@ describe("Examples Suite (Epic 18)", () => {
       assert.ok(stdout.includes("left-pad (pkg:npm/left-pad@1.3.0) -> DEPRECATED"));
       assert.ok(stdout.includes("request (pkg:npm/request@2.88.2) -> DEPRECATED"));
       assert.ok(stdout.includes("django (pkg:pypi/django@2.2.0) -> END-OF-LIFE"));
+    });
+
+    it("writes the example enriched CycloneDX file", (t) => {
+      const root = mkdtempSync(resolve(tmpdir(), "ebb-example-sbom-"));
+      t.after(() => rmSync(root, { recursive: true, force: true }));
+      const output = resolve(root, "enriched.json");
+      const input = resolve(repoRoot, "examples/cyclonedx/bom.json");
+      const stdout = runNodeScript("examples/cyclonedx/check-sbom.ts", [input, output]);
+      assert.match(stdout, /Wrote enriched SBOM/);
+      assert.match(readFileSync(output, "utf8"), /npm\.package\.left-pad\.deprecated/);
     });
 
     it("evaluates CycloneDX SBOM directly via Ebb CLI check-all", () => {

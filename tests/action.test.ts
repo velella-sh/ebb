@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync, unlinkSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync, unlinkSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { resolve } from "node:path";
 import { describe, it } from "node:test";
@@ -115,6 +115,23 @@ describe("GitHub Action (action/main.js)", () => {
     const summaryContent = readFileSync(summaryPath, "utf8");
     assert.equal(summaryContent.includes("Offing can fix this"), false);
     unlinkSync(summaryPath);
+  });
+
+  it("enriches an SBOM and writes a short summary without blocking on findings", (t) => {
+    const root = mkdtempSync(resolve(tmpdir(), "ebb-sbom-action-"));
+    t.after(() => rmSync(root, { recursive: true, force: true }));
+    const summaryPath = resolve(root, "summary.md");
+    const output = resolve(root, "enriched.json");
+    const input = resolve("tests/fixtures/sbom/cyclonedx-1.6.json");
+    const source = readFileSync(input, "utf8");
+    const mock = createMockIo();
+    const code = runAction({ INPUT_SBOM: input, INPUT_SBOM_OUTPUT: output, GITHUB_STEP_SUMMARY: summaryPath }, mock.io);
+    assert.equal(code, 0, mock.stderr);
+    assert.match(readFileSync(output, "utf8"), /cdx:lifecycle:milestone:endOfLife/);
+    assert.equal(readFileSync(input, "utf8"), source);
+    const summary = readFileSync(summaryPath, "utf8");
+    assert.match(summary, /Ebb SBOM enrichment/);
+    assert.match(summary, /Components enriched: [1-9]/);
   });
 
   it("respects fail-on none for findings", () => {

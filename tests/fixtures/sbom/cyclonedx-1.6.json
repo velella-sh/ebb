@@ -1,0 +1,673 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "npm",
+          "version": "11.19.1"
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "10.5.1",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:constraint:engine:node",
+              "value": ">=20.18.0"
+            }
+          ]
+        },
+        {
+          "type": "application",
+          "name": "cyclonedx-npm",
+          "group": "@cyclonedx",
+          "version": "7.0.1",
+          "author": "Jan Kowalleck",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from NPM projects.",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-node-npm.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:constraint:engine:node",
+              "value": ">=20.18.0"
+            },
+            {
+              "name": "cdx:npm:package:constraint:engine:npm",
+              "value": ">=9"
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "ebb-sbom-schema-fixture",
+      "version": "1.0.0",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ebb-sbom-schema-fixture@1.0.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": ""
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "cdx:reproducible",
+        "value": "true"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "helper-string-parser",
+      "group": "@babel",
+      "version": "7.29.15",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|@babel/helper-string-parser@7.29.15",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/helper-string-parser@7.29.15",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.15.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "0b616e6a94362a1d4e9d51c0a0b8b9ac3dc6049f0239bf50eb4f53e871292ea681028e7ad0f0cfe4ec4113974223f87de753013bff9b094614e5267ef19955fb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/helper-string-parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "helper-validator-identifier",
+      "group": "@babel",
+      "version": "7.29.7",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|@babel/helper-validator-identifier@7.29.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.29.7",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a9e8711a4463e7987f7dff0431a27e71887268a947231a980e7ebcdb0403ed1369f54ba3390b07a20dae4b4af6bf3af8a56fac5dff7435e79aca370d697ddf16"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/helper-validator-identifier"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "parser",
+      "group": "@babel",
+      "version": "7.29.15",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|@babel/parser@7.29.15",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/parser@7.29.15",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.15.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "469296ca2b07a0ff35b70b520a0984d36894d119cf72ad433796c111ba5478fae303d437c1786e7e7089aeb6b23e9a1989ea85877cf2650ab0b522b480671c44"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "types",
+      "group": "@babel",
+      "version": "7.29.15",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|@babel/types@7.29.15",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/types@7.29.15",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@babel/types/-/types-7.29.15.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "fd72a92836a42fffcb67ae9bab55ec64eb30baa788e4c66a3cb0eed7ca375dd914d5f349edb74fb7382773864d4be6c11875741491bc8e36fc4b0702de735541"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/types"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-sfc",
+      "group": "@vue",
+      "version": "2.7.16",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|@vue/compiler-sfc@2.7.16",
+      "purl": "pkg:npm/%40vue/compiler-sfc@2.7.16",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-2.7.16.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "296849f64e675ee36dca03d4efeb75ad7e9b6997aa3982c47e8ad43e380d0c19cb89c7c70a88b8f07f3b43c5f22d93ab34db2686ec0aaada434168c415ee8492"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-sfc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "csstype",
+      "version": "3.2.4",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|csstype@3.2.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/csstype@3.2.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/csstype/-/csstype-3.2.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3e829aa0fcd06a99c4a2a5129c7c75bba5ba92ef0254480ab27a669b35379b59f09227693c143c57f66adbe6d636bb0e2a828bc1319d6f1eb117b0573f5ccb55"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/csstype"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "left-pad",
+      "version": "1.3.0",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|left-pad@1.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "WTFPL",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/left-pad@1.3.0",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/left-pad/-/left-pad-1.3.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5c8e4c3f354d0298c0ca1433a615fc06498ab0a5310f82ddc8adb88997901a29c137dc93413ddb165081cbf695c761eb35ca901ac768b7c821ae3cabbcc0a810"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/left-pad"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nanoid",
+      "version": "3.3.20",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|nanoid@3.3.20",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/nanoid@3.3.20",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.20.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b8a760d86dc63422909fd6f260ea716c6aab4f67c63b9291b7927ff1bde9a24f2b4faab119617a871332262118b407fe155c98b83f6145a0ea5f9b8f15827865"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/nanoid"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|picocolors@1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c5c787dac9e1b5be4cf658aa0ec984c39ea57b7efa993664117fe311bfd1c4d1727a036e97b78db250973fd1438ff2dcbb45fc284c8c71e3f69eda5a1eb0c454"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/picocolors"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "postcss",
+      "version": "8.5.34",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|postcss@8.5.34",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/postcss@8.5.34",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/postcss/-/postcss-8.5.34.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3f54338f45d766331d6bbe02eea8959c11bdd1428d6f235400e7904415bc5fadd1b08315e7b81ebd1aa39e410b770b59fd2dbfb90164b09866c2e37cc5284b3f"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/postcss"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prettier",
+      "version": "2.8.8",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|prettier@2.8.8",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prettier@2.8.8",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/prettier/-/prettier-2.8.8.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b5d37ca901af363c380876d8f975e4d098025e7f50885db56b9e6b05ee4b24053e903c82e16427e3e6b09b65df936950324e5f2aea7d5e0cd366d1a48c174ff5"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/prettier"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "source-map-js",
+      "version": "1.2.4",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|source-map-js@1.2.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/source-map-js@1.2.4",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "27b66332f1ddf4ed5f713ff9574f5059a69297605b5b1dc5e8ed3cb2975ef3635a99ff540741b145520f88d6d5b1d2a4a22cc7892a53a1da37be9d9b032f7530"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/source-map-js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "source-map",
+      "version": "0.6.1",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|source-map@0.6.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/source-map@0.6.1",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "52381aa6e99695b3219018334fb624739617513e3a17488abbc4865ead1b7303f9773fe1d0f963e9e9c9aa3cf565bab697959aa989eb55bc16396332177178ee"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/source-map"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vue",
+      "version": "2.7.16",
+      "bom-ref": "ebb-sbom-schema-fixture@1.0.0|vue@2.7.16",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vue@2.7.16",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/vue/-/vue-2.7.16.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e200ad157680037cd865d4e9e6ce07976b28ceec92b20cf88f2d449e904735fa4c6bd74ad59086eef8aa04f0b05ed9a073c9c7a94b00bb71b882d9979246374b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/vue"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0",
+      "dependsOn": [
+        "ebb-sbom-schema-fixture@1.0.0|left-pad@1.3.0",
+        "ebb-sbom-schema-fixture@1.0.0|vue@2.7.16"
+      ]
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|@babel/helper-string-parser@7.29.15"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|@babel/helper-validator-identifier@7.29.7"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|@babel/parser@7.29.15",
+      "dependsOn": [
+        "ebb-sbom-schema-fixture@1.0.0|@babel/types@7.29.15"
+      ]
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|@babel/types@7.29.15",
+      "dependsOn": [
+        "ebb-sbom-schema-fixture@1.0.0|@babel/helper-string-parser@7.29.15",
+        "ebb-sbom-schema-fixture@1.0.0|@babel/helper-validator-identifier@7.29.7"
+      ]
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|@vue/compiler-sfc@2.7.16",
+      "dependsOn": [
+        "ebb-sbom-schema-fixture@1.0.0|@babel/parser@7.29.15",
+        "ebb-sbom-schema-fixture@1.0.0|postcss@8.5.34",
+        "ebb-sbom-schema-fixture@1.0.0|prettier@2.8.8",
+        "ebb-sbom-schema-fixture@1.0.0|source-map@0.6.1"
+      ]
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|csstype@3.2.4"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|left-pad@1.3.0"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|nanoid@3.3.20"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|picocolors@1.1.1"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|postcss@8.5.34",
+      "dependsOn": [
+        "ebb-sbom-schema-fixture@1.0.0|nanoid@3.3.20",
+        "ebb-sbom-schema-fixture@1.0.0|picocolors@1.1.1",
+        "ebb-sbom-schema-fixture@1.0.0|source-map-js@1.2.4"
+      ]
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|prettier@2.8.8"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|source-map-js@1.2.4"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|source-map@0.6.1"
+    },
+    {
+      "ref": "ebb-sbom-schema-fixture@1.0.0|vue@2.7.16",
+      "dependsOn": [
+        "ebb-sbom-schema-fixture@1.0.0|@vue/compiler-sfc@2.7.16",
+        "ebb-sbom-schema-fixture@1.0.0|csstype@3.2.4"
+      ]
+    }
+  ]
+}

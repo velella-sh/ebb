@@ -130,6 +130,23 @@ cat dependencies.txt | ebb check-all
 ebb check-all bom.json --json
 ```
 
+### `ebb sbom enrich <file>`
+
+Add matching lifecycle evidence to a CycloneDX JSON, SPDX 2.3 JSON or SPDX 3.0 JSON-LD file.
+
+```sh
+ebb sbom enrich bom.json
+ebb sbom enrich bom.json --out bom.enriched.json --format cyclonedx
+```
+
+Ebb detects the format from the document. Use `--format cyclonedx` or
+`--format spdx` to require a specific format. With no `--out`, standard
+output receives the enriched JSON and standard error receives a JSON
+summary. With `--out`, the summary goes to standard output and the
+enriched document is written to the specified path. Use a different path
+from the input. Matching a rule does not fail enrichment, while invalid
+input or an I/O error exits with code 2. See [SBOM enrichment](/sbom/).
+
 ### `ebb bridge <trivy|grype> <report|->`
 
 Pairs scanner reports with Ebb lifecycle findings, preserving all original scanner findings and correlating packages with end-of-life runtimes and deprecations.
