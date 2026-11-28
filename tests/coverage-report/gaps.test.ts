@@ -46,7 +46,8 @@ test("all five gap types keep evidence and offer the contribution form", () => {
   assert.match(page, /https:\/\/vendor\.example\.com\/new-product/u);
   assert.match(page, /template=new-product.yml/u);
   assert.match(page, /Existing request.*issues\/3/u);
-  assert.doesNotMatch(page, /<script>|javascript:example|Already covered/u);
+  assert.ok(page.includes(String.raw`A new \| package \<script\>`));
+  assert.doesNotMatch(page, /javascript:example|Already covered/u);
 });
 
 test("omits the request section when no input is available", () => {
