@@ -9,3 +9,4 @@ The Ebb Lifecycle Format defines how to describe a software lifecycle event, ide
 
 - [Read the 1.0 working draft](https://velella.sh/ebb/spec/1.0/)
 - [Specification changelog](https://velella.sh/ebb/spec/changelog/)
+- [Specification proposal and decision records](https://velella.sh/ebb/spec/proposals/)
