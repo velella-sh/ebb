@@ -1,15 +1,15 @@
 {
   "name": "@velella/ebb",
   "version": "0.2.1",
-  "description": "The open almanac of software end-of-life.",
+  "description": "Evidence-backed lifecycle data for packages, runtimes, images and developer tools.",
   "keywords": [
     "end-of-life",
-    "eol",
-    "deprecation",
-    "lifecycle",
-    "purl",
-    "vers",
-    "registry"
+    "software-lifecycle",
+    "dependency-management",
+    "sbom",
+    "open-data",
+    "mcp",
+    "model-context-protocol"
   ],
   "homepage": "https://velella.sh/ebb",
   "bugs": {

@@ -25,7 +25,7 @@ npm install @velella/ebb
 
 > **Ask before you install.** AI coding agents and developers install dependencies without knowing when they will reach end of life. Ebb provides authoritative lifecycle answers before anything is added to the project.
 
-[![Ebb terminal demo](docs/demo/terminal.svg)](docs/demo/README.md)
+[![Ebb terminal demo](https://velella.sh/ebb/demo/terminal.svg)](https://velella.sh/ebb/demo/)
 
 ---
 
