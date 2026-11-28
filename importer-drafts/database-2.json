@@ -1,7 +1,7 @@
 {
   "importer": "database-2",
   "ecosystem": "database",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "database.mongodb.end-of-life-4.0",
@@ -17,18 +17,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -46,18 +50,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -75,18 +83,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -104,18 +116,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -133,18 +149,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -162,18 +182,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -191,18 +215,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -220,18 +248,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -249,18 +281,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -278,18 +314,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -307,18 +347,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -336,18 +380,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -365,18 +413,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -394,18 +446,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -423,18 +479,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -452,18 +512,22 @@
         {
           "title": "MongoDB Server support policy (vendor)",
           "url": "https://www.mongodb.com/legal/support-policy",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/mongodb",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -481,18 +545,22 @@
         {
           "title": "Redis support policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -510,18 +578,22 @@
         {
           "title": "Redis support policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     },
@@ -539,18 +611,88 @@
         {
           "title": "Redis support policy (vendor)",
           "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "endoflife.date (index; the vendor page above is the evidence)",
           "url": "https://endoflife.date/redis",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "database-2"
+      }
+    },
+    {
+      "id": "database.redis.end-of-life-8.4",
+      "ecosystem": "database",
+      "purl": "pkg:generic/redis",
+      "vers": "vers:semver/>=8.4.0|<8.5.0",
+      "event": "end-of-life",
+      "title": "Redis 8.4 is end-of-life",
+      "summary": "Redis 8.4 reached end of life on 2026-08-10 and no longer receives fixes from the vendor.",
+      "severity": "high",
+      "deadline": "2026-08-10",
+      "sources": [
+        {
+          "title": "Redis support policy (vendor)",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "endoflife.date (index; the vendor page above is the evidence)",
+          "url": "https://endoflife.date/redis",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
+        "importer": "database-2"
+      }
+    },
+    {
+      "id": "database.redis.end-of-life-8.6",
+      "ecosystem": "database",
+      "purl": "pkg:generic/redis",
+      "vers": "vers:semver/>=8.6.0|<8.7.0",
+      "event": "end-of-life",
+      "title": "Redis 8.6 is end-of-life",
+      "summary": "Redis 8.6 reached end of life on 2026-11-25 and no longer receives fixes from the vendor.",
+      "severity": "high",
+      "deadline": "2026-11-25",
+      "sources": [
+        {
+          "title": "Redis support policy (vendor)",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/install/version-mgmt/",
+          "accessedAt": "2026-11-28"
+        },
+        {
+          "title": "endoflife.date (index; the vendor page above is the evidence)",
+          "url": "https://endoflife.date/redis",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "provenance": {
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
+        "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "database-2"
       }
     }
@@ -565,10 +707,9 @@
     "Skipped redis 7.4: its end of life (2029-12-01) is in the future.",
     "Skipped redis 8.0: its end of life (2026-12-01) is in the future.",
     "Skipped redis 8.2: its end of life (2030-09-01) is in the future.",
-    "Skipped redis 8.4: no end date.",
-    "Skipped redis 8.6: no end date.",
-    "Skipped redis 8.8: no end date.",
+    "Skipped redis 8.8: its end of life (2027-01-29) is in the future.",
     "Skipped redis 8.10: no end date.",
-    "Drafted 19 rule(s) for 2 product(s); only the vendor policy link counts as evidence."
+    "Skipped redis 8.12: no end date.",
+    "Drafted 21 rule(s) for 2 product(s); only the vendor policy link counts as evidence."
   ]
 }
