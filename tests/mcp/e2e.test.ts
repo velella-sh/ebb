@@ -101,7 +101,7 @@ describe("MCP Server End-to-End (real stdio pipes)", () => {
     const listResp = await waitForResponse(3);
     assert.equal(listResp.id, 3);
     const toolNames = listResp.result.tools.map((t: { name: string }) => t.name);
-    assert.equal(toolNames.length, 9);
+    assert.equal(toolNames.length, 10);
     assert.ok(toolNames.includes("check"));
     assert.ok(toolNames.includes("check_all"));
     assert.ok(toolNames.includes("check_install"));
@@ -109,6 +109,7 @@ describe("MCP Server End-to-End (real stdio pipes)", () => {
     assert.ok(toolNames.includes("pick_version"));
     assert.ok(toolNames.includes("predict_eol"));
     assert.ok(toolNames.includes("replacement_for"));
+    assert.ok(toolNames.includes("runtime_support"));
     assert.ok(toolNames.includes("sources_of"));
     assert.ok(toolNames.includes("upcoming"));
 

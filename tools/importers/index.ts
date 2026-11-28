@@ -32,10 +32,11 @@ import { gcloudFunctionsRuntimesImporter } from "./serverless-2.js";
 import { swiftAppStoreImporter } from "./swift-1.js";
 import { terraformCliImporter } from "./terraform-1.js";
 import { terraformProviderGuidesImporter } from "./terraform-2.js";
-import type { Importer } from "./types.js";
+import { runtimeSupportImporter } from "./runtime-support.js";
+import type { CompatibilityImporter, Importer } from "./types.js";
 
 /** Every importer the command line can run. Each importer adds itself here when it lands. */
-export const importers: readonly Importer[] = [
+export const importers: readonly (Importer | CompatibilityImporter)[] = [
   androidTargetSdkImporter,
   ciImagesImporter,
   containerOfficialImagesImporter,
@@ -62,6 +63,7 @@ export const importers: readonly Importer[] = [
   pythonReleaseCycleImporter,
   runnerImagesImporter,
   rubyMaintenanceImporter,
+  runtimeSupportImporter(),
   rustToolchainImporter,
   rustYankedImporter,
   awsLambdaRuntimesImporter,

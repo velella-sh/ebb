@@ -55,6 +55,7 @@ export class McpServer {
         { checkInstallTool },
         { diffTool },
         { replacementForTool },
+        { runtimeSupportTool },
         { sourcesTool },
         { pickVersionTool },
         { predictTool },
@@ -66,6 +67,7 @@ export class McpServer {
         import("./tools/check_install.js"),
         import("./tools/diff.js"),
         import("./tools/replacement.js"),
+        import("./tools/runtime_support.js"),
         import("./tools/sources.js"),
         import("./tools/pick_version.js"),
         import("./tools/predict.js"),
@@ -76,6 +78,7 @@ export class McpServer {
       this.registerTool(checkInstallTool);
       this.registerTool(diffTool);
       this.registerTool(replacementForTool);
+      this.registerTool(runtimeSupportTool);
       this.registerTool(sourcesTool);
       this.registerTool(pickVersionTool);
       this.registerTool(predictTool);

@@ -39,6 +39,8 @@ main:
         url: /tide-report/
       - title: Products and release lines
         url: /products/
+      - title: Framework runtime compatibility
+        url: /runtime-support/
       - title: Runtime coverage
         url: /coverage/
       - title: Data coverage report
@@ -93,6 +95,8 @@ main:
         url: /formats/prediction.v1/
       - title: Lifecycle Format working draft
         url: /spec/1.0/
+      - title: Compatibility table format
+        url: /formats/compat.v1/
       - title: Schema evolution
         url: /schema-evolution/
       - title: Rules and replacements
