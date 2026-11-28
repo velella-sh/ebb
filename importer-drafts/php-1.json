@@ -1,7 +1,7 @@
 {
   "importer": "php-1",
   "ecosystem": "php",
-  "observedAt": "2026-11-10",
+  "observedAt": "2026-11-28",
   "rules": [
     {
       "id": "php.runtime.eol-7.0",
@@ -18,18 +18,22 @@
         {
           "title": "PHP release branches",
           "url": "https://www.php.net/releases/branches.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PHP supported versions",
           "url": "https://www.php.net/supported-versions.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-1"
       }
     },
@@ -48,18 +52,22 @@
         {
           "title": "PHP release branches",
           "url": "https://www.php.net/releases/branches.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PHP supported versions",
           "url": "https://www.php.net/supported-versions.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-1"
       }
     },
@@ -78,18 +86,22 @@
         {
           "title": "PHP release branches",
           "url": "https://www.php.net/releases/branches.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PHP supported versions",
           "url": "https://www.php.net/supported-versions.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-1"
       }
     },
@@ -108,18 +120,22 @@
         {
           "title": "PHP release branches",
           "url": "https://www.php.net/releases/branches.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PHP supported versions",
           "url": "https://www.php.net/supported-versions.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-1"
       }
     },
@@ -138,18 +154,22 @@
         {
           "title": "PHP release branches",
           "url": "https://www.php.net/releases/branches.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PHP supported versions",
           "url": "https://www.php.net/supported-versions.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-1"
       }
     },
@@ -168,18 +188,22 @@
         {
           "title": "PHP release branches",
           "url": "https://www.php.net/releases/branches.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PHP supported versions",
           "url": "https://www.php.net/supported-versions.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-1"
       }
     },
@@ -198,24 +222,29 @@
         {
           "title": "PHP release branches",
           "url": "https://www.php.net/releases/branches.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         },
         {
           "title": "PHP supported versions",
           "url": "https://www.php.net/supported-versions.php",
-          "accessedAt": "2026-11-10"
+          "accessedAt": "2026-11-28"
         }
       ],
       "provenance": {
-        "observedAt": "2026-11-10",
-        "reviewedAt": "2026-11-10",
+        "observedAt": "2026-11-28",
+        "reviewedAt": "2026-11-28",
         "reviewer": "pending-review",
+        "reviewers": [
+          "pending-review"
+        ],
+        "method": "imported",
         "importer": "php-1"
       }
     }
   ],
   "notes": [
     "Skipped PHP 3.0: no valid state.",
+    "Not yet end-of-life: PHP 8.6 (EOL 2030-12-31).",
     "Not yet end-of-life: PHP 8.5 (EOL 2029-12-31).",
     "Not yet end-of-life: PHP 8.4 (EOL 2028-12-31).",
     "Not yet end-of-life: PHP 8.3 (EOL 2027-12-31).",
