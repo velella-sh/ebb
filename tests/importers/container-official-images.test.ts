@@ -33,19 +33,27 @@ test("drafts the Node.js and Python image rules from the vendors' schedules, off
   assert.match(drafts.notes.join("\n"), /PostgreSQL, MySQL, and Ruby/);
 });
 
-test("the committed Node.js and Python rules match what the importer drafts from the recording", async () => {
+test("the curated image rules preserve the recorded lifecycle drafts and cite their successor image tags", async () => {
   const drafts = await execute(containerOfficialImagesImporter, { replay: recording });
   const registry = validateRegistryV2(JSON.parse(await readFile("registry/container.json", "utf8")));
   for (const draft of drafts.rules) {
     const committed = registry.rules.find((rule) => rule.id === draft.id);
     assert.ok(committed, `${draft.id} is missing from registry/container.json`);
-    const { provenance: _draft, ...draftBody } = draft;
-    const { provenance: _committed, ...committedBody } = committed;
+    const { provenance: _draft, sources: draftSources, ...draftBody } = draft;
+    const { provenance: _committed, sources: committedSources, replacements, ...committedBody } = committed;
+    assert.deepEqual(committedBody, draftBody, draft.id);
     assert.deepEqual(
-      { ...committedBody, sources: withoutAccessDates(committed.sources) },
-      { ...draftBody, sources: withoutAccessDates(draft.sources) },
-      draft.id,
+      withoutAccessDates(committedSources.slice(0, draftSources.length)),
+      withoutAccessDates(draftSources),
     );
+    const image = committed.purl.split("/").at(-1);
+    assert.deepEqual(
+      committedSources.slice(draftSources.length).map(({ url }) => url),
+      [`https://github.com/docker-library/official-images/blob/master/library/${image}`],
+    );
+    assert.equal(replacements?.length, 1, draft.id);
+    assert.equal(replacements?.[0]?.purl, draft.purl, draft.id);
+    assert.equal(replacements?.[0]?.kind, "upgrade", draft.id);
   }
 });
 
