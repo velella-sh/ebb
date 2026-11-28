@@ -298,7 +298,7 @@ Ebb publishes lifecycle data bundles automatically on a weekly schedule and on d
 
 Before building or signing any bundle, strict data quality gates must pass:
 1. `npm run check` and rule linting (`npm run lint:rules`) must pass with zero errors.
-2. The latest source freshness report (`source-report.json`) is inspected. If it contains any `date-changed` findings, the release halts immediately, and the reason is recorded in `$GITHUB_STEP_SUMMARY`. The gate cannot be bypassed on scheduled runs.
+2. The release downloads `source-report.json` from the latest completed source freshness run on `main` and validates it. The release stops if the report is unavailable, invalid, or contains any `date-changed` findings. The workflow records the reason in its step summary.
 
 ### Naming conventions and same-day releases
 
