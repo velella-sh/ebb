@@ -1,0 +1,53 @@
+name: Schema evolution advisory
+
+on:
+  pull_request:
+    paths:
+      - "schemas/*.json"
+      - "schemas/lifecycle/**"
+      - "tools/schema-evolution/**"
+      - "tests/schema-evolution/**"
+      - ".github/workflows/schema-evolution.yml"
+      - "docs/schema-evolution.md"
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    name: Compare with the last tagged schema release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+      - run: npm ci
+      - run: npm run build --silent
+      - name: Record the compatibility report
+        run: |
+          status=0
+          node dist/tools/schema-evolution/check.js > "$RUNNER_TEMP/schema-evolution.txt" 2>&1 || status=$?
+
+          {
+            echo '### Schema evolution advisory'
+            echo
+            case "$status" in
+              0) echo 'No breaking or unknown changes were detected.' ;;
+              1) echo 'The strict local command found changes requiring review. This report also includes drift already on main.' ;;
+              *) echo 'The historical schema comparison could not run.' ;;
+            esac
+            echo
+            echo '~~~text'
+            cat "$RUNNER_TEMP/schema-evolution.txt"
+            echo '~~~'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$status" -gt 1 ]; then
+            cat "$RUNNER_TEMP/schema-evolution.txt"
+            exit "$status"
+          fi

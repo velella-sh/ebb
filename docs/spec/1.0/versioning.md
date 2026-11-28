@@ -17,8 +17,12 @@ A minor or patch specification release MUST keep documents accepted under the ea
 
 ### ELF-VERSION-03
 
-A producer of specification releases MUST announce a deprecation in an earlier published version before removing the deprecated contract in a major release. Release CI is intended to check schema compatibility against the last compatible publication and check deprecation notices for breaking changes. This draft has no previous 1.0 publication to check against.
+A producer of specification releases MUST announce a deprecation in an earlier published version before removing the deprecated contract in a major release. Release CI is intended to check schema compatibility against the last compatible publication and check deprecation notices for breaking changes. This draft has no previous 1.0 publication to check against. The [schema evolution report](https://velella.sh/ebb/schema-evolution/) compares the current package schemas against the last tagged package release. The published deprecation register and frozen-schema gate are tracked separately.
 
 ### ELF-VERSION-04
 
 A producer MAY add an object-valued `x-<name>` extension in a position that permits it. An extension MUST agree with the rule's required fields. A core consumer MUST ignore an extension it does not understand. A consumer claiming an extension profile must apply the additional profile requirements.
+
+### ELF-VERSION-05
+
+The proposed schema comparison records changes as breaking when they remove an accepted value or a published contract address, additive when they expand the accepted contract, and editorial when they affect only annotations. An undecidable change is unknown and requires semantic review before it can pass a compatibility gate. For example, a new branch in `oneOf` can overlap an existing branch and reject documents that previously matched exactly once.
