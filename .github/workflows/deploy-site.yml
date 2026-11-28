@@ -9,6 +9,8 @@ on:
     paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   pull_request:
     paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+  schedule:
+    - cron: "0 3 1 * *"
   workflow_dispatch:
 
 permissions: {}
@@ -63,12 +65,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           release_dir="$RUNNER_TEMP/site-release"
+          site_as_of="$(date -u +%F)"
+          echo "SITE_AS_OF=$site_as_of" >> "$GITHUB_ENV"
           bundle="ebb-data-${SITE_DATA_VERSION}.json"
           gh release download "data-v${SITE_DATA_VERSION}" --repo velella-sh/ebb --dir "$release_dir" \
             --pattern "$bundle" --pattern "$bundle.sigstore.json"
           node dist/tools/site-data/index.js \
             --bundle "$release_dir/$bundle" --signature "$release_dir/$bundle.sigstore.json" \
-            --sha256 "$SITE_DATA_SHA256" --data-version "$SITE_DATA_VERSION" \
+            --sha256 "$SITE_DATA_SHA256" --data-version "$SITE_DATA_VERSION" --as-of "$site_as_of" \
             --historical-verifier "$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
             --out "$RUNNER_TEMP/site-records" --mizzen-out docs/_data/site-records
       - name: Check the site
@@ -84,7 +88,8 @@ jobs:
           bundle="$release_dir/ebb-data-${SITE_DATA_VERSION}.json"
           EBB_SITE_BUNDLE="$bundle" EBB_SITE_SIGNATURE="$bundle.sigstore.json" \
             EBB_SITE_RELEASED_EBB="$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
-            EBB_SITE_VERSION="$SITE_DATA_VERSION" EBB_SITE_SHA256="$SITE_DATA_SHA256" \
+            EBB_SITE_VERSION="$SITE_DATA_VERSION" EBB_SITE_SHA256="$SITE_DATA_SHA256" EBB_SITE_AS_OF="$SITE_AS_OF" \
+            EBB_SITE_TOOLS="$RUNNER_TEMP/site-tools/node_modules" \
             EBB_SITE_BUILT_HTML="$RUNNER_TEMP/site" node --test dist/tests/site-data-signed.test.js
       - name: Build static API
         run: |

@@ -19,6 +19,7 @@ collections:
     id: id
     schema: _data/site-page.schema.json
     evidence: claims
+    markdown: [timeline]
     references:
       releaseLines: release-lines
   release-lines:
@@ -39,12 +40,23 @@ collections:
     evidence: claims
     references:
       product: products
+  deadline-months:
+    source: _data/site-records/deadline-months.json
+    template: _templates/deadline-month.md
+    permalink: /deadlines/{id}/
+    id: id
+    schema: _data/deadline-month.schema.json
+    markdown: [agenda]
+    evidence: claims
 theme:
   name: "@velella/lateen"
   options:
     preset: ebb
     status:
       values:
+        ended: { label: Ended, tone: negative }
+        ending: { label: Ending, tone: caution }
+        no-known-end: { label: No known end, tone: neutral }
         active: { label: Active, tone: positive }
         scheduled: { label: Scheduled end of life, tone: caution }
         deprecated: { label: Deprecated, tone: caution }
