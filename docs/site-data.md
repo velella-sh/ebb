@@ -20,6 +20,16 @@ Unlike the Static API (`/api/v1/`), which is designed for programs and lookup to
 
 ---
 
+## Published page JSON
+
+Append `index.json` to the published record URL. Product, release-line and rule pages expose the same record data as their rendered pages.
+
+- [Product JSON for Node.js](https://velella.sh/ebb/products/nodejs-nodejs/index.json)
+- [Release-line JSON for Node.js 20.x](https://velella.sh/ebb/release-lines/nodejs-nodejs-line-20-x/index.json)
+- [Rule JSON for Node.js 20.x end of life](https://velella.sh/ebb/rules/nodejs-runtime-eol-20/index.json)
+
+Read `record.id` for the stable identity, `record.fields.dataVersion` for the signed data version, and `record.fields` for lifecycle fields such as status, dates, and precision. `record.evidence` carries the source links by field. The top-level `url` is the published page path.
+
 ## Stability Contract
 
 Site Data v1 adheres to a strict backward compatibility promise:

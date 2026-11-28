@@ -70,7 +70,8 @@ jobs:
           echo "SITE_AS_OF=$site_as_of" >> "$GITHUB_ENV"
           bundle="ebb-data-${SITE_DATA_VERSION}.json"
           gh release download "data-v${SITE_DATA_VERSION}" --repo velella-sh/ebb --dir "$release_dir" \
-            --pattern "$bundle" --pattern "$bundle.sigstore.json"
+            --pattern "$bundle" --pattern "$bundle.sigstore.json" \
+            --pattern release-log.jsonl --pattern release-log.jsonl.sigstore.json
           node dist/tools/site-data/index.js \
             --bundle "$release_dir/$bundle" --signature "$release_dir/$bundle.sigstore.json" \
             --sha256 "$SITE_DATA_SHA256" --data-version "$SITE_DATA_VERSION" --as-of "$site_as_of" \
@@ -83,6 +84,11 @@ jobs:
       - name: Build the site
         run: |
           "$RUNNER_TEMP/site-tools/node_modules/.bin/mizzen" build docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen" --out "$RUNNER_TEMP/site"
+      - name: Publish feed aliases
+        run: |
+          cp "$RUNNER_TEMP/site/feeds/data-releases.rss.xml" "$RUNNER_TEMP/site/feed.xml"
+          cp "$RUNNER_TEMP/site/feeds/data-releases.xml" "$RUNNER_TEMP/site/atom.xml"
+          cp "$RUNNER_TEMP/site/feeds/data-releases.xml" "$RUNNER_TEMP/site/data-changelog.atom"
       - name: Check signed record and published-library parity
         run: |
           release_dir="$RUNNER_TEMP/site-release"
@@ -90,7 +96,7 @@ jobs:
           EBB_SITE_BUNDLE="$bundle" EBB_SITE_SIGNATURE="$bundle.sigstore.json" \
             EBB_SITE_RELEASED_EBB="$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
             EBB_SITE_VERSION="$SITE_DATA_VERSION" EBB_SITE_SHA256="$SITE_DATA_SHA256" EBB_SITE_AS_OF="$SITE_AS_OF" \
-            EBB_SITE_BUILT_HTML="$RUNNER_TEMP/site" node --test dist/tests/site-data-signed.test.js dist/tests/site-metadata.test.js
+            EBB_SITE_BUILT_HTML="$RUNNER_TEMP/site" node --test dist/tests/site-data-signed.test.js dist/tests/site-metadata.test.js dist/tests/site-feeds.test.js
       - name: Build static API
         run: |
           npm run build:static-api -- --out "$RUNNER_TEMP/site/api/v1" --eol-compat-out "$RUNNER_TEMP/site/api/eol-compat/v1"
@@ -101,7 +107,6 @@ jobs:
       - name: Copy LLM documentation to site
         run: |
           cp llms.txt llms-full.txt "$RUNNER_TEMP/site/"
-          cp docs/data-changelog.atom "$RUNNER_TEMP/site/data-changelog.atom"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
