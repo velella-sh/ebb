@@ -1,6 +1,6 @@
 ---
-title: Database, OS and PyPI coverage inventories
-description: Dated lifecycle evidence and proposed first review batches for databases, operating systems and PyPI packages.
+title: Database, OS and package coverage inventories
+description: Dated lifecycle evidence and proposed first review batches for databases, operating systems and PyPI, Maven and NuGet packages.
 layout: doc
 permalink: /coverage-inventories/
 ---
@@ -75,3 +75,38 @@ Two independent rows fit [the first PyPI rule batch](https://github.com/velella-
 | --- | --- | --- | --- |
 | `python.package.urllib3.end-of-support-1.26` | `vers:pypi/>=1.26\|<1.27.dev0` | End of support for 1.26.x, **day unspecified**. [Maintainer notice](https://urllib3.readthedocs.io/en/stable/v2-migration-guide.html#sunsetting-urllib3-1-26-x) | [1.26.20](https://pypi.org/project/urllib3/1.26.20/) / [2.0.7](https://pypi.org/project/urllib3/2.0.7/) |
 | `python.package.django.end-of-active-support-6.0` | `vers:pypi/>=6.0\|<6.1.dev0` | End of mainstream support on **2026-08-04**. [Django support schedule](https://www.djangoproject.com/download/#supported-versions) | [6.0.10](https://pypi.org/project/Django/6.0.10/) / [6.1.3](https://pypi.org/project/Django/6.1.3/) |
+
+## Maven packages
+
+Evidence and popularity checked on **2026-11-28 UTC**. The Maven and NuGet tables below use [checkout c4ead46](https://github.com/velella-sh/ebb/tree/c4ead4650f3bfddfa196c80f99d56bf5aa8527e9/registry) (862 rules) and the same signed 2026.11.11 snapshot as above (782 rules). Counts use exact PURLs across all registry files, shown as **checkout / signed**. Maven accounts for 27 / 11 rules across five distinct PURLs in each dataset. NuGet accounts for 4 / 4 rules across four distinct PURLs in each. The generic JDK and .NET runtime identities are outside these package counts.
+
+[MvnRepository's ranking](https://mvnrepository.com/popular) and the indexed dependent counts on its artifact pages help prioritize work. They measure indexed usage, which can change between crawls. Apache, JUnit, FasterXML and Spring provide the lifecycle evidence.
+
+| Maven package identity | Popularity signal | Rules | Maintainer evidence and remaining gaps |
+| --- | --- | ---: | --- |
+| `pkg:maven/junit/junit` | [Rank 7](https://mvnrepository.com/popular) | 0 / 0 | JUnit 4 is in maintenance mode. That statement gives no end-of-support date. [JUnit 4 project](https://junit.org/junit4/index.html) |
+| `pkg:maven/org.junit.jupiter/junit-jupiter-api` | [Rank 2](https://mvnrepository.com/popular) | 0 / 0 | The guide documents JUnit Jupiter separately from JUnit Vintage and identifies the deprecated Vintage engine. A retirement boundary for the Jupiter API needs its own announcement. [JUnit guide](https://docs.junit.org/current/user-guide/) |
+| `pkg:maven/log4j/log4j` | [19.8K indexed dependents](https://mvnrepository.com/artifact/log4j/log4j) | 0 / 0 | Apache records end of life for Log4j 1.x on **2015-08-05**. Maven Central publishes 1.x under the legacy coordinate. [Apache announcement](https://logging.apache.org/log4j/1.x/download.html) · [Maven Central metadata](https://repo.maven.apache.org/maven2/log4j/log4j/maven-metadata.xml) |
+| `pkg:maven/org.apache.logging.log4j/log4j-core` | [19.8K indexed dependents](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core) | 0 / 0 | Apache records end of maintenance for 2.12.x and 2.3.x on **2021-12-29**. The project retains an exceptional-fix policy in that phase. Review how to represent that phase before adding these two rows. [Apache maintenance table](https://logging.apache.org/log4j/2.x/download.html) · [Phase policy](https://logging.apache.org/log4j/2.x/versioning.html) |
+| `pkg:maven/com.fasterxml.jackson.core/jackson-databind` | [44.6K indexed dependents](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind) | 0 / 0 | FasterXML still describes 2.x as maintained, with separate branch policies and a Maven group change for 3.x. Earlier branch cutoffs need component-specific evidence. [Jackson versioning](https://github.com/FasterXML/jackson/blob/main/VERSIONING.md) |
+| `pkg:maven/org.springframework.boot/spring-boot` | [5.1K indexed dependents](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot) | 19 / 3 | Existing rules cover legacy boundaries and checkout extended-support rows. Reconcile version, support tier and product scope with Spring before adding any later line. [Spring Boot project and support](https://spring.io/projects/spring-boot#support) |
+
+### First Maven batch
+
+In [#1032](https://github.com/velella-sh/ebb/issues/1032), review one proposed rule, `java.maven.log4j.end-of-life-1x`, for `pkg:maven/log4j/log4j` and `vers:maven/>=1.0.0|<2.0.0`. Its source gives day-precision end of life on **2015-08-05**. The Maven Central [1.2.17 release](https://repo.maven.apache.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom) is a matching example. The legacy coordinate has no published 2.x line. Use `2.0.0` as a synthetic comparator boundary and [Log4j Core 2.24.3](https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.24.3/log4j-core-2.24.3.pom) as a separately published, nonmatching package. Keep the 2.x maintenance phases in a later review.
+
+## NuGet packages
+
+The NuGet Gallery package pages supply the approximate total download counts shown here as observed on **2026-11-28 UTC**. These figures cover all versions. Microsoft's package support policies and individual maintainer releases supply the lifecycle evidence.
+
+| NuGet package identity | Gallery downloads | Rules | Maintainer evidence and remaining gaps |
+| --- | --- | ---: | --- |
+| `pkg:nuget/Newtonsoft.Json` | [10.0B](https://www.nuget.org/packages/Newtonsoft.Json) | 0 / 0 | The project publishes release notes. The checked history gives no version-line end-of-support date. [Json.NET releases](https://github.com/JamesNK/Newtonsoft.Json/releases) |
+| `pkg:nuget/Microsoft.EntityFrameworkCore` | [2.8B](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore) | 0 / 0 | Microsoft lists **2026-11-10** as the support boundary for EF Core 8.0 and 9.0 in its release table. Keep EF Core distinct from EF6 and verify scope per package. [EF Core release and support table](https://learn.microsoft.com/en-us/ef/core/what-is-new/) |
+| `pkg:nuget/EntityFramework` | [456.4M](https://www.nuget.org/packages/EntityFramework) | 0 / 0 | Microsoft says EF6 versions 6.0–6.4 are unsupported and only the latest patch of the latest EF6 version is supported. The policy gives no cutoff day for the older lines. Review an undated rule separately. [Entity Framework support policies](https://learn.microsoft.com/en-us/ef/efcore-and-ef6/support) |
+| `pkg:nuget/Microsoft.AspNet.Mvc` | [320.7M](https://www.nuget.org/packages/Microsoft.AspNet.Mvc) | 0 / 0 | Microsoft lists end of support for ASP.NET MVC 4 on **2019-07-01** and continues to list MVC 5.x as supported. The Gallery verifies 4.x and 5.x on the same package ID. [ASP.NET support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/aspnet) |
+| `pkg:nuget/Microsoft.Azure.ServiceBus` | [162.0M](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 1 / 1 | The existing all-version deprecation entry records the legacy client boundary. Review any new event against the current Gallery metadata and the existing rule first. [Current rule](https://github.com/velella-sh/ebb/blob/c4ead4650f3bfddfa196c80f99d56bf5aa8527e9/registry/dotnet.json) |
+
+### First NuGet batch
+
+In [#1033](https://github.com/velella-sh/ebb/issues/1033), review one proposed rule, `dotnet.package.microsoft-aspnet-mvc.end-of-support-4`, for `pkg:nuget/Microsoft.AspNet.Mvc` and `vers:nuget/>=4.0.0|<5.0.0`. The policy gives day-precision end of support on **2019-07-01**. Use Gallery versions [4.0.20710](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/4.0.20710) and [5.3.0](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/5.3.0) as the matching and nonmatching examples. EF Core's dated boundaries can follow after the affected EF Core package scope is verified.
