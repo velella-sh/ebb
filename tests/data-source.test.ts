@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { after, test } from "node:test";
 
-import { buildDataBundle, DataBundleError, serializeDataBundle } from "../src/data-bundle.js";
+import { buildDataBundle, computeContentDigest, DataBundleError, serializeDataBundle } from "../src/data-bundle.js";
 import {
   configureActiveData,
   DataPinError,
@@ -58,6 +58,43 @@ test("verifyDataBundle enforces minimumEbbVersion using strict SemVer precedence
       (error: unknown) => error instanceof DataBundleError && error.message === "The bundle needs Ebb 0.2.0 or newer.",
     );
   }
+});
+
+test("old full bundles can still be pinned without importing newer infrastructure rules", async () => {
+  const cache = await mkdtemp(join(tmpdir(), "ebb-old-bundle-"));
+  roots.push(cache);
+  const bundle = await buildDataBundle({
+    root: resolve("."),
+    createdAt: "2026-11-11T00:00:00Z",
+    minimumEbbVersion: "0.2.1",
+  });
+  const infrastructure = "registry/infrastructure.json";
+  delete bundle.files[infrastructure];
+  bundle.manifest.files = bundle.manifest.files.filter(({ path }) => path !== infrastructure);
+  bundle.manifest.contentDigest = computeContentDigest(bundle.manifest.files);
+  const versionDir = join(cache, "data", bundle.manifest.version);
+  await mkdir(versionDir, { recursive: true });
+  await writeFile(join(versionDir, "bundle.json"), serializeDataBundle(bundle));
+  await writeFile(join(versionDir, "bundle.json.sigstore.json"), "{}");
+  const verifySignature = () => ({ identity: "ci@example.com", issuer: "https://token.actions.githubusercontent.com" });
+
+  const data = resolveActiveDataSync({
+    cacheDirectory: cache,
+    pinnedVersion: bundle.manifest.version,
+    verifySignature,
+  });
+  assert.equal(data.info.source, "pinned");
+  assert.deepEqual(data.readSync(infrastructure), {
+    schemaVersion: "ebb.registry.v2",
+    ecosystem: "infrastructure",
+    rules: [],
+  });
+
+  bundle.manifest.minimumEbbVersion = "0.2.2";
+  assert.throws(
+    () => verifyDataBundle(Buffer.from(serializeDataBundle(bundle)), "{}", { ebbVersion: "0.2.2", verifySignature }),
+    /registry\/infrastructure\.json missing/,
+  );
 });
 
 test("falls back to bundled data when cache has truncated JSON, without deleting corrupt file (cache-5)", async () => {

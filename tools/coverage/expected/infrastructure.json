@@ -1,0 +1,82 @@
+{
+  "runtime": "linux",
+  "purl": "pkg:generic/linux",
+  "registry": "infrastructure.json",
+  "scheduleUrl": "https://www.kernel.org/releases.html",
+  "reviewedAt": "2026-11-28",
+  "sources": [
+    {
+      "title": "The Linux Kernel Archives: Active kernel releases",
+      "url": "https://www.kernel.org/releases.html",
+      "accessedAt": "2026-11-28"
+    }
+  ],
+  "lines": [
+    {
+      "id": "5.10",
+      "sampleVersion": "5.10.1",
+      "lineVers": "vers:semver/>=5.10.0|<5.11.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2026-12",
+        "precision": "month"
+      },
+      "firstReleased": "2020-12-13"
+    },
+    {
+      "id": "5.15",
+      "sampleVersion": "5.15.1",
+      "lineVers": "vers:semver/>=5.15.0|<5.16.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2026-12",
+        "precision": "month"
+      },
+      "firstReleased": "2021-10-31"
+    },
+    {
+      "id": "6.1",
+      "sampleVersion": "6.1.1",
+      "lineVers": "vers:semver/>=6.1.0|<6.2.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2027-12",
+        "precision": "month"
+      },
+      "firstReleased": "2022-12-11"
+    },
+    {
+      "id": "6.6",
+      "sampleVersion": "6.6.1",
+      "lineVers": "vers:semver/>=6.6.0|<6.7.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2027-12",
+        "precision": "month"
+      },
+      "firstReleased": "2023-10-29"
+    },
+    {
+      "id": "6.12",
+      "sampleVersion": "6.12.1",
+      "lineVers": "vers:semver/>=6.12.0|<6.13.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2028-12",
+        "precision": "month"
+      },
+      "firstReleased": "2024-11-17"
+    },
+    {
+      "id": "6.18",
+      "sampleVersion": "6.18.1",
+      "lineVers": "vers:semver/>=6.18.0|<6.19.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2028-12",
+        "precision": "month"
+      },
+      "firstReleased": "2025-11-30"
+    }
+  ]
+}
