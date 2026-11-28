@@ -31,6 +31,10 @@ main:
         url: /data-changelog/
       - title: Products and release lines
         url: /products/
+      - title: Products by ecosystem
+        url: /products/by-ecosystem/
+      - title: Products by lifecycle status
+        url: /products/by-status/
       - title: Runtime coverage
         url: /coverage/
       - title: Static JSON API

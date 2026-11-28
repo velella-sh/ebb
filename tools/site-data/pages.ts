@@ -113,6 +113,7 @@ export async function writeSitePages(options: {
       summary: component.summary,
       slug: component.slug,
       ecosystem: component.ecosystem,
+      status: component.status,
       purl: component.purl,
       dataVersion: version,
       ...displayedDate(date, first ? rulesById.get(first.id) : undefined),
