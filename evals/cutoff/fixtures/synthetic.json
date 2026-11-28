@@ -1,0 +1,25 @@
+{
+  "origin": "synthetic-fixture",
+  "answers": [
+    {"questionId":"android-004","arm":"baseline","raw":"PICK A","expected":{"outcome":"fine","choice":"A","resolution":"identified"}},
+    {"questionId":"android-004","arm":"with-ebb","raw":"PICK B","expected":{"outcome":"unclear","choice":null,"resolution":"unrecognized"}},
+    {"questionId":"container-001","arm":"baseline","raw":"PICK A","expected":{"outcome":"end-of-life","choice":"A","resolution":"identified"}},
+    {"questionId":"container-001","arm":"with-ebb","raw":"pick b.","expected":{"outcome":"fine","choice":"B","resolution":"identified"}},
+    {"questionId":"container-002","arm":"baseline","raw":"python:3.10.14","expected":{"outcome":"end-of-life","choice":"B","resolution":"identified"}},
+    {"questionId":"container-002","arm":"with-ebb","raw":"pkg:docker/library/python@3.11.9","expected":{"outcome":"fine","choice":"A","resolution":"identified"}},
+    {"questionId":"database-001","arm":"baseline","raw":"PostgreSQL 14.0","expected":{"outcome":"fine","choice":"B","resolution":"identified"}},
+    {"questionId":"database-001","arm":"with-ebb","raw":"PostgreSQL 15.0","expected":{"outcome":"unclear","choice":null,"resolution":"unrecognized"}},
+    {"questionId":"database-002","arm":"baseline","raw":"PICK B.","expected":{"outcome":"end-of-life","choice":"B","resolution":"identified"}},
+    {"questionId":"database-002","arm":"with-ebb","raw":"  PICK A  ","expected":{"outcome":"fine","choice":"A","resolution":"identified"}},
+    {"questionId":"github-actions-001","arm":"baseline","raw":"actions/checkout@v3.0.0","expected":{"outcome":"end-of-life","choice":"A","resolution":"identified"}},
+    {"questionId":"github-actions-001","arm":"with-ebb","raw":"PASS","expected":{"outcome":"unclear","choice":null,"resolution":"abstained"}},
+    {"questionId":"kubernetes-001","arm":"baseline","raw":"PICK A\nPICK B","expected":{"outcome":"unclear","choice":null,"resolution":"unrecognized"}},
+    {"questionId":"kubernetes-001","arm":"with-ebb","raw":"PICK B","expected":{"outcome":"fine","choice":"B","resolution":"identified"}},
+    {"questionId":"npm-001","arm":"baseline","raw":"PICK B","expected":{"outcome":"deprecated","choice":"B","resolution":"identified"}},
+    {"questionId":"npm-001","arm":"with-ebb","raw":"PASS.","expected":{"outcome":"unclear","choice":null,"resolution":"abstained"}},
+    {"questionId":"npm-002","arm":"baseline","raw":"request 2.88.2","expected":{"outcome":"deprecated","choice":"A","resolution":"identified"}},
+    {"questionId":"npm-002","arm":"with-ebb","raw":"","expected":{"outcome":"unclear","choice":null,"resolution":"unrecognized"}},
+    {"questionId":"npm-003","arm":"baseline","raw":"pkg:npm/node-sass@9.0.0","expected":{"outcome":"end-of-life","choice":"A","resolution":"identified"}},
+    {"questionId":"npm-003","arm":"with-ebb","raw":"I would not install node-sass 9.0.0.","expected":{"outcome":"unclear","choice":null,"resolution":"unrecognized"}}
+  ]
+}

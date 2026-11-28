@@ -1,0 +1,74 @@
+[
+  {
+    "name": "removed a closed property",
+    "class": "breaking",
+    "pointer": "/properties/note",
+    "before": { "type": "object", "additionalProperties": false, "properties": { "note": { "type": "string" } } },
+    "after": { "type": "object", "additionalProperties": false, "properties": {} },
+    "instance": { "note": "a valid existing note" },
+    "afterAccepts": false
+  },
+  {
+    "name": "added a required field",
+    "class": "breaking",
+    "pointer": "/required",
+    "before": { "type": "object", "properties": { "method": { "type": "string" } } },
+    "after": { "type": "object", "properties": { "method": { "type": "string" } }, "required": ["method"] },
+    "instance": {},
+    "afterAccepts": false
+  },
+  {
+    "name": "narrowed an enum",
+    "class": "breaking",
+    "pointer": "/enum",
+    "before": { "enum": ["manual", "imported", "upstream"] },
+    "after": { "enum": ["manual", "imported"] },
+    "instance": "upstream",
+    "afterAccepts": false
+  },
+  {
+    "name": "narrowed number to integer",
+    "class": "breaking",
+    "pointer": "/type",
+    "before": { "type": "number" },
+    "after": { "type": "integer" },
+    "instance": 1.5,
+    "afterAccepts": false
+  },
+  {
+    "name": "added a pattern",
+    "class": "breaking",
+    "pointer": "/pattern",
+    "before": { "type": "string" },
+    "after": { "type": "string", "pattern": "^pkg:" },
+    "instance": "older input",
+    "afterAccepts": false
+  },
+  {
+    "name": "added an optional field to a closed object",
+    "class": "additive",
+    "pointer": "/properties/note",
+    "before": { "type": "object", "additionalProperties": false, "properties": {} },
+    "after": { "type": "object", "additionalProperties": false, "properties": { "note": { "type": "string" } } },
+    "instance": {},
+    "afterAccepts": true
+  },
+  {
+    "name": "clarified documentation",
+    "class": "editorial",
+    "pointer": "/description",
+    "before": { "type": "string", "description": "Package URL." },
+    "after": { "type": "string", "description": "Package URL including ecosystem." },
+    "instance": "pkg:npm/example",
+    "afterAccepts": true
+  },
+  {
+    "name": "added an overlapping oneOf variant",
+    "class": "unknown",
+    "pointer": "/oneOf",
+    "before": { "oneOf": [{ "type": "string" }] },
+    "after": { "oneOf": [{ "type": "string" }, { "const": "overlap" }] },
+    "instance": "overlap",
+    "afterAccepts": false
+  }
+]

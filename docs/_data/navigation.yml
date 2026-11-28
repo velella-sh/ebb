@@ -21,6 +21,10 @@ main:
         url: /importers/
       - title: Trust and verification
         url: /trust/
+      - title: Verify a data release
+        url: /verify/
+      - title: Scorecard
+        url: /scorecard/
       - title: Comparing sources
         url: /compare/
       - title: Data bundles and trust
@@ -29,8 +33,16 @@ main:
         url: /freshness/
       - title: Data changelog
         url: /data-changelog/
+      - title: Tide report
+        url: /tide-report/
+      - title: Products and release lines
+        url: /products/
       - title: Runtime coverage
         url: /coverage/
+      - title: Data coverage report
+        url: /coverage-report/
+      - title: Coverage gaps
+        url: /gaps/
       - title: Static JSON API
         url: /static-api/
       - title: endoflife.date compatibility
@@ -43,6 +55,8 @@ main:
         url: /offline/
       - title: Pre-commit hook
         url: /pre-commit/
+      - title: SBOM enrichment
+        url: /sbom/
       - title: Scanners (Trivy & Grype)
         url: /scanners/
       - title: Extended support
@@ -65,12 +79,18 @@ main:
     children:
       - title: Agent Skills
         url: /skills/
+      - title: Cutoff evaluation methodology
+        url: /cutoff-report/
       - title: MCP server
         url: /mcp/
   - title: Reference
     children:
       - title: Result model
         url: /result-model/
+      - title: Lifecycle Format working draft
+        url: /spec/1.0/
+      - title: Schema evolution
+        url: /schema-evolution/
       - title: Rules and replacements
         url: /rules-for/
       - title: Repairing broken evidence
@@ -93,6 +113,8 @@ main:
         url: /errors/
       - title: Bundle size & limits
         url: /size/
+      - title: Benchmarks
+        url: /benchmarks/
       - title: Lifecycle labels
         url: /labels/
   - title: Decisions

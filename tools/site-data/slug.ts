@@ -1,5 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
+export { deriveRuleSlug } from "../../src/site-routes.js";
+
 export interface SlugLockFile {
   slugs: Record<string, string>;
   redirects?: Record<string, string> | undefined;
@@ -19,13 +21,6 @@ export function slugify(text: string): string {
 export function deriveComponentSlug(ecosystem: string, name: string): string {
   const cleanName = name.replace(/^@/, "").replace(/\//g, "-");
   return slugify(`${ecosystem}-${cleanName}`);
-}
-
-/**
- * Derive a URL-safe slug from a rule ID without modifying the rule ID itself.
- */
-export function deriveRuleSlug(ruleId: string): string {
-  return slugify(ruleId);
 }
 
 /**

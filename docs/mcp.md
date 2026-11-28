@@ -172,6 +172,7 @@ Call before installing or upgrading a package or runtime version. Checks against
     "matches": [
       {
         "ruleId": "npm.package.request.deprecated",
+        "canonicalUrl": "https://velella.sh/ebb/rules/npm-package-request-deprecated/",
         "event": "deprecated",
         "date": "2020-02-11",
         "daysLeft": null,
@@ -512,4 +513,4 @@ Pre-merge coverage of the same install path uses the packed tarball stdio test (
 
 ## Benchmark Evaluations
 
-To inspect empirical benchmark results measuring agent accuracy with and without the Ebb MCP server, see [Agent Evaluations](agent-evals.md).
+[Agent Evaluations](https://velella.sh/ebb/agent-evals/) documents the simulated MCP scoring fixtures and how to reproduce them.

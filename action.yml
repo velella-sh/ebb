@@ -14,6 +14,14 @@ inputs:
     description: 'Path to CycloneDX SBOM, JSON list, or text file containing PURLs to check'
     required: false
     default: ''
+  sbom:
+    description: 'Path to a CycloneDX or SPDX JSON SBOM to enrich'
+    required: false
+    default: ''
+  sbom-output:
+    description: 'Path for the enriched SBOM (default ebb-enriched-sbom.json in the workspace)'
+    required: false
+    default: ''
   as-of:
     description: 'Reference date (YYYY-MM-DD) for daysLeft calculation'
     required: false
@@ -35,6 +43,8 @@ runs:
       env:
         INPUT_PURLS: ${{ inputs.purls }}
         INPUT_FILE: ${{ inputs.file }}
+        INPUT_SBOM: ${{ inputs.sbom }}
+        INPUT_SBOM_OUTPUT: ${{ inputs.sbom-output }}
         INPUT_AS_OF: ${{ inputs.as-of }}
         INPUT_FAIL_ON: ${{ inputs.fail-on }}
         INPUT_NO_HINT: ${{ inputs.no-hint }}

@@ -1,0 +1,41 @@
+{
+  "runtime": "helm",
+  "purl": "pkg:generic/helm",
+  "registry": "infrastructure.json",
+  "scheduleUrl": "https://helm.sh/blog/helm-2-becomes-unsupported/",
+  "reviewedAt": "2026-11-28",
+  "sources": [
+    {
+      "title": "Helm 2 and the Charts Project Are Now Unsupported",
+      "url": "https://helm.sh/blog/helm-2-becomes-unsupported/",
+      "accessedAt": "2026-11-28"
+    },
+    {
+      "title": "Helm 3 End of Life",
+      "url": "https://docs.helm.sh/blog/helm-v3-end-of-life/",
+      "accessedAt": "2026-11-28"
+    }
+  ],
+  "lines": [
+    {
+      "id": "2",
+      "sampleVersion": "2.17.0",
+      "lineVers": "vers:semver/>=2.0.0|<3.0.0-0",
+      "status": "ended",
+      "end": {
+        "date": "2020-11-13",
+        "precision": "day"
+      }
+    },
+    {
+      "id": "3",
+      "sampleVersion": "3.20.0",
+      "lineVers": "vers:semver/>=3.0.0|<4.0.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2027-02-10",
+        "precision": "day"
+      }
+    }
+  ]
+}

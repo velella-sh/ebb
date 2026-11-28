@@ -9,11 +9,9 @@ Track additions, field updates, deprecation advances, and rule removals across a
 
 ## Following data changes
 
-There are four ways to track data releases:
-1. **[Changelog page](/data-changelog/)**: Human-readable history with rule links and ecosystem summaries.
-2. **[Atom feed](/data-changelog.atom)**: Syndication feed for readers and automation.
-3. **CLI [`ebb release-log`](/cli#ebb-release-log-options)**: Inspect locally known and verified data releases (`ebb release-log --json`).
-4. **Static API [`/releases.json`](/static-api)**: Machine-readable release listing with version, date, digest, change counts, and release links.
+Follow the [signed lifecycle data releases](https://velella.sh/ebb/data-releases/) in [RSS](https://velella.sh/ebb/feed.xml) or [Atom](https://velella.sh/ebb/atom.xml). The [original Atom address](https://velella.sh/ebb/data-changelog.atom) serves the same feed.
+
+Each entry links to the canonical release page and its verification assets. Run `ebb release-log --json` to inspect the authenticated log locally. The changelog notes below describe repository data changes.
 
 ### Tamper-evident protection
 

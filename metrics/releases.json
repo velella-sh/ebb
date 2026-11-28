@@ -1,0 +1,35 @@
+[
+  {
+    "date": "2026-11-26",
+    "recordedAt": null,
+    "source": "https://github.com/velella-sh/ebb/issues/686",
+    "stars": 0,
+    "forks": 1,
+    "npmLatest": "0.2.0",
+    "npmWeeklyDownloads": null,
+    "githubDependentRepositories": null,
+    "npmDependentPackages": null,
+    "documentedIntegrations": null
+  },
+  {
+    "date": "2026-11-28",
+    "recordedAt": "2026-11-28T04:55:25.010Z",
+    "sources": {
+      "github": "https://api.github.com/repos/velella-sh/ebb",
+      "githubDependents": "https://github.com/velella-sh/ebb/network/dependents",
+      "npm": "https://registry.npmjs.org/%40velella%2Febb",
+      "npmDownloads": "https://api.npmjs.org/downloads/point/last-week/@velella/ebb"
+    },
+    "stars": 0,
+    "forks": 2,
+    "npmLatest": "0.2.0",
+    "npmWeeklyDownloads": 187,
+    "npmWeeklyDownloadWindow": {
+      "start": "2026-11-20",
+      "end": "2026-11-26"
+    },
+    "githubDependentRepositories": 3,
+    "npmDependentPackages": null,
+    "documentedIntegrations": 7
+  }
+]

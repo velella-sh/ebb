@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "ebb.importer-recording.v1",
+  "importer": "declared-npm",
+  "recordedAt": "2026-11-28",
+  "synthetic": true,
+  "responses": [
+    {
+      "url": "https://registry.npmjs.org/inline-fixture/latest",
+      "body": "{\"name\":\"inline-fixture\",\"version\":\"1.2.3\",\"lifecycle\":{\"lines\":[{\"versions\":\"vers:npm/>=1.0.0|<2.0.0\",\"endOfSupport\":\"2026-07-31\"}]}}"
+    },
+    {
+      "url": "https://registry.npmjs.org/@example%2fpath/latest",
+      "body": "{\"name\":\"@example/path\",\"version\":\"2.0.0\",\"lifecycle\":\"./meta/lifecycle.json\",\"gitHead\":\"1234567890abcdef1234567890abcdef12345678\",\"repository\":{\"url\":\"git+https://github.com/example-org/fixture.git\",\"directory\":\"packages/path\"}}"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/example-org/fixture/1234567890abcdef1234567890abcdef12345678/packages/path/meta/lifecycle.json",
+      "body": "{\"$schema\":\"https://velella.sh/ebb/schemas/lifecycle/1.0/declaration.schema.json\",\"component\":\"pkg:npm/%40example/path\",\"lines\":[{\"versions\":\"vers:npm/>=2.0.0|<3.0.0\",\"endOfLife\":\"2027-03-31\"}]}"
+    },
+    {
+      "url": "https://registry.npmjs.org/unpublished-head-fixture/latest",
+      "body": "{\"name\":\"unpublished-head-fixture\",\"version\":\"1.2.3\",\"lifecycle\":\"lifecycle.json\",\"repository\":\"github:example-org/fixture\"}"
+    },
+    {
+      "url": "https://registry.npmjs.org/traversal-fixture/latest",
+      "body": "{\"name\":\"traversal-fixture\",\"version\":\"1.2.3\",\"lifecycle\":\"..%2f..%2fpayload.json\",\"gitHead\":\"1234567890abcdef1234567890abcdef12345678\",\"repository\":\"github:example-org/fixture\"}"
+    },
+    {
+      "url": "https://registry.npmjs.org/wrong-forge-fixture/latest",
+      "body": "{\"name\":\"wrong-forge-fixture\",\"version\":\"1.2.3\",\"lifecycle\":\"lifecycle.json\",\"gitHead\":\"1234567890abcdef1234567890abcdef12345678\",\"repository\":\"https://example.org/foo/bar.git\"}"
+    },
+    {
+      "url": "https://registry.npmjs.org/missing-pinned-fixture/latest",
+      "body": "{\"name\":\"missing-pinned-fixture\",\"version\":\"1.2.3\",\"lifecycle\":\"lifecycle.json\",\"gitHead\":\"1234567890abcdef1234567890abcdef12345678\",\"repository\":\"github:example-org/missing\"}"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/example-org/missing/1234567890abcdef1234567890abcdef12345678/lifecycle.json",
+      "error": "GET pinned declaration failed: HTTP 404"
+    },
+    {
+      "url": "https://registry.npmjs.org/no-declaration-fixture/latest",
+      "body": "{\"name\":\"no-declaration-fixture\",\"version\":\"1.2.3\"}"
+    }
+  ]
+}

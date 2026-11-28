@@ -1,0 +1,106 @@
+name: Coverage report archive
+
+on:
+  schedule:
+    - cron: "17 10 * * 4"
+  workflow_dispatch:
+    inputs:
+      as_of:
+        description: Reference date in UTC (YYYY-MM-DD, defaults to today)
+        type: string
+  pull_request:
+    paths:
+      - ".github/workflows/coverage-report.yml"
+      - "tools/coverage/**"
+      - "tools/successors-audit.ts"
+      - "tests/coverage-report/**"
+      - "metrics/coverage/**"
+      - "docs/coverage-report.md"
+      - "docs/gaps.md"
+
+permissions: {}
+
+concurrency:
+  group: coverage-report-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  coverage:
+    name: Build the signed coverage report and archive
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      actions: read
+      contents: read
+      issues: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+      - run: npm ci
+      - run: npm run build --silent
+      - name: Use the Pages data pin
+        env:
+          REQUESTED_AS_OF: ${{ inputs.as_of }}
+        run: |
+          as_of="${REQUESTED_AS_OF:-$(date -u +%F)}"
+          if [[ ! "$as_of" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "Expected a date in YYYY-MM-DD format." >&2
+            exit 1
+          fi
+          printf 'COVERAGE_AS_OF=%s\n' "$as_of" >> "$GITHUB_ENV"
+          node --input-type=module <<'JS' >> "$GITHUB_ENV"
+          import { readFileSync } from "node:fs";
+          import { parse } from "yaml";
+          const { SITE_DATA_VERSION, SITE_DATA_SHA256 } = parse(readFileSync(".github/workflows/deploy-site.yml", "utf8")).jobs.build.env;
+          if (!/^\d{4}\.\d{2}\.\d{2}(?:\.\d+)?$/.test(SITE_DATA_VERSION) || !/^[a-f0-9]{64}$/.test(SITE_DATA_SHA256)) {
+            throw new Error("Invalid signed Pages data pin.");
+          }
+          console.log(`SITE_DATA_VERSION=${SITE_DATA_VERSION}\nSITE_DATA_SHA256=${SITE_DATA_SHA256}`);
+          JS
+      - name: Install the pinned historical verifier
+        run: |
+          mkdir "$RUNNER_TEMP/coverage-tools"
+          cd "$RUNNER_TEMP/coverage-tools"
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund --save-exact @velella/ebb@0.2.0
+      - name: Generate coverage from signed inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          inputs="$RUNNER_TEMP/coverage-inputs"
+          bash tools/coverage/prepare-inputs.sh "$inputs"
+          release_dir="$RUNNER_TEMP/coverage-release"
+          bundle="ebb-data-$SITE_DATA_VERSION.json"
+          gh release download "data-v$SITE_DATA_VERSION" --repo "$GITHUB_REPOSITORY" --dir "$release_dir" \
+            --pattern "$bundle" --pattern "$bundle.sigstore.json" --pattern release-log.jsonl --pattern release-log.jsonl.sigstore.json
+          args=()
+          if [ "$COVERAGE_AS_OF" = "$(date -u +%F)" ] && [ -f "$inputs/requests.json" ]; then
+            args+=(--requests "$inputs/requests.json")
+          fi
+          node dist/tools/coverage/report.js --as-of "$COVERAGE_AS_OF" --checkout "$GITHUB_SHA" \
+            --data-version "$SITE_DATA_VERSION" --sha256 "$SITE_DATA_SHA256" \
+            --bundle "$release_dir/$bundle" --signature "$release_dir/$bundle.sigstore.json" \
+            --historical-verifier "$RUNNER_TEMP/coverage-tools/node_modules/@velella/ebb" \
+            --prior-history "$inputs/prior" --out "$RUNNER_TEMP/coverage" "${args[@]}"
+          head -n 13 "$RUNNER_TEMP/coverage/coverage-report.md" >> "$GITHUB_STEP_SUMMARY"
+      - name: Check metrics and SVG
+        run: node --test dist/tests/coverage-report/*.test.js
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.1
+        with:
+          name: ebb-coverage-report
+          path: |
+            ${{ runner.temp }}/coverage/coverage-report.json
+            ${{ runner.temp }}/coverage/coverage-report.md
+            ${{ runner.temp }}/coverage/coverage-card.svg
+            ${{ runner.temp }}/coverage/gaps.md
+          if-no-files-found: error
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.1
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || !inputs.as_of)
+        with:
+          name: ebb-coverage-history
+          path: ${{ runner.temp }}/coverage/history/
+          if-no-files-found: error

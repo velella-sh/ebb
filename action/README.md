@@ -59,6 +59,23 @@ jobs:
           fail-on: unsupported
 ```
 
+### 3. Enrich an SBOM
+
+Use the Ebb release that includes SBOM enrichment. The Action reads the
+local JSON SBOM, writes a separate file and adds counts to the job summary.
+
+```yaml
+- name: Enrich the SBOM
+  uses: velella-sh/ebb@v0.2.2
+  with:
+    sbom: bom.json
+    sbom-output: bom.enriched.json
+```
+
+Use `sbom` on its own. The `purls` and `file` inputs run the failure
+threshold check. The enrichment mode preserves the source file and writes
+the result locally for the next workflow step.
+
 ## Inputs
 
 | Input | Description | Default |
@@ -66,5 +83,7 @@ jobs:
 | `purls` | Newline or space separated PURLs to check. | `""` |
 | `file` | Path to CycloneDX SBOM, JSON list, or text file. | `""` |
 | `fail-on` | Severity threshold to fail the job (`scheduled`, `deprecated`, `unsupported`, `end-of-life`, `removed`, `error`, `none`). | `"deprecated"` |
+| `sbom` | Path to a CycloneDX or SPDX JSON SBOM to enrich. | `""` |
+| `sbom-output` | Output path in enrichment mode. | `"ebb-enriched-sbom.json"` |
 | `as-of` | Reference date (YYYY-MM-DD) for calculating remaining days on scheduled lifecycles. | Current date |
 | `no-hint` | Deprecated (no-op). | `"false"` |

@@ -63,12 +63,11 @@ By default, the browser entry point bundles lifecycle data in-memory:
 
 - **Works Synchronously:** Synchronous `check()` calls work immediately without awaiting any network request.
 - **Works Completely Offline:** Zero network requests are made.
-- **Fast:** Instant O(1) in-memory lookups.
-- **Bundle Size:** ~135 KB gzipped for all 25 bundled ecosystems combined.
+- **In-memory lookups:** The bundled entry point includes the full lifecycle dataset.
 
 ### 2. Static API Fetch Loader (Ultra-Lightweight Bundle)
 
-If you want to keep the initial client bundle as small as possible (~15 KB gzipped), configure Ebb to load lifecycle rules on demand over HTTP from the [Ebb Static API](/static-api/):
+To omit bundled data from the initial client build, configure Ebb to load lifecycle rules on demand over HTTP from the [Ebb Static API](/static-api/):
 
 ```typescript
 import { check, createFetchLoader, setDataLoader, preload } from "@velella/ebb/browser";
@@ -97,21 +96,7 @@ const ebb = createEbb({ ecosystems: [npmData] });
 const result = ebb.check("pkg:npm/request", "2.88.2");
 ```
 
-Tree-shaking ensures only the requested ecosystem code is included in your client bundle (~20 KB gzipped).
-
----
-
-## Bundle Sizes
-
-Measured with `esbuild --minify`:
-
-| Target | Uncompressed | Gzipped |
-| :--- | :--- | :--- |
-| Core Engine + Fetch Loader | 42 KB | **~12 KB** |
-| Scoped Single Ecosystem (`npm`) | 165 KB | **~24 KB** |
-| Full Bundle (all 25 ecosystems) | 1.52 MB | **~135 KB** |
-
----
+Measure the size of the generated client bundle after tree-shaking and compression. The [benchmark page](https://velella.sh/ebb/benchmarks/) records separate Node.js package measurements.
 
 ## Supported Browsers
 

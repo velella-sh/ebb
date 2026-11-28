@@ -13,7 +13,7 @@ const DATES = new RegExp(
 const LIFECYCLE = /end[ -]of[ -](?:life|(?:active[ -]|extended[ -])?support)|deprecat|retire|no longer supported/i;
 const MARKER = "<!-- ebb-new-product-triage -->";
 
-function issueField(body: string, heading: string): string {
+export function issueField(body: string, heading: string): string {
   const section = `\n${body.replaceAll("\r\n", "\n")}`
     .split("\n### ")
     .find((part) => part.trimStart().startsWith(`${heading}\n`));

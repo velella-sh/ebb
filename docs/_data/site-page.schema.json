@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "slug", "title", "summary", "purl", "dataVersion", "deadline", "precision", "claims"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "aliases": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "purl": { "type": "string", "pattern": "^pkg:" },
+    "dataVersion": { "type": "string", "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}(\\.[0-9]+)?$" },
+    "deadline": { "type": ["string", "null"] },
+    "precision": { "enum": ["day", "month", "No published date"] },
+    "claims": { "type": "object" },
+    "ecosystem": { "type": "string" },
+    "ruleCount": { "type": "integer", "minimum": 1 },
+    "comparisonUrl": { "type": "string" },
+    "lifecycleDate": { "type": "string" },
+    "standardSupport": { "type": "string" },
+    "extendedSupport": { "type": "string" },
+    "replacement": { "type": "string" },
+    "timeline": { "type": "string" },
+    "releaseLines": { "type": "array", "items": { "type": "string" } },
+    "product": { "type": "string" },
+    "line": { "type": "string" },
+    "vers": { "type": "string" },
+    "ruleId": { "type": ["string", "null"] },
+    "status": { "type": "string" },
+    "observedAt": { "type": "string", "format": "date" },
+    "reviewedAt": { "type": "string", "format": "date" },
+    "reviewers": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "apiUrl": { "type": "string", "format": "uri" }
+  },
+  "oneOf": [
+    {
+      "required": ["ecosystem", "ruleCount", "releaseLines", "status"],
+      "properties": { "status": { "enum": ["active", "deprecated", "end-of-life", "removed", "scheduled"] } }
+    },
+    {
+      "required": ["product", "line", "vers", "ruleId", "status", "lifecycleDate", "standardSupport", "extendedSupport", "replacement"],
+      "properties": { "status": { "enum": ["ended", "ending", "no-known-end"] } }
+    },
+    {
+      "required": ["product", "vers", "status", "observedAt", "reviewedAt", "reviewers", "apiUrl"],
+      "properties": {
+        "status": {
+          "enum": [
+            "deprecated", "end-of-support", "end-of-life", "removed", "scheduled-end-of-life",
+            "end-of-active-support", "end-of-extended-support"
+          ]
+        }
+      }
+    }
+  ]
+}

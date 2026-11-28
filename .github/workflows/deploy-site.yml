@@ -6,9 +6,11 @@ name: deploy-site
 on:
   push:
     branches: [main]
-    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
   pull_request:
-    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml"]
+    paths: ["docs/**", "registry/**", "tools/coverage/**", "tools/static-api/**", "tools/site-data/**", "schemas/site-data.v1.schema.json", "src/**", "llms.txt", "llms-full.txt", ".github/workflows/deploy-site.yml", "evals/cutoff/**", "tests/cutoff/**"]
+  schedule:
+    - cron: "0 3 1 * *"
   workflow_dispatch:
 
 permissions: {}
@@ -21,10 +23,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      SITE_DATA_VERSION: "2026.11.11"
+      SITE_DATA_SHA256: "09f3f558e6708b6f7ec8fd4df0494601d4c1c99eb50526f7db20591a3852f3a4"
     outputs:
       eol-compat-sha256: ${{ steps.eol-compat.outputs.sha256 }}
     permissions:
+      actions: read
       contents: read
+      issues: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -34,10 +41,11 @@ jobs:
           node-version: "24"
       - name: Install the site tools
         run: |
+          echo "EBB_SITE_TOOLS=$RUNNER_TEMP/site-tools/node_modules" >> "$GITHUB_ENV"
           mkdir "$RUNNER_TEMP/site-tools"
           cd "$RUNNER_TEMP/site-tools"
           npm init -y >/dev/null
-          npm install --no-audit --no-fund --save-exact @velella/mizzen@0.2.7 @velella/lateen@0.2.5
+          npm install --no-audit --no-fund --save-exact @velella/mizzen@0.2.7 @velella/lateen@0.2.5 @velella/ebb@0.2.0
       - name: Install dependencies
         run: npm ci
       - name: Publish coverage tables into the docs
@@ -55,6 +63,37 @@ jobs:
             exit 2
           fi
           echo "Coverage tables published (runtime $runtime_code, actions $actions_code)"
+      - name: Prepare the signed site records
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_dir="$RUNNER_TEMP/site-release"
+          site_as_of="$(date -u +%F)"
+          echo "SITE_AS_OF=$site_as_of" >> "$GITHUB_ENV"
+          bundle="ebb-data-${SITE_DATA_VERSION}.json"
+          gh release download "data-v${SITE_DATA_VERSION}" --repo velella-sh/ebb --dir "$release_dir" \
+            --pattern "$bundle" --pattern "$bundle.sigstore.json" \
+            --pattern release-log.jsonl --pattern release-log.jsonl.sigstore.json
+          node dist/tools/site-data/index.js \
+            --bundle "$release_dir/$bundle" --signature "$release_dir/$bundle.sigstore.json" \
+            --sha256 "$SITE_DATA_SHA256" --data-version "$SITE_DATA_VERSION" --as-of "$site_as_of" \
+            --historical-verifier "$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
+            --out "$RUNNER_TEMP/site-records" --mizzen-out docs/_data/site-records
+      - name: Render the signed coverage report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          inputs="$RUNNER_TEMP/coverage-inputs"
+          bash tools/coverage/prepare-inputs.sh "$inputs"
+          release_dir="$RUNNER_TEMP/site-release"
+          bundle="ebb-data-$SITE_DATA_VERSION.json"
+          args=()
+          if [ -f "$inputs/requests.json" ]; then args+=(--requests "$inputs/requests.json"); fi
+          node dist/tools/coverage/report.js --as-of "$SITE_AS_OF" --checkout "$GITHUB_SHA" \
+            --data-version "$SITE_DATA_VERSION" --sha256 "$SITE_DATA_SHA256" \
+            --bundle "$release_dir/$bundle" --signature "$release_dir/$bundle.sigstore.json" \
+            --historical-verifier "$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
+            --prior-history "$inputs/prior" --out "$RUNNER_TEMP/coverage" --write-docs "${args[@]}"
       - name: Check the site
         run: |
           "$RUNNER_TEMP/site-tools/node_modules/.bin/mizzen" doctor docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen"
@@ -62,6 +101,19 @@ jobs:
       - name: Build the site
         run: |
           "$RUNNER_TEMP/site-tools/node_modules/.bin/mizzen" build docs --theme "$RUNNER_TEMP/site-tools/node_modules/@velella/lateen" --out "$RUNNER_TEMP/site"
+      - name: Publish feed aliases
+        run: |
+          cp "$RUNNER_TEMP/site/feeds/data-releases.rss.xml" "$RUNNER_TEMP/site/feed.xml"
+          cp "$RUNNER_TEMP/site/feeds/data-releases.xml" "$RUNNER_TEMP/site/atom.xml"
+          cp "$RUNNER_TEMP/site/feeds/data-releases.xml" "$RUNNER_TEMP/site/data-changelog.atom"
+      - name: Check signed record and published-library parity
+        run: |
+          release_dir="$RUNNER_TEMP/site-release"
+          bundle="$release_dir/ebb-data-${SITE_DATA_VERSION}.json"
+          EBB_SITE_BUNDLE="$bundle" EBB_SITE_SIGNATURE="$bundle.sigstore.json" \
+            EBB_SITE_RELEASED_EBB="$RUNNER_TEMP/site-tools/node_modules/@velella/ebb" \
+            EBB_SITE_VERSION="$SITE_DATA_VERSION" EBB_SITE_SHA256="$SITE_DATA_SHA256" EBB_SITE_AS_OF="$SITE_AS_OF" \
+            EBB_SITE_BUILT_HTML="$RUNNER_TEMP/site" node --test dist/tests/site-data-signed.test.js dist/tests/site-metadata.test.js dist/tests/site-feeds.test.js dist/tests/cutoff/questions.test.js
       - name: Build static API
         run: |
           npm run build:static-api -- --out "$RUNNER_TEMP/site/api/v1" --eol-compat-out "$RUNNER_TEMP/site/api/eol-compat/v1"
@@ -72,7 +124,6 @@ jobs:
       - name: Copy LLM documentation to site
         run: |
           cp llms.txt llms-full.txt "$RUNNER_TEMP/site/"
-          cp docs/data-changelog.atom "$RUNNER_TEMP/site/data-changelog.atom"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:

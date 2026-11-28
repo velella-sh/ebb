@@ -69,6 +69,24 @@ describe("MCP packed tarball stdio", () => {
       assert.ok(readFileSync(join(installedRoot, "dist", "src", "mcp", "index.js"), "utf8").length > 0);
 
       const binEbb = join(appDir, "node_modules", ".bin", "ebb");
+      const purl = "pkg:npm/request@2.88.2";
+      const canonicalUrl = "https://velella.sh/ebb/rules/npm-package-request-deprecated/";
+      const source = "https://www.npmjs.com/package/request";
+      function cli(...options: string[]): string {
+        return execFileSync(binEbb, ["check", purl, "--fail-on", "never", ...options], {
+          cwd: appDir,
+          encoding: "utf8",
+        });
+      }
+      const lines = cli().split(/\r?\n/u);
+      assert.ok(lines.some((line) => line === `  Lifecycle evidence: ${canonicalUrl}`));
+      assert.ok(lines.some((line) => line === `    - ${source}`));
+      assert.ok(cli("--format", "markdown").includes(`(${canonicalUrl})`));
+      const json = JSON.parse(cli("--json"));
+      assert.equal(json.schemaVersion, 1);
+      assert.equal(json.matches[0].ruleId, "npm.package.request.deprecated");
+      assert.equal(Object.hasOwn(json.matches[0], "canonicalUrl"), false);
+
       child = spawn(binEbb, ["mcp"], {
         cwd: appDir,
         stdio: ["pipe", "pipe", "pipe"],
@@ -104,15 +122,21 @@ describe("MCP packed tarball stdio", () => {
         method: "tools/call",
         params: {
           name: "check",
-          arguments: { purl: "pkg:npm/request@2.88.2" },
+          arguments: { purl },
         },
       });
       const checkResp = (await session.waitForResponse(2)) as {
-        result: { isError: boolean; content: Array<{ text: string }> };
+        result: { isError: boolean; content: Array<{ text: string }>; structuredContent: unknown };
       };
       assert.equal(checkResp.result.isError, false);
-      const payload = JSON.parse(checkResp.result.content[0]!.text) as { status: string };
+      const payload = JSON.parse(checkResp.result.content[0]!.text) as {
+        status: string;
+        matches: Array<{ canonicalUrl?: string; sources: Array<{ url: string }> }>;
+      };
       assert.equal(payload.status, "deprecated");
+      assert.equal(payload.matches[0]?.canonicalUrl, canonicalUrl);
+      assert.ok(payload.matches[0]?.sources.some(({ url }) => url === source));
+      assert.deepEqual(checkResp.result.structuredContent, payload);
 
       await session.finish();
       assert.ok(session.allResponses.length >= 2);

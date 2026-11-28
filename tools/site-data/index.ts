@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
-import { resolve } from "node:path";
+import { readFile, writeFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 import { generateSiteData } from "./generate.js";
+import { writeSitePages } from "./pages.js";
+import { readSiteRelease } from "./release.js";
+import { readSiteReleaseLog } from "./releases.js";
+import { publicRuleRoutesSource } from "./routes.js";
 import { validateSiteDataDir } from "./validate.js";
 
 function getArg(argv: string[], name: string): string | undefined {
@@ -17,7 +22,26 @@ export async function main(argv: string[]): Promise<void> {
   const baseUrl = getArg(argv, "--base-url");
   const dataVersion = getArg(argv, "--data-version");
   const updateLock = argv.includes("--update-lock");
-  const shouldValidate = argv.includes("--validate");
+  const bundlePath = getArg(argv, "--bundle");
+  const signaturePath = getArg(argv, "--signature");
+  const sha256 = getArg(argv, "--sha256");
+  const historicalVerifier = getArg(argv, "--historical-verifier");
+  const mizzenOut = getArg(argv, "--mizzen-out");
+  const ruleRoutesOut = getArg(argv, "--rule-routes-out");
+  const asOf = getArg(argv, "--as-of");
+  const shouldValidate = argv.includes("--validate") || bundlePath !== undefined;
+  if (!bundlePath && (signaturePath || sha256 || historicalVerifier || mizzenOut || ruleRoutesOut)) {
+    throw new Error("Signed release options require --bundle.");
+  }
+  if (bundlePath && (!signaturePath || !sha256 || !dataVersion)) {
+    throw new Error("Signed site data requires --signature, --sha256 and --data-version.");
+  }
+  const releaseInput =
+    bundlePath && signaturePath && sha256 && dataVersion
+      ? { bundlePath, signaturePath, version: dataVersion, sha256, historicalVerifier }
+      : undefined;
+  const rules = releaseInput ? await readSiteRelease(releaseInput) : undefined;
+  const releaseLog = mizzenOut && releaseInput ? await readSiteReleaseLog(releaseInput) : undefined;
 
   const result = await generateSiteData({
     root,
@@ -25,6 +49,7 @@ export async function main(argv: string[]): Promise<void> {
     baseUrl,
     dataVersion,
     updateLock,
+    rules,
   });
 
   process.stderr.write(
@@ -41,6 +66,15 @@ export async function main(argv: string[]): Promise<void> {
   if (shouldValidate) {
     const valResult = await validateSiteDataDir(outDir, { root });
     process.stderr.write(`✅ Site data validated against schema (${valResult.checkedFiles} files checked).\n`);
+  }
+  if (mizzenOut && rules && releaseLog) {
+    await writeSitePages({ from: outDir, out: mizzenOut, version: result.dataVersion, rules, asOf, releaseLog });
+  }
+  if (ruleRoutesOut) {
+    const { records } = JSON.parse(await readFile(join(outDir, "rules.json"), "utf8")) as {
+      records: Array<{ id: string; slug: string }>;
+    };
+    await writeFile(resolve(ruleRoutesOut), publicRuleRoutesSource(records, result.dataVersion));
   }
 }
 

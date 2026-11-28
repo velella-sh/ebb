@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Cite the Ebb software or the signed lifecycle data release you used."
+title: "Ebb"
+type: software
+authors:
+  - name: "Velella"
+repository-code: "https://github.com/velella-sh/ebb"
+url: "https://velella.sh/ebb/"
+license: MIT
+abstract: >-
+  Ebb is a TypeScript reader and command-line interface for evidence-backed
+  software lifecycle data. The code is licensed under MIT.
+references:
+  - type: data
+    title: "Ebb lifecycle dataset, 2026.11.11"
+    authors:
+      - name: "Velella"
+    version: "2026.11.11"
+    date-released: "2026-11-11"
+    url: "https://github.com/velella-sh/ebb/releases/tag/data-v2026.11.11"
+    license: CC-BY-4.0

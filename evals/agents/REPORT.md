@@ -6,15 +6,14 @@
 
 The evaluation benchmarks unassisted agents against agents equipped with Ebb lifecycle checks (via MCP server or official agent skill). Rows executed via simulated runners are explicitly labelled `[Simulated]`. Real runs are triggered through the manual GitHub Actions workflow with authenticated API credentials.
 
-## Headline Results
+## Evaluation scope
 
 - **Total benchmark tasks:** 100
 - **Repetitions per mode:** 3 (mean and range reported across runs)
-- **Deprecated/EOL picks without Ebb (Baseline):** 38% (range: 38% - 38%)
-- **Deprecated/EOL picks with Ebb (MCP / Skill):** 0% (range: 0% - 0%)
-- **Deprecation rate reduction:** **-38 percentage points**
 
 ## Benchmark Matrix
+
+Compare rows measured with the same runner and model. Simulated rows exercise the scoring pipeline and do not measure live agent accuracy.
 
 | Agent | Mode | Runner | Model | Version | Reps | Deprecated / EOL (Mean) | Deprecation Rate (Mean) | Range |
 |:---|:---|:---:|:---|:---:|:---:|:---:|:---:|:---:|
@@ -47,7 +46,7 @@ The evaluation benchmarks unassisted agents against agents equipped with Ebb lif
 ## Known Limits
 
 - **Simulated vs Real Runs**: Simulated runners provide deterministic CI verification without incurring API fees. Real runs require API tokens and execute via the manual workflow.
-- **Agent Non-Determinism**: Real LLM completions exhibit variance across runs; multiple repetitions ($n \ge 3$) are required to calculate confidence intervals.
+- **Agent Non-Determinism**: Real LLM completions exhibit variance across runs; the reported range is the observed minimum and maximum across repetitions.
 - **Offline Sandbox**: Real runs must have network access for agent LLM calls while the Ebb library evaluates lifecycle data completely offline.
 
 ## Reproducibility

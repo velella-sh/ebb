@@ -16,7 +16,7 @@ import {
 } from "./index.js";
 import { BUNDLE_FILE, defaultCacheDirectory } from "./data-source.js";
 import { dataStatus } from "./data-status.js";
-import { rollback, update } from "./data-update.js";
+import { rollback, update, writeAtomically } from "./data-update.js";
 import { diff, formatDiffMarkdown, formatDiffText } from "./diff.js";
 import { verify, verifyArtifactSignature, type VerifiedSigner } from "./verify.js";
 import { UpcomingError } from "./upcoming.js";
@@ -72,6 +72,7 @@ Usage:
   ebb check <purl> [version] [options]       Check lifecycle status of a package
   ebb as-of <date> <purl> [version]          Evaluate lifecycle status as of a specific date
   ebb check-all [file...] [options]          Batch check packages (file, stdin, SBOM)
+  ebb sbom enrich <file> [--out <file>] [--format cyclonedx|spdx]
   ebb replacement <purl> [version] [options] Show suggested replacement for a package
   ebb versions <purl> [options]              List release lines and recommend one
   ebb rules <purl> [options]                 List registered lifecycle rules for a package
@@ -440,10 +441,53 @@ function filterCheckAllByMinConfidence(outcome: CheckAllResult, minConfidence?: 
   };
 }
 
+const sbomUsage = "Usage: ebb sbom enrich <file> [--out <file>] [--format cyclonedx|spdx]";
+
+async function runSbom(args: string[], io: CliIo): Promise<number> {
+  try {
+    const { values, positionals } = parseArgs({
+      args,
+      options: { out: { type: "string" }, format: { type: "string" }, help: { type: "boolean", short: "h" } },
+      allowPositionals: true,
+    });
+    if (values.help) {
+      io.stdout.write(`${sbomUsage}\n`);
+      return 0;
+    }
+    const [command, file] = positionals;
+    if (command !== "enrich" || !file || positionals.length !== 2) throw new Error(sbomUsage);
+    const format = values.format;
+    if (format !== undefined && format !== "cyclonedx" && format !== "spdx") {
+      throw new Error("--format must be cyclonedx or spdx.");
+    }
+    if (values.out !== undefined && resolve(file) === resolve(values.out)) {
+      throw new Error("Choose an output path different from the input SBOM.");
+    }
+    const { enrichSbom } = await import("./sbom/index.js");
+    const input: unknown = JSON.parse(readFileSync(file, "utf8"));
+    const { document, summary } = enrichSbom(input, format);
+    const output = `${JSON.stringify(document, null, 2)}\n`;
+    const report = `${JSON.stringify(summary)}\n`;
+    if (values.out !== undefined) {
+      await writeAtomically(values.out, output);
+      io.stdout.write(report);
+    } else {
+      io.stdout.write(output);
+      io.stderr.write(report);
+    }
+    return 0;
+  } catch (error) {
+    io.stderr.write(`Error: ${error instanceof Error ? error.message : String(error)}\n`);
+    return 2;
+  }
+}
+
 export async function runCli(
   args: string[],
   io: CliIo = { stdout: process.stdout, stderr: process.stderr, stdin: process.stdin },
 ): Promise<number> {
+  if (args[0] === "sbom") return runSbom(args.slice(1), io);
+
   let parsed: ReturnType<typeof parseArgs>;
   try {
     parsed = parseArgs({

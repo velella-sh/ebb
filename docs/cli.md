@@ -32,6 +32,7 @@ Ebb produces structured, human-readable terminal output with ANSI colors, source
 $ ebb check pkg\:npm/request@2.88.2
 ✖ pkg\:npm/request@2.88.2: deprecated
   Rule: npm.package.request.deprecated
+  Lifecycle evidence: https://velella.sh/ebb/rules/npm-package-request-deprecated/
   Event: deprecated (2020-02-11)
   Replacement: Native fetch or a maintained HTTP client
   Sources:
@@ -57,6 +58,8 @@ $ ebb check pkg\:docker/library/node@22.0.0
 ### `ebb check <purl> [version]`
 
 Evaluates a component against active lifecycle rules. The version can be embedded in the Package URL (e.g. `pkg:npm/request@2.88.2`) or passed as a separate positional argument.
+
+Text and Markdown include a canonical lifecycle evidence link when a matching rule is in the signed site catalogue. Both formats retain the original evidence sources. `--json` uses the [v1 result schema](result-model.md).
 
 ```bash
 # PURL with embedded version
@@ -129,6 +132,23 @@ cat dependencies.txt | ebb check-all
 # Output machine-readable JSON
 ebb check-all bom.json --json
 ```
+
+### `ebb sbom enrich <file>`
+
+Add matching lifecycle evidence to a CycloneDX JSON, SPDX 2.3 JSON or SPDX 3.0 JSON-LD file.
+
+```sh
+ebb sbom enrich bom.json
+ebb sbom enrich bom.json --out bom.enriched.json --format cyclonedx
+```
+
+Ebb detects the format from the document. Use `--format cyclonedx` or
+`--format spdx` to require a specific format. With no `--out`, standard
+output receives the enriched JSON and standard error receives a JSON
+summary. With `--out`, the summary goes to standard output and the
+enriched document is written to the specified path. Use a different path
+from the input. Matching a rule does not fail enrichment, while invalid
+input or an I/O error exits with code 2. See [SBOM enrichment](/sbom/).
 
 ### `ebb bridge <trivy|grype> <report|->`
 

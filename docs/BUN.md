@@ -14,7 +14,7 @@ All APIs (`check`, `checkAll`, `rulesFor`, `replacementFor`, `createEbb`), CLI c
 ---
 
 > [!TIP]
-> Ebb has zero runtime dependencies and starts up under Bun in less than 20 ms.
+Ebb has zero runtime dependencies. The published [benchmark measurements](https://velella.sh/ebb/benchmarks/) cover Node.js.
 
 ---
 
@@ -41,7 +41,7 @@ console.log(result.status); // "deprecated"
 const replacement = replacementFor("pkg:npm/node-sass", "9.0.0");
 console.log(replacement); // "pkg:npm/sass"
 
-// Batch evaluation (1,000 components in < 1ms)
+// Batch evaluation
 const batch = checkAll([
   { purl: "pkg:npm/left-pad", version: "1.3.0" },
   { purl: "pkg:npm/react", version: "18.2.0" },
@@ -70,4 +70,4 @@ $ bunx @velella/ebb check package.json
 
 ## Performance in Bun
 
-Ebb's zero-dependency footprint and pre-indexed lifecycle data allow cold start under Bun in less than 20 ms, with batch evaluations executing at tens of thousands of operations per second.
+Bun startup and throughput can be measured with your own dependency set and deployment environment.

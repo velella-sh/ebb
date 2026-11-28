@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1e1e27"/>
+  <image x="64" y="54" width="96" height="96" href="../../brand/icon-192.png"/>
+  <text data-slot="site" x="181" y="116" data-width="920" font-family="Manrope" font-size="32" fill="#9fcbc2">Ebb</text>
+  <path d="M84 170H1116" stroke="#537a72" stroke-width="2"/>
+  <text data-slot="title" x="84" y="270" data-width="1032" font-family="Manrope" font-size="64" data-min-size="43" data-max-lines="2" data-line-height="1.15" fill="#f5f5fa">Lifecycle record</text>
+  <text data-slot="description" x="84" y="438" data-width="1032" font-family="Manrope" font-size="31" data-min-size="24" data-max-lines="3" data-line-height="1.32" fill="#d0d6dc">Ebb lifecycle data</text>
+</svg>
