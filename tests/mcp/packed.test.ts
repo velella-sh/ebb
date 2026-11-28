@@ -78,9 +78,9 @@ describe("MCP packed tarball stdio", () => {
           encoding: "utf8",
         });
       }
-      const text = cli();
-      assert.ok(text.includes(`Lifecycle evidence: ${canonicalUrl}`));
-      assert.ok(text.includes(source));
+      const lines = cli().split(/\r?\n/u);
+      assert.ok(lines.some((line) => line === `  Lifecycle evidence: ${canonicalUrl}`));
+      assert.ok(lines.some((line) => line === `    - ${source}`));
       assert.ok(cli("--format", "markdown").includes(`(${canonicalUrl})`));
       const json = JSON.parse(cli("--json"));
       assert.equal(json.schemaVersion, 1);
