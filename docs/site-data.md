@@ -36,7 +36,7 @@ Product, release-line and rule pages use `/ebb/products/{slug}/`, `/ebb/release-
 
 Use **Report a problem with this data** on a record page to open a correction with the record ID, page and signed data version filled in. The rule page links to its authoritative sources under **Evidence**.
 
-When updating the pinned signed site release, run the signed site-data command with `--rule-routes-out src/public-rule-routes.ts` to refresh the offline CLI and MCP link catalogue. The signed site test compares the catalogue with every published rule route.
+When updating the pinned signed site release, run the signed site-data command with `--rule-routes-out tools/site-data/public-rule-routes.ts` to refresh the offline CLI and MCP link catalogue. The signed site test compares the catalogue with every published rule route.
 
 ## Stability Contract
 

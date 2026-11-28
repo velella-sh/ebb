@@ -142,6 +142,7 @@ The server provides these tools over JSON-RPC 2.0:
 | `check_install` | Call before running an install command. Parses package manager commands (npm, pnpm, yarn, bun, pip, cargo, go) and checks every package against lifecycle rules. |
 | `diff` | Call to compare two lifecycle data versions, dates, files, or active data and inspect added, changed, or removed rules. |
 | `pick_version` | Call before choosing a runtime or a major version. Returns known release lines, the recommended line, and whether coverage is complete. |
+| `predict_eol` | Call when an unannounced end-of-life date needs a planning range. |
 | `replacement_for` | Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives. |
 | `sources_of` | Call to inspect authoritative sources, archive snapshot URLs, health status, and review provenance for a lifecycle rule. |
 | `upcoming` | Call before planning upgrades to list scheduled deprecation and end-of-life deadlines within a time window. |
@@ -314,6 +315,10 @@ Call before choosing a runtime or a major version. Returns known release lines, 
     "reason": "recommended active line"
   }
   ```
+
+### `predict_eol`
+
+Supply a Package URL in `purl` and a release version in `version`. The structured result puts the [prediction](formats/prediction.v1.md) under `prediction`, or returns `null` when a date is already announced or an estimate is unavailable. Show the predicted range and confidence as planning information.
 
 ### `replacement_for`
 Call when a component is deprecated or end-of-life to find recommended migration targets or alternatives.

@@ -5,7 +5,14 @@
  * from a bound the scheme has already accepted.
  */
 
-import { parseVers, versionScheme } from "./vers.js";
+import {
+  parseVers,
+  parseVersLenient,
+  versContains,
+  versionScheme,
+  type VersComparator,
+  type VersConstraint,
+} from "./vers.js";
 
 /** A VERS range that covers exactly one release line, or every version (`*`). */
 export interface ReleaseLineBounds {
@@ -88,4 +95,55 @@ export function kubernetesRuleVersion(version: string): string | undefined {
 /** The rule version text for a JDK feature release: `22` is `22.0.0`. */
 export function jdkRuleVersion(major: number): string {
   return `${major}.0.0`;
+}
+
+const isLower = (comparator: VersComparator) => comparator === ">" || comparator === ">=";
+const isUpper = (comparator: VersComparator) => comparator === "<" || comparator === "<=";
+
+/**
+ * Coverage requires one interval that contains the entire expected release line.
+ * More complex rule expressions fail closed rather than treating separated
+ * intervals or isolated versions as a continuous range.
+ */
+export function ruleCoversLineRange(ruleVers: string, lineVers: string): boolean {
+  const line = parseVersLenient(lineVers);
+  const rule = parseVersLenient(ruleVers);
+  if (line.scheme !== rule.scheme) return false;
+  if (rule.all) return true;
+  if (line.all) return false;
+
+  const expectedLower = line.constraints.filter((constraint) => isLower(constraint.comparator));
+  const expectedUpper = line.constraints.filter((constraint) => isUpper(constraint.comparator));
+  if (
+    expectedLower.length > 1 ||
+    expectedUpper.length > 1 ||
+    expectedLower.length + expectedUpper.length !== line.constraints.length
+  )
+    return false;
+
+  const ruleLower = rule.constraints.filter((constraint) => isLower(constraint.comparator));
+  const ruleUpper = rule.constraints.filter((constraint) => isUpper(constraint.comparator));
+  if (ruleLower.length > 1 || ruleUpper.length > 1) return false;
+  if (rule.constraints.some((constraint) => constraint.comparator === "=")) return false;
+  if (rule.constraints.some((constraint) => constraint.comparator === "!=" && versContains(line, constraint.version)))
+    return false;
+
+  const scheme = versionScheme(line.scheme);
+  return (
+    endpointCovered(ruleLower[0], expectedLower[0], scheme.compare, ">") &&
+    endpointCovered(ruleUpper[0], expectedUpper[0], scheme.compare, "<")
+  );
+}
+
+function endpointCovered(
+  rule: VersConstraint | undefined,
+  expected: VersConstraint | undefined,
+  compare: (left: string, right: string) => number,
+  exclusive: ">" | "<",
+): boolean {
+  if (!rule) return true;
+  if (!expected) return false;
+  const order = compare(rule.version, expected.version);
+  if (order === 0) return rule.comparator !== exclusive || expected.comparator === exclusive;
+  return exclusive === ">" ? order < 0 : order > 0;
 }

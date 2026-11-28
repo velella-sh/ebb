@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://velella.sh/ebb/api/v1/schemas/prediction.v1.schema.json",
+  "title": "Ebb end-of-life prediction v1",
+  "oneOf": [{ "$ref": "#/$defs/prediction" }, { "$ref": "#/$defs/table" }],
+  "$defs": {
+    "date": { "type": "string", "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$" },
+    "monthOrDay": { "type": "string", "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?$" },
+    "dataVersion": { "type": "string", "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}$" },
+    "https": { "type": "string", "pattern": "^https://[^/\\s]+" },
+    "range": {
+      "type": "object",
+      "required": ["date", "low", "high", "precision"],
+      "additionalProperties": false,
+      "properties": {
+        "date": { "$ref": "#/$defs/date" },
+        "low": { "$ref": "#/$defs/date" },
+        "high": { "$ref": "#/$defs/date" },
+        "precision": { "enum": ["day", "month"] }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["kind", "url", "accessedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["policy", "schedule", "history"] },
+        "url": { "$ref": "#/$defs/https" },
+        "accessedAt": { "$ref": "#/$defs/date" },
+        "line": { "type": "string", "minLength": 1 },
+        "firstReleased": { "$ref": "#/$defs/monthOrDay" },
+        "end": { "$ref": "#/$defs/monthOrDay" }
+      },
+      "if": { "properties": { "kind": { "enum": ["schedule", "history"] } } },
+      "then": { "required": ["line", "firstReleased"] }
+    },
+    "prediction": {
+      "type": "object",
+      "required": ["purl", "line", "lineVers", "predictedEnd", "confidence", "method", "evidence", "modelVersion", "dataVersion"],
+      "additionalProperties": false,
+      "properties": {
+        "purl": { "type": "string", "pattern": "^pkg:[a-z0-9.+-]+/[^\\s]+" },
+        "line": { "type": "string", "minLength": 1 },
+        "lineVers": { "type": "string", "pattern": "^vers:[a-z0-9.+-]+/.+" },
+        "predictedEnd": { "$ref": "#/$defs/range" },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "method": { "enum": ["policy", "cadence"] },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" }, "minItems": 1 },
+        "modelVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "dataVersion": { "$ref": "#/$defs/dataVersion" }
+      }
+    },
+    "table": {
+      "type": "object",
+      "required": ["schemaVersion", "dataVersion", "inputSha256", "predictions"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "ebb.prediction.v1" },
+        "dataVersion": { "$ref": "#/$defs/dataVersion" },
+        "inputSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "predictions": { "type": "array", "items": { "$ref": "#/$defs/prediction" }, "uniqueItems": true }
+      }
+    }
+  }
+}
