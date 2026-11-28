@@ -280,9 +280,9 @@ Every generated file points its `$schema` property directly at the published sch
 - **Immutable URL Paths**: Versioned endpoints under `/api/v1/` have fixed schemas.
 - **Content Hashes & ETags**: Every component entry in `/api/v1/index.json` includes `sha256` and `etag` fields (`"\"<hash>\""`). Clients can perform conditional `If-None-Match` requests or verify file integrity before downloading full rule payloads.
 - **Strict Size Budgets**:
-  - `index.json`: < 50 KB gzipped (~35 KB actual)
-  - `search-index.json`: < 25 KB gzipped (~10 KB actual; automatically split by first letter if exceeded)
-  - `all.json`: < 250 KB gzipped (~148 KB actual across all 830+ rules)
+  - `index.json`: 50 KiB gzipped limit
+  - `search-index.json`: 25 KiB gzipped limit (automatically split by first letter if exceeded)
+  - `all.json`: 250 KiB gzipped limit. Run `npm run size` for measured sizes.
 
 ---
 

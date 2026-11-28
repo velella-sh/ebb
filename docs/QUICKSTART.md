@@ -161,7 +161,7 @@ $ npx skills add velella-sh/ebb
 :::
 
 > [!NOTE]
-> In benchmark evaluations, adding Ebb reduced agent picks of deprecated dependencies from **38% down to 0%** (see [Agent Evaluations](agent-evals.md)).
+[Agent Evaluations](https://velella.sh/ebb/agent-evals/) describes the fixed fixtures used to test how Ebb scores dependency choices. Live accuracy measurements are pending.
 
 ---
 

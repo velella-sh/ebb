@@ -24,7 +24,7 @@ Ebb 0.2.0 establishes the stable Core API, zero runtime dependencies, multi-runt
 3. **Modular Ecosystem Subpaths & Scoped Instances:**
    - Rather than loading the entire registry into memory, applications can import specific ecosystem data modules (`@velella/ebb/data/<ecosystem>`) and initialize lightweight instances via `createEbb({ ecosystems: [...] })`.
 4. **Lazy Data Loading:**
-   - The root `@velella/ebb` entry point loads ecosystem data lazily on first lookup, reducing initial startup time to under 20 ms.
+   - The root `@velella/ebb` entry point loads ecosystem data on first lookup. See the [Node.js measurements](https://velella.sh/ebb/benchmarks/).
    - For long-running servers and background workers, an explicit `preload()` function is provided to warm up data caches ahead of time.
 5. **Multi-Runtime Execution:**
    - **Browser & Edge:** Official entry points `@velella/ebb/browser` and `@velella/ebb/edge` provide full check, batch evaluation, and replacement lookups without Node.js file system dependencies.

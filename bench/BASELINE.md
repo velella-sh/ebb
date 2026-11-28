@@ -1,6 +1,6 @@
 # Baseline Performance Measurements
 
-Initial baseline numbers captured prior to performance optimizations in milestone `v0.2.0` (Issue #253).
+Historical baseline recorded before the performance optimizations in milestone `v0.2.0` (Issue #253). See the [benchmark page](../docs/benchmarks.md) for the published CI measurement, commands, and claim audit.
 
 ## Environment
 

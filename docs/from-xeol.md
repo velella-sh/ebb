@@ -51,7 +51,7 @@ ebb check-all sbom.json --format xeol-json
     npx --yes @velella/ebb check-all sbom.json --format xeol-json --fail-on end-of-life
 ```
 
-Measured migration time on a fresh clone of a sample container repository: **42 seconds** (under 1 minute).
+Migration time depends on which dependencies are declared and how they are supplied to Ebb.
 
 ---
 

@@ -1,0 +1,9 @@
+[
+  {"id":"renovate","url":"https://velella.sh/ebb/renovate/","status":"documented"},
+  {"id":"sbom","url":"https://velella.sh/ebb/sbom/","status":"documented"},
+  {"id":"scanners","url":"https://velella.sh/ebb/scanners/","status":"documented"},
+  {"id":"pre-commit","url":"https://velella.sh/ebb/pre-commit/","status":"documented"},
+  {"id":"xeol-migration","url":"https://velella.sh/ebb/from-xeol/","status":"documented"},
+  {"id":"endoflife-date-compatibility","url":"https://velella.sh/ebb/endoflife-compat/","status":"documented"},
+  {"id":"monitoring","url":"https://velella.sh/ebb/monitoring/","status":"documented"}
+]
