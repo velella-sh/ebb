@@ -7,12 +7,14 @@ import test from "node:test";
 import { pathToFileURL } from "node:url";
 
 import type { RegistryV2Rule } from "../src/registry.js";
+import { canonicalRuleUrl } from "../src/site-routes.js";
 import { upcoming } from "../src/upcoming.js";
 import type { comparisonPages } from "../tools/site-data/comparisons.js";
 import type { ComponentRecord } from "../tools/site-data/components.js";
 import { generateSiteData } from "../tools/site-data/generate.js";
 import { writeSitePages } from "../tools/site-data/pages.js";
 import { type SiteReleaseInput, readSiteRelease } from "../tools/site-data/release.js";
+import { publicRuleRoutesSource, routeAliases } from "../tools/site-data/routes.js";
 
 import { deadlineMonths } from "../tools/site-data/timeline.js";
 
@@ -24,6 +26,121 @@ const sha256 = process.env.EBB_SITE_SHA256;
 const htmlDir = process.env.EBB_SITE_BUILT_HTML;
 const siteTools = process.env.EBB_SITE_TOOLS;
 const asOf = process.env.EBB_SITE_AS_OF ?? "2026-11-28";
+
+function checkCorrection(html: string, path: string, id: string, version: string): void {
+  const href = /href="(https:\/\/github\.com\/velella-sh\/ebb\/issues\/new\?[^"<>]+)"/u.exec(html)?.[1];
+  assert.ok(href, "missing correction link");
+  const body = new URL(href.replaceAll("&amp;", "&")).searchParams.get("body")?.split("\n");
+  assert.ok(body?.includes(`Page: ${path}`));
+  assert.ok(body?.includes(`Record: ${id}`));
+  assert.ok(body?.includes(`Version: ${version}`));
+}
+
+function checkRedirect(html: string, canonical: string): void {
+  assert.deepEqual(
+    [...html.matchAll(/rel="canonical" href="([^"<>]+)"/gu)].map((match) => match[1]),
+    [canonical],
+  );
+  assert.ok(html.includes(`http-equiv="refresh" content="0; url=${canonical}"`));
+  assert.ok(html.includes(`<a href="${canonical}">`));
+}
+
+test("locked aliases resolve directly and do not overwrite another canonical slug", () => {
+  const rules = [
+    { id: "rule.identity", slug: "current" },
+    { id: "other-rule", slug: "other-rule" },
+  ];
+  const records = { products: [], "release-lines": [], rules };
+  const aliases = routeAliases(records, { first: "second", second: "current" });
+  assert.deepEqual([...aliases], [["current", ["/rules/rule.identity/", "/rules/first/", "/rules/second/"]]]);
+  assert.throws(() => routeAliases(records, { "other-rule": "current" }), /replaces a canonical slug/);
+  assert.throws(() => routeAliases(records, { first: "second", second: "first" }), /Redirect cycle/);
+  assert.equal(canonicalRuleUrl("rule.identity"), undefined);
+  assert.equal(canonicalRuleUrl("npm-package-request-deprecated"), undefined);
+});
+
+test("Mizzen and Lateen publish one canonical destination and correction context", { skip: !siteTools }, async (t) => {
+  assert.ok(siteTools);
+  const dir = await mkdtemp(join(tmpdir(), "ebb-redirect-fixture-"));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  await mkdir(join(dir, "_data"));
+  await mkdir(join(dir, "_templates"));
+  await writeFile(
+    join(dir, "mizzen.yml"),
+    `title: Site fixture
+url: https://velella.sh
+base: /ebb
+lang: en
+repository:
+  url: https://github.com/velella-sh/ebb
+collections:
+  rules:
+    source: _data/rules.json
+    template: _templates/rule.md
+    permalink: /rules/{slug}/
+    aliases: aliases
+    evidence: claims
+`,
+  );
+  await writeFile(join(dir, "_templates", "rule.md"), await readFile("docs/_templates/rule.md", "utf8"));
+  await writeFile(join(dir, "index.md"), "---\ntitle: Redirect fixture\n---\n");
+  const rule = {
+    id: "rule.identity",
+    slug: "current",
+    title: "Current rule",
+    summary: "Lifecycle evidence",
+    dataVersion: "2026.11.11",
+    status: "end-of-life",
+    claims: { status: [{ id: "source", title: "Vendor announcement", url: "https://example.com/eol" }] },
+  };
+  const aliases = routeAliases({ products: [], "release-lines": [], rules: [rule] }, { previous: rule.slug });
+  await writeFile(join(dir, "_data", "rules.json"), JSON.stringify([{ ...rule, aliases: aliases.get(rule.slug) }]));
+  const out = join(dir, "_site");
+  execFileSync(
+    join(siteTools, ".bin", "mizzen"),
+    ["build", dir, "--theme", join(siteTools, "@velella/lateen"), "--out", out],
+    { timeout: 30_000, stdio: "inherit" },
+  );
+  const canonical = "https://velella.sh/ebb/rules/current/";
+  for (const slug of ["previous", rule.id]) {
+    checkRedirect(await readFile(join(out, "rules", slug, "index.html"), "utf8"), canonical);
+  }
+  const rules = await readFile(join(out, "_redirects"), "utf8");
+  assert.deepEqual(rules.trim().split("\n"), [
+    `/rules/previous/ ${canonical} 301`,
+    `/rules/rule.identity/ ${canonical} 301`,
+  ]);
+  checkCorrection(
+    await readFile(join(out, "rules", rule.slug, "index.html"), "utf8"),
+    "/ebb/rules/current/",
+    rule.id,
+    rule.dataVersion,
+  );
+});
+
+test("signed deployment links keep canonical records, corrections, and authoritative evidence", {
+  skip: !(htmlDir && version),
+}, async () => {
+  assert.ok(htmlDir && version);
+  const slug = "npm-package-request-deprecated";
+  const id = "npm.package.request.deprecated";
+  const path = `/ebb/rules/${slug}/`;
+  const html = await readFile(join(htmlDir, "rules", slug, "index.html"), "utf8");
+  assert.ok(html.includes('href="https://www.npmjs.com/package/request"'));
+  checkCorrection(html, path, id, version);
+  checkRedirect(await readFile(join(htmlDir, "rules", id, "index.html"), "utf8"), `https://velella.sh${path}`);
+  for (const [kind, slug] of [
+    ["products", "nodejs-nodejs"],
+    ["release-lines", "nodejs-nodejs-line-20-x"],
+    ["deadlines", asOf.slice(0, 7)],
+    ["release-comparisons", "nodejs-nodejs/20-x-vs-22-x"],
+    ["data-releases", version],
+  ]) {
+    const product = await readFile(join(htmlDir, kind!, slug!, "index.html"), "utf8");
+    const record = JSON.parse(await readFile(join(htmlDir, kind!, slug!, "index.json"), "utf8"));
+    checkCorrection(product, `/ebb/${kind}/${slug}/`, record.record.id, version);
+  }
+});
 
 type Product = Pick<ComponentRecord, "id" | "slug" | "title" | "ecosystem" | "status">;
 
@@ -238,6 +355,15 @@ test("signed site data verifies the pinned bundle, builds deterministic records 
     assert.deepEqual(await readFile(join(first, name)), await readFile(join(second, name)));
   }
   await assert.rejects(writeSitePages({ from, out: second, version: "2027.01.01", rules }), /Invalid site collection/);
+
+  const publishedRules = JSON.parse(await readFile(join(first, "rules.json"), "utf8")) as Array<{
+    id: string;
+    slug: string;
+  }>;
+  assert.equal(await readFile("src/public-rule-routes.ts", "utf8"), publicRuleRoutesSource(publishedRules, version));
+  for (const { id, slug } of publishedRules) {
+    assert.equal(canonicalRuleUrl(id), `https://velella.sh/ebb/rules/${slug}/`);
+  }
 
   const products = JSON.parse(await readFile(join(first, "products.json"), "utf8"));
   const sourceProducts = JSON.parse(await readFile(join(from, "components.json"), "utf8")).records as ComponentRecord[];

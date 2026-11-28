@@ -32,6 +32,7 @@ Ebb produces structured, human-readable terminal output with ANSI colors, source
 $ ebb check pkg\:npm/request@2.88.2
 ✖ pkg\:npm/request@2.88.2: deprecated
   Rule: npm.package.request.deprecated
+  Lifecycle evidence: https://velella.sh/ebb/rules/npm-package-request-deprecated/
   Event: deprecated (2020-02-11)
   Replacement: Native fetch or a maintained HTTP client
   Sources:
@@ -57,6 +58,8 @@ $ ebb check pkg\:docker/library/node@22.0.0
 ### `ebb check <purl> [version]`
 
 Evaluates a component against active lifecycle rules. The version can be embedded in the Package URL (e.g. `pkg:npm/request@2.88.2`) or passed as a separate positional argument.
+
+Text and Markdown include a canonical lifecycle evidence link when a matching rule is in the signed site catalogue. Both formats retain the original evidence sources. `--json` uses the [v1 result schema](result-model.md).
 
 ```bash
 # PURL with embedded version

@@ -172,6 +172,7 @@ Call before installing or upgrading a package or runtime version. Checks against
     "matches": [
       {
         "ruleId": "npm.package.request.deprecated",
+        "canonicalUrl": "https://velella.sh/ebb/rules/npm-package-request-deprecated/",
         "event": "deprecated",
         "date": "2020-02-11",
         "daysLeft": null,

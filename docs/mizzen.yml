@@ -35,6 +35,7 @@ collections:
     template: _templates/product.md
     permalink: /products/{slug}/
     id: id
+    aliases: aliases
     schema: _data/site-page.schema.json
     evidence: claims
     markdown: [timeline]
@@ -53,6 +54,7 @@ collections:
     template: _templates/release-line.md
     permalink: /release-lines/{slug}/
     id: id
+    aliases: aliases
     schema: _data/site-page.schema.json
     evidence: claims
     references:
@@ -62,6 +64,7 @@ collections:
     template: _templates/rule.md
     permalink: /rules/{slug}/
     id: id
+    aliases: aliases
     schema: _data/site-page.schema.json
     evidence: claims
     seo:

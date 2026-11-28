@@ -7,6 +7,7 @@ import { comparisonPages, supportRules } from "./comparisons.js";
 import type { ComponentRecord } from "./components.js";
 import type { ReleaseLineRecord } from "./lines.js";
 import { siteReleaseRecords } from "./releases.js";
+import { routeAliases } from "./routes.js";
 import type { RuleRecord } from "./rules.js";
 import { deadlineMonths, releaseTimeline } from "./timeline.js";
 import { compileSiteDataSchema } from "./validate.js";
@@ -94,6 +95,8 @@ export async function writeSitePages(options: {
     readCollection<ReleaseLineRecord>("lines"),
     readCollection<RuleRecord>("rules"),
   ]);
+  const redirects = JSON.parse(await readFile(join(from, "redirects.json"), "utf8")) as Record<string, string>;
+  const aliases = routeAliases({ products: components, "release-lines": lines, rules: ruleRecords }, redirects);
   const recordsById = new Map(ruleRecords.map((rule) => [rule.id, rule]));
   const rulesById = new Map(rules.map((rule) => [rule.id, rule]));
   const componentsBySlug = new Map(components.map((component) => [component.slug, component]));
@@ -127,6 +130,7 @@ export async function writeSitePages(options: {
     return {
       id: line.id,
       slug: line.slug,
+      aliases: aliases.get(line.slug),
       title: line.title,
       summary: line.summary,
       status: line.status,
@@ -184,6 +188,7 @@ export async function writeSitePages(options: {
       title: component.title,
       summary: component.summary,
       slug: component.slug,
+      aliases: aliases.get(component.slug),
       ecosystem: component.ecosystem,
       status: component.status,
       purl: component.purl,
@@ -220,6 +225,7 @@ export async function writeSitePages(options: {
     return {
       id: record.id,
       slug: record.slug,
+      aliases: aliases.get(record.slug),
       title: record.title,
       summary: record.summary,
       status: rule.event,

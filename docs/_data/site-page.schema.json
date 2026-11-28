@@ -5,6 +5,7 @@
   "properties": {
     "id": { "type": "string", "minLength": 1 },
     "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "aliases": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "title": { "type": "string", "minLength": 1 },
     "summary": { "type": "string", "minLength": 1 },
     "purl": { "type": "string", "pattern": "^pkg:" },
