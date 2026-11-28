@@ -13,17 +13,17 @@ The [coverage inventories](https://velella.sh/ebb/coverage-inventories/) record 
 
 Week of 2026-11-23 · Reference date 2026-11-28 UTC · [Signed data 2026.11.11](https://github.com/velella-sh/ebb/releases/tag/data-v2026.11.11)
 
-**782 rules · 416 components · 733 recorded gaps**
+**782 rules · 416 components · 749 recorded gaps**
 
 Evidence comprises 455 unique primary URLs. Archived evidence was recorded for 352 of them. 782 rules have a dated review at this reference date.
 
-- runtime-line: 21
+- runtime-line: 37
 - text-successor: 712
 - stale-rule: 0
 - dead-source: 0
 - requested-product: 0
 
-Source lock SHA-256 `8b604d113895b6ec122eeea01be25500c983a303a6b1bcc0c89308fcb6f38b1c`. [Coverage inputs at this checkout](https://github.com/velella-sh/ebb/tree/866944fb596b08882ade3904cb1c0957c3b0443c/tools/coverage/expected).
+Source lock SHA-256 `8b604d113895b6ec122eeea01be25500c983a303a6b1bcc0c89308fcb6f38b1c`. [Coverage inputs at this checkout](https://github.com/velella-sh/ebb/tree/73d2afaaf1e4e30f6f45ad07d943ef936a790bc2/tools/coverage/expected).
 
 ## Ecosystems
 
