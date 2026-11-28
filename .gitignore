@@ -6,3 +6,4 @@ dist/
 *.tgz
 bench-results.json
 docs/.mizzen/
+docs/_data/site-records/
