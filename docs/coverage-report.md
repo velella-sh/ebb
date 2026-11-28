@@ -7,6 +7,8 @@ permalink: /coverage-report/
 
 See the [coverage gaps](https://velella.sh/ebb/gaps/) for evidence-backed work and the [coverage card](https://velella.sh/ebb/assets/coverage-card.svg) for the same headline counts.
 
+The [database, OS and PyPI inventories](https://velella.sh/ebb/coverage-inventories/) record primary sources and proposed batches for the next review.
+
 <!-- coverage:begin -->
 
 Week of 2026-11-23 · Reference date 2026-11-28 UTC · [Signed data 2026.11.11](https://github.com/velella-sh/ebb/releases/tag/data-v2026.11.11)
