@@ -15,14 +15,11 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { purlIdentity } from "../../src/purl.js";
+import { ruleCoversLineRange } from "../../src/rule-versions.js";
+
+export { ruleCoversLineRange } from "../../src/rule-versions.js";
 import { registryV2Issues, validateRegistryV2, type RegistryV2Rule } from "../../src/registry.js";
-import {
-  parseVersLenient,
-  versContains,
-  versionScheme,
-  type VersComparator,
-  type VersConstraint,
-} from "../../src/vers.js";
+import { versContains } from "../../src/vers.js";
 
 // Compiled to dist/tools/coverage/*.js — three levels up is the repository root.
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -111,57 +108,6 @@ export interface CoverageReport {
 
 function isSymbolRule(rule: RegistryV2Rule): boolean {
   return rule.usage?.some((matcher) => matcher.kind === "symbol") ?? false;
-}
-
-const isLower = (comparator: VersComparator) => comparator === ">" || comparator === ">=";
-const isUpper = (comparator: VersComparator) => comparator === "<" || comparator === "<=";
-
-/**
- * Coverage requires one interval that contains the entire expected release line.
- * More complex rule expressions fail closed rather than treating separated
- * intervals or isolated versions as a continuous range.
- */
-export function ruleCoversLineRange(ruleVers: string, lineVers: string): boolean {
-  const line = parseVersLenient(lineVers);
-  const rule = parseVersLenient(ruleVers);
-  if (line.scheme !== rule.scheme) return false;
-  if (rule.all) return true;
-  if (line.all) return false;
-
-  const expectedLower = line.constraints.filter((constraint) => isLower(constraint.comparator));
-  const expectedUpper = line.constraints.filter((constraint) => isUpper(constraint.comparator));
-  if (
-    expectedLower.length > 1 ||
-    expectedUpper.length > 1 ||
-    expectedLower.length + expectedUpper.length !== line.constraints.length
-  )
-    return false;
-
-  const ruleLower = rule.constraints.filter((constraint) => isLower(constraint.comparator));
-  const ruleUpper = rule.constraints.filter((constraint) => isUpper(constraint.comparator));
-  if (ruleLower.length > 1 || ruleUpper.length > 1) return false;
-  if (rule.constraints.some((constraint) => constraint.comparator === "=")) return false;
-  if (rule.constraints.some((constraint) => constraint.comparator === "!=" && versContains(line, constraint.version)))
-    return false;
-
-  const scheme = versionScheme(line.scheme);
-  return (
-    endpointCovered(ruleLower[0], expectedLower[0], scheme.compare, ">") &&
-    endpointCovered(ruleUpper[0], expectedUpper[0], scheme.compare, "<")
-  );
-}
-
-function endpointCovered(
-  rule: VersConstraint | undefined,
-  expected: VersConstraint | undefined,
-  compare: (left: string, right: string) => number,
-  exclusive: ">" | "<",
-): boolean {
-  if (!rule) return true;
-  if (!expected) return false;
-  const order = compare(rule.version, expected.version);
-  if (order === 0) return rule.comparator !== exclusive || expected.comparator === exclusive;
-  return exclusive === ">" ? order < 0 : order > 0;
 }
 
 /**
@@ -333,7 +279,11 @@ export async function checkRuntimeCoverage(root = ROOT): Promise<CoverageReport>
   return { runtimes, complete: runtimes.every((r) => r.complete) };
 }
 
-async function loadRegistryRulesForRoot(root: string, registryFile: string, purl: string): Promise<RegistryV2Rule[]> {
+export async function loadRegistryRulesForRoot(
+  root: string,
+  registryFile: string,
+  purl: string,
+): Promise<RegistryV2Rule[]> {
   const value = JSON.parse(await readFile(join(root, "registry", registryFile), "utf8")) as unknown;
   if (registryV2Issues(value).length > 0) {
     throw new Error(`registry/${registryFile} is invalid`);

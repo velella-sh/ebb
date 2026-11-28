@@ -1,0 +1,208 @@
+{
+  "table": {
+    "schemaVersion": "ebb.prediction.v1",
+    "dataVersion": "2026.11.28",
+    "inputSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "predictions": [
+      {
+        "purl": "pkg:generic/golang",
+        "line": "1.25",
+        "lineVers": "vers:golang/>=1.25.0|<1.26.0",
+        "predictedEnd": {
+          "date": "2027-02-15",
+          "low": "2027-01-25",
+          "high": "2027-03-07",
+          "precision": "month"
+        },
+        "confidence": "medium",
+        "method": "policy",
+        "evidence": [
+          {
+            "kind": "policy",
+            "url": "https://go.dev/doc/devel/release",
+            "accessedAt": "2026-11-28"
+          },
+          {
+            "kind": "schedule",
+            "url": "https://github.com/golang/go/blob/master/doc/next/1-intro.md",
+            "accessedAt": "2026-11-28",
+            "line": "1.28",
+            "firstReleased": "2027-02"
+          }
+        ],
+        "modelVersion": "1.0.0",
+        "dataVersion": "2026.11.28"
+      },
+      {
+        "purl": "pkg:generic/golang",
+        "line": "1.26",
+        "lineVers": "vers:golang/>=1.26.0|<1.27.0",
+        "predictedEnd": {
+          "date": "2027-02-15",
+          "low": "2027-01-25",
+          "high": "2027-03-07",
+          "precision": "month"
+        },
+        "confidence": "medium",
+        "method": "policy",
+        "evidence": [
+          {
+            "kind": "policy",
+            "url": "https://go.dev/doc/devel/release",
+            "accessedAt": "2026-11-28"
+          },
+          {
+            "kind": "schedule",
+            "url": "https://github.com/golang/go/blob/master/doc/next/1-intro.md",
+            "accessedAt": "2026-11-28",
+            "line": "1.28",
+            "firstReleased": "2027-02"
+          }
+        ],
+        "modelVersion": "1.0.0",
+        "dataVersion": "2026.11.28"
+      },
+      {
+        "purl": "pkg:generic/ruby",
+        "line": "3.4",
+        "lineVers": "vers:gem/>=3.4.0|<3.5.0",
+        "predictedEnd": {
+          "date": "2028-04-03",
+          "low": "2028-03-26",
+          "high": "2028-04-23",
+          "precision": "month"
+        },
+        "confidence": "low",
+        "method": "cadence",
+        "evidence": [
+          {
+            "kind": "history",
+            "url": "https://www.ruby-lang.org/en/downloads/branches/",
+            "accessedAt": "2026-11-15",
+            "line": "3.0",
+            "firstReleased": "2020-12-25",
+            "end": "2024-04-23"
+          },
+          {
+            "kind": "history",
+            "url": "https://www.ruby-lang.org/en/downloads/branches/",
+            "accessedAt": "2026-11-15",
+            "line": "3.1",
+            "firstReleased": "2021-12-25",
+            "end": "2025-03-26"
+          },
+          {
+            "kind": "history",
+            "url": "https://www.ruby-lang.org/en/downloads/branches/",
+            "accessedAt": "2026-11-15",
+            "line": "3.2",
+            "firstReleased": "2022-12-25",
+            "end": "2026-04-01"
+          }
+        ],
+        "modelVersion": "1.0.0",
+        "dataVersion": "2026.11.28"
+      }
+    ]
+  },
+  "vectors": [
+    {
+      "spec": "docs/formats/prediction.v1.md#policy-example",
+      "purl": "pkg:generic/golang",
+      "version": "1.26.8",
+      "expected": {
+        "purl": "pkg:generic/golang",
+        "line": "1.26",
+        "lineVers": "vers:golang/>=1.26.0|<1.27.0",
+        "predictedEnd": {
+          "date": "2027-02-15",
+          "low": "2027-01-25",
+          "high": "2027-03-07",
+          "precision": "month"
+        },
+        "confidence": "medium",
+        "method": "policy",
+        "evidence": [
+          {
+            "kind": "policy",
+            "url": "https://go.dev/doc/devel/release",
+            "accessedAt": "2026-11-28"
+          },
+          {
+            "kind": "schedule",
+            "url": "https://github.com/golang/go/blob/master/doc/next/1-intro.md",
+            "accessedAt": "2026-11-28",
+            "line": "1.28",
+            "firstReleased": "2027-02"
+          }
+        ],
+        "modelVersion": "1.0.0",
+        "dataVersion": "2026.11.28"
+      }
+    },
+    {
+      "spec": "docs/formats/prediction.v1.md#cadence-example",
+      "purl": "pkg:generic/ruby",
+      "version": "3.4.1",
+      "expected": {
+        "purl": "pkg:generic/ruby",
+        "line": "3.4",
+        "lineVers": "vers:gem/>=3.4.0|<3.5.0",
+        "predictedEnd": {
+          "date": "2028-04-03",
+          "low": "2028-03-26",
+          "high": "2028-04-23",
+          "precision": "month"
+        },
+        "confidence": "low",
+        "method": "cadence",
+        "evidence": [
+          {
+            "kind": "history",
+            "url": "https://www.ruby-lang.org/en/downloads/branches/",
+            "accessedAt": "2026-11-15",
+            "line": "3.0",
+            "firstReleased": "2020-12-25",
+            "end": "2024-04-23"
+          },
+          {
+            "kind": "history",
+            "url": "https://www.ruby-lang.org/en/downloads/branches/",
+            "accessedAt": "2026-11-15",
+            "line": "3.1",
+            "firstReleased": "2021-12-25",
+            "end": "2025-03-26"
+          },
+          {
+            "kind": "history",
+            "url": "https://www.ruby-lang.org/en/downloads/branches/",
+            "accessedAt": "2026-11-15",
+            "line": "3.2",
+            "firstReleased": "2022-12-25",
+            "end": "2026-04-01"
+          }
+        ],
+        "modelVersion": "1.0.0",
+        "dataVersion": "2026.11.28"
+      }
+    },
+    {
+      "spec": "docs/formats/prediction.v1.md#precedence-and-matching",
+      "purl": "pkg:generic/golang",
+      "version": "1.25.1",
+      "expected": null
+    },
+    {
+      "spec": "docs/formats/prediction.v1.md#precedence-and-matching",
+      "purl": "pkg:generic/ruby",
+      "version": "3.5.0",
+      "expected": null
+    },
+    {
+      "spec": "docs/formats/prediction.v1.md#precedence-and-matching",
+      "purl": "pkg:npm/predict-unknown-fixture",
+      "version": "1.26.0",
+      "expected": null
+    }
+  ]
+}

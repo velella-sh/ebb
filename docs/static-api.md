@@ -32,6 +32,7 @@ Base URL: `https://velella.sh/ebb/api/v1`
 | `/index.json` | Global catalog mapping every component to its URL and content hash | `/index.json` |
 | `/ecosystems.json` | Catalog of all ecosystems with rule and component counts | `/ecosystems.json` |
 | `/upcoming.json` | Scheduled deprecations and end-of-life dates, sorted by deadline | `/upcoming.json` |
+| `/predictions.json` | Optional end-of-life ranges from vendor policy and release history | `/predictions.json` |
 | `/recent.json` | Most recently reviewed and updated rules, sorted by date | `/recent.json` |
 | `/search-index.json` | Compact prefix search index for fast component autocomplete | `/search-index.json` |
 | `/rules/<rule-id>.json` | Full lifecycle rule with evidence sources and provenance | `/rules/npm.package.request.deprecated.json` |
@@ -44,6 +45,8 @@ Base URL: `https://velella.sh/ebb/api/v1`
 | `/renovate/<type>/<name>.json` | Release lines and deprecation flags formatted for Renovate custom datasources | `/renovate/generic/nodejs.json` |
 
 ---
+
+The versioned API exposes optional [end-of-life predictions](predict.md) in `predictions.json`. The index's `predictions` field records its relative path, SHA-256 and snapshot data version.
 
 ## Client Initialization (`meta.json`)
 

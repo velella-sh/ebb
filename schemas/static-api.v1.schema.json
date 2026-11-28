@@ -218,6 +218,16 @@
             "staleAfterDays": { "type": "integer", "minimum": 0 }
           }
         },
+        "predictions": {
+          "type": "object",
+          "required": ["path", "sha256", "dataVersion"],
+          "additionalProperties": false,
+          "properties": {
+            "path": { "const": "predictions.json" },
+            "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+            "dataVersion": { "type": "string", "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}$" }
+          }
+        },
         "components": {
           "type": "object",
           "additionalProperties": { "$ref": "#/$defs/indexComponent" }

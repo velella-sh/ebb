@@ -1,0 +1,44 @@
+{
+  "asOf": "2026-11-28",
+  "policies": [
+    {
+      "purl": "pkg:generic/golang",
+      "successors": 2,
+      "source": "https://go.dev/doc/devel/release",
+      "schedule": [
+        {
+          "line": "1.28",
+          "date": "2027-02",
+          "precision": "month",
+          "url": "https://github.com/golang/go/blob/master/doc/next/1-intro.md"
+        }
+      ]
+    },
+    {
+      "purl": "pkg:generic/java",
+      "successors": 1,
+      "source": "https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
+      "exclude": ["8", "11", "17", "21", "25", "29"],
+      "schedule": [{ "line": "28", "date": "2027-03", "precision": "month", "url": "https://adoptium.net/support/" }]
+    },
+    {
+      "purl": "pkg:generic/rust",
+      "successors": 1,
+      "source": "https://doc.rust-lang.org/book/appendix-07-nightly-rust.html#maintenance-time",
+      "gapDays": 42,
+      "schedule": [{ "line": "1.101", "date": "2026-12-24", "precision": "day", "url": "https://forge.rust-lang.org/" }]
+    }
+  ],
+  "rustReleases": {
+    "source": "https://blog.rust-lang.org/releases/",
+    "dates": {
+      "1.94": "2026-03-05",
+      "1.95": "2026-04-16",
+      "1.96": "2026-05-28",
+      "1.97": "2026-07-09",
+      "1.98": "2026-08-20",
+      "1.99": "2026-10-01",
+      "1.100": "2026-11-12"
+    }
+  }
+}
