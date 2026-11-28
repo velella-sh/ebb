@@ -509,6 +509,76 @@
       "purl": "pkg:generic/kubernetes",
       "version": "1.35.0",
       "rules": ["kubernetes.release.end-of-life-1.35"]
+    },
+    {
+      "purl": "pkg:generic/google-gke",
+      "version": "1.32.0",
+      "rules": ["kubernetes.google-gke.1.32"]
+    },
+    {
+      "purl": "pkg:generic/google-gke",
+      "version": "1.31.0",
+      "rules": ["kubernetes.google-gke.1.31"]
+    },
+    {
+      "purl": "pkg:generic/google-gke",
+      "version": "1.30.0",
+      "rules": ["kubernetes.google-gke.1.30"]
+    },
+    {
+      "purl": "pkg:generic/google-gke",
+      "version": "1.0.0",
+      "rules": ["kubernetes.google-gke.1.29-and-older"]
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.33.0",
+      "rules": ["kubernetes.azure-aks.1-33"]
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.32.0",
+      "rules": ["kubernetes.azure-aks.1-32"]
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.31.0",
+      "rules": ["kubernetes.azure-aks.1-31"]
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.30.0",
+      "rules": ["kubernetes.azure-aks.1-30"]
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.29.0",
+      "rules": ["kubernetes.azure-aks.1-29"]
+    },
+    {
+      "purl": "pkg:generic/azure-aks",
+      "version": "1.0.0",
+      "rules": ["kubernetes.azure-aks.1-28-and-older"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.33.0",
+      "rules": ["kubernetes.amazon-eks.1-33", "terraform.eks.end-of-support-1.33"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.32.0",
+      "rules": ["kubernetes.amazon-eks.1-32", "terraform.eks.end-of-support-1.32"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.31.0",
+      "rules": ["kubernetes.amazon-eks.1-31", "terraform.eks.end-of-support-1.31"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.0.0",
+      "rules": ["kubernetes.amazon-eks.1-30-and-older", "terraform.eks.end-of-life-1.30-and-older"]
     }
   ]
 }

@@ -203,6 +203,41 @@
         "terraform.function.list-map",
         "terraform.syntax.interpolation-only"
       ]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.31.0",
+      "rules": ["terraform.gke.end-of-life-1.31"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.30.0",
+      "rules": ["terraform.gke.end-of-life-1.30"]
+    },
+    {
+      "purl": "pkg:generic/google-kubernetes-engine",
+      "version": "1.0.0",
+      "rules": ["terraform.gke.end-of-life-1.29-and-older"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.30.0",
+      "rules": ["terraform.aks.end-of-life-1.30"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.29.0",
+      "rules": ["terraform.aks.end-of-life-1.29"]
+    },
+    {
+      "purl": "pkg:generic/azure-kubernetes-service",
+      "version": "1.0.0",
+      "rules": ["terraform.aks.end-of-life-1.28-and-older"]
+    },
+    {
+      "purl": "pkg:generic/amazon-eks",
+      "version": "1.0.0",
+      "rules": ["kubernetes.amazon-eks.1-30-and-older", "terraform.eks.end-of-life-1.30-and-older"]
     }
   ]
 }

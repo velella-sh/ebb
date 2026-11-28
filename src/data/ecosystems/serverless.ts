@@ -374,13 +374,21 @@ export const rules: readonly RegistryV2Rule[] = [
     summary:
       "The AWS Lambda runtimes table lists dotnetcore3.1 under Deprecated runtimes with deprecation date 2023-04-03. AWS no longer applies security or other updates to that managed runtime.",
     severity: "high",
-    replacement: "dotnet8",
+    replacement: "dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-lambda-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "AWS lists .NET 10 for Lambda. Review deployment and dependency changes before migrating.",
+      },
+    ],
     deadline: "2023-04-03",
     sources: [
       {
         title: "AWS Lambda runtimes",
         url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
         archivedAt: "2026-10-21",
@@ -388,9 +396,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3604,12 +3612,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Google Cloud Functions runtime support schedule lists Node.js 14 (runtime ID nodejs14) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-21",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261021000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-21",
@@ -3617,9 +3639,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-21",
-      reviewedAt: "2026-10-21",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3662,12 +3684,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Node.js 20 (runtime ID nodejs20) as deprecated on 2026-04-30 and decommissioned on 2026-10-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs24 or nodejs26",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2026-10-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -3675,9 +3711,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3721,12 +3757,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Node.js 18 (runtime ID nodejs18) as deprecated on 2025-04-30 and decommissioned on 2025-10-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs24 or nodejs26",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-10-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -3734,9 +3784,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3780,12 +3830,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Node.js 16 (runtime ID nodejs16) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs24 or nodejs26",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -3793,9 +3857,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3839,12 +3903,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Node.js 12 (runtime ID nodejs12) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs24 or nodejs26",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -3852,9 +3930,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3898,12 +3976,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Node.js 10 (runtime ID nodejs10) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs24 or nodejs26",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -3911,9 +4003,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -3957,11 +4049,25 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Node.js 8 (runtime ID nodejs8) as deprecated on 2020-06-05 and decommissioned later. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs24 or nodejs26",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -3969,9 +4075,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4015,11 +4121,25 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Node.js 6 (runtime ID nodejs6) as deprecated on 2019-04-17 and decommissioned later. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "nodejs24 or nodejs26",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/nodejs22",
+        name: "nodejs22",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4027,9 +4147,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4073,12 +4193,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Python 3.10 (runtime ID python310) as deprecated on 2026-10-04 and scheduled for decommission on 2027-04-04. Google no longer offers runtime support for deployments that use it.",
     severity: "medium",
     replacement: "python313 or python314",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python312",
+        name: "python312",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2027-04-04",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4086,9 +4220,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4132,12 +4266,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Python 3.9 (runtime ID python39) as deprecated on 2025-10-05 and decommissioned on 2026-04-05. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "python313 or python314",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python312",
+        name: "python312",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2026-04-05",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4145,9 +4293,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4191,12 +4339,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Python 3.8 (runtime ID python38) as deprecated on 2024-10-14 and decommissioned on 2025-10-14. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "python313 or python314",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python312",
+        name: "python312",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-10-14",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4204,9 +4366,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4250,12 +4412,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Python 3.7 (runtime ID python37) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "python313 or python314",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/python312",
+        name: "python312",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4263,9 +4439,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4309,12 +4485,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.25 (runtime ID go125) as deprecated on 2026-10-01 and scheduled for decommission on 2027-04-01. Google no longer offers runtime support for deployments that use it.",
     severity: "medium",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2027-04-01",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4322,9 +4506,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4368,12 +4552,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.24 (runtime ID go124) as deprecated on 2026-09-02 and scheduled for decommission on 2027-03-02. Google no longer offers runtime support for deployments that use it.",
     severity: "medium",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2027-03-02",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4381,9 +4573,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4427,12 +4619,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.23 (runtime ID go123) as deprecated on 2026-02-21 and decommissioned on 2026-08-21. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2026-08-21",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4440,9 +4640,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4486,12 +4686,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.22 (runtime ID go122) as deprecated on 2026-01-28 and decommissioned on 2026-07-28. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2026-07-28",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4499,9 +4707,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4545,12 +4753,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.21 (runtime ID go121) as deprecated on 2025-09-03 and decommissioned on 2026-03-03. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2026-03-03",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4558,9 +4774,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4604,12 +4820,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.20 (runtime ID go120) as deprecated on 2024-05-01 and decommissioned on 2025-05-01. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-05-01",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4617,9 +4841,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4663,12 +4887,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.19 (runtime ID go119) as deprecated on 2024-04-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4676,9 +4908,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4722,12 +4954,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.18 (runtime ID go118) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4735,9 +4975,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4781,12 +5021,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.16 (runtime ID go116) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4794,9 +5042,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4840,12 +5088,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.13 (runtime ID go113) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4853,9 +5109,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4899,11 +5155,19 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Go 1.11 (runtime ID go111) as deprecated on 2020-08-05 and decommissioned later. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "go126 or go127",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4911,9 +5175,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -4957,12 +5221,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Java 11 (runtime ID java11) as deprecated on 2024-10-31 and decommissioned on 2025-10-31. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "java21 or java25",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-10-31",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -4970,9 +5242,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5016,12 +5288,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Ruby 3.2 (runtime ID ruby32) as deprecated on 2026-03-31 and decommissioned on 2026-09-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "ruby34 or ruby40",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby33",
+        name: "ruby33",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2026-09-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5029,9 +5315,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5075,12 +5361,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Ruby 3.0 (runtime ID ruby30) as deprecated on 2024-03-31 and decommissioned on 2025-03-31. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "ruby34 or ruby40",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby33",
+        name: "ruby33",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-03-31",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5088,9 +5388,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5134,12 +5434,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Ruby 2.7 (runtime ID ruby27) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "ruby34 or ruby40",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby33",
+        name: "ruby33",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5147,9 +5461,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5193,12 +5507,26 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists Ruby 2.6 (runtime ID ruby26) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "ruby34 or ruby40",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/ruby33",
+        name: "ruby33",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5206,9 +5534,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5252,12 +5580,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists PHP 8.1 (runtime ID php81) as deprecated on 2025-12-31 and decommissioned on 2026-06-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "php84 or php85",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/php84",
+        name: "php84",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2026-06-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5265,9 +5601,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5311,12 +5647,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists PHP 7.4 (runtime ID php74) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "php84 or php85",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/php84",
+        name: "php84",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5324,9 +5668,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5370,12 +5714,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists .NET 6 (runtime ID dotnet6) as deprecated on 2024-11-12 and decommissioned on 2025-11-12. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "dotnet8 or dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-11-12",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5383,9 +5735,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5429,12 +5781,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud Run functions runtime support schedule lists .NET Core 3 (runtime ID dotnet3) as deprecated on 2024-01-30 and decommissioned on 2025-01-30. Google no longer provides maintenance for that runtime.",
     severity: "high",
     replacement: "dotnet8 or dotnet10",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-functions-runtime/dotnet10",
+        name: "dotnet10",
+        kind: "successor",
+        note: "Google lists this runtime for Cloud Run functions. Check which runtimes are available in your function generation.",
+      },
+    ],
     deadline: "2025-01-30",
     sources: [
       {
         title: "Cloud Run functions runtime support",
         url: "https://cloud.google.com/functions/docs/runtime-support",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/functions/docs/runtime-support",
         archivedAt: "2026-10-30",
@@ -5442,9 +5802,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5488,12 +5848,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.23 (runtime ID go123) with end of support on 2026-08-21 and deprecation on 2027-08-21. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2026-08-21",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5501,9 +5869,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5546,12 +5914,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.22 (runtime ID go122) with end of support on 2026-07-28 and deprecation on 2027-07-28. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2026-07-28",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5559,9 +5935,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5604,12 +5980,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.21 (runtime ID go121) with end of support on 2026-03-03 and deprecation on 2027-03-03. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2026-03-03",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5617,9 +6001,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5662,12 +6046,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.20 (runtime ID go120) with end of support on 2024-11-01 and deprecation on 2025-11-01. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-11-01",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5675,9 +6067,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5720,12 +6112,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.19 (runtime ID go119) with end of support on 2024-04-30 and deprecation on 2025-04-30. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-04-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5733,9 +6133,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5778,12 +6178,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.18 (runtime ID go118) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5791,9 +6199,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5836,12 +6244,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.16 (runtime ID go116) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5849,9 +6265,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5894,12 +6310,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.15 (runtime ID go115) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5907,9 +6331,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -5952,12 +6376,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.14 (runtime ID go114) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -5965,9 +6397,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6010,12 +6442,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.13 (runtime ID go113) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6023,9 +6463,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6068,12 +6508,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.12 (runtime ID go112) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6081,9 +6529,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6126,12 +6574,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Go 1.11 (runtime ID go111) with end of support on 2024-01-30, deprecation on 2026-01-31, and decommission on 2027-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "go124 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/go127",
+        name: "go127",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6139,9 +6595,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6184,12 +6640,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Java 11 (runtime ID java11) with end of support on 2024-10-31 and deprecation on 2025-10-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "java21 or java25",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-10-31",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6197,9 +6661,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6242,12 +6706,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Java 8 (runtime ID java8) with end of support on 2024-01-31, deprecation on 2026-01-31, and decommission on 2027-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "java21 or java25",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/java21",
+        name: "java21",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-31",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6255,9 +6727,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6300,12 +6772,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Node.js 20 (runtime ID nodejs20) with end of support on 2026-04-30 and deprecation on 2027-04-30. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2026-04-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6313,9 +6793,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6358,12 +6838,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Node.js 18 (runtime ID nodejs18) with end of support on 2025-04-30 and deprecation on 2026-04-30. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2025-04-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6371,9 +6859,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6416,12 +6904,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Node.js 16 (runtime ID nodejs16) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6429,9 +6925,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6474,12 +6970,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Node.js 14 (runtime ID nodejs14) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6487,9 +6991,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6532,12 +7036,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Node.js 12 (runtime ID nodejs12) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6545,9 +7057,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6590,12 +7102,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Node.js 10 (runtime ID nodejs10) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6603,9 +7123,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6648,12 +7168,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Node.js 8 (runtime ID nodejs8) with end of support on 2018-06-27 and deprecation on 2019-10-01. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "nodejs22 or nodejs24",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/nodejs24",
+        name: "nodejs24",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2018-06-27",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6661,9 +7189,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6706,12 +7234,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Python 3.10 (runtime ID python310) with end of support on 2026-10-04 and deprecation on 2027-10-01. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "python311 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2026-10-04",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6719,9 +7255,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6764,12 +7300,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Python 3.9 (runtime ID python39) with end of support on 2025-10-05 and deprecation on 2026-10-01. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "python311 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2025-10-05",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6777,9 +7321,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6822,12 +7366,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Python 3.8 (runtime ID python38) with end of support on 2024-10-14 and deprecation on 2025-10-01. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "python311 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-10-14",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6835,9 +7387,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6880,12 +7432,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Python 3.7 (runtime ID python37) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "python311 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6893,9 +7453,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6938,12 +7498,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Python 2.7 (runtime ID python27) with end of support on 2024-01-31, deprecation on 2026-01-31, and decommission on 2027-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "python311 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/python313",
+        name: "python313",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-31",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -6951,9 +7519,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -6996,12 +7564,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists PHP 8.1 (runtime ID php81) with end of support on 2025-12-31 and deprecation on 2026-12-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "php83 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/php84",
+        name: "php84",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2025-12-31",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7009,9 +7585,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7054,12 +7630,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists PHP 7.4 (runtime ID php74) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "php83 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/php84",
+        name: "php84",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7067,9 +7651,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7112,12 +7696,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists PHP 7.3 (runtime ID php73) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "php83 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/php84",
+        name: "php84",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7125,9 +7717,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7170,12 +7762,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists PHP 7.2 (runtime ID php72) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "php83 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/php84",
+        name: "php84",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7183,9 +7783,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7228,12 +7828,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists PHP 5.5 (runtime ID php55) with end of support on 2024-01-30, deprecation on 2026-01-31, and decommission on 2027-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "php83 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/php84",
+        name: "php84",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7241,9 +7849,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7286,12 +7894,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Ruby 3.2 (runtime ID ruby32) with end of support on 2026-03-31 and deprecation on 2027-03-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "ruby33 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2026-03-31",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7299,9 +7915,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7344,12 +7960,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Ruby 3.0 (runtime ID ruby30) with end of support on 2024-03-31 and deprecation on 2025-03-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "ruby33 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-03-31",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7357,9 +7981,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7402,12 +8026,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Ruby 2.7 (runtime ID ruby27) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "ruby33 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7415,9 +8047,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7460,12 +8092,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Ruby 2.6 (runtime ID ruby26) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "ruby33 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7473,9 +8113,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7518,12 +8158,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "The App Engine standard environment runtime support schedule lists Ruby 2.5 (runtime ID ruby25) with end of support on 2024-01-30 and deprecation on 2025-01-31. Google no longer provides patches or support for that runtime.",
     severity: "high",
     replacement: "ruby33 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-appengine-runtime/ruby34",
+        name: "ruby34",
+        kind: "successor",
+        note: "Google lists this runtime for the App Engine standard environment. Review the platform and language migration guides.",
+      },
+    ],
     deadline: "2024-01-30",
     sources: [
       {
         title: "App Engine standard environment runtime support schedule",
         url: "https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://cloud.google.com/appengine/docs/standard/lifecycle/support-schedule",
         archivedAt: "2026-10-30",
@@ -7531,9 +8179,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7576,11 +8224,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. Node.js 16 and every earlier release reached end of life upstream before 2023-09-11, so a NODE|16 or older app runs an unpatched runtime.",
     severity: "critical",
     replacement: "App Service Node.js 20 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/node",
+        name: "App Service Node.js 24",
+        kind: "upgrade",
+        vers: "vers:semver/>=24.0.0|<25.0.0",
+        note: "Microsoft recommends Node.js 24 for App Service. Check the OS and use a 64-bit app under this runtime.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -7588,16 +8245,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Node.js End-of-life",
         url: "https://nodejs.org/en/about/eol",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Node.js runtime configuration",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/configure-language-nodejs",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7646,11 +8308,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The Node.js release schedule ended support for Node.js 18 on 2025-04-30, so a NODE|18 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service Node.js 20 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/node",
+        name: "App Service Node.js 24",
+        kind: "upgrade",
+        vers: "vers:semver/>=24.0.0|<25.0.0",
+        note: "Microsoft recommends Node.js 24 for App Service. Check the OS and use a 64-bit app under this runtime.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -7658,16 +8329,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Node.js End-of-life",
         url: "https://nodejs.org/en/about/eol",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Node.js runtime configuration",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/configure-language-nodejs",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7717,11 +8393,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The Node.js release schedule ended support for Node.js 20 on 2026-04-30, so a NODE|20 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service Node.js 22 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/node",
+        name: "App Service Node.js 24",
+        kind: "upgrade",
+        vers: "vers:semver/>=24.0.0|<25.0.0",
+        note: "Microsoft recommends Node.js 24 for App Service. Check the OS and use a 64-bit app under this runtime.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -7729,16 +8414,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Node.js End-of-life",
         url: "https://nodejs.org/en/about/eol",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Node.js runtime configuration",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/configure-language-nodejs",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7788,11 +8478,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The Node.js release schedule announces the end of support for Node.js 22 on 2027-04-30, so plan the NODE|22 stack upgrade before that date.",
     severity: "low",
     replacement: "App Service Node.js 24 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/node",
+        name: "App Service Node.js 24",
+        kind: "upgrade",
+        vers: "vers:semver/>=24.0.0|<25.0.0",
+        note: "Microsoft recommends Node.js 24 for App Service. Check the OS and use a 64-bit app under this runtime.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -7800,16 +8499,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Node.js End-of-life",
         url: "https://nodejs.org/en/about/eol",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://nodejs.org/en/about/eol",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Node.js runtime configuration",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/configure-language-nodejs",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7859,11 +8563,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. Python 3.9 and every earlier release reached end of life upstream on or before 2025-10-31, so a PYTHON|3.9 or older app runs an unpatched runtime.",
     severity: "high",
     replacement: "App Service Python 3.11 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/python",
+        name: "App Service Python 3.12",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.12.0|<3.13.0",
+        note: "Microsoft documents Python 3.12 on App Service for Linux. Check dependency compatibility.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -7871,16 +8584,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Status of Python versions",
         url: "https://devguide.python.org/versions/",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://devguide.python.org/versions/",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Azure App Service Python runtime example",
+        url: "https://learn.microsoft.com/en-us/azure/developer/python/configure-python-web-app-on-app-service",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -7930,11 +8648,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The Python release cycle ended support for Python 3.10 on 2026-10-01, so a PYTHON|3.10 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service Python 3.11 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/python",
+        name: "App Service Python 3.12",
+        kind: "upgrade",
+        vers: "vers:semver/>=3.12.0|<3.13.0",
+        note: "Microsoft documents Python 3.12 on App Service for Linux. Check dependency compatibility.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -7942,16 +8669,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Status of Python versions",
         url: "https://devguide.python.org/versions/",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://devguide.python.org/versions/",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Azure App Service Python runtime example",
+        url: "https://learn.microsoft.com/en-us/azure/developer/python/configure-python-web-app-on-app-service",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8001,11 +8733,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. PHP 7.4, the newest release in this range, reached end of life on 2022-11-28, so a PHP|7.4 or older app runs an unpatched runtime.",
     severity: "high",
     replacement: "App Service PHP 8.3 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/php",
+        name: "App Service PHP 8.4",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.4.0|<8.5.0",
+        note: "Microsoft patches the built-in PHP 8.4 Linux stack. Migrate Windows apps to a Linux plan or a separately maintained runtime.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8013,16 +8754,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "PHP: End-of-Life Versions",
         url: "https://www.php.net/eol.php",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://www.php.net/eol.php",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Azure App Service supported PHP stacks and patches",
+        url: "https://azure.github.io/AppService/2026/11/19/php-security-release-app-service-linux.html",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8072,11 +8818,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. php.net lists PHP 8.0 as end-of-life since 2023-11-26, so a PHP|8.0 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service PHP 8.3 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/php",
+        name: "App Service PHP 8.4",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.4.0|<8.5.0",
+        note: "Microsoft patches the built-in PHP 8.4 Linux stack. Migrate Windows apps to a Linux plan or a separately maintained runtime.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8084,16 +8839,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "PHP: End-of-Life Versions",
         url: "https://www.php.net/eol.php",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://www.php.net/eol.php",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Azure App Service supported PHP stacks and patches",
+        url: "https://azure.github.io/AppService/2026/11/19/php-security-release-app-service-linux.html",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8143,11 +8903,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. php.net lists PHP 8.1 as end-of-life since 2025-12-31, so a PHP|8.1 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service PHP 8.3 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/php",
+        name: "App Service PHP 8.4",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.4.0|<8.5.0",
+        note: "Microsoft patches the built-in PHP 8.4 Linux stack. Migrate Windows apps to a Linux plan or a separately maintained runtime.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8155,16 +8924,21 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "PHP: End-of-Life Versions",
         url: "https://www.php.net/eol.php",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://www.php.net/eol.php",
         archivedAt: "2026-11-03",
+      },
+      {
+        title: "Azure App Service supported PHP stacks and patches",
+        url: "https://azure.github.io/AppService/2026/11/19/php-security-release-app-service-linux.html",
+        accessedAt: "2026-11-28",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8214,11 +8988,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. .NET Core 3.1, the newest release in this range, left support on 2022-12-13, so a DOTNETCORE|3.1 or older app runs an unpatched runtime.",
     severity: "high",
     replacement: "App Service .NET 8 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/dotnet",
+        name: "App Service .NET 10",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Microsoft documents the .NET 10 App Service runtime for Linux and Windows. Check deployment platform requirements.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8226,17 +9009,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-03",
       },
+      {
+        title: "Deploy .NET 10 to App Service",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8286,11 +9074,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The .NET support policy ended support for .NET 6 on 2024-11-12, so a DOTNETCORE|6.0 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service .NET 8 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/dotnet",
+        name: "App Service .NET 10",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Microsoft documents the .NET 10 App Service runtime for Linux and Windows. Check deployment platform requirements.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8298,17 +9095,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-03",
       },
+      {
+        title: "Deploy .NET 10 to App Service",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8358,11 +9160,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The .NET support policy ended support for .NET 7 on 2024-05-14, so a DOTNETCORE|7.0 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service .NET 8 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/dotnet",
+        name: "App Service .NET 10",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Microsoft documents the .NET 10 App Service runtime for Linux and Windows. Check deployment platform requirements.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8370,17 +9181,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-03",
       },
+      {
+        title: "Deploy .NET 10 to App Service",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8430,11 +9246,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack: past the end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The .NET support policy announces the end of support for .NET 8 on 2026-11-10, so plan the DOTNETCORE|8.0 stack upgrade before that date.",
     severity: "low",
     replacement: "App Service .NET 10 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/dotnet",
+        name: "App Service .NET 10",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Microsoft documents the .NET 10 App Service runtime for Linux and Windows. Check deployment platform requirements.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8442,17 +9267,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-03",
       },
+      {
+        title: "Deploy .NET 10 to App Service",
+        url: "https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8502,11 +9332,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack, and the .NET isolated stack tracks the .NET release it hosts: past its end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The .NET support policy ended support for .NET 6 on 2024-11-12, so a DOTNET-ISOLATED|6.0 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service .NET 8 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/dotnet-isolated",
+        name: "App Service .NET 10 isolated worker",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Microsoft lists .NET 10 for Azure Functions isolated workers. Check the plan, OS, and Functions runtime before changing stacks.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8514,17 +9353,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-03",
       },
+      {
+        title: "Azure Functions runtime and worker support",
+        url: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8574,11 +9418,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure App Service follows the community support timeline for each language stack, and the .NET isolated stack tracks the .NET release it hosts: past its end-of-support date the app keeps running, but the platform stops providing security patches or related support for that runtime version. The .NET support policy ended support for .NET 7 on 2024-05-14, so a DOTNET-ISOLATED|7.0 app no longer receives a patched runtime.",
     severity: "high",
     replacement: "App Service .NET 8 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/dotnet-isolated",
+        name: "App Service .NET 10 isolated worker",
+        kind: "upgrade",
+        vers: "vers:semver/>=10.0.0|<11.0.0",
+        note: "Microsoft lists .NET 10 for Azure Functions isolated workers. Check the plan, OS, and Functions runtime before changing stacks.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8586,17 +9439,22 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: ".NET and ASP.NET Core Support Policy",
         url: "https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://dotnet.microsoft.com/platform/support/policy/dotnet-core",
         archivedAt: "2026-11-03",
       },
+      {
+        title: "Azure Functions runtime and worker support",
+        url: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
+        accessedAt: "2026-11-28",
+      },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8646,11 +9504,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "Community support for Java 7 ended on 2022-07-29 and Azure App Service retired Java 7, so a JAVA|7 or older app runs a runtime the platform no longer patches. App Service provides and supports OpenJDK builds for Java 8 and later.",
     severity: "high",
     replacement: "App Service Java 8 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-app-service/java",
+        name: "App Service Java 17",
+        kind: "upgrade",
+        vers: "vers:semver/>=17.0.0|<18.0.0",
+        note: "Microsoft lists a Java 17 App Service stack. Check the OS, server, and regional runtime offerings.",
+      },
+    ],
     sources: [
       {
         title: "Language Runtime Support Policy - Azure App Service",
         url: "https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/app-service/language-support-policy",
         archivedAt: "2026-11-03",
@@ -8658,16 +9525,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Temurin Support",
         url: "https://adoptium.net/support/",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261103000000/https://adoptium.net/support/",
         archivedAt: "2026-11-03",
       },
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8717,12 +9584,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure Functions supports only version 4.x of the runtime host and ended support for version 1.x on 2026-09-14. A FUNCTIONS_EXTENSION_VERSION of ~1 no longer receives security patches and the app is not eligible for Azure support.",
     severity: "high",
     replacement: "Azure Functions 4.x",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-functions",
+        name: "Azure Functions 4.x",
+        kind: "upgrade",
+        vers: "vers:semver/>=4.0.0|<5.0.0",
+        note: "Microsoft lists Azure Functions 4.x as generally available. Check language, trigger, and hosting-plan compatibility before migration.",
+      },
+    ],
     deadline: "2026-09-14",
     sources: [
       {
         title: "Compare Azure Functions runtime versions",
         url: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
         archivedAt: "2026-11-03",
@@ -8730,9 +9606,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -8781,12 +9657,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "Azure Functions lists runtime versions 2.x and 3.x as retired, both at end of extended support since 2022-12-13. Apps on ~2 or ~3 are not eligible for new features, security patches, or service support, and v3 apps in the Linux Consumption plan stop running after 2026-09-30.",
     severity: "high",
     replacement: "Azure Functions 4.x",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-functions",
+        name: "Azure Functions 4.x",
+        kind: "upgrade",
+        vers: "vers:semver/>=4.0.0|<5.0.0",
+        note: "Microsoft lists Azure Functions 4.x as generally available. Check language, trigger, and hosting-plan compatibility before migration.",
+      },
+    ],
     deadline: "2022-12-13",
     sources: [
       {
         title: "Compare Azure Functions runtime versions",
         url: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
-        accessedAt: "2026-11-03",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261103000000/https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions",
         archivedAt: "2026-11-03",
@@ -8794,9 +9679,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-11-03",
-      reviewedAt: "2026-11-03",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {

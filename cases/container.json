@@ -49,6 +49,241 @@
       "purl": "pkg:generic/sles",
       "version": "15.7.0",
       "rules": []
+    },
+    {
+      "purl": "pkg:generic/ubuntu",
+      "version": "21.10",
+      "rules": ["container.host-ubuntu.eol-22.04-and-older"]
+    },
+    {
+      "purl": "pkg:generic/ubuntu",
+      "version": "24.04",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/amzn",
+      "version": "2.0",
+      "rules": ["container.host-amazon-linux.eol-2-and-older"]
+    },
+    {
+      "purl": "pkg:generic/amzn",
+      "version": "2023.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/alpine",
+      "version": "3.20.0",
+      "rules": ["container.host-alpine.eol-3.20-and-older"]
+    },
+    {
+      "purl": "pkg:generic/alpine",
+      "version": "3.22.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/node",
+      "version": "1.0.0",
+      "rules": ["container.node.eol-21-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/node",
+      "version": "22.0.0",
+      "rules": ["container.node.eol-22-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/python",
+      "version": "1.0.0",
+      "rules": ["container.python.eol-3.10-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/python",
+      "version": "3.11.0",
+      "rules": ["container.python.eol-3.11-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/mysql",
+      "version": "1.0.0",
+      "rules": ["container.mysql.eol-8.0-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/mysql",
+      "version": "8.1.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/ruby",
+      "version": "1.0.0",
+      "rules": ["container.ruby.eol-3.2-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/ruby",
+      "version": "3.3.0",
+      "rules": ["container.ruby.eol-3.3-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/golang",
+      "version": "1.0.0",
+      "rules": ["container.golang.eol-1.25-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/golang",
+      "version": "1.26.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/redis",
+      "version": "1.0.0",
+      "rules": ["container.redis.eol-6.0-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/redis",
+      "version": "6.2.0",
+      "rules": ["container.redis.eol-6.2-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/ubuntu",
+      "version": "19.10",
+      "rules": ["container.ubuntu.eol-20.04-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/ubuntu",
+      "version": "20.10.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/ubuntu",
+      "version": "22.04",
+      "rules": ["container.ubuntu.eol-22.04", "container.ubuntu.extended-support-22.04"]
+    },
+    {
+      "purl": "pkg:docker/library/debian",
+      "version": "1.0.0",
+      "rules": ["container.debian.eol-11-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/debian",
+      "version": "12.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/alpine",
+      "version": "3.20.0",
+      "rules": ["container.alpine.eol-3.20-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/alpine",
+      "version": "3.21.0",
+      "rules": ["container.alpine.eol-3.21"]
+    },
+    {
+      "purl": "pkg:docker/library/mariadb",
+      "version": "1.0.0",
+      "rules": ["container.mariadb.eol-10.10-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/mariadb",
+      "version": "10.11.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/zookeeper",
+      "version": "1.0.0",
+      "rules": ["container.zookeeper.eol-3.7-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/zookeeper",
+      "version": "3.8.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/drupal",
+      "version": "1.0.0",
+      "rules": ["container.drupal.eol-10.5-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/drupal",
+      "version": "10.6.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/traefik",
+      "version": "1.0.0",
+      "rules": ["container.traefik.eol-3.6-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/traefik",
+      "version": "3.7.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/clickhouse",
+      "version": "1.0.0",
+      "rules": ["container.clickhouse.eol-26.2-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/clickhouse",
+      "version": "26.3.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/couchbase",
+      "version": "1.0.0",
+      "rules": ["container.couchbase.eol-7.2-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/couchbase",
+      "version": "7.6.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/phpmyadmin",
+      "version": "1.0.0",
+      "rules": ["container.phpmyadmin.eol-4.8-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/phpmyadmin",
+      "version": "4.9.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/debian",
+      "version": "10.0.0",
+      "rules": ["container.debian.eol-11-and-older", "container.debian.extended-support-10"]
+    },
+    {
+      "purl": "pkg:docker/library/caddy",
+      "version": "1.0.0",
+      "rules": ["container.caddy.eol-1-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/caddy",
+      "version": "2.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/couchdb",
+      "version": "1.0.0",
+      "rules": ["container.couchdb.eol-3.3-and-older"]
+    },
+    {
+      "purl": "pkg:docker/library/couchdb",
+      "version": "3.4.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:docker/library/ubuntu",
+      "version": "14.04",
+      "rules": ["container.ubuntu.eol-20.04-and-older", "container.ubuntu.extended-support-14.04"]
+    },
+    {
+      "purl": "pkg:generic/centos",
+      "version": "1.0.0",
+      "rules": ["container.host-centos.eol-8-and-older"]
+    },
+    {
+      "purl": "pkg:generic/centos",
+      "version": "9.0.0",
+      "rules": []
     }
   ]
 }

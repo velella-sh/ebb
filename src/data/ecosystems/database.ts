@@ -791,12 +791,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Azure Database for PostgreSQL version policy lists 2026-07-31 as the standard support end date for PostgreSQL 11, 12, and 13. After that date Azure offers only time-boxed Extended Support, and it does not allow new servers on those major versions.",
     severity: "high",
     replacement: "PostgreSQL 14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-database-postgresql",
+        name: "Azure PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:semver/>=15.0.0|<16.0.0",
+        note: "Microsoft lists standard support through 2027-11-11. Check required major-upgrade steps.",
+      },
+    ],
     deadline: "2026-07-31",
     sources: [
       {
         title: "Azure Database for PostgreSQL version policy",
         url: "https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-version-policy",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261026000000/https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-version-policy",
         archivedAt: "2026-10-26",
@@ -804,16 +813,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-26",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -884,12 +893,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Azure Database for MySQL version support policy lists 2026-09-30 as the standard support end date for MySQL 5.7. Azure moves the server to paid Extended Support on 2026-10-01; the MySQL community retired 5.7 on 2023-10-31. The mysql.com lifecycle page refuses automated requests (HTTP 403), so the community date is taken from the endoflife.date record for MySQL.",
     severity: "high",
     replacement: "MySQL 8.0 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/azure-database-mysql",
+        name: "Azure MySQL 8.4",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.4.0|<8.5.0",
+        note: "Microsoft lists the Azure MySQL 8.4 line as generally available. Check upgrade steps from MySQL 5.7.",
+      },
+    ],
     deadline: "2026-09-30",
     sources: [
       {
         title: "Azure Database for MySQL version support policy",
         url: "https://learn.microsoft.com/en-us/azure/mysql/concepts-version-policy",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://learn.microsoft.com/en-us/azure/mysql/concepts-version-policy",
         archivedAt: "2026-11-07",
@@ -897,7 +915,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
         archivedAt: "2026-11-07",
@@ -905,16 +923,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "endoflife.date: MySQL",
         url: "https://endoflife.date/mysql",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -985,28 +1003,37 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud SQL for PostgreSQL version policy lists PostgreSQL 9.6, 10, 11, and 12 with extended support starting 2025-02-01 and deprecation on 2028-02-01. The PostgreSQL community no longer supports those majors, and Cloud SQL charges for extended support.",
     severity: "high",
     replacement: "PostgreSQL 14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-sql-postgresql",
+        name: "Cloud SQL PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:semver/>=15.0.0|<16.0.0",
+        note: "Google lists standard support through 2028-02-01. Check supported intermediate major upgrades.",
+      },
+    ],
     deadline: "2025-02-01",
     sources: [
       {
         title: "Cloud SQL for PostgreSQL database versions and version policies",
         url: "https://cloud.google.com/sql/docs/postgres/db-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/sql/docs/postgres/db-versions",
         archivedAt: "2026-10-26",
       },
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-26",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1078,28 +1105,37 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud SQL for PostgreSQL version policy lists PostgreSQL 13 with extended support starting 2026-02-01 and deprecation on 2029-02-01. The PostgreSQL community no longer supports 13, and Cloud SQL charges for extended support.",
     severity: "high",
     replacement: "PostgreSQL 14 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-sql-postgresql",
+        name: "Cloud SQL PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:semver/>=15.0.0|<16.0.0",
+        note: "Google lists standard support through 2028-02-01. Check supported intermediate major upgrades.",
+      },
+    ],
     deadline: "2026-02-01",
     sources: [
       {
         title: "Cloud SQL for PostgreSQL database versions and version policies",
         url: "https://cloud.google.com/sql/docs/postgres/db-versions",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://cloud.google.com/sql/docs/postgres/db-versions",
         archivedAt: "2026-10-26",
       },
       {
         title: "PostgreSQL versioning policy",
         url: "https://www.postgresql.org/support/versioning/",
-        accessedAt: "2026-10-26",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261026000000/https://www.postgresql.org/support/versioning/",
         archivedAt: "2026-10-26",
       },
     ],
     provenance: {
       observedAt: "2026-10-26",
-      reviewedAt: "2026-10-26",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1171,19 +1207,28 @@ export const rules: readonly RegistryV2Rule[] = [
       "The Cloud SQL for MySQL version policy lists MySQL 5.6 and 5.7 with extended support starting 2025-02-01 and deprecation on 2028-02-01. Oracle no longer supports those release series, and Cloud SQL charges for extended support. The mysql.com lifecycle page refuses automated requests (HTTP 403), so the upstream dates are taken from the endoflife.date record for MySQL.",
     severity: "high",
     replacement: "MySQL 8.0 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/google-cloud-sql-mysql",
+        name: "Cloud SQL MySQL 8.4",
+        kind: "upgrade",
+        vers: "vers:semver/>=8.4.0|<8.5.0",
+        note: "Google names MySQL 8.4 as its default Cloud SQL major line. Check the required intermediate upgrade path.",
+      },
+    ],
     deadline: "2025-02-01",
     sources: [
       {
         title: "Cloud SQL for MySQL database versions and version policies",
         url: "https://cloud.google.com/sql/docs/mysql/db-versions",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://cloud.google.com/sql/docs/mysql/db-versions",
         archivedAt: "2026-11-07",
       },
       {
         title: "MySQL supported platforms and lifecycle",
         url: "https://www.mysql.com/support/supportedplatforms/database.html",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261107000000/https://www.mysql.com/support/supportedplatforms/database.html",
         archivedAt: "2026-11-07",
@@ -1191,16 +1236,16 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "endoflife.date: MySQL",
         url: "https://endoflife.date/mysql",
-        accessedAt: "2026-11-07",
+        accessedAt: "2026-11-28",
         archiveUrl: "https://web.archive.org/web/20261107000000/https://endoflife.date/mysql",
         archivedAt: "2026-11-07",
       },
     ],
     provenance: {
       observedAt: "2026-11-07",
-      reviewedAt: "2026-11-07",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "manual",
     },
     migration: {
@@ -1272,12 +1317,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for RDS for PostgreSQL 9.6 on 2022-04-30. RDS Extended Support was not offered for this version, so it receives no further RDS security or bug fixes. Upgrade to PostgreSQL 15 or later.",
     severity: "high",
     replacement: "PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/postgres",
+        name: "Amazon RDS PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for RDS PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2022-04-30",
     sources: [
       {
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -1285,7 +1339,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1293,9 +1347,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -1364,11 +1418,20 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for RDS for PostgreSQL 10 in April 2023 (AWS publishes only the month). RDS Extended Support was not offered for this version, so it receives no further RDS security or bug fixes. Upgrade to PostgreSQL 15 or later.",
     severity: "high",
     replacement: "PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/postgres",
+        name: "Amazon RDS PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for RDS PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     sources: [
       {
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -1376,7 +1439,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1384,9 +1447,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -1455,12 +1518,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for RDS for PostgreSQL 11 on 2024-02-29. RDS Extended Support may keep it running for a fee through 2027-03-31. Upgrade to PostgreSQL 15 or later.",
     severity: "high",
     replacement: "PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/postgres",
+        name: "Amazon RDS PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for RDS PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2024-02-29",
     sources: [
       {
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -1468,7 +1540,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1476,9 +1548,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -1547,12 +1619,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for RDS for PostgreSQL 12 on 2025-02-28. RDS Extended Support may keep it running for a fee through 2028-02-29. Upgrade to PostgreSQL 15 or later.",
     severity: "high",
     replacement: "PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/postgres",
+        name: "Amazon RDS PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for RDS PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2025-02-28",
     sources: [
       {
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -1560,7 +1641,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1568,9 +1649,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -1639,12 +1720,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for RDS for PostgreSQL 13 on 2026-02-28. RDS Extended Support may keep it running for a fee through 2029-02-28. Upgrade to PostgreSQL 15 or later.",
     severity: "high",
     replacement: "PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/postgres",
+        name: "Amazon RDS PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for RDS PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2026-02-28",
     sources: [
       {
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -1652,7 +1742,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1660,9 +1750,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -1731,12 +1821,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ends standard support for RDS for PostgreSQL 14 on 2027-02-28. RDS Extended Support may keep it running for a fee through 2030-02-28. Upgrade to PostgreSQL 16 or later before then.",
     severity: "low",
     replacement: "PostgreSQL 16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-rds/postgres",
+        name: "Amazon RDS PostgreSQL 16",
+        kind: "upgrade",
+        vers: "vers:intdot/>=16|<17",
+        note: "AWS lists standard support for RDS PostgreSQL 16 through February 2029. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2027-02-28",
     sources: [
       {
         title: "Release calendars for Amazon RDS for PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -1744,7 +1843,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -1752,9 +1851,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2025,12 +2124,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for Aurora PostgreSQL 11 on 2024-02-29. RDS Extended Support may keep it running for a fee through 2027-03-31. Upgrade to Aurora PostgreSQL 15 or later.",
     severity: "high",
     replacement: "Aurora PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-aurora/postgresql",
+        name: "Aurora PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for Aurora PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2024-02-29",
     sources: [
       {
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -2038,7 +2146,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2046,9 +2154,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2117,12 +2225,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for Aurora PostgreSQL 12 on 2025-02-28. RDS Extended Support may keep it running for a fee through 2028-02-29. Upgrade to Aurora PostgreSQL 15 or later.",
     severity: "high",
     replacement: "Aurora PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-aurora/postgresql",
+        name: "Aurora PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for Aurora PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2025-02-28",
     sources: [
       {
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -2130,7 +2247,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2138,9 +2255,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2209,12 +2326,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for Aurora PostgreSQL 13 on 2026-02-28. RDS Extended Support may keep it running for a fee through 2029-02-28. Upgrade to Aurora PostgreSQL 15 or later.",
     severity: "high",
     replacement: "Aurora PostgreSQL 15 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-aurora/postgresql",
+        name: "Aurora PostgreSQL 15",
+        kind: "upgrade",
+        vers: "vers:intdot/>=15|<16",
+        note: "AWS lists standard support for Aurora PostgreSQL 15 through February 2028. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2026-02-28",
     sources: [
       {
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -2222,7 +2348,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2230,9 +2356,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2301,12 +2427,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ends standard support for Aurora PostgreSQL 14 on 2027-02-28. RDS Extended Support may keep it running for a fee through 2030-02-28. Upgrade to Aurora PostgreSQL 16 or later before then.",
     severity: "low",
     replacement: "Aurora PostgreSQL 16 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-aurora/postgresql",
+        name: "Aurora PostgreSQL 16",
+        kind: "upgrade",
+        vers: "vers:intdot/>=16|<17",
+        note: "AWS lists standard support for Aurora PostgreSQL 16 through February 2029. Check available and valid upgrade targets.",
+      },
+    ],
     deadline: "2027-02-28",
     sources: [
       {
         title: "Release calendars for Aurora PostgreSQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/aurorapostgresql-release-calendar.html",
         archivedAt: "2026-10-30",
@@ -2314,7 +2449,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2322,9 +2457,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2393,12 +2528,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for Aurora MySQL version 1 (MySQL 5.6 compatible) on 2023-02-28. RDS Extended Support was not offered for this version, so it receives no further Aurora security or bug fixes. Upgrade to Aurora MySQL version 3 (MySQL 8.0 compatible) or later.",
     severity: "high",
     replacement: "Aurora MySQL version 3 (MySQL 8.0 compatible) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-aurora/mysql",
+        name: "Aurora MySQL 8.4",
+        kind: "upgrade",
+        vers: "vers:intdot/>=8.4|<8.5",
+        note: "AWS maps this Aurora engine line to MySQL 8.4. Check supported migration steps or an available compatible restoration path.",
+      },
+    ],
     deadline: "2023-02-28",
     sources: [
       {
         title: "Release calendars for Amazon Aurora MySQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
         archivedAt: "2026-10-30",
@@ -2406,7 +2550,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2414,9 +2558,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2485,12 +2629,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for Aurora MySQL version 2 (MySQL 5.7 compatible) on 2024-10-31. RDS Extended Support may keep it running for a fee through 2029-06-30. Upgrade to Aurora MySQL version 3 (MySQL 8.0 compatible) or later.",
     severity: "high",
     replacement: "Aurora MySQL version 3 (MySQL 8.0 compatible) or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-aurora/mysql",
+        name: "Aurora MySQL 8.4",
+        kind: "upgrade",
+        vers: "vers:intdot/>=8.4|<8.5",
+        note: "AWS maps this Aurora engine line to MySQL 8.4. Check supported migration steps or an available compatible restoration path.",
+      },
+    ],
     deadline: "2024-10-31",
     sources: [
       {
         title: "Release calendars for Amazon Aurora MySQL",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.release-calendars.html",
         archivedAt: "2026-10-30",
@@ -2498,7 +2651,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "Using Amazon RDS Extended Support with Amazon Aurora",
         url: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2506,9 +2659,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2577,12 +2730,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for ElastiCache for Redis OSS 4 on 2026-01-31. RDS Extended Support may keep it running for a fee through 2029-01-31. Upgrade to Valkey or Redis OSS 7.1 or later.",
     severity: "high",
     replacement: "Valkey or Redis OSS 7.1 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-elasticache/redis",
+        name: "ElastiCache Redis OSS 7.1",
+        kind: "upgrade",
+        vers: "vers:intdot/>=7.1|<7.2",
+        note: "AWS lists Redis OSS 7.1 for serverless caches and node-based clusters. Check configuration and valid engine upgrade targets.",
+      },
+    ],
     deadline: "2026-01-31",
     sources: [
       {
         title: "Engine versions and upgrading in ElastiCache",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
         archivedAt: "2026-10-30",
@@ -2590,7 +2752,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "ElastiCache Extended Support",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2598,9 +2760,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2669,12 +2831,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ended standard support for ElastiCache for Redis OSS 5 on 2026-01-31. RDS Extended Support may keep it running for a fee through 2029-01-31. Upgrade to Valkey or Redis OSS 7.1 or later.",
     severity: "high",
     replacement: "Valkey or Redis OSS 7.1 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-elasticache/redis",
+        name: "ElastiCache Redis OSS 7.1",
+        kind: "upgrade",
+        vers: "vers:intdot/>=7.1|<7.2",
+        note: "AWS lists Redis OSS 7.1 for serverless caches and node-based clusters. Check configuration and valid engine upgrade targets.",
+      },
+    ],
     deadline: "2026-01-31",
     sources: [
       {
         title: "Engine versions and upgrading in ElastiCache",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
         archivedAt: "2026-10-30",
@@ -2682,7 +2853,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "ElastiCache Extended Support",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2690,9 +2861,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
@@ -2761,12 +2932,21 @@ export const rules: readonly RegistryV2Rule[] = [
       "AWS ends standard support for ElastiCache for Redis OSS 6 on 2027-01-31. RDS Extended Support may keep it running for a fee through 2030-01-31. Upgrade to Valkey or Redis OSS 7.1 or later before then.",
     severity: "low",
     replacement: "Valkey or Redis OSS 7.1 or later",
+    replacements: [
+      {
+        purl: "pkg:generic/aws-elasticache/redis",
+        name: "ElastiCache Redis OSS 7.1",
+        kind: "upgrade",
+        vers: "vers:intdot/>=7.1|<7.2",
+        note: "AWS lists Redis OSS 7.1 for serverless caches and node-based clusters. Check configuration and valid engine upgrade targets.",
+      },
+    ],
     deadline: "2027-01-31",
     sources: [
       {
         title: "Engine versions and upgrading in ElastiCache",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html",
         archivedAt: "2026-10-30",
@@ -2774,7 +2954,7 @@ export const rules: readonly RegistryV2Rule[] = [
       {
         title: "ElastiCache Extended Support",
         url: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
-        accessedAt: "2026-10-30",
+        accessedAt: "2026-11-28",
         archiveUrl:
           "https://web.archive.org/web/20261030000000/https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/extended-support.html",
         archivedAt: "2026-10-30",
@@ -2782,9 +2962,9 @@ export const rules: readonly RegistryV2Rule[] = [
     ],
     provenance: {
       observedAt: "2026-10-30",
-      reviewedAt: "2026-10-30",
-      reviewer: "arminazimi",
-      reviewers: ["arminazimi"],
+      reviewedAt: "2026-11-28",
+      reviewer: "codex-agent",
+      reviewers: ["arminazimi", "codex-agent"],
       method: "imported",
       importer: "aws-rds",
     },
