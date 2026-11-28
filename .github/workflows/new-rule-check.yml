@@ -1,0 +1,65 @@
+name: Rule evidence review
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    paths: ["registry/**", "cases/**"]
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number to recheck
+        type: number
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: rule-evidence-${{ github.event.pull_request.number || inputs.pull_request }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      # Never check out or execute the contributor branch in this write-enabled job.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - name: Check only the submitted registry and case JSON
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pull_request }}
+        shell: bash
+        run: |
+          [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]]
+          head=$(gh pr view "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --json headRefOid --jq .headRefOid)
+          git fetch --no-tags origin "refs/pull/$PR_NUMBER/head"
+          [[ "$(git rev-parse FETCH_HEAD)" == "$head" ]]
+          merge=$(gh pr view "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --json mergeCommit --jq ' .mergeCommit.oid // empty')
+          if [[ -n "$merge" ]]; then
+            base=$(git rev-parse "$merge^1")
+          else
+            base=$(git merge-base HEAD "$head")
+          fi
+          npm run build --silent
+          node dist/tools/new-rule-check.js "$base" "$head" "$RUNNER_TEMP/rule-review.md"
+      - name: Update the evidence comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pull_request }}
+        shell: bash
+        run: |
+          [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]]
+          endpoint="repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments"
+          existing=$(gh api --paginate "$endpoint" --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | startswith("<!-- ebb-new-rule-check -->"))) | .id' | sed -n '1p')
+          if [[ -n "$existing" ]]; then
+            gh api --method PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$existing" -F body=@"$RUNNER_TEMP/rule-review.md" --silent
+          else
+            gh api --method POST "$endpoint" -F body=@"$RUNNER_TEMP/rule-review.md" --silent
+          fi

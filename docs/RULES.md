@@ -5,6 +5,8 @@ layout: doc
 permalink: /rules/
 ---
 
+Start with [Add a product in five minutes](/add-a-product/) and use `npm run new-rule` to draft a rule and its cases.
+
 Every lifecycle claim in Ebb is a rule in `registry/`. A rule says which component is affected, in which versions, what happened to it, who says so, and when that was last checked. This page is the reference for writing one.
 
 > [!IMPORTANT]
@@ -14,7 +16,7 @@ The format is `ebb.registry.v2`. Its JSON Schema is [`schemas/registry.v2.schema
 
 A rule names a component by its [Package URL](https://github.com/package-url/purl-spec) and its versions by a [VERS](https://github.com/package-url/vers-spec) range. It never says how to find the component in a project: that is the job of whoever reads the data, such as a scanner. So a rule is useful to any tool that knows a purl and a version.
 
-## From a source to a merged pull request
+## Manual rule reference and review
 
 This walkthrough follows one real rule, `npm.package.request.deprecated` ([below](#a-complete-rule)), from the notice that justifies it to the pull request that adds it. The reference sections explain each field; this is the order to work in.
 
@@ -32,7 +34,7 @@ If the notice is vague about versions, the event, or a date, do not guess: say s
 
 ### 2. Write the rule
 
-Copy a nearby rule in `registry/<ecosystem>.json` (or [the complete rule below](#a-complete-rule)), give it a new `id`, and replace every field with the claim. The left column is what to avoid leaving behind; the right column is what the submitted `npm.package.request.deprecated` rule uses:
+Run `npm run new-rule` and supply the evidence you collected. To work by hand, use a nearby rule in `registry/<ecosystem>.json` or [the complete rule below](#a-complete-rule). Give the rule a new `id` and set every field from the source. The left column is what to avoid leaving behind; the right column is what the submitted `npm.package.request.deprecated` rule uses:
 
 | Copied or placeholder value | The `request` rule |
 |---|---|

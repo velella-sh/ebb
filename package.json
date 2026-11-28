@@ -154,7 +154,9 @@
     "archive:sources": "npm run build --silent && node dist/tools/archive-sources.js",
     "refresh:cli-time-golden": "npm run build --silent && node dist/tools/refresh-cli-time-golden.js",
     "size": "npm run build --silent && node dist/tools/size.js",
-    "build:data-bundle": "npm run build --silent && node dist/tools/build-data-bundle.js"
+    "build:data-bundle": "npm run build --silent && node dist/tools/build-data-bundle.js",
+    "check:rules": "npm run lint:rules",
+    "new-rule": "npm run build --silent && node dist/tools/new-rule.js"
   },
   "engines": {
     "node": ">=22"
