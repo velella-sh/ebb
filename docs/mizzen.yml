@@ -11,6 +11,25 @@ repository:
   url: https://github.com/velella-sh/ebb
   branch: main
   dir: docs
+collections:
+  products:
+    source: _data/site-records/products.json
+    template: _templates/product.md
+    permalink: /products/{slug}/
+    id: id
+    schema: _data/site-page.schema.json
+    evidence: claims
+    references:
+      releaseLines: release-lines
+  release-lines:
+    source: _data/site-records/release-lines.json
+    template: _templates/release-line.md
+    permalink: /release-lines/{slug}/
+    id: id
+    schema: _data/site-page.schema.json
+    evidence: claims
+    references:
+      product: products
 theme:
   name: "@velella/lateen"
   options:

@@ -29,6 +29,8 @@ main:
         url: /freshness/
       - title: Data changelog
         url: /data-changelog/
+      - title: Products and release lines
+        url: /products/
       - title: Runtime coverage
         url: /coverage/
       - title: Static JSON API
