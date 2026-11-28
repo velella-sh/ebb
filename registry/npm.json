@@ -6948,7 +6948,7 @@
         }
       ],
       "provenance": {
-        "reviewer": "pending-review",
+        "reviewer": "unreviewed",
         "observedAt": "2026-11-28",
         "reviewedAt": "2026-11-28",
         "method": "manual"

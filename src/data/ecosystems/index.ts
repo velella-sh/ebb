@@ -11,6 +11,7 @@ import { default as dotnet_rules, data as dotnet_data } from "./dotnet.js";
 import { default as elixir_rules, data as elixir_data } from "./elixir.js";
 import { default as github_actions_rules, data as github_actions_data } from "./github-actions.js";
 import { default as go_rules, data as go_data } from "./go.js";
+import { default as infrastructure_rules, data as infrastructure_data } from "./infrastructure.js";
 import { default as java_rules, data as java_data } from "./java.js";
 import { default as kubernetes_rules, data as kubernetes_data } from "./kubernetes.js";
 import { default as nodejs_rules, data as nodejs_data } from "./nodejs.js";
@@ -43,6 +44,7 @@ export const ecosystems: Readonly<Record<string, EcosystemModule>> = {
   elixir: { rules: elixir_rules, data: elixir_data },
   "github-actions": { rules: github_actions_rules, data: github_actions_data },
   go: { rules: go_rules, data: go_data },
+  infrastructure: { rules: infrastructure_rules, data: infrastructure_data },
   java: { rules: java_rules, data: java_data },
   kubernetes: { rules: kubernetes_rules, data: kubernetes_data },
   nodejs: { rules: nodejs_rules, data: nodejs_data },

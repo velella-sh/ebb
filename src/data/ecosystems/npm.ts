@@ -5571,7 +5571,7 @@ export const rules: readonly RegistryV2Rule[] = [
         accessedAt: "2026-11-28",
       },
     ],
-    provenance: { reviewer: "pending-review", observedAt: "2026-11-28", reviewedAt: "2026-11-28", method: "manual" },
+    provenance: { reviewer: "unreviewed", observedAt: "2026-11-28", reviewedAt: "2026-11-28", method: "manual" },
   },
 ] as const;
 

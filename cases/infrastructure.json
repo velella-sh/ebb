@@ -1,0 +1,154 @@
+{
+  "cases": [
+    {
+      "purl": "pkg:generic/helm",
+      "version": "2.17.0",
+      "rules": ["infrastructure.helm.end-of-active-support-2", "infrastructure.helm.eol-2"]
+    },
+    {
+      "purl": "pkg:generic/helm",
+      "version": "3.20.0",
+      "rules": ["infrastructure.helm.end-of-active-support-3", "infrastructure.helm.eol-3"]
+    },
+    {
+      "purl": "pkg:generic/helm",
+      "version": "4.0.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/odoo-enterprise",
+      "version": "15.0",
+      "rules": ["infrastructure.odoo-enterprise.end-of-standard-support-15"]
+    },
+    {
+      "purl": "pkg:generic/odoo-enterprise",
+      "version": "16.0",
+      "rules": ["infrastructure.odoo-enterprise.end-of-standard-support-16"]
+    },
+    {
+      "purl": "pkg:generic/odoo-enterprise",
+      "version": "17.0",
+      "rules": ["infrastructure.odoo-enterprise.end-of-standard-support-17"]
+    },
+    {
+      "purl": "pkg:generic/odoo-enterprise",
+      "version": "14.0",
+      "rules": ["infrastructure.odoo-enterprise.end-of-standard-support-before-15"]
+    },
+    {
+      "purl": "pkg:generic/odoo-enterprise",
+      "version": "18.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/odoo",
+      "version": "15.0",
+      "rules": ["infrastructure.odoo.end-of-security-support-through-15"]
+    },
+    {
+      "purl": "pkg:generic/odoo",
+      "version": "16.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "5.10.1",
+      "rules": ["infrastructure.linux.lts-eol-5.10"]
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "5.15.1",
+      "rules": ["infrastructure.linux.lts-eol-5.15"]
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "6.1.1",
+      "rules": ["infrastructure.linux.lts-eol-6.1"]
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "6.6.1",
+      "rules": ["infrastructure.linux.lts-eol-6.6"]
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "6.12.1",
+      "rules": ["infrastructure.linux.lts-eol-6.12"]
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "6.18.1",
+      "rules": ["infrastructure.linux.lts-eol-6.18"]
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "6.19.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/linux",
+      "version": "6.19.0-rc1",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/linux-cip",
+      "version": "4.4.302-cip116",
+      "rules": ["infrastructure.linux-cip.slts-eol-4.4"]
+    },
+    {
+      "purl": "pkg:generic/linux-cip",
+      "version": "4.19.325-cip137-rt51",
+      "rules": ["infrastructure.linux-cip.slts-eol-4.19"]
+    },
+    {
+      "purl": "pkg:generic/linux-cip",
+      "version": "5.10.275-cip80",
+      "rules": ["infrastructure.linux-cip.slts-eol-5.10"]
+    },
+    {
+      "purl": "pkg:generic/linux-cip",
+      "version": "6.1.159-cip50",
+      "rules": ["infrastructure.linux-cip.slts-eol-6.1"]
+    },
+    {
+      "purl": "pkg:generic/linux-cip",
+      "version": "6.12.118-cip36",
+      "rules": ["infrastructure.linux-cip.slts-eol-6.12"]
+    },
+    {
+      "purl": "pkg:generic/linux-cip",
+      "version": "6.18.0",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/linux-cip",
+      "version": "6.13.0-rc1",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/minio",
+      "version": "RELEASE.2025-09-07T16-13-09Z",
+      "rules": ["infrastructure.minio.end-of-active-support"]
+    },
+    {
+      "purl": "pkg:generic/minio-community-binary",
+      "version": "RELEASE.2025-09-07T16-13-09Z",
+      "rules": ["infrastructure.minio-community-binary.end-of-support"]
+    },
+    {
+      "purl": "pkg:generic/minio-aistor",
+      "version": "RELEASE.2025-09-07T16-13-09Z",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/openssh",
+      "version": "9.9p2",
+      "rules": []
+    },
+    {
+      "purl": "pkg:generic/curl",
+      "version": "8.12.1",
+      "rules": []
+    }
+  ]
+}

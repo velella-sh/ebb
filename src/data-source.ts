@@ -22,6 +22,8 @@ import { clearLoadedEcosystems, setNodeLoaderProvider } from "./data/load.js";
 // Connect active data resolver to the data loader subsystem in Node
 setNodeLoaderProvider(getActiveDataSync);
 
+const infrastructureRegistryPath = "registry/infrastructure.json";
+
 export type DataSourceKind = "bundled" | "cache" | "pinned";
 
 export interface DataSourceInfo {
@@ -165,7 +167,10 @@ export function verifyDataBundle(
   }
   const listed = new Set(bundle.manifest.files.map((file) => file.path));
   const required = bundle.manifest.ecosystem ? [`registry/${bundle.manifest.ecosystem}.json`] : REQUIRED_BUNDLE_PATHS;
-  const missing = required.filter((path) => !listed.has(path));
+  const oldFullBundle = !bundle.manifest.ecosystem && compareStrictSemver(minimum, "0.2.2") < 0;
+  const missing = required.filter(
+    (path) => !listed.has(path) && !(oldFullBundle && path === infrastructureRegistryPath),
+  );
   if (missing.length > 0) throw new DataBundleError(`The bundle is incomplete: ${missing.join(", ")} missing.`);
   const [integrityProblem] = dataBundleIntegrityProblems(bundle);
   if (integrityProblem !== undefined) throw new DataBundleError(integrityProblem);
@@ -214,6 +219,9 @@ function dataFromBundle(
 ): ActiveData {
   const readSync = (path: string): unknown => {
     const content = bundle.files[path];
+    // A historical full bundle predates infrastructure. Keep the pin exact by serving an empty registry.
+    if (!content && path === infrastructureRegistryPath && !bundle.manifest.ecosystem)
+      return { schemaVersion: "ebb.registry.v2", ecosystem: "infrastructure", rules: [] };
     if (!content) throw new DataBundleError(`The data bundle has no ${path}.`);
     return content;
   };

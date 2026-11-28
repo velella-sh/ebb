@@ -45,6 +45,10 @@ The table below is filled at documentation build time by `tools/coverage/runtime
 | deno | complete | — | — |
 | dotnet | complete | — | — |
 | go | complete | — | — |
+| helm | complete | — | — |
+| linux-cip | complete | — | — |
+| odoo-enterprise | complete | — | — |
+| linux | complete | — | — |
 | java | complete | — | — |
 | nodejs | complete | — | — |
 | php | complete | — | — |
@@ -69,6 +73,21 @@ node dist/tools/coverage/runtimes.js
 ```
 
 The checker reads only local expected JSON and `registry/`. It does not fetch the network. Exit code `0` means complete, `1` means at least one in-scope runtime still has a gap (the docs table is still written with `--write-docs`), and `2` means a checker or write error.
+
+## Infrastructure lifecycle coverage
+
+The [infrastructure API](https://velella.sh/ebb/api/v1/infrastructure.json) lists the lifecycle rules for these products. Pass the PURL for the release or support scope you are checking to `check(purl, version)`. A product without a rule has no recorded lifecycle verdict.
+
+| Product | PURL and recorded coverage | Primary evidence |
+| --- | --- | --- |
+| Helm | `pkg:generic/helm`. Regular bug fixes and security updates ended for Helm 2 in August and November 2020, respectively. Regular bug fixes ended for Helm 3 in September 2026. Helm schedules its security support to end on 2027-02-10. | [Helm 2 timeline](https://docs.helm.sh/blog/helm-v2-deprecation-timeline/), [Helm 2 announcement](https://helm.sh/blog/helm-2-becomes-unsupported/), [Helm 3 timeline](https://docs.helm.sh/blog/helm-v3-end-of-life/), [version skew policy](https://helm.sh/docs/v3/topics/version_skew/) |
+| Odoo | `pkg:generic/odoo` follows the public source repository's undated security policy for 15.0 and older. `pkg:generic/odoo-enterprise` records the end of standard support for 15.0 (October 2024), 16.0 (September 2025), 17.0 (September 2026), and the older-version group. Paid extended support has its own terms. | [Public security policy](https://github.com/odoo/odoo/security/policy), [standard and extended support](https://www.odoo.com/documentation/18.0/administration/supported_versions.html) |
+| Linux kernel | Use `pkg:generic/linux` for kernel.org LTS lines 5.10, 5.15, 6.1, 6.6, 6.12, and 6.18. Use `pkg:generic/linux-cip` for CIP SLTS lines 4.4, 4.19, 5.10, 6.1, and 6.12, including the corresponding real-time builds where listed by CIP. Both projects publish projected end months. Distribution kernels have vendor-specific schedules. | [kernel.org projected EOL](https://www.kernel.org/releases.html), [CIP projected end of line](https://wiki.linuxfoundation.org/civilinfrastructureplatform/start#kernel_maintainership), [CIP schedule data](https://gitlab.com/cip-project/cip-lifecycle/-/raw/master/cip-kernel.yml) |
+| OpenSSH | The reviewed upstream pages give dates for release and individual fixes. They give no dated support-end schedule for OpenSSH or Portable OpenSSH. | [Release notes](https://www.openssh.org/releasenotes.html), [security](https://www.openssh.org/security.html), [portable releases](https://www.openssh.org/portable.html) |
+| curl | The public project documents how it handles old versions and dates each release. Its public schedule gives no support-end dates. Commercial Rock-solid curl has a separate schedule. | [Old versions](https://curl.se/docs/bugs.html#bugs-in-old-versions), [release table](https://curl.se/docs/releases.html), [Rock-solid curl terms](https://rock-solid.curl.dev/details.html) |
+| MinIO | `pkg:generic/minio` records the Community Edition moving into maintenance mode on 2025-12-03. MinIO said it might consider critical security fixes case by case. The distinct `pkg:generic/minio-community-binary` records the end of updates for legacy precompiled binaries. MinIO gives no date for that cutoff. | [Maintenance announcement](https://github.com/minio/minio/commit/27742d469462e1561c776f88ca7a1f26816d69e2), [legacy binary policy](https://github.com/minio/minio/blob/master/README.md#legacy-binary-releases) |
+
+The [coverage inventories](/coverage-inventories/#openssh-and-curl-upstream-support) have the full OpenSSH and curl source review. The runtime coverage checker also validates the reviewed Helm, Linux LTS, Linux CIP, and Odoo Enterprise release lines listed in the table above.
 
 ## Official Actions
 
