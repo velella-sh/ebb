@@ -1,0 +1,76 @@
+{
+  "runtime": "linux-cip",
+  "purl": "pkg:generic/linux-cip",
+  "registry": "infrastructure.json",
+  "scheduleUrl": "https://wiki.linuxfoundation.org/civilinfrastructureplatform/start#kernel_maintainership",
+  "reviewedAt": "2026-11-28",
+  "sources": [
+    {
+      "title": "Civil Infrastructure Platform: Kernel maintainership",
+      "url": "https://wiki.linuxfoundation.org/civilinfrastructureplatform/start#kernel_maintainership",
+      "accessedAt": "2026-11-28"
+    },
+    {
+      "title": "Civil Infrastructure Platform: CIP kernel schedule",
+      "url": "https://gitlab.com/cip-project/cip-lifecycle/-/raw/master/cip-kernel.yml",
+      "accessedAt": "2026-11-28"
+    }
+  ],
+  "lines": [
+    {
+      "id": "4.4",
+      "sampleVersion": "4.4.302-cip116",
+      "lineVers": "vers:semver/>=4.4.0-0|<4.5.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2027-01",
+        "precision": "month"
+      },
+      "firstReleased": "2017-01-17"
+    },
+    {
+      "id": "4.19",
+      "sampleVersion": "4.19.325-cip137-rt51",
+      "lineVers": "vers:semver/>=4.19.0-0|<4.20.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2029-01",
+        "precision": "month"
+      },
+      "firstReleased": "2019-01-11"
+    },
+    {
+      "id": "5.10",
+      "sampleVersion": "5.10.275-cip80",
+      "lineVers": "vers:semver/>=5.10.0-0|<5.11.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2031-01",
+        "precision": "month"
+      },
+      "firstReleased": "2021-12-05"
+    },
+    {
+      "id": "6.1",
+      "sampleVersion": "6.1.159-cip50",
+      "lineVers": "vers:semver/>=6.1.0-0|<6.2.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2033-08",
+        "precision": "month"
+      },
+      "firstReleased": "2023-07-14"
+    },
+    {
+      "id": "6.12",
+      "sampleVersion": "6.12.118-cip36",
+      "lineVers": "vers:semver/>=6.12.0-0|<6.13.0-0",
+      "status": "supported",
+      "end": {
+        "date": "2035-06",
+        "precision": "month"
+      },
+      "firstReleased": "2025-05-20"
+    }
+  ]
+}

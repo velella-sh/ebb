@@ -45,7 +45,7 @@ function expectedStatusFromCaseRules(
   return checkStatusFromLookup[primary];
 }
 
-test("every behaviour case in cases/ gets the same answer from check and lookupProduct", async () => {
+test("every behaviour case in cases/ matches the check and lookupProduct contracts", async () => {
   const files = await readCases(".");
   assert.ok(files.size > 0, "cases/ holds at least one file");
 

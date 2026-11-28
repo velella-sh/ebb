@@ -14,6 +14,7 @@ export const BUNDLED_ECOSYSTEMS = [
   "elixir",
   "github-actions",
   "go",
+  "infrastructure",
   "java",
   "kubernetes",
   "nodejs",
